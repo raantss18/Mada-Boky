@@ -23,6 +23,14 @@ cd Livres/T12-S
 latexmk -xelatex livre-t12s.tex
 ```
 
+## Télécharger les livres (PDF)
+
+Les versions élève et professeur des manuels sont publiées comme fichiers
+téléchargeables sur la page **[Releases](https://github.com/raantss18/Mada-Boky/releases/latest)**
+du dépôt — pas besoin de cloner le dépôt ni de compiler le LaTeX.
+
 ## Licence
 
-Aucune licence explicite pour l'instant : tous droits réservés.
+Contenu publié sous licence **[CC BY 4.0](LICENSE.md)** : libre de copie,
+d'adaptation et d'usage commercial, à condition de créditer **Mada-Boky**
+avec un lien vers ce dépôt.
