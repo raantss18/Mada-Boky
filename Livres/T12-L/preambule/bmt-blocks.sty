@@ -249,8 +249,7 @@
   title = {UNE SITUATION À TRAITER\ifx\relax#1\relax\else\ \textbullet\ #1\fi}}
 
 % Devoir surveillé : calibré sur l'épreuve réelle de la série L —
-% 2 h 15, deux exercices de 5 points et un problème de 10 points, les
-% questions supplémentaires réservées à l'option A2 étant signalées.
+% 2 h 15, deux exercices de 5 points et un problème de 10 points.
 \newtcolorbox{devoirsurveille}[1][]{%
   bmtbase, colframe = bmtEncre, colback = bmtPapier, leftrule = 3.5pt,
   coltitle = bmtEncre,
@@ -258,12 +257,6 @@
 
 % Barème d'une question, aligné à droite comme sur les sujets officiels.
 \newcommand{\bareme}[1]{\hfill\textup{\footnotesize\color{bmtGris}(#1)}}
-
-% Marque d'une question réservée à l'option A2.
-\newcommand{\pourAdeux}{%
-  \par\vspace{0.35em}\noindent
-  {\sffamily\footnotesize\bfseries\color{bmtLaterite}POUR L'OPTION A2 SEULEMENT}%
-  \par\vspace{0.15em}}
 
 % Réponse attendue d'un QCM, visible en édition professeur seulement.
 \newcommand{\reponseqcm}[1]{\ifbmtprof\ {\color{bmtVetiver}\textbf{[#1]}}\fi}
