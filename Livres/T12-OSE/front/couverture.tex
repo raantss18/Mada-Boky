@@ -1,0 +1,104 @@
+% --- Couverture -------------------------------------------------------------
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+
+  % Fond papier
+  \fill[bmtPapier] (current page.south west) rectangle (current page.north east);
+
+  % Bloc principal indigo
+  \fill[bmtIndigo]
+    (current page.north west) rectangle
+    ([yshift=-19.4cm]current page.north east);
+
+  % --- Composition géométrique : un signe par domaine de l'année ------------
+  % Analyse : une courbe qui franchit une valeur intermédiaire
+  \begin{scope}[shift={([xshift=1.5cm, yshift=-8.9cm]current page.north west)}]
+    \clip (-0.1,-0.15) rectangle (5.4,4.7);
+    \draw[bmtPapier, line width=1.5pt, opacity=0.92, smooth, samples=140,
+          domain=0:5.3]
+      plot (\x, {1.05 + 1.05*sin(\x*58) + 0.33*\x});
+    \draw[bmtRaphia, line width=1.1pt, dash pattern=on 3.5pt off 3pt]
+      (-0.1, 2.15) -- (5.4, 2.15);
+  \end{scope}
+
+  % Algèbre : le système linéaire 3x3
+  \foreach \i in {0,1,2} {
+    \foreach \j in {0,1,2} {
+      \fill[bmtLaterite, opacity={0.35 + 0.2*\i}]
+        ([xshift={8.6cm + \j*0.68cm}, yshift={-4.5cm - \i*0.68cm}]current page.north west)
+        rectangle ++(0.48cm, -0.48cm);}}
+
+  % Géométrie : rotation autour d'un point
+  \draw[bmtVetiver, line width=1.4pt]
+    ([xshift=12.2cm, yshift=-7.1cm]current page.north west) circle (1.22cm);
+  \fill[bmtVetiver]
+    ([xshift=12.2cm, yshift=-7.1cm]current page.north west) circle (0.07cm);
+  \draw[bmtPapier, line width=1.1pt, -{Stealth[length=4pt]}]
+    ([xshift=12.2cm, yshift=-7.1cm]current page.north west) --
+    ++(28:1.22cm);
+  \draw[bmtPapier, line width=1.1pt, -{Stealth[length=4pt]}]
+    ([xshift=12.2cm, yshift=-7.1cm]current page.north west) --
+    ++(112:1.22cm);
+
+  % Probabilités et statistique : un arbre à deux niveaux
+  \begin{scope}[shift={([xshift=8.9cm, yshift=-10.1cm]current page.north west)}]
+    \draw[bmtRaphia, line width=1pt] (0,0) -- (1.0,0.54);
+    \draw[bmtRaphia, line width=1pt] (0,0) -- (1.0,-0.54);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,0.54) -- (2.0,0.88);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,0.54) -- (2.0,0.24);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,-0.54) -- (2.0,-0.24);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,-0.54) -- (2.0,-0.88);
+    \foreach \p in {(0,0), (1.0,0.54), (1.0,-0.54)}
+      \fill[bmtPapier] \p circle (0.075);
+  \end{scope}
+
+  % --- Titre ---------------------------------------------------------------
+  \node[anchor=north west, text=bmtPapier, align=left,
+        font=\sffamily\fontsize{12.5}{15}\selectfont, opacity=0.85]
+    at ([xshift=1.95cm, yshift=-13.35cm]current page.north west)
+    {BOKY MATEMATIKA};
+
+  \node[anchor=north west, text=bmtPapier, align=left,
+        font=\sffamily\bfseries\fontsize{54}{58}\selectfont]
+    at ([xshift=1.8cm, yshift=-14.05cm]current page.north west)
+    {Terminale~OSE};
+
+  \draw[bmtRaphia, line width=3pt]
+    ([xshift=1.95cm, yshift=-16.75cm]current page.north west) --
+    ([xshift=5.65cm, yshift=-16.75cm]current page.north west);
+
+  \node[anchor=north west, text=bmtPapier, align=left, text width=13.6cm,
+        font=\sffamily\fontsize{10.5}{15}\selectfont, opacity=0.92]
+    at ([xshift=1.95cm, yshift=-17.35cm]current page.north west)
+    {Analyse \quad Algèbre \quad Géométrie \quad Traitement des données et
+     probabilités};
+
+  % --- Bas de couverture ---------------------------------------------------
+  \node[anchor=north west, text=bmtEncre, align=left, text width=12cm,
+        font=\sffamily\fontsize{11}{15}\selectfont]
+    at ([xshift=1.9cm, yshift=-20.6cm]current page.north west)
+    {\textbf{Programme d'Études 2026}\\
+     Enseignement Secondaire Général — République de Madagascar};
+
+  % Marque de l'éditeur
+  \draw[bmtIndigo, line width=1.6pt]
+    ([xshift=1.95cm, yshift=-22.75cm]current page.north west) --
+    ([xshift=3.35cm, yshift=-22.75cm]current page.north west);
+  \node[anchor=north west, text=bmtIndigo, align=left,
+        font=\sffamily\bfseries\fontsize{12}{15}\selectfont]
+    at ([xshift=1.9cm, yshift=-23.15cm]current page.north west)
+    {ÉDITIONS MADA-BOKY};
+
+  % Les quatre couleurs des quatre parties, en signature de bas de page
+  \foreach \c [count=\i from 0] in {bmtIndigo, bmtLaterite, bmtVetiver, bmtRaphia}{
+    \fill[\c] ([xshift={1.9cm + \i*0.95cm}, yshift=2.5cm]current page.south west)
+      rectangle ++(0.62cm, 0.62cm);}
+
+  \node[anchor=south west, text=bmtGris, align=left,
+        font=\sffamily\fontsize{9}{12}\selectfont]
+    at ([xshift=1.9cm, yshift=1.5cm]current page.south west)
+    {\ifbmtprof ÉDITION DU PROFESSEUR\else ÉDITION DE L'ÉLÈVE\fi};
+
+\end{tikzpicture}
+\end{titlepage}

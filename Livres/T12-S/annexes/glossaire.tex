@@ -1,0 +1,327 @@
+% ===========================================================================
+%  Annexe — Glossaire des notions
+% ===========================================================================
+\chapter{Glossaire des notions}
+\markboth{Glossaire}{Glossaire}
+
+Un mot mal compris coûte plus cher qu'une formule oubliée. La formule, on la
+retrouve dans le formulaire ; le mot, lui, commande toute la lecture de
+l'énoncé. « Bijection », « barycentre », « équiprobable », « congru » : ces
+termes ont, en mathématiques, un sens étroit, et c'est ce sens-là que le
+correcteur attend.
+
+Les pages qui suivent rassemblent les termes de l'année dans l'ordre
+alphabétique. Chaque définition est courte à dessein : elle rappelle ce que
+le mot désigne, non comment on s'en sert. Le numéro du chapitre indiqué à
+droite renvoie à l'endroit où la notion est construite, démontrée et mise au
+travail.
+
+% ---------------------------------------------------------------------------
+% Mise en forme locale
+\newcommand{\glolettre}[1]{%
+  \par\vspace{1.15em}\noindent
+  \begingroup\sffamily\bfseries\large\color{bmtAccent}#1\endgroup
+  \hspace{0.5em}%
+  {\color{bmtGrisClair}\leaders\hrule height 1pt\hfill\kern0pt}%
+  \par\vspace{0.35em}}
+
+\newcommand{\glo}[2]{%
+  \par\vspace{0.5em}\noindent
+  {\sffamily\bfseries\small\color{bmtAccent}#1}%
+  \hspace{0.45em}{\sffamily\footnotesize\color{bmtGris}ch.~#2}%
+  \par\vspace{0.05em}\noindent\ignorespaces}
+
+% ---------------------------------------------------------------------------
+\glolettre{A}
+
+\glo{Affixe}{12}
+Nombre complexe associé à un point ou à un vecteur du plan : le point
+$M(a\,;b)$ a pour affixe $z = a+ib$. C'est le pont qui fait passer d'une
+figure à un calcul.
+
+\glo{Antidéplacement}{14}
+Isométrie du plan qui renverse l'orientation : les symétries axiales et les
+symétries glissées, et elles seules.
+
+\glo{Argument}{12}
+Mesure de l'angle que fait avec l'axe des abscisses le vecteur d'affixe $z$
+non nulle. Il est défini à $2k\pi$ près, ce qui oblige à préciser chaque fois
+l'intervalle choisi.
+
+\glo{Arrangement}{17}
+Liste ordonnée de $p$ éléments distincts pris parmi $n$. L'ordre compte : deux
+arrangements formés des mêmes éléments rangés autrement sont différents.
+
+\glo{Asymptote}{3}
+Droite dont la courbe se rapproche indéfiniment. Verticale quand la fonction
+explose en un point, horizontale ou oblique quand la différence entre la
+courbe et la droite tend vers zéro à l'infini.
+
+\glo{Automorphisme}{11}
+Application linéaire d'un ensemble dans lui-même qui est bijective. En
+matrices, cela revient à un déterminant non nul.
+
+% ---------------------------------------------------------------------------
+\glolettre{B}
+
+\glo{Barycentre}{13}
+Point d'équilibre d'un système de points affectés de coefficients. Il n'existe
+que si la somme des coefficients n'est pas nulle, et il ne change pas quand on
+multiplie tous les coefficients par un même réel non nul.
+
+\glo{Bijection}{1, 5}
+Fonction qui, à chaque valeur de l'ensemble d'arrivée, fait correspondre un
+antécédent et un seul. Une fonction continue et strictement monotone sur un
+intervalle en réalise toujours une.
+
+\glo{Binomiale (loi)}{18}
+Loi de probabilité du nombre de succès obtenus en répétant $n$ fois, de façon
+indépendante, une même épreuve à deux issues.
+
+% ---------------------------------------------------------------------------
+\glolettre{C}
+
+\glo{Combinaison}{17}
+Sous-ensemble de $p$ éléments pris parmi $n$, sans considération d'ordre. Le
+nombre de ces sous-ensembles est noté $\combi{p}{n}$.
+
+\glo{Congruence}{9}
+Relation $a \equiv b \pmod n$ signifiant que $a-b$ est un multiple de $n$.
+Elle permet de raisonner sur les restes plutôt que sur les nombres.
+
+\glo{Conjugué}{12}
+Nombre complexe $\overline z = a-ib$ associé à $z = a+ib$. Géométriquement,
+c'est le symétrique de $z$ par rapport à l'axe des réels.
+
+\glo{Continuité}{1}
+Propriété d'une fonction dont la limite en un point est égale à sa valeur en
+ce point. Sur un intervalle, elle traduit une courbe que l'on trace sans lever
+le crayon.
+
+\glo{Convexité}{2}
+Une fonction est convexe sur un intervalle si sa courbe y reste au-dessus de
+chacune de ses tangentes ; cela équivaut à une dérivée seconde positive.
+
+\glo{Coplanaires}{16}
+Se dit de points ou de vecteurs appartenant à un même plan. Trois vecteurs
+sont coplanaires exactement lorsque leur déterminant est nul.
+
+% ---------------------------------------------------------------------------
+\glolettre{D}
+
+\glo{Déplacement}{14}
+Isométrie du plan qui conserve l'orientation : translations et rotations, et
+elles seules.
+
+\glo{Dérivabilité}{2}
+Existence d'une limite finie du taux d'accroissement en un point. Cette limite
+est le nombre dérivé, et c'est le coefficient directeur de la tangente.
+
+\glo{Déterminant}{11, 16}
+Nombre attaché à une matrice carrée, ou à un triplet de vecteurs de l'espace.
+Sa nullité signale une dépendance : matrice non inversible, vecteurs
+coplanaires.
+
+\glo{Diviseur}{9}
+Un entier $d$ divise $a$ s'il existe un entier $k$ tel que $a = kd$. La
+division euclidienne, elle, produit toujours un quotient et un reste, que la
+division soit exacte ou non.
+
+% ---------------------------------------------------------------------------
+\glolettre{E}
+
+\glo{Écart type}{18}
+Racine carrée de la variance. Il mesure la dispersion des valeurs autour de
+l'espérance, dans la même unité que la variable.
+
+\glo{Équation différentielle}{7}
+Équation dont l'inconnue est une fonction et qui relie cette fonction à ses
+dérivées. Résoudre, c'est décrire toutes les fonctions qui la vérifient.
+
+\glo{Équiprobabilité}{17}
+Situation où toutes les issues d'une expérience ont la même probabilité. La
+probabilité d'un événement se réduit alors au quotient du nombre de cas
+favorables par le nombre de cas possibles.
+
+\glo{Espérance}{18}
+Moyenne des valeurs d'une variable aléatoire, chacune pesée par sa
+probabilité. C'est le gain moyen que l'on obtiendrait en répétant très
+longtemps l'expérience.
+
+\glo{Événement}{17}
+Partie de l'univers, c'est-à-dire ensemble d'issues. Il est réalisé dès que
+l'issue observée lui appartient.
+
+\glo{Exponentielle}{6}
+Fonction réciproque du logarithme népérien, notée $\exp$ ou $x \mapsto e^{x}$.
+Elle est sa propre dérivée, ce qui explique sa présence dans toutes les
+équations différentielles du programme.
+
+% ---------------------------------------------------------------------------
+\glolettre{F}
+
+\glo{Fonction réciproque}{5, 6}
+Fonction qui défait ce que fait une bijection : si $f(a) = b$, alors
+$f^{-1}(b) = a$. Les deux courbes sont symétriques par rapport à la droite
+d'équation $y = x$.
+
+% ---------------------------------------------------------------------------
+\glolettre{H}
+
+\glo{Homothétie}{14, 15}
+Transformation qui, à partir d'un centre $\Omega$ et d'un rapport $k$ non nul,
+envoie $M$ sur $M'$ tel que $\vect{\Omega M'} = k\,\vect{\Omega M}$. Elle
+multiplie les longueurs par $\abs k$ et conserve les angles.
+
+% ---------------------------------------------------------------------------
+\glolettre{I}
+
+\glo{Indépendance}{17, 18}
+Deux événements sont indépendants lorsque la réalisation de l'un ne change pas
+la probabilité de l'autre, ce qui se traduit par
+$\proba{A \cap B} = \proba A \times \proba B$.
+
+\glo{Intégrale}{4}
+Pour une fonction continue et positive, aire du domaine compris entre la
+courbe, l'axe des abscisses et deux droites verticales. Dans le cas général,
+c'est la variation d'une primitive entre les deux bornes.
+
+\glo{Isométrie}{14}
+Transformation du plan qui conserve les distances. Elle conserve donc aussi
+les angles géométriques, les milieux et les aires.
+
+% ---------------------------------------------------------------------------
+\glolettre{L}
+
+\glo{Limite}{1}
+Valeur dont $f(x)$ se rapproche autant qu'on veut lorsque $x$ s'approche d'un
+point ou tend vers l'infini. Elle peut être finie, infinie, ou ne pas exister.
+
+\glo{Logarithme népérien}{5}
+Unique primitive de $x \mapsto \frac1x$ sur $\Rps$ qui s'annule en $1$. Il
+transforme les produits en sommes, ce qui est la raison de son invention.
+
+% ---------------------------------------------------------------------------
+\glolettre{M}
+
+\glo{Matrice}{11}
+Tableau rectangulaire de nombres. Elle sert ici à écrire d'un trait un système
+linéaire, une transformation du plan, ou une suite de relations de récurrence.
+
+\glo{Module}{12}
+Distance de l'origine au point d'affixe $z$ : $\abs z = \sqrt{a^{2}+b^{2}}$
+pour $z = a+ib$. Le module d'un produit est le produit des modules.
+
+\glo{Monotone}{2, 3}
+Se dit d'une fonction croissante sur tout un intervalle, ou décroissante sur
+tout un intervalle. La stricte monotonie interdit les paliers.
+
+% ---------------------------------------------------------------------------
+\glolettre{N}
+
+\glo{Nombre premier}{9}
+Entier supérieur à $1$ n'ayant pour diviseurs positifs que $1$ et lui-même.
+Tout entier supérieur à $1$ se décompose en produit de nombres premiers, et
+d'une seule façon.
+
+\glo{Numération (base)}{10}
+Écriture d'un entier comme somme de puissances d'un nombre $b \geq 2$ appelé
+base. Les chiffres utilisés sont alors les entiers de $0$ à $b-1$.
+
+% ---------------------------------------------------------------------------
+\glolettre{P}
+
+\glo{PGCD}{9}
+Plus grand commun diviseur de deux entiers. L'algorithme d'Euclide le fournit
+par divisions successives, sans qu'on ait besoin de décomposer les nombres.
+
+\glo{PPCM}{9}
+Plus petit commun multiple de deux entiers. Pour deux entiers positifs $a$ et
+$b$, on a toujours $\pgcd(a,b) \times \ppcm(a,b) = ab$.
+
+\glo{Primitive}{4}
+Fonction dont la dérivée est la fonction de départ. Deux primitives d'une même
+fonction sur un intervalle ne diffèrent que d'une constante.
+
+\glo{Probabilité conditionnelle}{17}
+Probabilité d'un événement $B$ sachant qu'un événement $A$ de probabilité non
+nulle est réalisé, notée $\probacond BA$. Elle se lit directement sur une
+branche d'arbre pondéré.
+
+% ---------------------------------------------------------------------------
+\glolettre{R}
+
+\glo{Récurrence}{8}
+Mode de démonstration en deux temps : vérifier la propriété au premier rang,
+puis montrer qu'elle se transmet d'un rang au suivant.
+
+\glo{Rotation}{14}
+Isométrie déterminée par un centre et un angle. Elle conserve les distances et
+l'orientation, et ne laisse fixe que son centre — sauf si l'angle est nul.
+
+% ---------------------------------------------------------------------------
+\glolettre{S}
+
+\glo{Similitude}{15}
+Transformation qui multiplie toutes les distances par un même rapport $k>0$.
+Directe si elle conserve l'orientation, indirecte sinon ; les isométries sont
+les similitudes de rapport $1$.
+
+\glo{Suite adjacente}{8}
+Deux suites, l'une croissante, l'autre décroissante, dont la différence tend
+vers zéro. Elles convergent alors vers une même limite, encadrée par leurs
+termes.
+
+\glo{Suite arithmétique}{8}
+Suite dont on passe d'un terme au suivant en ajoutant toujours le même nombre,
+appelé raison.
+
+\glo{Suite géométrique}{8}
+Suite dont on passe d'un terme au suivant en multipliant toujours par le même
+nombre non nul, appelé raison.
+
+\glo{Symétrie glissée}{14}
+Composée d'une symétrie axiale et d'une translation de vecteur dirigeant
+l'axe. C'est l'antidéplacement sans point fixe.
+
+% ---------------------------------------------------------------------------
+\glolettre{T}
+
+\glo{Tangente}{2}
+Droite qui approche la courbe au plus près au voisinage d'un point. Son
+coefficient directeur est le nombre dérivé en ce point.
+
+\glo{Théorème des valeurs intermédiaires}{1}
+Une fonction continue sur un intervalle prend toute valeur comprise entre deux
+de ses valeurs. Avec la stricte monotonie, la solution obtenue est unique.
+
+\glo{Translation}{14}
+Isométrie qui déplace tous les points d'un même vecteur. Elle n'a aucun point
+fixe, sauf si le vecteur est nul.
+
+% ---------------------------------------------------------------------------
+\glolettre{U}
+
+\glo{Univers}{17}
+Ensemble de toutes les issues possibles d'une expérience aléatoire. Le choisir
+correctement est la première décision d'un exercice de probabilités, et
+souvent la seule difficile.
+
+% ---------------------------------------------------------------------------
+\glolettre{V}
+
+\glo{Variable aléatoire}{18}
+Fonction qui associe un nombre à chaque issue d'une expérience aléatoire. Sa
+loi donne, pour chaque valeur prise, la probabilité correspondante.
+
+\glo{Variance}{18}
+Moyenne des carrés des écarts à l'espérance. Elle mesure la dispersion, mais
+dans une unité au carré, d'où le passage à l'écart type.
+
+\glo{Vecteur normal}{16}
+Vecteur non nul orthogonal à tous les vecteurs d'un plan. Ses coordonnées se
+lisent directement sur une équation cartésienne du plan.
+
+\glo{Vecteur directeur}{16}
+Vecteur non nul dont la direction est celle d'une droite. Deux droites sont
+parallèles exactement lorsque leurs vecteurs directeurs sont colinéaires.

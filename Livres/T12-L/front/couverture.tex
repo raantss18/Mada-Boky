@@ -1,0 +1,112 @@
+% --- Couverture -------------------------------------------------------------
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+
+  % Fond papier
+  \fill[bmtPapier] (current page.south west) rectangle (current page.north east);
+
+  % Bloc principal indigo
+  \fill[bmtIndigo]
+    (current page.north west) rectangle
+    ([yshift=-19.4cm]current page.north east);
+
+  % --- Composition géométrique : un signe par domaine de l'année ------------
+  % Analyse : une courbe de logarithme et sa tangente
+  \begin{scope}[shift={([xshift=1.5cm, yshift=-9.1cm]current page.north west)}]
+    \clip (-0.1,-0.15) rectangle (5.4,4.6);
+    \draw[bmtPapier, line width=1.5pt, opacity=0.92, smooth, samples=160,
+          domain=0.09:5.3]
+      plot (\x, {1.35 + 1.5*ln(\x)});
+    \draw[bmtRaphia, line width=1.1pt, dash pattern=on 3.5pt off 3pt]
+      (0.35, 0) -- (4.6, 4.25);
+  \end{scope}
+
+  % Algèbre : le système linéaire 3x3
+  \foreach \i in {0,1,2} {
+    \foreach \j in {0,1,2} {
+      \fill[bmtLaterite, opacity={0.35 + 0.2*\i}]
+        ([xshift={8.6cm + \j*0.68cm}, yshift={-4.5cm - \i*0.68cm}]current page.north west)
+        rectangle ++(0.48cm, -0.48cm);}}
+
+  % Suites : les termes d'une suite géométrique décroissante
+  \begin{scope}[shift={([xshift=11.9cm, yshift=-7.6cm]current page.north west)}]
+    \draw[bmtPapier, line width=1pt, opacity=0.55] (-0.2,0) -- (3.5,0);
+    \foreach \k [count=\i from 0] in {1.85, 1.24, 0.83, 0.55, 0.37, 0.25}{
+      \draw[bmtPalissandre!85!bmtPapier, line width=1pt]
+        ({\i*0.6},0) -- ({\i*0.6},\k);
+      \fill[bmtPalissandre!70!bmtPapier] ({\i*0.6},\k) circle (0.085);}
+  \end{scope}
+
+  % Probabilités : un arbre à deux niveaux
+  \begin{scope}[shift={([xshift=8.9cm, yshift=-10.4cm]current page.north west)}]
+    \draw[bmtRaphia, line width=1pt] (0,0) -- (1.0,0.54);
+    \draw[bmtRaphia, line width=1pt] (0,0) -- (1.0,-0.54);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,0.54) -- (2.0,0.88);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,0.54) -- (2.0,0.24);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,-0.54) -- (2.0,-0.24);
+    \draw[bmtRaphia, line width=1pt, opacity=0.65] (1.0,-0.54) -- (2.0,-0.88);
+    \foreach \p in {(0,0), (1.0,0.54), (1.0,-0.54)}
+      \fill[bmtPapier] \p circle (0.075);
+  \end{scope}
+
+  % Statistique : un nuage de points et sa droite d'ajustement
+  \begin{scope}[shift={([xshift=13.4cm, yshift=-11.4cm]current page.north west)}]
+    \draw[bmtPapier, line width=1pt, opacity=0.5] (-0.15,0) -- (3.1,0);
+    \draw[bmtPapier, line width=1pt, opacity=0.5] (0,-0.15) -- (0,2.1);
+    \foreach \x/\y in {0.35/0.45, 0.75/0.72, 1.15/0.66, 1.6/1.15,
+                       2.0/1.28, 2.45/1.62}
+      \fill[bmtVetiver!75!bmtPapier] (\x,\y) circle (0.085);
+    \draw[bmtRaphia, line width=1.1pt] (0.2,0.32) -- (2.75,1.78);
+  \end{scope}
+
+  % --- Titre ---------------------------------------------------------------
+  \node[anchor=north west, text=bmtPapier, align=left,
+        font=\sffamily\fontsize{12.5}{15}\selectfont, opacity=0.85]
+    at ([xshift=1.95cm, yshift=-13.35cm]current page.north west)
+    {BOKY MATEMATIKA};
+
+  \node[anchor=north west, text=bmtPapier, align=left,
+        font=\sffamily\bfseries\fontsize{54}{58}\selectfont]
+    at ([xshift=1.8cm, yshift=-14.05cm]current page.north west)
+    {Terminale~L};
+
+  \draw[bmtRaphia, line width=3pt]
+    ([xshift=1.95cm, yshift=-16.75cm]current page.north west) --
+    ([xshift=5.65cm, yshift=-16.75cm]current page.north west);
+
+  \node[anchor=north west, text=bmtPapier, align=left, text width=13.6cm,
+        font=\sffamily\fontsize{10.5}{15}\selectfont, opacity=0.92]
+    at ([xshift=1.95cm, yshift=-17.35cm]current page.north west)
+    {Algèbre \quad Analyse \quad Suites numériques \quad Traitement des
+     données et probabilités};
+
+  % --- Bas de couverture ---------------------------------------------------
+  \node[anchor=north west, text=bmtEncre, align=left, text width=12cm,
+        font=\sffamily\fontsize{11}{15}\selectfont]
+    at ([xshift=1.9cm, yshift=-20.6cm]current page.north west)
+    {\textbf{Programme d'Études 2026}\\
+     Enseignement Secondaire Général — République de Madagascar\\
+     Épreuve de mathématiques générales, options A1 et A2};
+
+  % Marque de l'éditeur
+  \draw[bmtIndigo, line width=1.6pt]
+    ([xshift=1.95cm, yshift=-22.95cm]current page.north west) --
+    ([xshift=3.35cm, yshift=-22.95cm]current page.north west);
+  \node[anchor=north west, text=bmtIndigo, align=left,
+        font=\sffamily\bfseries\fontsize{12}{15}\selectfont]
+    at ([xshift=1.9cm, yshift=-23.35cm]current page.north west)
+    {ÉDITIONS MADA-BOKY};
+
+  % Les quatre couleurs des quatre parties, en signature de bas de page
+  \foreach \c [count=\i from 0] in {bmtLaterite, bmtIndigo, bmtPalissandre, bmtRaphia}{
+    \fill[\c] ([xshift={1.9cm + \i*0.95cm}, yshift=2.5cm]current page.south west)
+      rectangle ++(0.62cm, 0.62cm);}
+
+  \node[anchor=south west, text=bmtGris, align=left,
+        font=\sffamily\fontsize{9}{12}\selectfont]
+    at ([xshift=1.9cm, yshift=1.5cm]current page.south west)
+    {\ifbmtprof ÉDITION DU PROFESSEUR\else ÉDITION DE L'ÉLÈVE\fi};
+
+\end{tikzpicture}
+\end{titlepage}

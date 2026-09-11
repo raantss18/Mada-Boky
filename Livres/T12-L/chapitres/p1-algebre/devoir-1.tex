@@ -1,0 +1,182 @@
+% ===========================================================================
+%  Devoir surveillé nº 1 — fin de la partie Algèbre
+% ===========================================================================
+\chapter*{Devoir surveillé nº\,1 — Algèbre}
+\markboth{Devoir surveillé nº\,1}{Devoir surveillé nº\,1}
+\addcontentsline{toc}{chapter}{Devoir surveillé nº\,1 — Algèbre}
+
+\begin{devoirsurveille}[portée : chapitres 1 et 2]
+\textbf{Durée : 2 h 15.} Les deux exercices et le problème sont obligatoires.
+Calculatrice scientifique non programmable autorisée. Le barème est donné
+pour les deux options : \textup{(A1 ; A2)}.
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 1} \hfill \textup{(05 points)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Résoudre dans $\R$ l'équation $2x^{2}-7x+3 = 0$. \bareme{1 ; 1}
+  \item En déduire une factorisation de $2x^{2}-7x+3$. \bareme{0,5 ; 0,5}
+  \item Résoudre dans $\R$ l'inéquation $2x^{2}-7x+3 \leq 0$. \bareme{1 ; 1}
+  \item Résoudre dans $\R$ l'équation $2x^{4}-7x^{2}+3 = 0$.
+        \bareme{1,5 ; 1,5}
+  \item Pour quelles valeurs de $x$ l'expression
+        $\sqrt{2x^{2}-7x+3}$ est-elle définie ? \bareme{1 ; 1}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 2} \hfill \textup{(05 points)}
+
+On considère le système
+\[
+  (S) \quad \begin{cases} 3x-2y = 4\\ 5x+y = 19 \end{cases}
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer le déterminant $D$ de $(S)$ et dire ce qu'on en conclut.
+        \bareme{1 ; 1}
+  \item Résoudre $(S)$ par la méthode de Cramer. \bareme{2 ; 2}
+  \item Vérifier le couple trouvé dans les deux équations. \bareme{0,5 ; 0,5}
+  \item Déterminer le réel $m$ pour que le système
+        $\begin{cases} 3x-2y = 4\\ mx+y = 19\end{cases}$
+        n'admette pas de solution unique. \bareme{1,5 ; 1,5}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily PROBLÈME} \hfill \textup{(10 points)}
+
+Une association scolaire d'Antsirabe organise une kermesse. Elle vend trois
+sortes de billets : billet enfant, billet élève et billet adulte. On note
+$x$, $y$ et $z$ le nombre de billets vendus dans chacune de ces trois
+catégories.
+
+\medskip
+\noindent\textbf{Partie A — mise en équations}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item L'association a vendu $500$ billets en tout. Traduire cette phrase
+        par une équation. \bareme{0,5 ; 0,5}
+  \item Elle a vendu deux fois plus de billets élève que de billets enfant.
+        Traduire cette phrase par une équation. \bareme{0,5 ; 0,5}
+  \item Le billet enfant coûte $1\,000$ ariary, le billet élève $2\,000$
+        ariary et le billet adulte $5\,000$ ariary ; la recette totale est de
+        $1\,450\,000$ ariary. Traduire cette phrase par une équation, puis
+        la simplifier en divisant par $1\,000$. \bareme{1 ; 1}
+  \item Écrire le système $(T)$ ainsi obtenu, ordonné en $x$, $y$, $z$.
+        \bareme{0,5 ; 0,5}
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Partie B — résolution}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em, start=5]
+  \item Calculer le déterminant de $(T)$ par la règle de Sarrus.
+        \bareme{2 ; 1,5}
+  \item Que peut-on en conclure quant au nombre de solutions ?
+        \bareme{0,5 ; 0,5}
+  \item Résoudre $(T)$ et donner le nombre de billets de chaque sorte.
+        \bareme{2,5 ; 2,5}
+  \item Vérifier la recette totale à partir du triplet trouvé.
+        \bareme{0,5 ; 0,5}
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Partie C — une contrainte de plus}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em, start=9]
+  \item L'an prochain, l'association veut vendre $n$ billets adulte de plus
+        et autant de billets enfant en moins, le nombre de billets élève
+        restant inchangé. Exprimer la nouvelle recette, en milliers
+        d'ariary, en fonction de $n$. \bareme{1 ; 1}
+  \item Pour quelles valeurs entières de $n$ la recette dépassera-t-elle
+        $1\,600\,000$ ariary, sachant qu'on ne peut pas vendre un nombre
+        négatif de billets enfant ? \bareme{1,5 ; 1,5}
+\end{enumerate}
+\end{devoirsurveille}
+
+\begin{corrige}[devoir surveillé nº 1 — exercice 1]
+\textbf{1.} $\Delta = 49-24 = 25$, $\sqrt\Delta = 5$ :
+$x_{1} = \frac{7-5}{4} = \frac12$ et $x_{2} = \frac{7+5}{4} = 3$.
+
+\textbf{2.} $2x^{2}-7x+3 = 2\left(x-\frac12\right)(x-3) = (2x-1)(x-3)$.
+
+\textbf{3.} Le coefficient dominant est positif : le trinôme est négatif
+entre les racines. $\mathcal S = \intervalle{\frac12}{3}$.
+
+\textbf{4.} En posant $X = x^{2}$ : $X = \frac12$ ou $X = 3$, toutes deux
+positives, d'où
+$x \in \left\{-\sqrt3\,;\,-\frac{\sqrt2}{2}\,;\,\frac{\sqrt2}{2}\,;\,
+\sqrt3\right\}$.
+
+\textbf{5.} La racine carrée impose $2x^{2}-7x+3 \geq 0$, c'est-à-dire
+$x \in \intervalleof{-\infty}{\frac12}\cup\intervallefo{3}{+\infty}$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 1 — exercice 2]
+\textbf{1.} $D = 3\times1-5\times(-2) = 13 \neq 0$ : le système admet un
+unique couple solution.
+
+\textbf{2.} $D_{x} = 4\times1-19\times(-2) = 42$ et
+$D_{y} = 3\times19-5\times4 = 37$. Donc $x = \frac{42}{13}$ et
+$y = \frac{37}{13}$.
+
+\textbf{3.} $3\times\frac{42}{13}-2\times\frac{37}{13}
+= \frac{126-74}{13} = \frac{52}{13} = 4$ \checkmark ; et
+$5\times\frac{42}{13}+\frac{37}{13} = \frac{210+37}{13} = \frac{247}{13}
+= 19$ \checkmark.
+
+\textbf{4.} $D = 3+2m = 0$ pour $m = -\frac32$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 1 — problème]
+\textbf{Partie A.}
+\textbf{1.} $x+y+z = 500$.
+\textbf{2.} $y = 2x$, soit $2x-y = 0$.
+\textbf{3.} $1\,000x+2\,000y+5\,000z = 1\,450\,000$, soit
+$x+2y+5z = 1\,450$.
+\textbf{4.}
+$(T) : \begin{cases} x+y+z = 500\\ 2x-y+0\,z = 0\\ x+2y+5z = 1\,450
+\end{cases}$
+
+\textbf{Partie B.}
+\textbf{5.} Par Sarrus, sur les coefficients
+$\begin{vmatrix} 1 & 1 & 1\\ 2 & -1 & 0\\ 1 & 2 & 5\end{vmatrix}$ :
+les produits descendants donnent $(1)(-1)(5)+(1)(0)(1)+(1)(2)(2) = -5+0+4
+= -1$ ; les produits montants donnent
+$(1)(-1)(1)+(1)(2)(0)+(1)(5)(2) = -1+0+10 = 9$. D'où $D = -1-9 = -10$.
+
+\textbf{6.} $D \neq 0$ : le système admet un unique triplet solution.
+
+\textbf{7.} La deuxième équation donne $y = 2x$. En reportant :
+$3x+z = 500$ et $5x+5z = 1\,450$, soit $x+z = 290$. En soustrayant,
+$2x = 210$, donc $x = 105$, $y = 210$ et $z = 185$. L'association a vendu
+$105$ billets enfant, $210$ billets élève et $185$ billets adulte.
+
+\textbf{8.} $105+2\times210+5\times185 = 105+420+925 = 1\,450$, soit
+$1\,450\,000$ ariary. \checkmark
+
+\textbf{Partie C.}
+\textbf{9.} Les effectifs deviennent $105-n$, $210$ et $185+n$. La recette,
+en milliers d'ariary, vaut
+\[
+  R(n) = (105-n)+2\times210+5(185+n) = 1\,450+4n .
+\]
+\textbf{10.} $R(n) > 1\,600$ équivaut à $4n > 150$, soit $n > 37{,}5$, donc
+$n \geq 38$. Par ailleurs $105-n \geq 0$ impose $n \leq 105$. Les valeurs
+entières cherchées sont donc celles de $38$ à $105$.
+\end{corrige}
+
+\begin{notepourlaclasse}
+Le problème est calibré pour une classe qui a fait les deux chapitres. Sa
+partie C est celle qui départage : elle demande de reconstruire une recette
+à partir d'effectifs modifiés, ce que peu d'élèves font spontanément sans un
+tableau. Suggérez-leur d'en tracer un au brouillon — trois lignes, trois
+colonnes — avant de calculer.
+
+Barème : les deux options composent sur le même sujet ; la colonne A2 est
+plus resserrée sur la question 5, qui est mécanique, pour laisser du temps à
+la partie C.
+
+Si le devoir doit tenir en une heure, gardez l'exercice 1 en entier et les
+parties A et B du problème : cela fait exactement dix points et couvre les
+deux chapitres.
+\end{notepourlaclasse}

@@ -1,0 +1,105 @@
+% ---------------------------------------------------------------------------
+%  bmt-macros.sty — notations mathématiques du livre
+%  Conventions alignées sur celles du Programme d'Études 2026 et des sujets
+%  du baccalauréat Malagasy (série OSE). Identiques à celles du livre S :
+%  un même symbole désigne toujours la même chose dans toute la collection.
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bmt-macros}[2026/09/10 Notations du livre T12-OSE]
+
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+
+% --- Ensembles de nombres ---------------------------------------------------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Rp}{\mathbb{R}^{+}}
+\newcommand{\Rs}{\mathbb{R}^{*}}
+\newcommand{\Rps}{\mathbb{R}^{+*}}
+\newcommand{\Zn}[1]{\Z/#1\Z}
+
+% --- Analyse ----------------------------------------------------------------
+% Les bornes d'une limite se placent TOUJOURS sous le mot « lim », y compris
+% dans une formule au fil du texte.
+\let\bmtlimorig\lim
+\renewcommand{\lim}{\bmtlimorig\limits}
+\DeclareMathOperator{\Dnf}{D}
+\newcommand{\Df}{\mathcal{D}}                      % ensemble de définition
+\newcommand{\Cf}{\mathscr{C}}                      % courbe représentative
+\newcommand{\limx}[1]{\lim_{x \to #1}}
+\newcommand{\limn}{\lim_{n \to +\infty}}
+\newcommand{\limpinf}{\lim_{x \to +\infty}}
+\newcommand{\limminf}{\lim_{x \to -\infty}}
+\newcommand{\derf}[1]{#1'}
+\newcommand{\derx}[2]{\dfrac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\du}{\,\mathrm{d}u}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\shy}{sh}
+\let\Im\relax \let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\Im}{Im}
+
+% --- Algèbre linéaire (système linéaire 3x3 uniquement en OSE) --------------
+\DeclareMathOperator{\dete}{d\acute{e}t}
+\newcommand{\matdeux}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+\newcommand{\mattrois}[9]{\begin{pmatrix} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{pmatrix}}
+\newcommand{\transpo}[1]{{}^{t}\!#1}
+
+% --- Géométrie --------------------------------------------------------------
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\vecu}{\vect{u}}
+\newcommand{\vecv}{\vect{v}}
+\newcommand{\veci}{\vect{\imath}}
+\newcommand{\vecj}{\vect{\jmath}}
+\newcommand{\veck}{\vect{k}}
+\newcommand{\vecn}{\vect{n}}
+\newcommand{\norme}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\scal}[2]{#1 \cdot #2}
+\newcommand{\pvect}[2]{#1 \wedge #2}
+\newcommand{\bary}[1]{\operatorname{bar}\left\{#1\right\}}
+\newcommand{\affixe}[1]{z_{#1}}
+\newcommand{\rot}[2]{r_{(#1,\,#2)}}
+\newcommand{\homo}[2]{h_{(#1,\,#2)}}
+\newcommand{\trans}[1]{t_{\vect{#1}}}
+
+% --- Probabilités et statistique --------------------------------------------
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Esp}{\mathbb{E}}
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\ecart}{\sigma}
+\newcommand{\proba}[1]{\Prob\!\left(#1\right)}
+\newcommand{\probacond}[2]{\Prob_{#2}\!\left(#1\right)}
+\newcommand{\loibin}[2]{\mathcal{B}(#1,\,#2)}
+\newcommand{\evtc}[1]{\overline{#1}}
+\newcommand{\arrang}[2]{A_{#2}^{#1}}
+\newcommand{\combi}[2]{\binom{#2}{#1}}
+\newcommand{\covar}{\operatorname{cov}}                 % covariance
+\newcommand{\Cov}{\covar}                               % alias, utilisé dans le livre OSE
+\newcommand{\coefcorr}{r}                               % coefficient de corrélation
+
+% --- Mathématiques financières (propres au livre OSE) -----------------------
+\newcommand{\valacq}{V_{a}}       % valeur acquise
+\newcommand{\valact}{V_{0}}       % valeur actuelle / capital initial
+\newcommand{\taux}{t}             % taux d'intérêt
+\newcommand{\duree}{n}            % durée de placement, en périodes
+\newcommand{\annuite}{a}          % annuité constante
+
+% --- Divers -----------------------------------------------------------------
+\newcommand{\ssi}{si et seulement si}
+\newcommand{\daccord}{\Longleftrightarrow}
+\newcommand{\implique}{\Longrightarrow}
+\newcommand{\intervalle}[2]{\left[#1\,;\,#2\right]}
+\newcommand{\intervalleo}[2]{\left]#1\,;\,#2\right[}
+\newcommand{\intervalleof}[2]{\left]#1\,;\,#2\right]}
+\newcommand{\intervallefo}[2]{\left[#1\,;\,#2\right[}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ent}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\endinput

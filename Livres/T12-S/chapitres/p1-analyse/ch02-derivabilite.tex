@@ -1,0 +1,1008 @@
+% ===========================================================================
+%  Chapitre 2 — Dérivabilité
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Dérivabilité}
+  {Étudier la dérivabilité d'une fonction en un point et sur un intervalle ;
+   dériver une composée et une fonction réciproque ; exploiter la concavité, le
+   théorème des accroissements finis et l'inégalité des accroissements finis.}
+  {Analyse \textbullet\ environ 10 heures}
+
+En première, la dérivée servait à trouver les variations d'une fonction : on
+calculait $f'$, on étudiait son signe, on remplissait un tableau. C'était un
+outil de calcul. Cette année, elle devient un outil de démonstration, et le
+changement se joue sur un mot : la dérivabilité n'est plus supposée, elle
+s'établit.
+
+La différence se voit dès le premier exemple venu. Une fonction peut être
+continue en un point sans y être dérivable ; sa courbe présente alors un
+angle, et c'est cet angle que le baccalauréat demande d'étudier presque chaque
+année. Les deux derniers théorèmes du chapitre, celui des accroissements finis
+et son inégalité, permettront de majorer un écart sans jamais calculer la
+fonction — ils reviendront, au chapitre des suites, pour prouver une
+convergence.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Ce que la première a mis en place, et dont ce chapitre va se servir.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Rappeler la définition du nombre dérivé de $f$ en $a$ à l'aide du taux
+        d'accroissement.
+  \item Donner l'équation de la tangente à la courbe de $f$ au point
+        d'abscisse $a$.
+  \item Dériver : $x \mapsto x^{4}$, $x \mapsto \sqrt{x}$,
+        $x \mapsto \dfrac{1}{x}$, $x \mapsto \cos x$.
+  \item Énoncer les formules de dérivation d'un produit et d'un quotient.
+  \item Quel lien y a-t-il entre le signe de $f'$ et les variations de $f$ ?
+  \item Une fonction continue en $a$ y admet-elle nécessairement une limite
+        finie ? Et la réciproque ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Dérivée de $x \mapsto 3x^{2}-5x+1$
+  \item Dérivée de $x \mapsto \dfrac{2}{x}$
+  \item Dérivée de $x \mapsto (2x+1)^{2}$
+  \item Dérivée de $x \mapsto x\sqrt{x}$ sur $\Rps$
+  \item Dérivée de $x \mapsto \sin x + \cos x$
+  \item Le taux d'accroissement de $x \mapsto x^{2}$ entre $2$ et $2+h$
+  \item Tangente à $y = x^{2}$ au point d'abscisse $1$
+  \item Dérivée de $x \mapsto \dfrac{x}{x+1}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $6x-5$ \quad b) $-\dfrac{2}{x^{2}}$ \quad c) $4(2x+1)$ \quad
+d) $\dfrac{3\sqrt{x}}{2}$ \quad e) $\cos x - \sin x$ \quad
+f) $4+h$ \quad g) $y = 2x-1$ \quad h) $\dfrac{1}{(x+1)^{2}}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Être dérivable en un point}
+
+\begin{definition}[nombre dérivé]
+Soit $f$ définie sur un intervalle $I$ contenant $a$. On dit que $f$ est
+\textbf{dérivable en $a$} lorsque le taux d'accroissement
+\[
+  \frac{f(x)-f(a)}{x-a}
+\]
+admet une limite \emph{finie} quand $x$ tend vers $a$. Cette limite est
+appelée le \textbf{nombre dérivé} de $f$ en $a$ et se note $f'(a)$.
+\end{definition}
+
+\bmtmarge{En posant $x = a+h$, le taux s'écrit
+$\dfrac{f(a+h)-f(a)}{h}$ et l'on fait tendre $h$ vers $0$. Les deux écritures
+sont équivalentes ; choisissez celle qui simplifie le calcul.}
+
+\begin{propriete}[dérivabilité et continuité]
+Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.
+\end{propriete}
+
+\begin{demonstration}
+Pour $x \neq a$, écrivons
+$f(x) - f(a) = \dfrac{f(x)-f(a)}{x-a} \times (x-a)$.
+Quand $x$ tend vers $a$, le premier facteur tend vers $f'(a)$, qui est un
+nombre fini, et le second tend vers $0$. Le produit tend donc vers $0$,
+c'est-à-dire $\limx{a} f(x) = f(a)$ : $f$ est continue en $a$.
+\end{demonstration}
+
+\begin{avertissement}
+La réciproque est fausse, et c'est tout l'intérêt de cette propriété. Une
+fonction peut être continue en $a$ sans y être dérivable : le taux
+d'accroissement existe alors, mais sa limite est infinie, ou bien elle diffère
+selon que l'on arrive par la gauche ou par la droite. Retenez le sens de
+l'implication : \emph{dérivable} $\implies$ \emph{continue}, jamais l'inverse.
+\end{avertissement}
+
+\subsection{Dérivabilité à gauche, à droite, et demi-tangentes}
+
+\begin{definition}[nombres dérivés à gauche et à droite]
+On dit que $f$ est dérivable \textbf{à droite} en $a$ lorsque
+$\displaystyle\lim_{x \to a^{+}} \frac{f(x)-f(a)}{x-a}$ existe et est finie ;
+cette limite est notée $f'_{d}(a)$. On définit de même $f'_{g}(a)$ avec
+$x \to a^{-}$.
+
+La fonction $f$ est dérivable en $a$ si et seulement si $f'_{g}(a)$ et
+$f'_{d}(a)$ existent, sont finies \emph{et sont égales}.
+\end{definition}
+
+\begin{definition}[point angulé]
+Lorsque $f$ est continue en $a$ et que $f'_{g}(a)$ et $f'_{d}(a)$ existent
+mais sont différents, la courbe admet en son point d'abscisse $a$ deux
+\textbf{demi-tangentes} distinctes, de coefficients directeurs respectifs
+$f'_{g}(a)$ et $f'_{d}(a)$. On dit que le point est un \textbf{point angulé}.
+\end{definition}
+
+\begin{visualisation}[l'angle que fait la courbe]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 10.6cm, height = 5.6cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -2.6, xmax = 2.8, ymin = -0.5, ymax = 2.6,
+  xtick = {0}, ytick = \empty, xticklabels = {$a$},
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = false,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=-2.4:0, samples=80] {-0.9*x};
+  \addplot[bmtIndigo, line width=1.3pt, domain=0:2.6, samples=80] {0.55*x};
+  \addplot[bmtLaterite, dashed, line width=0.8pt, domain=-1.4:1.2, samples=2] {-0.9*x};
+  \addplot[bmtVetiver, dashed, line width=0.8pt, domain=-1.2:2.2, samples=2] {0.55*x};
+  \filldraw[bmtIndigo] (axis cs:0,0) circle (2pt);
+  \node[bmtLaterite, font=\footnotesize, anchor=east] at (axis cs:-1.5,1.4) {pente $f'_{g}(a)$};
+  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:2.25,1.25) {pente $f'_{d}(a)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Approchez du point par la gauche : la courbe arrive avec une pente négative.
+Repartez vers la droite : elle repart avec une pente positive. Les deux
+demi-tangentes existent, elles sont bien tracées, mais elles ne se prolongent
+pas l'une l'autre. Il n'y a donc pas \emph{une} tangente en ce point, et la
+fonction n'y est pas dérivable — alors qu'elle y est parfaitement continue,
+puisqu'on n'a pas levé le crayon.
+\end{visualisation}
+
+\begin{exemple}[une fonction continue et non dérivable]
+Soit $f$ définie sur $\R$ par $f(x) = \abs{x}$. Étudions sa dérivabilité en
+$0$.
+
+Le taux d'accroissement en $0$ vaut
+$\dfrac{f(x)-f(0)}{x-0} = \dfrac{\abs{x}}{x}$.
+
+\smallskip
+\emph{À droite.} Pour $x > 0$, $\abs{x} = x$ donc le taux vaut $1$ :
+$f'_{d}(0) = 1$.
+
+\smallskip
+\emph{À gauche.} Pour $x < 0$, $\abs{x} = -x$ donc le taux vaut $-1$ :
+$f'_{g}(0) = -1$.
+
+\smallskip
+Les deux nombres existent mais diffèrent : $f$ n'est pas dérivable en $0$.
+Elle y est pourtant continue, car $\limx{0} \abs{x} = 0 = f(0)$. La courbe
+présente en $O$ un point angulé, avec deux demi-tangentes de pentes $-1$
+et $1$.
+\end{exemple}
+
+\begin{exemple}[une tangente verticale]
+Soit $f(x) = \sqrt{x}$ sur $\left[0 ; +\infty\right[$. En $0$, le taux
+d'accroissement vaut
+\[
+  \frac{\sqrt{x}-0}{x-0} = \frac{\sqrt{x}}{x} = \frac{1}{\sqrt{x}}
+  \xrightarrow[x \to 0^{+}]{} +\infty .
+\]
+La limite est infinie : $f$ n'est pas dérivable en $0$. La courbe y admet une
+demi-tangente \emph{verticale}. Ici encore, la fonction est continue en $0$.
+\end{exemple}
+
+\begin{entrainement}[dérivabilité en un point]
+\exo[\niveau{1}] Soit $f(x) = x^{2}-3x$. Calculer $f'(2)$ en revenant à la
+définition, puis vérifier par la formule de dérivation.
+
+\exo[\niveau{2}] Soit $f$ définie par $f(x) = x^{2}$ si $x \leq 1$ et
+$f(x) = 2x-1$ si $x > 1$. Étudier la continuité puis la dérivabilité de $f$
+en $1$.
+
+\exo[\niveau{2}] Soit $f$ définie par $f(x) = \abs{x-2}$. Montrer que $f$
+n'est pas dérivable en $2$ et préciser les demi-tangentes.
+
+\exo[\niveau{3}] Soit $f$ définie sur $\R$ par $f(x) = x\abs{x}$. Montrer que
+$f$ est dérivable en $0$ et calculer $f'(0)$. La courbe présente-t-elle un
+point angulé ?
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\dfrac{f(x)-f(2)}{x-2} = \dfrac{x^{2}-3x+2}{x-2} = \dfrac{(x-2)(x-1)}{x-2} = x-1 \to 1$.
+Donc $f'(2) = 1$, ce que confirme $f'(x) = 2x-3$.
+
+\textbf{2.} $\lim_{x \to 1^{-}} x^{2} = 1$, $\lim_{x \to 1^{+}} (2x-1) = 1$ et
+$f(1) = 1$ : continue. Pour la dérivabilité,
+$f'_{g}(1) = \lim_{x \to 1^{-}} \dfrac{x^{2}-1}{x-1} = \lim (x+1) = 2$ et
+$f'_{d}(1) = \lim_{x \to 1^{+}} \dfrac{2x-2}{x-1} = 2$. Les deux valent $2$ :
+$f$ est dérivable en $1$, avec $f'(1) = 2$.
+
+\textbf{3.} Le taux vaut $\dfrac{\abs{x-2}}{x-2}$, égal à $1$ pour $x>2$ et à
+$-1$ pour $x<2$. Deux demi-tangentes, de pentes $1$ et $-1$ : point angulé.
+
+\textbf{4.} Le taux vaut $\dfrac{x\abs{x}}{x} = \abs{x}$, qui tend vers $0$ des
+deux côtés. Donc $f'(0) = 0$ et il n'y a pas de point angulé : la tangente en
+$O$ est l'axe des abscisses.
+\end{corrige}
+
+% ===========================================================================
+\section{Dériver une composée, dériver une réciproque}
+
+\begin{theoreme}[dérivée d'une fonction composée]
+Soit $u$ dérivable sur un intervalle $I$ et $v$ dérivable sur un intervalle
+$J$ contenant $u(I)$. Alors $v \circ u$ est dérivable sur $I$ et, pour tout
+$x \in I$,
+\[
+  (v \circ u)'(x) = u'(x) \times v'\bigl(u(x)\bigr).
+\]
+\end{theoreme}
+
+\bmtmarge{La formule se retient dans l'ordre où on l'applique : on dérive
+l'extérieur en gardant l'intérieur intact, puis on multiplie par la dérivée de
+l'intérieur.}
+
+\begin{propriete}[les cas les plus fréquents]
+Soit $u$ dérivable sur $I$. Alors, sous réserve d'existence,
+\[
+  \left(u^{n}\right)' = n\,u'\,u^{n-1} \ (n \in \Z), \qquad
+  \left(\sqrt{u}\right)' = \frac{u'}{2\sqrt{u}}, \qquad
+  \left(\frac{1}{u}\right)' = -\frac{u'}{u^{2}},
+\]
+\[
+  \left(\sin u\right)' = u'\cos u, \qquad \left(\cos u\right)' = -u'\sin u .
+\]
+\end{propriete}
+
+\begin{exemple}[une composée à deux étages]
+Dérivons $f(x) = \sqrt{3x^{2}+1}$ sur $\R$.
+
+On pose $u(x) = 3x^{2}+1$, qui est dérivable sur $\R$ et strictement positive,
+et $v(X) = \sqrt{X}$, dérivable sur $\Rps$. Alors $f = v \circ u$ et
+\[
+  f'(x) = \frac{u'(x)}{2\sqrt{u(x)}} = \frac{6x}{2\sqrt{3x^{2}+1}}
+        = \frac{3x}{\sqrt{3x^{2}+1}} .
+\]
+Le signe de $f'$ est celui de $x$ : $f$ décroît sur $\left]-\infty ; 0\right]$
+et croît sur $\left[0 ; +\infty\right[$.
+\end{exemple}
+
+\begin{theoreme}[dérivée de la fonction réciproque]
+Soit $f$ continue et strictement monotone sur un intervalle $I$ ; elle réalise
+donc une bijection de $I$ sur $J = f(I)$, de réciproque $f^{-1}$. Si $f$ est
+dérivable en $a \in I$ et si $f'(a) \neq 0$, alors $f^{-1}$ est dérivable en
+$b = f(a)$ et
+\[
+  \left(f^{-1}\right)'(b) = \frac{1}{f'(a)} = \frac{1}{f'\bigl(f^{-1}(b)\bigr)} .
+\]
+\end{theoreme}
+
+\begin{demonstration}[l'idée du calcul]
+Posons $y = f(x)$, de sorte que $x = f^{-1}(y)$ et $a = f^{-1}(b)$. Le taux
+d'accroissement de $f^{-1}$ en $b$ s'écrit
+\[
+  \frac{f^{-1}(y)-f^{-1}(b)}{y-b} = \frac{x-a}{f(x)-f(a)}
+  = \frac{1}{\ \dfrac{f(x)-f(a)}{x-a}\ }.
+\]
+Lorsque $y$ tend vers $b$, la continuité de $f^{-1}$ assure que $x$ tend vers
+$a$ ; le dénominateur tend donc vers $f'(a)$, non nul. Le quotient tend par
+conséquent vers $\dfrac{1}{f'(a)}$.
+\end{demonstration}
+
+\begin{remarque}
+Géométriquement, les courbes de $f$ et de $f^{-1}$ sont symétriques par
+rapport à la droite d'équation $y = x$. Une symétrie échange les rôles des
+axes : une tangente de pente $m$ devient une tangente de pente $\frac{1}{m}$,
+et une tangente horizontale devient verticale — d'où la condition
+$f'(a) \neq 0$.
+\end{remarque}
+
+\begin{entrainement}[composées et réciproques]
+\exo[\niveau{1}] Dériver $x \mapsto (3x-2)^{5}$, $x \mapsto \sqrt{x^{2}+4}$ et
+$x \mapsto \dfrac{1}{2x+3}$.
+
+\exo[\niveau{2}] Dériver $x \mapsto \cos(3x^{2})$ puis $x \mapsto \sin^{3} x$.
+
+\exo[\niveau{2}] Soit $f(x) = x^{3}+x$ sur $\R$. Montrer que $f$ réalise une
+bijection de $\R$ sur $\R$, puis calculer $\left(f^{-1}\right)'(2)$.
+
+\exo[\niveau{3}] Soit $f(x) = \dfrac{2x-1}{x+1}$ sur $\left]-1 ; +\infty\right[$.
+Déterminer $f^{-1}$ explicitement, puis vérifier la formule du théorème en
+un point de votre choix.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $15(3x-2)^{4}$ ; \ $\dfrac{x}{\sqrt{x^{2}+4}}$ ; \
+$-\dfrac{2}{(2x+3)^{2}}$.
+
+\textbf{2.} $-6x\sin(3x^{2})$ ; \ $3\sin^{2}x\cos x$.
+
+\textbf{3.} $f'(x) = 3x^{2}+1 > 0$ : $f$ est continue et strictement
+croissante sur $\R$, avec $\lim_{-\infty} f = -\infty$ et
+$\lim_{+\infty} f = +\infty$ ; c'est donc une bijection de $\R$ sur $\R$.
+Comme $f(1) = 2$, on a $f^{-1}(2) = 1$ et
+$\left(f^{-1}\right)'(2) = \dfrac{1}{f'(1)} = \dfrac{1}{4}$.
+
+\textbf{4.} $y = \dfrac{2x-1}{x+1} \daccord y(x+1) = 2x-1 \daccord x(y-2) = -1-y$,
+d'où $f^{-1}(y) = \dfrac{1+y}{2-y}$. En $x = 1$ : $f(1) = \tfrac{1}{2}$,
+$f'(x) = \dfrac{3}{(x+1)^{2}}$ donc $f'(1) = \tfrac{3}{4}$ ; par ailleurs
+$\left(f^{-1}\right)'(y) = \dfrac{3}{(2-y)^{2}}$ vaut $\tfrac{4}{3}$ en
+$y = \tfrac{1}{2}$. Les deux résultats sont bien inverses l'un de l'autre.
+\end{corrige}
+
+% ===========================================================================
+\section{Dérivées successives, concavité et convexité}
+
+\begin{definition}[dérivées successives]
+Si $f'$ est elle-même dérivable sur $I$, sa dérivée est appelée
+\textbf{dérivée seconde} de $f$ et notée $f''$. On définit de proche en proche
+$f^{(n)}$, dérivée $n$-ième de $f$, par $f^{(0)} = f$ et
+$f^{(n+1)} = \left(f^{(n)}\right)'$.
+\end{definition}
+
+\begin{definition}[convexité, concavité]
+Soit $f$ deux fois dérivable sur $I$. On dit que $f$ est \textbf{convexe} sur
+$I$ lorsque $f''(x) \geq 0$ pour tout $x \in I$, et \textbf{concave} lorsque
+$f''(x) \leq 0$ pour tout $x \in I$.
+
+Un point de la courbe où la concavité change de sens — donc où $f''$ s'annule
+en changeant de signe — est appelé \textbf{point d'inflexion}.
+\end{definition}
+
+\begin{propriete}[lecture géométrique]
+Sur un intervalle où $f$ est convexe, la courbe est située \emph{au-dessus} de
+chacune de ses tangentes. Sur un intervalle où $f$ est concave, elle est
+située \emph{au-dessous}. En un point d'inflexion, la tangente traverse la
+courbe.
+\end{propriete}
+
+\begin{visualisation}[la tangente au-dessus, puis au-dessous]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 5.8cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -2.4, xmax = 2.4, ymin = -2.6, ymax = 2.6,
+  xtick = {0}, ytick = \empty, xticklabels = {},
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = false,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=-2.1:2.1, samples=120] {0.55*x^3};
+  \addplot[bmtVetiver, dashed, line width=0.85pt, domain=-2.2:-0.3, samples=2]
+    {0.55*3*1.44*(x+1.2) - 0.55*1.728};
+  \addplot[bmtLaterite, dashed, line width=0.85pt, domain=0.3:2.2, samples=2]
+    {0.55*3*1.44*(x-1.2) + 0.55*1.728};
+  \filldraw[bmtIndigo] (axis cs:0,0) circle (1.9pt);
+  \node[bmtEncre, font=\footnotesize, anchor=south west] at (axis cs:0.08,0.12)
+    {point d'inflexion};
+  \node[bmtVetiver, font=\footnotesize, anchor=north] at (axis cs:-1.35,-1.5) {concave};
+  \node[bmtLaterite, font=\footnotesize, anchor=south] at (axis cs:1.35,1.4) {convexe};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Suivez la courbe de gauche à droite. À gauche de l'origine elle se creuse vers
+le bas et passe sous sa tangente : elle est concave. À droite elle se creuse
+vers le haut et passe au-dessus : elle est convexe. À l'origine, exactement,
+la tangente traverse la courbe — la concavité s'inverse. C'est ce point, et
+lui seul, que l'on appelle point d'inflexion.
+\end{visualisation}
+
+\begin{exemple}[chercher les points d'inflexion]
+Soit $f(x) = x^{4} - 6x^{2} + 5$ sur $\R$.
+
+On calcule $f'(x) = 4x^{3} - 12x$ puis $f''(x) = 12x^{2} - 12 = 12(x-1)(x+1)$.
+
+Le trinôme $f''$ s'annule en $-1$ et en $1$, et son signe est celui d'un
+polynôme du second degré de coefficient dominant positif : positif à
+l'extérieur des racines, négatif entre elles.
+
+\medskip
+\begin{center}
+\begin{tabular}{c|ccccc}
+$x$        & $-\infty$ & & $-1$ & & $1$ \hspace{0.9cm} $+\infty$ \\
+\hline
+$f''(x)$   & & $+$ & $0$ & $-$ & $0$ \hspace{1.1cm} $+$ \\
+\hline
+concavité  & \multicolumn{2}{c}{convexe} & & concave & \hspace{0.4cm} convexe \\
+\end{tabular}
+\end{center}
+\medskip
+
+La dérivée seconde s'annule en changeant de signe en $-1$ et en $1$ : les
+points d'abscisses $-1$ et $1$ sont deux points d'inflexion de la courbe.
+\end{exemple}
+
+\begin{erreurclassique}
+L'annulation de $f''$ ne suffit pas à conclure à un point d'inflexion : encore
+faut-il que $f''$ \emph{change de signe}. Pour $f(x) = x^{4}$, on a
+$f''(x) = 12x^{2}$, qui s'annule en $0$ sans jamais devenir négatif : la
+courbe reste convexe et $O$ n'est pas un point d'inflexion.
+\end{erreurclassique}
+
+\begin{entrainement}[concavité]
+\exo[\niveau{1}] Calculer $f''$ pour $f(x) = x^{3}-3x^{2}+1$, puis déterminer
+les intervalles de convexité et de concavité.
+
+\exo[\niveau{2}] Déterminer les points d'inflexion de la courbe de
+$f(x) = \dfrac{1}{x^{2}+1}$.
+
+\exo[\niveau{2}] Montrer que la courbe de $f(x) = \sqrt{x}$ est concave sur
+$\Rps$, et en déduire que pour tout $x > 0$, $\sqrt{x} \leq \dfrac{x+1}{2}$.
+
+\exo[\niveau{3}] Soit $f(x) = x^{3}+ax^{2}+bx+c$. Montrer que la courbe de $f$
+admet toujours exactement un point d'inflexion, et donner son abscisse en
+fonction de $a$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $f''(x) = 6x-6$ : concave sur $\left]-\infty ; 1\right]$, convexe
+sur $\left[1 ; +\infty\right[$, point d'inflexion en $x=1$.
+
+\textbf{2.} $f'(x) = \dfrac{-2x}{(x^{2}+1)^{2}}$ puis
+$f''(x) = \dfrac{6x^{2}-2}{(x^{2}+1)^{3}}$, qui s'annule en changeant de signe
+pour $x = \pm\dfrac{1}{\sqrt{3}}$ : deux points d'inflexion.
+
+\textbf{3.} $f''(x) = -\dfrac{1}{4x\sqrt{x}} < 0$ : $f$ est concave, donc sa
+courbe est sous chacune de ses tangentes. La tangente en $x=1$ a pour équation
+$y = \tfrac{1}{2}(x-1)+1 = \dfrac{x+1}{2}$, d'où l'inégalité annoncée.
+
+\textbf{4.} $f''(x) = 6x+2a$, qui s'annule en changeant de signe uniquement
+pour $x = -\dfrac{a}{3}$ : un point d'inflexion, et un seul.
+\end{corrige}
+
+% ===========================================================================
+\section{Les accroissements finis}
+
+Les deux résultats qui suivent relient la variation \emph{globale} d'une
+fonction, entre deux points, au comportement \emph{local} de sa dérivée. C'est
+ce passage du global au local qui en fait des outils de démonstration.
+
+\begin{theoreme}[théorème des accroissements finis]
+Soit $f$ continue sur $\intervalle{a}{b}$ et dérivable sur
+$\intervalleo{a}{b}$, avec $a < b$. Alors il existe au moins un réel
+$c \in \intervalleo{a}{b}$ tel que
+\[
+  f(b) - f(a) = (b-a)\, f'(c) .
+\]
+\end{theoreme}
+
+\begin{visualisation}[une tangente parallèle à la corde]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 5.8cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -0.5, xmax = 5.4, ymin = -0.6, ymax = 3.9,
+  xtick = {0.6, 1.7315, 4.6}, xticklabels = {$a$, $c$, $b$}, ytick = \empty,
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = false,
+]
+  % f(x) = 0,42u^2 - 0,06u^3 + 0,5 avec u = x - 0,6 : f(a) = 0,5 et f(b) = 3,38.
+  % La corde a donc pour pente 0,72 ; l'equation f'(c) = 0,72 donne c = 1,7315,
+  % ou la tangente est bien parallele a la corde.
+  \addplot[bmtIndigo, line width=1.3pt, domain=0.6:4.6, samples=150]
+    {0.42*(x-0.6)^2 - 0.06*(x-0.6)^3 + 0.5};
+  % corde
+  \addplot[bmtGris, line width=0.9pt, domain=0.6:4.6, samples=2]
+    {0.5 + 0.72*(x-0.6)};
+  % tangente au point c
+  \addplot[bmtLaterite, dashed, line width=0.95pt, domain=0.75:3.25, samples=2]
+    {0.9508 + 0.72*(x-1.7315)};
+  \filldraw[bmtLaterite] (axis cs:1.7315,0.9508) circle (1.9pt);
+  \filldraw[bmtGris] (axis cs:0.6,0.5) circle (1.7pt);
+  \filldraw[bmtGris] (axis cs:4.6,3.38) circle (1.7pt);
+  \node[bmtGris, font=\footnotesize, anchor=south east] at (axis cs:4.45,3.44) {la corde};
+  \node[bmtLaterite, font=\footnotesize, anchor=north west] at (axis cs:2.6,1.55) {la tangente en $c$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Joignez les deux extrémités de l'arc par une corde : sa pente vaut
+$\dfrac{f(b)-f(a)}{b-a}$. Le théorème affirme qu'entre $a$ et $b$ il existe au
+moins un point où la tangente à la courbe est \emph{parallèle} à cette corde.
+Faites glisser mentalement la corde vers le haut sans changer sa direction :
+elle finit par toucher la courbe, et ce point de contact est le $c$ cherché.
+\end{visualisation}
+
+\begin{theoreme}[inégalité des accroissements finis]
+Soit $f$ continue sur $\intervalle{a}{b}$, dérivable sur $\intervalleo{a}{b}$.
+S'il existe deux réels $m$ et $M$ tels que $m \leq f'(x) \leq M$ pour tout
+$x \in \intervalleo{a}{b}$, alors
+\[
+  m(b-a) \ \leq\ f(b)-f(a) \ \leq\ M(b-a) .
+\]
+En particulier, si $\abs{f'(x)} \leq k$ sur $\intervalleo{a}{b}$, alors
+\[
+  \abs{f(b)-f(a)} \ \leq\ k\,\abs{b-a} .
+\]
+\end{theoreme}
+
+\begin{demonstration}
+Le théorème des accroissements finis fournit un réel
+$c \in \intervalleo{a}{b}$ tel que $f(b)-f(a) = (b-a)f'(c)$. Comme
+$b-a > 0$, l'encadrement $m \leq f'(c) \leq M$ donne, après multiplication par
+$b-a$,
+$m(b-a) \leq (b-a)f'(c) \leq M(b-a)$, c'est-à-dire l'encadrement annoncé.
+Pour la seconde forme, $\abs{f'(c)} \leq k$ entraîne
+$\abs{f(b)-f(a)} = \abs{b-a}\,\abs{f'(c)} \leq k\abs{b-a}$.
+\end{demonstration}
+
+\begin{methode}{majorer un écart sans calculer la fonction}
+L'inégalité des accroissements finis sert chaque fois qu'on doit majorer
+$\abs{f(x)-f(y)}$ sans pouvoir — ou sans vouloir — calculer ces deux valeurs.
+La marche à suivre est toujours la même.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Identifier l'intervalle sur lequel on travaille et vérifier que $f$ y
+        est continue et dérivable.
+  \item Calculer $f'$ et \emph{majorer $\abs{f'}$} sur cet intervalle : c'est
+        la seule étape qui demande du soin, et c'est celle qui rapporte les
+        points.
+  \item Appliquer l'inégalité avec la constante $k$ obtenue.
+\end{enumerate}
+
+C'est exactement le mécanisme qui, appliqué à une suite définie par
+$u_{n+1} = f(u_{n})$, donnera $\abs{u_{n+1}-\alpha} \leq k\abs{u_{n}-\alpha}$
+puis, par récurrence, $\abs{u_{n}-\alpha} \leq k^{n}\abs{u_{0}-\alpha}$.
+\end{methode}
+
+\begin{exemple}[un encadrement obtenu sans calculatrice]
+Montrons que $\abs{\sin x - \sin y} \leq \abs{x-y}$ pour tous réels $x$ et $y$.
+
+La fonction sinus est continue et dérivable sur $\R$, de dérivée
+$x \mapsto \cos x$. Or $\abs{\cos t} \leq 1$ pour tout réel $t$.
+
+L'inégalité des accroissements finis, appliquée sur l'intervalle d'extrémités
+$x$ et $y$ avec $k = 1$, donne immédiatement
+$\abs{\sin x - \sin y} \leq \abs{x-y}$.
+
+\smallskip
+En particulier, avec $y = 0$ : $\abs{\sin x} \leq \abs{x}$ pour tout réel $x$
+— une inégalité qu'on utilisera plus d'une fois.
+\end{exemple}
+
+\begin{entrainement}[accroissements finis]
+\exo[\niveau{1}] Soit $f(x) = x^{2}$ sur $\intervalle{1}{3}$. Déterminer le
+réel $c$ dont le théorème des accroissements finis garantit l'existence.
+
+\exo[\niveau{2}] Montrer que pour tous réels $x$ et $y$ positifs,
+$\abs{\sqrt{x}-\sqrt{y}} \leq \dfrac{\abs{x-y}}{2}$ dès que $x \geq 1$ et
+$y \geq 1$.
+
+\exo[\niveau{2}] Soit $f$ dérivable sur $\intervalle{0}{4}$ avec $f(0) = 2$ et
+$\abs{f'(x)} \leq 3$. Entre quelles bornes est nécessairement compris $f(4)$ ?
+
+\exo[\niveau{3}] Soit $f(x) = \dfrac{x^{2}+2}{4}$. Montrer que pour tout
+$x \in \intervalle{0}{1}$, $f(x) \in \intervalle{0}{1}$ et
+$\abs{f'(x)} \leq \dfrac{1}{2}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $f(3)-f(1) = 8 = 2 \times f'(c) = 2 \times 2c$, d'où $c = 2$, qui
+appartient bien à $\intervalleo{1}{3}$.
+
+\textbf{2.} Sur $\left[1 ; +\infty\right[$,
+$\left(\sqrt{t}\right)' = \dfrac{1}{2\sqrt{t}} \leq \dfrac{1}{2}$ puisque
+$\sqrt{t} \geq 1$. L'inégalité des accroissements finis avec $k = \tfrac{1}{2}$
+donne le résultat.
+
+\textbf{3.} $\abs{f(4)-f(0)} \leq 3 \times 4 = 12$, donc
+$-10 \leq f(4) \leq 14$.
+
+\textbf{4.} Pour $x \in \intervalle{0}{1}$, $x^{2} \in \intervalle{0}{1}$ donc
+$f(x) \in \intervalle{\tfrac{1}{2}}{\tfrac{3}{4}} \subset \intervalle{0}{1}$.
+Et $f'(x) = \dfrac{x}{2}$, donc $\abs{f'(x)} \leq \dfrac{1}{2}$ sur cet
+intervalle.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Les énoncés qui suivent sont repris de sujets réellement posés ; leur
+provenance est indiquée à chaque fois. Tous portent sur des fonctions
+polynômes, rationnelles ou irrationnelles : rien n'y suppose une notion non
+encore étudiée.
+
+\exoann{Baccalauréat probatoire, Cameroun, série D, session 2022 — exercice 4}
+Soit $f$ définie sur $\intervallefo{0}{+\infty}$ par
+$f(x) = \dfrac{3x}{3+4x}$. Calculer $f'(x)$, en déduire le sens de variation
+de $f$, puis dresser son tableau de variation.
+
+\exoann{Baccalauréat probatoire, Cameroun, séries D et TI, session 2023 — exercice 4}
+Soit $f$ définie par $f(x) = x+\dfrac{1}{x+1}$. Calculer $f'(x)$, étudier son
+signe et en déduire les variations de $f$ sur chacun des intervalles où elle
+est définie.
+
+\exoann{Baccalauréat probatoire, Cameroun, série IH, session 2023 — problème}
+Soit $f$ la fonction définie sur $\intervalle{-4}{1}$ par
+$f(x) = ax^{2}+bx-3$, dont la courbe passe par $A(-2\,;-5)$ et
+$B(-1\,;-6)$. Déterminer les réels $a$ et $b$.
+
+\exoann{Baccalauréat probatoire, Cameroun, série IH, session 2023 — problème, suite}
+Avec les valeurs de $a$ et $b$ trouvées, déterminer une équation de la
+tangente à la courbe de $f$ au point $A(-2\,;-5)$.
+
+\exoann{D'après le baccalauréat probatoire, Cameroun, série C, session 2021 — exercice 3}
+Soit $f$ définie sur $\R\setminus\{1\}$ par $f(x) = \dfrac{x^{2}-4}{1-x}$.
+Vérifier que $f'(x) = \dfrac{-x^{2}+2x-4}{(1-x)^{2}}$, puis en déduire le sens
+de variation de $f$ sur chacun des intervalles où elle est définie.
+
+\exoann{D'après le baccalauréat probatoire, Cameroun, série C, session 2022 — exercice 2}
+Soit $f$ définie sur $\R$ par
+$f(x) = \dfrac{1}{3}x^{3}+\dfrac{3}{2}x^{2}-4x-\dfrac{31}{6}$. Calculer
+$f'(x)$, étudier son signe, puis dresser le tableau de variation de $f$ en
+précisant les deux extremums locaux.
+
+\exoann{D'après le baccalauréat probatoire, Cameroun, série C, session 2023 — exercice 4}
+Soit $f$ définie par $f(x) = \dfrac{2x^{2}-6x+3}{2x-3}$. Calculer $f'(x)$ et
+en déduire le sens de variation de $f$ sur chacun des intervalles où elle est
+définie.
+
+\exoann{D'après le baccalauréat probatoire, Cameroun, série C, session 2024 — exercice 3}
+Soit $f$ définie par $f(x) = \dfrac{4x^{2}-4x-2}{2x-3}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que $f(x) = 2x+1+\dfrac{1}{2x-3}$.
+  \item Calculer $f'(x)$, puis résoudre l'inéquation $f'(x) \leq 0$.
+\end{enumerate}
+
+\exoann{D'après le baccalauréat probatoire, Cameroun, série C, session 2024 — exercice 3, suite}
+Avec la même fonction $f$, démontrer que le point
+$\Omega\left(\frac32\,;4\right)$ est centre de symétrie de la courbe de $f$.
+
+\medskip
+\bmtsource{Les autres énoncés d'annales portant sur la dérivabilité font
+intervenir le logarithme ou l'exponentielle. Ils figurent donc aux
+chapitres 5 et 6, où ils sont signalés par la mention « dérivabilité ».}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $f'(x) = \dfrac{3(3+4x)-3x \times 4}{(3+4x)^{2}}
+= \dfrac{9}{(3+4x)^{2}}$, strictement positive sur
+$\intervallefo{0}{+\infty}$ : $f$ y est strictement croissante, de
+$f(0) = 0$ vers $\frac34$, valeur qu'elle n'atteint jamais.
+
+\textbf{2.} $f'(x) = 1-\dfrac{1}{(x+1)^{2}}
+= \dfrac{(x+1)^{2}-1}{(x+1)^{2}} = \dfrac{x(x+2)}{(x+1)^{2}}$. Le
+dénominateur est positif, donc $f'$ a le signe de $x(x+2)$ : positive sur
+$\left]-\infty\,;-2\right]$, négative sur $\intervalle{-2}{0}$ privé de
+$-1$, positive sur $\intervallefo{0}{+\infty}$. La fonction croît, atteint un
+maximum local $f(-2) = -3$, décroît jusqu'à l'asymptote verticale, décroît
+encore, atteint un minimum local $f(0) = 1$, puis croît.
+
+\textbf{3.} Le point $A$ donne $4a-2b-3 = -5$, soit $2a-b = -1$ ; le point
+$B$ donne $a-b-3 = -6$, soit $a-b = -3$. En soustrayant, $a = 2$, puis
+$b = 5$. Ainsi $f(x) = 2x^{2}+5x-3$, ce que confirme le calcul de $f(-2)$ et
+de $f(-1)$.
+
+\textbf{4.} $f'(x) = 4x+5$, donc $f'(-2) = -3$. La tangente en $A$ a pour
+équation $y = -3\left(x+2\right)-5$, c'est-à-dire $y = -3x-11$.
+
+\textbf{5.} En dérivant le quotient,
+\[
+  f'(x) = \frac{2x(1-x)-\left(x^{2}-4\right)\times(-1)}{(1-x)^{2}}
+  = \frac{2x-2x^{2}+x^{2}-4}{(1-x)^{2}}
+  = \frac{-x^{2}+2x-4}{(1-x)^{2}} .
+\]
+Le trinôme $-x^{2}+2x-4$ a pour discriminant $4-16 = -12 < 0$ : il garde le
+signe de son coefficient dominant, donc il est strictement négatif. Le
+dénominateur étant strictement positif, $f'$ est strictement négative :
+$f$ décroît strictement sur $\left]-\infty\,;1\right[$ et sur
+$\intervalleo{1}{+\infty}$.
+
+\textbf{6.} $f'(x) = x^{2}+3x-4 = (x+4)(x-1)$, positive sur
+$\left]-\infty\,;-4\right]$, négative sur $\intervalle{-4}{1}$, positive sur
+$\intervallefo{1}{+\infty}$. La fonction croît donc jusqu'au maximum local
+$f(-4) = \frac{27}{2}$, décroît jusqu'au minimum local
+$f(1) = -\frac{22}{3}$, puis croît de nouveau ; les limites aux infinis sont
+celles de $\frac{x^{3}}{3}$, soit $-\infty$ et $+\infty$.
+
+\textbf{7.} En dérivant le quotient,
+\[
+  f'(x) = \frac{(4x-6)(2x-3)-2\left(2x^{2}-6x+3\right)}{(2x-3)^{2}}
+  = \frac{8x^{2}-24x+18-4x^{2}+12x-6}{(2x-3)^{2}}
+  = \frac{4\left(x^{2}-3x+3\right)}{(2x-3)^{2}} .
+\]
+Le trinôme $x^{2}-3x+3$ a pour discriminant $9-12 = -3<0$ : il est toujours
+strictement positif. Donc $f'>0$ et $f$ croît strictement sur
+$\left]-\infty\,;\frac32\right[$ comme sur
+$\left]\frac32\,;+\infty\right[$ — sans que ces deux croissances se
+raccordent, l'asymptote verticale les séparant.
+
+\textbf{8. a)} On développe le membre de droite :
+$(2x+1)(2x-3)+1 = 4x^{2}-4x-3+1 = 4x^{2}-4x-2$, qui est bien le numérateur de
+$f$. D'où $f(x) = 2x+1+\dfrac{1}{2x-3}$.
+\textbf{b)} $f'(x) = 2-\dfrac{2}{(2x-3)^{2}}$, et
+\[
+  f'(x) \leq 0
+  \iff (2x-3)^{2} \leq 1
+  \iff -1 \leq 2x-3 \leq 1
+  \iff 1 \leq x \leq 2 .
+\]
+La valeur $\frac32$ étant exclue, $f'$ est négative sur
+$\intervallefo{1}{\frac32}$ et sur $\left]\frac32\,;2\right]$, positive
+ailleurs.
+
+\textbf{9.} On teste la symétrie par le calcul de $f(\Omega_{x}+h)+f(\Omega_{x}-h)$.
+Pour $h \neq 0$ tel que $\frac32 \pm h$ soit dans l'ensemble de définition,
+\[
+  f\!\left(\tfrac32+h\right)+f\!\left(\tfrac32-h\right)
+  = \left(4+2h+\frac{1}{2h}\right)+\left(4-2h-\frac{1}{2h}\right)
+  = 8 = 2\times4 .
+\]
+La moyenne des deux ordonnées vaut donc toujours $4$, ordonnée de $\Omega$ :
+le point $\Omega\left(\frac32\,;4\right)$ est centre de symétrie de la courbe.
+\end{corrige}
+
+\begin{jecherche}[la descente d'un col]
+Un cycliste descend un col. On note $d(t)$ la distance parcourue, en
+kilomètres, $t$ heures après le départ. La fonction $d$ est dérivable sur
+$\intervalle{0}{2}$, et $d'(t)$ représente la vitesse instantanée, en
+kilomètres par heure.
+
+On sait que $d(0) = 0$ et $d(2) = 84$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Justifier qu'il existe un instant où la vitesse instantanée du
+        cycliste est exactement égale à sa vitesse moyenne.
+  \item Le règlement de l'épreuve interdit de dépasser $60$ km/h. Le cycliste
+        affirme l'avoir respecté. Que pensez-vous de cette affirmation ?
+  \item On suppose maintenant que la vitesse est restée comprise entre
+        $30$ et $50$ km/h sur toute la descente. Entre quelles valeurs la
+        distance parcourue en deux heures peut-elle se situer ? Cette
+        hypothèse est-elle compatible avec les données ?
+  \item Reprendre la question 2 en supposant seulement que la vitesse a été
+        mesurée à $40$ km/h au départ et à $45$ km/h à l'arrivée. Peut-on
+        encore conclure ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[la descente d'un col]
+\textbf{1.} $d$ est continue sur $\intervalle{0}{2}$ et dérivable sur
+$\intervalleo{0}{2}$. Le théorème des accroissements finis fournit
+$c \in \intervalleo{0}{2}$ tel que $d(2)-d(0) = 2\,d'(c)$, soit
+$d'(c) = \dfrac{84}{2} = 42$. Il existe donc un instant où la vitesse
+instantanée vaut exactement $42$ km/h, la vitesse moyenne.
+
+\textbf{2.} La vitesse moyenne vaut $42$ km/h, bien en dessous de la limite.
+On ne peut donc rien reprocher au cycliste — mais on ne peut rien confirmer non
+plus : une moyenne ne majore pas les valeurs instantanées. Il a pu rouler à
+$70$ km/h pendant dix minutes et à $30$ le reste du temps. La moyenne est
+compatible avec le respect du règlement comme avec son infraction.
+
+\textbf{3.} Si $30 \leq d'(t) \leq 50$ sur $\intervalleo{0}{2}$, l'inégalité
+des accroissements finis donne
+$30 \times 2 \leq d(2)-d(0) \leq 50 \times 2$, soit
+$60 \leq d(2) \leq 100$. La valeur $84$ appartient à cet intervalle :
+l'hypothèse est compatible avec les données.
+
+\textbf{4.} Non. Connaître $d'$ en deux points ne dit rien de $d'$ ailleurs :
+l'inégalité des accroissements finis exige un encadrement sur \emph{tout}
+l'intervalle. Une fonction peut valoir $40$ en $0$, $45$ en $2$, et culminer à
+$90$ entre les deux.
+\end{corrige}
+
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Toute fonction continue sur $\R$ est dérivable sur $\R$.
+  \item Si $f'_{g}(a)$ et $f'_{d}(a)$ existent, alors $f$ est dérivable en $a$.
+  \item Si $f''(a) = 0$, alors la courbe de $f$ admet un point d'inflexion
+        d'abscisse $a$.
+  \item Si $f$ est convexe sur $I$, sa courbe est au-dessus de chacune de ses
+        tangentes sur $I$.
+  \item Si $\abs{f'} \leq 2$ sur $\intervalle{0}{5}$, alors
+        $\abs{f(5)-f(0)} \leq 10$.
+  \item Si $f$ est dérivable et strictement croissante sur $\R$, alors
+        $f'(x) > 0$ pour tout $x$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — $x \mapsto \abs{x}$ n'est pas dérivable en $0$.
+\textbf{2.} Faux — il faut de plus qu'ils soient égaux.
+\textbf{3.} Faux — il faut un changement de signe ; contre-exemple
+$f(x) = x^{4}$.
+\textbf{4.} Vrai.
+\textbf{5.} Vrai — inégalité des accroissements finis avec $k = 2$.
+\textbf{6.} Faux — $f(x) = x^{3}$ est strictement croissante et $f'(0) = 0$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = \dfrac{x^{3}}{x^{2}+1}$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Étudier la parité de $f$ et en déduire un élément de symétrie de sa
+        courbe. \hfill\textup{(0,5 pt)}
+  \item Calculer $f'(x)$ et montrer que $f$ est strictement croissante
+        sur $\R$. \hfill\textup{(1 pt)}
+  \item Montrer que la droite d'équation $y = x$ est asymptote à la courbe en
+        $+\infty$ et en $-\infty$, et étudier la position relative de la
+        courbe et de cette droite. \hfill\textup{(1 pt)}
+  \item Calculer $f''(x)$ et déterminer les points d'inflexion de la courbe.
+        \hfill\textup{(1,5 pt)}
+  \item Montrer que pour tous réels $x$ et $y$,
+        $\abs{f(x)-f(y)} \leq \dfrac{9}{8}\abs{x-y}$.
+        \hfill\textup{(1 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} $f(-x) = \dfrac{-x^{3}}{x^{2}+1} = -f(x)$ : $f$ est impaire, sa
+courbe est symétrique par rapport à l'origine.
+
+\textbf{2.} $f'(x) = \dfrac{3x^{2}(x^{2}+1) - x^{3}\cdot 2x}{(x^{2}+1)^{2}}
+= \dfrac{x^{4}+3x^{2}}{(x^{2}+1)^{2}} = \dfrac{x^{2}(x^{2}+3)}{(x^{2}+1)^{2}} \geq 0$,
+nulle seulement en $0$ : $f$ est strictement croissante sur $\R$.
+
+\textbf{3.} $f(x) - x = \dfrac{x^{3}-x(x^{2}+1)}{x^{2}+1} = \dfrac{-x}{x^{2}+1} \to 0$
+aux deux infinis. Le signe de $f(x)-x$ est celui de $-x$ : la courbe est
+au-dessus de la droite pour $x<0$, au-dessous pour $x>0$.
+
+\textbf{4.} En dérivant $f'$ on obtient
+$f''(x) = \dfrac{2x(3-x^{2})}{(x^{2}+1)^{3}}$, qui s'annule en changeant de
+signe pour $x = -\sqrt{3}$, $x = 0$ et $x = \sqrt{3}$ : trois points
+d'inflexion.
+
+\textbf{5.} On étudie $f'$ : en posant $t = x^{2} \geq 0$,
+$f'(x) = \dfrac{t(t+3)}{(t+1)^{2}}$. Cette expression est maximale pour $t=3$,
+où elle vaut $\dfrac{3 \times 6}{16} = \dfrac{9}{8}$. Donc
+$0 \leq f'(x) \leq \dfrac{9}{8}$ sur $\R$, et l'inégalité des accroissements
+finis donne le résultat.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{D'après le concours d'entrée de l'ENI, Fianarantsoa}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = \dfrac{x^{2}+3x+4m}{x^{2}+(5m+1)x+3}$,
+où $m$ est un paramètre réel.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Pour $m = 0$, montrer que $f$ est dérivable sur $\R$ et calculer
+        $f'(x)$.
+  \item Toujours pour $m = 0$, déterminer le nombre de points de la courbe où
+        la tangente est horizontale.
+  \item Pour quelles valeurs de $m$ la tangente à la courbe au point
+        d'abscisse $0$ est-elle parallèle à la droite d'équation $y = x$ ?
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} Pour $m = 0$, le dénominateur vaut $x^{2}+x+3$, de discriminant
+$1-12 = -11 < 0$ : il ne s'annule jamais, donc $f_{0}$ est dérivable sur $\R$
+comme quotient de fonctions polynômes. En dérivant,
+\[
+  f_{0}'(x) = \frac{(2x+3)(x^{2}+x+3)-(x^{2}+3x)(2x+1)}{(x^{2}+x+3)^{2}}
+            = \frac{-2x^{2}+6x+9}{(x^{2}+x+3)^{2}} .
+\]
+
+\textbf{2.} Une tangente est horizontale lorsque $f_{0}'(x) = 0$, donc lorsque
+$-2x^{2}+6x+9 = 0$. Le discriminant vaut $36+72 = 108 > 0$ : deux racines
+réelles, donc \emph{deux} points à tangente horizontale.
+
+\textbf{3.} La tangente en $0$ est parallèle à $y = x$ lorsque $f_{m}'(0) = 1$.
+Or
+\[
+  f_{m}'(0) = \frac{3 \times 3 - 4m(5m+1)}{3^{2}} = \frac{9-20m^{2}-4m}{9},
+\]
+et l'égalité $f_{m}'(0) = 1$ donne $-4m(5m+1) = 0$, soit $m = 0$ ou
+$m = -\dfrac{1}{5}$. Ces deux valeurs conviennent : pour $m = -\frac15$ le
+dénominateur devient $x^{2}+3$, qui ne s'annule pas non plus.
+\end{corrige}
+
+
+% ===========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir porte sur ce chapitre
+et sur celui qui le précède. Les énoncés sont repris de sessions réelles et
+assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{D'après le baccalauréat probatoire, Cameroun, série C, session 2020 — exercice 3, partie I}{5 points}
+Le plan est rapporté à un repère orthonormé. On considère les points
+$A(0\,;6)$ et $B(-2\,;-4)$, et l'ensemble $(\Gamma)$ des points $M$ du plan
+vérifiant $AM^{2}+BM^{2} = 102$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Déterminer une équation cartésienne de $(\Gamma)$.
+        \hfill\textup{(2 pts)}
+  \item En déduire la nature de $(\Gamma)$ et ses éléments caractéristiques.
+        \hfill\textup{(1,5 pt)}
+  \item Vérifier que le centre de $(\Gamma)$ est le milieu $I$ de $[AB]$, et
+        retrouver le rayon à l'aide de l'égalité
+        $AM^{2}+BM^{2} = 2\,IM^{2}+\dfrac{AB^{2}}{2}$.
+        \hfill\textup{(1,5 pt)}
+\end{enumerate}
+
+\exods{2}{D'après le baccalauréat probatoire, Cameroun, série C, session 2021 — exercice 3}{7 points}
+Soit $f$ la fonction définie sur $\R\setminus\{1\}$ par
+$f(x) = \dfrac{x^{2}-4}{1-x}$, de courbe $(C)$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Vérifier que $f'(x) = \dfrac{-x^{2}+2x-4}{(1-x)^{2}}$.
+        \hfill\textup{(2 pts)}
+  \item Étudier le signe de $f'(x)$, puis donner le sens de variation de $f$
+        sur chacun des intervalles où elle est définie.
+        \hfill\textup{(2 pts)}
+  \item Déterminer une équation de la tangente $(T_{0})$ à $(C)$ au point
+        d'abscisse $0$. \hfill\textup{(1,5 pt)}
+  \item Étudier la position de $(C)$ par rapport à $(T_{0})$ sur
+        $\left]-\infty\,;1\right[$. \hfill\textup{(1,5 pt)}
+\end{enumerate}
+
+\exods{3}{D'après le baccalauréat probatoire, Cameroun, série D, session 2024 — exercice II}{8 points}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = -x^{3}+3x^{2}$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Calculer $f'(x)$ et étudier son signe. \hfill\textup{(1,5 pt)}
+  \item Dresser le tableau de variation de $f$ en précisant les deux
+        extremums locaux. \hfill\textup{(2 pts)}
+  \item Calculer $f''(x)$ et déterminer le point d'inflexion de la courbe de
+        $f$. \hfill\textup{(2 pts)}
+  \item Déterminer une équation de la tangente à la courbe en ce point
+        d'inflexion. \hfill\textup{(1,5 pt)}
+  \item On pose $g(x) = f(x-1)$. En déduire, sans nouveau calcul de dérivée,
+        le tableau de variation de $g$. \hfill\textup{(1 pt)}
+\end{enumerate}
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1. 1.} Pour $M(x\,;y)$,
+$AM^{2} = x^{2}+(y-6)^{2}$ et $BM^{2} = (x+2)^{2}+(y+4)^{2}$. La somme vaut
+$2x^{2}+2y^{2}+4x-4y+56$, et l'égalité $AM^{2}+BM^{2} = 102$ devient, après
+division par $2$,
+\[
+  x^{2}+y^{2}+2x-2y-23 = 0,
+  \qquad\text{soit}\qquad
+  (x+1)^{2}+(y-1)^{2} = 25 .
+\]
+
+\textbf{2.} C'est l'équation d'un cercle de centre $I(-1\,;1)$ et de rayon
+$5$.
+
+\textbf{3.} Le milieu de $[AB]$ a pour coordonnées
+$\left(\frac{0-2}{2}\,;\frac{6-4}{2}\right) = (-1\,;1)$ : c'est bien $I$. Par
+ailleurs $AB^{2} = (-2)^{2}+(-10)^{2} = 104$, donc l'égalité de la médiane
+donne $102 = 2\,IM^{2}+52$, d'où $IM^{2} = 25$ et $IM = 5$. On retrouve le
+cercle de centre $I$ et de rayon $5$ sans passer par les coordonnées.
+
+\medskip
+\textbf{Exercice 2. 1.} En dérivant le quotient,
+\[
+  f'(x) = \frac{2x(1-x)-\left(x^{2}-4\right)\times(-1)}{(1-x)^{2}}
+  = \frac{2x-2x^{2}+x^{2}-4}{(1-x)^{2}}
+  = \frac{-x^{2}+2x-4}{(1-x)^{2}} .
+\]
+
+\textbf{2.} Le trinôme $-x^{2}+2x-4$ a pour discriminant $4-16 = -12<0$ : il
+ne s'annule jamais et garde le signe de son coefficient dominant, donc il est
+strictement négatif. Le dénominateur étant strictement positif, $f'<0$ :
+$f$ décroît strictement sur $\left]-\infty\,;1\right[$ et sur
+$\intervalleo{1}{+\infty}$.
+
+\textbf{3.} $f(0) = \dfrac{-4}{1} = -4$ et
+$f'(0) = \dfrac{-4}{1} = -4$. La tangente a donc pour équation
+$y = -4(x-0)-4$, c'est-à-dire $y = -4x-4$.
+
+\textbf{4.} On étudie la différence :
+\[
+  f(x)-(-4x-4) = \frac{x^{2}-4}{1-x}+4x+4
+  = \frac{x^{2}-4+(4x+4)(1-x)}{1-x}
+  = \frac{-3x^{2}}{1-x} .
+\]
+Sur $\left]-\infty\,;1\right[$, le dénominateur est strictement positif et le
+numérateur négatif ou nul : la différence est négative, nulle seulement en
+$0$. La courbe est donc au-dessous de sa tangente sur tout cet intervalle,
+qu'elle touche au seul point de contact.
+
+\medskip
+\textbf{Exercice 3. 1.} $f'(x) = -3x^{2}+6x = -3x(x-2)$, négatif à
+l'extérieur de $\intervalle{0}{2}$ et positif à l'intérieur.
+
+\textbf{2.} La fonction décroît sur $\left]-\infty\,;0\right]$, croît sur
+$\intervalle{0}{2}$, décroît sur $\intervallefo{2}{+\infty}$. Elle admet un
+minimum local $f(0) = 0$ et un maximum local $f(2) = -8+12 = 4$. Les limites
+sont $+\infty$ en $-\infty$ et $-\infty$ en $+\infty$.
+
+\textbf{3.} $f''(x) = -6x+6$, qui s'annule en $x = 1$ en changeant de signe :
+la courbe est convexe avant $1$, concave après. Le point d'inflexion est
+$\left(1\,;f(1)\right) = (1\,;2)$.
+
+\textbf{4.} $f'(1) = -3+6 = 3$, donc la tangente en ce point a pour équation
+$y = 3(x-1)+2$, soit $y = 3x-1$.
+
+\textbf{5.} La courbe de $g$ se déduit de celle de $f$ par la translation qui
+déplace chaque point d'une unité vers la droite : les variations sont les
+mêmes, décalées de $1$. Ainsi $g$ décroît sur $\left]-\infty\,;1\right]$,
+croît sur $\intervalle{1}{3}$, décroît sur $\intervallefo{3}{+\infty}$, avec
+un minimum local $g(1) = 0$ et un maximum local $g(3) = 4$.
+\end{corrige}

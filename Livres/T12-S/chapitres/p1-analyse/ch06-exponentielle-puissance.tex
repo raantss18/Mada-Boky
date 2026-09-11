@@ -1,0 +1,959 @@
+% ===========================================================================
+%  Chapitre 6 — Exponentielle népérienne et fonctions puissances
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Exponentielle népérienne et fonctions puissances}
+  {Étudier et représenter la fonction exponentielle népérienne ; résoudre
+   équations, inéquations et systèmes exponentiels ; étudier les fonctions
+   puissances et les composées de l'exponentielle.}
+  {Analyse \textbullet\ environ 10 heures}
+
+Le chapitre précédent s'est achevé sur une phrase qui contient tout ce
+chapitre-ci : la fonction $\ln$ réalise une bijection de $\Rps$ sur $\R$. Une
+bijection possède une réciproque. Cette réciproque a un nom, l'exponentielle,
+et elle défait exactement ce que le logarithme fait.
+
+Rien n'est donc à réapprendre : chaque propriété du logarithme se retourne en
+une propriété de l'exponentielle, chaque courbe se déduit de l'autre par une
+symétrie. Ce qui change, c'est l'usage. Le logarithme sert à faire descendre
+un exposant ; l'exponentielle sert à modéliser tout ce qui croît
+proportionnellement à sa propre taille — une population, un capital, une
+décroissance radioactive. Elle sera au centre du chapitre suivant, celui des
+équations différentielles.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Le chapitre 5, et rien d'autre.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Donner l'ensemble de définition et le sens de variation de $\ln$.
+  \item Que valent $\ln 1$ et $\ln e$ ?
+  \item Rappeler $\ln(ab)$, $\ln\dfrac{a}{b}$ et $\ln(a^{n})$.
+  \item Donner $\displaystyle\lim_{x\to0^{+}}\ln x$ et $\limpinf \ln x$.
+  \item Quelle est la dérivée de $x \mapsto \ln u(x)$ ?
+  \item Rappeler la formule donnant la dérivée de la réciproque d'une
+        bijection.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $\ln 1$
+  \item $\ln e^{3}$ (en admettant $\ln e = 1$)
+  \item Résoudre $\ln x = 2$
+  \item $\ln 6 - \ln 3$
+  \item Dérivée de $x \mapsto \ln(5x)$
+  \item $\limpinf \dfrac{\ln x}{x}$
+  \item Une primitive de $x \mapsto \dfrac{1}{x}$ sur $\Rps$
+  \item Signe de $\ln x$ pour $0<x<1$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $0$ \quad b) $3$ \quad c) $x = e^{2}$ \quad d) $\ln 2$ \quad
+e) $\dfrac{1}{x}$ \quad f) $0$ \quad g) $\ln x$ \quad h) négatif.
+\end{corrige}
+
+% ===========================================================================
+\section{La fonction exponentielle}
+
+\begin{definition}[exponentielle népérienne]
+La fonction $\ln$ réalisant une bijection de $\Rps$ sur $\R$, elle admet une
+fonction réciproque. Cette réciproque est appelée \textbf{exponentielle
+népérienne}, notée $\exp$ ou $x \mapsto e^{x}$. Elle est définie sur $\R$, à
+valeurs dans $\Rps$, et caractérisée par
+\[
+  y = e^{x} \daccord x = \ln y \quad (x \in \R,\ y > 0).
+\]
+\end{definition}
+
+\begin{propriete}[les deux identités de base]
+\[
+  \ln\left(e^{x}\right) = x \ \text{ pour tout réel } x,
+  \qquad
+  e^{\ln y} = y \ \text{ pour tout } y>0 .
+\]
+En particulier $e^{0} = 1$ et $e^{1} = e$.
+\end{propriete}
+
+\begin{theoreme}[propriétés algébriques]
+Pour tous réels $x$ et $y$ et tout entier $n$ :
+\[
+  e^{x} > 0, \qquad
+  e^{x+y} = e^{x}e^{y}, \qquad
+  e^{x-y} = \frac{e^{x}}{e^{y}}, \qquad
+  e^{-y} = \frac{1}{e^{y}}, \qquad
+  \left(e^{x}\right)^{n} = e^{nx}.
+\]
+\end{theoreme}
+
+\begin{demonstration}[de la relation $e^{x+y} = e^{x}e^{y}$]
+Posons $a = e^{x}$ et $b = e^{y}$ ; ce sont deux réels strictement positifs, et
+par définition $\ln a = x$, $\ln b = y$. La propriété fondamentale du
+logarithme donne
+\[
+  \ln(ab) = \ln a + \ln b = x+y .
+\]
+En appliquant l'exponentielle aux deux membres — ce qui est licite puisque
+c'est la réciproque de $\ln$ — on obtient $ab = e^{x+y}$, c'est-à-dire
+$e^{x}e^{y} = e^{x+y}$.
+\end{demonstration}
+
+\begin{propriete}[variations et limites]
+La fonction $\exp$ est dérivable sur $\R$ et $\left(e^{x}\right)' = e^{x}$.
+Comme $e^{x}>0$, elle est \textbf{strictement croissante} sur $\R$. De plus
+\[
+  \limminf e^{x} = 0, \qquad \limpinf e^{x} = +\infty .
+\]
+La droite d'équation $y = 0$ est donc asymptote horizontale en $-\infty$.
+\end{propriete}
+
+\begin{demonstration}[de la dérivée]
+Appliquons le théorème de dérivation d'une réciproque à $f = \ln$ : pour
+$y = e^{x}$, on a $\ln'(y) = \dfrac{1}{y} \neq 0$, donc $\exp$ est dérivable
+en $x$ et
+\[
+  \exp'(x) = \frac{1}{\ln'\bigl(\exp(x)\bigr)} = \frac{1}{\ \frac{1}{e^{x}}\ } = e^{x}.
+\]
+L'exponentielle est ainsi l'unique fonction, à un facteur près, égale à sa
+propre dérivée — c'est la raison de sa présence dans tout le chapitre suivant.
+\end{demonstration}
+
+\begin{visualisation}[deux courbes symétriques]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 10.4cm, height = 6.6cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -3.4, xmax = 4.4, ymin = -3.4, ymax = 4.4,
+  xtick = {1}, ytick = {1},
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=-3.2:1.45, samples=140] {exp(x)};
+  \addplot[bmtVetiver, line width=1.3pt, domain=0.04:4.2, samples=200] {ln(x)};
+  \addplot[bmtGris, dashed, line width=0.75pt, domain=-3.2:4.2, samples=2] {x};
+  \node[bmtIndigo, font=\footnotesize, anchor=south] at (axis cs:1.5,3.5) {$y=e^{x}$};
+  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:3.3,1.4) {$y=\ln x$};
+  \node[bmtGris, font=\footnotesize, anchor=north west] at (axis cs:2.6,2.5) {$y=x$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Pliez mentalement la feuille le long de la droite grise : les deux courbes se
+superposent. C'est la signature d'une fonction et de sa réciproque, et cela
+suffit à transférer tout ce que vous savez de l'une vers l'autre.
+L'asymptote verticale du logarithme en $x=0$ devient l'asymptote horizontale
+de l'exponentielle en $-\infty$ ; la branche parabolique lente du logarithme
+devient la croissance explosive de l'exponentielle.
+\end{visualisation}
+
+\begin{theoreme}[limites usuelles]
+\[
+  \limpinf \frac{e^{x}}{x^{n}} = +\infty \ (n \geq 1), \qquad
+  \limminf x^{n}e^{x} = 0,
+\]
+\[
+  \lim_{x \to 0}\frac{e^{x}-1}{x} = 1 .
+\]
+\end{theoreme}
+
+\begin{remarque}
+Les deux premières formules disent la même chose que celles du logarithme, vues
+de l'autre côté : \emph{l'exponentielle l'emporte sur toute puissance de $x$}.
+En $+\infty$ elle écrase le dénominateur ; en $-\infty$ elle écrase le facteur
+polynomial. La troisième est le nombre dérivé de $\exp$ en $0$.
+\end{remarque}
+
+% ===========================================================================
+\section{Dérivées, primitives et composées}
+
+\begin{theoreme}[exponentielle composée]
+Soit $u$ dérivable sur un intervalle $I$. Alors $e^{u}$ est dérivable sur $I$
+et
+\[
+  \left(e^{u}\right)' = u'e^{u}, \qquad\text{et par conséquent}\qquad
+  \int u'(x)e^{u(x)}\dx = e^{u(x)} + k .
+\]
+\end{theoreme}
+
+\begin{exemple}[dériver et primitiver une exponentielle composée]
+\emph{Dérivée.} Pour $f(x) = e^{-x^{2}}$, on pose $u(x) = -x^{2}$, d'où
+$u'(x) = -2x$ et $f'(x) = -2x\,e^{-x^{2}}$. Le signe de $f'$ est celui de
+$-x$ : la fonction croît sur $\left]-\infty;0\right]$ puis décroît, avec un
+maximum $f(0) = 1$.
+
+\smallskip
+\emph{Primitive.} Pour $g(x) = x\,e^{x^{2}}$, on reconnaît
+$\dfrac{1}{2}\times 2x\,e^{x^{2}} = \dfrac{1}{2}u'e^{u}$ avec $u = x^{2}$ :
+une primitive est $\dfrac{1}{2}e^{x^{2}}$.
+\end{exemple}
+
+\begin{entrainement}[dérivées et primitives]
+\exo[\niveau{1}] Dériver $x \mapsto e^{3x}$, $x \mapsto e^{-x}$ et
+$x \mapsto xe^{x}$.
+
+\exo[\niveau{2}] Dériver $x \mapsto \dfrac{e^{x}}{x}$ sur $\Rs$, puis
+$x \mapsto e^{\sqrt{x}}$ sur $\Rps$.
+
+\exo[\niveau{2}] Déterminer une primitive de $x \mapsto e^{2x+1}$, puis de
+$x \mapsto \dfrac{e^{x}}{e^{x}+1}$.
+
+\exo[\niveau{3}] Calculer $\displaystyle\int_{0}^{1} xe^{x}\dx$ par une
+intégration par parties.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $3e^{3x}$ ; \ $-e^{-x}$ ; \ $(x+1)e^{x}$.
+
+\textbf{2.} $\dfrac{(x-1)e^{x}}{x^{2}}$ ; \
+$\dfrac{e^{\sqrt{x}}}{2\sqrt{x}}$.
+
+\textbf{3.} $\dfrac{1}{2}e^{2x+1}$ ; \ la seconde est de la forme
+$\dfrac{u'}{u}$ avec $u = e^{x}+1>0$, donc $\ln\left(e^{x}+1\right)$.
+
+\textbf{4.} $u=x$, $v'=e^{x}$ :
+$\bigl[xe^{x}\bigr]_{0}^{1} - \int_{0}^{1}e^{x}\dx = e - (e-1) = 1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Équations, inéquations et systèmes}
+
+\begin{propriete}[la stricte croissance, encore]
+Pour tous réels $a$ et $b$ :
+\[
+  e^{a} = e^{b} \daccord a = b, \qquad e^{a} \leq e^{b} \daccord a \leq b .
+\]
+Et pour $c>0$ : $e^{a} = c \daccord a = \ln c$.
+\end{propriete}
+
+\begin{remarque}
+Contrairement au logarithme, aucune condition d'existence n'est à poser :
+l'exponentielle est définie sur $\R$ tout entier. En revanche, une équation du
+type $e^{u(x)} = c$ n'a de solution que si $c>0$ — l'exponentielle ne prend
+jamais de valeur négative ni nulle.
+\end{remarque}
+
+\begin{exemple}[une équation qui se ramène au second degré]
+Résolvons $e^{2x} - 3e^{x} + 2 = 0$ dans $\R$.
+
+Posons $X = e^{x}$, avec la contrainte $X>0$. L'équation devient
+$X^{2}-3X+2 = 0$, de racines $X = 1$ et $X = 2$, toutes deux strictement
+positives.
+
+\smallskip
+$e^{x} = 1$ donne $x = \ln 1 = 0$ ; \quad $e^{x} = 2$ donne $x = \ln 2$.
+
+\smallskip
+L'ensemble des solutions est donc $\left\{0\,;\ln 2\right\}$.
+\end{exemple}
+
+\begin{erreurclassique}
+Après le changement d'inconnue $X = e^{x}$, une racine négative de l'équation
+en $X$ ne donne \emph{aucune} solution : il n'existe pas de réel $x$ tel que
+$e^{x} = -3$. Beaucoup de copies écrivent alors « $x = \ln(-3)$ », ce qui n'a
+pas de sens. Écartez la racine et dites pourquoi.
+\end{erreurclassique}
+
+\begin{exemple}[un système exponentiel]
+Résolvons
+$\begin{cases} e^{x} + e^{y} = 5 \\ e^{x}\,e^{y} = 6 \end{cases}$.
+
+Posons $X = e^{x}>0$ et $Y = e^{y}>0$. Le système dit que $X$ et $Y$ ont pour
+somme $5$ et pour produit $6$ : ce sont les racines de $t^{2}-5t+6 = 0$, soit
+$2$ et $3$.
+
+Deux couples conviennent : $(X;Y) = (2;3)$ ou $(3;2)$, d'où
+$(x;y) = (\ln 2\,;\ln 3)$ ou $(\ln 3\,;\ln 2)$.
+\end{exemple}
+
+\begin{entrainement}[équations et inéquations]
+\exo[\niveau{1}] Résoudre $e^{x} = 7$, puis $e^{2x-1} = 1$.
+
+\exo[\niveau{2}] Résoudre $e^{2x} - 5e^{x} + 6 = 0$.
+
+\exo[\niveau{2}] Résoudre l'inéquation $e^{x^{2}-3x} \leq 1$.
+
+\exo[\niveau{3}] Résoudre le système
+$\begin{cases} 2e^{x} + 3e^{y} = 13 \\ e^{x} - e^{y} = -1 \end{cases}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $x = \ln 7$ ; \ $2x-1 = 0$ donc $x = \tfrac12$.
+
+\textbf{2.} Avec $X = e^{x}$ : $X = 2$ ou $X = 3$, d'où
+$x \in \{\ln 2\,;\ln 3\}$.
+
+\textbf{3.} $e^{X} \leq 1 = e^{0}$ équivaut à $X \leq 0$, soit
+$x^{2}-3x \leq 0$ : solutions $\intervalle{0}{3}$.
+
+\textbf{4.} Avec $X = e^{x}$, $Y = e^{y}$ : $2X+3Y = 13$ et $X-Y = -1$. On
+obtient $X = 2$ et $Y = 3$, donc $x = \ln 2$ et $y = \ln 3$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les fonctions puissances}
+
+\begin{definition}[puissance d'exposant réel]
+Pour $a>0$ et $x$ réel, on pose
+\[
+  a^{x} = e^{x\ln a}.
+\]
+Plus généralement, si $u$ et $v$ sont deux fonctions avec $u>0$, on pose
+$u(x)^{v(x)} = e^{v(x)\ln u(x)}$.
+\end{definition}
+
+\begin{propriete}
+La fonction $x \mapsto a^{x}$ est définie et dérivable sur $\R$, de dérivée
+$x \mapsto (\ln a)\,a^{x}$. Elle est strictement croissante si $a>1$,
+strictement décroissante si $0<a<1$, constante égale à $1$ si $a = 1$.
+\end{propriete}
+
+\begin{exemple}[dériver une puissance à exposant variable]
+Dérivons $f(x) = x^{x}$ sur $\Rps$.
+
+Par définition, $f(x) = e^{x\ln x}$. En posant $u(x) = x\ln x$, on a
+$u'(x) = \ln x + 1$, donc
+\[
+  f'(x) = (\ln x + 1)\,e^{x\ln x} = (\ln x + 1)\,x^{x}.
+\]
+Comme $x^{x}>0$, le signe de $f'$ est celui de $\ln x + 1$ : $f$ décroît sur
+$\intervalleof{0}{e^{-1}}$ et croît ensuite, avec un minimum
+$f(e^{-1}) = e^{-1/e}$.
+\end{exemple}
+
+\begin{entrainement}[fonctions puissances]
+\exo[\niveau{1}] Écrire $2^{x}$ et $3^{-x}$ sous forme exponentielle, puis les
+dériver.
+
+\exo[\niveau{2}] Résoudre $3^{x} = 5$, puis $2^{x} = 3^{x-1}$.
+
+\exo[\niveau{3}] Étudier les variations de $f(x) = x^{1/x}$ sur $\Rps$ et
+déterminer son maximum.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $2^{x} = e^{x\ln 2}$, de dérivée $(\ln 2)2^{x}$ ; \
+$3^{-x} = e^{-x\ln 3}$, de dérivée $-(\ln 3)3^{-x}$.
+
+\textbf{2.} $x\ln 3 = \ln 5$ donne $x = \dfrac{\ln 5}{\ln 3}$. Pour la seconde,
+$x\ln 2 = (x-1)\ln 3$, d'où $x = \dfrac{\ln 3}{\ln 3 - \ln 2} = \dfrac{\ln3}{\ln(3/2)}$.
+
+\textbf{3.} $f(x) = e^{\frac{\ln x}{x}}$ ; la dérivée a le signe de
+$\left(\dfrac{\ln x}{x}\right)' = \dfrac{1-\ln x}{x^{2}}$, positif pour $x<e$.
+Maximum $f(e) = e^{1/e}$.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Ce que les correcteurs attendent ici tient en une phrase : que l'exponentielle
+soit maniée comme un outil, non comme une difficulté. Les énoncés qui suivent
+sont repris de sessions réelles ; leur provenance est indiquée à chaque fois.
+Les derniers étaient, dans le sujet d'origine, des questions de limite, de
+dérivation, d'étude de fonction ou de calcul intégral : la notion qu'ils font
+travailler en plus de l'exponentielle est signalée entre parenthèses, à la
+suite de la provenance.
+
+\exoann{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 5}
+Soit $f(x) = xe^{-x}$ sur $\intervallefo{0}{+\infty}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $\lim_{x\to+\infty}f(x)$, puis $f'(x)$, et dresser le tableau
+        de variation.
+  \item Construire la courbe de $f$.
+  \item Montrer que l'équation $f(x) = \frac14$ admet une solution unique
+        $\alpha$ dans $\intervalleo{0}{1}$.
+  \item On pose $u_{0} = \alpha$ et $u_{n+1} = u_{n}e^{-u_{n}}$. Montrer que
+        $(u_{n})$ est décroissante et minorée, puis déterminer sa limite.
+\end{enumerate}
+
+\exoann{Baccalauréat, Burkina Faso, série D, session 2023 — exercice 2}
+Soit la suite définie par $U_{0} = 2$ et
+$\ln\!\left(U_{n+1}\right) = 1+\ln\!\left(U_{n}\right)$ pour tout
+$n\in\N$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $U_{n+1} = eU_{n}$, puis que $(U_{n})$ est géométrique.
+  \item Exprimer $U_{n}$ en fonction de $n$, étudier la monotonie et la limite.
+  \item Calculer $S_{n} = U_{0}+U_{1}+\cdots+U_{n}$.
+  \item Exprimer $S_{n}' = \ln U_{1}+\ln U_{2}+\cdots+\ln U_{n}$, puis
+        calculer $P = U_{1}\times U_{2}\times\cdots\times U_{n}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Burkina Faso, série D, session 2023 — problème, partie B}
+Soit $f(x) = (x+2)e^{-x}-1$ sur $\intervallefo{0}{+\infty}$. Calculer
+$\lim_{x\to+\infty}f(x)$, puis $f'(x)$, dresser le tableau de variation et
+montrer que $f$ s'annule une fois et une seule sur
+$\intervallefo{0}{+\infty}$.
+
+\exoann{Baccalauréat, Côte d'Ivoire, série C, session 2024 — exercice 5}
+Soit $f(x) = e^{\sqrt x}$ sur $\intervallefo{0}{+\infty}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $\lim_{x\to+\infty}f(x)$.
+  \item Étudier la dérivabilité de $f$ en $0$ et interpréter graphiquement.
+  \item Calculer $f'(x)$ pour $x>0$, dresser le tableau de variation et
+        construire la courbe.
+\end{enumerate}
+
+\exoann{Baccalauréat, Congo-Brazzaville, série C, session 2022 — exercice 3}
+Soit $g(x) = e^{x}(1-x)-1$ sur $\R$. Étudier les variations de $g$ et en
+déduire que $g(x) \leq 0$ pour tout réel $x$, l'égalité n'ayant lieu qu'en
+$0$.
+
+\exoann{Baccalauréat, Cameroun, séries C et E, session 2024 — exercice 3}
+Soit $f(x) = e^{-x^{2}}$ sur $\R$. Étudier les variations de $f$ et en déduire
+un encadrement de $f(x)$ pour $x$ appartenant à $\intervalle{0}{1}$.
+
+\exoann{Baccalauréat, Bénin, série C, session 2023 — problème 2}
+Pour $m\in\N$, soit $f_{m}(x) = 2xe^{-x^{2}}+e^{-x}+m$ sur $\R$, de courbe
+$(\mathcal C_{m})$. Montrer que $(\mathcal C_{m})$ se déduit de
+$(\mathcal C_{0})$ par une transformation à préciser, puis représenter
+$(\mathcal C_{0})$, $(\mathcal C_{1})$ et $(\mathcal C_{2})$ dans un même
+repère.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2022 — problème 2}
+Soit $f$ définie sur $\intervalleo{0}{+\infty}$ par $f(x) = x-2+e^{-1/x}$.
+Calculer $f'(x)$, montrer que $f$ est strictement croissante, puis dresser le
+tableau de variation.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — problème 2}
+Soit $f(x) = \dfrac{2}{1+e^{-x}}$ sur $\intervallefo{0}{+\infty}$. Montrer
+que $f(x) = \dfrac{2e^{x}}{e^{x}+1}$, calculer $f'(x)$, puis déterminer les
+limites et le tableau de variation.
+
+\exoann{Baccalauréat, Mauritanie, série C, session 2022 — exercice 5}
+Pour $n\in\N^{*}$, soit $g_{n}(x) = x^{n}e^{-x}$. En utilisant les
+croissances comparées de la fonction puissance et de l'exponentielle,
+calculer $\lim_{x\to+\infty}g_{n}(x)$ et
+$\lim_{x\to+\infty}\dfrac{g_{n}(x)}{x^{n}}$. Que peut-on en conclure sur la
+place de $x \mapsto x^{n}$ vis-à-vis de $x \mapsto e^{x}$ ?
+
+\exoann[limites et continuité]{Baccalauréat, Madagascar, série D, session 2022 — problème, question 1}
+Soit $f$ définie sur $\intervallefo{-1}{+\infty}$ par $f(-1) = e$ et
+$f(x) = (x+1)\ln(x+1)+e^{-x}$ si $x>-1$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Étudier la continuité à droite de $f$ en $x_{0} = -1$.
+  \item Montrer que
+        $\displaystyle\lim_{x\to-1^{+}}\frac{f(x)-f(-1)}{x+1} = -\infty$ et
+        interpréter graphiquement.
+\end{enumerate}
+
+\exoann[limites et continuité]{Baccalauréat, Madagascar, série S, session 2021 — problème 2, partie A}
+Soit $f$ définie sur $\R$ par
+$f(x) = 1+x\ln\!\left(1-\dfrac1x\right)$ si $x<0$, et
+$f(x) = \dfrac{2}{1+e^{-x}}$ si $x \geq 0$. Montrer que $f$ est continue en
+$x_{0} = 0$.
+
+\exoann[limites et continuité]{Baccalauréat, Madagascar, série S, session 2023 — problème 2, partie A}
+Pour $n\in\N^{*}$, soit $f_{n}(x) = e^{nx}\ln\!\left(1+e^{-nx}\right)$,
+définie sur $\R$. Calculer les limites de $f_{n}$ aux bornes de son ensemble
+de définition.
+
+\exoann[limites et continuité]{Baccalauréat, Côte d'Ivoire, série C, session 2021 — exercice 5}
+Soit $g(x) = \ln\!\left(e^{x}+2e^{-x}\right)$, définie sur $\R$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Démontrer que $g(x) = x+\ln\!\left(1+2e^{-2x}\right)$ pour tout réel
+        $x$, puis en déduire $\lim_{x\to+\infty}\bigl[g(x)-x\bigr]$.
+  \item Calculer $g'(x)$, étudier son signe et déterminer le minimum de $g$.
+\end{enumerate}
+
+\exoann[dérivabilité]{Baccalauréat, Madagascar, série S, session 2022 — problème 2}
+Soit $f$ définie sur $\intervallefo{0}{+\infty}$ par $f(0) = -2$ et
+$f(x) = x-2+e^{-1/x}$ pour $x>0$. Étudier la continuité puis la dérivabilité
+de $f$ à droite en $0$.
+
+\exoann[dérivabilité]{Baccalauréat, Bénin, série C, session 2023 — problème 2}
+Soit $f_{0}$ définie sur $\R$ par $f_{0}(x) = 2xe^{-x^{2}}+e^{-x}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $f_{0}$ est dérivable sur $\R$ et calculer $f_{0}'(x)$.
+  \item Justifier que $f_{0}'(x)<0$ sur
+        $\left]-\infty\,;-\frac{\sqrt2}{2}\right] \cup
+         \left[\frac{\sqrt2}{2}\,;+\infty\right[$.
+\end{enumerate}
+
+\exoann[dérivabilité]{Baccalauréat, Madagascar, série S, session 2026 — problème 2, partie A}
+Pour $n\in\N^{*}$, soit $f_{n}(x) = (x+1)^{n}e^{-x}$ sur $\R$. Calculer
+$f_{n}'(x)$, puis dresser le tableau de variation de $f_{n}$ en distinguant
+selon la parité de $n$.
+
+\exoann[étude de fonction]{Baccalauréat, Côte d'Ivoire, série C, session 2023 — exercice 4}
+Pour $m$ réel, soit $f_{m}(x) = x+\ln\!\left(1-me^{-x}\right)$, définie sur
+$D_{m}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer $D_{m}$ suivant les valeurs de $m$.
+  \item Montrer que $f_{m}'(x) = \dfrac{e^{x}}{e^{x}-m}$ et étudier la
+        monotonie de $f_{m}$.
+  \item Démontrer que $f_{m}$ est bijective sur $D_{m}$, puis établir que
+        $f_{m}^{-1} = f_{-m}$.
+  \item Pour $m>0$ et $p>0$, justifier que $(\mathcal C_{p})$ est l'image de
+        $(\mathcal C_{1})$ par la translation de vecteur
+        $\ln p\,\left(\vecu+\vecv\right)$.
+\end{enumerate}
+
+\exoann[calcul intégral]{Baccalauréat, Mauritanie, série C, session 2022 — exercice 5}
+On pose $I_{0} = \displaystyle\int_{0}^{1}e^{-x}\dx$ et, pour $n\in\N^{*}$,
+$I_{n} = \displaystyle\int_{0}^{1}x^{n}e^{-x}\dx$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Justifier que $I_{0} = 1-\dfrac1e$.
+  \item Par une intégration par parties, montrer que
+        $I_{n+1} = (n+1)I_{n}-e^{-1}$.
+  \item Montrer que $\dfrac{1}{(n+1)e} \leq I_{n} \leq \dfrac{1}{n+1}$ et en
+        déduire $\lim_{n\to+\infty}I_{n}$.
+  \item On pose $u_{n} = \dfrac{I_{n}}{n!}$. Montrer que
+        $u_{n+1}-u_{n} = \dfrac{-e^{-1}}{(n+1)!}$, puis que
+        $e\left(1-u_{n}\right) = \displaystyle\sum_{k=0}^{n}\frac{1}{k!}$.
+\end{enumerate}
+
+\exoann[calcul intégral]{Baccalauréat, Madagascar, série S, session 2026 — problème 2, partie C}
+Pour $n\in\N^{*}$, on pose
+$I_{n} = \displaystyle\int_{-1}^{0}(x+1)^{n}e^{-x}\dx$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $I_{1}$ et interpréter le résultat graphiquement.
+  \item Étudier le sens de variation de la suite $(I_{n})$.
+  \item Établir l'encadrement
+        $\dfrac{1}{n+1} \leq I_{n} \leq \dfrac{e}{n+1}$, puis en déduire
+        $\lim_{n\to+\infty}I_{n}$.
+\end{enumerate}
+
+\exoann[calcul intégral]{Baccalauréat, Cameroun, séries D et TI, session 2024 — exercice 3}
+Calculer $\displaystyle\int_{0}^{2}(x+0{,}5)e^{-2x}\dx$ par une intégration
+par parties.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $f(x) = xe^{-x}\to0$ en $+\infty$ par croissances comparées.
+$f'(x) = (1-x)e^{-x}$, positive sur $\intervalle{0}{1}$, négative ensuite :
+$f$ croît de $0$ à $\frac1e$ puis décroît vers $0$. Comme
+$\frac14 < \frac1e$ et que $f$ est continue et strictement croissante sur
+$\intervalle{0}{1}$, l'équation $f(x) = \frac14$ y admet exactement une
+solution $\alpha$. Enfin $u_{n+1} = f(u_{n})$ ; comme $e^{-u}<1$ pour $u>0$,
+on a $u_{n+1}<u_{n}$, et tous les termes restent positifs : la suite est
+décroissante et minorée par $0$, donc convergente. Sa limite $\ell$ vérifie
+$\ell = \ell e^{-\ell}$, d'où $\ell = 0$.
+
+\textbf{2.} La relation donne $\ln U_{n+1} = \ln\!\left(eU_{n}\right)$, donc
+$U_{n+1} = eU_{n}$ : la suite est géométrique de raison $e$ et de premier
+terme $2$, d'où $U_{n} = 2e^{n}$. Comme $e>1$, elle est croissante et tend
+vers $+\infty$. La somme vaut
+$S_{n} = 2\dfrac{e^{n+1}-1}{e-1}$. Enfin
+$S_{n}' = \sum_{k=1}^{n}\left(\ln2+k\right) = n\ln2+\frac{n(n+1)}{2}$, et
+$P = e^{S_{n}'} = 2^{n}e^{n(n+1)/2}$.
+
+\textbf{3.} $(x+2)e^{-x}\to0$, donc $f(x)\to-1$. On a
+$f'(x) = e^{-x}-(x+2)e^{-x} = -(x+1)e^{-x}$, strictement négative sur
+$\intervallefo{0}{+\infty}$ : $f$ décroît de $f(0) = 1$ vers $-1$. Continue et
+strictement décroissante, changeant de signe, elle s'annule une fois
+exactement.
+
+\textbf{4. a)} $\sqrt x\to+\infty$ donc $f(x)\to+\infty$.
+\textbf{b)} Le taux vaut $\dfrac{e^{\sqrt x}-1}{x}
+= \dfrac{e^{\sqrt x}-1}{\sqrt x}\cdot\dfrac{1}{\sqrt x}$ ; le premier facteur
+tend vers $1$ et le second vers $+\infty$ : la limite est $+\infty$, $f$ n'est
+pas dérivable en $0$ et la courbe y admet une demi-tangente verticale.
+\textbf{c)} Pour $x>0$, $f'(x) = \dfrac{e^{\sqrt x}}{2\sqrt x}>0$ : $f$ croît
+de $1$ à $+\infty$.
+
+\textbf{5.} $g'(x) = e^{x}(1-x)-e^{x} = -xe^{x}$ : $g$ croît sur
+$\left]-\infty\,;0\right]$ et décroît sur $\intervallefo{0}{+\infty}$. Son
+maximum est $g(0) = 1-1 = 0$, atteint en $0$ seulement : $g(x)\leq0$ partout.
+
+\textbf{6.} $f'(x) = -2xe^{-x^{2}}$, du signe de $-x$ : $f$ croît sur
+$\left]-\infty\,;0\right]$ et décroît ensuite, avec pour maximum $f(0) = 1$.
+Sur $\intervalle{0}{1}$ elle décroît de $1$ à $e^{-1}$, donc
+$\frac1e \leq f(x) \leq 1$.
+
+\textbf{7.} $f_{m}(x) = f_{0}(x)+m$ : la courbe $(\mathcal C_{m})$ est
+l'image de $(\mathcal C_{0})$ par la translation de vecteur $m\vecj$. Il
+suffit donc de tracer $(\mathcal C_{0})$ puis de la relever d'une unité, puis
+de deux.
+
+\textbf{8.} $f'(x) = 1+\dfrac{1}{x^{2}}e^{-1/x}$, somme de deux quantités
+strictement positives : $f$ est strictement croissante sur
+$\intervalleo{0}{+\infty}$, de $-2$ (limite à droite en $0$) à $+\infty$.
+
+\textbf{9.} En multipliant numérateur et dénominateur par $e^{x}$ :
+$f(x) = \frac{2e^{x}}{e^{x}+1}$. Alors
+$f'(x) = \dfrac{2e^{x}\left(e^{x}+1\right)-2e^{x}\cdot e^{x}}{\left(e^{x}+1\right)^{2}}
+= \dfrac{2e^{x}}{\left(e^{x}+1\right)^{2}}>0$. La fonction croît de
+$f(0) = 1$ vers $2$, la droite $y = 2$ étant asymptote.
+
+\textbf{10.} Les croissances comparées donnent $g_{n}(x)\to0$ en $+\infty$ :
+l'exponentielle l'emporte sur toute puissance. Le quotient
+$\frac{g_{n}(x)}{x^{n}} = e^{-x}$ tend également vers $0$. Autrement dit
+$x^{n}$ est négligeable devant $e^{x}$ en $+\infty$, quel que soit l'exposant
+$n$.
+
+\textbf{11. a)} En posant $X = x+1 \to 0^{+}$, on a
+$(x+1)\ln(x+1) = X\ln X \to 0$ et $e^{-x} \to e^{1} = e$. Donc
+$f(x) \to e = f(-1)$ : $f$ est continue à droite en $-1$.
+\textbf{b)} Le taux vaut
+$\dfrac{X\ln X+e^{1-X}-e}{X} = \ln X+\dfrac{e^{1-X}-e}{X}$ ; le premier terme
+tend vers $-\infty$ et le second vers $-e$, qui est un nombre dérivé. La
+limite est $-\infty$ : la courbe admet en ce point une demi-tangente
+verticale.
+
+\textbf{12.} À gauche, $x\ln\!\left(1-\frac1x\right) \to 0$ quand
+$x\to0^{-}$, donc $f(x)\to1$. À droite, $e^{-x}\to1$ donc
+$f(x)\to\frac22 = 1$. Enfin $f(0) = 1$ : les trois valeurs coïncident, $f$ est
+continue en $0$.
+
+\textbf{13.} En $+\infty$ : $X = e^{-nx}\to0$ et
+$f_{n}(x) = \dfrac{\ln(1+X)}{X}\to1$. En $-\infty$ : $e^{nx}\to0$ tandis que
+$\ln\!\left(1+e^{-nx}\right)\to+\infty$ ; l'exponentielle l'emportant sur le
+logarithme, le produit tend vers $0$.
+
+\textbf{14. a)} $e^{x}+2e^{-x} = e^{x}\left(1+2e^{-2x}\right)$, et le
+logarithme d'un produit est la somme des logarithmes :
+$g(x) = x+\ln\!\left(1+2e^{-2x}\right)$. Comme $e^{-2x}\to0$ en $+\infty$,
+$g(x)-x \to \ln 1 = 0$ : la droite $y = x$ est asymptote.
+\textbf{b)} $g'(x) = \dfrac{e^{x}-2e^{-x}}{e^{x}+2e^{-x}}$, du signe de
+$e^{2x}-2$ : négatif avant $\frac{\ln2}{2}$, positif après. Le minimum vaut
+$g\!\left(\frac{\ln2}{2}\right) = \ln\!\left(\sqrt2+\sqrt2\right)
+= \ln\!\left(2\sqrt2\right) = \frac32\ln2$.
+
+\textbf{15.} Quand $x\to0^{+}$, $-\frac1x\to-\infty$ donc $e^{-1/x}\to0$ et
+$f(x)\to-2 = f(0)$ : $f$ est continue à droite. Le taux vaut
+$\frac{f(x)-f(0)}{x} = 1+\frac{e^{-1/x}}{x}$ ; en posant
+$X = \frac1x\to+\infty$, $\frac{e^{-1/x}}{x} = Xe^{-X}\to0$. Donc
+$f'_{d}(0) = 1$.
+
+\textbf{16. a)} $f_{0}'(x) = 2e^{-x^{2}}-4x^{2}e^{-x^{2}}-e^{-x}
+= \left(2-4x^{2}\right)e^{-x^{2}}-e^{-x}$.
+\textbf{b)} Si $\abs{x} \geq \frac{\sqrt2}{2}$ alors $x^{2}\geq\frac12$, donc
+$2-4x^{2} \leq 0$ : le premier terme est négatif ou nul, le second est
+strictement négatif. La somme est strictement négative.
+
+\textbf{17.} $f_{n}'(x) = n(x+1)^{n-1}e^{-x}-(x+1)^{n}e^{-x}
+= (x+1)^{n-1}e^{-x}\,(n-1-x)$. Les valeurs remarquables sont $-1$ et $n-1$.
+Si $n$ est impair, $(x+1)^{n-1}\geq0$ : $f_{n}$ croît jusqu'à $n-1$ puis
+décroît. Si $n$ est pair, $(x+1)^{n-1}$ a le signe de $x+1$ : $f_{n}$ décroît
+sur $\left]-\infty\,;-1\right]$, croît sur $\intervalle{-1}{n-1}$, décroît
+ensuite.
+
+\textbf{18.} On écrit $1-me^{-x} = \dfrac{e^{x}-m}{e^{x}}$, d'où
+$f_{m}(x) = \ln\!\left(e^{x}-m\right)$. Si $m \leq 0$, $D_{m} = \R$ ; si
+$m>0$, $D_{m} = \intervalleo{\ln m}{+\infty}$. Alors
+$f_{m}'(x) = \frac{e^{x}}{e^{x}-m}>0$ : $f_{m}$ est strictement croissante,
+donc bijective de $D_{m}$ sur $\R$. En résolvant $y = \ln(e^{x}-m)$ on obtient
+$x = \ln\!\left(e^{y}+m\right) = f_{-m}(y)$. Enfin
+$f_{1}(x-\ln p)+\ln p = \ln\!\left(\frac{e^{x}}{p}-1\right)+\ln p
+= \ln\!\left(e^{x}-p\right) = f_{p}(x)$ : la translation annoncée envoie bien
+$(\mathcal C_{1})$ sur $(\mathcal C_{p})$.
+
+\textbf{19.} $I_{0} = \left[-e^{-x}\right]_{0}^{1} = 1-\frac1e$. Pour la
+relation de récurrence, on pose $u = x^{n+1}$ et $v' = e^{-x}$ :
+$I_{n+1} = \left[-x^{n+1}e^{-x}\right]_{0}^{1}
++(n+1)\int_{0}^{1}x^{n}e^{-x}\dx = -e^{-1}+(n+1)I_{n}$. Sur
+$\intervalle{0}{1}$ on a $e^{-1} \leq e^{-x} \leq 1$ ; en multipliant par
+$x^{n}\geq0$ et en intégrant, $\frac{e^{-1}}{n+1} \leq I_{n} \leq
+\frac{1}{n+1}$, donc $I_{n}\to0$. Enfin
+$u_{n+1}-u_{n} = \frac{(n+1)I_{n}-e^{-1}}{(n+1)!}-\frac{I_{n}}{n!}
+= \frac{-e^{-1}}{(n+1)!}$ ; en sommant ces égalités de $0$ à $n-1$ et en
+utilisant $u_{0} = 1-\frac1e$, on obtient
+$u_{n} = 1-\frac1e\sum_{k=0}^{n}\frac{1}{k!}$, c'est-à-dire
+$e\left(1-u_{n}\right) = \sum_{k=0}^{n}\frac{1}{k!}$.
+
+\textbf{20.} $I_{1} = \left[-(x+1)e^{-x}\right]_{-1}^{0}
++\int_{-1}^{0}e^{-x}\dx = -1+(e-1) = e-2$ : c'est l'aire, en unités d'aire,
+du domaine compris entre la courbe de $x\mapsto(x+1)e^{-x}$, l'axe des
+abscisses et les droites $x = -1$ et $x = 0$. Sur $\intervalle{-1}{0}$ on a
+$0 \leq x+1 \leq 1$, donc $(x+1)^{n+1} \leq (x+1)^{n}$ et
+$I_{n+1} \leq I_{n}$ : la suite décroît. De $1 \leq e^{-x} \leq e$ on tire,
+après multiplication par $(x+1)^{n}$ et intégration,
+$\frac{1}{n+1} \leq I_{n} \leq \frac{e}{n+1}$ ; les deux bornes tendent vers
+$0$, donc $I_{n}\to0$.
+
+\textbf{21.} Avec $u = x+0{,}5$ et $v' = e^{-2x}$ :
+\[
+  \int_{0}^{2}(x+0{,}5)e^{-2x}\dx
+  = \left[-\tfrac12(x+0{,}5)e^{-2x}\right]_{0}^{2}
+  +\tfrac12\int_{0}^{2}e^{-2x}\dx
+  = 0{,}5-1{,}5e^{-4}.
+\]
+\end{corrige}
+
+\begin{jecherche}[la culture de spiruline]
+Une ferme de spiruline près de Tuléar suit sa production. La masse d'algues,
+en kilogrammes, $t$ jours après l'ensemencement, est modélisée par
+\[
+  m(t) = \frac{40}{1+9e^{-0{,}25t}}, \qquad t \geq 0 .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Calculer $m(0)$ et interpréter ce nombre.
+  \item Déterminer $\limpinf m(t)$ et interpréter le résultat pour la ferme.
+  \item Montrer que $m$ est strictement croissante sur $\left[0;+\infty\right[$.
+  \item Au bout de combien de jours la masse atteint-elle $20$ kg ? Donner la
+        valeur exacte, puis une valeur approchée à un jour près.
+  \item Le bassin doit être récolté lorsque la masse dépasse $35$ kg. Quel jour
+        la récolte aura-t-elle lieu ?
+  \item Étudier le signe de $m''$ et déterminer le jour où la croissance est la
+        plus rapide. Que représente concrètement ce point d'inflexion pour
+        l'exploitant ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[la culture de spiruline]
+\textbf{1.} $m(0) = \dfrac{40}{1+9} = 4$ : la ferme ensemence quatre
+kilogrammes d'algues.
+
+\textbf{2.} $e^{-0{,}25t} \to 0$, donc $m(t) \to 40$. Le bassin sature à
+quarante kilogrammes : c'est sa capacité biologique, jamais tout à fait
+atteinte.
+
+\textbf{3.} $m'(t) = \dfrac{90\,e^{-0{,}25t}}{\left(1+9e^{-0{,}25t}\right)^{2}} > 0$ :
+la masse croît sans jamais décroître.
+
+\textbf{4.} $m(t) = 20$ équivaut à $1+9e^{-0{,}25t} = 2$, soit
+$e^{-0{,}25t} = \dfrac19$ et $t = 4\ln 9 = 8\ln 3 \approx 8{,}8$ jours. Le
+seuil est franchi au cours du neuvième jour.
+
+\textbf{5.} $m(t) = 35$ donne $9e^{-0{,}25t} = \dfrac17$, soit
+$t = 4\ln 63 \approx 16{,}6$ jours : la récolte a lieu le dix-septième jour.
+
+\textbf{6.} La dérivée seconde s'annule en changeant de signe lorsque
+$9e^{-0{,}25t} = 1$, c'est-à-dire au même instant $t = 8\ln 3$, où la masse
+vaut exactement $20$ kg — la moitié de la capacité. C'est le jour où le
+bassin produit le plus ; après lui, chaque journée rapporte moins que la
+veille. Un exploitant qui veut enchaîner les cycles a intérêt à récolter peu
+après ce point plutôt qu'à attendre la saturation.
+\end{corrige}
+
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item L'équation $e^{x} = -2$ admet une solution dans $\R$.
+  \item $e^{x+y} = e^{x} + e^{y}$.
+  \item Pour tout réel $x$, $\ln\left(e^{x}\right) = x$.
+  \item $\limpinf \dfrac{e^{x}}{x^{3}} = 0$.
+  \item Une primitive de $x \mapsto e^{-x}$ est $x \mapsto e^{-x}$.
+  \item Les courbes de $\exp$ et de $\ln$ sont symétriques par rapport à la
+        droite d'équation $y = x$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — l'exponentielle est strictement positive.
+\textbf{2.} Faux — c'est $e^{x}e^{y}$.
+\textbf{3.} Vrai, pour tout réel $x$.
+\textbf{4.} Faux — la limite vaut $+\infty$ : l'exponentielle l'emporte.
+\textbf{5.} Faux — c'est $x \mapsto -e^{-x}$.
+\textbf{6.} Vrai.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, session 2026 — série S, problème 2, partie A}
+Pour tout $n \in \N^{*}$, on considère la fonction $f_{n}$ définie sur $\R$
+par
+\[
+  f_{n}(x) = (x+1)^{n}e^{-x},
+\]
+et l'on note $(\mathscr{C}_{n})$ sa courbe représentative dans un repère
+orthonormé d'unité $2$ cm.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer les limites de $f_{n}$ aux bornes de son ensemble de
+        définition, selon la parité de $n$. \hfill\textup{(0,5 pt)}
+  \item Calculer $f'_{n}(x)$, puis dresser le tableau de variation de $f_{n}$
+        selon la parité de $n$. \hfill\textup{(1 pt)}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Montrer que toutes les courbes $(\mathscr{C}_{n})$ passent par
+                deux points fixes indépendants de $n$, dont on précisera les
+                coordonnées. \hfill\textup{(0,5 pt)}
+          \item Étudier les positions relatives de $(\mathscr{C}_{1})$ et
+                $(\mathscr{C}_{2})$. \hfill\textup{(0,5 pt)}
+          \item Tracer $(\mathscr{C}_{1})$ et $(\mathscr{C}_{2})$ dans le même
+                repère. \hfill\textup{(1 pt)}
+        \end{enumerate}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[baccalauréat 2026, série S]
+\textbf{1.} En $+\infty$ : $(x+1)^{n}e^{-x} = \dfrac{(x+1)^{n}}{e^{x}} \to 0$,
+car l'exponentielle l'emporte sur toute puissance — et ce, quelle que soit la
+parité de $n$. En $-\infty$ : $e^{-x} \to +\infty$ et
+$(x+1)^{n} \to +\infty$ si $n$ est pair, $-\infty$ si $n$ est impair. Donc
+$f_{n}(x) \to +\infty$ si $n$ est pair, $-\infty$ si $n$ est impair.
+
+\textbf{2.} $f'_{n}(x) = n(x+1)^{n-1}e^{-x} - (x+1)^{n}e^{-x}
+= (x+1)^{n-1}e^{-x}\bigl[n-(x+1)\bigr] = (x+1)^{n-1}(n-1-x)e^{-x}$.
+
+Comme $e^{-x}>0$, le signe dépend de $(x+1)^{n-1}$ et de $n-1-x$. Si $n$ est
+impair, $(x+1)^{n-1}$ est un carré donc positif : $f'_{n}$ a le signe de
+$n-1-x$, et $f_{n}$ croît jusqu'à $x = n-1$ puis décroît. Si $n$ est pair,
+$(x+1)^{n-1}$ a le signe de $x+1$ : $f_{n}$ décroît sur
+$\left]-\infty;-1\right]$, croît sur $\intervalle{-1}{n-1}$, décroît ensuite.
+
+\textbf{3. a)} $f_{n}(x)$ est indépendante de $n$ lorsque $(x+1)^{n}$ l'est,
+c'est-à-dire pour $x+1 = 1$ ou $x+1 = 0$, soit $x = 0$ et $x = -1$. Les points
+fixes sont $(0;1)$ et $(-1;0)$.
+
+\textbf{b)} $f_{2}(x)-f_{1}(x) = (x+1)e^{-x}\bigl[(x+1)-1\bigr] = x(x+1)e^{-x}$,
+du signe de $x(x+1)$ : $(\mathscr{C}_{2})$ est au-dessus de
+$(\mathscr{C}_{1})$ pour $x<-1$ et $x>0$, au-dessous entre $-1$ et $0$.
+
+\textbf{c)} Les deux courbes se croisent aux deux points fixes, admettent
+l'axe des abscisses pour asymptote en $+\infty$, et se séparent en $-\infty$ :
+$(\mathscr{C}_{1})$ plonge vers $-\infty$, $(\mathscr{C}_{2})$ monte vers
+$+\infty$.
+\end{corrige}
+
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = (x-2)e^{x} + 1$, de courbe
+$(\Cf)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Déterminer les limites de $f$ en $-\infty$ et en $+\infty$.
+        \hfill\textup{(1 pt)}
+  \item Montrer que la droite d'équation $y = 1$ est asymptote à $(\Cf)$ en
+        $-\infty$, et préciser la position relative. \hfill\textup{(1 pt)}
+  \item Calculer $f'(x)$ et dresser le tableau de variation de $f$.
+        \hfill\textup{(1,25 pt)}
+  \item Montrer que l'équation $f(x) = 0$ admet exactement deux solutions dans
+        $\R$, dont l'une, notée $\alpha$, vérifie $1 < \alpha < 2$.
+        \hfill\textup{(1,5 pt)}
+  \item Étudier la convexité de $f$ et déterminer le point d'inflexion de
+        $(\Cf)$. \hfill\textup{(1 pt)}
+  \item Calculer $\displaystyle\int_{0}^{2}(x-2)e^{x}\dx$ par une intégration
+        par parties, puis en déduire l'aire du domaine délimité par $(\Cf)$, la
+        droite $y=1$ et les droites $x=0$ et $x=2$. \hfill\textup{(1,25 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} En $-\infty$ : $xe^{x} \to 0$ et $e^{x} \to 0$, donc
+$f(x) \to 1$. En $+\infty$ : $f(x) \to +\infty$.
+
+\textbf{2.} $f(x)-1 = (x-2)e^{x} \to 0$ en $-\infty$ : asymptote. Le signe est
+celui de $x-2$, donc la courbe est au-dessous de la droite pour $x<2$,
+au-dessus pour $x>2$.
+
+\textbf{3.} $f'(x) = e^{x} + (x-2)e^{x} = (x-1)e^{x}$, du signe de $x-1$ :
+$f$ décroît sur $\left]-\infty;1\right]$, croît ensuite. Minimum
+$f(1) = 1-e \approx -1{,}72$.
+
+\textbf{4.} Sur $\left]-\infty;1\right]$, $f$ est continue et strictement
+décroissante, de $1$ vers $1-e < 0$ : le théorème des valeurs intermédiaires
+donne une solution unique sur cet intervalle, et l'on vérifie qu'elle est
+comprise entre $-2$ et $-1$ puisque $f(-2) \approx 0{,}46 > 0$ et
+$f(-1) \approx -0{,}10 < 0$. Sur $\left[1;+\infty\right[$, $f$ est continue et
+strictement croissante, de $1-e < 0$ vers $+\infty$ : une seconde solution
+$\alpha$, unique, avec $f(1) = 1-e<0$ et $f(2) = 1>0$, donc
+$1 < \alpha < 2$. L'équation admet donc exactement deux solutions.
+
+\textbf{5.} $f''(x) = xe^{x}$, du signe de $x$ : $f$ est concave sur
+$\left]-\infty;0\right]$, convexe ensuite. Point d'inflexion en $(0;-1)$.
+
+\textbf{6.} $u = x-2$, $v' = e^{x}$ :
+$\bigl[(x-2)e^{x}\bigr]_{0}^{2} - \int_{0}^{2}e^{x}\dx
+= (0+2) - (e^{2}-1) = 3-e^{2}$. Sur $\intervalle{0}{2}$ la courbe est
+au-dessous de la droite $y=1$, donc l'aire vaut
+$\abs{3-e^{2}} = e^{2}-3$ unités d'aire, soit $4(e^{2}-3)$ cm$^{2}$ si l'unité
+graphique est $2$ cm.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{Vers les classes préparatoires}
+Pour tout entier $n \geq 1$, on pose
+$\displaystyle K_{n} = \int_{0}^{1} x^{n}e^{-x}\dx$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $K_{1}$.
+  \item Montrer, par une intégration par parties, que pour tout $n \geq 1$,
+        \[
+          K_{n+1} = (n+1)K_{n} - \frac{1}{e}.
+        \]
+  \item Montrer que la suite $(K_{n})$ est décroissante et positive, puis
+        établir que $0 \leq K_{n} \leq \dfrac{1}{n+1}$.
+  \item En déduire $\displaystyle\lim_{n\to+\infty} K_{n}$, puis
+        $\displaystyle\lim_{n\to+\infty} nK_{n}$.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} Intégration par parties avec $u = x$ et $v' = e^{-x}$ :
+\[
+  K_{1} = \Bigl[-xe^{-x}\Bigr]_{0}^{1} + \int_{0}^{1}e^{-x}\dx
+        = -\frac1e + \left(1-\frac1e\right) = 1-\frac{2}{e}.
+\]
+
+\textbf{2.} Avec $u = x^{n+1}$ et $v' = e^{-x}$ :
+\[
+  K_{n+1} = \Bigl[-x^{n+1}e^{-x}\Bigr]_{0}^{1}
+          + (n+1)\int_{0}^{1}x^{n}e^{-x}\dx
+          = (n+1)K_{n} - \frac{1}{e}.
+\]
+
+\textbf{3.} $K_{n+1}-K_{n} = \displaystyle\int_{0}^{1}x^{n}(x-1)e^{-x}\dx \leq 0$
+car $x-1 \leq 0$ sur $\intervalle{0}{1}$ : la suite décroît, et elle est
+positive puisque l'intégrande l'est. Enfin $e^{-x} \leq 1$ sur cet intervalle,
+donc
+$0 \leq K_{n} \leq \displaystyle\int_{0}^{1}x^{n}\dx = \dfrac{1}{n+1}$.
+
+\textbf{4.} Les deux bornes tendent vers $0$ : $\lim K_{n} = 0$. En reprenant
+la relation de la question 2 sous la forme
+$(n+1)K_{n} = K_{n+1}+\dfrac1e$, le membre de droite tend vers $\dfrac1e$,
+donc $(n+1)K_{n} \to \dfrac1e$ et par conséquent
+$\displaystyle\lim_{n\to+\infty} nK_{n} = \frac{1}{e}$.
+\end{corrige}
+
+
+% =========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir est cumulatif : il porte sur ce chapitre et sur ceux qui le précèdent. Les énoncés sont repris de sessions réelles et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{Baccalauréat, Côte d'Ivoire, séries C et D, session 2023 — exercice 2}{5 points}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = \cos x - x\sin x$. Déterminer
+une primitive de $f$ sur $\R$.
+
+\exods{2}{Baccalauréat, Madagascar, série D, session 2026 — problème}{7 points}
+Soit $f(x) = x^{2}(1+\ln x)+x-1$ sur $\intervalleo{0}{+\infty}$. Calculer
+$\lim_{x\to0^{+}}f(x)$, puis étudier le signe de $f'(x)$ et dresser le
+tableau de variation.
+
+\exods{3}{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 5}{8 points}
+Soit $f(x) = xe^{-x}$ sur $\intervallefo{0}{+\infty}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $\lim_{x\to+\infty}f(x)$, puis $f'(x)$, et dresser le tableau
+        de variation.
+  \item Construire la courbe de $f$.
+  \item Montrer que l'équation $f(x) = \frac14$ admet une solution unique
+        $\alpha$ dans $\intervalleo{0}{1}$.
+  \item On pose $u_{0} = \alpha$ et $u_{n+1} = u_{n}e^{-u_{n}}$. Montrer que
+        $(u_{n})$ est décroissante et minorée, puis déterminer sa limite.
+\end{enumerate}
+
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1.} Le produit $x\cos x$ se dérive en $\cos x - x\sin x$, qui est
+exactement $f(x)$. Les primitives de $f$ sur $\R$ sont donc les fonctions
+$F(x) = x\cos x + k$, $k\in\R$. Rien n'oblige ici à une intégration par
+parties : reconnaître la dérivée d'un produit suffit, et c'est le réflexe que
+le sujet cherche à faire jouer.
+
+\textbf{Exercice 2.} En $0^{+}$, $x^{2}\ln x\to0$ et $x^{2}\to0$, donc $f(x)\to-1$. On
+calcule $f'(x) = 3x+2x\ln x+1$. En posant $\varphi = f'$, on a
+$\varphi'(x) = 5+2\ln x$, qui s'annule en $e^{-5/2}$ où
+$\varphi\!\left(e^{-5/2}\right) = 1-2e^{-5/2}>0$ : le minimum de $f'$ est
+strictement positif, donc $f$ est strictement croissante sur
+$\intervalleo{0}{+\infty}$, de $-1$ à $+\infty$.
+
+\textbf{Exercice 3.} $f(x) = xe^{-x}\to0$ en $+\infty$ par croissances comparées.
+$f'(x) = (1-x)e^{-x}$, positive sur $\intervalle{0}{1}$, négative ensuite :
+$f$ croît de $0$ à $\frac1e$ puis décroît vers $0$. Comme
+$\frac14 < \frac1e$ et que $f$ est continue et strictement croissante sur
+$\intervalle{0}{1}$, l'équation $f(x) = \frac14$ y admet exactement une
+solution $\alpha$. Enfin $u_{n+1} = f(u_{n})$ ; comme $e^{-u}<1$ pour $u>0$,
+on a $u_{n+1}<u_{n}$, et tous les termes restent positifs : la suite est
+décroissante et minorée par $0$, donc convergente. Sa limite $\ell$ vérifie
+$\ell = \ell e^{-\ell}$, d'où $\ell = 0$.
+
+\end{corrige}

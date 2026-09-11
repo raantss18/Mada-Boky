@@ -1,0 +1,88 @@
+% ---------------------------------------------------------------------------
+%  bmt-macros.sty — notations mathématiques du livre
+%  Conventions alignées sur celles du Programme d'Études 2026 et des sujets
+%  du baccalauréat Malagasy (série A, options A1 et A2). Identiques à celles
+%  des livres S et OSE : un même symbole désigne toujours la même chose dans
+%  toute la collection.
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bmt-macros}[2026/09/10 Notations du livre T12-L]
+
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+
+% --- Ensembles de nombres ---------------------------------------------------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Rp}{\mathbb{R}^{+}}
+\newcommand{\Rs}{\mathbb{R}^{*}}
+\newcommand{\Rps}{\mathbb{R}^{+*}}
+\newcommand{\Zn}[1]{\Z/#1\Z}
+
+% --- Analyse ----------------------------------------------------------------
+% Les bornes d'une limite se placent TOUJOURS sous le mot « lim », y compris
+% dans une formule au fil du texte.
+\let\bmtlimorig\lim
+\renewcommand{\lim}{\bmtlimorig\limits}
+\DeclareMathOperator{\Dnf}{D}
+\newcommand{\Df}{\mathcal{D}}                      % ensemble de définition
+\newcommand{\Cf}{\mathscr{C}}                      % courbe représentative
+\newcommand{\limx}[1]{\lim_{x \to #1}}
+\newcommand{\limn}{\lim_{n \to +\infty}}
+\newcommand{\limpinf}{\lim_{x \to +\infty}}
+\newcommand{\limminf}{\lim_{x \to -\infty}}
+\newcommand{\derf}[1]{#1'}
+\newcommand{\derx}[2]{\dfrac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\du}{\,\mathrm{d}u}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\shy}{sh}
+\let\Im\relax \let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\Im}{Im}
+
+% --- Algèbre linéaire (systèmes 2x2 et 3x3, méthode de Cramer) --------------
+\DeclareMathOperator{\dete}{d\acute{e}t}
+\newcommand{\matdeux}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+\newcommand{\mattrois}[9]{\begin{pmatrix} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{pmatrix}}
+\newcommand{\transpo}[1]{{}^{t}\!#1}
+
+% --- Repère du plan ---------------------------------------------------------
+% La série L n'a pas de géométrie au programme : seuls les vecteurs de base
+% du repère sont nécessaires, pour écrire (O ; i, j) comme dans les sujets.
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\veci}{\vect{\imath}}
+\newcommand{\vecj}{\vect{\jmath}}
+
+% --- Probabilités et statistique --------------------------------------------
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\proba}[1]{\Prob\!\left(#1\right)}
+\newcommand{\evtc}[1]{\overline{#1}}
+% Notation officielle des sujets Malagasy : A_n^p et C_n^p, jamais \binom.
+\newcommand{\arrang}[2]{A_{#2}^{#1}}
+\newcommand{\combi}[2]{C_{#2}^{#1}}
+\newcommand{\card}[1]{\operatorname{card}\left(#1\right)}
+\newcommand{\pmoyen}{G}                                 % point moyen du nuage
+\newcommand{\moy}[1]{\overline{#1}}                      % moyenne d'une serie
+
+% --- Divers -----------------------------------------------------------------
+\newcommand{\ssi}{si et seulement si}
+\newcommand{\daccord}{\Longleftrightarrow}
+\newcommand{\implique}{\Longrightarrow}
+\newcommand{\intervalle}[2]{\left[#1\,;\,#2\right]}
+\newcommand{\intervalleo}[2]{\left]#1\,;\,#2\right[}
+\newcommand{\intervalleof}[2]{\left]#1\,;\,#2\right]}
+\newcommand{\intervallefo}[2]{\left[#1\,;\,#2\right[}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ent}[1]{\left\lfloor #1 \right\rfloor}
+
+
+% --- Statistique à deux variables ------------------------------------------
+\newcommand{\droiteMayer}{(G_{1}G_{2})}
+
+\endinput

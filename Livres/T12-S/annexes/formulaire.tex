@@ -1,0 +1,348 @@
+% ===========================================================================
+%  Annexe — Formulaire de l'année
+% ===========================================================================
+\chapter{Le formulaire de l'année}
+\markboth{Formulaire}{Formulaire}
+
+Tout ce qui doit être su par cœur tient dans les pages qui suivent. Rien n'y
+est démontré : les démonstrations sont dans les chapitres, et c'est là qu'il
+faut les relire. Ces pages servent à autre chose — vérifier, la veille d'un
+devoir, qu'aucune formule ne manque, et retrouver en quelques secondes celle
+qui échappe pendant un exercice.
+
+Détachez-les, pliez-les, glissez-les dans le classeur. Elles ne remplacent pas
+le cours ; elles en sont l'ossature.
+
+% ---------------------------------------------------------------------------
+\section*{Limites usuelles}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$\displaystyle\lim_{x\to+\infty}\frac{\ln x}{x} = 0$ &
+$\displaystyle\lim_{x\to0^{+}}x\ln x = 0$ \\
+$\displaystyle\lim_{x\to+\infty}\frac{e^{x}}{x} = +\infty$ &
+$\displaystyle\lim_{x\to-\infty}xe^{x} = 0$ \\
+$\displaystyle\lim_{x\to0}\frac{\ln(1+x)}{x} = 1$ &
+$\displaystyle\lim_{x\to0}\frac{e^{x}-1}{x} = 1$ \\
+$\displaystyle\lim_{x\to0}\frac{\sin x}{x} = 1$ &
+$\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^{2}} = \frac12$ \\
+$\displaystyle\lim_{x\to+\infty}\frac{x^{n}}{e^{x}} = 0$ &
+$\displaystyle\lim_{x\to+\infty}\frac{\ln x}{x^{n}} = 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Croissances comparées.} En $+\infty$, le logarithme est négligeable
+devant toute puissance, et toute puissance est négligeable devant
+l'exponentielle.
+
+% ---------------------------------------------------------------------------
+\section*{Dérivées}
+
+\begin{center}
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}llll@{}}
+\toprule
+$f(x)$ & $f'(x)$ & $f(x)$ & $f'(x)$ \\
+\midrule
+$x^{n}$ & $nx^{n-1}$ & $u^{n}$ & $nu'u^{n-1}$ \\
+$\dfrac1x$ & $-\dfrac{1}{x^{2}}$ & $\dfrac1u$ & $-\dfrac{u'}{u^{2}}$ \\
+$\sqrt x$ & $\dfrac{1}{2\sqrt x}$ & $\sqrt u$ & $\dfrac{u'}{2\sqrt u}$ \\
+$\ln x$ & $\dfrac1x$ & $\ln u$ & $\dfrac{u'}{u}$ \\
+$e^{x}$ & $e^{x}$ & $e^{u}$ & $u'e^{u}$ \\
+$\cos x$ & $-\sin x$ & $\cos u$ & $-u'\sin u$ \\
+$\sin x$ & $\cos x$ & $\sin u$ & $u'\cos u$ \\
+$\tan x$ & $1+\tan^{2}x$ & $uv$ & $u'v+uv'$ \\
+$\dfrac uv$ & \multicolumn{3}{l}{$\dfrac{u'v-uv'}{v^{2}}$ \qquad et
+$\left(v \circ u\right)' = u' \times \left(v' \circ u\right)$} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ---------------------------------------------------------------------------
+\section*{Primitives}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Fonction & Une primitive \\
+\midrule
+$x^{n}$, $n \neq -1$ & $\dfrac{x^{n+1}}{n+1}$ \\
+$\dfrac1x$ sur $\Rps$ & $\ln x$ \\
+$e^{ax}$ & $\dfrac1a e^{ax}$ \\
+$u'u^{n}$, $n \neq -1$ & $\dfrac{u^{n+1}}{n+1}$ \\
+$\dfrac{u'}{u}$ & $\ln\abs u$ \\
+$u'e^{u}$ & $e^{u}$ \\
+$\dfrac{u'}{\sqrt u}$ & $2\sqrt u$ \\
+$\cos(ax+b)$ & $\dfrac1a\sin(ax+b)$ \\
+$\sin(ax+b)$ & $-\dfrac1a\cos(ax+b)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Intégration par parties.}
+$\displaystyle\int_{a}^{b}u'v\dx = \Bigl[uv\Bigr]_{a}^{b}
+-\int_{a}^{b}uv'\dx$.
+
+\smallskip
+\noindent
+\textbf{Valeur moyenne.} $\mu = \dfrac{1}{b-a}\displaystyle\int_{a}^{b}f(x)\dx$.
+
+\smallskip
+\noindent
+\textbf{Aire.} Si $f \geq g$ sur $\intervalle{a}{b}$, l'aire entre les deux
+courbes vaut $\displaystyle\int_{a}^{b}\left(f(x)-g(x)\right)\dx$ unités
+d'aire.
+
+% ---------------------------------------------------------------------------
+\section*{Logarithme et exponentielle}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$\ln(ab) = \ln a+\ln b$ & $e^{a+b} = e^{a}e^{b}$ \\
+$\ln\dfrac ab = \ln a-\ln b$ & $e^{a-b} = \dfrac{e^{a}}{e^{b}}$ \\
+$\ln\!\left(a^{n}\right) = n\ln a$ & $\left(e^{a}\right)^{n} = e^{na}$ \\
+$\ln\sqrt a = \frac12\ln a$ & $e^{\ln x} = x$ pour $x>0$ \\
+$\ln 1 = 0$, $\ln e = 1$ & $\ln\!\left(e^{x}\right) = x$ \\
+$\log a = \dfrac{\ln a}{\ln 10}$ & $a^{x} = e^{x\ln a}$ pour $a>0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ---------------------------------------------------------------------------
+\section*{Équations différentielles}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Équation & Solutions sur $\R$ \\
+\midrule
+$y'+ay = 0$ & $x \mapsto Ke^{-ax}$ \\
+$y'' = m^{2}y$ & $x \mapsto Ae^{mx}+Be^{-mx}$ \\
+$y'' = -m^{2}y$ & $x \mapsto A\cos(mx)+B\sin(mx)$ \\
+$ay''+by'+cy = 0$, $\Delta>0$ &
+  $x \mapsto Ae^{r_{1}x}+Be^{r_{2}x}$ \\
+$ay''+by'+cy = 0$, $\Delta = 0$ &
+  $x \mapsto (Ax+B)e^{rx}$ \\
+$ay''+by'+cy = 0$, $\Delta<0$ &
+  $x \mapsto e^{\alpha x}\left(A\cos\beta x+B\sin\beta x\right)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Avec second membre.} Solution générale $=$ une solution particulière
+$+$ solution générale de l'équation homogène.
+
+% ---------------------------------------------------------------------------
+\section*{Suites}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Arithmétique & Géométrique \\
+\midrule
+$u_{n} = u_{0}+nr$ & $u_{n} = u_{0}q^{n}$ \\
+$u_{n} = u_{p}+(n-p)r$ & $u_{n} = u_{p}q^{n-p}$ \\
+$\displaystyle\sum_{k=0}^{n}u_{k} = (n+1)\frac{u_{0}+u_{n}}{2}$ &
+$\displaystyle\sum_{k=0}^{n}u_{k} = u_{0}\frac{1-q^{n+1}}{1-q}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+$\displaystyle\sum_{k=1}^{n}k = \frac{n(n+1)}{2}$, \quad
+$\displaystyle\sum_{k=1}^{n}k^{2} = \frac{n(n+1)(2n+1)}{6}$.
+
+\smallskip
+\noindent
+\textbf{Arithmético-géométrique.} $u_{n+1} = au_{n}+b$ avec $a \neq 1$ :
+poser $v_{n} = u_{n}-\alpha$ où $\alpha = \dfrac{b}{1-a}$.
+
+% ---------------------------------------------------------------------------
+\section*{Nombres complexes}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$z\overline z = \abs z^{2}$ & $\abs{zz'} = \abs z\abs{z'}$ \\
+$\arg(zz') = \arg z+\arg z'$ & $\arg\dfrac{z}{z'} = \arg z-\arg z'$ \\
+$e^{i\theta} = \cos\theta+i\sin\theta$ &
+  $\left(e^{i\theta}\right)^{n} = e^{in\theta}$ \\
+$\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}$ &
+$\sin\theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i}$ \\
+$AB = \abs{z_{B}-z_{A}}$ &
+$\left(\vect{AB},\vect{AC}\right)
+ = \arg\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Racines $n$-ièmes de $Re^{i\varphi}$ :}
+$z_{k} = R^{1/n}e^{i\left(\frac{\varphi}{n}+\frac{2k\pi}{n}\right)}$,
+$k = 0,\dots,n-1$.
+
+\smallskip
+\noindent
+\textbf{Second degré à coefficients complexes.} $\Delta$ étant calculé,
+$\delta$ désignant une racine carrée de $\Delta$, les solutions sont
+$\dfrac{-b \pm \delta}{2a}$.
+
+% ---------------------------------------------------------------------------
+\section*{Transformations du plan}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Transformation & Écriture complexe \\
+\midrule
+Translation de vecteur d'affixe $b$ & $z' = z+b$ \\
+Homothétie $(\omega,k)$ & $z' = k(z-\omega)+\omega$ \\
+Rotation $(\omega,\theta)$ &
+  $z' = e^{i\theta}(z-\omega)+\omega$ \\
+Similitude directe $(\omega,k,\theta)$ &
+  $z' = ke^{i\theta}(z-\omega)+\omega$ \\
+Similitude indirecte & $z' = a\overline z+b$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Deux réflexions.} Axes parallèles : translation de vecteur double de
+la distance des axes. Axes sécants en $O$ formant l'angle $\theta$ :
+rotation de centre $O$ et d'angle $2\theta$.
+
+\smallskip
+\noindent
+\textbf{Leibniz.} Si $\alpha = \sum \alpha_{i} \neq 0$ et $G$ est le
+barycentre :
+$\sum \alpha_{i}\vect{MA_{i}} = \alpha\vect{MG}$ et
+$\sum \alpha_{i}MA_{i}^{2} = \alpha\,MG^{2}+\sum \alpha_{i}GA_{i}^{2}$.
+Si $\alpha = 0$, la somme vectorielle est un vecteur constant.
+
+% ---------------------------------------------------------------------------
+\section*{Géométrie dans l'espace}
+
+\noindent
+$\scal{\vecu}{\vecv} = xx'+yy'+zz'$ \quad et \quad
+$\pvect{\vecu}{\vecv} = \left(yz'-zy'\,;\,zx'-xz'\,;\,xy'-yx'\right)$.
+
+\smallskip
+\noindent
+Plan de vecteur normal $(a\,;b\,;c)$ : $ax+by+cz+d = 0$.
+
+\smallskip
+\noindent
+Distance d'un point au plan :
+$\dfrac{\abs{ax_{A}+by_{A}+cz_{A}+d}}{\sqrt{a^{2}+b^{2}+c^{2}}}$.
+
+\smallskip
+\noindent
+Deux droites sont coplanaires si et seulement si
+$\scal{\left(\pvect{\vecu}{\vecu'}\right)}{\vect{AA'}} = 0$.
+
+% ---------------------------------------------------------------------------
+\section*{Arithmétique}
+
+\noindent
+Division euclidienne : $a = bq+r$ avec $0 \leq r<b$.
+
+\smallskip
+\noindent
+$\congru{a}{b}{n}$ signifie que $n$ divise $a-b$ ; la congruence est
+compatible avec la somme, le produit et les puissances.
+
+\smallskip
+\noindent
+\textbf{Bézout.} $a$ et $b$ premiers entre eux $\iff$ il existe $u$, $v$ tels
+que $au+bv = 1$.
+
+\smallskip
+\noindent
+\textbf{Gauss.} Si $a \divi bc$ et $\pgcd(a\,;b) = 1$, alors $a \divi c$.
+
+\smallskip
+\noindent
+$\pgcd(a\,;b) \times \ppcm(a\,;b) = ab$.
+
+\smallskip
+\noindent
+$ax+by = c$ a des solutions entières $\iff \pgcd(a\,;b)$ divise $c$.
+
+% ---------------------------------------------------------------------------
+\section*{Matrices}
+
+\noindent
+$\matdeux{a}{b}{c}{d}^{-1} = \dfrac{1}{ad-bc}\matdeux{d}{-b}{-c}{a}$, sous
+réserve que $ad-bc \neq 0$.
+
+\smallskip
+\noindent
+$\dete(AB) = \dete(A)\dete(B)$, \quad
+$\transpo{(AB)} = \transpo{B}\,\transpo{A}$.
+
+\smallskip
+\noindent
+$A$ inversible $\iff \dete(A) \neq 0$. Le système $AX = B$ a alors pour
+unique solution $X = A^{-1}B$.
+
+\smallskip
+\noindent
+Si $A = PBP^{-1}$ alors $A^{n} = PB^{n}P^{-1}$.
+
+% ---------------------------------------------------------------------------
+\section*{Probabilités}
+
+\noindent
+$\proba{\evtc{A}} = 1-\proba{A}$, \quad
+$\proba{A \cup B} = \proba{A}+\proba{B}-\proba{A \cap B}$.
+
+\smallskip
+\noindent
+$\probacond{B}{A} = \dfrac{\proba{A \cap B}}{\proba{A}}$, \quad
+$\proba{B} = \sum_{i}\proba{A_{i}}\probacond{B}{A_{i}}$.
+
+\smallskip
+\noindent
+Indépendance : $\proba{A \cap B} = \proba{A}\proba{B}$.
+
+\smallskip
+\noindent
+Tirages de $p$ objets parmi $n$ : $n^{p}$ avec remise, $\arrang{p}{n}$ sans
+remise, $\combi{p}{n}$ simultanément.
+
+\smallskip
+\noindent
+$\Esp(X) = \sum x_{i}p_{i}$, \quad
+$\Var(X) = \sum x_{i}^{2}p_{i}-\Esp(X)^{2}$, \quad
+$\ecart(X) = \sqrt{\Var(X)}$.
+
+\smallskip
+\noindent
+\textbf{Loi binomiale} $\loibin{n}{p}$ :
+$\proba{X = k} = \combi{k}{n}p^{k}(1-p)^{n-k}$, \quad
+$\Esp(X) = np$, \quad $\Var(X) = np(1-p)$.
+
+\smallskip
+\noindent
+« Au moins un succès » : $\proba{X \geq 1} = 1-(1-p)^{n}$.

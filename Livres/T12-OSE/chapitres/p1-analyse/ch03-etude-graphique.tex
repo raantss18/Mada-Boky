@@ -1,0 +1,470 @@
+% ===========================================================================
+%  Chapitre 3 — Étude et représentation graphique des fonctions
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Étude et représentation graphique des fonctions}
+  {Étudier le comportement asymptotique d'une courbe, repérer points angulés et
+   points d'inflexion, situer une courbe par rapport à ses asymptotes, et
+   résoudre graphiquement équations et inéquations.}
+  {Analyse \textbullet\ environ 8 heures}
+
+Vous savez maintenant calculer une limite et une dérivée. Ce chapitre ne
+présente presque aucune notion nouvelle : il apprend à \emph{les faire tenir
+ensemble} sur une feuille, jusqu'à produire une courbe juste.
+
+C'est un chapitre de méthode, et c'est aussi celui qui rapporte le plus de
+points au baccalauréat. Le tracé final vaut souvent un point et demi à lui
+seul, et il ne s'improvise pas : chaque trait doit avoir été justifié avant
+d'être posé.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Rien de neuf ici : on vérifie que les deux premiers chapitres sont en place.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Déterminer $\limpinf \dfrac{3x^{2}-x+1}{x^{2}+2}$.
+  \item Que signifie « $f$ est continue en $a$ » ?
+  \item Comment reconnaît-on un point angulé sur une courbe ?
+  \item Quel lien y a-t-il entre le signe de $f''$ et la forme de la courbe ?
+  \item Donner l'ensemble de définition de $x \mapsto \dfrac{x^{2}+1}{x-3}$.
+  \item Effectuer la division euclidienne de $x^{2}+1$ par $x-3$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $\limpinf \dfrac{2x+1}{x-4}$
+  \item $\displaystyle\lim_{x \to 4^{+}} \dfrac{2x+1}{x-4}$
+  \item $\limpinf \dfrac{x^{2}}{x+1}$
+  \item Dérivée de $x \mapsto \dfrac{x^{2}}{x+1}$
+  \item Signe de $x^{2}-4$
+  \item $\limminf (x^{3}-x)$
+  \item Résoudre $\dfrac{1}{x-2} > 0$
+  \item Le quotient $\dfrac{x^{2}}{x+1}$ vaut-il $x-1+\dfrac{1}{x+1}$ ?
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $2$ \quad b) $+\infty$ \quad c) $+\infty$ \quad
+d) $\dfrac{x^{2}+2x}{(x+1)^{2}}$ \quad e) négatif sur $\intervalleo{-2}{2}$,
+positif ailleurs \quad f) $-\infty$ \quad g) $x > 2$ \quad
+h) oui, c'est la division euclidienne de $x^{2}$ par $x+1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les branches infinies}
+
+\subsection{Asymptotes verticales et horizontales}
+
+\begin{definition}[asymptote verticale]
+Si $\displaystyle\lim_{x \to a} f(x) = \pm\infty$ — la limite pouvant n'être
+qu'à gauche ou qu'à droite — alors la droite d'équation $x = a$ est
+\textbf{asymptote verticale} à la courbe de $f$.
+\end{definition}
+
+\begin{definition}[asymptote horizontale]
+Si $\displaystyle\lim_{x \to +\infty} f(x) = \ell$ avec $\ell$ réel, alors la
+droite d'équation $y = \ell$ est \textbf{asymptote horizontale} à la courbe en
+$+\infty$. Même définition en $-\infty$.
+\end{definition}
+
+\subsection{Asymptotes obliques}
+
+\begin{definition}[asymptote oblique]
+La droite d'équation $y = ax+b$, avec $a \neq 0$, est \textbf{asymptote
+oblique} à la courbe de $f$ en $+\infty$ lorsque
+\[
+  \limpinf \bigl[f(x) - (ax+b)\bigr] = 0 .
+\]
+\end{definition}
+
+\begin{methode}{trouver une asymptote oblique}
+\emph{Si $f$ est une fraction rationnelle}, le plus rapide est la division
+euclidienne du numérateur par le dénominateur. Écrire
+$f(x) = ax+b+\dfrac{r(x)}{q(x)}$ avec $\deg r < \deg q$ : la partie entière
+$ax+b$ est l'asymptote, et le reste tend vers $0$.
+
+\smallskip
+\emph{Sinon}, on cherche $a$ puis $b$ séparément :
+\[
+  a = \limpinf \frac{f(x)}{x}, \qquad b = \limpinf \bigl[f(x)-ax\bigr].
+\]
+\end{methode}
+
+\begin{propriete}[position relative de la courbe et de l'asymptote]
+Le signe de la différence $d(x) = f(x)-(ax+b)$ donne la position :
+\begin{itemize}[leftmargin=1.4em, itemsep=0.15em]
+  \item $d(x) > 0$ : la courbe est \emph{au-dessus} de l'asymptote ;
+  \item $d(x) < 0$ : la courbe est \emph{au-dessous} ;
+  \item $d(x) = 0$ : la courbe \emph{coupe} l'asymptote.
+\end{itemize}
+\end{propriete}
+
+\begin{visualisation}[la courbe rejoint sa droite]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 6.2cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -5.6, xmax = 5.6, ymin = -6.5, ymax = 6.5,
+  xtick = \empty, ytick = \empty,
+  axis line style = {bmtGris}, clip = true,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=0.18:5.4, samples=200] {x + 1/x};
+  \addplot[bmtIndigo, line width=1.3pt, domain=-5.4:-0.18, samples=200] {x + 1/x};
+  \addplot[bmtLaterite, dashed, line width=0.9pt, domain=-5.4:5.4, samples=2] {x};
+  \node[bmtLaterite, font=\footnotesize, anchor=west] at (axis cs:4.0,3.1) {$y=x$};
+  \node[bmtGris, font=\footnotesize, anchor=west] at (axis cs:0.25,-5.4) {$x=0$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Regardez la branche de droite : plus $x$ grandit, plus la courbe se colle à la
+droite rouge sans jamais la toucher, en restant au-dessus. La branche de
+gauche fait la même chose, mais par en dessous.
+\end{visualisation}
+
+\begin{erreurclassique}
+Trouver $a = \limpinf \dfrac{f(x)}{x}$ fini ne suffit pas à conclure à une
+asymptote. Il faut ensuite vérifier que $f(x)-ax$ admet une limite
+\emph{finie}.
+\end{erreurclassique}
+
+\begin{entrainement}[branches infinies]
+\exo[\niveau{1}] Déterminer les asymptotes de la courbe de
+$f(x) = \dfrac{3x-1}{x+2}$.
+
+\exo[\niveau{2}] Soit $f(x) = \dfrac{x^{2}-x+1}{x-1}$. Montrer par division
+euclidienne que la droite $y = x$ est asymptote à la courbe, et étudier la
+position relative.
+
+\exo[\niveau{2}] Étudier les branches infinies de $f(x) = \dfrac{x^{3}}{x^{2}-1}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $x = -2$ est asymptote verticale ; $\lim_{x \to \pm\infty} f(x) = 3$ donc $y = 3$ est
+asymptote horizontale en $\pm\infty$.
+
+\textbf{2.} $\dfrac{x^{2}-x+1}{x-1} = x + \dfrac{1}{x-1}$. Le reste tend vers
+$0$ : $y = x$ est asymptote. Son signe est celui de $x-1$ : la courbe est
+au-dessus pour $x>1$, au-dessous pour $x<1$.
+
+\textbf{3.} $\dfrac{x^{3}}{x^{2}-1} = x + \dfrac{x}{x^{2}-1}$, donc $y=x$ est
+asymptote oblique. De plus $x = 1$ et $x = -1$ sont asymptotes verticales.
+\end{corrige}
+
+% ===========================================================================
+\section{Ce que la courbe montre en un point}
+
+\begin{definition}[trois points remarquables]
+Soit $a$ un réel et $(\Cf)$ la courbe de $f$.
+\begin{itemize}[leftmargin=1.4em, itemsep=0.25em]
+  \item \textbf{Point de discontinuité} : $f$ n'est pas continue en $a$. La
+        courbe est interrompue.
+  \item \textbf{Point angulé} : $f$ est continue en $a$, dérivable à gauche et
+        à droite, mais $f'_{g}(a) \neq f'_{d}(a)$.
+  \item \textbf{Point d'inflexion} : $f''$ s'annule en $a$ \emph{en changeant
+        de signe}.
+\end{itemize}
+\end{definition}
+
+% ===========================================================================
+\section{Le plan d'étude, une fois pour toutes}
+
+\begin{methode}{étudier complètement une fonction}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item \textbf{Ensemble de définition.} Écarter les valeurs interdites.
+  \item \textbf{Parité.} Si $f$ est paire ou impaire, on réduit l'étude.
+  \item \textbf{Limites aux bornes.}
+  \item \textbf{Branches infinies.} Asymptotes, position relative.
+  \item \textbf{Dérivée et signe.} Calculer $f'$, la factoriser.
+  \item \textbf{Tableau de variation.}
+  \item \textbf{Points particuliers.}
+  \item \textbf{Tracé.} Placer d'abord les asymptotes, puis les points connus,
+        puis la courbe.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[une étude menée jusqu'au bout]
+Étudions $f(x) = \dfrac{x^{2}-2x+2}{x-1}$.
+
+\emph{Définition.} $\Df = \R \setminus \{1\}$.
+
+\emph{Forme réduite.} $f(x) = x-1+\dfrac{1}{x-1}$.
+
+\emph{Limites.} En $\pm\infty$, $f(x) \to \pm\infty$. En $1^{-}$ :
+$f(x) \to -\infty$ ; en $1^{+}$, $f(x) \to +\infty$.
+
+\emph{Branches infinies.} $x=1$ est asymptote verticale. Comme
+$f(x)-(x-1) = \dfrac{1}{x-1} \to 0$, la droite $y = x-1$ est asymptote
+oblique. La courbe est au-dessus pour $x>1$, au-dessous pour $x<1$.
+
+\emph{Dérivée.} $f'(x) = 1 - \dfrac{1}{(x-1)^{2}} = \dfrac{x(x-2)}{(x-1)^{2}}$.
+
+\emph{Variations.} $f$ croît sur $\left]-\infty ; 0\right]$, décroît sur
+$\intervallefo{0}{1}$ puis sur $\intervalleof{1}{2}$, croît sur
+$\left[2 ; +\infty\right[$. Les extremums locaux valent $f(0) = -2$ et
+$f(2) = 2$.
+\end{exemple}
+
+\begin{visualisation}[l'étude précédente, achevée]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 6.4cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -3.6, xmax = 5.6, ymin = -6.5, ymax = 6.5,
+  xtick = {0,2}, ytick = {-2,2},
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=1.12:5.4, samples=220] {x - 1 + 1/(x-1)};
+  \addplot[bmtIndigo, line width=1.3pt, domain=-3.4:0.88, samples=220] {x - 1 + 1/(x-1)};
+  \addplot[bmtLaterite, dashed, line width=0.9pt, domain=-3.4:5.4, samples=2] {x-1};
+  \addplot[bmtVetiver, dashed, line width=0.9pt] coordinates {(1,-6.5) (1,6.5)};
+  \filldraw[bmtIndigo] (axis cs:0,-2) circle (1.8pt);
+  \filldraw[bmtIndigo] (axis cs:2,2) circle (1.8pt);
+  \node[bmtLaterite, font=\footnotesize, anchor=west] at (axis cs:4.2,2.6) {$y=x-1$};
+  \node[bmtVetiver, font=\footnotesize, anchor=south west] at (axis cs:1.1,-6.2) {$x=1$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Les deux droites en pointillé ont été tracées \emph{avant} la courbe, et c'est
+ce qui rend le tracé possible.
+\end{visualisation}
+
+\begin{entrainement}[études complètes]
+\exo[\niveau{2}] Étudier et représenter $f(x) = \dfrac{2x^{2}-3x}{x-1}$.
+
+\exo[\niveau{2}] Étudier et représenter $f(x) = \dfrac{x^{2}+1}{x}$, après
+avoir montré que $f$ est impaire.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $f(x) = 2x-1-\dfrac{1}{x-1}$ ; asymptotes $x=1$ et $y=2x-1$ ;
+$f'(x) = \dfrac{2x^{2}-4x+3}{(x-1)^{2}}$, de discriminant négatif donc $f'>0$ :
+$f$ est croissante sur chacun des deux intervalles.
+
+\textbf{2.} $f(-x) = -f(x)$ : impaire, courbe symétrique par rapport à
+l'origine. $f(x) = x+\dfrac{1}{x}$ ; asymptotes $x=0$ et $y=x$ ;
+$f'(x) = 1-\dfrac{1}{x^{2}}$, nulle en $\pm1$ : minimum $2$ en $1$, maximum
+$-2$ en $-1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Lire et résoudre sur un graphique}
+
+\begin{propriete}[les quatre lectures]
+Soit $(\Cf)$ la courbe de $f$ et $(\mathscr{C}_{g})$ celle de $g$.
+\begin{itemize}[leftmargin=1.4em, itemsep=0.22em]
+  \item $f(x) = g(x)$ : abscisses des points d'intersection des deux courbes.
+  \item $f(x) \leq g(x)$ : abscisses où $(\Cf)$ est au-dessous de $(\mathscr{C}_{g})$.
+  \item $f(x) = m$ : abscisses des points d'intersection de $(\Cf)$ avec la
+        droite horizontale d'ordonnée $m$.
+  \item $f(x) \leq m$ : abscisses où $(\Cf)$ est au-dessous de cette
+        horizontale.
+\end{itemize}
+\end{propriete}
+
+\begin{entrainement}[lecture graphique]
+\exo[\niveau{1}] La courbe de $f$ passe par $(0;2)$, admet un maximum $3$ en
+$x=1$ et tend vers $-\infty$ aux deux infinis. Combien l'équation
+$f(x) = 3$ a-t-elle de solutions ? Et $f(x) = 4$ ?
+
+\exo[\niveau{2}] Deux courbes se coupent en trois points d'abscisses $-2$, $0$
+et $3$, et $(\Cf)$ est au-dessus de $(\mathscr{C}_{g})$ sur
+$\intervalleo{-2}{0}$ et sur $\left]3 ; +\infty\right[$. Résoudre
+graphiquement $f(x) \leq g(x)$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $f(x)=3$ : une solution. $f(x)=4$ : aucune solution.
+
+\textbf{2.} L'ensemble des solutions est
+$\left]-\infty ; -2\right] \cup \intervalle{0}{3}$.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Les études qui suivent sont reprises de sujets réellement posés ; leur
+provenance est indiquée à chaque fois. Toutes portent sur des fonctions
+polynômes ou rationnelles, et se mènent entièrement avec les outils des trois
+premiers chapitres.
+
+\exoann{Baccalauréat probatoire, Cameroun, série D, session 2022 — exercice 4}
+Soit $f$ définie sur $\intervallefo{0}{+\infty}$ par
+$f(x) = \dfrac{3x}{3+4x}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Dresser le tableau de variation de $f$.
+  \item Montrer que la droite d'équation $y = \frac34$ est asymptote à la
+        courbe de $f$ et préciser la position de la courbe par rapport à
+        cette droite.
+  \item Construire la courbe de $f$ dans un repère orthonormé.
+\end{enumerate}
+
+\exoann{Baccalauréat probatoire, Cameroun, série IH, session 2023 — problème}
+Soit $f$ la fonction définie sur $\intervalle{-4}{1}$ par
+$f(x) = 2x^{2}+5x-3$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Dresser le tableau de variation de $f$ sur $\intervalle{-4}{1}$.
+  \item Déterminer les points d'intersection de la courbe de $f$ avec les axes
+        du repère.
+  \item Construire cette courbe.
+\end{enumerate}
+
+\exoann{Baccalauréat probatoire, Cameroun, séries D et TI, session 2023 — exercice 4}
+Soit $f$ définie par $f(x) = x+\dfrac{1}{x+1}$. Dresser le tableau de variation
+de $f$, préciser ses deux asymptotes, puis construire sa courbe.
+
+\exoann{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2022-2023}
+Soit $f$ définie sur $\R\setminus\{2\}$ par
+$f(x) = \dfrac{x^{2}-3x+4}{x-2}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer trois réels $a$, $b$ et $c$ tels que
+        $f(x) = ax+b+\dfrac{c}{x-2}$.
+  \item En déduire que la droite d'équation $y = x-1$ est asymptote oblique à
+        la courbe de $f$, et étudier la position relative de la courbe et de
+        cette droite.
+  \item Dresser le tableau de variation de $f$, puis construire sa courbe et
+        ses asymptotes.
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1. a)} $f'(x) = \dfrac{9}{(3+4x)^{2}} > 0$ : $f$ croît strictement de
+$f(0) = 0$ vers $\frac34$ sur $\intervallefo{0}{+\infty}$.
+\textbf{b)} $f(x)-\dfrac34 = \dfrac{-9}{4(3+4x)} < 0$ pour $x \geq 0$ : la
+courbe reste sous son asymptote, et l'écart tend vers $0$.
+\textbf{c)} La courbe part de l'origine, monte sans jamais atteindre le
+palier $y = \frac34$.
+
+\textbf{2. a)} $f'(x) = 4x+5$ s'annule en $-\frac54$. Sur
+$\intervalle{-4}{-\frac54}$ la fonction décroît de $f(-4) = 9$ à
+$f\left(-\frac54\right) = -\frac{49}{8}$ ; sur
+$\intervalle{-\frac54}{1}$ elle croît jusqu'à $f(1) = 4$.
+\textbf{b)} $f(0) = -3$ donne le point $(0\,;-3)$. L'équation
+$2x^{2}+5x-3 = 0$ a pour racines $\frac12$ et $-3$ : la courbe coupe l'axe
+des abscisses en $\left(\frac12\,;0\right)$ et $(-3\,;0)$.
+\textbf{c)} Arc de parabole de sommet
+$S\left(-\frac54\,;-\frac{49}{8}\right)$, tracé entre $x = -4$ et $x = 1$.
+
+\textbf{3.} $f'(x) = \dfrac{x(x+2)}{(x+1)^{2}}$. La fonction croît sur
+$\intervalleof{-\infty}{-2}$ jusqu'au maximum local $f(-2) = -3$, décroît sur
+$\intervallefo{-2}{-1}$ puis sur $\intervalleof{-1}{0}$ jusqu'au minimum local
+$f(0) = 1$, et croît ensuite. La droite $x = -1$ est asymptote verticale, la
+droite $y = x$ asymptote oblique.
+
+\textbf{4. a)} La division euclidienne donne
+$x^{2}-3x+4 = (x-2)(x-1)+2$, d'où
+$f(x) = x-1+\dfrac{2}{x-2}$ : $a = 1$, $b = -1$, $c = 2$.
+\textbf{b)} $f(x)-(x-1) = \dfrac{2}{x-2} \to 0$ : la courbe est au-dessus de
+l'asymptote à droite de $2$, en dessous à gauche.
+\textbf{c)} $f'(x) = 1-\dfrac{2}{(x-2)^{2}}$ s'annule en $2\pm\sqrt2$. La
+fonction croît jusqu'à $f\left(2-\sqrt2\right) \approx -1{,}83$, décroît puis
+croît jusqu'à $f\left(2+\sqrt2\right) \approx 3{,}83$, puis croît ensuite.
+\end{corrige}
+
+\begin{jecherche}[l'atelier de briques d'Antsirabe]
+Un atelier fabrique des briques. On note $q$ le nombre de milliers de briques
+produites par semaine, $q \in \intervallefo{0}{+\infty}$, et l'on modélise le
+bénéfice hebdomadaire, en centaines de milliers d'ariary, par
+\[
+  B(q) = \frac{20q}{q+2} - 4 .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Étudier les variations de $B$ sur $\intervallefo{0}{+\infty}$.
+  \item Déterminer $\limpinf B(q)$ et en déduire que la courbe de $B$ admet
+        une asymptote horizontale, dont on donnera l'équation.
+  \item Interpréter économiquement cette asymptote : le bénéfice
+        hebdomadaire peut-il dépasser $16$ (centaines de milliers d'ariary) ?
+  \item Déterminer le seuil de rentabilité, c'est-à-dire la production $q_{0}$
+        à partir de laquelle $B(q) \geq 0$.
+  \item Construire la courbe de $B$ pour $q \in \intervalle{0}{20}$.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[l'atelier de briques d'Antsirabe]
+\textbf{1.} $B'(q) = \dfrac{20(q+2)-20q}{(q+2)^{2}} = \dfrac{40}{(q+2)^{2}} > 0$ :
+$B$ est strictement croissante sur $\intervallefo{0}{+\infty}$.
+
+\textbf{2.} $\limpinf B(q) = 20-4 = 16$ : la droite $y=16$ est asymptote
+horizontale.
+
+\textbf{3.} Le bénéfice hebdomadaire augmente avec la production, mais reste
+toujours strictement inférieur à $16$ (centaines de milliers d'ariary), quel
+que soit le volume fabriqué : c'est un plafond que l'atelier approche sans
+jamais l'atteindre.
+
+\textbf{4.} $B(q) \geq 0 \iff 20q \geq 4(q+2) \iff 16q \geq 8 \iff q \geq
+\dfrac12$ : le seuil de rentabilité est $q_{0} = 0{,}5$ millier de briques,
+soit $500$ briques par semaine.
+
+\textbf{5.} La courbe part de $B(0) = -4$, croît en se rapprochant sans
+cesse de l'asymptote $y=16$, avec $B(20) = \dfrac{400}{22}-4 \approx 14{,}2$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Une courbe ne peut pas couper son asymptote oblique.
+  \item Si $\limpinf \dfrac{f(x)}{x} = 2$, la droite $y = 2x$ est asymptote à
+        la courbe.
+  \item Une fonction peut admettre deux asymptotes horizontales.
+  \item En un point angulé, la fonction est continue.
+  \item Le tracé d'une courbe doit commencer par le placement des asymptotes.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elle peut la couper, même plusieurs fois.
+\textbf{2.} Faux — il faut encore que $f(x)-2x$ ait une limite finie.
+\textbf{3.} Vrai — une en $+\infty$, une autre en $-\infty$.
+\textbf{4.} Vrai — c'est dans la définition.
+\textbf{5.} Vrai — c'est ce qui rend le reste du tracé fiable.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve — série OSE}
+Soit $f$ la fonction définie sur $\R \setminus \{-1\}$ par
+$f(x) = \dfrac{2x^{2}+3x-1}{x+1}$, de courbe $(\Cf)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Déterminer trois réels $a$, $b$ et $c$ tels que
+        $f(x) = ax+b+\dfrac{c}{x+1}$. \hfill\textup{(0,75 pt)}
+  \item En déduire les asymptotes de $(\Cf)$ et la position de la courbe par
+        rapport à l'asymptote oblique. \hfill\textup{(1,25 pt)}
+  \item Calculer $f'(x)$, étudier son signe et dresser le tableau de variation
+        de $f$. \hfill\textup{(1,5 pt)}
+  \item Construire $(\Cf)$ et ses asymptotes. \hfill\textup{(1,5 pt)}
+  \item Discuter graphiquement, selon le réel $m$, le nombre de solutions de
+        l'équation $f(x) = m$. \hfill\textup{(1 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} La division euclidienne donne $f(x) = 2x+1-\dfrac{2}{x+1}$, donc
+$a=2$, $b=1$, $c=-2$.
+
+\textbf{2.} $x = -1$ est asymptote verticale ; $y = 2x+1$ est asymptote
+oblique. Le signe de $f(x)-(2x+1) = \dfrac{-2}{x+1}$ est l'opposé de celui de
+$x+1$ : la courbe est au-dessous de l'asymptote pour $x > -1$, au-dessus pour
+$x < -1$.
+
+\textbf{3.} $f'(x) = 2 + \dfrac{2}{(x+1)^{2}} > 0$ : $f$ est strictement
+croissante sur chacun des deux intervalles.
+
+\textbf{4.} La courbe possède deux branches de part et d'autre de
+l'asymptote verticale.
+
+\textbf{5.} La courbe possède deux branches, chacune parcourant $\R$ tout
+entier de façon strictement croissante. Pour tout réel $m$, l'équation
+$f(x)=m$ admet donc exactement deux solutions, une sur chaque branche.
+\end{corrige}

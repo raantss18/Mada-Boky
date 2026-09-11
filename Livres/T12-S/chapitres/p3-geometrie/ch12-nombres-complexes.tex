@@ -1,0 +1,926 @@
+% ===========================================================================
+%  Chapitre 12 — Nombres complexes
+%  PE 2026, composante GÉOMÉTRIE
+% ===========================================================================
+\bmtchapitre{Nombres complexes}
+  {Utiliser les nombres complexes pour résoudre un problème dans le plan :
+   formes algébrique, trigonométrique, exponentielle et polaire ; formules de
+   Moivre et d'Euler ; équations et racines $n$-ièmes.}
+  {Géométrie \textbullet\ environ 12 heures}
+
+L'équation $x^{2} = -1$ n'a pas de solution réelle. Pendant des siècles, on
+s'est contenté de le constater ; puis les algébristes italiens du seizième
+siècle ont remarqué qu'en manipulant une racine carrée de $-1$ comme si elle
+existait, on obtenait des résultats justes sur des équations bien réelles. Ce
+chapitre officialise ce geste : on ajoute aux réels un nombre $i$ tel que
+$i^{2} = -1$, et l'on vérifie que tout continue de fonctionner.
+
+Ce qui suit dépasse largement l'algèbre. Chaque nombre complexe est un point
+du plan, chaque produit est une rotation combinée à un agrandissement. Les
+nombres complexes deviennent alors le langage le plus efficace pour décrire
+les transformations du plan — et c'est à ce titre qu'ils reviennent au
+baccalauréat, dans le problème de géométrie, chaque année sans exception.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Trigonométrie et géométrie plane de première.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Donner les valeurs de $\cos\frac{\pi}{3}$, $\sin\frac{\pi}{3}$,
+        $\cos\frac{\pi}{4}$, $\sin\frac{\pi}{4}$, $\cos\frac{\pi}{6}$,
+        $\sin\frac{\pi}{6}$.
+  \item Résoudre $x^{2}-4x+5 = 0$ dans $\R$. Que vaut le discriminant ?
+  \item Développer $(a+b)^{2}$ et $(a+b)^{3}$.
+  \item Rappeler les formules d'addition
+        $\cos(a+b)$ et $\sin(a+b)$.
+  \item Dans un repère orthonormé, calculer la distance $AB$ pour
+        $A(1\,;2)$ et $B(4\,;6)$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $i^{2}$, $i^{3}$, $i^{4}$
+  \item $(2+3i)+(1-i)$
+  \item $(1+i)^{2}$
+  \item $(1+i)(1-i)$
+  \item Conjugué de $3-5i$
+  \item $\abs{3+4i}$
+  \item $\dfrac{1}{i}$
+  \item $\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}$ sous forme algébrique
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $-1$, $-i$, $1$ \quad b) $3+2i$ \quad c) $2i$ \quad d) $2$ \quad
+e) $3+5i$ \quad f) $5$ \quad g) $-i$ \quad
+h) $\frac12+i\frac{\sqrt3}{2}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Définition et forme algébrique}
+
+\begin{definition}[ensemble des nombres complexes]
+Il existe un ensemble $\C$ contenant $\R$, muni d'une addition et d'une
+multiplication prolongeant celles de $\R$, et contenant un élément $i$
+vérifiant $i^{2} = -1$. Tout élément de $\C$ s'écrit de façon unique
+\[
+  z = x+iy, \qquad x \in \R, \ y \in \R,
+\]
+écriture appelée \textbf{forme algébrique}. Le réel $x$ est la \textbf{partie
+réelle} $\Re(z)$, le réel $y$ la \textbf{partie imaginaire} $\Im(z)$.
+\end{definition}
+
+\begin{avertissement}
+La partie imaginaire est un \emph{nombre réel} : celle de $3-5i$ vaut $-5$, et
+non $-5i$. Cette confusion coûte des points chaque année.
+\end{avertissement}
+
+\begin{definition}[conjugué]
+Le \textbf{conjugué} de $z = x+iy$ est $\overline z = x-iy$.
+\end{definition}
+
+\begin{propriete}[règles sur le conjugué]
+\[
+  \overline{z+z'} = \overline z+\overline{z'}, \quad
+  \overline{zz'} = \overline z\,\overline{z'}, \quad
+  \overline{\left(\frac{z}{z'}\right)} = \frac{\overline z}{\overline{z'}},
+  \quad z\overline z = x^{2}+y^{2}, \quad
+  z+\overline z = 2\Re(z).
+\]
+De plus $z$ est réel si et seulement si $\overline z = z$, et imaginaire pur
+si et seulement si $\overline z = -z$.
+\end{propriete}
+
+\begin{methode}{écrire un quotient sous forme algébrique}
+On multiplie numérateur et dénominateur par le conjugué du dénominateur : le
+nouveau dénominateur devient réel, et il ne reste qu'à séparer les deux
+parties.
+\end{methode}
+
+\begin{exemple}[un quotient]
+\[
+  \frac{2+3i}{1-i}
+  = \frac{(2+3i)(1+i)}{(1-i)(1+i)}
+  = \frac{2+2i+3i+3i^{2}}{1+1}
+  = \frac{-1+5i}{2}
+  = -\frac12+\frac52\,i .
+\]
+\end{exemple}
+
+\begin{entrainement}[forme algébrique]
+\exo[\niveau{1}] Écrire sous forme algébrique $(3-i)(2+5i)$ et
+$\dfrac{1+i}{2-i}$.
+
+\exo[\niveau{1}] Déterminer $\Re(z)$ et $\Im(z)$ pour $z = (2+i)^{2}$.
+
+\exo[\niveau{2}] Déterminer les réels $x$ et $y$ tels que
+$(x+iy)(1+2i) = 5$.
+
+\exo[\niveau{2}] Montrer que $\dfrac{z-1}{z+1}$ est imaginaire pur si et
+seulement si $\abs z = 1$ et $z \neq -1$.
+
+\exo[\niveau{3}] Calculer $i+i^{2}+i^{3}+\cdots+i^{2026}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $(3-i)(2+5i) = 6+15i-2i+5 = 11+13i$. Pour le quotient, on
+multiplie par le conjugué du dénominateur :
+$\dfrac{1+i}{2-i} = \dfrac{(1+i)(2+i)}{5} = \dfrac{1+3i}{5}
+= \dfrac15+\dfrac35\,i$.
+
+\textbf{2.} $(2+i)^{2} = 4+4i-1 = 3+4i$, donc $\Re(z) = 3$ et $\Im(z) = 4$.
+
+\textbf{3.} $x+iy = \dfrac{5}{1+2i} = \dfrac{5(1-2i)}{5} = 1-2i$, d'où
+$x = 1$ et $y = -2$.
+
+\textbf{4.} Pour $z \neq -1$,
+$\dfrac{z-1}{z+1} = \dfrac{(z-1)\overline{(z+1)}}{\abs{z+1}^{2}}$, et le
+numérateur vaut $\abs z^{2}-1+2i\,\Im(z)$. Sa partie réelle est donc
+$\abs z^{2}-1$ : le quotient est imaginaire pur exactement lorsque
+$\abs z = 1$.
+
+\textbf{5.} Les puissances de $i$ se répètent par blocs de quatre, et
+$i+i^{2}+i^{3}+i^{4} = 0$. Comme $2026 = 4\times506+2$, les $2024$ premiers
+termes se compensent et il reste
+$i^{2025}+i^{2026} = i+i^{2} = -1+i$.
+\end{corrige}
+
+% ===========================================================================
+\section{Représentation géométrique}
+
+\begin{definition}[affixe]
+Le plan étant muni d'un repère orthonormé direct $(O\,;\vecu,\vecv)$, on
+associe au complexe $z = x+iy$ le point $M(x\,;y)$, appelé \textbf{image} de
+$z$ ; réciproquement $z$ est l'\textbf{affixe} de $M$, notée $z_{M}$. L'affixe
+du vecteur $\vect{AB}$ est $z_{B}-z_{A}$.
+\end{definition}
+
+\begin{visualisation}[le plan complexe]
+\begin{center}
+\begin{tikzpicture}[x=1.05cm, y=1.05cm, font=\footnotesize]
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (-0.6,0) -- (4.4,0)
+    node[anchor=north east] {$\vecu$};
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (0,-0.6) -- (0,3.4)
+    node[anchor=north west] {$\vecv$};
+  \node[bmtGris, anchor=north east] at (0,0) {$O$};
+  \filldraw[bmtIndigo] (3,2) circle (2pt);
+  \node[bmtIndigo, anchor=south west] at (3.05,2.05) {$M(z)$};
+  \draw[bmtIndigo, dashed] (3,0) -- (3,2) -- (0,2);
+  \node[bmtGris, anchor=north] at (3,-0.08) {$x$};
+  \node[bmtGris, anchor=east] at (-0.08,2) {$y$};
+  \draw[bmtLaterite, line width=1.1pt] (0,0) -- (3,2);
+  \node[bmtLaterite, anchor=south east, rotate=33.7] at (1.7,1.0) {$\abs z$};
+  \draw[bmtVetiver, line width=0.9pt] (0.85,0) arc (0:33.7:0.85);
+  \node[bmtVetiver, anchor=west] at (0.95,0.28) {$\theta$};
+  \filldraw[bmtGris] (3,-2) circle (1.7pt);
+  \node[bmtGris, anchor=north west] at (3.05,-1.95) {$\overline z$};
+  \draw[bmtGris, dotted] (3,2) -- (3,-2);
+\end{tikzpicture}
+\end{center}
+
+Chaque nombre complexe est un point. Sa distance à l'origine est son module,
+l'angle que fait $\vect{OM}$ avec l'axe des abscisses est son argument. Le
+conjugué est le symétrique par rapport à l'axe des réels : conjuguer, c'est
+retourner la figure. Retenez cette double lecture — algébrique et
+géométrique : tout le chapitre consiste à passer de l'une à l'autre.
+\end{visualisation}
+
+\begin{propriete}[distances et milieux]
+$AB = \abs{z_{B}-z_{A}}$, et l'affixe du milieu de $[AB]$ vaut
+$\dfrac{z_{A}+z_{B}}{2}$. Plus généralement, si $M$ est défini par une
+relation vectorielle entre points connus, son affixe s'obtient en remplaçant
+dans cette relation chaque vecteur $\vect{PQ}$ par la différence
+$z_{Q}-z_{P}$.
+\end{propriete}
+
+% ===========================================================================
+\section{Module, argument et forme trigonométrique}
+
+\begin{definition}[module et argument]
+Le \textbf{module} de $z = x+iy$ est $\abs z = \sqrt{x^{2}+y^{2}}$. Si
+$z \neq 0$, un \textbf{argument} de $z$ est tout réel $\theta$ tel que
+\[
+  \cos\theta = \frac{x}{\abs z} \quad\text{et}\quad
+  \sin\theta = \frac{y}{\abs z}.
+\]
+On écrit alors $z = \abs z\left(\cos\theta+i\sin\theta\right)$ :
+c'est la \textbf{forme trigonométrique}.
+\end{definition}
+
+\begin{propriete}[règles de calcul]
+\[
+  \abs{zz'} = \abs z\abs{z'}, \qquad
+  \arg(zz') = \arg z+\arg z' \ [2\pi],
+\]
+\[
+  \left|\frac{z}{z'}\right| = \frac{\abs z}{\abs{z'}}, \qquad
+  \arg\!\left(\frac{z}{z'}\right) = \arg z-\arg z' \ [2\pi],
+  \qquad \arg\!\left(\overline z\right) = -\arg z \ [2\pi].
+\]
+\end{propriete}
+
+\begin{propriete}[lecture géométrique d'un quotient]
+Pour trois points distincts $A$, $B$, $C$ :
+\[
+  \left|\frac{z_{C}-z_{A}}{z_{B}-z_{A}}\right| = \frac{AC}{AB},
+  \qquad
+  \arg\!\left(\frac{z_{C}-z_{A}}{z_{B}-z_{A}}\right)
+  = \left(\vect{AB},\vect{AC}\right) \ [2\pi].
+\]
+\end{propriete}
+
+\begin{methode}{reconnaître la nature d'un triangle}
+On calcule le quotient $\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}}$ et l'on interprète.
+Module $1$ : le triangle est isocèle en $A$. Argument $\frac{\pi}{2}$ : il est
+rectangle en $A$. Quotient égal à $i$ : rectangle et isocèle en $A$. Quotient
+réel : les trois points sont alignés.
+\end{methode}
+
+\begin{exemple}[nature d'un triangle]
+Soient $A(2i)$, $B(3+i)$ et $C(-1-i)$. Alors
+\[
+  \frac{z_{B}-z_{A}}{z_{C}-z_{A}} = \frac{3-i}{-1-3i}
+  = \frac{(3-i)(-1+3i)}{1+9} = \frac{-3+9i+i+3}{10} = i .
+\]
+Le module vaut $1$ et l'argument $\frac{\pi}{2}$ : le triangle $ABC$ est
+rectangle et isocèle en $A$.
+\end{exemple}
+
+\begin{entrainement}[module et argument]
+\exo[\niveau{1}] Donner module et argument de $1+i$, de $-\sqrt3+i$ et de
+$-2i$.
+
+\exo[\niveau{1}] Écrire $2\left(\cos\frac{\pi}{6}+i\sin\frac{\pi}{6}\right)$
+sous forme algébrique.
+
+\exo[\niveau{2}] Déterminer l'ensemble des points $M$ d'affixe $z$ tels que
+$\abs{z-1+2i} = 3$.
+
+\exo[\niveau{2}] Déterminer l'ensemble des points $M$ tels que
+$\abs{z-1} = \abs{z+i}$.
+
+\exo[\niveau{3}] Soient $A(1)$, $B(i)$ et $C(-1)$. Déterminer la nature du
+triangle $ABC$ par le calcul d'un quotient.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{6.} $\abs{1+i} = \sqrt2$ d'argument $\frac{\pi}{4}$ ;
+$\abs{-\sqrt3+i} = 2$ d'argument $\frac{5\pi}{6}$ ; $\abs{-2i} = 2$
+d'argument $-\frac{\pi}{2}$.
+
+\textbf{7.} $2\left(\cos\frac{\pi}{6}+i\sin\frac{\pi}{6}\right)
+= 2\left(\frac{\sqrt3}{2}+\frac12 i\right) = \sqrt3+i$.
+
+\textbf{8.} L'égalité s'écrit $\abs{z-(1-2i)} = 3$ : c'est le cercle de
+centre le point d'affixe $1-2i$ et de rayon $3$.
+
+\textbf{9.} Avec $z = x+iy$, l'égalité devient
+$(x-1)^{2}+y^{2} = x^{2}+(y+1)^{2}$, soit $-2x = 2y$, c'est-à-dire $y = -x$.
+C'est la médiatrice du segment joignant les points d'affixes $1$ et $-i$.
+
+\textbf{10.} $\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}} = \dfrac{-2}{i-1} = 1+i$, de
+module $\sqrt2$ et d'argument $\frac{\pi}{4}$. Donc $AC = \sqrt2\,AB$ et
+l'angle en $A$ vaut $\frac{\pi}{4}$. Comme $AB = \abs{i-1} = \sqrt2$,
+$BC = \abs{-1-i} = \sqrt2$ et $AC = 2$, on a $AB = BC$ et
+$AB^{2}+BC^{2} = AC^{2}$ : le triangle est rectangle isocèle en $B$.
+\end{corrige}
+
+% ===========================================================================
+\section{Formes exponentielle et polaire}
+
+\begin{definition}[notation exponentielle]
+Pour tout réel $\theta$, on pose
+$e^{i\theta} = \cos\theta+i\sin\theta$. Tout complexe non nul s'écrit alors
+$z = re^{i\theta}$ avec $r = \abs z>0$ : c'est la \textbf{forme
+exponentielle}. La notation $[r\,;\theta]$ est la \textbf{forme polaire}.
+\end{definition}
+
+\begin{propriete}[pourquoi cette notation]
+\[
+  e^{i\theta}\times e^{i\theta'} = e^{i(\theta+\theta')}, \qquad
+  \frac{1}{e^{i\theta}} = e^{-i\theta}, \qquad
+  \left(e^{i\theta}\right)^{n} = e^{in\theta}.
+\]
+La notation exponentielle est donc cohérente avec les règles de calcul de
+l'exponentielle réelle, ce qui justifie son emploi.
+\end{propriete}
+
+\begin{demonstration}
+Le produit se déduit des formules d'addition :
+\[
+  (\cos\theta+i\sin\theta)(\cos\theta'+i\sin\theta')
+  = \left(\cos\theta\cos\theta'-\sin\theta\sin\theta'\right)
+  +i\left(\sin\theta\cos\theta'+\cos\theta\sin\theta'\right),
+\]
+c'est-à-dire $\cos(\theta+\theta')+i\sin(\theta+\theta')$.
+\end{demonstration}
+
+% ===========================================================================
+\section{Équation du second degré dans l'ensemble des complexes}
+
+\begin{theoreme}[racines carrées d'un réel négatif]
+Si $a>0$, les solutions de $z^{2} = -a$ sont $i\sqrt a$ et $-i\sqrt a$.
+\end{theoreme}
+
+\begin{theoreme}[équation du second degré à coefficients réels]
+Soit $az^{2}+bz+c = 0$ avec $a$, $b$, $c$ réels et $a \neq 0$, de
+discriminant $\Delta = b^{2}-4ac$.
+\begin{itemize}[leftmargin=*, itemsep=0.1em]
+  \item Si $\Delta>0$, deux solutions réelles
+        $\dfrac{-b\pm\sqrt\Delta}{2a}$.
+  \item Si $\Delta = 0$, une solution double $-\dfrac{b}{2a}$.
+  \item Si $\Delta<0$, deux solutions complexes conjuguées
+        $\dfrac{-b\pm i\sqrt{-\Delta}}{2a}$.
+\end{itemize}
+\end{theoreme}
+
+\begin{propriete}[coefficients complexes]
+Lorsque les coefficients sont complexes, la formule reste valable à condition
+de remplacer $\sqrt\Delta$ par \emph{une} racine carrée $\delta$ de $\Delta$,
+c'est-à-dire un complexe vérifiant $\delta^{2} = \Delta$. Les solutions sont
+alors $\dfrac{-b\pm\delta}{2a}$.
+\end{propriete}
+
+\begin{methode}{extraire une racine carrée d'un complexe}
+Pour trouver $\delta = a+ib$ tel que $\delta^{2} = \Delta = p+iq$, on écrit
+trois équations : $a^{2}-b^{2} = p$, $2ab = q$, et
+$a^{2}+b^{2} = \abs\Delta$. Les deux dernières donnent $a^{2}$ et $b^{2}$ par
+somme et différence, la deuxième fixe le signe relatif de $a$ et $b$.
+\end{methode}
+
+\begin{exemple}[une équation à coefficients complexes]
+Résolvons $z^{2}-(5-3i)z+4-7i = 0$.
+
+$\Delta = (5-3i)^{2}-4(4-7i) = (16-30i)-16+28i = -2i$.
+
+Cherchons $\delta = a+ib$ avec $\delta^{2} = -2i$ : $a^{2}-b^{2} = 0$,
+$2ab = -2$ et $a^{2}+b^{2} = 2$. On obtient $a = 1$, $b = -1$, soit
+$\delta = 1-i$ — on vérifie $(1-i)^{2} = -2i$.
+
+Les solutions sont
+\[
+  z_{1} = \frac{(5-3i)+(1-i)}{2} = 3-2i,
+  \qquad
+  z_{2} = \frac{(5-3i)-(1-i)}{2} = 2-i .
+\]
+\end{exemple}
+
+\begin{entrainement}[équations]
+\exo[\niveau{1}] Résoudre dans $\C$ : $z^{2}+4 = 0$, puis $z^{2}-2z+5 = 0$.
+
+\exo[\niveau{2}] Résoudre $z^{2}-(3+i)z+4+3i = 0$.
+
+\exo[\niveau{2}] Déterminer les racines carrées de $3+4i$.
+
+\exo[\niveau{3}] Résoudre $z^{2}-2z\cos\theta+1 = 0$, $\theta$ réel, et donner
+les solutions sous forme exponentielle.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{11.} $z^{2}+4 = 0$ donne $z = 2i$ ou $z = -2i$. Pour
+$z^{2}-2z+5 = 0$, le discriminant vaut $-16$, de racines carrées $\pm4i$,
+d'où $z = 1+2i$ ou $z = 1-2i$.
+
+\textbf{12.} $\Delta = (3+i)^{2}-4(4+3i) = 8+6i-16-12i = -8-6i$. On cherche
+$\delta = a+ib$ tel que $\delta^{2} = \Delta$ : le système
+$a^{2}-b^{2} = -8$, $2ab = -6$, $a^{2}+b^{2} = \abs\Delta = 10$ donne
+$a^{2} = 1$ et $b^{2} = 9$ avec $ab<0$, soit $\delta = 1-3i$. Les solutions
+sont alors $\dfrac{(3+i)\pm(1-3i)}{2}$, c'est-à-dire $2-i$ et $1+2i$. On
+vérifie que leur somme vaut $3+i$ et leur produit $4+3i$.
+
+\textbf{13.} Si $(a+ib)^{2} = 3+4i$, alors $a^{2}-b^{2} = 3$, $2ab = 4$ et
+$a^{2}+b^{2} = 5$. D'où $a^{2} = 4$, $b^{2} = 1$, avec $ab>0$ : les racines
+carrées sont $2+i$ et $-2-i$.
+
+\textbf{14.} $\Delta = 4\cos^{2}\theta-4 = -4\sin^{2}\theta$, de racines
+carrées $\pm2i\sin\theta$. Les solutions sont donc
+$z = \cos\theta \pm i\sin\theta$, c'est-à-dire $e^{i\theta}$ et
+$e^{-i\theta}$ : deux nombres de module $1$, conjugués l'un de l'autre.
+\end{corrige}
+
+% ===========================================================================
+\section{Résolution algébrique et factorisation de polynômes}
+
+\begin{propriete}[factorisation par une racine]
+Si $z_{0}$ est racine du polynôme $P$ de degré $n$, alors $P(z)$ se factorise
+sous la forme $(z-z_{0})\,Q(z)$, où $Q$ est de degré $n-1$.
+\end{propriete}
+
+\begin{methode}{résoudre une équation du troisième degré}
+L'énoncé fournit toujours une racine, ou demande de la vérifier. On divise
+alors $P$ par $z-z_{0}$ — par la division euclidienne posée, ou par
+identification des coefficients —, et l'on résout l'équation du second degré
+obtenue.
+\end{methode}
+
+\begin{exemple}[une équation du troisième degré]
+Résolvons $P(z) = z^{3}+(3-3i)z^{2}+(1-6i)z-1-3i = 0$.
+
+\emph{Une racine évidente.}
+$P(-1) = -1+(3-3i)-(1-6i)-1-3i = 0$ : $-1$ est racine.
+
+\emph{Factorisation.} La division donne
+$P(z) = (z+1)\left[z^{2}+(2-3i)z-1-3i\right]$.
+
+\emph{Second degré.}
+$\Delta = (2-3i)^{2}-4(-1-3i) = (-5-12i)+4+12i = -1$, dont $i$ est une racine
+carrée. Les solutions sont
+\[
+  \frac{-(2-3i)+i}{2} = -1+2i
+  \qquad\text{et}\qquad
+  \frac{-(2-3i)-i}{2} = -1+i .
+\]
+L'ensemble des solutions est $\{-1\,;\,-1+i\,;\,-1+2i\}$.
+\end{exemple}
+
+% ===========================================================================
+\section{Formules de Moivre et d'Euler}
+
+\begin{theoreme}[formule de Moivre]
+Pour tout réel $\theta$ et tout entier $n$,
+\[
+  \left(\cos\theta+i\sin\theta\right)^{n} = \cos(n\theta)+i\sin(n\theta).
+\]
+\end{theoreme}
+
+\begin{demonstration}
+Récurrence sur $n$. Vrai pour $n = 0$. Si la formule vaut au rang $n$, alors
+en multipliant par $\cos\theta+i\sin\theta$ et en utilisant les formules
+d'addition, on obtient $\cos((n+1)\theta)+i\sin((n+1)\theta)$.
+\end{demonstration}
+
+\begin{theoreme}[formules d'Euler]
+\[
+  \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2},
+  \qquad
+  \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}.
+\]
+\end{theoreme}
+
+\begin{exemple}[linéariser $\cos^{3}\theta$]
+\[
+  \cos^{3}\theta
+  = \left(\frac{e^{i\theta}+e^{-i\theta}}{2}\right)^{3}
+  = \frac18\left(e^{3i\theta}+3e^{i\theta}+3e^{-i\theta}+e^{-3i\theta}\right)
+  = \frac{\cos3\theta+3\cos\theta}{4}.
+\]
+La linéarisation transforme une puissance en somme : c'est exactement ce
+qu'il faut pour calculer une primitive de $\cos^{3}$.
+\end{exemple}
+
+\begin{entrainement}[Moivre et Euler]
+\exo[\niveau{1}] Calculer $(1+i)^{8}$ en passant par la forme exponentielle.
+
+\exo[\niveau{2}] Exprimer $\cos3\theta$ en fonction de $\cos\theta$.
+
+\exo[\niveau{2}] Linéariser $\sin^{2}\theta$ puis $\sin^{3}\theta$.
+
+\exo[\niveau{3}] En déduire une primitive de $\theta \mapsto \sin^{3}\theta$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{15.} $1+i = \sqrt2\,e^{i\pi/4}$, donc
+$(1+i)^{8} = \left(\sqrt2\right)^{8}e^{2i\pi} = 16$.
+
+\textbf{16.} La formule de Moivre donne
+$\cos3\theta+i\sin3\theta = \left(\cos\theta+i\sin\theta\right)^{3}$. En
+développant et en identifiant les parties réelles,
+$\cos3\theta = \cos^{3}\theta-3\cos\theta\sin^{2}\theta$, puis, en remplaçant
+$\sin^{2}\theta$ par $1-\cos^{2}\theta$,
+$\cos3\theta = 4\cos^{3}\theta-3\cos\theta$.
+
+\textbf{17.} Avec les formules d'Euler,
+$\sin^{2}\theta = \dfrac{1-\cos2\theta}{2}$ et
+$\sin^{3}\theta = \dfrac{3\sin\theta-\sin3\theta}{4}$.
+
+\textbf{18.} La linéarisation transforme la primitive en une somme de deux
+primitives immédiates :
+\[
+  \int \sin^{3}\theta \,\mathrm{d}\theta
+  = \frac14\int\left(3\sin\theta-\sin3\theta\right)\,\mathrm{d}\theta
+  = -\frac34\cos\theta+\frac{1}{12}\cos3\theta+k .
+\]
+\end{corrige}
+
+% ===========================================================================
+\section{Racines n-ièmes d'un nombre complexe non nul}
+
+\begin{theoreme}[racines n-ièmes]
+Soit $Z = Re^{i\varphi}$ un complexe non nul et $n \geq 1$. L'équation
+$z^{n} = Z$ admet exactement $n$ solutions :
+\[
+  z_{k} = R^{1/n}\,e^{i\left(\frac{\varphi}{n}+\frac{2k\pi}{n}\right)},
+  \qquad k = 0,1,\dots,n-1 .
+\]
+Leurs images sont les sommets d'un polygone régulier à $n$ côtés inscrit dans
+le cercle de centre $O$ et de rayon $R^{1/n}$.
+\end{theoreme}
+
+\begin{demonstration}
+En écrivant $z = re^{i\theta}$, l'équation devient $r^{n}e^{in\theta}
+= Re^{i\varphi}$, ce qui équivaut à $r^{n} = R$ et
+$n\theta = \varphi+2k\pi$. La première égalité donne $r = R^{1/n}$, la seconde
+$\theta = \frac{\varphi}{n}+\frac{2k\pi}{n}$ ; les valeurs $k = 0,\dots,n-1$
+donnent $n$ arguments distincts modulo $2\pi$, les autres les répètent.
+\end{demonstration}
+
+\begin{entrainement}[racines n-ièmes]
+\exo[\niveau{1}] Résoudre $z^{3} = 1$ et représenter les solutions.
+
+\exo[\niveau{2}] Résoudre $z^{4} = -16$.
+
+\exo[\niveau{2}] Résoudre $z^{3} = 8i$.
+
+\exo[\niveau{3}] Montrer que la somme des racines $n$-ièmes de l'unité est
+nulle pour $n \geq 2$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{19.} Les solutions de $z^{3} = 1$ sont $1$, $e^{2i\pi/3}$ et
+$e^{-2i\pi/3}$ : trois points régulièrement répartis sur le cercle unité, aux
+sommets d'un triangle équilatéral.
+
+\textbf{20.} $-16 = 16\,e^{i\pi}$, donc $z = 2\,e^{i(\pi+2k\pi)/4}$ pour
+$k \in \{0,1,2,3\}$ : les solutions sont $\sqrt2+i\sqrt2$,
+$-\sqrt2+i\sqrt2$, $-\sqrt2-i\sqrt2$ et $\sqrt2-i\sqrt2$.
+
+\textbf{21.} $8i = 8\,e^{i\pi/2}$, donc
+$z = 2\,e^{i\left(\frac{\pi}{6}+\frac{2k\pi}{3}\right)}$ : les solutions sont
+$\sqrt3+i$, $-\sqrt3+i$ et $-2i$.
+
+\textbf{22.} Les racines $n$-ièmes de l'unité sont les $\omega^{k}$ pour
+$k$ de $0$ à $n-1$, où $\omega = e^{2i\pi/n} \neq 1$. Leur somme est celle
+d'une suite géométrique de raison $\omega$ :
+$\dfrac{\omega^{n}-1}{\omega-1} = \dfrac{1-1}{\omega-1} = 0$.
+\end{corrige}
+
+% ===========================================================================
+\begin{annales}
+Les nombres complexes ouvrent presque toujours par une équation, puis
+basculent vers la géométrie. Les énoncés qui suivent sont repris de sujets
+réellement posés ; leur provenance est indiquée à chaque fois.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — problème 1, partie C}
+Dans $\C$, on considère le polynôme
+\[
+  P(z) = z^{3}+(3-3i)z^{2}+(1-6i)z-1-3i .
+\]
+Calculer $P(-1)$ et en déduire toutes les solutions dans $\C$ de l'équation
+$P(z) = 0$.
+
+\exoann{Baccalauréat, Mauritanie, série C, session 2022 — exercice 2}
+On pose $P(z) = z^{3}-(5+6i)z^{2}+(-6+16i)z+20+10i$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $P(-1+i)$ et factoriser $P(z)$ sous la forme
+        $(z+1-i)\left(z^{2}+az+b\right)$.
+  \item Résoudre $P(z) = 0$. On note $z_{1}$, $z_{2}$, $z_{3}$ les solutions,
+        rangées de sorte que $\abs{z_{1}}<\abs{z_{2}}<\abs{z_{3}}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Burkina Faso, série D, session 2023 — exercice 1}
+Soit $P(Z) = Z^{3}-(2+2i)Z^{2}-2Z-8+4i$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que $2i$ est racine de $P(Z)$.
+  \item Factoriser $P(Z)$, puis résoudre l'équation $P(Z) = 0$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Burkina Faso, série D, session 2023 — exercice 1, suite}
+Dans le plan complexe, on place $A(2i)$, $B(3+i)$ et $C(-1-i)$. Calculer
+$\dfrac{z_{B}-z_{A}}{z_{C}-z_{A}}$ et en déduire la nature du triangle $ABC$.
+
+\exoann{Baccalauréat, Cameroun, séries D et TI, session 2024 — exercice 1}
+Résoudre dans $\C$ l'équation
+$z^{2}-(5-3i)z+4-7i = 0$.
+
+\exoann{Baccalauréat, Cameroun, série C, session 2023 — exercice 2}
+Soit $\alpha$ un réel et $(E)$ l'équation d'inconnue complexe
+\[
+  z^{2}+\bigl[-3\cos\alpha-1+i(3-5\sin\alpha)\bigr]z
+  +5\sin\alpha-2+i(-3\cos\alpha-1) = 0 .
+\]
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $-i$ est solution de $(E)$.
+  \item Déterminer l'autre solution $z_{2}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Cameroun, série C, session 2023 — exercice 2, suite}
+Déterminer l'ensemble des points $A_{\alpha}$ d'affixe
+$z_{\alpha} = 3\cos\alpha+1+i\left(-2+5\sin\alpha\right)$ lorsque $\alpha$
+décrit $\R$.
+
+\exoann{Concours d'entrée, ENI Fianarantsoa, session 2008-2009 — exercice 1}
+Soit l'équation d'inconnue complexe $z$ :
+\[
+  z^{2}-(\alpha+3i+4)z+2\alpha i-1 = 0, \qquad \alpha \in \C .
+\]
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer $\alpha$ pour que l'équation admette deux racines
+        complexes conjuguées, puis calculer ces racines.
+  \item Dans un autre cas, si l'une des racines est $i$, calculer $\alpha$ et
+        l'autre racine.
+\end{enumerate}
+
+\exoann{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2021-2022 — problème 1, partie C}
+Dans le plan orienté, $OAB$ est un triangle tel que $OA = OB = a$ avec $a>0$
+et $\left(\vect{OA},\vect{OB}\right) = \frac{\pi}{2}$. On note $I$ le milieu
+de $[AB]$ et $G$ le point défini par
+$2\,\vect{OG} = -\vect{OA}-\vect{OB}$. Le plan est rapporté au repère
+complexe $\left(O\,;\vect{OA},\vect{OB}\right)$.
+
+Déterminer les affixes des points $A$, $B$, $I$ et $G$.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $P(-1) = -1+(3-3i)-(1-6i)-1-3i = 0$. La division par $z+1$ donne
+$P(z) = (z+1)\left[z^{2}+(2-3i)z-1-3i\right]$. Le discriminant vaut
+$(2-3i)^{2}+4+12i = -1$, dont $i$ est une racine carrée. Les solutions sont
+$-1$, $-1+i$ et $-1+2i$.
+
+\textbf{2.} Avec $z = -1+i$ : $z^{2} = -2i$ et $z^{3} = 2+2i$, d'où
+$P(-1+i) = (2+2i)+(12-10i)+(-10-22i)+(20+10i) = 0$. La division donne
+$P(z) = (z+1-i)\left[z^{2}-(6+5i)z+5+15i\right]$. Le discriminant vaut
+$(6+5i)^{2}-4(5+15i) = -9$, de racine carrée $3i$, d'où les solutions
+$3+4i$ et $3+i$. Enfin $\abs{-1+i} = \sqrt2$, $\abs{3+i} = \sqrt{10}$ et
+$\abs{3+4i} = 5$ : $z_{1} = -1+i$, $z_{2} = 3+i$, $z_{3} = 3+4i$.
+
+\textbf{3.} $(2i)^{3} = -8i$ et $(2i)^{2} = -4$, donc
+$P(2i) = -8i+(8+8i)-4i-8+4i = 0$. La division donne
+$P(Z) = (Z-2i)\left(Z^{2}-2Z-2-4i\right)$. Le discriminant vaut $12+16i$, de
+racine carrée $4+2i$ — car $(4+2i)^{2} = 12+16i$ —, d'où les solutions
+$3+i$ et $-1-i$. L'ensemble des solutions est
+$\{2i\,;\,3+i\,;\,-1-i\}$.
+
+\textbf{4.} $\dfrac{3-i}{-1-3i} = \dfrac{(3-i)(-1+3i)}{10} = \dfrac{10i}{10}
+= i$. Le module vaut $1$ et l'argument $\frac{\pi}{2}$ : $AB = AC$ et
+$\left(\vect{AC},\vect{AB}\right) = \frac{\pi}{2}$. Le triangle est rectangle
+et isocèle en $A$.
+
+\textbf{5.} $\Delta = (5-3i)^{2}-4(4-7i) = -2i$, dont $1-i$ est une racine
+carrée. Les solutions sont $3-2i$ et $2-i$.
+
+\textbf{6.} Pour $z = -i$ : $z^{2} = -1$, le deuxième terme vaut
+$i(3\cos\alpha+1)+(3-5\sin\alpha)$ et le troisième
+$5\sin\alpha-2+i(-3\cos\alpha-1)$. La somme des parties réelles est
+$-1+3-5\sin\alpha+5\sin\alpha-2 = 0$, celle des parties imaginaires
+$(3\cos\alpha+1)-(3\cos\alpha+1) = 0$ : $-i$ est bien solution. Le produit
+des racines vaut $5\sin\alpha-2+i(-3\cos\alpha-1)$, donc
+\[
+  z_{2} = \frac{5\sin\alpha-2+i(-3\cos\alpha-1)}{-i}
+  = 3\cos\alpha+1+i\left(5\sin\alpha-2\right).
+\]
+
+\textbf{7.} En posant $x = 3\cos\alpha+1$ et $y = 5\sin\alpha-2$, on obtient
+$\left(\frac{x-1}{3}\right)^{2}+\left(\frac{y+2}{5}\right)^{2} = 1$ :
+l'ensemble décrit est l'ellipse de centre $\Omega(1\,;-2)$, de demi-axes $3$
+et $5$.
+
+\textbf{8. a)} Deux racines conjuguées imposent une somme et un produit
+réels. En posant $\alpha = a+ib$ : la somme $\alpha+3i+4 = (a+4)+(b+3)i$ est
+réelle si $b = -3$ ; le produit $2\alpha i-1 = -2b-1+2ai$ est réel si
+$a = 0$. Donc $\alpha = -3i$, l'équation devient $z^{2}-4z+5 = 0$, de
+solutions $2+i$ et $2-i$.
+\textbf{b)} Si $i$ est racine, $-1-(\alpha+3i+4)i+2\alpha i-1 = 0$ donne
+$1+(\alpha-4)i = 0$, soit $\alpha = 4+i$. La somme des racines vaut alors
+$\alpha+3i+4 = 8+4i$, et l'autre racine est $8+4i-i = 8+3i$.
+
+\textbf{9.} Dans le repère $\left(O\,;\vect{OA},\vect{OB}\right)$, les
+vecteurs de base sont $\vect{OA}$ et $\vect{OB}$ : donc $z_{A} = 1$ et
+$z_{B} = i$. Le milieu de $[AB]$ a pour affixe $\frac{1+i}{2}$. Enfin la
+relation $2\,\vect{OG} = -\vect{OA}-\vect{OB}$ se traduit sur les affixes par
+$2\left(z_{G}-0\right) = -(1-0)-(i-0)$, d'où
+\[
+  z_{G} = -\frac{1+i}{2}.
+\]
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[le pavage d'une place]
+Une place circulaire de rayon $8$ mètres doit recevoir six lampadaires
+disposés aux sommets d'un hexagone régulier inscrit dans un cercle de rayon
+$6$ mètres, centré au centre de la place. Le plan est rapporté à un repère
+orthonormé direct d'origine le centre de la place, l'unité valant un mètre.
+Le premier lampadaire est placé au point d'affixe $6$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Justifier que les affixes des six lampadaires sont les solutions de
+        l'équation $z^{6} = 6^{6}$.
+  \item Déterminer ces six affixes sous forme exponentielle, puis sous forme
+        algébrique.
+  \item Calculer la distance entre deux lampadaires voisins.
+  \item Le service technique veut ajouter un septième lampadaire au centre.
+        Justifier que la somme des affixes des six premiers est nulle, et
+        interpréter.
+  \item On fait tourner l'ensemble du dispositif d'un angle de
+        $\frac{\pi}{6}$ autour du centre. Quelle est la nouvelle affixe du
+        premier lampadaire ?
+  \item Un câble relie chaque lampadaire au centre. Quelle longueur totale de
+        câble faut-il ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[le pavage d'une place]
+\textbf{1.} Les six points sont sur le cercle de rayon $6$ et se déduisent
+les uns des autres par des rotations d'angle $\frac{2\pi}{6}$ : leurs affixes
+sont donc de module $6$ et d'arguments $\frac{2k\pi}{6}$, ce qui caractérise
+exactement les racines sixièmes de $6^{6}$.
+
+\textbf{2.} $z_{k} = 6e^{ik\pi/3}$ pour $k = 0,\dots,5$, soit
+\[
+  6, \quad 3+3i\sqrt3, \quad -3+3i\sqrt3, \quad -6, \quad -3-3i\sqrt3,
+  \quad 3-3i\sqrt3 .
+\]
+
+\textbf{3.} $\abs{z_{1}-z_{0}} = \abs{6e^{i\pi/3}-6} = 6$ : dans un hexagone
+régulier, le côté est égal au rayon. Les lampadaires voisins sont donc à six
+mètres l'un de l'autre.
+
+\textbf{4.} La somme des racines $n$-ièmes vaut $0$ dès que $n \geq 2$ :
+c'est la somme d'une suite géométrique de raison $e^{i\pi/3} \neq 1$, égale à
+$6\dfrac{1-e^{2i\pi}}{1-e^{i\pi/3}} = 0$. Géométriquement, le centre de
+gravité des six lampadaires est le centre de la place : le septième y sera
+donc parfaitement centré.
+
+\textbf{5.} Une rotation d'angle $\frac{\pi}{6}$ multiplie l'affixe par
+$e^{i\pi/6}$ : le premier lampadaire passe en $6e^{i\pi/6}
+= 3\sqrt3+3i$.
+
+\textbf{6.} Chaque câble mesure $6$ mètres, soit $36$ mètres au total —
+la rotation n'y change rien, puisqu'elle conserve les distances.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item La partie imaginaire de $2-7i$ est $-7i$.
+  \item $\abs{z+z'} = \abs z+\abs{z'}$ pour tous complexes.
+  \item Si $z\overline z = 0$ alors $z = 0$.
+  \item Une équation du second degré à coefficients complexes a toujours deux
+        solutions, éventuellement confondues.
+  \item Les solutions de $z^{4} = 1$ forment un carré.
+  \item Si $\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}}$ est réel, le triangle $ABC$ est
+        rectangle en $A$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elle vaut $-7$, qui est un réel.
+\textbf{2.} Faux — c'est une inégalité : $\abs{z+z'} \leq \abs z+\abs{z'}$.
+\textbf{3.} Vrai — $z\overline z = \abs z^{2}$.
+\textbf{4.} Vrai — tout complexe admet des racines carrées.
+\textbf{5.} Vrai — ce sont $1$, $i$, $-1$, $-i$, sommets d'un carré.
+\textbf{6.} Faux — un quotient réel signifie que les points sont alignés ;
+c'est un argument égal à $\frac{\pi}{2}$ qui donne l'angle droit.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, série S, session 2021 — problème 1, partie C}
+Dans l'ensemble $\C$ des nombres complexes, on considère le polynôme $P$
+défini par
+\[
+  P(z) = z^{3}+(3-3i)z^{2}+(1-6i)z-1-3i .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $P(-1)$. \hfill\textup{(0,25 pt)}
+  \item En déduire toutes les solutions dans $\C$ de l'équation $P(z) = 0$.
+        \hfill\textup{(0,5 pt)}
+  \item Placer les images des trois solutions dans le plan complexe et
+        déterminer la nature du triangle qu'elles forment.
+        \hfill\textup{(0,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} $P(-1) = -1+3-3i-1+6i-1-3i = 0$.
+
+\textbf{2.} La factorisation donne
+$P(z) = (z+1)\left[z^{2}+(2-3i)z-1-3i\right]$, dont le discriminant vaut
+$-1$. Les solutions sont $-1$, $-1+i$ et $-1+2i$.
+
+\textbf{3.} Les trois images ont pour abscisse commune $-1$ et pour ordonnées
+$0$, $1$ et $2$ : elles sont alignées sur la droite verticale d'équation
+$x = -1$, régulièrement espacées. Il n'y a donc pas de triangle, et le point
+$-1+i$ est le milieu des deux autres.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{Concours d'entrée, ENI Fianarantsoa, session 2008-2009}
+Soit l'équation d'inconnue complexe $z$ :
+\[
+  z^{2}-(\alpha+3i+4)z+2\alpha i-1 = 0, \qquad \alpha \in \C .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Déterminer le paramètre $\alpha$ pour que l'équation admette deux
+        racines complexes conjuguées, puis calculer ces racines.
+  \item Dans un autre cas, si l'une des racines est $i$, calculer $\alpha$ et
+        l'autre racine.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} Deux racines conjuguées $u$ et $\overline u$ ont pour somme
+$2\Re(u)$ et pour produit $\abs u^{2}$ : toutes deux réelles. En écrivant
+$\alpha = a+ib$, la somme $\alpha+3i+4 = (a+4)+(b+3)i$ est réelle si et
+seulement si $b = -3$ ; le produit $2\alpha i-1 = (-2b-1)+2ai$ l'est si et
+seulement si $a = 0$. Donc $\alpha = -3i$, l'équation devient
+$z^{2}-4z+5 = 0$, de discriminant $-4$ : les racines sont $2+i$ et $2-i$.
+
+\textbf{2.} Si $i$ est racine, alors
+$i^{2}-(\alpha+3i+4)i+2\alpha i-1 = 0$, c'est-à-dire
+$-1-\alpha i+3-4i+2\alpha i-1 = 0$, soit $1+(\alpha-4)i = 0$ et donc
+$\alpha = 4+i$. La somme des racines vaut $\alpha+3i+4 = 8+4i$, d'où l'autre
+racine $8+4i-i = 8+3i$. On vérifie le produit :
+$i(8+3i) = -3+8i = 2\alpha i-1$.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+Le chapitre est long et les élèves l'abordent avec méfiance. Deux séances
+suffisent pourtant à installer l'essentiel si l'on tient un principe : chaque
+notion algébrique est immédiatement traduite dans le plan. Le module est une
+distance, l'argument un angle, le conjugué une symétrie, le produit une
+rotation-agrandissement. Un élève qui n'a pas fait ces quatre traductions ne
+réussira pas le problème de géométrie du baccalauréat.
+
+L'extraction d'une racine carrée d'un complexe est le point technique le plus
+coûteux. Faites-la systématiser sous forme de trois équations, et exigez la
+vérification finale : elle prend dix secondes et rattrape toutes les erreurs
+de signe.
+
+Enfin, les quotients $\frac{z_{C}-z_{A}}{z_{B}-z_{A}}$ méritent une séance à
+eux seuls. C'est l'outil qui rend immédiate la reconnaissance des
+configurations, et il sera repris tel quel dans les chapitres de
+transformations. Ne le laissez pas passer comme une simple remarque.
+\end{notepourlaclasse}
+
+% =========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir est cumulatif : il porte sur ce chapitre et sur ceux qui le précèdent. Les énoncés sont repris de sessions réelles et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{Baccalauréat, Madagascar, série S, session 2026 — exercice 1, partie I}{5 points}
+On considère les matrices
+\[
+  A = \mattrois{1}{0}{2}{0}{1}{3}{0}{0}{1}, \qquad
+  B = \mattrois{2}{3}{5}{1}{0}{2}{0}{0}{-1}, \qquad I_{3}.
+\]
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer le déterminant de $A$ et conclure.
+  \item Vérifier que $2A-A^{2} = I_{3}$, puis en déduire la matrice $P$ telle
+        que $A \times P = I_{3}$.
+\end{enumerate}
+
+\exods{2}{Baccalauréat, Madagascar, série S, session 2022 — exercice 1, partie II}{7 points}
+On considère la matrice
+$A = \mattrois{0}{-1}{-1}{-1}{0}{-1}{-1}{-1}{0}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $A^{2}$ et $A^{3}$.
+  \item Vérifier que $4A+A^{2}-A^{3} = 4I_{3}$.
+  \item En déduire que $A$ est inversible et donner $A^{-1}$.
+\end{enumerate}
+
+\exods{3}{Baccalauréat, Mauritanie, série C, session 2022 — exercice 2}{8 points}
+On pose $P(z) = z^{3}-(5+6i)z^{2}+(-6+16i)z+20+10i$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $P(-1+i)$ et factoriser $P(z)$ sous la forme
+        $(z+1-i)\left(z^{2}+az+b\right)$.
+  \item Résoudre $P(z) = 0$. On note $z_{1}$, $z_{2}$, $z_{3}$ les solutions,
+        rangées de sorte que $\abs{z_{1}}<\abs{z_{2}}<\abs{z_{3}}$.
+\end{enumerate}
+
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1.} La matrice $A$ est triangulaire supérieure : son déterminant est
+le produit des coefficients diagonaux, soit $1$. Il est non nul, donc $A$ est
+inversible. On calcule $A^{2} = \mattrois{1}{0}{4}{0}{1}{6}{0}{0}{1}$, d'où
+$2A-A^{2} = I_{3}$. En factorisant, $A\left(2I_{3}-A\right) = I_{3}$ :
+\[
+  P = 2I_{3}-A = \mattrois{1}{0}{-2}{0}{1}{-3}{0}{0}{1}.
+\]
+
+\textbf{Exercice 2.} En posant $J$ la matrice dont tous les coefficients valent $1$, on
+a $A = I_{3}-J$ et $J^{2} = 3J$. Donc
+$A^{2} = I_{3}+J$ et $A^{3} = I_{3}-3J$. Il vient
+$4A+A^{2}-A^{3} = 4I_{3}-4J+I_{3}+J-I_{3}+3J = 4I_{3}$. En factorisant,
+$A\left(4I_{3}+A-A^{2}\right) = 4I_{3}$, donc $A$ est inversible et
+\[
+  A^{-1} = \tfrac14\left(4I_{3}+A-A^{2}\right) = I_{3}-\tfrac12 J
+  = \tfrac12\mattrois{1}{-1}{-1}{-1}{1}{-1}{-1}{-1}{1}.
+\]
+
+\textbf{Exercice 3.} Avec $z = -1+i$ : $z^{2} = -2i$ et $z^{3} = 2+2i$, d'où
+$P(-1+i) = (2+2i)+(12-10i)+(-10-22i)+(20+10i) = 0$. La division donne
+$P(z) = (z+1-i)\left[z^{2}-(6+5i)z+5+15i\right]$. Le discriminant vaut
+$(6+5i)^{2}-4(5+15i) = -9$, de racine carrée $3i$, d'où les solutions
+$3+4i$ et $3+i$. Enfin $\abs{-1+i} = \sqrt2$, $\abs{3+i} = \sqrt{10}$ et
+$\abs{3+4i} = 5$ : $z_{1} = -1+i$, $z_{2} = 3+i$, $z_{3} = 3+4i$.
+
+\end{corrige}

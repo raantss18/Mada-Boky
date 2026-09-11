@@ -1,0 +1,745 @@
+% ===========================================================================
+%  Chapitre 11 — Suites arithmétiques et suites géométriques
+%  RAPE, quatrième période — hors tableau des contenus du PE 2026
+% ===========================================================================
+\bmtchapitre{Suites arithmétiques et suites géométriques}
+  {Reconnaître une suite arithmétique ou géométrique, en donner la raison, le
+   terme général, la somme de $k$ termes consécutifs et la limite ; utiliser
+   une suite auxiliaire pour ramener une suite récurrente à l'une de ces deux
+   familles.}
+  {Suites numériques \textbullet\ environ 6 heures}
+
+Voici le chapitre le plus rentable du livre après celui du logarithme. Le
+premier exercice du baccalauréat porte sur les suites à chaque session
+examinée pour cet ouvrage — de 1999 à 2026, sans exception — et il vaut cinq
+points, soit un quart de la note. Mieux : sa structure ne varie pratiquement
+pas. Une suite récurrente est donnée ; on pose une suite auxiliaire, presque
+toujours notée $V_{n}$ ; on démontre qu'elle est géométrique ; on en déduit
+$V_{n}$, puis $U_{n}$, puis une somme, puis une limite.
+
+Autrement dit : cinq points par an, pour une seule méthode apprise une fois.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Le chapitre 10, et les propriétés du logarithme.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item $u_{0} = 7$ et $u_{n+1} = u_{n}+3$ : calculer $u_{1}$, $u_{2}$ et
+        $u_{3}$.
+  \item $v_{0} = 2$ et $v_{n+1} = 5v_{n}$ : calculer $v_{1}$ et $v_{2}$.
+  \item Que vaut $\limn q^{n}$ pour $q = 0{,}4$ ? pour $q = 1{,}4$ ?
+  \item Calculer $1+2+3+\cdots+10$.
+  \item Simplifier $\ln\left(a^{n}\right)$ pour $a>0$.
+  \item Écrire $e^{3n-1}$ sous la forme $a\times q^{n}$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Suite arithmétique, $u_{0} = 1$, $r = 4$ : donner $u_{3}$
+  \item Suite géométrique, $u_{0} = 3$, $q = 2$ : donner $u_{3}$
+  \item Terme général d'une suite arithmétique de premier terme $u_{0}$
+  \item Terme général d'une suite géométrique de premier terme $u_{0}$
+  \item Nombre de termes de $u_{0}+u_{1}+\cdots+u_{n}$
+  \item Nombre de termes de $u_{5}+u_{6}+\cdots+u_{20}$
+  \item $1+q+q^{2}+\cdots+q^{n}$ pour $q \neq 1$
+  \item $\limn \left(\frac{1}{4}\right)^{n}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $13$ \quad b) $24$ \quad c) $u_{n} = u_{0}+nr$ \quad
+d) $u_{n} = u_{0}q^{n}$ \quad e) $n+1$ \quad f) $16$ \quad
+g) $\frac{1-q^{n+1}}{1-q}$ \quad h) $0$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les suites arithmétiques}
+
+\begin{definition}[suite arithmétique]
+La suite $\left(u_{n}\right)$ est \textbf{arithmétique} s'il existe un réel
+$r$, appelé \textbf{raison}, tel que
+\[
+  u_{n+1} = u_{n}+r \qquad \text{pour tout entier } n .
+\]
+On passe d'un terme au suivant en \emph{ajoutant} toujours le même nombre.
+\end{definition}
+
+\begin{propriete}[terme général, variation, limite]
+Pour une suite arithmétique de raison $r$ :
+\[
+  u_{n} = u_{0}+nr, \qquad\text{et plus généralement}\qquad
+  u_{n} = u_{p}+(n-p)\,r .
+\]
+La suite est strictement croissante si $r>0$, strictement décroissante si
+$r<0$, constante si $r = 0$. Sa limite est $+\infty$ si $r>0$, $-\infty$ si
+$r<0$, et $u_{0}$ si $r = 0$.
+\end{propriete}
+
+\begin{theoreme}[somme de termes consécutifs]
+\[
+  S = \left(\text{nombre de termes}\right)
+      \times \frac{\text{premier terme}+\text{dernier terme}}{2} .
+\]
+En particulier $u_{0}+u_{1}+\cdots+u_{n} = (n+1)\dfrac{u_{0}+u_{n}}{2}$.
+\end{theoreme}
+
+\begin{avertissement}
+Le nombre de termes de $u_{0}+\cdots+u_{n}$ est $n+1$, et non $n$ : on
+compte le rang $0$. Plus généralement, de $u_{p}$ à $u_{n}$ il y a
+$n-p+1$ termes. Cette erreur de comptage est la plus fréquente de tout
+l'exercice 1.
+\end{avertissement}
+
+\begin{methode}{montrer qu'une suite est arithmétique}
+On calcule $u_{n+1}-u_{n}$ et l'on montre que le résultat est un
+\textbf{nombre constant}, indépendant de $n$. On conclut en écrivant : « la
+suite est arithmétique de raison $r = \dots$ et de premier terme
+$u_{0} = \dots$ ». Les deux renseignements sont exigés.
+\end{methode}
+
+\begin{exemple}[une suite arithmétique cachée]
+Soit $\left(U_{n}\right)$ définie par $U_{0} = 2$ et
+$2U_{n+1}+1 = U_{n+1}+U_{n}$.
+
+En retranchant $U_{n+1}$ des deux côtés : $U_{n+1}+1 = U_{n}$, donc
+$U_{n+1} = U_{n}-1$. La différence $U_{n+1}-U_{n}$ vaut $-1$ : la suite est
+arithmétique de raison $r = -1$ et de premier terme $U_{0} = 2$. Son terme
+général est $U_{n} = 2-n$.
+\end{exemple}
+
+\begin{entrainement}[suites arithmétiques]
+\exo[\niveau{1}] $u_{0} = -3$, $r = 5$ : donner $u_{n}$ puis $u_{12}$.
+
+\exo[\niveau{1}] $u_{n} = 7-4n$ : montrer que la suite est arithmétique et
+donner sa raison.
+
+\exo[\niveau{2}] Suite arithmétique telle que $u_{3} = 11$ et $u_{8} = 31$ :
+déterminer $r$ et $u_{0}$.
+
+\exo[\niveau{2}] $u_{0} = 1$ et $r = -2$ : déterminer $n$ tel que
+$u_{n} = -99$.
+
+\exo[\niveau{2}] Calculer $S = u_{0}+u_{1}+\cdots+u_{50}$ pour la suite de
+l'exercice précédent.
+
+\exo[\niveau{3}] Suite arithmétique telle que $u_{34} = u_{15}+57$ :
+déterminer la raison.
+
+\exo[\niveau{3}] Pour cette même suite, sachant que $u_{22} = 65$, calculer
+$u_{15}$, $u_{34}$, puis $S = u_{15}+u_{16}+\cdots+u_{34}$.
+\end{entrainement}
+
+\begin{corrige}[suites arithmétiques]
+\textbf{1.} $u_{n} = -3+5n$ ; $u_{12} = 57$.
+\textbf{2.} $u_{n+1}-u_{n} = -4$ : arithmétique de raison $-4$.
+\textbf{3.} $u_{8} = u_{3}+5r$ donne $31 = 11+5r$, donc $r = 4$ ; puis
+$u_{0} = u_{3}-3r = 11-12 = -1$.
+\textbf{4.} $1-2n = -99$ donne $n = 50$.
+\textbf{5.} $51$ termes, premier $1$, dernier $-99$ :
+$S = 51\times\frac{1-99}{2} = 51\times(-49) = -2\,499$.
+\textbf{6.} $u_{34} = u_{15}+19r$, donc $19r = 57$ et $r = 3$.
+\textbf{7.} $u_{15} = u_{22}-7r = 65-21 = 44$ et
+$u_{34} = u_{22}+12r = 65+36 = 101$. La somme compte $20$ termes :
+$S = 20\times\frac{44+101}{2} = 20\times72{,}5 = 1\,450$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les suites géométriques}
+
+\begin{definition}[suite géométrique]
+La suite $\left(u_{n}\right)$ est \textbf{géométrique} s'il existe un réel
+$q \neq 0$, appelé \textbf{raison}, tel que
+\[
+  u_{n+1} = q\,u_{n} \qquad \text{pour tout entier } n .
+\]
+On passe d'un terme au suivant en \emph{multipliant} toujours par le même
+nombre.
+\end{definition}
+
+\begin{propriete}[terme général, somme, limite]
+Pour une suite géométrique de raison $q$ :
+\[
+  u_{n} = u_{0}\,q^{n}, \qquad
+  u_{0}+u_{1}+\cdots+u_{n} = u_{0}\,\frac{1-q^{n+1}}{1-q}
+  \quad (q \neq 1).
+\]
+Sa limite se lit sur $q$ : $0$ si $-1<q<1$ ; $u_{0}$ si $q = 1$ ;
+$\pm\infty$ selon le signe de $u_{0}$ si $q>1$ ; pas de limite si
+$q \leq -1$.
+\end{propriete}
+
+\begin{methode}{montrer qu'une suite est géométrique}
+On calcule le \textbf{quotient} $\dfrac{u_{n+1}}{u_{n}}$ — ou, plus sûr
+encore, on exprime $u_{n+1}$ en fonction de $u_{n}$ et l'on fait apparaître
+un facteur constant. On conclut en donnant la raison \emph{et} le premier
+terme.
+\end{methode}
+
+\begin{exemple}[une géométrique écrite avec une exponentielle]
+Soit $V_{n} = e^{2-n}$. Alors
+\[
+  \frac{V_{n+1}}{V_{n}} = \frac{e^{1-n}}{e^{2-n}} = e^{-1},
+\]
+un nombre constant : la suite est géométrique de raison $q = e^{-1}$ et de
+premier terme $V_{0} = e^{2}$. Comme $0<e^{-1}<1$, elle converge vers $0$.
+\end{exemple}
+
+\begin{remarque}
+C'est exactement la situation que posent les sujets malgaches : on y trouve
+$V_{n} = e^{2-n}$, $V_{n} = e^{3n-1}$, $V_{n} = e^{3-2n}$ ou encore
+$V_{n} = e^{-U_{n}}$. Dans tous les cas, le même geste : écrire le quotient
+de deux termes consécutifs et simplifier les exponentielles.
+\end{remarque}
+
+\begin{entrainement}[suites géométriques]
+\exo[\niveau{1}] $u_{0} = 5$, $q = 2$ : donner $u_{n}$ et $u_{6}$.
+
+\exo[\niveau{1}] $u_{n} = 3\left(\frac58\right)^{n}$ : exprimer $u_{n+1}$ en
+fonction de $u_{n}$ et donner la limite.
+
+\exo[\niveau{2}] $V_{n} = e^{3n-1}$ : montrer que la suite est géométrique,
+préciser sa raison et son premier terme.
+
+\exo[\niveau{2}] Suite géométrique à termes positifs, de raison
+$q = \frac34$, telle que $V_{3} = \frac{27}{8}$ : justifier que $V_{0} = 8$.
+
+\exo[\niveau{2}] Calculer $S = 1+\frac12+\frac14+\cdots+\frac{1}{2^{10}}$.
+
+\exo[\niveau{3}] $u_{n} = 2\left(\frac13\right)^{n}$ : calculer
+$S_{n} = u_{0}+\cdots+u_{n}$ en fonction de $n$, puis $\limn S_{n}$.
+\end{entrainement}
+
+\begin{corrige}[suites géométriques]
+\textbf{1.} $u_{n} = 5\times2^{n}$ ; $u_{6} = 320$.
+\textbf{2.} $u_{n+1} = \frac58u_{n}$ ; la limite vaut $0$.
+\textbf{3.} $\frac{V_{n+1}}{V_{n}} = e^{3}$ : géométrique de raison
+$e^{3}$, de premier terme $V_{0} = e^{-1}$.
+\textbf{4.} $V_{3} = V_{0}q^{3} = V_{0}\times\frac{27}{64}$, donc
+$V_{0} = \frac{27}{8}\times\frac{64}{27} = 8$.
+\textbf{5.} $11$ termes, premier $1$, raison $\frac12$ :
+$S = \frac{1-\left(\frac12\right)^{11}}{1-\frac12}
+= 2\left(1-\frac{1}{2\,048}\right) = \frac{2\,047}{1\,024}$.
+\textbf{6.} $S_{n} = 2\times\frac{1-\left(\frac13\right)^{n+1}}{\frac23}
+= 3\left(1-\left(\frac13\right)^{n+1}\right)$, de limite $3$.
+\end{corrige}
+
+\begin{qcm}
+\exo Une suite telle que $u_{n+1} = u_{n}-7$ est :
+\textbf{a)} géométrique de raison $-7$ \quad
+\textbf{b)} arithmétique de raison $-7$ \quad
+\textbf{c)} constante \quad \textbf{d)} ni l'une ni l'autre \reponseqcm{b}
+
+\exo Pour une suite géométrique de raison $q = -3$, la limite est :
+\textbf{a)} $0$ \quad \textbf{b)} $-\infty$ \quad \textbf{c)} $+\infty$
+\quad \textbf{d)} il n'y en a pas \reponseqcm{d}
+
+\exo La somme $u_{3}+u_{4}+\cdots+u_{20}$ comporte :
+\textbf{a)} $17$ termes \quad \textbf{b)} $18$ termes \quad
+\textbf{c)} $20$ termes \quad \textbf{d)} $23$ termes \reponseqcm{b}
+
+\exo Si $V_{n} = U_{n}-4$ est géométrique de raison $\frac13$ et
+$V_{0} = 2$, alors $U_{n}$ vaut :
+\textbf{a)} $2\left(\frac13\right)^{n}$ \quad
+\textbf{b)} $2\left(\frac13\right)^{n}+4$ \quad
+\textbf{c)} $2\left(\frac13\right)^{n}-4$ \quad
+\textbf{d)} $4\left(\frac13\right)^{n}$ \reponseqcm{b}
+
+\exo $W_{n} = \ln\left(U_{n}\right)$ où $\left(U_{n}\right)$ est géométrique
+de raison $q>0$. Alors $\left(W_{n}\right)$ est :
+\textbf{a)} géométrique de raison $\ln q$ \quad
+\textbf{b)} arithmétique de raison $\ln q$ \quad
+\textbf{c)} constante \quad \textbf{d)} sans nature particulière
+\reponseqcm{b}
+\end{qcm}
+
+% ===========================================================================
+\section{La suite auxiliaire : la méthode de l'exercice 1}
+
+\begin{methode}{le schéma que le baccalauréat répète chaque année}
+Une suite $\left(U_{n}\right)$ est donnée par $U_{0}$ et une relation
+$U_{n+1} = aU_{n}+b$. L'énoncé pose ensuite $V_{n} = U_{n}-\alpha$, et
+demande de démontrer que $\left(V_{n}\right)$ est géométrique.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Écrire $V_{n+1} = U_{n+1}-\alpha$, puis remplacer $U_{n+1}$ par son
+        expression.
+  \item Faire apparaître $U_{n}-\alpha$ en facteur : on obtient
+        $V_{n+1} = a\,V_{n}$.
+  \item Conclure : « $\left(V_{n}\right)$ est géométrique de raison $a$ et
+        de premier terme $V_{0} = U_{0}-\alpha$ ».
+  \item En déduire $V_{n} = V_{0}\,a^{n}$, puis
+        $U_{n} = V_{n}+\alpha$.
+  \item Pour les sommes : calculer d'abord celle des $V_{n}$, puis ajouter
+        $\alpha$ autant de fois qu'il y a de termes.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[le schéma complet, sur le sujet 2026]
+Soit $U_{0} = 5$ et $U_{n+1} = \dfrac{U_{n}+3}{4}$ ; on pose
+$V_{n} = U_{n}-1$.
+
+\emph{Nature de $\left(V_{n}\right)$.}
+\[
+  V_{n+1} = U_{n+1}-1 = \frac{U_{n}+3}{4}-1 = \frac{U_{n}-1}{4}
+  = \frac14 V_{n} .
+\]
+La suite $\left(V_{n}\right)$ est géométrique de raison $\frac14$ et de
+premier terme $V_{0} = 4$.
+
+\emph{Termes généraux.} $V_{n} = 4\left(\frac14\right)^{n}$, donc
+$U_{n} = 1+4\left(\frac14\right)^{n}$.
+
+\emph{Sommes.} D'une part
+\[
+  S_{n} = V_{0}+\cdots+V_{n}
+  = 4\times\frac{1-\left(\frac14\right)^{n+1}}{1-\frac14}
+  = \frac{16}{3}\left(1-\left(\frac14\right)^{n+1}\right) ;
+\]
+d'autre part, comme $U_{k} = V_{k}+1$ et qu'il y a $n+1$ termes,
+\[
+  T_{n} = U_{0}+\cdots+U_{n} = S_{n}+(n+1) .
+\]
+
+\emph{Limite.} $\left(\frac14\right)^{n} \to 0$, donc $U_{n} \to 1$.
+\end{exemple}
+
+\begin{propriete}[la variante logarithmique]
+Si $\left(U_{n}\right)$ est géométrique à termes strictement positifs, de
+raison $q$, alors $W_{n} = \ln\left(U_{n}\right)$ est \textbf{arithmétique}
+de raison $\ln q$. Réciproquement, si $\left(U_{n}\right)$ est arithmétique
+de raison $r$, alors $V_{n} = e^{U_{n}}$ est géométrique de raison $e^{r}$.
+\end{propriete}
+
+\begin{demonstration}
+$W_{n+1}-W_{n} = \ln U_{n+1}-\ln U_{n} = \ln\dfrac{U_{n+1}}{U_{n}} = \ln q$,
+qui ne dépend pas de $n$.
+\end{demonstration}
+
+\begin{entrainement}[suites auxiliaires]
+\exo[\niveau{2}] $U_{0} = 4$ et $U_{n+1} = \frac34U_{n}-1$ ; on pose
+$V_{n} = U_{n}+4$. Montrer que $\left(V_{n}\right)$ est géométrique.
+
+\exo[\niveau{2}] $U_{0} = -4$ et $U_{n+1} = \frac13U_{n}-4$ ; on pose
+$V_{n} = U_{n}+6$. Montrer que $\left(V_{n}\right)$ est géométrique, puis
+exprimer $U_{n}$ en fonction de $n$.
+
+\exo[\niveau{3}] $U_{0} = 2$ et $U_{n+1} = 0{,}5U_{n}+3$ ; on pose
+$V_{n} = U_{n}-6$. Déterminer $U_{n}$ puis $\limn U_{n}$.
+
+\exo[\niveau{3}] $\left(U_{n}\right)$ arithmétique de premier terme
+$U_{0} = 1$ et de raison $-2$ ; on pose $V_{n} = e^{-U_{n}}$. Montrer que
+$\left(V_{n}\right)$ est géométrique de raison $e^{2}$.
+\end{entrainement}
+
+\begin{corrige}[suites auxiliaires]
+\textbf{1.} $V_{n+1} = U_{n+1}+4 = \frac34U_{n}-1+4 = \frac34U_{n}+3
+= \frac34\left(U_{n}+4\right) = \frac34V_{n}$ : géométrique de raison
+$\frac34$, de premier terme $V_{0} = 8$.
+\textbf{2.} $V_{n+1} = \frac13U_{n}-4+6 = \frac13U_{n}+2
+= \frac13\left(U_{n}+6\right) = \frac13V_{n}$ : raison $\frac13$,
+$V_{0} = 2$. D'où $V_{n} = 2\left(\frac13\right)^{n}$ et
+$U_{n} = 2\left(\frac13\right)^{n}-6$.
+\textbf{3.} $V_{n+1} = 0{,}5U_{n}+3-6 = 0{,}5\left(U_{n}-6\right)
+= 0{,}5V_{n}$ ; $V_{0} = -4$, donc $U_{n} = 6-4\times0{,}5^{n}$, de limite
+$6$.
+\textbf{4.} $\frac{V_{n+1}}{V_{n}} = e^{-U_{n+1}+U_{n}} = e^{-r} = e^{2}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{annales}
+Ce bloc est, à lui seul, une préparation complète à l'exercice 1 de
+l'épreuve. Les énoncés sont repris tels quels.
+
+\exoann{Baccalauréat, Madagascar, série A, session 2014 — exercice 1}
+Soit $\left(U_{n}\right)$ définie par $U_{0} = -4$ et
+$U_{n+1} = \frac13U_{n}-4$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $U_{1}$ et $U_{2}$.
+  \item Soit $\left(V_{n}\right)$ définie par $V_{n} = U_{n}+6$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Démontrer que $\left(V_{n}\right)$ est géométrique, de
+                raison $q$ et de premier terme $V_{0}$ à préciser.
+          \item Exprimer $V_{n}$ puis $U_{n}$ en fonction de $n$.
+        \end{enumerate}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Exprimer en fonction de $n$ les sommes
+                $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$ et
+                $S'_{n} = U_{0}+U_{1}+\cdots+U_{n}$.
+          \item Calculer $\displaystyle\limn \frac{S'_{n}}{n+1}$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2026 — exercice 1}
+Soit $\left(U_{n}\right)_{n \in \N}$ définie par $U_{0} = 5$ et
+$U_{n+1} = \dfrac{U_{n}+3}{4}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $U_{1}$ et $U_{2}$.
+  \item On pose $V_{n} = U_{n}-1$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Montrer que $\left(V_{n}\right)$ est géométrique dont on
+                précisera la raison et le premier terme $V_{0}$.
+          \item Exprimer $V_{n}$ en fonction de $n$.
+          \item En déduire l'expression de $U_{n}$ en fonction de $n$.
+        \end{enumerate}
+  \item Soit $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$ et
+        $T_{n} = U_{0}+U_{1}+\cdots+U_{n}$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Exprimer $S_{n}$ en fonction de $n$.
+          \item En déduire l'expression de $T_{n}$ en fonction de $n$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2021 — exercice 1}
+Soit $\left(U_{n}\right)$ définie par $U_{0} = 2$ et, pour tout
+$n \in \N$, $2U_{n+1}+1 = U_{n+1}+U_{n}$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Montrer que $\left(U_{n}\right)$ est arithmétique de raison
+                $r = -1$.
+          \item Exprimer $U_{n}$ en fonction de $n$.
+          \item Déterminer $N$ pour que $U_{N} = -98$.
+          \item Calculer $S = U_{0}+U_{1}+\cdots+U_{100}$.
+        \end{enumerate}
+  \item Soit $\left(V_{n}\right)$ définie par $V_{n} = e^{2-n}$. Montrer que
+        $\left(V_{n}\right)$ est géométrique dont on déterminera la raison
+        $q$ et le premier terme $V_{0}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2016 — exercice 1}
+Soit $\left(U_{n}\right)$ une suite arithmétique de premier terme
+$U_{0} = 1$ et de raison $r = -2$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Exprimer $U_{n}$ en fonction de $n$.
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Déterminer l'entier naturel $n$ tel que $U_{n} = -99$.
+          \item Soit $S = U_{0}+U_{1}+\cdots+U_{50}$. Prouver que
+                $S = -2\,499$.
+        \end{enumerate}
+  \item Soit $\left(V_{n}\right)$ définie par $V_{n} = e^{-U_{n}}$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Démontrer que $\left(V_{n}\right)$ est géométrique de raison
+                $q = e^{2}$.
+          \item Exprimer $U_{n}$ en fonction de $V_{n}$, puis en déduire
+                $\limn U_{n}$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2017 — exercice 1}
+Pour tout entier naturel $n$, on pose $U_{n} = \left(\frac34\right)^{n}$ et
+$V_{n} = \ln\left(U_{n}\right)$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Calculer $U_{0}$, $U_{1}$, $V_{0}$ et $V_{1}$.
+          \item Montrer que $\left(U_{n}\right)$ est géométrique de raison
+                $q = \frac34$.
+          \item Calculer, en fonction de $n$, la somme
+                $S_{n} = U_{0}+U_{1}+\cdots+U_{n}$.
+        \end{enumerate}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Vérifier que $\left(V_{n}\right)$ est arithmétique, de raison
+                à préciser.
+          \item En déduire la variation de $\left(V_{n}\right)$.
+        \end{enumerate}
+  \item Calculer $\limn S_{n}$ et $\limn V_{n}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2020 — exercice 1}
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item $\left(V_{n}\right)$ est définie par
+        $V_{n} = 3\left(\frac58\right)^{n}$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Calculer $V_{0}$ et $V_{1}$.
+          \item Exprimer $V_{n+1}$ en fonction de $V_{n}$ ; en déduire la
+                nature de $\left(V_{n}\right)$ et préciser sa raison.
+          \item Calculer $\limn V_{n}$.
+          \item Exprimer en fonction de $n$ la somme
+                $S_{n} = V_{0}+V_{1}+\cdots+V_{n-1}$.
+        \end{enumerate}
+  \item $\left(U_{n}\right)$ est une suite arithmétique telle que
+        $U_{34} = U_{15}+57$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Vérifier que la raison vaut $3$.
+          \item Sachant que $U_{22} = 65$, calculer $U_{34}$ et $U_{15}$.
+          \item En déduire $S = U_{15}+U_{16}+\cdots+U_{34}$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2015 — exercice 1}
+Soit $\left(U_{n}\right)$ une suite arithmétique telle que
+$U_{1}+2U_{3}-U_{5} = 2$ et $U_{2} = -1$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Exprimer $U_{1}$, $U_{3}$ et $U_{5}$ en fonction de $U_{2}$
+                et de la raison $r$.
+          \item Calculer $r$ ; en déduire le sens de variation de
+                $\left(U_{n}\right)$.
+        \end{enumerate}
+  \item Exprimer $U_{n}$ en fonction de $n$ ; calculer $U_{25}$.
+  \item Calculer la somme $S = U_{2}+U_{3}+\cdots+U_{25}$.
+  \item On pose $V_{n} = e^{3-2n}$ pour tout $n \in \N$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Montrer que $\left(V_{n}\right)$ est géométrique dont on
+                précisera la raison et le premier terme.
+          \item Exprimer la somme $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$ en
+                fonction de $n$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2013 — exercice 1
+(extrait)}
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item $\left(V_{n}\right)$ est géométrique à termes positifs, de premier
+        terme $V_{0}$ et de raison $q = \frac34$, telle que
+        $V_{3} = \frac{27}{8}$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Justifier que $V_{0} = 8$.
+          \item Exprimer $V_{n}$ en fonction de $n$.
+          \item Déterminer $\limn \left(V_{n}+3\right)$.
+        \end{enumerate}
+  \item Soit $\left(W_{n}\right)$ arithmétique de terme général
+        $W_{n} = \ln\left(8\times\left(\frac34\right)^{n}\right)$ et de
+        premier terme $W_{0} = \ln 8$. Déterminer, en fonction de $\ln 2$ et
+        de $\ln 3$, la somme $S = W_{0}+W_{1}+\cdots+W_{5}$.
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $U_{1} = -\frac{16}{3}$ et $U_{2} = -\frac{52}{9}$.
+$V_{n+1} = \frac13U_{n}-4+6 = \frac13\left(U_{n}+6\right) = \frac13V_{n}$ :
+géométrique de raison $\frac13$, $V_{0} = 2$. D'où
+$V_{n} = 2\left(\frac13\right)^{n}$ et
+$U_{n} = 2\left(\frac13\right)^{n}-6$. Ensuite
+$S_{n} = 3\left(1-\left(\frac13\right)^{n+1}\right)$ et
+$S'_{n} = S_{n}-6(n+1)$. Enfin
+$\frac{S'_{n}}{n+1} = \frac{S_{n}}{n+1}-6 \to -6$, puisque $S_{n}$ tend
+vers $3$.
+
+\textbf{2.} Voir l'exemple du cours : $U_{1} = 2$, $U_{2} = \frac54$ ;
+$V_{n+1} = \frac14V_{n}$ avec $V_{0} = 4$ ;
+$V_{n} = 4\left(\frac14\right)^{n}$ ;
+$U_{n} = 1+4\left(\frac14\right)^{n}$ ;
+$S_{n} = \frac{16}{3}\left(1-\left(\frac14\right)^{n+1}\right)$ et
+$T_{n} = S_{n}+(n+1)$.
+
+\textbf{3.} En retranchant $U_{n+1}$ : $U_{n+1} = U_{n}-1$, d'où
+$r = -1$ et $U_{n} = 2-n$. $U_{N} = -98$ donne $N = 100$. La somme compte
+$101$ termes : $S = 101\times\frac{2-98}{2} = 101\times(-48) = -4\,848$.
+Enfin $\frac{V_{n+1}}{V_{n}} = e^{-1}$ : géométrique de raison $e^{-1}$, de
+premier terme $V_{0} = e^{2}$.
+
+\textbf{4.} $U_{n} = 1-2n$ ; $U_{n} = -99$ donne $n = 50$ ; la somme compte
+$51$ termes et vaut $51\times\frac{1-99}{2} = -2\,499$. \checkmark
+$\frac{V_{n+1}}{V_{n}} = e^{U_{n}-U_{n+1}} = e^{2}$. Comme
+$V_{n} = e^{-U_{n}}$, on a $U_{n} = -\ln\left(V_{n}\right)$, et
+$U_{n} = 1-2n \to -\infty$.
+
+\textbf{5.} $U_{0} = 1$, $U_{1} = \frac34$, $V_{0} = 0$,
+$V_{1} = \ln\frac34 \approx -0{,}29$. La suite $\left(U_{n}\right)$ est
+géométrique de raison $\frac34$, donc
+$S_{n} = \frac{1-\left(\frac34\right)^{n+1}}{\frac14}
+= 4\left(1-\left(\frac34\right)^{n+1}\right)$.
+$V_{n+1}-V_{n} = \ln\frac34$, constante : arithmétique de raison
+$\ln\frac34<0$, donc décroissante. Enfin $S_{n} \to 4$ et
+$V_{n} \to -\infty$.
+
+\textbf{6.} $V_{0} = 3$, $V_{1} = \frac{15}{8}$,
+$V_{n+1} = \frac58V_{n}$ : géométrique de raison $\frac58$, limite $0$ ;
+$S_{n} = 3\times\frac{1-\left(\frac58\right)^{n}}{\frac38}
+= 8\left(1-\left(\frac58\right)^{n}\right)$ (la somme s'arrête à
+$V_{n-1}$, donc elle compte $n$ termes). Pour la seconde suite :
+$19r = 57$ donc $r = 3$ ; $U_{34} = 101$, $U_{15} = 44$ ; et
+$S = 20\times\frac{44+101}{2} = 1\,450$.
+
+\textbf{7.} $U_{1} = U_{2}-r$, $U_{3} = U_{2}+r$, $U_{5} = U_{2}+3r$, donc
+$U_{1}+2U_{3}-U_{5} = 2U_{2}-2r = 2$. Avec $U_{2} = -1$ : $-2-2r = 2$, soit
+$r = -2$ : la suite est décroissante. Alors
+$U_{n} = U_{2}+(n-2)r = -1-2(n-2) = 3-2n$, et $U_{25} = -47$. La somme
+compte $24$ termes : $S = 24\times\frac{-1-47}{2} = -576$. Enfin
+$\frac{V_{n+1}}{V_{n}} = e^{-2}$ : géométrique de raison $e^{-2}$, de
+premier terme $V_{0} = e^{3}$, et
+$S_{n} = e^{3}\,\frac{1-e^{-2(n+1)}}{1-e^{-2}}$.
+
+\textbf{8.} $V_{0}q^{3} = V_{0}\times\frac{27}{64} = \frac{27}{8}$ donne
+$V_{0} = 8$ ; $V_{n} = 8\left(\frac34\right)^{n}$, de limite $0$, donc
+$V_{n}+3 \to 3$. Pour la somme :
+$W_{n} = \ln 8+n\ln\frac34$, donc
+\[
+  S = 6\ln 8+\left(0+1+2+3+4+5\right)\ln\frac34
+    = 18\ln 2+15\left(\ln 3-2\ln 2\right) = 15\ln 3-12\ln 2 .
+\]
+\end{corrige}
+
+% ===========================================================================
+\begin{vraifaux}
+\exo Une suite géométrique de raison $1$ est aussi arithmétique.
+
+\exo Si $u_{n+1}-u_{n}$ dépend de $n$, la suite n'est pas arithmétique.
+
+\exo La somme des termes d'une suite géométrique de raison $\frac12$ peut
+dépasser $10\,u_{0}$.
+
+\exo Si $\left(V_{n}\right)$ est géométrique et $U_{n} = V_{n}+3$, alors
+$\left(U_{n}\right)$ est géométrique.
+
+\exo Une suite arithmétique de raison non nulle n'est jamais convergente.
+\end{vraifaux}
+
+\begin{corrige}[vrai ou faux]
+\textbf{1.} Vrai — elle est constante, donc arithmétique de raison $0$.
+\textbf{2.} Vrai — la raison doit être un nombre fixe.
+\textbf{3.} Faux — la somme est majorée par $2u_{0}$, puisque
+$\frac{1}{1-\frac12} = 2$.
+\textbf{4.} Faux — ajouter une constante détruit la structure
+géométrique ; c'est précisément pourquoi on pose la suite auxiliaire dans
+l'autre sens.
+\textbf{5.} Vrai — elle tend vers $+\infty$ ou $-\infty$ selon le signe de
+la raison.
+\end{corrige}
+
+% ===========================================================================
+\begin{situation}[le prêt d'une association villageoise]
+Une association de Fianarantsoa prête $600\,000$ ariary à l'un de ses
+membres, au taux mensuel de $2\,\%$. Chaque mois, on ajoute les intérêts au
+capital restant dû, puis l'emprunteur verse $50\,000$ ariary. On note
+$C_{n}$ le capital restant dû après le $n$-ième versement, avec
+$C_{0} = 600\,000$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Justifier que $C_{n+1} = 1{,}02\,C_{n}-50\,000$.
+  \item Vérifier que si $C_{n} = 2\,500\,000$, alors
+        $C_{n+1} = 2\,500\,000$.
+  \item On pose $D_{n} = C_{n}-2\,500\,000$. Montrer que
+        $\left(D_{n}\right)$ est géométrique de raison $1{,}02$.
+  \item En déduire $C_{n}$ en fonction de $n$.
+  \item Calculer $C_{12}$ : où en est l'emprunteur au bout d'un an ?
+\end{enumerate}
+\end{situation}
+
+\begin{corrige}[le prêt d'une association villageoise]
+\textbf{1.} Les intérêts du mois valent $0{,}02\,C_{n}$ ; on les ajoute,
+puis on retranche le versement.
+
+\textbf{2.} $1{,}02\times2\,500\,000 = 2\,550\,000$, moins $50\,000$, donne
+bien $2\,500\,000$.
+
+\textbf{3.} $D_{n+1} = C_{n+1}-2\,500\,000 = 1{,}02C_{n}-50\,000-2\,500\,000
+= 1{,}02\left(C_{n}-2\,500\,000\right) = 1{,}02\,D_{n}$.
+
+\textbf{4.} $D_{0} = -1\,900\,000$, donc
+$C_{n} = 2\,500\,000-1\,900\,000\times1{,}02^{n}$.
+
+\textbf{5.} $1{,}02^{12} \approx 1{,}268$, donc
+$C_{12} \approx 2\,500\,000-2\,409\,000 = 91\,000$ ariary : au bout d'un an,
+il ne reste qu'environ $91\,000$ ariary à rembourser — le prêt sera soldé au
+treizième mois.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Trente minutes.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Suite arithmétique de premier terme $5$ et de raison $-3$ : donner
+        $u_{n}$, puis $u_{0}+u_{1}+\cdots+u_{20}$.
+  \item Suite géométrique de premier terme $2$ et de raison $\frac13$ :
+        donner $u_{n}$ et $\limn u_{n}$.
+  \item $U_{0} = 7$ et $U_{n+1} = \frac12U_{n}+2$ ; on pose
+        $V_{n} = U_{n}-4$. Montrer que $\left(V_{n}\right)$ est géométrique,
+        puis donner $U_{n}$ et $\limn U_{n}$.
+  \item $V_{n} = e^{4-3n}$ : nature, raison, premier terme, limite.
+  \item Combien de termes compte la somme $u_{7}+u_{8}+\cdots+u_{31}$ ?
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} $u_{n} = 5-3n$ ; $21$ termes, dernier $u_{20} = -55$ :
+$S = 21\times\frac{5-55}{2} = -525$.
+\textbf{2.} $u_{n} = 2\left(\frac13\right)^{n}$, de limite $0$.
+\textbf{3.} $V_{n+1} = \frac12U_{n}+2-4 = \frac12\left(U_{n}-4\right)
+= \frac12V_{n}$ ; $V_{0} = 3$, donc
+$U_{n} = 4+3\left(\frac12\right)^{n} \to 4$.
+\textbf{4.} $\frac{V_{n+1}}{V_{n}} = e^{-3}$ : géométrique de raison
+$e^{-3}$, premier terme $e^{4}$, limite $0$.
+\textbf{5.} $31-7+1 = 25$ termes.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{D'après le baccalauréat, Madagascar, série A, session 2022 —
+exercice 1 \textbullet\ 5 points}
+\emph{La copie de ce sujet dont on dispose est partiellement illisible :
+l'énoncé a été rétabli à partir de ce qui s'y lit, et chacun des résultats
+annoncés y est redémontré ci-dessous.}
+
+On considère la suite numérique $\left(U_{n}\right)_{n \in \N}$ définie par
+\[
+  U_{0} = -1, \qquad U_{n+1} = \frac14 U_{n}+3 \quad
+  \text{pour tout } n \in \N .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $U_{1}$ et $U_{2}$. \bareme{0,25 $\times$ 2 pts}
+  \item Soit la suite numérique $\left(V_{n}\right)_{n \in \N}$ définie par
+        $V_{n} = U_{n}-4$ pour tout $n \in \N$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $\left(V_{n}\right)$ est une suite géométrique dont
+            on précisera la raison et le premier terme. \bareme{1,5 pt}
+      \item Exprimer $V_{n}$ puis $U_{n}$ en fonction de $n$.
+            \bareme{0,5 pt $\times$ 2}
+    \end{enumerate}
+  \item On donne $W_{n} = \ln\left(5\left(\frac14\right)^{n}\right)$ pour
+        tout $n \in \N$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $\left(W_{n}\right)$ est une suite arithmétique dont
+            on précisera la raison et le premier terme. \bareme{1,5 pt}
+      \item Calculer $\displaystyle\limn W_{n}$. \bareme{0,5 pt}
+    \end{enumerate}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat — Madagascar A 2022]
+\textbf{1.} $U_{1} = -\frac14+3 = \frac{11}{4}$ et
+$U_{2} = \frac{11}{16}+3 = \frac{59}{16}$.
+
+\textbf{2. a)}
+\[
+  V_{n+1} = U_{n+1}-4 = \frac14U_{n}+3-4 = \frac14U_{n}-1
+  = \frac14\left(U_{n}-4\right) = \frac14 V_{n} .
+\]
+La suite $\left(V_{n}\right)$ est donc géométrique de raison $q = \frac14$
+et de premier terme $V_{0} = U_{0}-4 = -5$.
+\textbf{b)} $V_{n} = -5\left(\frac14\right)^{n}$, d'où
+$U_{n} = 4-5\left(\frac14\right)^{n}$. On vérifie : $U_{0} = 4-5 = -1$
+\checkmark et $U_{1} = 4-\frac54 = \frac{11}{4}$ \checkmark.
+
+\textbf{3. a)} En utilisant les propriétés du logarithme,
+\[
+  W_{n} = \ln 5+n\ln\frac14,
+\]
+donc $W_{n+1}-W_{n} = \ln\frac14$, qui ne dépend pas de $n$ : la suite
+$\left(W_{n}\right)$ est arithmétique de raison $r = \ln\frac14 = -2\ln2$ et
+de premier terme $W_{0} = \ln 5$.
+\textbf{b)} La raison étant strictement négative,
+$\limn W_{n} = -\infty$.
+\end{corrige}
+
+\begin{notepourlaclasse}
+Quatre heures ici, deux au chapitre précédent : c'est la répartition qui
+donne les meilleurs résultats. Tout se joue sur la méthode de la suite
+auxiliaire, qui doit être rédigée au moins six fois dans l'année, toujours
+dans le même ordre — trois lignes de calcul, une phrase de conclusion avec
+la raison \emph{et} le premier terme.
+
+Le comptage des termes d'une somme mérite une séance à lui seul. Faites
+écrire au tableau les trois cas — de $u_{0}$ à $u_{n}$, de $u_{1}$ à
+$u_{n}$, de $u_{p}$ à $u_{n}$ — et faites-les recopier dans le cahier de
+formules. C'est là que se perdent, chaque année, les demi-points les plus
+faciles à sauver.
+
+Le bloc d'annales contient huit sujets réels : un par séance de révision au
+troisième trimestre, avec correction en classe des deux plus récents. Un
+élève qui les aura tous vus aura, de fait, révisé l'exercice 1 de son propre
+examen.
+\end{notepourlaclasse}

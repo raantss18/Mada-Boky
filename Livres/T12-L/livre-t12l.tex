@@ -1,0 +1,99 @@
+% ===========================================================================
+%  BOKY MATEMATIKA — TERMINALE L
+%  Programme d'Études 2026 — Enseignement Secondaire Général, Madagascar
+%
+%  Compilation :  ./compiler.sh eleve | ./compiler.sh prof
+%  Moteur      :  XeLaTeX (latexmk -xelatex)
+% ===========================================================================
+\documentclass[11pt, twoside, openright]{book}
+
+\usepackage{preambule/bmt-style}
+\usepackage{preambule/bmt-macros}
+\usepackage{preambule/bmt-blocks}
+
+% --- Recompiler un seul chapitre : décommenter et adapter ------------------
+% \includeonly{chapitres/p1-algebre/ch01-equations-inequations}
+
+\begin{document}
+
+\frontmatter
+\include{front/couverture}
+\include{front/page-titre}
+\include{front/avant-propos}
+\include{front/mode-emploi}
+
+{\hypersetup{linkcolor=bmtEncre}\tableofcontents}
+
+\mainmatter
+
+% ===========================================================================
+\bmtpartie{bmtLaterite}{I}{Algèbre}{12 heures}{%
+  Douze heures, deux chapitres : le second degré, que vous connaissez déjà,
+  et les systèmes linéaires, que la méthode de Cramer résout toujours de la
+  même façon. C'est la partie la plus courte du programme et la plus sûre à
+  l'examen : les techniques y sont peu nombreuses et se répètent. Rien de ce
+  qui suit dans le livre ne s'en passe — une étude de fonction rationnelle
+  commence par une équation du second degré, une droite d'ajustement se
+  détermine par un système.}
+
+\include{chapitres/p1-algebre/ch01-equations-inequations}
+\include{chapitres/p1-algebre/ch02-systemes-lineaires}
+\include{chapitres/p1-algebre/devoir-1}
+
+% ===========================================================================
+\bmtpartie{bmtIndigo}{II}{Analyse}{30 heures}{%
+  Trente heures, la moitié du programme, et le problème de l'épreuve tout
+  entier. On y apprend d'abord à lire une courbe, puis à en construire une :
+  limites, branches infinies, dérivée, tableau de variation, tracé. Viennent
+  ensuite les deux fonctions qui donnent au problème du baccalauréat sa
+  couleur année après année — le logarithme népérien et l'exponentielle — et
+  enfin la primitive, qui permet de calculer une aire.}
+
+\include{chapitres/p2-analyse/ch03-lecture-graphique}
+\include{chapitres/p2-analyse/ch04-limites-branches-infinies}
+\include{chapitres/p2-analyse/ch05-derivation}
+\include{chapitres/p2-analyse/ch06-etude-fonction-rationnelle}
+\include{chapitres/p2-analyse/ch07-logarithme}
+\include{chapitres/p2-analyse/ch08-exponentielle}
+\include{chapitres/p2-analyse/ch09-primitives-integrales}
+\include{chapitres/p2-analyse/devoir-2}
+
+% ===========================================================================
+\bmtpartie{bmtPalissandre}{III}{Suites numériques}{%
+  Répartition Annuelle, quatrième période — hors tableau des contenus du
+  PE 2026}{%
+  Cette partie ne figure pas dans le tableau des contenus du Programme
+  d'Études 2026, et elle est pourtant celle dont on est le plus sûr : la
+  Répartition Annuelle lui consacre une période entière, et le premier
+  exercice du sujet de baccalauréat porte sur les suites à chaque session
+  examinée pour ce livre, sans exception, depuis 1999. Elle vient après
+  l'analyse pour une raison précise : les sujets écrivent régulièrement
+  $V_{n} = e^{3n-1}$ ou $W_{n} = \ln(U_{n})$, et l'on ne peut pas travailler
+  ces suites-là avant d'avoir rencontré le logarithme et l'exponentielle.}
+
+\include{chapitres/p3-suites/ch10-suites-generalites}
+\include{chapitres/p3-suites/ch11-suites-arithmetiques-geometriques}
+\include{chapitres/p3-suites/devoir-3}
+
+% ===========================================================================
+\bmtpartie{bmtRaphia}{IV}{Traitement des données et probabilités}{22 heures}{%
+  Compter, puis mesurer une chance, puis lire un tableau de chiffres et en
+  tirer une prévision. Ce sont les deux derniers exercices de l'épreuve, et
+  ce sont aussi les mathématiques que vous utiliserez le plus souvent hors de
+  l'école : un tirage au sort, un sondage, une production qui augmente d'une
+  année sur l'autre.}
+
+\include{chapitres/p4-donnees/ch12-denombrement}
+\include{chapitres/p4-donnees/ch13-probabilite}
+\include{chapitres/p4-donnees/ch14-statistique-deux-variables}
+\include{chapitres/p4-donnees/devoir-4}
+
+% ===========================================================================
+\appendix
+\ifbmtprof\include{annexes/progression-prof}\fi
+\include{annexes/formulaire}
+\include{annexes/glossaire}
+\include{annexes/sujets}
+
+\backmatter
+\end{document}

@@ -1,0 +1,293 @@
+% ===========================================================================
+%  Annexe — Formulaire
+%  Conçu pour être détaché et gardé sous les yeux toute l'année.
+% ===========================================================================
+\chapter{Formulaire}
+
+Tout le programme de l'année tient dans les pages qui suivent. Elles sont
+faites pour être détachées, pliées en deux et gardées dans le cahier — ou
+recopiées à la main, ce qui vaut encore mieux.
+
+% ---------------------------------------------------------------------------
+\section{Second degré}
+
+Pour $P(x) = ax^{2}+bx+c$ avec $a \neq 0$, et $\Delta = b^{2}-4ac$ :
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|L{2.3cm}|L{4.9cm}|L{4.6cm}|}
+\hline
+\textbf{Si} & \textbf{Racines} & \textbf{Factorisation}\\
+\hline
+$\Delta>0$ & $x_{1,2} = \dfrac{-b \mp \sqrt\Delta}{2a}$ &
+$a\left(x-x_{1}\right)\left(x-x_{2}\right)$\\
+$\Delta = 0$ & $x_{0} = -\dfrac{b}{2a}$ (double) &
+$a\left(x-x_{0}\right)^{2}$\\
+$\Delta<0$ & aucune racine réelle & pas de factorisation dans $\R$\\
+\hline
+\end{tabular}
+\end{center}
+
+\[
+  S = x_{1}+x_{2} = -\frac ba, \qquad P = x_{1}x_{2} = \frac ca .
+\]
+
+\textbf{Signe :} le trinôme est du signe de $a$ partout, sauf entre les
+racines lorsqu'elles existent.
+
+\textbf{Bicarrée :} $ax^{4}+bx^{2}+c = 0$ se résout en posant $X = x^{2}$,
+avec $X \geq 0$.
+
+% ---------------------------------------------------------------------------
+\section{Systèmes linéaires}
+
+\[
+  \begin{cases} ax+by = c\\ a'x+b'y = c'\end{cases}
+  \qquad
+  D = \begin{vmatrix} a & b\\ a' & b'\end{vmatrix} = ab'-a'b .
+\]
+Si $D \neq 0$ : $x = \dfrac{D_{x}}{D}$ et $y = \dfrac{D_{y}}{D}$, où
+$D_{x}$ et $D_{y}$ s'obtiennent en remplaçant la colonne correspondante par
+celle des seconds membres. Si $D = 0$ : aucune solution, ou une infinité.
+
+\textbf{Ordre 3, règle de Sarrus} — on recopie les deux premières colonnes à
+droite, on ajoute les trois produits descendants et l'on retranche les trois
+montants :
+\[
+  D = ab'c''+bc'a''+ca'b''-ca''b'-ab''c'-bc''a' .
+\]
+
+% ---------------------------------------------------------------------------
+\section{Limites}
+
+\[
+  \limpinf \frac1x = 0, \quad
+  \lim_{x\to0^{+}}\frac1x = +\infty, \quad
+  \lim_{x\to0^{-}}\frac1x = -\infty, \quad
+  \limpinf x^{n} = +\infty .
+\]
+
+\textbf{Formes indéterminées :} $\infty-\infty$, $0\times\infty$,
+$\dfrac{\infty}{\infty}$, $\dfrac00$.
+
+\textbf{À l'infini :} un polynôme se comporte comme son terme de plus haut
+degré ; un quotient de polynômes, comme le quotient de leurs termes de plus
+haut degré.
+
+\textbf{En $\frac00$ :} factoriser par $(x-a)$ au numérateur et au
+dénominateur, puis simplifier.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|L{5.4cm}|L{6.4cm}|}
+\hline
+\textbf{Limite} & \textbf{Interprétation graphique}\\
+\hline
+$\displaystyle\lim_{x\to a} f(x) = \pm\infty$ & asymptote verticale
+$x = a$\\
+$\limpinf f(x) = \ell$ & asymptote horizontale $y = \ell$\\
+$\limpinf\left[f(x)-(ax+b)\right] = 0$ & asymptote oblique $y = ax+b$\\
+$\limpinf f(x) = \pm\infty$ et $\limpinf\frac{f(x)}{x} = \pm\infty$ &
+branche parabolique de direction $(Oy)$\\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Position :} le signe de $f(x)-(ax+b)$ dit si la courbe est au-dessus
+(positif) ou en dessous (négatif) de la droite.
+
+% ---------------------------------------------------------------------------
+\section{Dérivation}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|L{3.1cm}|L{3.1cm}||L{2.6cm}|L{2.6cm}|}
+\hline
+\textbf{$f$} & \textbf{$f'$} & \textbf{$f$} & \textbf{$f'$}\\
+\hline
+$k$ & $0$ & $u+v$ & $u'+v'$\\
+$x^{n}$ & $n\,x^{n-1}$ & $ku$ & $k\,u'$\\
+$\dfrac1x$ & $-\dfrac{1}{x^{2}}$ & $uv$ & $u'v+uv'$\\
+$\sqrt x$ & $\dfrac{1}{2\sqrt x}$ & $\dfrac1v$ &
+$-\dfrac{v'}{v^{2}}$\\
+$\ln x$ & $\dfrac1x$ & $\dfrac uv$ & $\dfrac{u'v-uv'}{v^{2}}$\\
+$e^{x}$ & $e^{x}$ & $u^{n}$ & $n\,u'\,u^{n-1}$\\
+$\ln u$ & $\dfrac{u'}{u}$ & $e^{u}$ & $u'\,e^{u}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Tangente} au point d'abscisse $a$ :
+$y = f'(a)\,(x-a)+f(a)$.
+
+\textbf{Variations :} $f'>0$ sur $I$ $\Rightarrow$ $f$ croissante sur $I$ ;
+$f'<0$ $\Rightarrow$ décroissante. Extremum là où $f'$ s'annule
+\emph{en changeant de signe}.
+
+% ---------------------------------------------------------------------------
+\section{Logarithme népérien}
+
+Défini sur $\intervalleo{0}{+\infty}$, strictement croissant,
+$\ln 1 = 0$, $\ln e = 1$.
+
+\[
+  \ln(ab) = \ln a+\ln b, \qquad \ln\frac ab = \ln a-\ln b, \qquad
+  \ln\left(a^{n}\right) = n\ln a, \qquad \ln\sqrt a = \frac12\ln a .
+\]
+\[
+  \lim_{x\to0^{+}}\ln x = -\infty, \qquad \limpinf \ln x = +\infty, \qquad
+  \limpinf \frac{\ln x}{x} = 0, \qquad \lim_{x\to0^{+}} x\ln x = 0 .
+\]
+
+\textbf{Équations :} $\ln u = a \daccord u = e^{a}$ ;
+$\ln u = \ln v \daccord u = v$ ;
+$a\ln^{2}x+b\ln x+c = 0$ se résout en posant $X = \ln x$.
+
+\textbf{Toujours :} écrire les conditions d'existence avant de calculer, et
+rejeter à la fin les solutions qui ne les vérifient pas.
+
+% ---------------------------------------------------------------------------
+\section{Exponentielle}
+
+Définie sur $\R$, strictement croissante, strictement positive,
+$e^{0} = 1$.
+
+\[
+  \ln\left(e^{x}\right) = x, \qquad e^{\ln y} = y \;(y>0),
+\]
+\[
+  e^{a+b} = e^{a}e^{b}, \qquad e^{-a} = \frac{1}{e^{a}}, \qquad
+  e^{a-b} = \frac{e^{a}}{e^{b}}, \qquad \left(e^{a}\right)^{n} = e^{na} .
+\]
+\[
+  \limminf e^{x} = 0, \qquad \limpinf e^{x} = +\infty, \qquad
+  \limpinf \frac{e^{x}}{x} = +\infty, \qquad \limminf x\,e^{x} = 0 .
+\]
+
+\textbf{Équations :} $e^{u} = a \daccord u = \ln a$ (et aucune solution si
+$a \leq 0$) ; $e^{u} = e^{v} \daccord u = v$ ;
+$a\,e^{2x}+b\,e^{x}+c = 0$ se résout en posant $X = e^{x}>0$.
+
+% ---------------------------------------------------------------------------
+\section{Primitives et intégrale}
+
+$F$ est une primitive de $f$ sur $I$ lorsque $F' = f$ sur $I$. Deux
+primitives diffèrent d'une constante.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|L{3.2cm}|L{3.2cm}||L{2.6cm}|L{2.6cm}|}
+\hline
+\textbf{$f$} & \textbf{une primitive} & \textbf{$f$} &
+\textbf{une primitive}\\
+\hline
+$k$ & $kx$ & $\dfrac{1}{x^{2}}$ & $-\dfrac1x$\\
+$x^{n}$ & $\dfrac{x^{n+1}}{n+1}$ & $\dfrac1x$ & $\ln x$ (sur $\Rps$)\\
+$e^{x}$ & $e^{x}$ & $e^{ax}$ & $\dfrac1a e^{ax}$\\
+$\dfrac{u'}{u}$ & $\ln u$ (où $u>0$) & $\ln x$ & $x\ln x-x$\\
+\hline
+\end{tabular}
+\end{center}
+
+\[
+  \int_{a}^{b} f(x)\dx = \left[F(x)\right]_{a}^{b} = F(b)-F(a) .
+\]
+
+\textbf{Aire.} Si $f \geq 0$ sur $\intervalle{a}{b}$, l'aire du domaine
+limité par la courbe, l'axe des abscisses et les droites $x = a$ et $x = b$
+vaut $\int_{a}^{b} f(x)\dx$ unités d'aire ; si $f \leq 0$, c'est l'opposé.
+
+\textbf{Conversion.} Unité graphique $u$ centimètres
+$\Rightarrow$ $1$ unité d'aire $= u^{2}$ cm².
+
+% ---------------------------------------------------------------------------
+\section{Suites numériques}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|L{2.4cm}|L{4.4cm}|L{4.6cm}|}
+\hline
+ & \textbf{Arithmétique} & \textbf{Géométrique}\\
+\hline
+Définition & $u_{n+1} = u_{n}+r$ & $u_{n+1} = q\,u_{n}$\\
+Terme général & $u_{n} = u_{0}+nr$ & $u_{n} = u_{0}\,q^{n}$\\
+ & $u_{n} = u_{p}+(n-p)r$ & $u_{n} = u_{p}\,q^{\,n-p}$\\
+Somme & $\left(\text{nb de termes}\right)
+        \times\dfrac{\text{premier}+\text{dernier}}{2}$ &
+       $\text{premier}\times\dfrac{1-q^{\text{nb de termes}}}{1-q}$\\
+Limite & $+\infty$ si $r>0$, $-\infty$ si $r<0$ &
+       $0$ si $\abs q<1$ ; $+\infty$ si $q>1$ ; pas de limite si
+       $q \leq -1$\\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Nombre de termes :} de $u_{0}$ à $u_{n}$, il y en a $n+1$ ; de
+$u_{p}$ à $u_{n}$, il y en a $n-p+1$.
+
+\textbf{Suite auxiliaire.} Si $u_{n+1} = a\,u_{n}+b$ et
+$v_{n} = u_{n}-\alpha$ où $\alpha$ est le point fixe, alors
+$\left(v_{n}\right)$ est géométrique de raison $a$.
+
+\textbf{Passage $\ln$ / $\exp$.} Si $\left(u_{n}\right)$ est géométrique de
+raison $q>0$, alors $\left(\ln u_{n}\right)$ est arithmétique de raison
+$\ln q$. Si $\left(u_{n}\right)$ est arithmétique de raison $r$, alors
+$\left(e^{u_{n}}\right)$ est géométrique de raison $e^{r}$.
+
+% ---------------------------------------------------------------------------
+\section{Dénombrement et probabilité}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{|L{4.9cm}|L{2.9cm}|L{3.4cm}|}
+\hline
+\textbf{L'énoncé dit} & \textbf{L'ordre} & \textbf{On compte avec}\\
+\hline
+successivement, avec remise & compte & $n^{p}$\\
+successivement, sans remise & compte &
+$\arrang{p}{n} = \dfrac{n!}{(n-p)!}$\\
+simultanément, d'un seul coup & ne compte pas &
+$\combi{p}{n} = \dfrac{n!}{p!(n-p)!}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\[
+  \combi{0}{n} = \combi{n}{n} = 1, \qquad \combi{1}{n} = n, \qquad
+  \combi{p}{n} = \combi{n-p}{n}, \qquad 0! = 1 .
+\]
+
+\textbf{Équiprobabilité :}
+$\proba{A} = \dfrac{\text{nombre de cas favorables}}
+{\text{nombre de cas possibles}}$.
+
+\[
+  0 \leq \proba{A} \leq 1, \qquad \proba{\evtc{A}} = 1-\proba{A},
+  \qquad \proba{A \cup B} = \proba{A}+\proba{B}-\proba{A \cap B} .
+\]
+
+\textbf{« Au moins un »} a pour contraire \textbf{« aucun »} : c'est
+presque toujours le chemin le plus court.
+
+\textbf{Hors programme en série L :} probabilités conditionnelles,
+indépendance, variables aléatoires.
+
+% ---------------------------------------------------------------------------
+\section{Statistique à deux variables}
+
+\textbf{Point moyen :} $\pmoyen\left(\moy x\,;\,\moy y\right)$ où $\moy x$
+et $\moy y$ sont les moyennes des $x_{i}$ et des $y_{i}$.
+
+\textbf{Méthode de Mayer :} on partage la série en deux sous-groupes de même
+effectif, on calcule leurs points moyens $G_{1}$ et $G_{2}$, et la droite
+d'ajustement est $\droiteMayer$. Son équation $y = ax+b$ s'obtient en
+résolvant
+\[
+  \begin{cases} x_{G_{1}}\,a+b = y_{G_{1}}\\
+                x_{G_{2}}\,a+b = y_{G_{2}} \end{cases}
+\]
+\textbf{Vérification gratuite :} $\pmoyen$ appartient à cette droite.
+
+\textbf{Taux d'évolution :} $t = \dfrac{V_{1}-V_{0}}{V_{0}}$ ; coefficient
+multiplicateur $1+t$. Deux évolutions successives se composent en
+\emph{multipliant} les coefficients, jamais en additionnant les taux.

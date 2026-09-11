@@ -1,0 +1,729 @@
+% ===========================================================================
+%  Chapitre 14 — Statistique à deux variables
+%  PE 2026, composante TRAITEMENT DES DONNÉES ET PROBABILITÉS
+% ===========================================================================
+\bmtchapitre{Statistique à deux variables}
+  {Représenter une série statistique double par un nuage de points,
+   déterminer le point moyen, ajuster le nuage par une droite — méthode
+   graphique ou méthode de Mayer — et estimer une valeur future.}
+  {Traitement des données \textbullet\ environ 8 heures}
+
+Deux colonnes de chiffres : l'année et la production, le rang du mois et le
+bénéfice, la note de natation et la note de danse. La question est toujours
+la même — ces deux grandeurs évoluent-elles ensemble, et si oui, que
+prévoit-on pour demain ?
+
+La réponse tient en une droite. On place les points, on les résume par un
+point moyen, on trace la droite qui suit le nuage, et l'on prolonge. C'est
+le dernier chapitre du programme, et c'est aussi celui dont l'usage dépasse
+le plus l'école : un commerçant, un agronome, un directeur d'établissement
+font exactement ce calcul.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Le chapitre 2 et quelques acquis de seconde.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Calculer la moyenne de $12$, $15$, $18$ et $19$.
+  \item Déterminer l'équation de la droite passant par $A(1\,;\,5)$ et
+        $B(3\,;\,11)$.
+  \item Placer les points $(1\,;\,340)$ et $(2\,;\,310)$ dans un repère où
+        $1$ cm représente une unité en abscisse et $10$ unités en ordonnée,
+        l'origine des ordonnées étant placée à $300$.
+  \item Résoudre $\begin{cases} 2a+b = 325\\ 5a+b = 380\end{cases}$.
+  \item Calculer $\dfrac{55}{3}$ à $10^{-2}$ près.
+  \item Une production passe de $200$ à $250$ tonnes : de quel pourcentage
+        a-t-elle augmenté ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Moyenne de $1$, $2$, $3$, $4$, $5$ et $6$
+  \item Moyenne de $10$, $20$ et $30$
+  \item Coefficient directeur de la droite passant par $(2\,;\,4)$ et
+        $(5\,;\,13)$
+  \item $\dfrac{380-325}{5-2}$
+  \item Augmenter $200$ de $10\,\%$
+  \item Diminuer $50$ de $20\,\%$
+  \item Coefficient multiplicateur d'une hausse de $25\,\%$
+  \item Deux hausses successives de $10\,\%$ : coefficient global
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $3{,}5$ \quad b) $20$ \quad c) $3$ \quad d) $\frac{55}{3} \approx 18{,}33$
+\quad e) $220$ \quad f) $40$ \quad g) $1{,}25$ \quad h) $1{,}21$.
+\end{corrige}
+
+% ===========================================================================
+\section{Série double et nuage de points}
+
+\begin{definition}[série statistique à deux variables]
+On observe, sur une même population, deux caractères numériques $x$ et $y$.
+La liste des couples $\left(x_{i}\,;\,y_{i}\right)$ s'appelle une
+\textbf{série statistique double}. Représentés dans un repère, ces couples
+forment le \textbf{nuage de points} de la série.
+\end{definition}
+
+\begin{definition}[point moyen]
+Le \textbf{point moyen} du nuage est le point
+$\pmoyen\left(\moy{x}\,;\,\moy{y}\right)$, où $\moy{x}$ et $\moy{y}$
+désignent les moyennes respectives des $x_{i}$ et des $y_{i}$ :
+\[
+  \moy{x} = \frac{x_{1}+x_{2}+\cdots+x_{n}}{n}, \qquad
+  \moy{y} = \frac{y_{1}+y_{2}+\cdots+y_{n}}{n}.
+\]
+\end{definition}
+
+\begin{avertissement}
+Les sujets imposent l'échelle du tracé et, souvent, une origine décalée :
+« sur l'axe des ordonnées, placer $300$ à l'origine puis $1$ cm pour
+$10$ élèves ». Cette consigne se respecte à la lettre — elle vaut un point —
+et elle se signale sur le dessin par une double barre sur l'axe, juste
+au-dessus de l'origine.
+\end{avertissement}
+
+\begin{visualisation}[un nuage, son point moyen, sa droite]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 6.4cm,
+  axis lines = left, xlabel = {rang de l'année $x_{i}$},
+  ylabel = {effectif $y_{i}$},
+  xmin = 0, xmax = 7.4, ymin = 295, ymax = 410,
+  xtick = {1,2,3,4,5,6,7}, ytick = {300,320,340,360,380,400},
+  axis line style = {bmtGris},
+  tick label style = {font=\scriptsize, color=bmtGris},
+  grid = both, grid style = {bmtGrisClair, line width=0.3pt}, clip = true,
+]
+  \addplot[only marks, mark=*, mark size=1.9pt, bmtIndigo] coordinates {
+    (1,340) (2,310) (3,325) (4,380) (5,365) (6,395)};
+  \addplot[bmtRaphia, line width=1.2pt, domain=0.6:7.2]
+    {18.333*x+288.333};
+  \filldraw[bmtLaterite] (axis cs:2,325) circle (2.2pt);
+  \filldraw[bmtLaterite] (axis cs:5,380) circle (2.2pt);
+  \filldraw[bmtVetiver] (axis cs:3.5,352.5) circle (2.4pt);
+  \node[bmtLaterite, font=\scriptsize, anchor=north west]
+    at (axis cs:2.1,323) {$G_{1}$};
+  \node[bmtLaterite, font=\scriptsize, anchor=north west]
+    at (axis cs:5.1,378) {$G_{2}$};
+  \node[bmtVetiver, font=\scriptsize, anchor=south east]
+    at (axis cs:3.45,354) {$G$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Les six points bleus forment le nuage. Le point vert $G$ en est le point
+moyen : il se trouve toujours « au centre » du nuage. Les deux points rouges
+$G_{1}$ et $G_{2}$ sont les points moyens des deux moitiés ; la droite qui
+les joint est la droite d'ajustement de Mayer, et elle passe elle-même par
+$G$.
+\end{visualisation}
+
+% ===========================================================================
+\section{Ajuster le nuage par une droite}
+
+\begin{methode}{la méthode de Mayer, en cinq gestes}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item \emph{Partager} la série en deux sous-groupes de même effectif : la
+        première moitié des valeurs, puis la seconde.
+  \item \emph{Calculer} les points moyens $G_{1}$ et $G_{2}$ de chaque
+        sous-groupe.
+  \item \emph{Placer} $G_{1}$ et $G_{2}$ sur le graphique et tracer la
+        droite $\droiteMayer$.
+  \item \emph{Déterminer son équation} $y = ax+b$ en résolvant le système
+        formé par les deux points — c'est exactement un système
+        $2\times2$ du chapitre 2.
+  \item \emph{Estimer} : pour une valeur future de $x$, calculer $ax+b$ ;
+        pour une valeur de $y$, résoudre l'équation en $x$.
+\end{enumerate}
+\end{methode}
+
+\begin{propriete}[la droite de Mayer passe par le point moyen]
+Lorsque les deux sous-groupes ont le même effectif, le point moyen
+$\pmoyen$ de la série entière appartient à la droite $\droiteMayer$.
+\end{propriete}
+
+\begin{demonstration}
+Les deux sous-groupes ayant $\frac n2$ éléments chacun, la moyenne générale
+est la moyenne des deux moyennes :
+$\moy{x} = \frac{x_{G_{1}}+x_{G_{2}}}{2}$ et de même pour $y$. Le point
+$\pmoyen$ est donc le milieu du segment $\left[G_{1}G_{2}\right]$, et un
+milieu appartient toujours au segment.
+\end{demonstration}
+
+\begin{remarque}
+Cette propriété fournit une vérification gratuite : après avoir trouvé
+l'équation, on remplace $x$ par $\moy{x}$ et l'on doit retrouver $\moy{y}$.
+Dix secondes, et l'on sait si l'on s'est trompé.
+\end{remarque}
+
+\begin{exemple}[une série complète, du tableau à la prévision]
+On reprend les effectifs du nuage précédent : rangs $1$ à $6$, effectifs
+$340$, $310$, $325$, $380$, $365$, $395$.
+
+\emph{Point moyen.} $\moy{x} = \frac{1+2+3+4+5+6}{6} = 3{,}5$ et
+$\moy{y} = \frac{2\,115}{6} = 352{,}5$, donc
+$\pmoyen(3{,}5\,;\,352{,}5)$.
+
+\emph{Sous-groupes.} $G_{1}$ résume les trois premières années :
+$\left(2\,;\,\frac{975}{3}\right) = (2\,;\,325)$. $G_{2}$ résume les trois
+dernières : $\left(5\,;\,\frac{1\,140}{3}\right) = (5\,;\,380)$.
+
+\emph{Équation.} On cherche $a$ et $b$ tels que
+\[
+  \begin{cases} 2a+b = 325\\ 5a+b = 380 \end{cases}
+\]
+En soustrayant : $3a = 55$, donc $a = \frac{55}{3} \approx 18{,}33$ et
+$b = 325-\frac{110}{3} = \frac{865}{3} \approx 288{,}33$. La droite a pour
+équation
+\[
+  y = \frac{55}{3}\,x+\frac{865}{3} .
+\]
+
+\emph{Vérification.} Pour $x = 3{,}5$ :
+$\frac{55\times3{,}5+865}{3} = \frac{1\,057{,}5}{3} = 352{,}5 = \moy{y}$.
+\checkmark
+
+\emph{Estimation.} L'année $2030$ porte le rang $12$ :
+$y = \frac{55\times12+865}{3} = \frac{1\,525}{3} \approx 508$. On peut
+estimer à environ $508$ le nombre d'inscrits en $2030$.
+\end{exemple}
+
+\begin{avertissement}
+Une estimation faite à partir d'une droite d'ajustement suppose que la
+tendance observée se poursuit. Rien ne le garantit — une épidémie, une
+réforme, une sécheresse changent la donne. On écrit donc « on peut
+\emph{estimer} », jamais « il y aura ».
+\end{avertissement}
+
+\begin{entrainement}[nuages et ajustements]
+\exo[\niveau{1}] Calculer le point moyen de la série
+$(1\,;\,4)$, $(2\,;\,7)$, $(3\,;\,9)$, $(4\,;\,12)$.
+
+\exo[\niveau{2}] Pour cette même série, déterminer $G_{1}$ et $G_{2}$, puis
+l'équation de $\droiteMayer$.
+
+\exo[\niveau{2}] Vérifier que le point moyen appartient à cette droite.
+
+\exo[\niveau{3}] Une série de six couples a pour points moyens partiels
+$G_{1}(2\,;\,66)$ et $G_{2}(5\,;\,75)$. Déterminer l'équation de la droite
+de Mayer, puis estimer $y$ pour $x = 11$.
+
+\exo[\niveau{3}] Pour la droite $y = 1{,}0625\,x+2{,}0375$, estimer la
+valeur de $x$ correspondant à $y = 10{,}5$.
+\end{entrainement}
+
+\begin{corrige}[nuages et ajustements]
+\textbf{1.} $\moy{x} = 2{,}5$ et $\moy{y} = 8$ : $\pmoyen(2{,}5\,;\,8)$.
+\textbf{2.} $G_{1}(1{,}5\,;\,5{,}5)$ et $G_{2}(3{,}5\,;\,10{,}5)$ ; la
+pente vaut $\frac{5}{2} = 2{,}5$ et $b = 5{,}5-3{,}75 = 1{,}75$ :
+$y = 2{,}5x+1{,}75$.
+\textbf{3.} Pour $x = 2{,}5$ : $6{,}25+1{,}75 = 8 = \moy{y}$. \checkmark
+\textbf{4.} $3a = 9$ donc $a = 3$ et $b = 60$ : $y = 3x+60$ ; pour
+$x = 11$, $y = 93$.
+\textbf{5.} $1{,}0625x = 8{,}4625$, donc $x \approx 7{,}96$, soit environ
+$8$.
+\end{corrige}
+
+% ===========================================================================
+\section{Taux d'évolution}
+
+\begin{definition}[taux d'évolution]
+Lorsqu'une grandeur passe de la valeur $V_{0}$ à la valeur $V_{1}$, son
+\textbf{taux d'évolution} est
+\[
+  t = \frac{V_{1}-V_{0}}{V_{0}},
+\]
+que l'on exprime en pourcentage. Le \textbf{coefficient multiplicateur}
+associé vaut $1+t$.
+\end{definition}
+
+\begin{propriete}[évolutions successives]
+Deux évolutions successives de taux $t_{1}$ puis $t_{2}$ équivalent à une
+évolution unique de coefficient multiplicateur
+$\left(1+t_{1}\right)\left(1+t_{2}\right)$. Les taux, eux, ne s'additionnent
+pas.
+\end{propriete}
+
+\begin{erreurclassique}
+Une hausse de $20\,\%$ suivie d'une baisse de $20\,\%$ ne ramène pas au
+point de départ : le coefficient global vaut
+$1{,}2\times0{,}8 = 0{,}96$, soit une baisse de $4\,\%$. C'est l'exemple à
+retenir, et à ressortir chaque fois que l'on est tenté d'additionner deux
+pourcentages.
+\end{erreurclassique}
+
+\begin{entrainement}[pourcentages]
+\exo[\niveau{1}] Une production passe de $80$ à $92$ tonnes : calculer le
+taux d'évolution.
+
+\exo[\niveau{2}] Un prix augmente de $15\,\%$ puis de $10\,\%$ : quel est le
+taux global ?
+
+\exo[\niveau{2}] Un effectif diminue de $8\,\%$ puis augmente de $8\,\%$ :
+quel est le taux global ?
+
+\exo[\niveau{3}] Un capital augmente de $5\,\%$ par an. Au bout de combien
+d'années aura-t-il doublé ? On donne $\ln 2 \approx 0{,}693$ et
+$\ln 1{,}05 \approx 0{,}0488$.
+\end{entrainement}
+
+\begin{corrige}[pourcentages]
+\textbf{1.} $\frac{92-80}{80} = 0{,}15$, soit $+15\,\%$.
+\textbf{2.} $1{,}15\times1{,}10 = 1{,}265$, soit $+26{,}5\,\%$.
+\textbf{3.} $0{,}92\times1{,}08 = 0{,}9936$, soit $-0{,}64\,\%$.
+\textbf{4.} On cherche $n$ tel que $1{,}05^{n} = 2$, soit
+$n = \frac{\ln2}{\ln1{,}05} \approx 14{,}2$ : au bout de quinze ans.
+\end{corrige}
+
+\begin{qcm}
+\exo Le point moyen d'une série de six couples se calcule avec :
+\textbf{a)} les trois premiers couples \quad \textbf{b)} tous les couples
+\quad \textbf{c)} les valeurs extrêmes \quad \textbf{d)} les $x_{i}$
+seulement \reponseqcm{b}
+
+\exo La droite de Mayer passe nécessairement par :
+\textbf{a)} l'origine \quad \textbf{b)} le premier point du nuage \quad
+\textbf{c)} le point moyen $\pmoyen$ \quad \textbf{d)} tous les points du
+nuage \reponseqcm{c}
+
+\exo $G_{1}(2\,;\,34)$ et $G_{2}(5\,;\,44)$ : le coefficient directeur de
+$\droiteMayer$ vaut :
+\textbf{a)} $10$ \quad \textbf{b)} $\frac{10}{3}$ \quad \textbf{c)} $3$
+\quad \textbf{d)} $\frac{3}{10}$ \reponseqcm{b}
+
+\exo Une hausse de $10\,\%$ correspond au coefficient multiplicateur :
+\textbf{a)} $0{,}10$ \quad \textbf{b)} $1{,}10$ \quad \textbf{c)} $10$
+\quad \textbf{d)} $0{,}90$ \reponseqcm{b}
+
+\exo Estimer une valeur au-delà des données observées s'appelle :
+\textbf{a)} une interpolation \quad \textbf{b)} une extrapolation \quad
+\textbf{c)} une moyenne \quad \textbf{d)} un ajustement \reponseqcm{b}
+\end{qcm}
+
+% ===========================================================================
+\begin{annales}
+La statistique double occupe l'un des deux exercices de cinq points à peu
+près une session sur deux. Les énoncés ci-dessous sont repris tels quels.
+
+\exoann{Baccalauréat, Madagascar, série A, session 2026 — exercice 2}
+Le tableau ci-dessous donne l'évolution de l'effectif des élèves inscrits au
+baccalauréat durant six années consécutives.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Année & $2019$ & $2020$ & $2021$ & $2022$ & $2023$ & $2024$\\
+\hline
+Rang de l'année $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Nombre d'élèves $y_{i}$ & $340$ & $310$ & $325$ & $380$ & $365$ & $395$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Construire le nuage de points associé à cette série statistique dans
+        un repère orthogonal. Échelle : sur l'axe des abscisses, $1$ cm pour
+        $1$ unité ; sur l'axe des ordonnées, placer $300$ à l'origine puis
+        $1$ cm pour $10$ élèves.
+  \item Déterminer les coordonnées du point moyen $G$.
+  \item On partage cette série en deux sous-groupes d'effectifs égaux, le
+        premier composé des trois premières années et le second des trois
+        dernières.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Calculer les coordonnées respectives des points moyens
+                $G_{1}$ et $G_{2}$ de ces deux sous-groupes.
+          \item Établir l'équation de la droite d'ajustement
+                $\left(G_{1}G_{2}\right)$ par la méthode de Mayer.
+        \end{enumerate}
+  \item En utilisant cette droite, estimer l'effectif des élèves inscrits au
+        baccalauréat en $2030$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2017 — exercice 2}
+Le tableau suivant représente l'évolution des bénéfices par mois d'un
+marchand ($y_{i}$, en millions d'ariary), où $y_{6}$ est un entier naturel.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Mois & Janvier & Février & Mars & Avril & Mai & Juin\\
+\hline
+Rang du mois $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Bénéfice $y_{i}$ & $32$ & $34$ & $36$ & $41$ & $42$ & $y_{6}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer la valeur de $y_{6}$ si la moyenne de la série $(y_{i})$
+        est $\moy{y} = 39$.
+  \item Dans tout ce qui suit, on prendra $y_{6} = 49$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Représenter le nuage de points $M_{i}(x_{i}\,;\,y_{i})$ dans
+                un repère orthogonal. Sur l'axe des abscisses, prendre
+                $1$ cm comme unité ; sur l'axe des ordonnées, placer $30$ à
+                l'origine et prendre $1$ cm pour représenter $2$ millions
+                d'ariary.
+          \item Déterminer les coordonnées du point moyen $G$.
+          \item Écrire l'équation cartésienne de la droite d'ajustement
+                linéaire $\left(G_{1}G_{2}\right)$ par la méthode de Mayer.
+        \end{enumerate}
+  \item À l'aide de cette droite, estimer le bénéfice du marchand au mois de
+        septembre.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2014 — exercice 2}
+L'évolution de la production rizicole $y_{i}$, en tonnes, d'un Petit
+Périmètre Irrigué durant six années est représentée par le tableau suivant.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Année & $2008$ & $2009$ & $2010$ & $2011$ & $2012$ & $2013$\\
+\hline
+Rang $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Production $y_{i}$ & $65$ & $70$ & $63$ & $68$ & $76$ & $81$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Construire le nuage de points associé. Sur l'axe des abscisses,
+        $1$ cm pour une unité ; sur l'axe des ordonnées, $60$ à l'origine et
+        $1$ cm pour $5$ tonnes.
+  \item Calculer les coordonnées du point moyen $G$.
+  \item En utilisant la méthode de Mayer, déterminer une équation de la
+        droite d'ajustement.
+  \item Tracer cette droite.
+  \item Déterminer graphiquement la production du périmètre en $2018$, puis
+        vérifier le résultat par le calcul.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2010 — exercice 1}
+Les notes obtenues par dix candidats aux épreuves de natation et de danse
+d'un concours sont indiquées dans le tableau suivant.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Natation $(X)$ & $3$ & $5$ & $6$ & $6$ & $9$ & $9$ & $12$ & $12$ & $14$ &
+$14$\\
+\hline
+Danse $(Y)$ & $5$ & $8$ & $8$ & $10$ & $10$ & $13$ & $13$ & $16$ & $16$ &
+$17$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Représenter le nuage de points associé à cette série statistique.
+  \item On partage le nuage en deux parties d'effectifs égaux.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Calculer les coordonnées de $G_{1}$ et $G_{2}$, points
+                moyens respectifs des nuages partiels ainsi obtenus.
+          \item Placer $G_{1}$ et $G_{2}$, puis tracer la droite
+                $\left(G_{1}G_{2}\right)$.
+          \item Déterminer une équation de la droite
+                $\left(G_{1}G_{2}\right)$.
+        \end{enumerate}
+  \item Estimer, à l'aide de cette droite, la note de natation qu'aura un
+        candidat qui avait $10{,}5$ en danse.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2002 — exercice 2}
+Le tableau suivant indique l'évolution de l'effectif d'un collège au cours
+des huit dernières années, $x_{i}$ désignant le rang de l'année et $y_{i}$
+l'effectif correspondant : pour les rangs $1$ à $8$ (années $1994$ à
+$2001$), les effectifs sont $370$, $360$, $380$, $410$, $420$, $440$, $450$
+et $470$.
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Représenter le nuage de points dans un repère orthogonal. Sur l'axe
+        des abscisses, $1$ cm pour unité ; sur l'axe des ordonnées, placer
+        $350$ à l'origine puis $1$ cm pour $10$ élèves.
+  \item Calculer les coordonnées du point moyen $G$.
+  \item On note $(S_{1})$ la série allant de $1994$ à $1997$ et $(S_{2})$
+        celle allant de $1998$ à $2001$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Déterminer les coordonnées des points moyens $G_{1}$ et
+                $G_{2}$.
+          \item Déterminer une équation cartésienne de la droite $(D)$
+                passant par $G_{1}$ et $G_{2}$.
+          \item Construire $(D)$. Que représente-t-elle ?
+          \item En déduire une estimation de l'effectif du collège en
+                $2003$.
+        \end{enumerate}
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2000 — exercice 2}
+Le tableau suivant montre le chiffre d'affaires, en millions de francs
+malagasy, d'une entreprise au cours de six années : pour les rangs $1$ à $6$
+(années $1994$ à $1999$), les chiffres d'affaires sont $120$, $132$, $147$,
+$164$, $181$ et $201$.
+
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer la moyenne de la série $\left(y_{i}\right)$.
+  \item Représenter le nuage de points $M_{i}\left(x_{i}\,;\,y_{i}\right)$.
+  \item Soit $G_{1}$ le point moyen du sous-nuage des trois premières
+        années et $G_{2}$ celui des trois dernières.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Déterminer les coordonnées de $G_{1}$ et $G_{2}$.
+          \item Tracer la droite $\left(G_{1}G_{2}\right)$ ; que
+                représente-t-elle ?
+          \item Donner l'équation de cette droite.
+          \item En déduire une prévision du chiffre d'affaires en $2002$.
+        \end{enumerate}
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1. (2026)} Voir l'exemple du cours : $G(3{,}5\,;\,352{,}5)$,
+$G_{1}(2\,;\,325)$, $G_{2}(5\,;\,380)$,
+$y = \frac{55}{3}x+\frac{865}{3} \approx 18{,}33x+288{,}33$, et
+l'estimation pour $2030$ (rang $12$) vaut environ $508$ élèves.
+
+\textbf{2. (2017)} La somme des six bénéfices vaut $6\times39 = 234$, et
+$32+34+36+41+42 = 185$ : donc $y_{6} = 49$. Ensuite
+$G(3{,}5\,;\,39)$, $G_{1}\left(2\,;\,34\right)$ et
+$G_{2}\left(5\,;\,44\right)$. La pente vaut $\frac{44-34}{3} = \frac{10}{3}$
+et $b = 34-\frac{20}{3} = \frac{82}{3}$, d'où
+$y = \frac{10}{3}x+\frac{82}{3}$. Septembre porte le rang $9$ :
+$y = \frac{90+82}{3} = \frac{172}{3} \approx 57{,}3$ millions d'ariary.
+
+\textbf{3. (2014)} $\moy{y} = \frac{423}{6} = 70{,}5$, donc
+$G(3{,}5\,;\,70{,}5)$. $G_{1}(2\,;\,66)$ et $G_{2}(5\,;\,75)$ : la pente
+vaut $3$ et $b = 60$, d'où $y = 3x+60$. En $2018$, de rang $11$ :
+$y = 93$ tonnes.
+
+\textbf{4. (2010)} $G_{1}$ résume les cinq premiers candidats :
+$\left(\frac{29}{5}\,;\,\frac{41}{5}\right) = (5{,}8\,;\,8{,}2)$ ; $G_{2}$
+les cinq derniers : $\left(\frac{61}{5}\,;\,15\right) = (12{,}2\,;\,15)$.
+La pente vaut $\frac{15-8{,}2}{12{,}2-5{,}8} = \frac{6{,}8}{6{,}4}
+= 1{,}0625$ et $b = 8{,}2-1{,}0625\times5{,}8 = 2{,}0375$, d'où
+$y = 1{,}0625x+2{,}0375$. Pour $y = 10{,}5$ :
+$x = \frac{10{,}5-2{,}0375}{1{,}0625} \approx 7{,}96$, soit environ $8$ en
+natation.
+
+\textbf{5. (2002)} $\moy{x} = 4{,}5$ et
+$\moy{y} = \frac{3\,300}{8} = 412{,}5$. $G_{1}(2{,}5\,;\,380)$ et
+$G_{2}(6{,}5\,;\,445)$ : la pente vaut $\frac{65}{4} = 16{,}25$ et
+$b = 380-40{,}625 = 339{,}375$, d'où $y = 16{,}25x+339{,}375$. Cette droite
+est la droite d'ajustement de la série. En $2003$, de rang $10$ :
+$y \approx 502$ élèves.
+
+\textbf{6. (2000)} $\moy{y} = \frac{945}{6} = 157{,}5$.
+$G_{1}(2\,;\,133)$ et $G_{2}(5\,;\,182)$ : la pente vaut
+$\frac{49}{3} \approx 16{,}33$ et
+$b = 133-\frac{98}{3} = \frac{301}{3} \approx 100{,}33$, d'où
+$y = \frac{49}{3}x+\frac{301}{3}$. En $2002$, de rang $9$ :
+$y = \frac{441+301}{3} \approx 247$ millions de francs malagasy.
+\end{corrige}
+
+% ===========================================================================
+\begin{vraifaux}
+\exo Le point moyen appartient toujours au nuage de points.
+
+\exo La droite de Mayer passe par $G_{1}$ et $G_{2}$.
+
+\exo Deux hausses successives de $50\,\%$ équivalent à une hausse de
+$100\,\%$.
+
+\exo Une estimation par extrapolation est une certitude.
+
+\exo Si l'on échange les rôles de $x$ et de $y$, on obtient la même droite.
+\end{vraifaux}
+
+\begin{corrige}[vrai ou faux]
+\textbf{1.} Faux — il est au centre du nuage mais n'en fait pas
+nécessairement partie ; dans l'exemple du cours, $G(3{,}5\,;\,352{,}5)$
+n'est aucun des six points.
+\textbf{2.} Vrai — c'est sa définition même.
+\textbf{3.} Faux — le coefficient global vaut $1{,}5\times1{,}5 = 2{,}25$,
+soit une hausse de $125\,\%$.
+\textbf{4.} Faux — elle suppose que la tendance se poursuit.
+\textbf{5.} Faux — on obtient une autre droite, qui sert à estimer $x$
+connaissant $y$ ; c'est d'ailleurs ce que fait la dernière question du
+sujet 2010, en résolvant l'équation plutôt qu'en changeant de droite.
+\end{corrige}
+
+% ===========================================================================
+\begin{situation}[le prix du riz au marché]
+Un observateur relève, le premier lundi de chaque mois, le prix du kilo de
+riz sur un marché d'Antananarivo, en ariary.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Rang du mois $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Prix $y_{i}$ & $2\,800$ & $2\,900$ & $3\,050$ & $3\,100$ & $3\,250$ &
+$3\,300$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Calculer le point moyen $\pmoyen$ de la série.
+  \item Déterminer $G_{1}$ et $G_{2}$, puis l'équation de la droite
+        d'ajustement par la méthode de Mayer.
+  \item Vérifier que $\pmoyen$ appartient bien à cette droite.
+  \item Estimer le prix du kilo de riz au dixième mois.
+  \item Calculer le taux d'évolution du prix entre le premier et le sixième
+        mois, puis dire si la droite trouvée en rend compte fidèlement.
+\end{enumerate}
+\end{situation}
+
+\begin{corrige}[le prix du riz au marché]
+\textbf{1.} $\moy{x} = 3{,}5$ et
+$\moy{y} = \frac{18\,400}{6} \approx 3\,066{,}67$.
+
+\textbf{2.} $G_{1}\left(2\,;\,\frac{8\,750}{3}\right)
+\approx (2\,;\,2\,916{,}67)$ et
+$G_{2}\left(5\,;\,\frac{9\,650}{3}\right) \approx (5\,;\,3\,216{,}67)$. La
+pente vaut $\frac{900}{9} = 100$ et
+$b = 2\,916{,}67-200 = 2\,716{,}67$, d'où
+$y = 100x+2\,716{,}67$.
+
+\textbf{3.} Pour $x = 3{,}5$ : $350+2\,716{,}67 = 3\,066{,}67 = \moy{y}$.
+\checkmark
+
+\textbf{4.} $y = 1\,000+2\,716{,}67 \approx 3\,717$ ariary.
+
+\textbf{5.} $\frac{3\,300-2\,800}{2\,800} \approx 0{,}179$, soit environ
+$+17{,}9\,\%$ en cinq mois. La droite, qui prévoit une hausse de $100$
+ariary par mois, en rend bien compte : $500$ ariary sur cinq mois, ce qui
+correspond exactement à la hausse observée.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Vingt-cinq minutes.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Une série a pour valeurs $x$ : $1$, $2$, $3$, $4$, $5$, $6$ et pour
+        valeurs $y$ : $12$, $15$, $14$, $19$, $21$, $23$. Calculer
+        $\pmoyen$.
+  \item Déterminer $G_{1}$ et $G_{2}$.
+  \item Établir l'équation de la droite de Mayer.
+  \item Vérifier que $\pmoyen$ y appartient.
+  \item Estimer $y$ pour $x = 10$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} $\moy{x} = 3{,}5$ et $\moy{y} = \frac{104}{6}
+\approx 17{,}33$.
+\textbf{2.} $G_{1}\left(2\,;\,\frac{41}{3}\right) \approx (2\,;\,13{,}67)$
+et $G_{2}\left(5\,;\,21\right)$.
+\textbf{3.} La pente vaut $\frac{21-13{,}67}{3} \approx 2{,}44$ et
+$b \approx 13{,}67-4{,}89 = 8{,}78$ : $y \approx 2{,}44x+8{,}78$.
+\textbf{4.} Pour $x = 3{,}5$ : $8{,}55+8{,}78 = 17{,}33$. \checkmark
+\textbf{5.} $y \approx 24{,}4+8{,}78 \approx 33{,}2$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, Madagascar, série A, session 2026 — exercice 2
+\textbullet\ 5 points}
+Le tableau ci-dessous consigne l'évolution de l'effectif des élèves inscrits
+à l'examen du baccalauréat durant six années consécutives.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Année & $2019$ & $2020$ & $2021$ & $2022$ & $2023$ & $2024$\\
+\hline
+Rang de l'année $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Nombre d'élèves $y_{i}$ & $340$ & $310$ & $325$ & $380$ & $365$ & $395$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Construire le nuage des points associé à cette série statistique
+        dans un repère orthogonal d'échelle : sur l'axe des abscisses,
+        $1$ cm pour $1$ unité ; sur l'axe des ordonnées, placer $300$ à
+        l'origine puis $1$ cm pour $10$ élèves. \bareme{1 ; 1}
+  \item Déterminer les coordonnées du point moyen $G$. \bareme{1 ; 1}
+  \item On partage cette série en deux sous-groupes d'effectifs égaux. La
+        première partie est composée des trois premières années et la
+        seconde des trois dernières.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Calculer les coordonnées respectives des points moyens $G_{1}$
+            et $G_{2}$ de ces deux sous-groupes. \bareme{1 ; 1}
+      \item Établir l'équation de la droite d'ajustement
+            $\left(G_{1}G_{2}\right)$ par la méthode de Mayer.
+            \bareme{1 ; 1}
+    \end{enumerate}
+  \item En utilisant cette droite, estimer l'effectif des élèves inscrits au
+        baccalauréat en $2030$. \bareme{1 ; 1}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat — Madagascar A 2026]
+\textbf{1.} On place les six points $(1\,;\,340)$, $(2\,;\,310)$,
+$(3\,;\,325)$, $(4\,;\,380)$, $(5\,;\,365)$ et $(6\,;\,395)$ dans le repère
+demandé, en marquant la rupture d'échelle sur l'axe des ordonnées juste
+au-dessus de $300$.
+
+\textbf{2.} $\moy{x} = \frac{1+2+3+4+5+6}{6} = 3{,}5$ et
+$\moy{y} = \frac{340+310+325+380+365+395}{6} = \frac{2\,115}{6} = 352{,}5$.
+Donc $G(3{,}5\,;\,352{,}5)$.
+
+\textbf{3. a)} $G_{1}\left(\frac{1+2+3}{3}\,;\,\frac{340+310+325}{3}\right)
+= (2\,;\,325)$ et
+$G_{2}\left(\frac{4+5+6}{3}\,;\,\frac{380+365+395}{3}\right)
+= (5\,;\,380)$.
+\textbf{b)} La droite $\left(G_{1}G_{2}\right)$ a pour équation
+$y = ax+b$ avec
+\[
+  \begin{cases} 2a+b = 325\\ 5a+b = 380 \end{cases}
+  \quad\Longrightarrow\quad
+  3a = 55, \quad a = \frac{55}{3}, \quad b = \frac{865}{3}.
+\]
+Soit $y = \frac{55}{3}x+\frac{865}{3}$, c'est-à-dire environ
+$y = 18{,}33\,x+288{,}33$.
+On vérifie que $G$ y appartient : pour $x = 3{,}5$, on retrouve $352{,}5$.
+
+\textbf{4.} L'année $2030$ porte le rang $x = 12$ :
+\[
+  y = \frac{55\times12+865}{3} = \frac{1\,525}{3} \approx 508{,}33 .
+\]
+On peut estimer à environ $508$ le nombre d'élèves inscrits en $2030$.
+\end{corrige}
+
+\begin{notepourlaclasse}
+Huit heures, et c'est le chapitre le plus rentable de la partie : les
+techniques sont peu nombreuses et la question tombe presque à chaque
+session.
+
+Le tracé compte pour un point entier. Exigez le papier millimétré, la
+rupture d'échelle correctement marquée sur l'axe des ordonnées, et les
+points bien visibles. Un nuage tracé au jugé, sans respecter l'échelle
+imposée, ne rapporte rien.
+
+Le calcul de $G_{1}$ et $G_{2}$ se fait presque toujours sur des rangs
+consécutifs : $G_{1}$ a pour abscisse $2$ et $G_{2}$ pour abscisse $5$
+lorsque la série compte six valeurs. Faites-le remarquer, mais faites
+recalculer : deux sessions sur les six du bloc d'annales utilisent d'autres
+effectifs.
+
+La vérification « $G$ appartient à la droite » n'est jamais demandée par les
+sujets, mais elle détecte la quasi-totalité des erreurs de calcul. Imposez-la
+comme un réflexe.
+\end{notepourlaclasse}

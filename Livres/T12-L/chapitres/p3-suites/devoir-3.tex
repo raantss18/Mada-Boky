@@ -1,0 +1,182 @@
+% ===========================================================================
+%  Devoir surveillé nº 3 — fin de la partie Suites numériques
+% ===========================================================================
+\chapter*{Devoir surveillé nº\,3 — Suites numériques}
+\markboth{Devoir surveillé nº\,3}{Devoir surveillé nº\,3}
+\addcontentsline{toc}{chapter}{Devoir surveillé nº\,3 — Suites numériques}
+
+\begin{devoirsurveille}[portée : chapitres 1 à 11]
+\textbf{Durée : 2 h 15.} Les deux exercices et le problème sont obligatoires.
+Calculatrice scientifique non programmable autorisée. Barème
+\textup{(A1 ; A2)}.
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 1} \hfill \textup{(05 points)}
+
+On considère la suite $\left(U_{n}\right)_{n \in \N}$ définie par
+$U_{0} = 10$ et, pour tout entier naturel $n$,
+\[
+  U_{n+1} = \frac13 U_{n}+4 .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $U_{1}$ et $U_{2}$. \bareme{0,5 ; 0,5}
+  \item On pose $V_{n} = U_{n}-6$ pour tout $n \in \N$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $\left(V_{n}\right)$ est une suite géométrique dont
+            on précisera la raison et le premier terme. \bareme{1,5 ; 1,5}
+      \item Exprimer $V_{n}$, puis $U_{n}$, en fonction de $n$.
+            \bareme{1 ; 1}
+    \end{enumerate}
+  \item Calculer $\limn U_{n}$ et interpréter le résultat en une phrase.
+        \bareme{1 ; 1}
+  \item Exprimer en fonction de $n$ la somme
+        $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$. \bareme{1 ; 1}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 2} \hfill \textup{(05 points)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item $\left(A_{n}\right)$ est une suite arithmétique de raison $r = 4$
+        telle que $A_{5} = 17$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Calculer $A_{0}$, puis exprimer $A_{n}$ en fonction de $n$.
+            \bareme{1 ; 1}
+      \item Déterminer l'entier $n$ tel que $A_{n} = 101$. \bareme{1 ; 1}
+      \item Calculer $S = A_{0}+A_{1}+\cdots+A_{25}$. \bareme{1 ; 1}
+    \end{enumerate}
+  \item On pose $B_{n} = e^{\,A_{n}}$ pour tout $n \in \N$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $\left(B_{n}\right)$ est géométrique et préciser sa
+            raison. \bareme{1,5 ; 1,5}
+      \item En déduire $\limn B_{n}$. \bareme{0,5 ; 0,5}
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily PROBLÈME} \hfill \textup{(10 points)}
+
+Soit $f$ la fonction définie sur $\R$ par
+\[
+  f(x) = 3-2x-e^{-x},
+\]
+de courbe $(\mathcal C)$ dans un repère orthonormé
+$\left(O\,;\,\veci\,,\,\vecj\right)$ d'unité graphique $1$ cm.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $\limpinf f(x)$. \bareme{1 ; 0,75}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Calculer $\limminf f(x)$, en remarquant que
+            $e^{-x} \to +\infty$ lorsque $x \to -\infty$. \bareme{1 ; 0,75}
+      \item Montrer que la droite $(D) : y = 3-2x$ est asymptote oblique à
+            $(\mathcal C)$ en $+\infty$, et étudier la position de
+            $(\mathcal C)$ par rapport à $(D)$. \bareme{2 ; 1,5}
+    \end{enumerate}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que, pour tout réel $x$, $f'(x) = -2+e^{-x}$.
+            \bareme{1 ; 1}
+      \item Résoudre l'équation $e^{-x} = 2$, puis étudier le signe de
+            $f'(x)$. \bareme{1,5 ; 1,25}
+      \item Dresser le tableau de variation de $f$. \bareme{1,5 ; 1,25}
+    \end{enumerate}
+  \item Écrire une équation de la tangente $(T)$ à $(\mathcal C)$ au point
+        d'abscisse $0$. \bareme{1 ; 1}
+  \item Calculer $f(-1)$, $f(0)$ et $f(2)$ à $10^{-2}$ près, puis tracer
+        $(D)$, $(T)$ et $(\mathcal C)$. On donne $e \approx 2{,}72$,
+        $e^{-1} \approx 0{,}37$ et $\ln 2 \approx 0{,}69$.
+        \bareme{1 ; 1}
+\end{enumerate}
+
+\pourAdeux
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em, start=6]
+  \item Soit $F$ définie sur $\R$ par $F(x) = 3x-x^{2}+e^{-x}$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $F$ est une primitive de $f$ sur $\R$.
+            \bareme{ ; 0,75}
+      \item Calculer $\displaystyle\int_{0}^{1} f(x)\dx$ et en donner une
+            valeur approchée à $10^{-2}$ près. \bareme{ ; 0,75}
+    \end{enumerate}
+\end{enumerate}
+\end{devoirsurveille}
+
+\begin{corrige}[devoir surveillé nº 3 — exercice 1]
+\textbf{1.} $U_{1} = \frac{10}{3}+4 = \frac{22}{3}$ et
+$U_{2} = \frac{22}{9}+4 = \frac{58}{9}$.
+
+\textbf{2. a)} $V_{n+1} = U_{n+1}-6 = \frac13U_{n}+4-6 = \frac13U_{n}-2
+= \frac13\left(U_{n}-6\right) = \frac13V_{n}$ : la suite est géométrique de
+raison $\frac13$ et de premier terme $V_{0} = 4$.
+\textbf{b)} $V_{n} = 4\left(\frac13\right)^{n}$ et
+$U_{n} = 6+4\left(\frac13\right)^{n}$.
+
+\textbf{3.} Comme $\left|\frac13\right|<1$, $V_{n} \to 0$ et donc
+$U_{n} \to 6$ : la suite converge vers $6$, qui est le point fixe de la
+relation de récurrence.
+
+\textbf{4.} $S_{n} = 4\times\frac{1-\left(\frac13\right)^{n+1}}{1-\frac13}
+= 6\left(1-\left(\frac13\right)^{n+1}\right)$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 3 — exercice 2]
+\textbf{1. a)} $A_{5} = A_{0}+5r$ donne $17 = A_{0}+20$, soit
+$A_{0} = -3$ ; d'où $A_{n} = -3+4n$.
+\textbf{b)} $-3+4n = 101$ donne $n = 26$.
+\textbf{c)} La somme compte $26$ termes, de $A_{0} = -3$ à
+$A_{25} = 97$ : $S = 26\times\frac{-3+97}{2} = 26\times47 = 1\,222$.
+
+\textbf{2. a)} $\frac{B_{n+1}}{B_{n}} = e^{A_{n+1}-A_{n}} = e^{4}$ : la
+suite est géométrique de raison $e^{4}$ et de premier terme
+$B_{0} = e^{-3}$.
+\textbf{b)} Comme $e^{4}>1$ et $B_{0}>0$, $\limn B_{n} = +\infty$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 3 — problème]
+\textbf{1.} En $+\infty$, $e^{-x} \to 0$ et $3-2x \to -\infty$ : donc
+$f(x) \to -\infty$.
+
+\textbf{2. a)} En $-\infty$, $3-2x \to +\infty$ et $-e^{-x} \to -\infty$ :
+c'est une forme indéterminée. On écrit
+$f(x) = -e^{-x}\left(1+\frac{2x-3}{e^{-x}}\right)$ — ou, plus simplement, on
+observe que $e^{-x}$ l'emporte sur toute expression affine : la limite vaut
+$-\infty$.
+\textbf{b)} $f(x)-(3-2x) = -e^{-x} \to 0$ en $+\infty$ : la droite $(D)$ est
+asymptote oblique. Comme $-e^{-x}<0$ pour tout $x$, la courbe est
+\emph{toujours} en dessous de $(D)$.
+
+\textbf{3. a)} La dérivée de $-e^{-x}$ vaut $+e^{-x}$, donc
+$f'(x) = -2+e^{-x}$.
+\textbf{b)} $e^{-x} = 2$ équivaut à $-x = \ln2$, soit $x = -\ln2$. La
+fonction $x \mapsto e^{-x}$ étant décroissante, $f'(x)>0$ pour
+$x<-\ln2$ et $f'(x)<0$ pour $x>-\ln2$.
+\textbf{c)} $f$ croît sur $\intervalleof{-\infty}{-\ln2}$, décroît sur
+$\intervallefo{-\ln2}{+\infty}$, avec un maximum
+$f(-\ln2) = 3+2\ln2-2 = 1+2\ln2 \approx 2{,}39$. Les deux limites valent
+$-\infty$.
+
+\textbf{4.} $f(0) = 3-0-1 = 2$ et $f'(0) = -2+1 = -1$ : $(T) : y = -x+2$.
+
+\textbf{5.} $f(-1) = 3+2-e \approx 2{,}28$ ; $f(0) = 2$ ;
+$f(2) = 3-4-e^{-2} \approx -1{,}14$. On trace l'asymptote oblique
+$y = 3-2x$, la tangente $y = -x+2$, le sommet
+$\left(-0{,}69\,;\,2{,}39\right)$, puis la courbe, qui reste partout sous
+son asymptote.
+
+\textbf{6. a)} $F'(x) = 3-2x-e^{-x} = f(x)$. \checkmark
+\textbf{b)} $\displaystyle\int_{0}^{1} f(x)\dx = F(1)-F(0)
+= \left(3-1+e^{-1}\right)-\left(0-0+1\right) = 1+e^{-1} \approx 1{,}37$.
+\end{corrige}
+
+\begin{notepourlaclasse}
+La question 2.a) du problème est la seule difficulté réelle : la limite en
+$-\infty$ y est une forme indéterminée que les sujets de la série évitent
+d'ordinaire. Si votre classe est fragile, donnez-la en indication — « on
+admet que $\limminf f(x) = -\infty$ » — comme le font les sujets officiels,
+et reportez le demi-point sur la question 3.
+
+L'exercice 2 est l'exacte réciproque de ce que font les sujets : au lieu de
+prendre le logarithme d'une géométrique, on prend l'exponentielle d'une
+arithmétique. Les élèves qui ont compris le mécanisme le voient tout de
+suite ; ceux qui ont appris la formule par c\oe ur butent. C'est le
+discriminant le plus honnête du devoir.
+\end{notepourlaclasse}

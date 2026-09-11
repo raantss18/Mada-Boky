@@ -1,0 +1,549 @@
+% ===========================================================================
+%  Chapitre 9 — Systèmes de numération
+%  PE 2026, composante ALGÈBRE
+% ===========================================================================
+\bmtchapitre{Systèmes de numération}
+  {Écrire un nombre dans une base demandée et effectuer des opérations en base
+   quelconque, en particulier dans les systèmes binaire et hexadécimal.}
+  {Algèbre \textbullet\ environ 6 heures}
+
+Nous écrivons les nombres en base dix parce que nous avons dix doigts. Rien de
+plus. Le nombre lui-même ne connaît pas cette convention : quarante-deux reste
+quarante-deux, qu'on l'écrive $42$, $101010$ ou $2A$. Ce chapitre sépare enfin
+le nombre de son écriture, distinction que l'on manipule sans y penser depuis
+l'école primaire.
+
+L'affaire n'est pas seulement culturelle. Un ordinateur ne dispose que de deux
+états, et il compte donc en base deux ; les informaticiens abrègent en base
+seize. Vous retrouverez ces deux bases dès la première année d'études
+supérieures, en électronique comme en informatique. Le chapitre est court, les
+techniques sont peu nombreuses, mais elles doivent devenir automatiques.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Le chapitre précédent suffit, et l'école primaire pour le reste.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Effectuer la division euclidienne de $92$ par $5$, puis du quotient
+        obtenu par $5$.
+  \item Calculer $2^{0}$, $2^{1}$, \dots, $2^{10}$.
+  \item Que signifie l'écriture $3\,405$ en base dix, si on la développe ?
+  \item Calculer $16^{2}$ et $16^{3}$.
+  \item Poser et effectuer l'addition $457+368$ en détaillant les retenues.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $2^{8}$
+  \item $2^{5}+2^{3}+2^{0}$
+  \item $16^{2}$
+  \item Reste de $92$ par $5$
+  \item Reste de $255$ par $16$
+  \item $3 \times 16+11$
+  \item Le plus grand entier s'écrivant avec quatre chiffres en base $2$
+  \item Le plus petit entier s'écrivant avec trois chiffres en base $5$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $256$ \quad b) $41$ \quad c) $256$ \quad d) $2$ \quad e) $15$ \quad
+f) $59$ \quad g) $15$ \quad h) $25$.
+\end{corrige}
+
+% ===========================================================================
+\section{Écriture d'un entier dans une base quelconque}
+
+\begin{definition}[écriture en base b]
+Soit $b$ un entier supérieur ou égal à $2$. Tout entier naturel $N$ non nul
+s'écrit de manière unique
+\[
+  N = a_{k}b^{k}+a_{k-1}b^{k-1}+\cdots+a_{1}b+a_{0},
+\]
+où les $a_{i}$ sont des entiers vérifiant $0 \leq a_{i} < b$ et
+$a_{k} \neq 0$. On note alors
+$N = \overline{a_{k}a_{k-1}\dots a_{1}a_{0}}^{\,b}$, et les $a_{i}$ sont les
+\textbf{chiffres} de $N$ en base $b$.
+\end{definition}
+
+\begin{remarque}
+Une base $b$ demande exactement $b$ chiffres, de $0$ à $b-1$. En base cinq on
+n'écrit jamais le chiffre $5$ ; en base deux, seuls $0$ et $1$ existent. Un
+énoncé qui propose l'écriture $\overline{153}^{\,4}$ contient donc une faute :
+le chiffre $5$ n'a pas cours en base quatre.
+\end{remarque}
+
+\begin{theoreme}[existence et unicité]
+L'écriture ci-dessus existe et est unique.
+\end{theoreme}
+
+\begin{demonstration}
+\emph{Existence.} On construit les chiffres par divisions euclidiennes
+successives : $N = bq_{0}+a_{0}$ avec $0 \leq a_{0} < b$, puis
+$q_{0} = bq_{1}+a_{1}$, et ainsi de suite. La suite des quotients est
+strictement décroissante et positive : elle atteint $0$, et le procédé
+s'arrête.
+
+\smallskip
+\emph{Unicité.} Supposons deux écritures. Le chiffre $a_{0}$ est le reste de
+$N$ dans la division par $b$, donc il est déterminé de façon unique ; le
+quotient $q_{0}$ l'est aussi, et l'on conclut de proche en proche.
+\end{demonstration}
+
+\begin{visualisation}[les divisions successives, lues de bas en haut]
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=0.86cm, font=\footnotesize]
+  \node[anchor=west] at (0,3) {$92 = 5\times18+\mathbf{2}$};
+  \node[anchor=west] at (0,2) {$18 = 5\times3+\mathbf{3}$};
+  \node[anchor=west] at (0,1) {$\ \,3 = 5\times0+\mathbf{3}$};
+  \draw[bmtLaterite, line width=1pt, -{Stealth[length=2.6mm]}]
+    (4.4,3) .. controls (5.6,3) and (5.6,1.6) .. (6.55,0.35);
+  \draw[bmtLaterite, line width=1pt, -{Stealth[length=2.6mm]}]
+    (4.4,2) .. controls (5.4,2) and (5.4,1) .. (6.1,0.35);
+  \draw[bmtLaterite, line width=1pt, -{Stealth[length=2.6mm]}]
+    (4.4,1) .. controls (5.2,1) and (5.2,0.8) .. (5.65,0.35);
+  \node[bmtLaterite, anchor=north, font=\normalsize\bfseries] at (6.1,0.25)
+    {$332$};
+  \node[bmtGris, anchor=west] at (6.9,0) {en base cinq};
+\end{tikzpicture}
+\end{center}
+
+Chaque division fournit un chiffre : le premier reste donne le chiffre des
+unités, le suivant celui des « cinquaines », et ainsi de suite. On lit donc
+les restes \emph{de bas en haut}, ce qui est l'erreur la plus fréquente du
+chapitre. Vérification immédiate :
+$3\times25+3\times5+2 = 75+15+2 = 92$.
+\end{visualisation}
+
+\begin{methode}{écrire un entier dans une base b}
+Diviser par $b$, noter le reste, recommencer avec le quotient jusqu'à obtenir
+un quotient nul, puis lire les restes du dernier vers le premier. Terminer par
+la vérification : redévelopper l'écriture obtenue et retrouver l'entier de
+départ. Cette vérification coûte trois lignes et évite la moitié des erreurs.
+\end{methode}
+
+\begin{entrainement}[écrire dans une base]
+\exo[\niveau{1}] Écrire $92$ en base $5$, puis $100$ en base $7$.
+
+\exo[\niveau{1}] Écrire $2026$ en base $9$.
+
+\exo[\niveau{2}] Développer $\overline{3\,204}^{\,5}$ et donner sa valeur en
+base dix.
+
+\exo[\niveau{2}] Combien de chiffres l'entier $1000$ a-t-il en base $2$ ? en
+base $8$ ?
+
+\exo[\niveau{3}] Déterminer la base $b$ dans laquelle $\overline{31}^{\,b}$
+vaut $25$ en base dix.
+\end{entrainement}
+
+% ===========================================================================
+\section{Conversions entre bases}
+
+\begin{propriete}[passage par la base dix]
+Pour convertir de la base $b$ vers la base $b'$, on développe d'abord
+l'écriture en base $b$ pour obtenir la valeur en base dix, puis on effectue
+les divisions successives par $b'$.
+\end{propriete}
+
+\begin{exemple}[de la base sept à la base quatre]
+Convertissons $\overline{452}^{\,7}$ en base $4$.
+
+\emph{Vers la base dix.} $4\times49+5\times7+2 = 196+35+2 = 233$.
+
+\emph{Vers la base quatre.}
+\[
+\begin{aligned}
+  233 &= 4\times58+1, & 58 &= 4\times14+2, \\
+  14  &= 4\times3+2,  & 3  &= 4\times0+3 .
+\end{aligned}
+\]
+En lisant les restes de bas en haut : $\overline{452}^{\,7} =
+\overline{3\,221}^{\,4}$.
+
+\emph{Vérification.} $3\times64+2\times16+2\times4+1 = 192+32+8+1 = 233$.
+\end{exemple}
+
+\begin{remarque}
+Entre deux bases dont l'une est une puissance de l'autre, le passage se fait
+directement, par paquets de chiffres. C'est ce qui rend le couple binaire et
+hexadécimal si commode, et nous y revenons plus loin.
+\end{remarque}
+
+\begin{entrainement}[conversions]
+\exo[\niveau{1}] Convertir $\overline{1\,011\,010}^{\,2}$ en base dix.
+
+\exo[\niveau{2}] Convertir $\overline{2\,013}^{\,4}$ en base $6$.
+
+\exo[\niveau{2}] Convertir $\overline{777}^{\,8}$ en base $2$, puis en base
+dix.
+
+\exo[\niveau{3}] Un entier s'écrit $\overline{ab}^{\,7}$ en base sept et
+$\overline{ba}^{\,9}$ en base neuf. Déterminer cet entier.
+\end{entrainement}
+
+% ===========================================================================
+\section{Le système binaire}
+
+\begin{definition}[base deux]
+Le \textbf{système binaire} est la numération de base $2$. Ses deux seuls
+chiffres, $0$ et $1$, s'appellent des \textbf{bits}.
+\end{definition}
+
+\begin{propriete}[reconnaissance immédiate]
+Un entier écrit en binaire est pair si et seulement si son dernier bit est
+$0$. Plus généralement, il est divisible par $2^{k}$ si et seulement si ses
+$k$ derniers bits sont nuls.
+\end{propriete}
+
+\begin{demonstration}
+Tous les termes $a_{i}2^{i}$ avec $i \geq k$ sont divisibles par $2^{k}$. La
+divisibilité de $N$ par $2^{k}$ équivaut donc à celle de
+$a_{k-1}2^{k-1}+\cdots+a_{0}$, entier strictement inférieur à $2^{k}$ : il est
+nul si et seulement si tous ses bits le sont.
+\end{demonstration}
+
+\begin{exemple}[écrire $54$ en binaire]
+Les divisions successives par $2$ donnent les restes
+$0,\ 1,\ 1,\ 0,\ 1,\ 1$, lus de bas en haut :
+\[
+  54 = \overline{110\,110}^{\,2}.
+\]
+On peut aussi décomposer directement : $54 = 32+16+4+2 = 2^{5}+2^{4}+2^{2}
++2^{1}$, ce qui donne les mêmes bits. Cette seconde façon est plus rapide dès
+qu'on connaît les puissances de deux par cœur — et il faut les connaître.
+\end{exemple}
+
+\begin{entrainement}[binaire]
+\exo[\niveau{1}] Écrire en binaire $13$, $32$ et $100$.
+
+\exo[\niveau{1}] Convertir $\overline{1\,111}^{\,2}$ et
+$\overline{100\,000}^{\,2}$ en base dix.
+
+\exo[\niveau{2}] Combien y a-t-il d'entiers dont l'écriture binaire comporte
+exactement huit bits ?
+
+\exo[\niveau{3}] Montrer que l'écriture binaire de $2^{n}-1$ ne comporte que
+des $1$.
+\end{entrainement}
+
+% ===========================================================================
+\section{Le système hexadécimal}
+
+\begin{definition}[base seize]
+Le \textbf{système hexadécimal} est la numération de base $16$. Ses seize
+chiffres sont $0,1,\dots,9$ puis $A$, $B$, $C$, $D$, $E$, $F$, qui valent
+respectivement $10$, $11$, $12$, $13$, $14$ et $15$.
+\end{definition}
+
+\begin{propriete}[passage direct entre binaire et hexadécimal]
+Puisque $16 = 2^{4}$, chaque chiffre hexadécimal correspond exactement à un
+paquet de quatre bits. On convertit donc de l'un à l'autre en groupant les
+bits par quatre à partir de la droite, sans passer par la base dix.
+\end{propriete}
+
+\begin{exemple}[deux conversions sans calcul]
+\[
+  \overline{1101\,0110}^{\,2}
+  \ \longrightarrow\ \underbrace{1101}_{D}\ \underbrace{0110}_{6}
+  \ =\ \overline{D6}^{\,16},
+\]
+et réciproquement $\overline{2F}^{\,16} = \overline{0010\,1111}^{\,2}$. En
+base dix, $\overline{D6}^{\,16} = 13\times16+6 = 214$.
+\end{exemple}
+
+\begin{avertissement}
+Le groupement se fait toujours \emph{à partir de la droite}. Si le nombre de
+bits n'est pas multiple de quatre, on complète le paquet de gauche par des
+zéros : $\overline{101\,1010}^{\,2}$ se lit $0101\ 1010$, soit
+$\overline{5A}^{\,16}$.
+\end{avertissement}
+
+\begin{entrainement}[hexadécimal]
+\exo[\niveau{1}] Convertir $\overline{FF}^{\,16}$ et $\overline{100}^{\,16}$
+en base dix.
+
+\exo[\niveau{1}] Écrire $255$ et $4\,096$ en hexadécimal.
+
+\exo[\niveau{2}] Convertir $\overline{1\,0110\,1101}^{\,2}$ en hexadécimal.
+
+\exo[\niveau{3}] Combien d'entiers s'écrivent avec exactement trois chiffres
+hexadécimaux ?
+\end{entrainement}
+
+% ===========================================================================
+\section{Opérations posées en base non décimale}
+
+\begin{propriete}[addition et multiplication en base b]
+Les algorithmes posés de l'école primaire restent valables dans toute base :
+seule change la valeur de la retenue, qui apparaît dès que la somme partielle
+atteint $b$.
+\end{propriete}
+
+\begin{exemple}[une addition posée en base cinq]
+Calculons $\overline{342}^{\,5}+\overline{134}^{\,5}$.
+
+Unités : $2+4 = 6 = 5+1$, on écrit $1$ et l'on retient $1$.
+Cinquaines : $4+3+1 = 8 = 5+3$, on écrit $3$ et l'on retient $1$.
+Vingt-cinquaines : $3+1+1 = 5 = 5+0$, on écrit $0$ et l'on retient $1$.
+Enfin la retenue donne le chiffre de tête.
+\[
+  \overline{342}^{\,5}+\overline{134}^{\,5} = \overline{1\,031}^{\,5}.
+\]
+\emph{Vérification en base dix} : $97+44 = 141$, et
+$1\times125+0+3\times5+1 = 141$.
+\end{exemple}
+
+\begin{methode}{contrôler une opération en base b}
+Toujours vérifier en base dix. Convertir les deux opérandes, effectuer
+l'opération en base dix, convertir le résultat et comparer. C'est plus long,
+mais c'est le seul contrôle fiable tant que la base n'est pas familière.
+\end{methode}
+
+\begin{entrainement}[opérations]
+\exo[\niveau{1}] Poser et effectuer
+$\overline{1\,011}^{\,2}+\overline{110}^{\,2}$.
+
+\exo[\niveau{2}] Poser et effectuer
+$\overline{423}^{\,5}+\overline{344}^{\,5}$, puis vérifier en base dix.
+
+\exo[\niveau{2}] Poser et effectuer $\overline{23}^{\,4}\times
+\overline{3}^{\,4}$.
+
+\exo[\niveau{3}] En base $b$, l'égalité $\overline{24}^{\,b}+\overline{35}^{\,b}
+= \overline{61}^{\,b}$ est-elle possible ? Pour quelles valeurs de $b$ ?
+\end{entrainement}
+
+% ===========================================================================
+\begin{annales}
+La numération apparaît rarement seule : elle vient presque toujours greffée
+sur un exercice d'arithmétique, en fin d'énoncé. Les extraits qui suivent sont
+repris de sujets réellement posés ; leur provenance est indiquée à chaque
+fois.
+
+\exoann{Baccalauréat, Côte d'Ivoire, série C, session 2023 — exercice 5, question 4}
+Un même entier naturel $p$ s'écrit $\overline{ac2}^{\,3}$ en base trois et
+$\overline{baa}^{\,4}$ en base quatre.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Justifier que $3c+2$ est un multiple de $4$.
+  \item En déduire que $c = 2$.
+  \item Déterminer $a$ et $b$.
+  \item Exprimer $p$ en base dix.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série C, session 2012 — exercice, question 2C}
+Écrire l'entier $92$ dans le système de base cinq, puis vérifier le résultat
+en revenant à la base dix.
+
+\exoann{Baccalauréat, Madagascar, série C, session 2011 — exercice, partie B}
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Convertir dans le système binaire l'entier naturel $b = 54$ écrit en
+        base dix.
+  \item Dresser les tables d'addition et de multiplication de $\Zn 5$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série C, session 2026 — exercice 1}
+Un entier de trois chiffres s'écrit $\overline{abc}$ en base dix. Sachant que
+cet entier est divisible par $27$, écrire en base trois le plus petit d'entre
+eux qui soit strictement supérieur à $100$.
+
+\exoann{Baccalauréat, Congo-Brazzaville, série C, session 2022 — exercice 1, adapté}
+Les diviseurs positifs de $195$ ayant été déterminés, écrire $195$ en base
+$5$, puis en base $2$, et vérifier les deux écritures.
+
+\exoann{Baccalauréat, Bénin, série C, session 2023 — problème 1, question 3, adapté}
+Le nombre de graines semées est $p^{2}$, où $p$ est un nombre premier, et il
+est compris entre $3500$ et $4000$. Après avoir déterminé ce nombre, l'écrire
+en base $8$.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} En base trois, $p = 9a+3c+2$ avec $a \in \{1\,;2\}$ et
+$c \in \{0\,;1\,;2\}$. En base quatre, $p = 16b+4a+a = 16b+5a$ avec
+$b \in \{1\,;2\,;3\}$. L'égalité donne $9a+3c+2 = 16b+5a$, soit
+$3c+2 = 16b-4a = 4(4b-a)$ : c'est bien un multiple de $4$. Parmi
+$c = 0,1,2$, seuls $3c+2 = 8$ convient, d'où $c = 2$. Il reste
+$4a+8 = 16b$, soit $a = 4b-2$ ; la seule valeur acceptable en base trois est
+$a = 2$, obtenue pour $b = 1$. Enfin $p = 9\times2+3\times2+2 = 26$, ce que
+confirme $16\times1+5\times2 = 26$.
+
+\textbf{2.} Les divisions successives donnent $92 = 5\times18+2$,
+$18 = 5\times3+3$, $3 = 5\times0+3$ : en lisant les restes de bas en haut,
+$92 = \overline{332}^{\,5}$. La vérification est immédiate :
+$3\times25+3\times5+2 = 75+15+2 = 92$.
+
+\textbf{3.} $54 = 32+16+4+2$, donc $54 = \overline{110\,110}^{\,2}$. Les
+tables de $\Zn 5$ se remplissent en réduisant chaque somme et chaque produit
+modulo $5$ ; on constate que toute classe non nulle y possède un inverse,
+puisque $5$ est premier.
+
+\textbf{4.} Le premier multiple de $27$ strictement supérieur à $100$ est
+$108$. Les divisions par $3$ donnent $108 = 3\times36$, $36 = 3\times12$,
+$12 = 3\times4$, $4 = 3\times1+1$, $1 = 3\times0+1$ : donc
+$108 = \overline{11\,000}^{\,3}$. Vérification : $81+27 = 108$.
+
+\textbf{5.} $195 = 5\times39+0$, $39 = 5\times7+4$, $7 = 5\times1+2$,
+$1 = 5\times0+1$, d'où $195 = \overline{1\,240}^{\,5}$. En binaire,
+$195 = 128+64+2+1 = \overline{1100\,0011}^{\,2}$. Les deux vérifications
+redonnent bien $195$.
+
+\textbf{6.} Le seul nombre premier compris entre $59$ et $63$ est $61$, donc
+le nombre de graines vaut $3721$. En base huit : $3721 = 8\times465+1$,
+$465 = 8\times58+1$, $58 = 8\times7+2$, $7 = 8\times0+7$, soit
+$3721 = \overline{7\,211}^{\,8}$. Vérification :
+$7\times512+2\times64+1\times8+1 = 3584+128+8+1 = 3721$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[le compteur d'une machine à trier]
+Une machine à trier le café compte les sacs traités et affiche ce compteur sur
+huit voyants, allumés ou éteints, qui représentent une écriture binaire — le
+voyant de gauche portant la plus forte valeur.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Quel est le plus grand nombre de sacs que ce compteur peut afficher ?
+  \item Un matin, les voyants affichent $1001\,0110$. Combien de sacs ont été
+        traités ?
+  \item Combien de sacs supplémentaires faut-il pour que tous les voyants
+        soient allumés ?
+  \item Le technicien note les relevés en hexadécimal, sur deux caractères.
+        Quel relevé correspond à l'affichage de la question 2 ?
+  \item Justifier que deux caractères hexadécimaux suffisent toujours, quel
+        que soit l'affichage.
+  \item L'entreprise veut compter jusqu'à mille sacs. Combien de voyants
+        faut-il au minimum ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[le compteur d'une machine à trier]
+\textbf{1.} Huit bits tous allumés donnent
+$2^{8}-1 = 255$ sacs.
+
+\textbf{2.} $1001\,0110$ vaut $128+16+4+2 = 150$ sacs.
+
+\textbf{3.} Il en faut $255-150 = 105$ de plus.
+
+\textbf{4.} En groupant par quatre : $1001 = 9$ et $0110 = 6$, soit le relevé
+$\overline{96}^{\,16}$.
+
+\textbf{5.} Deux chiffres hexadécimaux couvrent les entiers de $0$ à
+$16^{2}-1 = 255$, c'est-à-dire exactement l'étendue d'un affichage à huit
+bits, puisque chaque chiffre hexadécimal absorbe quatre bits.
+
+\textbf{6.} Il faut $2^{n}-1 \geq 1000$, soit $2^{n} \geq 1001$. Comme
+$2^{9} = 512$ et $2^{10} = 1024$, dix voyants suffisent et neuf ne suffisent
+pas.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item L'écriture $\overline{153}^{\,4}$ a un sens.
+  \item En base $b$, un entier est divisible par $b$ si et seulement si son
+        dernier chiffre est $0$.
+  \item $\overline{100}^{\,2}$ et $\overline{100}^{\,16}$ désignent le même
+        entier.
+  \item Plus la base est grande, plus l'écriture d'un entier donné est courte.
+  \item Un entier pair s'écrit toujours avec un nombre pair de bits.
+  \item $\overline{FF}^{\,16} = 255$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — en base quatre les chiffres vont de $0$ à $3$.
+\textbf{2.} Vrai — tous les autres termes sont multiples de $b$.
+\textbf{3.} Faux — l'un vaut $4$, l'autre $256$.
+\textbf{4.} Vrai — le nombre de chiffres décroît quand la base croît, à entier
+fixé.
+\textbf{5.} Faux — $6 = \overline{110}^{\,2}$ s'écrit avec trois bits.
+\textbf{6.} Vrai — $15\times16+15 = 255$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{D'après le baccalauréat, série C, session 2023 — exercice de numération}
+Un entier naturel $p$ vérifie les deux conditions suivantes : il s'écrit
+$\overline{ac2}^{\,3}$ en base trois et $\overline{baa}^{\,4}$ en base quatre.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Écrire les deux conditions sous forme d'égalités entre entiers, en
+        précisant les valeurs possibles de $a$, $b$ et $c$.
+        \hfill\textup{(0,75 pt)}
+  \item Justifier que $3c+2$ est un multiple de $4$, puis déterminer $c$.
+        \hfill\textup{(0,75 pt)}
+  \item Déterminer $a$ et $b$, puis la valeur de $p$ en base dix.
+        \hfill\textup{(1 pt)}
+  \item Écrire enfin $p$ en base deux et en base seize.
+        \hfill\textup{(0,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} $p = 9a+3c+2$ avec $a \in \{1\,;2\}$, $c \in \{0\,;1\,;2\}$, et
+$p = 16b+5a$ avec $b \in \{1\,;2\,;3\}$, $a \leq 3$.
+
+\textbf{2.} L'égalité $9a+3c+2 = 16b+5a$ donne $3c+2 = 4(4b-a)$. Parmi les
+trois valeurs possibles de $c$, seule $c = 2$ rend $3c+2 = 8$ multiple de
+$4$.
+
+\textbf{3.} Il reste $4a+8 = 16b$, soit $a = 4b-2$. La seule valeur compatible
+avec la base trois est $a = 2$, pour $b = 1$. Donc
+$p = 18+6+2 = 26$.
+
+\textbf{4.} $26 = 16+8+2 = \overline{11\,010}^{\,2}$, et en groupant par
+quatre à partir de la droite, $0001\ 1010 = \overline{1A}^{\,16}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{D'après un concours d'entrée en informatique}
+Soit $b$ un entier supérieur ou égal à $2$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Montrer qu'un entier $N$ est divisible par $b-1$ si et seulement si la
+        somme de ses chiffres en base $b$ l'est.
+  \item Retrouver, comme cas particulier, le critère de divisibilité par $9$
+        en base dix.
+  \item Énoncer et démontrer le critère analogue de divisibilité par $b+1$.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} Modulo $b-1$ on a $\congru{b}{1}{b-1}$, donc
+$\congru{b^{i}}{1}{b-1}$ pour tout $i$. En écrivant
+$N = \sum a_{i}b^{i}$, il vient $\congru{N}{\sum a_{i}}{b-1}$ : les deux
+entiers ont même reste, donc $N$ est divisible par $b-1$ si et seulement si la
+somme de ses chiffres l'est.
+
+\textbf{2.} Pour $b = 10$, on obtient $b-1 = 9$ : un entier est divisible par
+$9$ si et seulement si la somme de ses chiffres l'est.
+
+\textbf{3.} Modulo $b+1$ on a $\congru{b}{-1}{b+1}$, donc
+$\congru{b^{i}}{(-1)^{i}}{b+1}$. Ainsi $N$ est congru à la somme
+\emph{alternée} de ses chiffres, $a_{0}-a_{1}+a_{2}-\cdots$, et $N$ est
+divisible par $b+1$ si et seulement si cette somme alternée l'est. Pour
+$b = 10$, c'est le critère de divisibilité par $11$.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+Six heures, c'est court, mais suffisant si l'on renonce à la tentation de
+faire du chapitre une leçon d'informatique. Le programme demande deux choses :
+écrire dans une base, et poser une opération. Le reste est du confort.
+
+L'erreur universelle est la lecture des restes dans le mauvais sens. Imposez
+dès la première séance la vérification par redéveloppement : trois lignes, et
+l'erreur ne survit pas. Les élèves qui s'en dispensent sont exactement ceux
+qui se trompent.
+
+Le passage direct binaire-hexadécimal par paquets de quatre bits plaît
+beaucoup et se retient sans effort. Profitez-en pour faire sentir que le choix
+de la base est une convention d'écriture, jamais une propriété du nombre : la
+parité, la divisibilité, la primalité ne changent pas quand on change de base.
+C'est le seul message conceptuel du chapitre, et il vaut la peine d'être dit
+explicitement.
+\end{notepourlaclasse}

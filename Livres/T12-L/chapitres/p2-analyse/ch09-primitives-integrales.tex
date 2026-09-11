@@ -1,0 +1,644 @@
+% ===========================================================================
+%  Chapitre 9 — Primitives et calcul intégral
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Primitives et calcul intégral}
+  {Reconnaître et vérifier une primitive, connaître le tableau des primitives
+   usuelles, calculer une intégrale par la formule $F(b)-F(a)$, et en déduire
+   l'aire d'un domaine plan.}
+  {Analyse \textbullet\ environ 2 heures}
+
+Dériver, c'est descendre ; trouver une primitive, c'est remonter. Le chapitre
+tient en une phrase : $F$ est une primitive de $f$ lorsque $F' = f$. Tout le
+reste — le tableau des primitives, le calcul d'une intégrale, l'aire sous une
+courbe — en découle.
+
+C'est aussi le chapitre qui distingue les deux options de la série. Les
+questions de primitive et d'aire sont, à chaque session, réservées à
+l'option A2, et elles y valent deux à deux points et demi : un quart de la
+note du problème. L'option A1 n'y est pas interrogée, mais le programme les
+prévoit pour tous, et les comprendre éclaire tout ce qui précède.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Ce chapitre repose entièrement sur la dérivation.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Dériver $x \mapsto x^{3}$, $x \mapsto \dfrac{x^{2}}{2}$ et
+        $x \mapsto 5x$.
+  \item Dériver $x \mapsto \ln x$ sur $\intervalleo{0}{+\infty}$.
+  \item Dériver $x \mapsto e^{x}$ et $x \mapsto e^{-x}$.
+  \item Dériver $x \mapsto x\ln x$.
+  \item Deux fonctions ont la même dérivée. Que peut-on dire de leur
+        différence ?
+  \item Calculer l'aire d'un rectangle de $3$ cm sur $4$ cm.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Après le cours, sans calculatrice : donner \emph{une} primitive.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $f(x) = 1$
+  \item $f(x) = x$
+  \item $f(x) = x^{2}$
+  \item $f(x) = 3$
+  \item $f(x) = e^{x}$
+  \item $f(x) = \dfrac1x$ sur $\Rps$
+  \item $f(x) = 2x+1$
+  \item $f(x) = e^{-x}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $x$ \quad b) $\frac{x^{2}}{2}$ \quad c) $\frac{x^{3}}{3}$ \quad d) $3x$
+\quad e) $e^{x}$ \quad f) $\ln x$ \quad g) $x^{2}+x$ \quad h) $-e^{-x}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Primitive d'une fonction}
+
+\begin{definition}[primitive]
+Soit $f$ une fonction définie sur un intervalle $I$. On appelle
+\textbf{primitive} de $f$ sur $I$ toute fonction $F$ dérivable sur $I$ telle
+que
+\[
+  F'(x) = f(x) \qquad \text{pour tout } x \in I .
+\]
+\end{definition}
+
+\begin{theoreme}[toutes les primitives]
+Si $F$ est une primitive de $f$ sur $I$, alors les primitives de $f$ sur $I$
+sont exactement les fonctions $x \mapsto F(x)+k$, où $k$ est une constante
+réelle.
+\end{theoreme}
+
+\begin{demonstration}
+Si $G$ est une autre primitive, alors $(G-F)' = f-f = 0$ sur l'intervalle
+$I$ : la fonction $G-F$ y est donc constante. Réciproquement, ajouter une
+constante ne change pas la dérivée.
+\end{demonstration}
+
+\begin{remarque}
+« Une » primitive, jamais « la » primitive : il y en a une infinité, toutes
+parallèles, décalées verticalement les unes des autres. C'est pourquoi les
+sujets écrivent « montrer que $F$ est \emph{une} primitive de $f$ ».
+\end{remarque}
+
+\begin{propriete}[primitives usuelles]
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{|L{3.6cm}|L{4.2cm}|L{3.4cm}|}
+\hline
+\textbf{Fonction $f$} & \textbf{Une primitive $F$} & \textbf{Sur} \\
+\hline
+$f(x) = k$ & $F(x) = kx$ & $\R$ \\
+$f(x) = x$ & $F(x) = \dfrac{x^{2}}{2}$ & $\R$ \\
+$f(x) = x^{n}$, $n \geq 1$ & $F(x) = \dfrac{x^{n+1}}{n+1}$ & $\R$ \\
+$f(x) = \dfrac{1}{x^{2}}$ & $F(x) = -\dfrac1x$ & $\R^{*}$ \\
+$f(x) = \dfrac1x$ & $F(x) = \ln x$ & $\Rps$ \\
+$f(x) = e^{x}$ & $F(x) = e^{x}$ & $\R$ \\
+$f(x) = e^{ax}$, $a \neq 0$ & $F(x) = \dfrac{1}{a}e^{ax}$ & $\R$ \\
+$f(x) = \dfrac{u'}{u}$, $u>0$ & $F(x) = \ln\left(u(x)\right)$ & où $u>0$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{propriete}
+
+\begin{methode}{vérifier qu'une fonction est une primitive}
+C'est la question posée à chaque session, et elle ne demande \emph{aucune}
+recherche : on \textbf{dérive} la fonction proposée et l'on constate qu'on
+retombe sur $f$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Écrire $F(x)$ et repérer sa structure : somme, produit, composée.
+  \item Dériver terme à terme, sans sauter d'étape.
+  \item Simplifier et conclure : « $F'(x) = f(x)$, donc $F$ est une
+        primitive de $f$ sur $I$ ».
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[la vérification, telle qu'on l'attend sur une copie]
+Montrons que $F(x) = \dfrac{x^{2}}{2}-x\ln x+x$ est une primitive de
+$f(x) = x-\ln x$ sur $\intervalleo{0}{+\infty}$.
+
+$F$ est dérivable sur cet intervalle comme somme et produit de fonctions
+dérivables. La dérivée de $x\ln x$ vaut $\ln x+x\times\frac1x = \ln x+1$.
+Donc
+\[
+  F'(x) = x-\left(\ln x+1\right)+1 = x-\ln x = f(x).
+\]
+$F$ est donc bien une primitive de $f$ sur $\intervalleo{0}{+\infty}$.
+\end{exemple}
+
+\begin{entrainement}[primitives]
+\exo[\niveau{1}] Donner une primitive de $f(x) = 4x^{3}-2x+7$.
+
+\exo[\niveau{1}] Donner une primitive de $f(x) = \dfrac{3}{x}$ sur
+$\Rps$.
+
+\exo[\niveau{2}] Donner une primitive de $f(x) = e^{2x}$.
+
+\exo[\niveau{2}] Vérifier que $F(x) = (x-1)e^{x}$ est une primitive de
+$f(x) = x\,e^{x}$.
+
+\exo[\niveau{2}] Vérifier que $F(x) = \ln\left(x^{2}+1\right)$ est une
+primitive de $f(x) = \dfrac{2x}{x^{2}+1}$.
+
+\exo[\niveau{3}] Déterminer la primitive $F$ de $f(x) = 3x^{2}-1$ telle que
+$F(1) = 5$.
+\end{entrainement}
+
+\begin{corrige}[primitives]
+\textbf{1.} $x^{4}-x^{2}+7x$.
+\textbf{2.} $3\ln x$.
+\textbf{3.} $\frac12e^{2x}$.
+\textbf{4.} $F'(x) = e^{x}+(x-1)e^{x} = xe^{x}$. \checkmark
+\textbf{5.} $F'(x) = \frac{2x}{x^{2}+1}$. \checkmark
+\textbf{6.} Les primitives sont $x^{3}-x+k$ ; $F(1) = 1-1+k = 5$ donne
+$k = 5$, d'où $F(x) = x^{3}-x+5$.
+\end{corrige}
+
+% ===========================================================================
+\section{L'intégrale}
+
+\begin{definition}[intégrale d'une fonction]
+Soit $f$ une fonction continue sur un intervalle $I$, $F$ une primitive de
+$f$ sur $I$, et $a$, $b$ deux réels de $I$. On appelle \textbf{intégrale de
+$a$ à $b$ de $f$} le nombre
+\[
+  \int_{a}^{b} f(x)\dx = F(b)-F(a),
+\]
+que l'on note aussi $\left[F(x)\right]_{a}^{b}$.
+\end{definition}
+
+\begin{remarque}
+Ce nombre ne dépend pas de la primitive choisie : si l'on remplace $F$ par
+$F+k$, la constante $k$ s'ajoute puis se retranche. C'est ce qui rend la
+définition légitime.
+\end{remarque}
+
+\begin{propriete}[règles de calcul]
+Pour $f$ et $g$ continues et $\lambda$ réel :
+\[
+  \int_{a}^{a} f(x)\dx = 0, \qquad
+  \int_{b}^{a} f(x)\dx = -\int_{a}^{b} f(x)\dx,
+\]
+\[
+  \int_{a}^{b}\left[f(x)+g(x)\right]\dx
+  = \int_{a}^{b} f(x)\dx+\int_{a}^{b} g(x)\dx, \qquad
+  \int_{a}^{b} \lambda f(x)\dx = \lambda\int_{a}^{b} f(x)\dx .
+\]
+\end{propriete}
+
+\begin{exemple}[deux intégrales]
+\textbf{a)} $\displaystyle\int_{0}^{2}\left(3x^{2}-1\right)\dx
+= \left[x^{3}-x\right]_{0}^{2} = (8-2)-(0-0) = 6$.
+
+\textbf{b)} $\displaystyle\int_{1}^{e}\frac1x\dx
+= \left[\ln x\right]_{1}^{e} = 1-0 = 1$.
+\end{exemple}
+
+\begin{entrainement}[calculs d'intégrales]
+\exo[\niveau{1}] $\displaystyle\int_{0}^{1} 2x\dx$
+
+\exo[\niveau{1}] $\displaystyle\int_{1}^{3}\left(x+2\right)\dx$
+
+\exo[\niveau{2}] $\displaystyle\int_{0}^{1} e^{x}\dx$
+
+\exo[\niveau{2}] $\displaystyle\int_{0}^{\ln 2} e^{-x}\dx$
+
+\exo[\niveau{2}] $\displaystyle\int_{1}^{2}\left(\frac1x+x\right)\dx$
+
+\exo[\niveau{3}] $\displaystyle\int_{0}^{1}\left(1-2x+e^{x}\right)\dx$
+\end{entrainement}
+
+\begin{corrige}[calculs d'intégrales]
+\textbf{1.} $\left[x^{2}\right]_{0}^{1} = 1$.
+\textbf{2.} $\left[\frac{x^{2}}{2}+2x\right]_{1}^{3}
+= \left(\frac92+6\right)-\left(\frac12+2\right) = 8$.
+\textbf{3.} $\left[e^{x}\right]_{0}^{1} = e-1$.
+\textbf{4.} $\left[-e^{-x}\right]_{0}^{\ln2} = -\frac12+1 = \frac12$.
+\textbf{5.} $\left[\ln x+\frac{x^{2}}{2}\right]_{1}^{2}
+= \left(\ln2+2\right)-\left(0+\frac12\right) = \ln2+\frac32$.
+\textbf{6.} $\left[x-x^{2}+e^{x}\right]_{0}^{1} = (1-1+e)-(0-0+1) = e-1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Aire d'un domaine plan}
+
+\begin{theoreme}[aire sous une courbe]
+Si $f$ est continue et \textbf{positive} sur $\intervalle{a}{b}$, l'aire du
+domaine plan limité par la courbe $\Cf$, l'axe des abscisses et les droites
+d'équations $x = a$ et $x = b$ vaut
+\[
+  \mathcal A = \int_{a}^{b} f(x)\dx \quad \text{unités d'aire}.
+\]
+Si $f$ est négative sur $\intervalle{a}{b}$, l'aire vaut
+$-\displaystyle\int_{a}^{b} f(x)\dx$ : une aire est toujours positive.
+\end{theoreme}
+
+\begin{visualisation}[l'aire, c'est l'intégrale]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 10.4cm, height = 5.6cm,
+  axis lines = middle, xlabel = {$x$}, ylabel = {$y$},
+  xmin = -0.5, xmax = 4.6, ymin = -0.5, ymax = 3.4,
+  xtick = {1,3}, xticklabels = {$a$, $b$}, ytick = \empty,
+  axis line style = {bmtGris},
+  tick label style = {font=\scriptsize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtRaphia!45!bmtPapier, draw=none, fill=bmtRaphia!25!bmtPapier,
+           domain=1:3, samples=80] {0.35*x^2-1.1*x+2.4} \closedcycle;
+  \addplot[bmtIndigo, line width=1.4pt, domain=0:4.4, samples=140]
+    {0.35*x^2-1.1*x+2.4};
+  \draw[bmtGris, dash pattern=on 2pt off 2pt]
+    (axis cs:1,0) -- (axis cs:1,1.65);
+  \draw[bmtGris, dash pattern=on 2pt off 2pt]
+    (axis cs:3,0) -- (axis cs:3,2.25);
+  \node[bmtRaphia, font=\scriptsize] at (axis cs:2,0.75)
+    {$\displaystyle\int_{a}^{b} f(x)\,\mathrm{d}x$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+La partie colorée est le domaine dont on calcule l'aire : il est limité en
+haut par la courbe, en bas par l'axe des abscisses, à gauche et à droite par
+les deux droites verticales. L'intégrale en donne la mesure exacte, sans
+qu'aucun découpage ne soit nécessaire.
+\end{visualisation}
+
+\begin{avertissement}
+L'intégrale se mesure en \textbf{unités d'aire}, pas en centimètres carrés.
+La conversion dépend de l'unité graphique : si l'unité est $1$ cm,
+$1$ u.a. $= 1$ cm² ; si elle est $2$ cm, $1$ u.a. $= 4$ cm² ; si elle est
+$4$ cm, $1$ u.a. $= 16$ cm². Les sujets donnent toujours l'unité en tête du
+problème et demandent la réponse en cm² : oublier la conversion coûte un
+demi-point à chaque fois.
+\end{avertissement}
+
+\begin{methode}{calculer une aire, comme au baccalauréat}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier le \textbf{signe} de $f$ sur $\intervalle{a}{b}$ — le
+        tableau de variation, déjà dressé, le donne.
+  \item Écrire $\mathcal A = \displaystyle\int_{a}^{b} f(x)\dx$ (ou son
+        opposé si $f<0$).
+  \item Utiliser la primitive $F$ fournie par la question précédente :
+        $\mathcal A = F(b)-F(a)$.
+  \item Remplacer les valeurs, utiliser les approximations données par
+        l'énoncé ($e \approx 2{,}7$, $\ln2 \approx 0{,}7$…).
+  \item \textbf{Convertir} en cm² et conclure par une phrase.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[une aire complète, sujet 2016]
+Soit $f(x) = x-\ln x$ sur $\intervalleo{0}{+\infty}$, dont le tableau de
+variation donne un minimum $f(1) = 1>0$ : la fonction est donc positive.
+Avec $F(x) = \frac{x^{2}}{2}-x\ln x+x$, l'aire du domaine limité par la
+courbe, l'axe des abscisses et les droites $x = 1$ et $x = e$ vaut
+\[
+  \mathcal A = F(e)-F(1)
+  = \left(\frac{e^{2}}{2}-e+e\right)-\left(\frac12-0+1\right)
+  = \frac{e^{2}}{2}-\frac32 .
+\]
+Avec $e \approx 2{,}71$, on obtient $e^{2} \approx 7{,}34$ et
+$\mathcal A \approx 2{,}17$ unités d'aire. L'unité graphique étant $1$ cm,
+l'aire vaut environ $2{,}17$ cm².
+\end{exemple}
+
+\begin{entrainement}[aires]
+\exo[\niveau{1}] Calculer l'aire du domaine limité par la courbe de
+$f(x) = x^{2}$, l'axe des abscisses et les droites $x = 0$ et $x = 2$.
+
+\exo[\niveau{2}] Même question pour $f(x) = e^{x}$ entre $x = 0$ et
+$x = 1$.
+
+\exo[\niveau{2}] Même question pour $f(x) = \dfrac1x$ entre $x = 1$ et
+$x = e$.
+
+\exo[\niveau{3}] L'unité graphique est $2$ cm. Calculer, en cm², l'aire du
+domaine limité par la courbe de $f(x) = 2x+1$, l'axe des abscisses et les
+droites $x = 0$ et $x = 3$.
+\end{entrainement}
+
+\begin{corrige}[aires]
+\textbf{1.} $\left[\frac{x^{3}}{3}\right]_{0}^{2} = \frac83$ u.a.
+\textbf{2.} $e-1 \approx 1{,}72$ u.a.
+\textbf{3.} $1$ u.a.
+\textbf{4.} $\int_{0}^{3}(2x+1)\dx = \left[x^{2}+x\right]_{0}^{3} = 12$
+u.a. ; l'unité valant $2$ cm, une unité d'aire vaut $4$ cm² :
+$\mathcal A = 48$ cm².
+\end{corrige}
+
+\begin{qcm}
+\exo Une primitive de $f(x) = x^{3}$ est :
+\textbf{a)} $3x^{2}$ \quad \textbf{b)} $\dfrac{x^{4}}{4}$ \quad
+\textbf{c)} $\dfrac{x^{4}}{3}$ \quad \textbf{d)} $4x^{4}$ \reponseqcm{b}
+
+\exo $\displaystyle\int_{2}^{2} f(x)\dx$ vaut :
+\textbf{a)} $f(2)$ \quad \textbf{b)} $2$ \quad \textbf{c)} $0$ \quad
+\textbf{d)} on ne peut pas savoir \reponseqcm{c}
+
+\exo Si $F$ est une primitive de $f$, alors $F+7$ est :
+\textbf{a)} une primitive de $f+7$ \quad \textbf{b)} une primitive de $f$
+\quad \textbf{c)} la dérivée de $f$ \quad \textbf{d)} égale à $F$
+\reponseqcm{b}
+
+\exo Une primitive de $\dfrac1x$ sur $\Rps$ est :
+\textbf{a)} $-\dfrac{1}{x^{2}}$ \quad \textbf{b)} $\ln x$ \quad
+\textbf{c)} $\dfrac{1}{2x^{2}}$ \quad \textbf{d)} $e^{x}$ \reponseqcm{b}
+
+\exo Avec une unité graphique de $2$ cm, une aire de $3$ unités vaut :
+\textbf{a)} $6$ cm² \quad \textbf{b)} $3$ cm² \quad \textbf{c)} $12$ cm²
+\quad \textbf{d)} $9$ cm² \reponseqcm{c}
+\end{qcm}
+
+% ===========================================================================
+\begin{annales}
+\pourAdeux
+Toutes les questions ci-dessous sont les questions réservées à l'option A2
+des sujets de baccalauréat : elles portent, session après session, sur la
+même structure — vérifier une primitive, puis calculer une aire. Elles se
+travaillent une fois le problème correspondant traité aux chapitres 7 ou 8.
+
+\exoann{Baccalauréat, Madagascar, série A, session 2026 — problème,
+question 6}
+Soit $F$ la fonction définie sur $\intervalleo{0}{+\infty}$ par
+$F(x) = -\ln x-x^{2}+x\left(\ln x-1\right)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $F$ est une primitive de
+        $f(x) = -\dfrac1x-2x+\ln x$ sur $\intervalleo{0}{+\infty}$.
+  \item Calculer, en cm², l'aire du domaine plan délimité par la courbe
+        $(\mathcal C)$, l'axe des abscisses et les droites d'équations
+        respectives $x = \frac1e$ et $x = 1$. On donne $e = 2{,}7$ et
+        $e^{2} = 7{,}4$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2021 — problème,
+question 8}
+Soit $F$ définie sur $\R$ par $F(x) = \dfrac{x^{2}}{2}+2x-e^{-x}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $F'(x)$ pour tout $x \in \R$. Que peut-on en conclure ?
+  \item Calculer, en cm² et à $0{,}01$ près, l'aire du domaine plan délimité
+        par la courbe de $f(x) = x+2+e^{-x}$, l'axe des abscisses et les
+        droites d'équations $x = 0$ et $x = 1$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2016 — problème,
+question 6}
+Soit $F(x) = \dfrac{x^{2}}{2}-x\ln x+x$ sur $\intervalleo{0}{+\infty}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Démontrer que $F$ est une primitive de $f(x) = x-\ln x$ sur
+        $\intervalleo{0}{+\infty}$.
+  \item Calculer, en cm² et à $10^{-2}$ près, l'aire du domaine plan
+        délimité par la courbe, l'axe $(x'Ox)$ et les droites d'équations
+        $x = 1$ et $x = e$. On donne $\ln2 \approx 0{,}69$,
+        $\ln3 \approx 1{,}09$ et $e \approx 2{,}71$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2020 — problème,
+question 6}
+Soit $F$ définie sur $\intervalleo{-1}{3}$ par
+$F(x) = (x+1)\ln(x+1)-(x-3)\ln(3-x)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Pour tout $x \in \intervalleo{-1}{3}$, calculer $F'(x)$. Que peut-on
+        en conclure ?
+  \item Calculer, en cm², l'aire $\mathcal A$ du domaine plan limité par la
+        courbe, l'axe $(x'Ox)$ et les droites d'équations $x = 1$ et
+        $x = 2$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2017 — problème,
+question 6}
+Soit $F$ définie sur $\R$ par $F(x) = 2x+\ln\left(e^{x}+1\right)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $F'(x)$. Que peut-on en conclure ?
+  \item Calculer, en cm², l'aire géométrique du domaine plan limité par la
+        courbe de $f(x) = \dfrac{e^{x}}{e^{x}+1}+2$, l'axe des abscisses et
+        les droites d'équations $x = 0$ et $x = \ln3$. On donne
+        $\ln2 \approx 0{,}7$ et $\ln3 \approx 1{,}1$ ; l'unité graphique est
+        $2$ cm.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2015 — problème,
+question 7}
+Soit $F$ définie sur $\intervalleo{0}{+\infty}$ par
+$F(x) = x\left[\left(\ln x\right)^{2}-2\ln x+2\right]-x$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $F$ est une primitive de
+        $f(x) = \left(\ln x\right)^{2}-1$ sur $\intervalleo{0}{+\infty}$.
+  \item Calculer, en cm², l'aire du domaine plan limité par la courbe, l'axe
+        des abscisses et les droites d'équations $x = \frac1e$ et $x = e$.
+        On donne $\frac1e = e^{-1} \approx 0{,}4$ et $e \approx 2{,}7$ ;
+        l'unité graphique est $2$ cm.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2013 — problème,
+question 5}
+Soit $F$ définie sur $\intervallefo{0}{+\infty}$ par
+$F(x) = 4\ln\left(e^{x}+1\right)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item On rappelle que $\left(\ln u\right)' = \dfrac{u'}{u}$. Démontrer que
+        $F$ est une primitive de $f(x) = \dfrac{4e^{x}}{e^{x}+1}$.
+  \item En déduire, en cm² et à $10^{-2}$ près, l'aire $\mathcal A$ du
+        domaine plan délimité par la courbe, l'axe des abscisses et les
+        droites d'équations $x = 0$ et $x = 2$. On donne $e = 2{,}7$ ;
+        $e^{2} = 7{,}38$ ; $\ln\left(e^{2}+1\right) \approx 2{,}12$ et
+        $\ln2 = 0{,}7$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2005 — problème,
+question 4}
+Soit $F$ définie sur $\R$ par $F(x) = \left(2x^{2}-2x+1\right)e^{2x}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $F'(x)$.
+  \item Calculer, en cm², l'aire de la partie du plan limitée par la courbe
+        de $f(x) = 4x^{2}e^{2x}$, les droites d'équations $x = -1$ et
+        $x = 0$ et l'axe des abscisses. On donne
+        $e^{-2} \approx 0{,}16$ ; l'unité graphique est $4$ cm.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 1999 — problème,
+question 4}
+Pour tout $x \geq 0$, on pose $F(x) = -\dfrac{x^{2}}{2}+x+e^{-x}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $F$ est une primitive de $f(x) = -x+1-e^{-x}$ sur
+        $\intervallefo{0}{+\infty}$.
+  \item En déduire $\displaystyle\int_{0}^{1} f(x)\dx$.
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1. a)} $F(x) = -\ln x-x^{2}+x\ln x-x$, donc
+$F'(x) = -\frac1x-2x+\left(\ln x+1\right)-1 = -\frac1x-2x+\ln x = f(x)$.
+\textbf{b)} Le tableau de variation du problème montre que $f$ est
+\emph{négative} sur $\intervalleo{0}{+\infty}$ (son maximum vaut $-3$).
+L'aire vaut donc
+$\mathcal A = -\int_{1/e}^{1} f(x)\dx = -\left[F(1)-F\!\left(\frac1e\right)
+\right]$. Or $F(1) = 0-1+1\times(0-1) = -2$ et
+$F\!\left(\frac1e\right) = 1-e^{-2}+e^{-1}(-1-1) = 1-e^{-2}-2e^{-1}$. Avec
+$e = 2{,}7$ : $e^{-1} \approx 0{,}370$ et $e^{-2} \approx 0{,}135$, donc
+$F\!\left(\frac1e\right) \approx 1-0{,}135-0{,}741 = 0{,}124$. D'où
+$\mathcal A \approx -(-2-0{,}124) = 2{,}12$ unités d'aire, soit environ
+$2{,}12$ cm² puisque l'unité graphique est $1$ cm.
+
+\textbf{2. a)} $F'(x) = x+2+e^{-x} = f(x)$ : $F$ est une primitive de $f$
+sur $\R$.
+\textbf{b)} Le minimum de $f$ vaut $3>0$ : $f$ est positive, donc
+$\mathcal A = F(1)-F(0) = \left(\frac12+2-e^{-1}\right)-\left(0+0-1\right)
+= \frac72-e^{-1} \approx 3{,}5-0{,}37 = 3{,}13$ cm².
+
+\textbf{3. a)} Voir l'exemple du cours : $F'(x) = x-\ln x$.
+\textbf{b)} $\mathcal A = F(e)-F(1) = \frac{e^{2}}{2}-\frac32
+\approx 3{,}67-1{,}5 = 2{,}17$ cm².
+
+\textbf{4. a)} La dérivée de $(x+1)\ln(x+1)$ vaut $\ln(x+1)+1$ ; celle de
+$(x-3)\ln(3-x)$ vaut $\ln(3-x)+1$. Donc $F'(x) = \ln(x+1)-\ln(3-x) = f(x)$ :
+$F$ est une primitive de $f$.
+\textbf{b)} Sur $\intervalle{1}{2}$, $f$ est positive (elle s'annule en $1$
+et croît). Donc
+$\mathcal A = F(2)-F(1) = \left[3\ln3+\ln1\right]-\left[2\ln2+2\ln2\right]
+= 3\ln3-4\ln2 \approx 3{,}30-2{,}77 = 0{,}53$ unité d'aire, soit
+$0{,}53\times4 = 2{,}12$ cm² pour une unité graphique de $2$ cm.
+
+\textbf{5. a)} $F'(x) = 2+\frac{e^{x}}{e^{x}+1} = f(x)$.
+\textbf{b)} $f$ est positive. $\mathcal A = F(\ln3)-F(0)
+= \left[2\ln3+\ln4\right]-\left[0+\ln2\right] = 2\ln3+2\ln2-\ln2
+= 2\ln3+\ln2 \approx 2{,}2+0{,}7 = 2{,}9$ unités d'aire. L'unité étant
+$2$ cm, $\mathcal A \approx 11{,}6$ cm².
+
+\textbf{6. a)} En dérivant le produit :
+$F'(x) = \left[(\ln x)^{2}-2\ln x+2\right]
++x\left[\frac{2\ln x}{x}-\frac2x\right]-1
+= (\ln x)^{2}-2\ln x+2+2\ln x-2-1 = (\ln x)^{2}-1 = f(x)$.
+\textbf{b)} Sur $\intervalle{\frac1e}{e}$, le minimum de $f$ vaut $-1$ et
+$f$ s'annule en $\frac1e$ et $e$ : la fonction y est négative. Donc
+$\mathcal A = -\left[F(e)-F\!\left(\frac1e\right)\right]$. Or
+$F(e) = e(1-2+2)-e = 0$ et
+$F\!\left(\frac1e\right) = \frac1e(1+2+2)-\frac1e = \frac4e$. D'où
+$\mathcal A = \frac4e \approx 1{,}48$ unité d'aire, soit environ
+$5{,}9$ cm² pour une unité de $2$ cm.
+
+\textbf{7. a)} Avec $u = e^{x}+1$ et $u' = e^{x}$ :
+$F'(x) = 4\times\frac{e^{x}}{e^{x}+1} = f(x)$.
+\textbf{b)} $f>0$, donc $\mathcal A = F(2)-F(0)
+= 4\ln\left(e^{2}+1\right)-4\ln2 \approx 4\times2{,}12-4\times0{,}7
+= 8{,}48-2{,}8 = 5{,}68$ cm² (unité graphique $1$ cm).
+
+\textbf{8. a)} $F'(x) = (4x-2)e^{2x}+2\left(2x^{2}-2x+1\right)e^{2x}
+= e^{2x}\left(4x^{2}+2-2\right)\dots$ plus précisément
+$= e^{2x}\left(4x-2+4x^{2}-4x+2\right) = 4x^{2}e^{2x} = f(x)$.
+\textbf{b)} $f(x) = 4x^{2}e^{2x} \geq 0$ : l'aire vaut
+$F(0)-F(-1) = 1-5e^{-2} \approx 1-0{,}8 = 0{,}2$ unité d'aire. L'unité
+graphique étant $4$ cm, une unité d'aire vaut $16$ cm² :
+$\mathcal A \approx 3{,}2$ cm².
+
+\textbf{9. a)} $F'(x) = -x+1+e^{-x}\times(-1)\times(-1)$ — attention au
+signe : la dérivée de $e^{-x}$ est $-e^{-x}$, donc
+$F'(x) = -x+1-e^{-x} = f(x)$. \checkmark
+\textbf{b)} $\int_{0}^{1} f(x)\dx = F(1)-F(0)
+= \left(-\frac12+1+e^{-1}\right)-\left(0+0+1\right) = e^{-1}-\frac12
+\approx 0{,}37-0{,}5 = -0{,}13$. L'intégrale est négative, ce qui traduit
+que $f$ est négative sur une partie de $\intervalle{0}{1}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{vraifaux}
+\exo Une fonction n'admet qu'une seule primitive.
+
+\exo Si $\displaystyle\int_{a}^{b} f(x)\dx = 0$, alors $f$ est nulle sur
+$\intervalle{a}{b}$.
+
+\exo Une intégrale peut être négative.
+
+\exo Une aire peut être négative.
+
+\exo Si $F$ est une primitive de $f$, alors $F$ est dérivable.
+\end{vraifaux}
+
+\begin{corrige}[vrai ou faux]
+\textbf{1.} Faux — elle en a une infinité, deux à deux différentes d'une
+constante.
+\textbf{2.} Faux — $f$ peut être positive sur une moitié et négative sur
+l'autre, les deux aires se compensant.
+\textbf{3.} Vrai — dès que $f$ est négative.
+\textbf{4.} Faux — c'est pourquoi on prend l'opposé de l'intégrale quand la
+fonction est négative.
+\textbf{5.} Vrai — c'est dans la définition même.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Vingt minutes.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Donner une primitive de $f(x) = 6x^{2}-\dfrac2x$ sur $\Rps$.
+  \item Calculer $\displaystyle\int_{0}^{2}\left(3-x\right)\dx$.
+  \item Vérifier que $F(x) = x\ln x-x$ est une primitive de $\ln x$ sur
+        $\Rps$.
+  \item En déduire $\displaystyle\int_{1}^{e} \ln x\dx$.
+  \item L'unité graphique est $2$ cm. Une aire vaut $1{,}5$ unité d'aire :
+        combien vaut-elle en cm² ?
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} $2x^{3}-2\ln x$.
+\textbf{2.} $\left[3x-\frac{x^{2}}{2}\right]_{0}^{2} = 6-2 = 4$.
+\textbf{3.} $F'(x) = \ln x+1-1 = \ln x$. \checkmark
+\textbf{4.} $F(e)-F(1) = (e-e)-(0-1) = 1$.
+\textbf{5.} $1{,}5\times4 = 6$ cm².
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, Madagascar, série A, session 2003 — problème,
+question 6 \textbullet\ réservée à l'option A2}
+On reprend la fonction $f(x) = 1-2x+e^{x}$ étudiée au chapitre 8.
+
+\pourAdeux
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Donner une primitive de $f$ sur $\R$. \bareme{1 pt}
+  \item En déduire l'aire géométrique, en cm², du domaine plan limité par la
+        courbe $(C)$, l'axe des abscisses et les droites d'équations
+        respectives $x = 0$ et $x = \ln 2$. On donne
+        $\ln 2 \approx 0{,}7$ et l'unité graphique vaut $1$ cm.
+        \bareme{1 pt}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat — Madagascar A 2003, question A2]
+\textbf{1.} Une primitive de $f(x) = 1-2x+e^{x}$ est
+$F(x) = x-x^{2}+e^{x}$, car $F'(x) = 1-2x+e^{x}$.
+
+\textbf{2.} Le tableau de variation du chapitre 8 donne un minimum
+$f(\ln2) = 3-2\ln2 \approx 1{,}61 > 0$ : la fonction est positive sur
+$\intervalle{0}{\ln2}$. Donc
+\[
+  \mathcal A = \int_{0}^{\ln2} f(x)\dx = F(\ln2)-F(0)
+  = \left(\ln2-\left(\ln2\right)^{2}+2\right)-\left(0-0+1\right)
+  = \ln2-\left(\ln2\right)^{2}+1 .
+\]
+Avec $\ln2 \approx 0{,}7$ : $\mathcal A \approx 0{,}7-0{,}49+1 = 1{,}21$
+unité d'aire, soit environ $1{,}21$ cm².
+\end{corrige}
+
+\begin{notepourlaclasse}
+Deux heures seulement, et pourtant deux points et demi de l'épreuve pour les
+élèves de A2. Le rendement est donc le plus élevé du livre — à condition de
+ne pas chercher à enseigner l'intégration comme en série S. Ici, on ne
+cherche jamais une primitive : \textbf{le sujet la donne} et demande de la
+vérifier. C'est un exercice de dérivation, et il faut le présenter comme tel.
+
+Pour les classes de A1, ce chapitre reste au programme mais n'est pas
+interrogé : deux séances suffisent, sans le bloc d'annales.
+
+L'erreur qui coûte le plus cher n'est ni la primitive ni l'intégrale : c'est
+la conversion en centimètres carrés. Faites afficher au mur la règle
+« unité $u$ cm $\Rightarrow$ $1$ u.a. $= u^{2}$ cm² » pendant tout le
+troisième trimestre.
+
+Le sujet 2026 est le seul du fonds où la fonction est \emph{négative} sur
+l'intervalle demandé : il mérite d'être traité en classe, car les élèves
+écrivent presque tous l'intégrale sans le signe moins.
+\end{notepourlaclasse}

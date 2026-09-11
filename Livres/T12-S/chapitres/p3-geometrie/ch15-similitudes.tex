@@ -1,0 +1,754 @@
+% ===========================================================================
+%  Chapitre 15 — Similitudes planes et écriture complexe
+%  PE 2026, composante GÉOMÉTRIE
+% ===========================================================================
+\bmtchapitre{Similitudes planes et écriture complexe}
+  {Reconnaître et utiliser une similitude plane directe ou indirecte, et
+   passer de l'écriture complexe d'une transformation à ses éléments
+   géométriques caractéristiques.}
+  {Géométrie \textbullet\ environ 8 heures}
+
+Une isométrie conserve les distances ; une similitude les multiplie toutes par
+un même nombre. C'est la transformation qui agrandit ou réduit sans déformer
+— celle qui fait passer d'un plan à sa maquette, d'une photographie à son
+agrandissement.
+
+Le chapitre tient sa force d'un fait remarquable : dans le plan complexe,
+toute similitude directe s'écrit $z' = az+b$, et toute similitude indirecte
+$z' = a\overline z+b$. Deux nombres suffisent donc à décrire complètement une
+transformation, et l'on passe de la géométrie au calcul par une simple
+lecture. C'est ce va-et-vient que le problème de géométrie du baccalauréat
+demande chaque année, dans ses parties A et B.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Chapitres 12 et 14.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Donner module et argument de $1-i$, de $2i$ et de $-3$.
+  \item Rappeler l'interprétation géométrique de
+        $\arg\!\left(\frac{z_{C}-z_{A}}{z_{B}-z_{A}}\right)$.
+  \item Qu'appelle-t-on une homothétie de centre $\Omega$ et de rapport $k$ ?
+  \item Quelle est la nature de la composée d'une rotation et d'une
+        homothétie de même centre ?
+  \item Résoudre $z = (1-i)z+3$ dans $\C$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Module et argument de $i$
+  \item Module et argument de $1+i$
+  \item $\abs{-2}$ et $\arg(-2)$
+  \item Écriture complexe de la translation de vecteur d'affixe $b$
+  \item Écriture complexe de $\homo{O}{3}$
+  \item Écriture complexe de $\rot{O}{\pi/2}$
+  \item Écriture complexe de la symétrie d'axe $(Ox)$
+  \item Rapport de la similitude $z' = 3iz+1$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $1$ et $\frac{\pi}{2}$ \quad b) $\sqrt2$ et $\frac{\pi}{4}$ \quad
+c) $2$ et $\pi$ \quad d) $z' = z+b$ \quad e) $z' = 3z$ \quad
+f) $z' = iz$ \quad g) $z' = \overline z$ \quad h) $3$.
+\end{corrige}
+
+% ===========================================================================
+\section{Similitude plane directe}
+
+\begin{definition}[similitude]
+Une \textbf{similitude} de rapport $k>0$ est une transformation du plan qui
+multiplie toutes les distances par $k$ :
+$f(M)f(N) = k\,MN$. Elle est \textbf{directe} si elle conserve les angles
+orientés, \textbf{indirecte} si elle les change en leurs opposés.
+\end{definition}
+
+\begin{remarque}
+Une similitude de rapport $1$ est une isométrie : les similitudes prolongent
+donc le chapitre précédent. Réciproquement, une similitude directe de rapport
+$k \neq 1$ possède toujours un point invariant unique, appelé son
+\textbf{centre}.
+\end{remarque}
+
+\begin{theoreme}[forme réduite]
+Toute similitude directe de rapport $k \neq 1$ est la composée, dans n'importe
+quel ordre, d'une homothétie de rapport $k$ et d'une rotation d'angle
+$\theta$, toutes deux de centre le centre $\Omega$ de la similitude :
+\[
+  f = \homo{\Omega}{k} \circ \rot{\Omega}{\theta}
+    = \rot{\Omega}{\theta} \circ \homo{\Omega}{k}.
+\]
+Le triplet $(\Omega,k,\theta)$ constitue ses \textbf{éléments
+caractéristiques}.
+\end{theoreme}
+
+\begin{methode}{déterminer une similitude directe par deux couples de points}
+Une similitude directe est entièrement déterminée par les images de deux
+points distincts. Si $f(A) = A'$ et $f(B) = B'$, alors
+\[
+  k = \frac{A'B'}{AB}, \qquad
+  \theta = \left(\vect{AB},\vect{A'B'}\right),
+\]
+et le centre s'obtient soit par le calcul complexe, soit géométriquement comme
+second point d'intersection de deux cercles bien choisis.
+\end{methode}
+
+\begin{visualisation}[tourner et agrandir]
+\begin{center}
+\begin{tikzpicture}[x=1.1cm, y=1.1cm, font=\footnotesize]
+  \coordinate (W) at (0,0);
+  \coordinate (M) at (2.2,0);
+  \coordinate (M1) at (40:2.2);
+  \coordinate (M2) at (40:3.4);
+  \filldraw[bmtEncre] (W) circle (2pt) node[anchor=north east] {$\Omega$};
+  \filldraw[bmtIndigo] (M) circle (2pt) node[anchor=north] {$M$};
+  \filldraw[bmtGris] (M1) circle (1.7pt);
+  \node[bmtGris, anchor=south east] at (M1) {$M_{1}$};
+  \filldraw[bmtLaterite] (M2) circle (2.1pt) node[anchor=south west] {$M'$};
+  \draw[bmtGris] (W) -- (M);
+  \draw[bmtGris] (W) -- (M2);
+  \draw[bmtVetiver, line width=0.9pt, -{Stealth[length=2.4mm]}]
+    (0:1.25) arc (0:40:1.25);
+  \node[bmtVetiver, anchor=west] at (20:1.4) {$\theta$};
+  \draw[bmtLaterite, line width=1.1pt, {Stealth[length=2.2mm]}-{Stealth[length=2.2mm]}]
+    (40:2.32) -- (40:3.28);
+  \node[bmtLaterite, anchor=west, rotate=40] at (40:2.8) {$\times k$};
+\end{tikzpicture}
+\end{center}
+
+Une similitude directe se lit en deux temps depuis son centre : on tourne
+d'un angle $\theta$, puis on éloigne ou l'on rapproche dans le rapport $k$.
+L'ordre n'a aucune importance, puisque rotation et homothétie de même centre
+commutent. Retenez cette image : elle rend immédiate la lecture des éléments
+caractéristiques sur une figure.
+\end{visualisation}
+
+% ===========================================================================
+\section{Similitude plane indirecte}
+
+\begin{theoreme}[forme réduite d'une similitude indirecte]
+Toute similitude indirecte de rapport $k$ possédant un point invariant
+$\Omega$ s'écrit
+\[
+  f = \homo{\Omega}{k} \circ s_{(\Delta)} = s_{(\Delta)} \circ \homo{\Omega}{k},
+\]
+où $(\Delta)$ est une droite passant par $\Omega$, appelée \textbf{axe} de la
+similitude. Ses éléments caractéristiques sont le centre, le rapport et
+l'axe.
+\end{theoreme}
+
+\begin{avertissement}
+Une similitude indirecte n'a pas d'angle : elle a un axe. Parler de « l'angle
+d'une similitude indirecte » est une faute de vocabulaire fréquente, et le
+correcteur la relève.
+\end{avertissement}
+
+% ===========================================================================
+\section{Expression complexe des transformations}
+
+\begin{theoreme}[écriture complexe]
+Le plan étant rapporté à un repère orthonormé direct, une transformation $f$
+est
+\begin{itemize}[leftmargin=*, itemsep=0.1em]
+  \item une \textbf{similitude directe} si et seulement si son écriture
+        complexe est $z' = az+b$ avec $a \neq 0$ ;
+  \item une \textbf{similitude indirecte} si et seulement si son écriture
+        complexe est $z' = a\overline z+b$ avec $a \neq 0$.
+\end{itemize}
+\end{theoreme}
+
+\begin{propriete}[le catalogue des écritures complexes]
+\begin{center}
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textsf{\footnotesize\bfseries TRANSFORMATION} &
+\textsf{\footnotesize\bfseries ÉCRITURE COMPLEXE} \\
+\midrule
+Translation de vecteur d'affixe $b$ & $z' = z+b$ \\
+Homothétie de centre $\omega$, de rapport $k$ &
+  $z' = k(z-\omega)+\omega$ \\
+Rotation de centre $\omega$, d'angle $\theta$ &
+  $z' = e^{i\theta}(z-\omega)+\omega$ \\
+Similitude directe $(\omega,k,\theta)$ &
+  $z' = ke^{i\theta}(z-\omega)+\omega$ \\
+Réflexion d'axe $(Ox)$ & $z' = \overline z$ \\
+Similitude indirecte & $z' = a\overline z+b$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{propriete}
+
+\begin{exemple}[trouver une écriture complexe]
+Cherchons l'écriture complexe de la similitude directe $s$ de centre
+$C(1-2i)$ transformant $A(2-i)$ en $B(3-2i)$.
+
+Le rapport complexe vaut
+\[
+  a = \frac{z_{B}-z_{C}}{z_{A}-z_{C}}
+    = \frac{3-2i-1+2i}{2-i-1+2i}
+    = \frac{2}{1+i}
+    = 1-i .
+\]
+L'écriture est donc $z' = (1-i)\left(z-1+2i\right)+1-2i$. On en lit
+immédiatement le rapport $\abs{1-i} = \sqrt2$ et l'angle
+$\arg(1-i) = -\frac{\pi}{4}$.
+\end{exemple}
+
+% ===========================================================================
+\section{Des éléments géométriques à partir de l'écriture complexe}
+
+\begin{methode}{lire les éléments d'une similitude directe $z' = az+b$}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Si $a = 1$ : c'est la translation de vecteur d'affixe $b$ — pas de
+        centre.
+  \item Si $a \neq 1$ : le centre $\omega$ est l'unique solution de
+        $\omega = a\omega+b$, soit $\omega = \dfrac{b}{1-a}$.
+  \item Le rapport vaut $\abs a$, l'angle $\arg a$.
+  \item Cas particuliers : $\abs a = 1$ donne une rotation ; $a$ réel
+        strictement positif donne une homothétie.
+\end{enumerate}
+\end{methode}
+
+\begin{methode}{lire les éléments d'une similitude indirecte $z' = a\overline z+b$}
+Le rapport vaut $\abs a$. Pour le centre, on résout le système obtenu en
+séparant parties réelle et imaginaire dans $\omega = a\overline\omega+b$ — ce
+qui donne deux équations à deux inconnues réelles. Lorsqu'un centre existe,
+l'axe est la droite passant par ce centre et faisant avec l'axe des abscisses
+l'angle $\dfrac{\arg a}{2}$.
+\end{methode}
+
+\begin{exemple}[une similitude indirecte]
+Soit $\bar S$ d'écriture $z' = (1-i)\overline z+2+4i$.
+
+\emph{Rapport.} $\abs{1-i} = \sqrt2$.
+
+\emph{Centre.} On pose $z = x+iy$ ; alors
+$(1-i)(x-iy) = (x-y)-i(x+y)$, et l'équation $z' = z$ devient
+\[
+  \begin{cases} x = x-y+2 \\ y = -x-y+4 \end{cases}
+  \iff
+  \begin{cases} y = 2 \\ x = 0 \end{cases}
+\]
+Le centre est le point d'affixe $2i$.
+
+\emph{Axe.} $\arg(1-i) = -\frac{\pi}{4}$, donc l'axe est la droite passant par
+le centre et faisant l'angle $-\frac{\pi}{8}$ avec l'axe des abscisses.
+\end{exemple}
+
+\begin{entrainement}[écriture complexe]
+\exo[\niveau{1}] Déterminer la nature et les éléments de $z' = 2z+1-i$.
+
+\exo[\niveau{1}] Déterminer la nature et les éléments de $z' = iz+3$.
+
+\exo[\niveau{2}] Déterminer l'écriture complexe de la rotation de centre
+$1+i$ et d'angle $\frac{\pi}{3}$.
+
+\exo[\niveau{2}] Déterminer la nature et les éléments de
+$z' = (1+i)z+2$.
+
+\exo[\niveau{3}] Déterminer la nature et les éléments de
+$z' = 2i\overline z+1$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} Le coefficient $2$ est réel positif : l'angle est nul et le
+rapport vaut $2$. C'est donc une homothétie. Son centre est le point
+invariant : $z = 2z+1-i$ donne $z = -1+i$.
+
+\textbf{2.} $\abs i = 1$ et $\arg i = \frac{\pi}{2}$ : c'est une rotation
+d'angle $\frac{\pi}{2}$. Son centre vérifie $z = iz+3$, soit
+$z = \dfrac{3}{1-i} = \dfrac32+\dfrac32 i$.
+
+\textbf{3.} $z' = e^{i\pi/3}\left(z-(1+i)\right)+1+i$.
+
+\textbf{4.} $\abs{1+i} = \sqrt2$ et $\arg(1+i) = \frac{\pi}{4}$ : similitude
+directe de rapport $\sqrt2$ et d'angle $\frac{\pi}{4}$. Son centre vérifie
+$z = (1+i)z+2$, soit $-iz = 2$ et $z = 2i$.
+
+\textbf{5.} L'écriture fait intervenir $\overline z$ : la similitude est
+indirecte, de rapport $\abs{2i} = 2$. Comme le rapport diffère de $1$, elle
+possède un unique point invariant : en posant $z = x+iy$, le système
+$x = 2y+1$ et $y = 2x$ donne $z_{0} = -\frac13-\frac23 i$. Dans le repère
+centré en $z_{0}$, l'écriture devient $Z' = 2i\overline Z$ : c'est la composée
+de l'homothétie de centre $z_{0}$ et de rapport $2$ avec la réflexion d'axe la
+droite passant par $z_{0}$ et de direction $\frac{\pi}{4}$, puisque
+$2i = 2e^{2i\pi/4}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Similitudes et configurations du plan}
+
+\begin{propriete}[ce qu'une similitude conserve]
+Une similitude conserve l'alignement, le parallélisme, les milieux, le
+contact, les angles géométriques, et transforme une droite en droite, un
+cercle en cercle. Elle multiplie les longueurs par $k$ et les aires par
+$k^{2}$.
+\end{propriete}
+
+\begin{methode}{identifier une similitude sur une configuration}
+On cherche deux couples de points $(A,A')$ et $(B,B')$ dont on connaît les
+positions, puis
+\[
+  k = \frac{A'B'}{AB},
+  \qquad
+  \theta = \left(\vect{AB},\vect{A'B'}\right).
+\]
+Si un point est manifestement invariant, c'est le centre. Sinon, on passe par
+l'écriture complexe : c'est presque toujours plus rapide qu'une construction.
+\end{methode}
+
+\begin{entrainement}[configurations]
+\exo[\niveau{2}] $ABC$ est rectangle isocèle en $A$. Déterminer la similitude
+directe de centre $A$ transformant $B$ en $C$.
+
+\exo[\niveau{2}] $ABCD$ est un carré direct. Déterminer la similitude directe
+de centre $A$ transformant $B$ en $C$.
+
+\exo[\niveau{3}] $ABC$ est un triangle tel que $AB = 2$ et $AC = 6$ avec
+$\left(\vect{AB},\vect{AC}\right) = \frac{\pi}{2}$. Déterminer les éléments de
+la similitude directe de centre $A$ transformant $B$ en $C$, puis son écriture
+complexe dans un repère bien choisi.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{6.} Le rapport vaut $\dfrac{AC}{AB} = 1$ et l'angle
+$\left(\vect{AB},\vect{AC}\right) = \pm\frac{\pi}{2}$ : la similitude se
+réduit à la rotation de centre $A$ et d'angle $\frac{\pi}{2}$ — ou
+$-\frac{\pi}{2}$ selon l'orientation du triangle.
+
+\textbf{7.} Dans un carré direct, $AC = AB\sqrt2$ et
+$\left(\vect{AB},\vect{AC}\right) = \frac{\pi}{4}$ : c'est la similitude
+directe de centre $A$, de rapport $\sqrt2$ et d'angle $\frac{\pi}{4}$.
+
+\textbf{8.} Le rapport vaut $\dfrac{AC}{AB} = 3$ et l'angle $\frac{\pi}{2}$.
+En prenant le repère orthonormé direct de centre $A$ dont le premier vecteur
+est $\frac12\vect{AB}$, on a $z_{B} = 1$ et $z_{C} = 3i$ : l'écriture complexe
+de la similitude est donc $z' = 3iz$.
+\end{corrige}
+
+% ===========================================================================
+\begin{annales}
+Les similitudes ferment le problème de géométrie, et la question est toujours
+la même sous des habillages variés : passer de la configuration à l'écriture
+complexe, ou l'inverse. Les énoncés qui suivent sont repris de sujets
+réellement posés ; leur provenance est indiquée à chaque fois.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2026 — problème 1, partie I}
+$ABC$ est direct, rectangle en $A$, $AC = 4$~cm, $BC = 8$~cm ; $O$ est le
+milieu de $[AC]$ et $D$ celui de $[BC]$. Soit $S$ la similitude plane directe
+transformant $A$ en $B$ et $O$ en $D$. Déterminer les éléments
+caractéristiques de $S$.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2026 — problème 1, partie I, suite}
+Avec les mêmes données, $R_{A}$ est la rotation de centre $A$ et d'angle
+$-\frac{\pi}{3}$, et l'on pose $f = S \circ R_{A}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $f$ est une homothétie dont on précisera le rapport $k$.
+  \item Déterminer $f(A)$, puis montrer que le centre $\Omega$ de $f$ est le
+        barycentre de $\left\{(A\,;2),(B\,;-1)\right\}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2026 — problème 1, partie II}
+Déterminer la nature et les éléments caractéristiques de la transformation
+$\bar S$ d'expression complexe
+\[
+  z' = (1-i)\overline z+2+4i .
+\]
+
+\exoann{Baccalauréat, Madagascar, série S, session 2022 — problème 1}
+$ABCD$ est un carré direct de côté $4$~cm, et $S$ la similitude plane directe
+qui laisse invariant le point $A$ et transforme $C$ en $B$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer le rapport et l'angle de $S$.
+  \item Le plan étant rapporté au repère
+        $\left(A\,;\vect{AB},\vect{AD}\right)$, déterminer l'expression
+        complexe de $S$, puis retrouver son rapport et son angle.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2023 — problème 1, partie I}
+$ABC$ est rectangle et isocèle en $A$, $AB = 4$~cm. On note
+$G = \bary{(B\,;1-\sqrt2),(A\,;\sqrt2)}$ et $\bar S$ la similitude plane
+indirecte qui laisse invariant $B$ et transforme $A$ en $C$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier qu'il existe une homothétie $h$ de centre $B$ transformant
+        $A$ en $G$, dont on précisera le rapport.
+  \item En déduire les éléments caractéristiques de $\bar S$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2023 — problème 1, partie I, suite}
+Avec les mêmes données, $(\mathcal C)$ est le cercle de centre $C$ et de rayon
+$2$, $(\Gamma)$ l'ensemble des points $M$ tels que
+$MA^{2}-MB^{2}-MC^{2} = -12$, et $I$ le point d'intersection de
+$(\mathcal C)$ et $(\Gamma)$ situé à l'extérieur du carré $ABDC$. Montrer que
+$I$ est le centre de la similitude plane directe $S$ de rapport $\sqrt3$,
+d'angle $\frac{\pi}{2}$, qui transforme $C$ en $D$.
+
+\exoann{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2022-2023 — problème 1, partie A}
+Dans le plan orienté, $OAC$ est équilatéral direct avec $OA = a$, et $B$ est
+le point tel que $\vect{OB} = 2\vect{OA}$. Soit $S$ la similitude directe de
+centre $C$ qui transforme $A$ en $B$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $BC = \sqrt3\,AB$.
+  \item Déterminer le rapport et l'angle de $S$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Cameroun, séries D et TI, session 2024 — exercice 1}
+Le plan complexe est muni d'un repère orthonormé. On donne $A$, $B$ et $C$
+d'affixes respectives $Z_{A} = 2-i$, $Z_{B} = 3-2i$ et $Z_{C} = 1-2i$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer l'expression complexe de la similitude directe $s$ de
+        centre $C$ transformant $A$ en $B$.
+  \item Préciser les éléments caractéristiques de $s$.
+  \item Quelle est l'image de la droite $(AC)$ par $s$ ?
+\end{enumerate}
+
+\exoann{Baccalauréat, Cameroun, série C, session 2023 — exercice 2}
+Soit $\Omega$ le point d'affixe $1-2i$, et $B$, $C$ les points d'affixes
+respectives $-i$ et $3$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer l'écriture complexe de la similitude directe $S$ de centre
+        $\Omega$ telle que $S(C) = B$.
+  \item En déduire l'angle de $S$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 4}
+On donne $\Omega(1+i)$, $A(1)$ et $B\!\left(\frac32+\frac i2\right)$. Étudier
+la similitude directe $S$ de centre $\Omega$ transformant $A$ en $B$ :
+déterminer son écriture complexe, puis son rapport et son angle.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} Le rapport vaut $\dfrac{BD}{AO} = \dfrac{4}{2} = 2$, puisque
+$BD = \frac{BC}{2} = 4$ et $AO = \frac{AC}{2} = 2$. L'angle est
+$\left(\vect{AO},\vect{BD}\right)$, que la figure donne égal à
+$-\frac{\pi}{3}$ — le triangle $CAD$ étant équilatéral. Le centre est le point
+invariant, obtenu comme second point d'intersection du cercle de diamètre
+$[AB]$ avec le cercle passant par $O$ et $D$ ; l'expression complexe de la
+partie II le confirme.
+
+\textbf{2. a)} $f$ est composée de deux similitudes directes : c'est une
+similitude directe, de rapport $2 \times 1 = 2$ et d'angle
+$-\frac{\pi}{3}+\frac{\pi}{3} = 0$. Un angle nul et un rapport différent de
+$1$ caractérisent une homothétie, ici de rapport $k = 2$.
+\textbf{b)} $R_{A}(A) = A$, donc $f(A) = S(A) = B$. Le centre $\Omega$
+vérifie $\vect{\Omega B} = 2\vect{\Omega A}$, c'est-à-dire
+$2\vect{\Omega A}-\vect{\Omega B} = \vecu_{0}$ : c'est exactement la relation
+qui définit le barycentre de $\left\{(A\,;2),(B\,;-1)\right\}$.
+
+\textbf{3.} Le rapport vaut $\abs{1-i} = \sqrt2$. Pour le centre, on pose
+$z = x+iy$ ; l'égalité $z = (1-i)\overline z+2+4i$ donne
+$x = x-y+2$ et $y = -x-y+4$, soit $y = 2$ et $x = 0$ : le centre a pour
+affixe $2i$. L'axe passe par ce centre et fait avec l'axe des abscisses
+l'angle $\frac{\arg(1-i)}{2} = -\frac{\pi}{8}$. C'est une similitude
+indirecte de centre $2i$, de rapport $\sqrt2$ et d'axe cette droite.
+
+\textbf{4. a)} $S$ fixe $A$, donc son rapport vaut
+$\frac{AB}{AC} = \frac{4}{4\sqrt2} = \frac{1}{\sqrt2}$, et son angle
+$\left(\vect{AC},\vect{AB}\right) = -\frac{\pi}{4}$.
+\textbf{b)} Dans le repère $\left(A\,;\vect{AB},\vect{AD}\right)$ on a
+$z_{A} = 0$, $z_{B} = 1$, $z_{C} = 1+i$. L'écriture est $z' = az$ avec
+$a = \frac{z_{B}}{z_{C}} = \frac{1}{1+i} = \frac{1-i}{2}$. On retrouve
+$\abs a = \frac{\sqrt2}{2}$ et $\arg a = -\frac{\pi}{4}$.
+
+\textbf{5. a)} Avec $A(0\,;0)$, $B(4\,;0)$ et $C(0\,;4)$, la somme des
+coefficients de $G$ vaut $1$ et $\vect{AG} = (1-\sqrt2)\vect{AB}$, donc
+$G\left(4-4\sqrt2\,;0\right)$. Alors
+$\frac{\overline{BG}}{\overline{BA}} = \frac{-4\sqrt2}{-4} = \sqrt2$ :
+l'homothétie de centre $B$ et de rapport $\sqrt2$ envoie $A$ sur $G$.
+\textbf{b)} $\bar S$ fixe $B$ et son rapport vaut
+$\frac{BC}{BA} = \frac{4\sqrt2}{4} = \sqrt2$. En écrivant
+$\bar S = s \circ h$, la réflexion $s$ doit envoyer $G$ sur $C$ et fixer $B$ :
+comme $BG = BC = 4\sqrt2$, son axe est la médiatrice de $[GC]$, qui passe bien
+par $B$. Donc $\bar S$ est la similitude indirecte de centre $B$, de rapport
+$\sqrt2$ et d'axe la médiatrice de $[GC]$.
+
+\textbf{6.} $I$ appartient à $(\mathcal C)$, donc $IC = 2$ ; il appartient à
+$(\Gamma)$, cercle de centre $D$ et de rayon $2\sqrt3$, donc $ID = 2\sqrt3$.
+Ainsi $\frac{ID}{IC} = \sqrt3$, ce qui est le rapport annoncé. La position de
+$I$ à l'extérieur du carré assure de plus que
+$\left(\vect{IC},\vect{ID}\right) = \frac{\pi}{2}$ : le point $I$ est bien le
+centre de la similitude directe de rapport $\sqrt3$ et d'angle
+$\frac{\pi}{2}$ qui transforme $C$ en $D$.
+
+\textbf{7. a)} $OAC$ est équilatéral de côté $a$ et $\vect{OB} = 2\vect{OA}$,
+donc $AB = a$ et $OB = 2a$. Le triangle $OBC$ a pour côtés $OB = 2a$,
+$OC = a$ et un angle de $\frac{\pi}{3}$ entre eux ; la loi des cosinus donne
+$BC^{2} = 4a^{2}+a^{2}-2 \times 2a \times a \times \frac12 = 3a^{2}$, soit
+$BC = a\sqrt3 = \sqrt3\,AB$.
+\textbf{b)} $S$ fixe $C$ et envoie $A$ sur $B$ : son rapport vaut
+$\frac{CB}{CA} = \frac{a\sqrt3}{a} = \sqrt3$, et son angle
+$\left(\vect{CA},\vect{CB}\right)$, que le calcul précédent situe à
+$-\frac{\pi}{6}$.
+
+\textbf{8. a)} $a = \dfrac{Z_{B}-Z_{C}}{Z_{A}-Z_{C}} = \dfrac{2}{1+i} = 1-i$,
+donc $z' = (1-i)(z-1+2i)+1-2i$.
+\textbf{b)} Centre $C(1-2i)$, rapport $\abs{1-i} = \sqrt2$, angle
+$-\frac{\pi}{4}$.
+\textbf{c)} Une similitude transforme une droite en droite. Comme
+$s(C) = C$ et $s(A) = B$, l'image de $(AC)$ est la droite $(BC)$.
+
+\textbf{9. a)} $a = \dfrac{z_{B}-z_{\Omega}}{z_{C}-z_{\Omega}}
+= \dfrac{-i-1+2i}{3-1+2i} = \dfrac{-1+i}{2+2i}
+= \dfrac{(-1+i)(2-2i)}{8} = \dfrac{4i}{8} = \dfrac i2$. L'écriture complexe
+est donc $z' = \frac i2\left(z-1+2i\right)+1-2i$.
+\textbf{b)} $\arg\!\left(\frac i2\right) = \frac{\pi}{2}$ : l'angle de $S$ est
+$\frac{\pi}{2}$, et son rapport $\frac12$.
+
+\textbf{10.} $a = \dfrac{z_{B}-z_{\Omega}}{z_{A}-z_{\Omega}}
+= \dfrac{\frac32+\frac i2-1-i}{1-1-i}
+= \dfrac{\frac12-\frac i2}{-i} = \dfrac{1+i}{2}$. L'écriture complexe est
+$z' = \frac{1+i}{2}\left(z-1-i\right)+1+i$, le rapport vaut
+$\left|\frac{1+i}{2}\right| = \frac{\sqrt2}{2}$ et l'angle
+$\frac{\pi}{4}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[l'agrandissement d'un plan de zébu]
+Un artisan grave sur cuivre le plan d'un enclos triangulaire. Sur son
+gabarit, l'enclos est le triangle $ABC$ d'affixes $z_{A} = 0$, $z_{B} = 4$ et
+$z_{C} = 2+3i$, l'unité valant un centimètre. Il veut en graver une version
+agrandie, tournée d'un quart de tour dans le sens direct, de sorte que le
+sommet $A$ reste en place et que le côté $[AB]$ mesure $10$~cm.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Déterminer le rapport et l'angle de la similitude $S$ cherchée.
+  \item Écrire son expression complexe.
+  \item Calculer les affixes des images $B'$ et $C'$.
+  \item Vérifier que $A B' C'$ a la même forme que $ABC$ : comparer les
+        rapports de longueurs.
+  \item Quelle est l'aire de l'enclos agrandi, sachant que celle du gabarit
+        vaut $6$~cm$^{2}$ ?
+  \item L'artisan veut ensuite obtenir une figure retournée, image de $ABC$
+        par une similitude indirecte de centre $A$, de rapport $\frac52$, et
+        d'axe l'axe des abscisses. Donner son expression complexe et l'affixe
+        de l'image de $C$.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[l'agrandissement d'un plan de zébu]
+\textbf{1.} $AB = 4$ doit devenir $10$ : le rapport vaut
+$k = \frac{10}{4} = \frac52$. L'angle est $\frac{\pi}{2}$, et le centre est
+$A$, d'affixe $0$.
+
+\textbf{2.} $z' = \frac52\,e^{i\pi/2}\,z = \frac52\,i\,z$.
+
+\textbf{3.} $z_{B'} = \frac52 i \times 4 = 10i$ et
+$z_{C'} = \frac52 i(2+3i) = -\frac{15}{2}+5i$.
+
+\textbf{4.} Une similitude multiplie toutes les longueurs par le même
+rapport : $\frac{AB'}{AB} = \frac{AC'}{AC} = \frac{B'C'}{BC} = \frac52$. Les
+rapports internes sont donc inchangés, et les deux triangles ont la même
+forme.
+
+\textbf{5.} Les aires sont multipliées par $k^{2} = \frac{25}{4}$ :
+l'enclos agrandi a pour aire $6 \times \frac{25}{4} = 37{,}5$~cm$^{2}$.
+
+\textbf{6.} Une similitude indirecte de centre $A$ — d'affixe nulle —, de
+rapport $\frac52$ et d'axe l'axe des abscisses a pour expression
+$z' = \frac52\overline z$. L'image de $C$ a donc pour affixe
+$\frac52(2-3i) = 5-\frac{15}{2}i$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Toute similitude directe possède un centre.
+  \item Une similitude de rapport $1$ est une isométrie.
+  \item L'écriture $z' = 3\overline z+i$ définit une similitude directe.
+  \item Une similitude multiplie les aires par son rapport.
+  \item Une similitude indirecte possède un angle.
+  \item Une similitude transforme un cercle en cercle.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — les translations sont des similitudes directes sans
+centre.
+\textbf{2.} Vrai, par définition.
+\textbf{3.} Faux — la présence du conjugué en fait une similitude indirecte.
+\textbf{4.} Faux — elle les multiplie par le carré du rapport.
+\textbf{5.} Faux — elle a un axe, pas un angle.
+\textbf{6.} Vrai — le centre est l'image du centre, le rayon est multiplié
+par le rapport.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, série S, session 2026 — problème 1}
+$ABC$ est un triangle direct rectangle en $A$ tel que $AC = 4$~cm et
+$BC = 8$~cm ; $O$ est le milieu de $[AC]$ et $D$ celui de $[BC]$. Soit $S$ la
+similitude plane directe qui transforme $A$ en $B$ et $O$ en $D$, et $R_{A}$
+la rotation de centre $A$ et d'angle $-\frac{\pi}{3}$. On pose
+$f = S \circ R_{A}$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Déterminer les éléments caractéristiques de $S$.
+        \hfill\textup{(0,75 pt)}
+  \item Montrer que $f$ est une homothétie de rapport $k$ à préciser.
+        \hfill\textup{(0,5 pt)}
+  \item Déterminer $f(A)$ et en déduire que le centre $\Omega$ de $f$ est le
+        barycentre de $\left\{(A\,;2),(B\,;-1)\right\}$.
+        \hfill\textup{(0,5 pt)}
+  \item Le plan étant rapporté à un repère complexe convenable, déterminer la
+        nature et les éléments de la transformation d'expression
+        $z' = (1-i)\overline z+2+4i$. \hfill\textup{(0,75 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} $S$ envoie $A$ sur $B$ et $O$ sur $D$ : son rapport vaut
+$\frac{BD}{AO} = \frac{4}{2} = 2$ et son angle
+$\left(\vect{AO},\vect{BD}\right) = -\frac{\pi}{3}$, le triangle $CAD$ étant
+équilatéral.
+
+\textbf{2.} $f$ est une similitude directe de rapport $2 \times 1 = 2$ et
+d'angle $-\frac{\pi}{3}+\frac{\pi}{3} = 0$ : c'est une homothétie de rapport
+$k = 2$.
+
+\textbf{3.} $f(A) = S\left(R_{A}(A)\right) = S(A) = B$. Le centre vérifie
+donc $\vect{\Omega B} = 2\vect{\Omega A}$, soit
+$2\vect{\Omega A}-\vect{\Omega B} = \vecu_{0}$ : $\Omega$ est le barycentre
+de $\left\{(A\,;2),(B\,;-1)\right\}$, c'est-à-dire le symétrique de $B$ par
+rapport à $A$.
+
+\textbf{4.} Le conjugué signale une similitude indirecte, de rapport
+$\abs{1-i} = \sqrt2$. Le centre, solution de $z = (1-i)\overline z+2+4i$, a
+pour affixe $2i$ ; l'axe passe par ce point et fait l'angle
+$-\frac{\pi}{8}$ avec l'axe des abscisses.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{D'après un concours d'entrée en école d'ingénieurs}
+On considère la transformation $f$ d'écriture complexe
+$z' = az+b$, avec $a \neq 1$, et l'on note $\Omega$ son centre.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Montrer que pour tout point $M$ d'affixe $z$,
+        $z'-\omega = a(z-\omega)$.
+  \item En déduire que $f^{n}$, composée de $f$ avec elle-même $n$ fois, est
+        la similitude directe de centre $\Omega$, de rapport $\abs a^{n}$ et
+        d'angle $n\arg a$.
+  \item On prend $a = \frac{1+i}{2}$ et $\Omega$ l'origine. Étudier la suite
+        des points $M_{n}$ définie par $M_{0}$ d'affixe $1$ et
+        $M_{n+1} = f(M_{n})$ : décrire son comportement.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} Le centre vérifie $\omega = a\omega+b$. En soustrayant cette
+égalité de $z' = az+b$, il vient $z'-\omega = a(z-\omega)$.
+
+\textbf{2.} Une récurrence immédiate donne
+$f^{n}(z)-\omega = a^{n}(z-\omega)$ : c'est l'écriture d'une similitude
+directe de centre $\Omega$, de rapport $\abs{a^{n}} = \abs a^{n}$ et d'angle
+$\arg\!\left(a^{n}\right) = n\arg a$.
+
+\textbf{3.} Ici $\abs a = \frac{\sqrt2}{2}<1$ et $\arg a = \frac{\pi}{4}$.
+L'affixe de $M_{n}$ vaut $a^{n}$ : le point tourne d'un huitième de tour à
+chaque étape tout en se rapprochant de l'origine dans le rapport
+$\frac{\sqrt2}{2}$. La suite des points décrit une spirale qui converge vers
+$\Omega$, et l'on repasse par la même direction tous les huit termes.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+Le chapitre est court et rentable, à condition d'ancrer une seule idée : dans
+le plan complexe, une similitude directe est une multiplication. Le rapport
+est un module, l'angle un argument, le centre un point fixe. Les élèves qui
+tiennent cette phrase traitent la partie B du problème en dix minutes.
+
+L'erreur de vocabulaire la plus fréquente consiste à attribuer un angle à une
+similitude indirecte. Corrigez-la dès la première occurrence : une similitude
+indirecte a un axe, et cet axe fait avec l'axe des abscisses la moitié de
+l'argument de $a$ — résultat qu'il vaut mieux faire redémontrer une fois que
+faire apprendre.
+
+Enfin, entraînez au passage inverse : partir de la configuration, choisir un
+repère, écrire les affixes, en déduire $a$ et $b$. C'est ce sens-là qui est
+demandé en début de partie B, et c'est celui que les élèves travaillent le
+moins.
+\end{notepourlaclasse}
+
+% =========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir est cumulatif : il porte sur ce chapitre et sur ceux qui le précèdent. Les énoncés sont repris de sessions réelles et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{Baccalauréat, Madagascar, série S, session 2022 — problème 1, partie A}{5 points}
+$ABCD$ est un carré direct de côté $4$~cm. On note $t$ la translation de
+vecteur $\vect{AC}$, $t_{1}$ celle de vecteur $\vect{DC}$, $t_{2}$ celle de
+vecteur $\vect{AD}$, $s_{(AD)}$ la réflexion d'axe $(AD)$, et
+$f = t \circ s_{(AD)}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Justifier que $t = t_{1} \circ t_{2}$.
+  \item Décomposer $t_{1}$ en deux symétries orthogonales dont l'un des axes
+        est la droite $(AD)$.
+  \item En déduire la nature et les éléments caractéristiques de $f$.
+\end{enumerate}
+
+\exods{2}{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2022-2023 — problème 1, partie A}{7 points}
+$OAC$ est un triangle équilatéral tel que
+$\left(\vect{OA},\vect{OC}\right) = \frac{\pi}{3}$ et $OA = a$. On note
+$R_{O}$ la rotation de centre $O$ et d'angle $\frac{\pi}{3}$, $R_{A}$ celle de
+centre $A$ et d'angle $\frac{2\pi}{3}$, et $R = R_{O} \circ R_{A}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $R$ est une symétrie centrale.
+  \item Déterminer $R(A)$ et en déduire le centre de $R$.
+  \item Déterminer les droites $(D_{1})$ et $(D_{2})$ telles que
+        $R_{O} = s_{(D_{2})} \circ s_{(OA)}$ et
+        $R_{A} = s_{(OA)} \circ s_{(D_{1})}$, puis retrouver les résultats
+        précédents.
+\end{enumerate}
+
+\exods{3}{Baccalauréat, Madagascar, série S, session 2022 — problème 1}{8 points}
+$ABCD$ est un carré direct de côté $4$~cm, et $S$ la similitude plane directe
+qui laisse invariant le point $A$ et transforme $C$ en $B$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer le rapport et l'angle de $S$.
+  \item Le plan étant rapporté au repère
+        $\left(A\,;\vect{AB},\vect{AD}\right)$, déterminer l'expression
+        complexe de $S$, puis retrouver son rapport et son angle.
+\end{enumerate}
+
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1. a)} $\vect{AC} = \vect{AD}+\vect{DC}$, donc
+$t = t_{1} \circ t_{2}$, les translations commutant.
+\textbf{b)} $t_{1}$, de vecteur $\vect{DC}$ perpendiculaire à $(AD)$, se
+décompose en $s_{(\Delta)} \circ s_{(AD)}$ où $(\Delta)$ est parallèle à
+$(AD)$, à la distance $\frac{DC}{2} = 2$.
+\textbf{c)} Alors
+$f = t_{1} \circ t_{2} \circ s_{(AD)}
+= s_{(\Delta)} \circ s_{(AD)} \circ t_{2} \circ s_{(AD)}$. Comme $t_{2}$ a
+pour vecteur $\vect{AD}$, dirigé par l'axe, la composée
+$t_{2} \circ s_{(AD)}$ est une symétrie glissée d'axe $(AD)$ et de vecteur
+$\vect{AD}$. Au total, $f$ est une symétrie glissée d'axe $(\Delta)$ et de
+vecteur $\vect{AD}$.
+
+\textbf{Exercice 2. a)} La somme des angles vaut $\frac{\pi}{3}+\frac{2\pi}{3} = \pi$ :
+$R$ est une symétrie centrale.
+\textbf{b)} $R(A) = R_{O}\left(R_{A}(A)\right) = R_{O}(A)$, image de $A$ par
+la rotation de centre $O$ et d'angle $\frac{\pi}{3}$ : c'est $C$. Le centre de
+la symétrie centrale est donc le milieu de $[AC]$.
+\textbf{c)} $(D_{2})$ est l'image de $(OA)$ par la rotation de centre $O$ et
+d'angle $\frac{\pi}{6}$ ; $(D_{1})$ est la droite passant par $A$ formant
+l'angle $-\frac{\pi}{3}$ avec $(OA)$. La composée redonne bien la symétrie
+centrale de centre le milieu de $[AC]$.
+
+\textbf{Exercice 3. a)} $S$ fixe $A$, donc son rapport vaut
+$\frac{AB}{AC} = \frac{4}{4\sqrt2} = \frac{1}{\sqrt2}$, et son angle
+$\left(\vect{AC},\vect{AB}\right) = -\frac{\pi}{4}$.
+\textbf{b)} Dans le repère $\left(A\,;\vect{AB},\vect{AD}\right)$ on a
+$z_{A} = 0$, $z_{B} = 1$, $z_{C} = 1+i$. L'écriture est $z' = az$ avec
+$a = \frac{z_{B}}{z_{C}} = \frac{1}{1+i} = \frac{1-i}{2}$. On retrouve
+$\abs a = \frac{\sqrt2}{2}$ et $\arg a = -\frac{\pi}{4}$.
+
+\end{corrige}

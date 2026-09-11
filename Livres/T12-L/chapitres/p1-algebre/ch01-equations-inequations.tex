@@ -1,0 +1,760 @@
+% ===========================================================================
+%  Chapitre 1 — Équations et inéquations du second degré
+%  PE 2026, composante ALGÈBRE
+% ===========================================================================
+\bmtchapitre{Équations et inéquations du second degré}
+  {Résoudre dans $\R$ une équation et une inéquation du second degré,
+   factoriser un trinôme, étudier son signe, et ramener au second degré une
+   équation bicarrée, une équation du troisième degré ou une équation
+   quotient.}
+  {Algèbre \textbullet\ environ 6 heures}
+
+Ce chapitre est le plus court du livre et c'est celui dont vous vous servirez
+le plus. Non pas parce qu'on vous demandera souvent, en soi, de résoudre
+$2x^{2}-3x+1 = 0$ : parce que ce calcul-là surgira à l'intérieur de presque
+tout le reste. Le signe d'une dérivée se lit sur un trinôme. L'ensemble de
+définition d'une fonction rationnelle dépend des racines de son dénominateur.
+Une droite d'ajustement se cherche en résolvant un système. Le second degré
+est l'outil, pas le sujet.
+
+Vous l'avez déjà rencontré en seconde et en première. Ce qui change cette
+année, c'est la vitesse : le discriminant, les racines, le tableau de signes
+doivent sortir sans hésitation, en moins d'une minute, pour que la tête reste
+disponible pour la question qui suit.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Rien de nouveau ici : ce sont les outils de seconde et de première dont le
+chapitre va se servir.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Développer $(x-3)^{2}$ et $(2x+5)(2x-5)$.
+  \item Factoriser $x^{2}-9$ puis $x^{2}+6x+9$.
+  \item Résoudre $3x-7 = 0$, puis $-2x+8 \geq 0$.
+  \item Donner le signe de $(x-1)(x+4)$ selon les valeurs de $x$.
+  \item Pour quelles valeurs de $x$ le quotient $\dfrac{1}{x-2}$
+        existe-t-il ?
+  \item Un produit de deux facteurs est nul. Que peut-on en conclure ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $(-3)^{2}$
+  \item $\sqrt{49}$
+  \item $\sqrt{0{,}25}$
+  \item $b^{2}-4ac$ pour $a=1$, $b=5$, $c=6$
+  \item Les solutions de $x^{2} = 16$
+  \item Les solutions de $x(x-7) = 0$
+  \item Le signe de $x^{2}+1$
+  \item $\dfrac{-6+2}{2\times 2}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $9$ \quad b) $7$ \quad c) $0{,}5$ \quad d) $1$ \quad e) $-4$ et $4$ \quad
+f) $0$ et $7$ \quad g) strictement positif pour tout réel \quad
+h) $-1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Le trinôme et son discriminant}
+
+\begin{definition}[trinôme du second degré]
+On appelle \textbf{trinôme du second degré} toute expression de la forme
+\[
+  P(x) = ax^{2}+bx+c, \qquad a,b,c \in \R, \quad a \neq 0 .
+\]
+La condition $a \neq 0$ n'est pas un détail : si $a$ était nul, l'expression
+serait du premier degré et tout ce chapitre serait sans objet.
+\end{definition}
+
+\begin{propriete}[forme canonique]
+Pour tout réel $x$,
+\[
+  ax^{2}+bx+c
+  = a\left[\left(x+\frac{b}{2a}\right)^{\!2}-\frac{b^{2}-4ac}{4a^{2}}\right].
+\]
+\end{propriete}
+
+\begin{demonstration}
+On met $a$ en facteur, puis on complète le carré :
+\[
+  ax^{2}+bx+c = a\left(x^{2}+\frac{b}{a}x\right)+c
+  = a\left[\left(x+\frac{b}{2a}\right)^{\!2}-\frac{b^{2}}{4a^{2}}\right]+c .
+\]
+En rentrant $c$ dans le crochet, $c = a\cdot\dfrac{4ac}{4a^{2}}$, ce qui donne
+le résultat annoncé.
+\end{demonstration}
+
+\begin{definition}[discriminant]
+Le nombre $\Delta = b^{2}-4ac$ s'appelle le \textbf{discriminant} du trinôme.
+Le mot vient de \emph{discriminer}, distinguer : c'est lui, et lui seul, qui
+distingue les trois cas possibles.
+\end{definition}
+
+\begin{theoreme}[résolution de $ax^{2}+bx+c = 0$]
+Soit $\Delta = b^{2}-4ac$.
+\begin{itemize}[leftmargin=1.3em, itemsep=0.2em]
+  \item Si $\Delta > 0$, l'équation admet \textbf{deux} solutions distinctes
+        \[
+          x_{1} = \frac{-b-\sqrt{\Delta}}{2a}, \qquad
+          x_{2} = \frac{-b+\sqrt{\Delta}}{2a} .
+        \]
+  \item Si $\Delta = 0$, l'équation admet \textbf{une} solution double
+        $x_{0} = -\dfrac{b}{2a}$.
+  \item Si $\Delta < 0$, l'équation n'admet \textbf{aucune} solution réelle.
+\end{itemize}
+\end{theoreme}
+
+\begin{demonstration}
+D'après la forme canonique, l'équation équivaut à
+$\left(x+\frac{b}{2a}\right)^{2} = \dfrac{\Delta}{4a^{2}}$. Un carré est
+toujours positif ou nul : si $\Delta<0$, aucun réel ne convient. Si
+$\Delta = 0$, la seule possibilité est $x+\frac{b}{2a} = 0$. Si $\Delta>0$,
+on obtient $x+\frac{b}{2a} = \pm\dfrac{\sqrt\Delta}{2a}$, d'où les deux
+racines.
+\end{demonstration}
+
+\begin{visualisation}[les trois cas, vus d'en haut]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 13.2cm, height = 5.6cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -3.4, xmax = 3.4, ymin = -2.2, ymax = 4.2,
+  xtick = \empty, ytick = \empty,
+  axis line style = {bmtGris}, clip = true,
+]
+  \addplot[bmtLaterite, line width=1.3pt, domain=-3.2:-0.15, samples=80]
+    {(x+2.4)*(x+0.8)};
+  \addplot[bmtIndigo, line width=1.3pt, domain=-1.4:1.4, samples=80]
+    {(x)^2};
+  \addplot[bmtVetiver, line width=1.3pt, domain=1.05:3.3, samples=80]
+    {(x-2.2)^2+1.1};
+  \node[bmtLaterite, font=\footnotesize, anchor=south]
+    at (axis cs:-1.6,2.3) {$\Delta > 0$};
+  \node[bmtIndigo, font=\footnotesize, anchor=south]
+    at (axis cs:0,2.3) {$\Delta = 0$};
+  \node[bmtVetiver, font=\footnotesize, anchor=south]
+    at (axis cs:2.2,3.0) {$\Delta < 0$};
+  \filldraw[bmtLaterite] (axis cs:-2.4,0) circle (1.7pt);
+  \filldraw[bmtLaterite] (axis cs:-0.8,0) circle (1.7pt);
+  \filldraw[bmtIndigo] (axis cs:0,0) circle (1.7pt);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Résoudre $ax^{2}+bx+c = 0$, c'est chercher où la parabole rencontre l'axe des
+abscisses. À gauche, elle le traverse en deux points : deux racines. Au
+milieu, elle le touche sans le traverser : une racine double. À droite, elle
+reste au-dessus : aucune racine réelle. Le discriminant est le calcul qui dit
+lequel des trois dessins vous avez sous les yeux, sans avoir à le tracer.
+\end{visualisation}
+
+\begin{exemple}[les trois cas, déroulés]
+\textbf{a)} $2x^{2}-3x-2 = 0$. Ici $a=2$, $b=-3$, $c=-2$, donc
+$\Delta = 9+16 = 25 > 0$ et $\sqrt\Delta = 5$ :
+\[
+  x_{1} = \frac{3-5}{4} = -\frac12, \qquad x_{2} = \frac{3+5}{4} = 2 .
+\]
+
+\textbf{b)} $x^{2}-6x+9 = 0$. Ici $\Delta = 36-36 = 0$, donc une racine
+double $x_{0} = \dfrac{6}{2} = 3$.
+
+\textbf{c)} $x^{2}+x+1 = 0$. Ici $\Delta = 1-4 = -3 < 0$ : pas de solution
+réelle.
+\end{exemple}
+
+\begin{methode}{résoudre une équation du second degré}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item \emph{Mettre en forme.} Tout ramener dans le membre de gauche, de
+        sorte que l'équation s'écrive $ax^{2}+bx+c = 0$.
+  \item \emph{Regarder avant de calculer.} Si $c = 0$, factoriser par $x$.
+        Si $b = 0$, isoler $x^{2}$. Dans ces deux cas, le discriminant est
+        inutile.
+  \item \emph{Identifier} $a$, $b$, $c$ — avec leur signe.
+  \item \emph{Calculer} $\Delta = b^{2}-4ac$, conclure selon son signe.
+  \item \emph{Vérifier} : la somme des racines doit valoir $-\frac ba$
+        (voir la section suivante). Ce contrôle prend cinq secondes.
+\end{enumerate}
+\end{methode}
+
+\begin{erreurclassique}
+$\Delta = b^{2}-4ac$, et non $b^{2}-4ac$ « où le signe moins n'est pas à
+prendre en compte ». Pour $x^{2}-3x-4 = 0$, on a $c = -4$, donc
+$-4ac = -4\times1\times(-4) = +16$ et $\Delta = 9+16 = 25$. L'erreur la plus
+fréquente sur les copies consiste à écrire $\Delta = 9-16 = -7$ et à conclure
+qu'il n'y a pas de solution, alors qu'il y en a deux : $-1$ et $4$.
+\end{erreurclassique}
+
+\begin{entrainement}[équations du second degré]
+\exo[\niveau{1}] $x^{2}-5x+6 = 0$
+
+\exo[\niveau{1}] $x^{2}+4x+4 = 0$
+
+\exo[\niveau{1}] $3x^{2}-12 = 0$
+
+\exo[\niveau{1}] $2x^{2}+7x = 0$
+
+\exo[\niveau{2}] $-x^{2}+2x+8 = 0$
+
+\exo[\niveau{2}] $\dfrac{1}{2}x^{2}-x-4 = 0$
+
+\exo[\niveau{2}] $x^{2}+x+3 = 0$
+
+\exo[\niveau{2}] $(x-1)^{2} = 2x+7$
+
+\exo[\niveau{3}] Déterminer le réel $m$ pour que l'équation
+$x^{2}-4x+m = 0$ admette une racine double, puis donner cette racine.
+\end{entrainement}
+
+\begin{corrige}[équations du second degré]
+\textbf{1.} $\Delta = 1$ ; $x_{1} = 2$, $x_{2} = 3$.
+\textbf{2.} $\Delta = 0$ ; $x_{0} = -2$.
+\textbf{3.} $x^{2} = 4$ : $x = -2$ ou $x = 2$ (pas de discriminant à
+calculer).
+\textbf{4.} $x(2x+7) = 0$ : $x = 0$ ou $x = -\frac72$.
+\textbf{5.} $\Delta = 4+32 = 36$ ; $x_{1} = \frac{-2-6}{-2} = 4$,
+$x_{2} = \frac{-2+6}{-2} = -2$.
+\textbf{6.} $\Delta = 1+8 = 9$ ; $x_{1} = \frac{1-3}{1} = -2$,
+$x_{2} = \frac{1+3}{1} = 4$.
+\textbf{7.} $\Delta = 1-12 = -11 < 0$ : aucune solution réelle.
+\textbf{8.} $x^{2}-2x+1 = 2x+7$ donne $x^{2}-4x-6 = 0$, $\Delta = 40$,
+$x = 2\pm\sqrt{10}$.
+\textbf{9.} Racine double $\iff \Delta = 0 \iff 16-4m = 0 \iff m = 4$ ; la
+racine est alors $x_{0} = 2$.
+\end{corrige}
+
+% ===========================================================================
+\section{Somme, produit et factorisation}
+
+\begin{propriete}[somme et produit des racines]
+Si $\Delta \geq 0$ et si $x_{1}$, $x_{2}$ désignent les racines (confondues
+lorsque $\Delta = 0$), alors
+\[
+  S = x_{1}+x_{2} = -\frac{b}{a}, \qquad P = x_{1}\,x_{2} = \frac{c}{a}.
+\]
+\end{propriete}
+
+\begin{demonstration}
+En additionnant les deux expressions des racines, les $\pm\sqrt\Delta$
+s'éliminent : $x_{1}+x_{2} = \dfrac{-2b}{2a} = -\dfrac ba$. En les
+multipliant, on reconnaît une identité remarquable :
+\[
+  x_{1}x_{2} = \frac{(-b)^{2}-\left(\sqrt\Delta\right)^{2}}{4a^{2}}
+  = \frac{b^{2}-(b^{2}-4ac)}{4a^{2}} = \frac{c}{a}. \qedhere
+\]
+\end{demonstration}
+
+\begin{theoreme}[factorisation d'un trinôme]
+Si $\Delta > 0$, alors $ax^{2}+bx+c = a\,(x-x_{1})(x-x_{2})$.
+Si $\Delta = 0$, alors $ax^{2}+bx+c = a\,(x-x_{0})^{2}$.
+Si $\Delta < 0$, le trinôme ne se factorise pas dans $\R$.
+\end{theoreme}
+
+\begin{remarque}
+Cette factorisation est la raison pour laquelle ce chapitre revient sans
+arrêt. Chaque fois qu'un quotient contient un trinôme, c'est elle qui permet
+de simplifier ; chaque fois qu'un signe est demandé, c'est elle qui le donne.
+\end{remarque}
+
+\begin{exemple}[deux nombres dont on connaît la somme et le produit]
+Cherchons deux nombres dont la somme vaut $7$ et le produit $12$. Ce sont les
+racines de $x^{2}-7x+12 = 0$, car pour ce trinôme $S = 7$ et $P = 12$. Son
+discriminant vaut $49-48 = 1$, d'où $x_{1} = 3$ et $x_{2} = 4$. On vérifie :
+$3+4 = 7$ et $3\times4 = 12$.
+\end{exemple}
+
+\begin{entrainement}[somme, produit, factorisation]
+\exo[\niveau{1}] Factoriser $x^{2}-x-6$.
+
+\exo[\niveau{1}] Factoriser $2x^{2}-8x+8$.
+
+\exo[\niveau{2}] Sans calculer les racines, donner la somme et le produit des
+racines de $5x^{2}-3x-2 = 0$. En déduire une racine évidente, puis l'autre.
+
+\exo[\niveau{2}] Trouver deux nombres dont la somme vaut $-1$ et le produit
+$-20$.
+
+\exo[\niveau{2}] Simplifier $\dfrac{x^{2}-4}{x^{2}-5x+6}$ pour $x \neq 2$ et
+$x \neq 3$.
+
+\exo[\niveau{3}] Le trinôme $x^{2}+bx+9$ admet une racine double. Déterminer
+les valeurs possibles de $b$.
+\end{entrainement}
+
+\begin{corrige}[somme, produit, factorisation]
+\textbf{1.} $\Delta = 25$, racines $-2$ et $3$ : $(x+2)(x-3)$.
+\textbf{2.} $\Delta = 0$, racine double $2$ : $2(x-2)^{2}$.
+\textbf{3.} $S = \frac35$, $P = -\frac25$. On voit que $x = 1$ convient
+($5-3-2=0$) ; l'autre racine vaut alors $P/1 = -\frac25$.
+\textbf{4.} Racines de $x^{2}+x-20 = 0$ : $\Delta = 81$, soit $-5$ et $4$.
+\textbf{5.} $\dfrac{(x-2)(x+2)}{(x-2)(x-3)} = \dfrac{x+2}{x-3}$.
+\textbf{6.} $\Delta = b^{2}-36 = 0$ donne $b = -6$ ou $b = 6$.
+\end{corrige}
+
+% ===========================================================================
+\section{Signe du trinôme et inéquations}
+
+\begin{theoreme}[signe d'un trinôme]
+Un trinôme est \textbf{du signe de $a$ partout}, sauf entre ses racines,
+lorsqu'elles existent, où il est du signe contraire.
+\end{theoreme}
+
+\begin{demonstration}
+Si $\Delta<0$, la forme canonique montre que le crochet est strictement
+positif : le trinôme a le signe de $a$ pour tout $x$. Si $\Delta \geq 0$, on
+écrit $a(x-x_{1})(x-x_{2})$ : le produit $(x-x_{1})(x-x_{2})$ est négatif
+exactement lorsque $x$ est strictement compris entre les deux racines,
+positif ailleurs.
+\end{demonstration}
+
+\begin{visualisation}[le tableau de signes que l'on écrira toute l'année]
+\begin{center}
+\begin{tikzpicture}[scale=1]
+  \draw[bmtGris, line width=0.5pt] (0,0) rectangle (11.6,1.9);
+  \draw[bmtGris, line width=0.5pt] (0,1.25) -- (11.6,1.25);
+  \draw[bmtGris, line width=0.5pt] (2.1,0) -- (2.1,1.9);
+  \node[font=\footnotesize] at (1.05,1.575) {$x$};
+  \node[font=\footnotesize] at (1.05,0.62) {$ax^{2}+bx+c$};
+  \node[font=\footnotesize] at (2.5,1.575) {$-\infty$};
+  \node[font=\footnotesize] at (5.3,1.575) {$x_{1}$};
+  \node[font=\footnotesize] at (8.3,1.575) {$x_{2}$};
+  \node[font=\footnotesize] at (11.2,1.575) {$+\infty$};
+  \draw[bmtGris, line width=0.5pt] (5.3,0) -- (5.3,1.25);
+  \draw[bmtGris, line width=0.5pt] (8.3,0) -- (8.3,1.25);
+  \node[bmtIndigo, font=\footnotesize] at (3.9,0.62) {signe de $a$};
+  \node[bmtLaterite, font=\footnotesize] at (6.8,0.62) {signe de $-a$};
+  \node[bmtIndigo, font=\footnotesize] at (9.75,0.62) {signe de $a$};
+  \node[font=\footnotesize] at (5.3,0.62) {$0$};
+  \node[font=\footnotesize] at (8.3,0.62) {$0$};
+\end{tikzpicture}
+\end{center}
+
+Trois colonnes, deux zéros, et le signe qui alterne : voilà tout ce qu'il y a
+à retenir. Lorsque $\Delta = 0$, les deux zéros se confondent et le signe
+n'alterne pas — le trinôme s'annule en un point sans changer de signe.
+Lorsque $\Delta < 0$, il n'y a ni zéro ni changement : une seule case, du
+signe de $a$.
+\end{visualisation}
+
+\begin{methode}{résoudre une inéquation du second degré}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Tout ramener à gauche : $ax^{2}+bx+c \geq 0$, ou $\leq 0$, etc.
+  \item Chercher les racines du trinôme (discriminant).
+  \item Dresser le tableau de signes.
+  \item Lire l'ensemble solution, en soignant les crochets : fermés si
+        l'inégalité est large, ouverts si elle est stricte.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[une inéquation, du calcul à l'écriture de la solution]
+Résolvons $-x^{2}+3x+4 \geq 0$.
+
+Le discriminant vaut $9+16 = 25$, les racines sont
+$x_{1} = \frac{-3-5}{-2} = 4$ et $x_{2} = \frac{-3+5}{-2} = -1$. Ici
+$a = -1 < 0$ : le trinôme est négatif à l'extérieur de $\intervalle{-1}{4}$
+et positif entre les racines. L'inégalité étant large, les bornes sont
+incluses :
+\[
+  \mathcal{S} = \intervalle{-1}{4}.
+\]
+\end{exemple}
+
+\begin{erreurclassique}
+Ordonner les racines avant de remplir le tableau. Dans l'exemple ci-dessus,
+la formule donne d'abord $4$ puis $-1$ ; si l'on recopie ces deux nombres
+dans cet ordre en tête du tableau, tous les signes sont faux. On écrit
+toujours la plus petite racine à gauche.
+\end{erreurclassique}
+
+\begin{entrainement}[inéquations]
+\exo[\niveau{1}] $x^{2}-4 > 0$
+
+\exo[\niveau{1}] $x^{2}-5x+6 \leq 0$
+
+\exo[\niveau{2}] $-2x^{2}+x+1 \geq 0$
+
+\exo[\niveau{2}] $x^{2}+x+1 > 0$
+
+\exo[\niveau{2}] $3x^{2}-6x \leq 0$
+
+\exo[\niveau{3}] $\dfrac{x^{2}-1}{x-3} \leq 0$ \quad (attention à la valeur
+interdite)
+
+\exo[\niveau{3}] Pour quelles valeurs de $x$ le nombre $\sqrt{x^{2}-3x+2}$
+est-il défini ?
+\end{entrainement}
+
+\begin{corrige}[inéquations]
+\textbf{1.} Racines $-2$ et $2$, $a>0$ :
+$\mathcal S = \intervalleo{-\infty}{-2}\cup\intervalleo{2}{+\infty}$.
+\textbf{2.} Racines $2$ et $3$, $a>0$ : $\mathcal S = \intervalle{2}{3}$.
+\textbf{3.} $\Delta = 1+8 = 9$, racines $-\frac12$ et $1$, $a<0$ :
+$\mathcal S = \intervalle{-\frac12}{1}$.
+\textbf{4.} $\Delta = -3<0$ et $a>0$ : le trinôme est toujours strictement
+positif, $\mathcal S = \R$.
+\textbf{5.} $3x(x-2) \leq 0$ : $\mathcal S = \intervalle{0}{2}$.
+\textbf{6.} Valeur interdite : $3$. On dresse un tableau à trois lignes. Le
+numérateur $x^{2}-1$ est positif à l'extérieur de $\intervalle{-1}{1}$,
+négatif à l'intérieur ; le dénominateur $x-3$ est négatif avant $3$, positif
+après. Le quotient est donc négatif sur $\intervalleo{-\infty}{-1}$, positif
+sur $\intervalleo{-1}{1}$, négatif sur $\intervalleo{1}{3}$, positif sur
+$\intervalleo{3}{+\infty}$. Les zéros $-1$ et $1$ sont acceptés,
+$3$ est exclu :
+$\mathcal S = \intervalleof{-\infty}{-1}\cup\intervallefo{1}{3}$.
+\textbf{7.} La racine carrée exige $x^{2}-3x+2 \geq 0$, de racines $1$ et
+$2$ avec $a>0$ :
+$\mathcal S = \intervalleof{-\infty}{1}\cup\intervallefo{2}{+\infty}$.
+\end{corrige}
+
+\begin{qcm}
+\exo Le discriminant de $-3x^{2}+2x-1$ vaut :
+\textbf{a)} $16$ \quad \textbf{b)} $-8$ \quad \textbf{c)} $8$ \quad
+\textbf{d)} $-16$ \reponseqcm{b}
+
+\exo L'équation $x^{2}+5 = 0$ admet dans $\R$ :
+\textbf{a)} deux solutions \quad \textbf{b)} une solution double \quad
+\textbf{c)} aucune solution \quad \textbf{d)} une infinité \reponseqcm{c}
+
+\exo Les racines de $x^{2}-2x-15$ sont $-3$ et $5$. La forme factorisée est :
+\textbf{a)} $(x-3)(x+5)$ \quad \textbf{b)} $(x+3)(x-5)$ \quad
+\textbf{c)} $(x-3)(x-5)$ \quad \textbf{d)} $-(x+3)(x-5)$ \reponseqcm{b}
+
+\exo L'ensemble des solutions de $x^{2} \leq 9$ est :
+\textbf{a)} $\intervalleo{-\infty}{3}$ \quad \textbf{b)} $\intervalle{-3}{3}$
+\quad \textbf{c)} $\intervallefo{3}{+\infty}$ \quad
+\textbf{d)} $\intervalleof{-\infty}{-3}\cup\intervallefo{3}{+\infty}$
+\reponseqcm{b}
+
+\exo Si $S = 6$ et $P = 8$ sont la somme et le produit des racines, le
+trinôme unitaire correspondant est :
+\textbf{a)} $x^{2}+6x+8$ \quad \textbf{b)} $x^{2}-6x-8$ \quad
+\textbf{c)} $x^{2}-6x+8$ \quad \textbf{d)} $x^{2}+6x-8$ \reponseqcm{c}
+\end{qcm}
+
+% ===========================================================================
+\section{Les équations qui se ramènent au second degré}
+
+Trois familles reviennent régulièrement. Dans les trois cas, la démarche est
+la même : \emph{ne pas} chercher à résoudre directement, mais transformer
+l'équation jusqu'à faire apparaître un trinôme.
+
+\subsection{L'équation bicarrée}
+
+\begin{methode}{résoudre $ax^{4}+bx^{2}+c = 0$}
+Poser $X = x^{2}$, avec la contrainte $X \geq 0$. Résoudre $aX^{2}+bX+c = 0$,
+puis revenir : chaque solution $X$ strictement positive donne deux valeurs de
+$x$, à savoir $\pm\sqrt X$ ; la solution $X = 0$ en donne une seule ; une
+solution négative n'en donne aucune.
+\end{methode}
+
+\begin{exemple}[une bicarrée complète]
+$x^{4}-5x^{2}+4 = 0$. En posant $X = x^{2}$ : $X^{2}-5X+4 = 0$, de
+discriminant $9$, donc $X = 1$ ou $X = 4$. Les deux sont positives :
+\[
+  x \in \{-2\,;\,-1\,;\,1\,;\,2\}.
+\]
+\end{exemple}
+
+\subsection{L'équation du troisième degré à racine évidente}
+
+\begin{methode}{résoudre une équation de degré 3}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Chercher une \textbf{racine évidente} parmi $-2$, $-1$, $0$, $1$,
+        $2$, $3$ : on essaie, on ne devine pas.
+  \item Si $x_{0}$ est racine, factoriser :
+        $P(x) = (x-x_{0})\left(\alpha x^{2}+\beta x+\gamma\right)$. Les
+        coefficients $\alpha$, $\beta$, $\gamma$ s'obtiennent par
+        identification ou par division.
+  \item Résoudre le trinôme obtenu.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[identification des coefficients]
+Résolvons $x^{3}-2x^{2}-5x+6 = 0$. On essaie $x = 1$ :
+$1-2-5+6 = 0$, donc $1$ est racine. On écrit alors
+\[
+  x^{3}-2x^{2}-5x+6 = (x-1)\left(x^{2}+\beta x-6\right),
+\]
+le coefficient de $x^{2}$ valant $1$ et le terme constant $-6$ (puisque
+$(-1)\times(-6) = 6$). En développant, le coefficient de $x^{2}$ vaut
+$\beta-1$, qui doit être égal à $-2$ : donc $\beta = -1$. Il reste
+$x^{2}-x-6 = 0$, de racines $-2$ et $3$. L'ensemble des solutions est
+$\{-2\,;\,1\,;\,3\}$.
+\end{exemple}
+
+\subsection{L'équation quotient}
+
+\begin{avertissement}
+Une équation quotient commence par la recherche des \textbf{valeurs
+interdites} : celles qui annulent un dénominateur. Elles sont exclues avant
+tout calcul, et une solution qui coïncide avec l'une d'elles doit être
+rejetée à la fin.
+\end{avertissement}
+
+\begin{exemple}[valeurs interdites d'abord]
+Résolvons $\dfrac{x+3}{x-1} = x$. La valeur $1$ est interdite. Pour
+$x \neq 1$, l'équation équivaut à $x+3 = x(x-1)$, soit $x^{2}-2x-3 = 0$, de
+racines $-1$ et $3$. Aucune n'est interdite :
+$\mathcal S = \{-1\,;\,3\}$.
+\end{exemple}
+
+\begin{entrainement}[équations ramenées au second degré]
+\exo[\niveau{1}] $x^{4}-13x^{2}+36 = 0$
+
+\exo[\niveau{2}] $x^{4}+3x^{2}-4 = 0$
+
+\exo[\niveau{2}] $x^{3}-x^{2}-4x+4 = 0$ (racine évidente : $1$)
+
+\exo[\niveau{2}] $\dfrac{2x-1}{x+2} = 3$
+
+\exo[\niveau{3}] $x^{3}-3x+2 = 0$
+
+\exo[\niveau{3}] $\dfrac{1}{x}+\dfrac{1}{x+1} = \dfrac{5}{6}$
+\end{entrainement}
+
+\begin{corrige}[équations ramenées au second degré]
+\textbf{1.} $X^{2}-13X+36 = 0$ donne $X = 4$ ou $X = 9$, d'où
+$x \in \{-3\,;\,-2\,;\,2\,;\,3\}$.
+\textbf{2.} $X^{2}+3X-4 = 0$ donne $X = 1$ ou $X = -4$ ; seule $X = 1$
+convient, d'où $x = \pm1$.
+\textbf{3.} $(x-1)(x^{2}-4) = 0$ : $x \in \{-2\,;\,1\,;\,2\}$.
+\textbf{4.} Valeur interdite $-2$ ; $2x-1 = 3x+6$ donne $x = -7$.
+\textbf{5.} $1$ est racine évidente ; $x^{3}-3x+2 = (x-1)(x^{2}+x-2)
+= (x-1)^{2}(x+2)$, d'où $x \in \{-2\,;\,1\}$.
+\textbf{6.} Valeurs interdites $0$ et $-1$. En réduisant :
+$6(2x+1) = 5x(x+1)$, soit $5x^{2}-7x-6 = 0$, $\Delta = 169$,
+$x = -\frac35$ ou $x = 2$.
+\end{corrige}
+
+\begin{vraifaux}
+\exo Si $\Delta < 0$, le trinôme n'a pas de racine réelle, donc il change de
+signe.
+
+\exo Un trinôme dont le discriminant est nul garde un signe constant sur
+$\R$.
+
+\exo L'équation $x^{2} = x$ a pour unique solution $x = 1$.
+
+\exo Si $x_{1}$ et $x_{2}$ sont les racines de $ax^{2}+bx+c$, alors
+$x_{1}+x_{2} = \dfrac ba$.
+
+\exo Une équation bicarrée a toujours quatre solutions.
+\end{vraifaux}
+
+\begin{corrige}[vrai ou faux]
+\textbf{1.} Faux — c'est l'inverse : sans racine, il ne peut pas changer de
+signe ; il garde celui de $a$.
+\textbf{2.} Vrai — il s'écrit $a(x-x_{0})^{2}$, du signe de $a$, et s'annule
+seulement en $x_{0}$.
+\textbf{3.} Faux — $x^{2}-x = x(x-1) = 0$ donne $0$ et $1$. Diviser les deux
+membres par $x$ fait perdre la solution $0$ : on ne divise jamais par une
+quantité qui peut être nulle.
+\textbf{4.} Faux — la somme vaut $-\frac ba$.
+\textbf{5.} Faux — elle en a quatre, deux, une ou aucune, selon les signes
+des solutions en $X$.
+\end{corrige}
+
+% ===========================================================================
+\begin{situation}[le champ rectangulaire]
+Une famille de Vakinankaratra dispose de $86$ mètres de clôture pour entourer
+un champ rectangulaire de $450$ mètres carrés, appuyé sur aucun mur : les
+quatre côtés doivent être clôturés.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item On note $x$ la longueur et $y$ la largeur, en mètres. Traduire les
+        deux contraintes par deux équations.
+  \item Montrer que $x$ est solution de l'équation
+        $x^{2}-43x+450 = 0$.
+  \item Résoudre cette équation et donner les dimensions du champ.
+  \item La famille voudrait, avec la même longueur de clôture, un champ de
+        $500$ mètres carrés. Montrer que c'est impossible.
+\end{enumerate}
+\end{situation}
+
+\begin{corrige}[le champ rectangulaire]
+\textbf{1.} Le périmètre donne $2(x+y) = 86$, soit $x+y = 43$ ; l'aire donne
+$xy = 450$.
+
+\textbf{2.} $x$ et $y$ ont pour somme $43$ et pour produit $450$ : ce sont
+les racines de $t^{2}-43t+450 = 0$.
+
+\textbf{3.} $\Delta = 1849-1800 = 49$, $\sqrt\Delta = 7$ : les racines sont
+$18$ et $25$. Le champ mesure $25$ m sur $18$ m.
+
+\textbf{4.} Il faudrait $S = 43$ et $P = 500$, donc
+$\Delta = 1849-2000 = -151 < 0$ : aucun couple de réels ne convient. Avec
+$86$ mètres de clôture, l'aire maximale possible est celle du carré de côté
+$21{,}5$ m, soit $462{,}25$ mètres carrés — et $500$ dépasse ce maximum.
+\end{corrige}
+
+% ===========================================================================
+\begin{annales}
+Le second degré n'est presque jamais l'objet d'un exercice entier à
+l'examen : il apparaît \emph{à l'intérieur} des questions, au moment
+d'étudier le signe d'une dérivée ou de résoudre une équation issue d'un
+problème. Les énoncés ci-dessous en sont des extraits authentiques, réduits à
+la partie qui ne dépend d'aucune notion postérieure à ce chapitre.
+
+\exoann{Baccalauréat, Madagascar, série A, session 2026 — problème,
+question 2.c) (extrait)}
+Étudier le signe de $-2x^{2}+x+1$ pour tout $x$ de $\intervalleo{0}{+\infty}$.
+
+\exoann{Baccalauréat, Madagascar, série A, session 2020 — problème,
+question 2 (extrait)}
+Étudier le signe du produit $(1+x)(3-x)$ sur l'intervalle
+$\intervalleo{-1}{3}$, puis dire ce qu'il advient de ce signe en dehors de
+cet intervalle.
+
+\exoann{D'après le baccalauréat blanc, Lycée Philibert Tsiranana, série A,
+2023 — problème, question 4.a)}
+\emph{Le sujet pose cette question sur une expression construite au
+chapitre 8 ; l'inconnue est notée ici $T$.}
+
+Vérifier que $T^{2}-4T+3 = (T-1)(T-3)$, puis résoudre $T^{2}-4T+3 = 0$ et
+donner le signe de $T^{2}-4T+3$ suivant les valeurs de $T$.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $\Delta = 1+8 = 9$ ; les racines sont
+$\frac{-1-3}{-4} = 1$ et $\frac{-1+3}{-4} = -\frac12$. Comme $a = -2 < 0$, le
+trinôme est positif entre les racines. Sur
+$\intervalleo{0}{+\infty}$, il est donc strictement positif sur
+$\intervalleo{0}{1}$, nul en $1$, strictement négatif sur
+$\intervalleo{1}{+\infty}$.
+
+\textbf{2.} Le produit s'annule en $-1$ et en $3$. Développé, il vaut
+$-x^{2}+2x+3$, dont le coefficient dominant est négatif : il est donc positif
+entre les racines et négatif à l'extérieur. Sur $\intervalleo{-1}{3}$, il est
+strictement positif ; en dehors de $\intervalle{-1}{3}$, strictement négatif.
+
+\textbf{3.} Le développement donne $T^{2}-3T-T+3 = T^{2}-4T+3$ : l'égalité
+est vérifiée. Les solutions sont $T = 1$ et $T = 3$. Le coefficient dominant
+étant positif, l'expression est positive à l'extérieur de
+$\intervalle{1}{3}$, négative à l'intérieur.
+\end{corrige}
+
+\begin{remarque}[où retrouver le second degré]
+Ce chapitre-ci ne peut pas encore recevoir les énoncés complets : ceux du
+baccalauréat mêlent le trinôme au logarithme, à l'exponentielle ou à la
+dérivée. Vous les retrouverez à leur place — au chapitre 5 pour le signe
+d'une dérivée, au chapitre 6 pour l'étude d'une fonction rationnelle, aux
+chapitres 7 et 8 pour les équations en $\ln x$ et en $e^{x}$, où le
+changement d'inconnue ramène chaque fois à un trinôme.
+\end{remarque}
+
+% ===========================================================================
+\begin{jecherche}[un paramètre dans l'équation]
+On considère l'équation $(E_{m})$ : $x^{2}-2mx+m+2 = 0$, où $m$ est un réel.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Calculer le discriminant de $(E_{m})$ en fonction de $m$.
+  \item Pour quelles valeurs de $m$ l'équation admet-elle deux solutions
+        distinctes ?
+  \item Pour quelles valeurs de $m$ n'admet-elle aucune solution réelle ?
+  \item Existe-t-il une valeur de $m$ pour laquelle $1$ est solution de
+        $(E_{m})$ ? Si oui, déterminer alors l'autre solution.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[un paramètre dans l'équation]
+\textbf{1.} $\Delta = 4m^{2}-4(m+2) = 4\left(m^{2}-m-2\right)$.
+
+\textbf{2.} $\Delta > 0 \iff m^{2}-m-2 > 0$. Ce trinôme en $m$ a pour
+discriminant $9$ et pour racines $-1$ et $2$ ; son coefficient dominant est
+positif. Donc
+$m \in \intervalleo{-\infty}{-1}\cup\intervalleo{2}{+\infty}$.
+
+\textbf{3.} $\Delta < 0 \iff m \in \intervalleo{-1}{2}$.
+
+\textbf{4.} $1$ est solution si $1-2m+m+2 = 0$, soit $m = 3$. L'équation
+devient $x^{2}-6x+5 = 0$ ; le produit des racines vaut $5$, donc l'autre
+racine est $5$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Vingt minutes, sans le cours sous les yeux.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Résoudre $2x^{2}-5x-3 = 0$.
+  \item Factoriser $-x^{2}+4x-3$.
+  \item Résoudre $x^{2}-x-12 \leq 0$.
+  \item Résoudre $x^{4}-10x^{2}+9 = 0$.
+  \item Déterminer les valeurs de $x$ pour lesquelles $\dfrac{x+1}{x^{2}-4}$
+        est défini.
+  \item Deux nombres ont pour somme $5$ et pour produit $-14$. Lesquels ?
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} $\Delta = 49$ ; $x = -\frac12$ ou $x = 3$.
+\textbf{2.} Racines $1$ et $3$, $a = -1$ : $-(x-1)(x-3)$.
+\textbf{3.} Racines $-3$ et $4$ : $\mathcal S = \intervalle{-3}{4}$.
+\textbf{4.} $X = 1$ ou $X = 9$ : $x \in \{-3\,;\,-1\,;\,1\,;\,3\}$.
+\textbf{5.} Défini pour $x \neq -2$ et $x \neq 2$.
+\textbf{6.} Racines de $x^{2}-5x-14 = 0$ : $-2$ et $7$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice original au format de l'épreuve — série A, options A1 et
+A2 \textbullet\ 5 points}
+Aucun sujet de la série n'a consacré d'exercice entier au second degré : le
+sujet ci-dessous est composé au format et au barème de l'épreuve.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item On considère le polynôme $P(x) = x^{3}-4x^{2}+x+6$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Vérifier que $P(-1) = 0$. \bareme{0,5 pt}
+      \item Déterminer les réels $b$ et $c$ tels que, pour tout réel $x$,
+            $P(x) = (x+1)\left(x^{2}+bx+c\right)$. \bareme{1,5 pt}
+      \item Résoudre dans $\R$ l'équation $P(x) = 0$. \bareme{1 pt}
+    \end{enumerate}
+  \item Résoudre dans $\R$ l'inéquation $P(x) \geq 0$. \bareme{1,5 pt}
+  \item En déduire l'ensemble des réels $x$ pour lesquels $\sqrt{P(x)}$ est
+        défini. \bareme{0,5 pt}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1. a)} $P(-1) = -1-4-1+6 = 0$.
+
+\textbf{b)} En développant $(x+1)(x^{2}+bx+c) = x^{3}+(b+1)x^{2}+(c+b)x+c$ et
+en identifiant : $c = 6$, $b+1 = -4$ donc $b = -5$, et l'on vérifie
+$c+b = 1$. Ainsi $P(x) = (x+1)\left(x^{2}-5x+6\right)$.
+
+\textbf{c)} $x^{2}-5x+6 = 0$ a pour racines $2$ et $3$ ; d'où
+$\mathcal S = \{-1\,;\,2\,;\,3\}$.
+
+\textbf{2.} Tableau de signes du produit $(x+1)(x-2)(x-3)$ : le polynôme est
+négatif sur $\intervalleo{-\infty}{-1}$, positif sur $\intervalle{-1}{2}$,
+négatif sur $\intervalle{2}{3}$, positif sur
+$\intervallefo{3}{+\infty}$. Donc
+$P(x) \geq 0$ pour
+$x \in \intervalle{-1}{2}\cup\intervallefo{3}{+\infty}$.
+
+\textbf{3.} La racine carrée est définie exactement là où $P(x) \geq 0$ :
+même ensemble qu'à la question 2.
+\end{corrige}
+
+\begin{notepourlaclasse}
+Six heures suffisent si l'on renonce à tout redémontrer : la forme canonique
+peut être admise et sa démonstration lue à la maison. Le temps gagné est à
+mettre sur le tableau de signes, qui reste, chaque année, le point faible des
+copies — bien avant le calcul du discriminant.
+
+Le bloc d'automatismes est à refaire en début de chaque séance pendant deux
+semaines, chronomètre en main : trois minutes, huit calculs. C'est le
+meilleur investissement du chapitre.
+
+Deux questions méritent d'être traitées au tableau plutôt que données à
+chercher : l'exercice 6 des inéquations (quotient et valeur interdite), où
+les élèves oublient presque tous que le dénominateur ne se contente pas de
+changer de signe, et la question 4 du bloc « je cherche », qui demande de
+raisonner sur un paramètre — un mouvement de pensée nouveau pour la plupart.
+\end{notepourlaclasse}

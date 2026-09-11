@@ -1,0 +1,433 @@
+% ===========================================================================
+%  Chapitre 4 — Primitives et calcul intégral
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Primitives et calcul intégral}
+  {Calculer une primitive et une intégrale ; intégrer par parties et par
+   changement de variable affine ; calculer une aire et une valeur moyenne.}
+  {Analyse \textbullet\ environ 12 heures}
+
+Jusqu'ici, une fonction étant donnée, vous calculiez sa dérivée. Ce chapitre
+prend le problème à l'envers : une dérivée étant donnée, retrouver la fonction
+dont elle provient. L'opération n'a rien d'automatique — dériver est une
+mécanique, primitiver est une reconnaissance.
+
+Et il se produit alors quelque chose d'inattendu. Cette question purement
+algébrique donne la réponse à une question de géométrie que personne
+n'aurait crue liée : quelle est l'aire sous une courbe. Cette même idée
+permettra, plus tard dans l'année, de calculer une valeur moyenne — celle
+d'un chiffre d'affaires, d'une production, d'un coût — sur toute une période.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Uniquement des dérivées — c'est le sens que ce chapitre va renverser.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Dériver : $x \mapsto x^{5}$, $x \mapsto \sqrt{x}$,
+        $x \mapsto \dfrac{1}{x^{2}}$, $x \mapsto \sin(2x)$.
+  \item Dériver $x \mapsto (3x+1)^{4}$, puis $x \mapsto \sqrt{2x-5}$.
+  \item Rappeler la formule de dérivation d'un produit.
+  \item Rappeler la formule $\left(u^{n}\right)'$ pour $n$ entier.
+  \item Quelle est l'aire d'un rectangle de largeur $b-a$ et de hauteur $h$ ?
+  \item Rappeler la définition d'une primitive.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Dérivée de $x \mapsto \dfrac{x^{4}}{4}$
+  \item Dérivée de $x \mapsto 2\sqrt{x}$
+  \item Dérivée de $x \mapsto -\dfrac{1}{x}$
+  \item Dérivée de $x \mapsto -\dfrac{\cos(3x)}{3}$
+  \item Dérivée de $x \mapsto \dfrac{(2x+1)^{5}}{10}$
+  \item Une fonction dont la dérivée est $x \mapsto x$
+  \item Une fonction dont la dérivée est $x \mapsto \cos x$
+  \item Une fonction dont la dérivée est $x \mapsto 3x^{2}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $x^{3}$ \quad b) $\dfrac{1}{\sqrt{x}}$ \quad c) $\dfrac{1}{x^{2}}$ \quad
+d) $\sin(3x)$ \quad e) $(2x+1)^{4}$ \quad f) $\dfrac{x^{2}}{2}$ \quad
+g) $\sin x$ \quad h) $x^{3}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les primitives}
+
+\begin{definition}[primitive]
+Soit $f$ une fonction définie sur un intervalle $I$. On appelle
+\textbf{primitive} de $f$ sur $I$ toute fonction $F$ dérivable sur $I$ telle
+que
+\[
+  F'(x) = f(x) \qquad \text{pour tout } x \in I .
+\]
+\end{definition}
+
+\begin{theoreme}[existence et forme générale]
+Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.
+Si $F$ en est une, les primitives de $f$ sur $I$ sont exactement les
+fonctions $x \mapsto F(x)+k$, où $k$ décrit $\R$.
+\end{theoreme}
+
+\begin{demonstration}
+Si $G$ est une autre primitive, $H = G-F$ vérifie $H' = 0$ sur $I$. Une
+fonction de dérivée nulle sur un intervalle y est constante — conséquence du
+théorème des accroissements finis, appliqué entre deux points quelconques $a$
+et $b$ de $I$ : $H(b)-H(a) = (b-a)H'(c) = 0$. Donc $G = F+k$.
+\end{demonstration}
+
+\subsection{Le tableau des primitives usuelles}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{4.3cm} p{4.3cm} p{3.6cm}@{}}
+\toprule
+\textsf{\footnotesize\bfseries FONCTION $f$} &
+\textsf{\footnotesize\bfseries UNE PRIMITIVE $F$} &
+\textsf{\footnotesize\bfseries SUR} \\
+\midrule
+$x \mapsto a$ (constante)        & $x \mapsto ax$                       & $\R$ \\
+$x \mapsto x^{n}$, $n \in \N$    & $x \mapsto \dfrac{x^{n+1}}{n+1}$     & $\R$ \\
+$x \mapsto \dfrac{1}{x^{2}}$     & $x \mapsto -\dfrac{1}{x}$            & tout intervalle de $\Rs$ \\
+$x \mapsto \dfrac{1}{\sqrt{x}}$  & $x \mapsto 2\sqrt{x}$                & $\Rps$ \\
+\midrule
+$u'u^{n}$, $n \neq -1$           & $\dfrac{u^{n+1}}{n+1}$               & où $u$ est dérivable \\
+$\dfrac{u'}{\sqrt{u}}$           & $2\sqrt{u}$                          & où $u > 0$ \\
+$u' \times (v'\circ u)$          & $v \circ u$                          & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bmtmarge{La seconde moitié du tableau est la plus utile : reconnaître un
+$u'u^{n}$ dans une expression compliquée est la compétence centrale du
+chapitre.}
+
+\begin{exemple}[reconnaître la forme $u'u^{n}$]
+Cherchons une primitive de $f(x) = 3x^{2}\left(x^{3}+1\right)^{4}$ sur $\R$.
+
+On pose $u(x) = x^{3}+1$, donc $u'(x) = 3x^{2}$. L'expression est exactement
+$u'u^{4}$, dont une primitive est $\dfrac{u^{5}}{5}$. Donc
+\[
+  F(x) = \frac{\left(x^{3}+1\right)^{5}}{5}
+\]
+convient, et l'on vérifie en dérivant.
+\end{exemple}
+
+\begin{propriete}[primitive prenant une valeur donnée en un point]
+Soit $f$ continue sur $I$, $x_{0} \in I$ et $y_{0}$ un réel. Il existe une
+\emph{unique} primitive $F$ de $f$ sur $I$ telle que $F(x_{0}) = y_{0}$.
+\end{propriete}
+
+\begin{entrainement}[primitives]
+\exo[\niveau{1}] Déterminer une primitive de $x \mapsto 4x^{3}-2x+5$ sur $\R$,
+puis de $x \mapsto \dfrac{3}{x^{2}}$ sur $\Rps$.
+
+\exo[\niveau{2}] Déterminer une primitive de
+$x \mapsto \dfrac{2x}{\sqrt{x^{2}+1}}$ sur $\R$.
+
+\exo[\niveau{3}] Déterminer la primitive $F$ de
+$x \mapsto \dfrac{x}{\left(x^{2}+1\right)^{2}}$ sur $\R$ telle que $F(0) = 1$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $x^{4}-x^{2}+5x$ ; \ $-\dfrac{3}{x}$.
+
+\textbf{2.} C'est $\dfrac{u'}{\sqrt{u}}$ avec $u = x^{2}+1$ : une primitive est
+$2\sqrt{x^{2}+1}$.
+
+\textbf{3.} L'expression est $\dfrac{1}{2}u'u^{-2}$ avec $u = x^{2}+1$, de
+primitive $-\dfrac{1}{2u}$. La condition $F(0)=1$ donne $k = \tfrac32$ :
+$F(x) = \dfrac{-1}{2(x^{2}+1)} + \dfrac{3}{2}$.
+\end{corrige}
+
+% ===========================================================================
+\section{L'intégrale}
+
+\begin{definition}[intégrale d'une fonction continue]
+Soit $f$ continue sur un intervalle $I$, et $a$, $b$ deux éléments de $I$. Si
+$F$ est une primitive quelconque de $f$ sur $I$, on pose
+\[
+  \int_{a}^{b} f(x)\dx = F(b)-F(a),
+\]
+quantité que l'on note aussi $\bigl[F(x)\bigr]_{a}^{b}$.
+\end{definition}
+
+\begin{propriete}[règles de calcul]
+Pour $f$ et $g$ continues sur $I$, $a$, $b$, $c$ dans $I$ et $\lambda$ réel :
+\begin{align*}
+  \int_{a}^{a} f(x)\dx &= 0, &
+  \int_{b}^{a} f(x)\dx &= -\int_{a}^{b} f(x)\dx, \\[0.3em]
+  \int_{a}^{b} \bigl[f(x)+g(x)\bigr]\dx &= \int_{a}^{b} f + \int_{a}^{b} g, &
+  \int_{a}^{b} \lambda f(x)\dx &= \lambda \int_{a}^{b} f(x)\dx,
+\end{align*}
+et la \textbf{relation de Chasles} :
+$\displaystyle\int_{a}^{b} f(x)\dx = \int_{a}^{c} f(x)\dx + \int_{c}^{b} f(x)\dx$.
+\end{propriete}
+
+\begin{propriete}[positivité et ordre]
+Si $a \leq b$ :
+\begin{itemize}[leftmargin=1.4em, itemsep=0.18em]
+  \item $f \geq 0$ sur $\intervalle{a}{b}$ entraîne $\displaystyle\int_{a}^{b} f(x)\dx \geq 0$ ;
+  \item $f \leq g$ sur $\intervalle{a}{b}$ entraîne
+        $\displaystyle\int_{a}^{b} f(x)\dx \leq \int_{a}^{b} g(x)\dx$ ;
+  \item si $m \leq f(x) \leq M$ sur $\intervalle{a}{b}$, alors
+        $m(b-a) \leq \displaystyle\int_{a}^{b} f(x)\dx \leq M(b-a)$.
+\end{itemize}
+\end{propriete}
+
+% ===========================================================================
+\section{Deux techniques de calcul}
+
+\subsection{L'intégration par parties}
+
+\begin{theoreme}[intégration par parties]
+Soient $u$ et $v$ deux fonctions dérivables sur $\intervalle{a}{b}$, de
+dérivées continues. Alors
+\[
+  \int_{a}^{b} u(x)v'(x)\dx
+  = \bigl[u(x)v(x)\bigr]_{a}^{b} - \int_{a}^{b} u'(x)v(x)\dx .
+\]
+\end{theoreme}
+
+\begin{demonstration}
+La formule de dérivation d'un produit donne $(uv)' = u'v + uv'$. On intègre
+cette égalité entre $a$ et $b$ :
+$\bigl[u(x)v(x)\bigr]_{a}^{b} = \int_{a}^{b} u'(x)v(x)\dx + \int_{a}^{b} u(x)v'(x)\dx$,
+puis on isole la seconde intégrale.
+\end{demonstration}
+
+\begin{methode}{choisir $u$ et $v'$}
+On prend pour $u$ la fonction que la dérivation \emph{simplifie}, et pour
+$v'$ celle que l'on sait primitiver sans peine. Un polynôme multiplié par un
+cosinus, un sinus ou une exponentielle : le polynôme est $u$, car sa dérivée
+baisse d'un degré et finit par disparaître.
+\end{methode}
+
+\begin{exemple}[une intégration par parties menée en entier]
+Calculons $\displaystyle\int_{0}^{\pi} x\sin x \dx$.
+
+On pose $u(x) = x$ et $v'(x) = \sin x$, d'où $u'(x) = 1$ et
+$v(x) = -\cos x$. La formule donne
+\[
+  \int_{0}^{\pi} x\sin x \dx
+  = \bigl[-x\cos x\bigr]_{0}^{\pi} + \bigl[\sin x\bigr]_{0}^{\pi}
+  = \pi + 0 = \pi .
+\]
+\end{exemple}
+
+\subsection{Le changement de variable affine}
+
+\begin{propriete}[changement de variable affine]
+Soit $f$ continue et $F$ une primitive de $f$. Pour $\alpha \neq 0$,
+\[
+  \int_{a}^{b} f(\alpha x + \beta)\dx
+  = \frac{1}{\alpha}\Bigl[F(\alpha x + \beta)\Bigr]_{a}^{b} .
+\]
+\end{propriete}
+
+\begin{entrainement}[calcul d'intégrales]
+\exo[\niveau{1}] Calculer $\displaystyle\int_{1}^{2}\left(3x^{2}-4x+1\right)\dx$.
+
+\exo[\niveau{2}] Calculer $\displaystyle\int_{0}^{\frac{\pi}{2}} x\cos x \dx$
+par une intégration par parties.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\bigl[x^{3}-2x^{2}+x\bigr]_{1}^{2} = 2-0 = 2$.
+
+\textbf{2.} $u=x$, $v'=\cos x$ : $\bigl[x\sin x\bigr]_{0}^{\pi/2}
+- \int_{0}^{\pi/2}\sin x\dx = \dfrac{\pi}{2} - 1$.
+\end{corrige}
+
+% ===========================================================================
+\section{Aires et valeur moyenne}
+
+\begin{theoreme}[interprétation d'une intégrale comme une aire]
+Soit $f$ continue et \emph{positive} sur $\intervalle{a}{b}$. Alors
+$\displaystyle\int_{a}^{b} f(x)\dx$ est l'aire, exprimée en unités d'aire, du
+domaine plan défini par $a \leq x \leq b$ et $0 \leq y \leq f(x)$.
+\end{theoreme}
+
+\begin{visualisation}[l'aire sous la courbe]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 10.6cm, height = 5.4cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -0.5, xmax = 5.4, ymin = -0.4, ymax = 3.4,
+  xtick = {1,4}, xticklabels = {$a$,$b$}, ytick = \empty,
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtIndigoPale, draw=none, fill=bmtIndigo, fill opacity=0.16,
+           domain=1:4, samples=100] {0.35*x^2 - 1.6*x + 3.1} \closedcycle;
+  \addplot[bmtIndigo, line width=1.3pt, domain=0.2:5.2, samples=140]
+    {0.35*x^2 - 1.6*x + 3.1};
+  \draw[bmtGris, dotted] (axis cs:1,0) -- (axis cs:1,1.85);
+  \draw[bmtGris, dotted] (axis cs:4,0) -- (axis cs:4,2.3);
+  \node[bmtIndigo, font=\footnotesize] at (axis cs:2.5,0.72)
+    {$\displaystyle\int_{a}^{b} f(x)\,dx$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+La partie teintée est bornée en bas par l'axe des abscisses, en haut par la
+courbe. Si la fonction change de signe, découpez avec la relation de Chasles
+et prenez la valeur absolue sur chaque morceau.
+\end{visualisation}
+
+\begin{definition}[valeur moyenne]
+La \textbf{valeur moyenne} de $f$ sur $\intervalle{a}{b}$, avec $a<b$, est le
+réel
+\[
+  \mu = \frac{1}{b-a}\int_{a}^{b} f(x)\dx .
+\]
+\end{definition}
+
+\begin{remarque}
+Géométriquement, $\mu$ est la hauteur du rectangle de base $\intervalle{a}{b}$
+qui aurait la même aire que le domaine sous la courbe. En économie, si $f(t)$
+représente un chiffre d'affaires instantané ou une production au temps $t$,
+$\mu$ en donne la valeur moyenne sur toute la période — un indicateur que les
+données brutes, dispersées mois par mois, ne montrent pas directement.
+\end{remarque}
+
+\begin{entrainement}[aires et valeurs moyennes]
+\exo[\niveau{1}] Calculer l'aire du domaine délimité par la courbe de
+$f(x) = x^{2}$, l'axe des abscisses et les droites $x=0$ et $x=3$.
+
+\exo[\niveau{2}] Calculer la valeur moyenne de $x \mapsto x^{2}$ sur
+$\intervalle{0}{3}$, et vérifier qu'elle est comprise entre le minimum et le
+maximum de la fonction sur cet intervalle.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\left[\dfrac{x^{3}}{3}\right]_{0}^{3} = 9$ unités d'aire.
+
+\textbf{2.} $\mu = \dfrac{1}{3}\times 9 = 3$, comprise entre $0$ et $9$.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Les énoncés rassemblés ici sont repris de sujets réellement posés ; leur
+provenance est indiquée à chaque fois. Aucun ne fait appel au logarithme ni à
+l'exponentielle.
+
+\exoann{Baccalauréat, Côte d'Ivoire, séries C et D, session 2023 — exercice 2}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = \cos x - x\sin x$. Déterminer
+une primitive de $f$ sur $\R$.
+
+\exoann{Baccalauréat, Côte d'Ivoire, séries C et D, session 2023 — exercice 2, suite}
+En déduire la valeur de
+$\displaystyle\int_{0}^{\frac{\pi}{2}}\left(\cos x - x\sin x\right)\dx$.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} Le produit $x\cos x$ se dérive en $\cos x - x\sin x$, qui est
+exactement $f(x)$. Les primitives de $f$ sur $\R$ sont donc les fonctions
+$F(x) = x\cos x + k$, $k\in\R$.
+
+\textbf{2.} Avec $F(x) = x\cos x$,
+$\displaystyle\int_{0}^{\pi/2}\left(\cos x - x\sin x\right)\dx
+  = \left[x\cos x\right]_{0}^{\pi/2} = 0$.
+\end{corrige}
+
+\begin{jecherche}[le silo à grains de Marovoay]
+La plaine de Marovoay possède un silo obtenu en faisant tourner, autour de
+l'axe des abscisses, le domaine sous la courbe de
+$f(x) = \sqrt{9-x^{2}}$, $x \in \intervalle{0}{3}$, les longueurs étant
+exprimées en mètres. On admet que le volume ainsi engendré vaut
+$V = \pi\displaystyle\int_{0}^{3}\left[f(x)\right]^{2}\dx$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Vérifier que $f$ est bien définie et positive sur $\intervalle{0}{3}$.
+  \item Calculer le volume $V$ du silo, en mètres cubes.
+  \item Le prix de revient de la construction est proportionnel au volume, au
+        taux de $45\,000$ Ar par mètre cube. Estimer ce coût, en prenant
+        $\pi \approx 3{,}14$.
+  \item La récolte quotidienne livrée au silo, en tonnes, est modélisée sur
+        une semaine de sept jours par $g(t) = 2+0{,}5t$, $t \in \intervalle{0}{7}$.
+        Calculer la valeur moyenne de $g$ sur cette semaine, et interpréter.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[le silo à grains de Marovoay]
+\textbf{1.} $9-x^{2} \geq 0$ équivaut à $x^{2} \leq 9$, vrai sur
+$\intervalle{0}{3}$ : $f$ y est définie et positive.
+
+\textbf{2.} $V = \pi\displaystyle\int_{0}^{3}\left(9-x^{2}\right)\dx
+= \pi\left[9x-\frac{x^{3}}{3}\right]_{0}^{3} = \pi(27-9) = 18\pi \approx 56{,}5$
+m$^{3}$.
+
+\textbf{3.} Coût $\approx 56{,}5 \times 45\,000 \approx 2\,542\,500$ Ar.
+
+\textbf{4.} $\mu = \dfrac{1}{7}\displaystyle\int_{0}^{7}(2+0{,}5t)\dt
+= \dfrac{1}{7}\left[2t+0{,}25t^{2}\right]_{0}^{7}
+= \dfrac{1}{7}(14+12{,}25) \approx 3{,}75$ tonnes par jour : c'est la
+livraison quotidienne moyenne sur la semaine, alors même que la livraison
+réelle croît chaque jour.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Une fonction continue sur un intervalle y admet une unique primitive.
+  \item $\displaystyle\int_{a}^{b} f(x)\dx$ est toujours positive.
+  \item Si $f \leq g$ sur $\intervalle{a}{b}$ avec $a<b$, alors
+        $\int_{a}^{b} f \leq \int_{a}^{b} g$.
+  \item La valeur moyenne d'une fonction sur un intervalle est comprise entre
+        son minimum et son maximum sur cet intervalle.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elle en admet une infinité, qui diffèrent d'une constante.
+\textbf{2.} Faux — cela dépend du signe de $f$ et de l'ordre des bornes.
+\textbf{3.} Vrai.
+\textbf{4.} Vrai — conséquence de l'encadrement $m(b-a) \leq \int f \leq M(b-a)$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve — série OSE}
+Soit $f$ la fonction définie sur $\intervalle{0}{2}$ par
+$f(x) = x\sqrt{4-x^{2}}$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Vérifier que $f$ est positive sur $\intervalle{0}{2}$ et calculer
+        $f(0)$ et $f(2)$. \hfill\textup{(0,5 pt)}
+  \item Calculer $f'(x)$ et dresser le tableau de variation de $f$ sur
+        $\intervalle{0}{2}$. \hfill\textup{(1,5 pt)}
+  \item Déterminer une primitive de $f$ sur $\intervalle{0}{2}$.
+        \emph{On reconnaîtra une forme $u'u^{n}$.} \hfill\textup{(1 pt)}
+  \item En déduire l'aire, en unités d'aire, du domaine délimité par la courbe
+        de $f$, l'axe des abscisses et les droites $x=0$ et $x=2$.
+        \hfill\textup{(1 pt)}
+  \item Calculer la valeur moyenne de $f$ sur $\intervalle{0}{2}$.
+        \hfill\textup{(1 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} Sur $\intervalle{0}{2}$, $x \geq 0$ et $4-x^{2} \geq 0$ : $f \geq 0$.
+$f(0) = f(2) = 0$.
+
+\textbf{2.} $f'(x) = \dfrac{4-2x^{2}}{\sqrt{4-x^{2}}}$, du signe de $2-x^{2}$ :
+$f$ croît sur $\intervalle{0}{\sqrt2}$ puis décroît sur $\intervalle{\sqrt2}{2}$,
+avec un maximum $f(\sqrt2) = 2$.
+
+\textbf{3.} $f(x) = -\dfrac{1}{2}\times(-2x)\left(4-x^{2}\right)^{1/2}$, forme
+$-\frac12 u'u^{1/2}$ avec $u = 4-x^{2}$ : une primitive est
+$-\dfrac{1}{3}\left(4-x^{2}\right)^{3/2}$.
+
+\textbf{4.} $\left[-\dfrac{(4-x^{2})^{3/2}}{3}\right]_{0}^{2} = 0 + \dfrac{8}{3}
+= \dfrac{8}{3}$ unités d'aire.
+
+\textbf{5.} $\mu = \dfrac{1}{2}\times\dfrac{8}{3} = \dfrac{4}{3}$.
+\end{corrige}

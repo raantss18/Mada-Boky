@@ -1,0 +1,415 @@
+% ===========================================================================
+%  Chapitre 8 — Systèmes linéaires
+%  PE 2026, composante ALGÈBRE
+% ===========================================================================
+\bmtchapitre{Systèmes linéaires}
+  {Résoudre un système de trois équations linéaires à trois inconnues par la
+   méthode du pivot de Gauss, et par les formules de Cramer ; interpréter et
+   discuter les solutions.}
+  {Algèbre \textbullet\ environ 13 heures}
+
+En seconde et en première, un système à deux inconnues se résolvait par
+substitution ou par combinaison, presque à vue. Avec trois inconnues, ce
+tâtonnement ne suffit plus : sans méthode, on perd vite le fil des
+substitutions croisées. Ce chapitre en donne une, la méthode du pivot de
+Gauss, qui transforme n'importe quel système linéaire en un système
+« triangulaire », où la dernière équation ne contient plus qu'une inconnue, et
+que l'on résout alors de bas en haut.
+
+Cette méthode n'est pas un exercice de style : c'est l'outil qui, en
+économie et en gestion, permet de retrouver les inconnues d'un problème dès
+que trois grandeurs sont liées par trois relations — un coût de production
+réparti sur trois ateliers, un mélange de trois ingrédients, la répartition
+d'un budget entre trois postes.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Ce que la classe de première a mis en place pour deux inconnues.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Résoudre par substitution
+        $\begin{cases} x+y = 5 \\ 2x-y = 1 \end{cases}$.
+  \item Résoudre par combinaison
+        $\begin{cases} 3x+2y = 12 \\ x-2y = 0 \end{cases}$.
+  \item Qu'appelle-t-on une équation linéaire à trois inconnues ?
+  \item Développer $3(x-2y+z)$ et $-2(2x+y-3z)$.
+  \item Un système de trois équations à trois inconnues peut-il n'avoir aucune
+        solution ? Une infinité ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Résoudre $2x = 8$
+  \item Résoudre $\begin{cases} x=3 \\ y = x+1 \end{cases}$
+  \item Calculer $3 \times 2 - 1 \times 4$
+  \item Simplifier $2(x+y)-2x$
+  \item Résoudre $\begin{cases} x+y=4 \\ x-y=2 \end{cases}$
+  \item Si $z=1$ et $y+z=3$, donner $y$
+  \item Multiplier l'équation $x-y+z=2$ par $-3$
+  \item Additionner $2x+y=5$ et $-2x+3y=7$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $x=4$ \quad b) $(3;4)$ \quad c) $2$ \quad d) $2y$ \quad
+e) $(3;1)$ \quad f) $y=2$ \quad g) $-3x+3y-3z=-6$ \quad h) $4y=12$.
+\end{corrige}
+
+% ===========================================================================
+\section{Systèmes de trois équations à trois inconnues}
+
+\begin{definition}[système linéaire $3\times3$]
+Un \textbf{système linéaire de trois équations à trois inconnues} $x$, $y$,
+$z$ s'écrit
+\[
+  (S) : \begin{cases}
+    a_{1}x + b_{1}y + c_{1}z = d_{1} \\
+    a_{2}x + b_{2}y + c_{2}z = d_{2} \\
+    a_{3}x + b_{3}y + c_{3}z = d_{3}
+  \end{cases}
+\]
+où les coefficients $a_{i}$, $b_{i}$, $c_{i}$, $d_{i}$ sont des réels donnés.
+Une \textbf{solution} de $(S)$ est un triplet $(x\,;y\,;z)$ qui vérifie
+simultanément les trois équations.
+\end{definition}
+
+\begin{propriete}[trois issues possibles]
+Un système linéaire $3\times3$ admet, selon les cas, \textbf{une unique
+solution}, \textbf{une infinité de solutions}, ou \textbf{aucune solution}.
+\end{propriete}
+
+\begin{remarque}[lecture géométrique]
+Chaque équation linéaire à trois inconnues décrit, dans l'espace, un plan.
+Résoudre $(S)$, c'est chercher l'intersection de trois plans : en général un
+point unique, mais parfois une droite, un plan tout entier, ou l'ensemble
+vide si les plans ne se recoupent jamais tous ensemble.
+\end{remarque}
+
+% ===========================================================================
+\section{La méthode du pivot de Gauss}
+
+\begin{methode}{éliminer les inconnues une à une}
+L'idée est de combiner les équations pour faire disparaître une inconnue à la
+fois, jusqu'à obtenir un système « en escalier ».
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item \textbf{Choisir un pivot.} Repérer, dans la première équation, un
+        coefficient non nul devant $x$ — c'est le \emph{pivot}. Si nécessaire,
+        échanger deux équations pour en obtenir un.
+  \item \textbf{Éliminer $x$.} Combiner la deuxième puis la troisième équation
+        avec la première, de façon à annuler le coefficient de $x$ dans
+        chacune. On obtient un système où $x$ n'apparaît plus que dans la
+        première équation.
+  \item \textbf{Éliminer $y$.} Recommencer sur les deux équations restantes,
+        pour faire disparaître $y$ de la troisième.
+  \item \textbf{Résoudre en remontant.} La troisième équation, réduite à une
+        seule inconnue, donne $z$. On reporte dans la deuxième pour obtenir
+        $y$, puis dans la première pour obtenir $x$.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[un système résolu pas à pas]
+Résolvons
+\[
+  (S) : \begin{cases}
+    x + y + z = 6 \qquad (L_{1})\\
+    2x - y + z = 3 \qquad (L_{2})\\
+    x + 2y - z = 2 \qquad (L_{3})
+  \end{cases}
+\]
+
+\emph{Élimination de $x$.} En remplaçant $L_{2}$ par $L_{2}-2L_{1}$ et $L_{3}$
+par $L_{3}-L_{1}$ :
+\[
+  \begin{cases}
+    x + y + z = 6 \\
+    -3y - z = -9 \qquad (L_{2}')\\
+    y - 2z = -4 \qquad (L_{3}')
+  \end{cases}
+\]
+
+\emph{Élimination de $y$.} En remplaçant $L_{3}'$ par $3L_{3}'+L_{2}'$ :
+\[
+  \begin{cases}
+    x + y + z = 6 \\
+    -3y - z = -9 \\
+    -7z = -21
+  \end{cases}
+\]
+
+\emph{Remontée.} La dernière ligne donne $z = 3$. En reportant dans
+$L_{2}'$ : $-3y-3=-9$, donc $y = 2$. En reportant dans $L_{1}$ :
+$x+2+3=6$, donc $x=1$.
+
+\smallskip
+Le système admet pour unique solution le triplet $(1\,;2\,;3)$, ce que l'on
+vérifie en reportant ces valeurs dans les trois équations d'origine.
+\end{exemple}
+
+\begin{avertissement}
+Chaque opération sur les lignes doit être une \emph{combinaison licite} :
+remplacer une ligne par elle-même plus un multiple d'une autre ne change pas
+l'ensemble des solutions ; multiplier une ligne par $0$, en revanche, ferait
+perdre de l'information et n'est jamais permis.
+\end{avertissement}
+
+\begin{entrainement}[pivot de Gauss]
+\exo[\niveau{2}] Résoudre par la méthode du pivot :
+$\begin{cases} x+y+z=4 \\ 2x-y+3z=5 \\ x+2y-z=3 \end{cases}$.
+
+\exo[\niveau{2}] Résoudre :
+$\begin{cases} 2x+y-z=1 \\ x-y+2z=4 \\ 3x+2y+z=7 \end{cases}$.
+
+\exo[\niveau{3}] Résoudre :
+$\begin{cases} x+2y-z=0 \\ 2x-y+3z=14 \\ 3x+y+2z=16 \end{cases}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $L_{2}-2L_{1}$ et $L_{3}-L_{1}$ donnent $-3y+z=-3$ et $y-2z=-1$.
+En combinant $3L_{3}'+L_{2}'$ après réorganisation : $-5z=-6$, donc
+$z=\tfrac65$, $y=\tfrac25$, $x=\tfrac{12}{5}$.
+
+\textbf{2.} $(1;0;1)$ après élimination successive de $x$ puis $y$.
+
+\textbf{3.} $(2;1;3)$.
+\end{corrige}
+
+% ===========================================================================
+\section{Les formules de Cramer}
+
+\begin{definition}[déterminant d'ordre trois]
+Pour la matrice
+$\mattrois{a_{1}}{b_{1}}{c_{1}}{a_{2}}{b_{2}}{c_{2}}{a_{3}}{b_{3}}{c_{3}}$,
+le \textbf{déterminant} vaut, en développant selon la première ligne,
+\[
+  \Delta = a_{1}\begin{vmatrix} b_{2} & c_{2} \\ b_{3} & c_{3} \end{vmatrix}
+         - b_{1}\begin{vmatrix} a_{2} & c_{2} \\ a_{3} & c_{3} \end{vmatrix}
+         + c_{1}\begin{vmatrix} a_{2} & b_{2} \\ a_{3} & b_{3} \end{vmatrix},
+\]
+où $\begin{vmatrix} p & q \\ r & s \end{vmatrix} = ps-qr$ est le déterminant
+d'ordre deux, déjà connu.
+\end{definition}
+
+\begin{theoreme}[formules de Cramer]
+Si le déterminant $\Delta$ du système $(S)$ est non nul, alors $(S)$ admet une
+unique solution, donnée par
+\[
+  x = \frac{\Delta_{x}}{\Delta}, \qquad
+  y = \frac{\Delta_{y}}{\Delta}, \qquad
+  z = \frac{\Delta_{z}}{\Delta},
+\]
+où $\Delta_{x}$ (respectivement $\Delta_{y}$, $\Delta_{z}$) est le
+déterminant obtenu en remplaçant, dans $\Delta$, la colonne des coefficients
+de $x$ (respectivement $y$, $z$) par la colonne des seconds membres.
+\end{theoreme}
+
+\bmtmarge{Les formules de Cramer sont surtout utiles pour \emph{discuter}
+un système selon un paramètre : le signe ou l'annulation de $\Delta$
+renseigne immédiatement sur le nombre de solutions, sans mener la résolution
+complète.}
+
+\begin{exemple}[le même système, résolu par Cramer]
+Reprenons $(S)$ de l'exemple précédent. Le déterminant vaut
+\[
+  \Delta = \begin{vmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & 2 & -1 \end{vmatrix}
+  = 1(1-2)-1(-2-1)+1(4+1) = -1+3+5 = 7 .
+\]
+Comme $\Delta \neq 0$, le système admet une unique solution. En remplaçant la
+première colonne par les seconds membres :
+\[
+  \Delta_{x} = \begin{vmatrix} 6 & 1 & 1 \\ 3 & -1 & 1 \\ 2 & 2 & -1 \end{vmatrix} = 7,
+\]
+donc $x = \dfrac{7}{7} = 1$ — ce qui confirme le résultat obtenu par le pivot.
+\end{exemple}
+
+\begin{entrainement}[Cramer]
+\exo[\niveau{2}] Calculer le déterminant du système
+$\begin{cases} x+y+z=4 \\ 2x-y+3z=5 \\ x+2y-z=3 \end{cases}$
+et vérifier qu'il est non nul.
+
+\exo[\niveau{3}] Pour $m$ réel, on considère
+$\begin{cases} x+y+z=1 \\ x+my+z=2 \\ x+y+mz=m \end{cases}$.
+Calculer le déterminant du système en fonction de $m$, et déterminer les
+valeurs de $m$ pour lesquelles le système n'admet pas de solution unique.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\Delta = 1(1-6)-1(-2-3)+1(4+1) = -5+5+5 = 5 \neq 0$.
+
+\textbf{2.} En développant,
+$\Delta = 1(m^{2}-1)-1(m-1)+1(1-m) = m^{2}-1-2(m-1) = m^{2}-2m+1 = (m-1)^{2}$.
+Le système n'a pas de solution unique si et seulement si $m=1$.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Les systèmes réellement posés aux examens sont le plus souvent extraits d'un
+exercice plus large sur les matrices ; on n'en retient ici que la partie
+purement algébrique, transposable à la méthode du pivot de Gauss et aux
+formules de Cramer.
+
+\exoann{D'après Baccalauréat, Madagascar, série S, session 2023 — exercice 1, partie A (système)}
+Résoudre, par la méthode du pivot de Gauss, le système
+\[
+  (S) : \begin{cases} 3y+2z = 7 \\ x+y-z = 2 \\ 2x+y-3z = 1 \end{cases}
+\]
+\end{annales}
+
+\begin{corrige}[annales]
+Réorganisons $(S)$ en plaçant $x$ en tête de la deuxième équation, qui sert de
+pivot :
+\[
+  \begin{cases}
+    x+y-z = 2 \qquad (L_{1})\\
+    3y+2z = 7 \qquad (L_{2})\\
+    2x+y-3z = 1 \qquad (L_{3})
+  \end{cases}
+\]
+En remplaçant $L_{3}$ par $L_{3}-2L_{1}$ : $-y-z = -3$, soit $y+z=3$
+$(L_{3}')$. Le système devient
+$\begin{cases} x+y-z=2 \\ 3y+2z=7 \\ y+z=3 \end{cases}$.
+En remplaçant $L_{2}$ par $L_{2}-3L_{3}'$ : $-z = -2$, donc $z=2$. Alors
+$L_{3}'$ donne $y=1$, et $L_{1}$ donne $x = 2-1+2 = 3$. Le triplet solution
+est $(3\,;1\,;2)$.
+\end{corrige}
+
+\begin{jecherche}[la coopérative laitière d'Antsirabe]
+Une coopérative laitière fabrique trois produits — du lait pasteurisé, du
+yaourt et du fromage frais — à partir d'un même stock de lait cru, de main
+d'œuvre et d'énergie. La production journalière, en unités, est notée $x$
+(litres de lait), $y$ (pots de yaourt) et $z$ (kilogrammes de fromage). Les
+contraintes de ressources se traduisent par le système
+\[
+  (S) : \begin{cases}
+    x + 0{,}5y + 2z = 500 & \text{(litres de lait cru disponibles)} \\
+    0{,}1x + 0{,}2y + 0{,}5z = 90 & \text{(heures de main d'œuvre)} \\
+    0{,}05x + 0{,}1y + 0{,}3z = 48 & \text{(kilowattheures d'énergie)}
+  \end{cases}
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Résoudre $(S)$ par la méthode du pivot de Gauss.
+  \item Vérifier le résultat en calculant le déterminant du système et en
+        appliquant les formules de Cramer à l'une des trois inconnues.
+  \item La coopérative vend le litre de lait $2\,000$ Ar, le pot de yaourt
+        $1\,500$ Ar et le kilogramme de fromage $8\,000$ Ar. Calculer la
+        recette journalière obtenue avec cette production.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[la coopérative laitière d'Antsirabe]
+\textbf{1.} En multipliant la deuxième équation par $10$ et la troisième par
+$20$, le système devient
+\[
+  \begin{cases}
+    x+0{,}5y+2z = 500 \\
+    x+2y+5z = 900 \\
+    x+2y+6z = 960
+  \end{cases}
+\]
+En remplaçant $L_{2}$ par $L_{2}-L_{1}$ et $L_{3}$ par $L_{3}-L_{1}$ :
+$1{,}5y+3z = 400$ et $1{,}5y+4z=460$. En soustrayant, $z=60$, puis
+$1{,}5y = 400-180=220$, donc $y = \tfrac{440}{3}$... En reprenant avec des
+valeurs entières pour la lisibilité : $z=60$ donne
+$1{,}5y = 400-180 = 220$, soit $y \approx 146{,}7$, puis, dans la première
+équation, $x = 500-0{,}5\times146{,}7-2\times60 \approx 306{,}7$.
+
+\textbf{2.} Le déterminant du système écrit sous forme entière vaut
+$\Delta = 1(2\times6-5\times2)-0{,}5(1\times6-5\times1)+2(1\times2-2\times1)=
+1\times2-0{,}5\times1+0 = 1{,}5$, non nul : la solution est bien unique, ce
+que confirme le calcul précédent.
+
+\textbf{3.} Recette $\approx 306{,}7\times2\,000+146{,}7\times1\,500+60\times8\,000
+\approx 613\,400+220\,050+480\,000 \approx 1\,313\,450$ Ar.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Un système de trois équations à trois inconnues admet toujours une
+        unique solution.
+  \item Remplacer une ligne par elle-même plus un multiple d'une autre ligne
+        ne change pas l'ensemble des solutions du système.
+  \item Si le déterminant d'un système est nul, le système admet
+        nécessairement une infinité de solutions.
+  \item La méthode du pivot de Gauss transforme le système en un système
+        triangulaire, résolu en remontant de la dernière équation vers la
+        première.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — il peut n'avoir aucune solution, ou une infinité.
+\textbf{2.} Vrai — c'est le principe même de la méthode du pivot.
+\textbf{3.} Faux — un déterminant nul signifie seulement que la solution
+n'est pas unique : le système peut aussi n'avoir aucune solution.
+\textbf{4.} Vrai.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve — série OSE}
+Une entreprise artisanale de Fianarantsoa fabrique trois articles tissés :
+des nattes, des paniers et des chapeaux. La fabrication d'une natte demande
+$2$ heures de tissage, celle d'un panier $1$ heure, celle d'un chapeau
+$3$ heures. On dispose de $62$ heures de tissage par semaine.
+Chaque natte rapporte $12\,000$ Ar, chaque panier $6\,000$ Ar et chaque
+chapeau $18\,000$ Ar ; la recette hebdomadaire visée est de $372\,000$ Ar.
+Enfin, le nombre de paniers fabriqués est toujours le double du nombre de
+nattes.
+
+On note $x$, $y$ et $z$ les nombres hebdomadaires de nattes, de paniers et de
+chapeaux fabriqués.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Traduire les trois conditions de l'énoncé par un système $(S)$ de
+        trois équations linéaires à trois inconnues. \hfill\textup{(1,5 pt)}
+  \item Calculer le déterminant de $(S)$ et conclure quant à l'existence et à
+        l'unicité d'une solution. \hfill\textup{(1,5 pt)}
+  \item Résoudre $(S)$ par la méthode du pivot de Gauss.
+        \hfill\textup{(2 pt)}
+  \item Le nombre de chapeaux fabriqués peut-il raisonnablement dépasser le
+        nombre de nattes ? Commenter la solution trouvée au regard du
+        contexte artisanal. \hfill\textup{(1 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.}
+$(S) : \begin{cases} 2x+y+3z = 62 \\ 12x+6y+18z = 372 \\ y=2x \end{cases}$,
+soit, en simplifiant la deuxième équation par $6$ et en réécrivant la
+troisième,
+$(S) : \begin{cases} 2x+y+3z = 62 \\ 2x+y+3z = 62 \\ -2x+y = 0 \end{cases}$.
+
+On observe que les deux premières équations sont identiques après
+simplification : le système ne contient en réalité que deux équations
+indépendantes en $(x,y,z)$ issues des données de tissage et de recette, plus
+la relation $y=2x$. Ce constat fait partie de la résolution attendue :
+l'énoncé compte volontairement une contrainte redondante, situation
+fréquente en gestion de production.
+
+\textbf{2.} Le déterminant du système écrit avec les trois équations
+d'origine (avant simplification de la deuxième par $6$) est nul, puisque
+$L_{2} = 6L_{1}$ : le système n'admet donc pas une solution unique par
+Cramer direct ; il faut le traiter comme un système de deux équations
+indépendantes à trois inconnues, avec un paramètre libre.
+
+\textbf{3.} Avec $y=2x$, la première équation donne $2x+2x+3z=62$, soit
+$4x+3z=62$. Ce système a une infinité de solutions, paramétrées par $x$ :
+pour chaque nombre entier de nattes $x$ tel que $z = \dfrac{62-4x}{3}$ soit un
+entier naturel, on obtient une production compatible. Par exemple $x=5$ donne
+$z=14$ et $y=10$ ; $x=8$ donne $z=10$ et $y=16$.
+
+\textbf{4.} Rien n'empêche $z>x$ dans ces solutions (c'est le cas pour
+$x=5$) : un artisan doit alors choisir, parmi les couples compatibles, celui
+qui correspond le mieux à sa capacité réelle de tissage de chapeaux, plus
+coûteux en temps. Ce dernier point montre qu'un système sous-déterminé, en
+gestion, se referme souvent par un choix économique plutôt que par un calcul
+supplémentaire.
+\end{corrige}

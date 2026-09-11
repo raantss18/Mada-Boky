@@ -1,0 +1,216 @@
+% ===========================================================================
+%  Devoir surveillé nº 4 — fin de la partie Traitement des données
+%  Sujet complet, au format de l'épreuve
+% ===========================================================================
+\chapter*{Devoir surveillé nº\,4 — sujet complet}
+\markboth{Devoir surveillé nº\,4}{Devoir surveillé nº\,4}
+\addcontentsline{toc}{chapter}{Devoir surveillé nº\,4 — sujet complet}
+
+\begin{devoirsurveille}[portée : tout le programme]
+\textbf{Durée : 2 h 15.} Les deux exercices et le problème sont obligatoires.
+Calculatrice scientifique non programmable autorisée. Les résultats des
+probabilités seront donnés sous forme de fraction irréductible. Barème
+\textup{(A1 ; A2)}.
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 1} \hfill \textup{(05 points)}
+
+Une boîte contient $10$ jetons indiscernables au toucher : $4$ jetons verts,
+$3$ jetons jaunes et $3$ jetons rouges.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item On tire au hasard et simultanément $3$ jetons de la boîte.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Déterminer le nombre de cas possibles. \bareme{0,5 ; 0,5}
+      \item Calculer la probabilité de l'événement
+            $A$ : « obtenir trois jetons de même couleur ». \bareme{1 ; 1}
+      \item Calculer la probabilité de l'événement
+            $B$ : « obtenir exactement deux jetons verts ». \bareme{1 ; 1}
+      \item Calculer la probabilité de l'événement
+            $C$ : « obtenir au moins un jeton rouge ». \bareme{1 ; 1}
+    \end{enumerate}
+  \item On remet les jetons dans la boîte, puis on tire successivement et
+        avec remise $3$ jetons. Calculer la probabilité de l'événement
+        $D$ : « obtenir, dans l'ordre, un jeton vert, un jaune et un rouge ».
+        \bareme{1,5 ; 1,5}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily EXERCICE 2} \hfill \textup{(05 points)}
+
+On considère la suite $\left(U_{n}\right)_{n \in \N}$ définie par
+$U_{0} = 1$ et, pour tout entier naturel $n$,
+\[
+  U_{n+1} = \frac12 U_{n}+3 .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $U_{1}$ et $U_{2}$. \bareme{0,5 ; 0,5}
+  \item On pose $V_{n} = U_{n}-6$ pour tout entier naturel $n$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $\left(V_{n}\right)$ est une suite géométrique dont
+            on précisera la raison et le premier terme. \bareme{1,5 ; 1,5}
+      \item Exprimer $V_{n}$ puis $U_{n}$ en fonction de $n$.
+            \bareme{1 ; 1}
+      \item Calculer $\limn U_{n}$. \bareme{0,5 ; 0,5}
+    \end{enumerate}
+  \item Soit $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Exprimer $S_{n}$ en fonction de $n$. \bareme{1 ; 1}
+      \item En déduire $T_{n} = U_{0}+U_{1}+\cdots+U_{n}$. \bareme{0,5 ; 0,5}
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.7em}
+\noindent\textbf{\sffamily PROBLÈME} \hfill \textup{(10 points)}
+
+On considère la fonction numérique $f$ définie sur
+$\intervalleo{0}{+\infty}$ par
+\[
+  f(x) = \frac{1}{x}+\ln x ,
+\]
+et l'on note $(\mathcal C)$ sa courbe représentative dans un repère
+orthonormé $\left(O\,;\,\veci\,,\,\vecj\right)$ d'unité graphique $2$ cm.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Calculer $\displaystyle\lim_{x \to 0^{+}} f(x)$ et en déduire
+            une asymptote à $(\mathcal C)$. \bareme{1 ; 0,75}
+      \item Calculer $\limpinf f(x)$. \bareme{1 ; 0,75}
+    \end{enumerate}
+  \item \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que, pour tout $x>0$,
+            $f'(x) = \dfrac{x-1}{x^{2}}$. \bareme{1,5 ; 1,25}
+      \item Étudier le signe de $f'(x)$ sur $\intervalleo{0}{+\infty}$.
+            \bareme{1 ; 0,75}
+      \item Dresser le tableau de variation de $f$. \bareme{1,5 ; 1,25}
+    \end{enumerate}
+  \item En déduire que, pour tout $x>0$, $f(x) \geq 1$. Que peut-on en
+        conclure sur les points d'intersection de $(\mathcal C)$ avec l'axe
+        des abscisses ? \bareme{1 ; 1}
+  \item Écrire une équation de la tangente $(T)$ à $(\mathcal C)$ au point
+        d'abscisse $1$. \bareme{1 ; 1}
+  \item Calculer $f(0{,}5)$, $f(2)$ et $f(3)$ à $10^{-2}$ près, puis tracer
+        $(T)$ et $(\mathcal C)$ sur $\intervalleof{0}{3}$. On donne
+        $\ln 2 \approx 0{,}69$ et $\ln 3 \approx 1{,}10$.
+        \bareme{2 ; 1,75}
+\end{enumerate}
+
+\pourAdeux
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em, start=6]
+  \item Soit $F$ la fonction définie sur $\intervalleo{0}{+\infty}$ par
+        $F(x) = \ln x+x\ln x-x$.
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item Montrer que $F$ est une primitive de $f$ sur
+            $\intervalleo{0}{+\infty}$. \bareme{ ; 0,75}
+      \item Calculer, en $\text{cm}^{2}$, l'aire du domaine plan délimité
+            par $(\mathcal C)$, l'axe des abscisses et les droites
+            d'équations $x = 1$ et $x = e$. On donne $e \approx 2{,}72$.
+            \bareme{ ; 1,25}
+    \end{enumerate}
+\end{enumerate}
+\end{devoirsurveille}
+
+\begin{corrige}[devoir surveillé nº 4 — exercice 1]
+\textbf{1. a)} $\combi{3}{10} = \frac{10\times9\times8}{6} = 120$ cas
+possibles.
+
+\textbf{b)} Trois verts : $\combi{3}{4} = 4$ ; trois jaunes :
+$\combi{3}{3} = 1$ ; trois rouges : $\combi{3}{3} = 1$. Total : $6$ cas,
+donc $\proba{A} = \frac{6}{120} = \frac{1}{20}$.
+
+\textbf{c)} Deux verts parmi quatre et un jeton parmi les six autres :
+$\combi{2}{4}\times\combi{1}{6} = 6\times6 = 36$, donc
+$\proba{B} = \frac{36}{120} = \frac{3}{10}$.
+
+\textbf{d)} Le contraire est « aucun rouge », soit
+$\combi{3}{7} = 35$ cas. Donc
+$\proba{C} = 1-\frac{35}{120} = \frac{85}{120} = \frac{17}{24}$.
+
+\textbf{2.} Cas possibles : $10^{3} = 1\,000$. Cas favorables :
+$4\times3\times3 = 36$. Donc
+$\proba{D} = \frac{36}{1\,000} = \frac{9}{250}$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 4 — exercice 2]
+\textbf{1.} $U_{1} = \frac12+3 = \frac72$ et
+$U_{2} = \frac74+3 = \frac{19}{4}$.
+
+\textbf{2. a)} $V_{n+1} = U_{n+1}-6 = \frac12U_{n}+3-6 = \frac12U_{n}-3
+= \frac12\left(U_{n}-6\right) = \frac12 V_{n}$ : la suite est géométrique
+de raison $\frac12$ et de premier terme $V_{0} = 1-6 = -5$.
+\textbf{b)} $V_{n} = -5\left(\frac12\right)^{n}$ et
+$U_{n} = 6-5\left(\frac12\right)^{n}$.
+\textbf{c)} Comme $\left|\frac12\right|<1$, $\left(\frac12\right)^{n} \to 0$
+et $U_{n} \to 6$.
+
+\textbf{3. a)} $S_{n} = -5\times
+\frac{1-\left(\frac12\right)^{n+1}}{1-\frac12}
+= -10\left(1-\left(\frac12\right)^{n+1}\right)$.
+\textbf{b)} Comme $U_{k} = V_{k}+6$ et qu'il y a $n+1$ termes :
+$T_{n} = S_{n}+6(n+1)$.
+\end{corrige}
+
+\begin{corrige}[devoir surveillé nº 4 — problème]
+\textbf{1. a)} En $0^{+}$, $\frac1x \to +\infty$ et $\ln x \to -\infty$ :
+il faut lever l'indétermination. On écrit
+\[
+  f(x) = \frac{1+x\ln x}{x},
+\]
+dont le numérateur tend vers $1$ (car $x\ln x \to 0$) et le dénominateur
+vers $0^{+}$ : donc $f(x) \to +\infty$. L'axe des ordonnées, d'équation
+$x = 0$, est asymptote verticale à $(\mathcal C)$.
+\textbf{b)} En $+\infty$, $\frac1x \to 0$ et $\ln x \to +\infty$ : donc
+$f(x) \to +\infty$.
+
+\textbf{2. a)} $f'(x) = -\frac{1}{x^{2}}+\frac1x
+= \frac{-1+x}{x^{2}} = \frac{x-1}{x^{2}}$.
+\textbf{b)} Le dénominateur $x^{2}$ est strictement positif : le signe de
+$f'$ est celui de $x-1$, négatif sur $\intervalleo{0}{1}$, nul en $1$,
+positif sur $\intervalleo{1}{+\infty}$.
+\textbf{c)} $f$ décroît sur $\intervalleof{0}{1}$, croît sur
+$\intervallefo{1}{+\infty}$ ; les deux limites valent $+\infty$ et le
+minimum vaut $f(1) = 1+0 = 1$.
+
+\textbf{3.} Le minimum de $f$ sur $\intervalleo{0}{+\infty}$ vaut $1$ :
+donc $f(x) \geq 1 > 0$ pour tout $x>0$. La courbe reste entièrement
+au-dessus de l'axe des abscisses : elle ne le coupe en aucun point.
+
+\textbf{4.} $f(1) = 1$ et $f'(1) = 0$ : la tangente est horizontale,
+$(T) : y = 1$.
+
+\textbf{5.} $f(0{,}5) = 2-0{,}69 = 1{,}31$ ;
+$f(2) = 0{,}5+0{,}69 = 1{,}19$ ; $f(3) \approx 0{,}33+1{,}10 = 1{,}43$. On
+trace l'asymptote verticale, la tangente horizontale $y = 1$, le sommet
+$(1\,;\,1)$, puis la courbe, en forme de vallée, qui descend depuis
+l'infini, touche son minimum en $x = 1$, puis remonte.
+
+\textbf{6. a)} $F'(x) = \frac1x+\left(\ln x+1\right)-1 = \frac1x+\ln x
+= f(x)$. \checkmark
+\textbf{b)} La fonction étant positive sur $\intervalle{1}{e}$,
+\[
+  \mathcal A = F(e)-F(1) = \left(1+e-e\right)-\left(0+0-1\right) = 2
+  \text{ unités d'aire}.
+\]
+L'unité graphique valant $2$ cm, une unité d'aire vaut $4$ cm² :
+$\mathcal A = 8$ cm².
+\end{corrige}
+
+\begin{notepourlaclasse}
+Ce devoir est un sujet complet : il peut servir de baccalauréat blanc, tel
+quel, au troisième trimestre. Sa difficulté est calibrée légèrement
+au-dessus de la moyenne des sessions récentes, sur deux points précis — la
+levée de l'indétermination en $0^{+}$ à la question 1.a) du problème, et la
+question 3, qui demande de tirer une conséquence du tableau de variation
+plutôt que de le dresser.
+
+Si vous le donnez en cours d'année plutôt qu'en fin, remplacez la question
+1.a) par « on admet que $\displaystyle\lim_{x \to 0^{+}} f(x) = +\infty$ » :
+le reste du problème est alors accessible dès la fin du chapitre 9.
+
+Barème indicatif de correction : comptez un demi-point, dans chaque
+question, pour la \emph{phrase} de conclusion — asymptote, nature de la
+suite, interprétation de l'aire. C'est la part que les élèves de la série
+perdent le plus systématiquement, et la leur montrer chiffrée est le moyen
+le plus efficace de la leur faire écrire.
+\end{notepourlaclasse}

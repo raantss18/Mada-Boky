@@ -1,0 +1,524 @@
+% ===========================================================================
+%  Chapitre 5 — Fonctions logarithmes
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Fonctions logarithmes}
+  {Étudier et représenter la fonction logarithme népérien ; résoudre
+   équations, inéquations et systèmes faisant intervenir le logarithme ;
+   utiliser le logarithme décimal et le logarithme de base quelconque.}
+  {Analyse \textbullet\ environ 10 heures}
+
+Le chapitre précédent laisse une lacune, et elle est visible : parmi les
+primitives usuelles, celle de $x \mapsto \dfrac{1}{x}$ manque. Toutes les
+fonctions puissances $x^{n}$ ont pour primitive $\dfrac{x^{n+1}}{n+1}$, sauf
+une, celle où $n = -1$, car la formule y produirait une division par zéro.
+
+Cette exception n'est pas un accident de calcul. Elle signale qu'aucune des
+fonctions connues jusqu'ici ne convient : il faut en construire une nouvelle.
+C'est ce que fait ce chapitre. La fonction obtenue, le logarithme népérien,
+transforme les produits en sommes — propriété qui, avant les calculatrices,
+servait à multiplier de grands nombres, et qui sert aujourd'hui aussi bien à
+résoudre une équation qu'à isoler un taux d'intérêt caché dans un exposant, ce
+que vous ferez au chapitre des mathématiques financières.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Aucune ligne sur le logarithme : uniquement ce qui va servir à le construire.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Qu'est-ce qu'une primitive d'une fonction $f$ sur un intervalle ?
+  \item Énoncer le théorème des valeurs intermédiaires dans le cas d'une
+        fonction strictement monotone.
+  \item Rappeler la dérivée de $x \mapsto \dfrac{1}{x}$ et son ensemble de
+        définition.
+  \item Que signifie « $f$ réalise une bijection de $I$ sur $J$ » ?
+  \item Donner la dérivée de la réciproque d'une bijection dérivable.
+  \item Résoudre $\dfrac{2x-1}{x+3} > 0$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Dérivée de $x \mapsto \dfrac{1}{x}$
+  \item Une primitive de $x \mapsto x^{-3}$
+  \item $\limpinf \dfrac{1}{x}$
+  \item $\displaystyle\lim_{x \to 0^{+}} \dfrac{1}{x}$
+  \item Signe de $\dfrac{x-2}{x}$ sur $\Rps$
+  \item Dérivée de $x \mapsto 3x^{2}-1$
+  \item Résoudre $x^{2}-3x+2 > 0$
+  \item Ensemble de définition de $x \mapsto \dfrac{1}{x-5}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $-\dfrac{1}{x^{2}}$ \quad b) $-\dfrac{1}{2x^{2}}$ \quad c) $0$ \quad
+d) $+\infty$ \quad e) négatif sur $\intervalleo{0}{2}$, positif au-delà \quad
+f) $6x$ \quad g) $x<1$ ou $x>2$ \quad h) $\R \setminus \{5\}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Construire le logarithme népérien}
+
+\begin{definition}[logarithme népérien]
+La fonction $x \mapsto \dfrac{1}{x}$ est continue sur $\Rps$ : elle y admet
+donc des primitives. On appelle \textbf{logarithme népérien}, et l'on note
+$\ln$, l'unique primitive de $x \mapsto \dfrac{1}{x}$ sur $\Rps$ qui s'annule
+en $1$ :
+\[
+  \ln'(x) = \frac{1}{x} \quad \text{pour tout } x>0,
+  \qquad \text{et} \qquad \ln 1 = 0 .
+\]
+\end{definition}
+
+\begin{propriete}[premières conséquences]
+La fonction $\ln$ est définie et dérivable sur $\Rps$. Sa dérivée
+$\dfrac{1}{x}$ y étant strictement positive, $\ln$ est \textbf{strictement
+croissante} sur $\Rps$. De plus $\ln 1 = 0$, donc
+\[
+  \ln x > 0 \ \text{ si } x>1, \qquad \ln x < 0 \ \text{ si } 0<x<1 .
+\]
+\end{propriete}
+
+\begin{theoreme}[propriétés algébriques]
+Pour tous réels $a>0$ et $b>0$, tout entier $n$ :
+\[
+  \ln(ab) = \ln a + \ln b, \qquad
+  \ln\!\left(\frac{a}{b}\right) = \ln a - \ln b, \qquad
+  \ln\!\left(\frac{1}{b}\right) = -\ln b,
+\]
+\[
+  \ln\left(a^{n}\right) = n\ln a, \qquad
+  \ln\sqrt{a} = \frac{1}{2}\ln a .
+\]
+\end{theoreme}
+
+\begin{demonstration}[de la relation fondamentale]
+Fixons $a>0$ et posons $g(x) = \ln(ax) - \ln x$ sur $\Rps$. Elle est
+dérivable et
+$g'(x) = a \times \dfrac{1}{ax} - \dfrac{1}{x} = 0$.
+Sur $\Rps$, une fonction de dérivée nulle est constante : $g$ est donc égale
+à $g(1) = \ln a$. Ainsi $\ln(ax) - \ln x = \ln a$ pour tout $x>0$, ce qui est
+$\ln(ax) = \ln a + \ln x$.
+\end{demonstration}
+
+\begin{propriete}[limites aux bornes]
+\[
+  \lim_{x \to 0^{+}} \ln x = -\infty, \qquad \limpinf \ln x = +\infty .
+\]
+La fonction $\ln$ réalise donc une bijection strictement croissante de $\Rps$
+sur $\R$.
+\end{propriete}
+
+\begin{definition}[le nombre $e$]
+Il existe un unique réel strictement positif dont le logarithme vaut $1$. On
+le note $e$ : $\ln e = 1$, $e \approx 2{,}718$.
+\end{definition}
+
+% ===========================================================================
+\section{Limites usuelles et dérivées}
+
+\begin{theoreme}[limites à connaître par cœur]
+\[
+  \limpinf \frac{\ln x}{x^{n}} = 0 \ (n \geq 1), \qquad
+  \lim_{x \to 0^{+}} x\ln x = 0 .
+\]
+\end{theoreme}
+
+\begin{remarque}
+Ces deux limites s'énoncent d'une phrase : \emph{en l'infini, le logarithme
+est écrasé par toute puissance de $x$ ; en zéro, il est écrasé par $x$
+lui-même.} Cette hiérarchie règle à elle seule la plupart des formes
+indéterminées du chapitre.
+\end{remarque}
+
+\begin{theoreme}[dérivée d'un logarithme composé]
+Soit $u$ une fonction dérivable et strictement positive sur un intervalle $I$.
+Alors $\ln \circ\, u$ est dérivable sur $I$ et
+$\bigl(\ln u\bigr)' = \dfrac{u'}{u}$.
+\end{theoreme}
+
+\begin{theoreme}[la primitive qui manquait]
+Soit $u$ dérivable et ne s'annulant pas sur un intervalle $I$. Alors
+\[
+  \int \frac{u'(x)}{u(x)}\dx = \ln\abs{u(x)} + k .
+\]
+\end{theoreme}
+
+\begin{exemple}[reconnaître la forme $u'/u$]
+Calculons $\displaystyle\int_{0}^{1} \frac{2x}{x^{2}+1}\dx$.
+
+Ici $u(x) = x^{2}+1$, strictement positive, et $u'(x) = 2x$ : l'expression est
+exactement $\dfrac{u'}{u}$. Donc
+$\displaystyle\int_{0}^{1} \frac{2x}{x^{2}+1}\dx = \Bigl[\ln\left(x^{2}+1\right)\Bigr]_{0}^{1}
+  = \ln 2$.
+\end{exemple}
+
+% ===========================================================================
+\section{L'étude complète de la fonction $\ln$}
+
+\begin{exemple}[la courbe du logarithme]
+\emph{Définition.} $\Df = \Rps$.
+
+\emph{Limites.} $\lim_{x\to0^{+}} \ln x = -\infty$ : l'axe des ordonnées est
+asymptote verticale. $\limpinf \ln x = +\infty$, sans asymptote, avec une
+branche parabolique de direction $(Ox)$ puisque $\limpinf \frac{\ln x}{x}=0$.
+
+\emph{Convexité.} $\ln''(x) = -\dfrac{1}{x^{2}} < 0$ : la courbe est concave
+sur tout $\Rps$, donc située sous chacune de ses tangentes.
+
+\emph{Tangente en $1$.} $\ln 1 = 0$ et $\ln'(1) = 1$ : la tangente a pour
+équation $y = x-1$. La concavité donne alors, pour tout $x>0$,
+$\ln x \leq x-1$ — inégalité classique qu'il est bon de savoir retrouver.
+\end{exemple}
+
+\begin{visualisation}[une croissance qui ne s'arrête jamais mais ralentit toujours]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11cm, height = 5.8cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -0.6, xmax = 7.4, ymin = -3.2, ymax = 2.6,
+  xtick = {1, 2.718}, xticklabels = {$1$, $e$}, ytick = {1},
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtIndigo, line width=1.3pt, domain=0.045:7.2, samples=250] {ln(x)};
+  \addplot[bmtLaterite, dashed, line width=0.85pt, domain=0:3.4, samples=2] {x-1};
+  \draw[bmtGris, dotted] (axis cs:2.718,0) -- (axis cs:2.718,1);
+  \draw[bmtGris, dotted] (axis cs:0,1) -- (axis cs:2.718,1);
+  \filldraw[bmtIndigo] (axis cs:1,0) circle (1.7pt);
+  \node[bmtLaterite, font=\footnotesize, anchor=south west] at (axis cs:2.1,1.35) {$y=x-1$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+La courbe reste toujours sous la droite rouge, et ne la touche qu'en un seul
+point. Regardez à quel point la montée s'aplatit vers la droite — il faut
+$x = e \approx 2{,}7$ pour que le logarithme vaille $1$, et $x \approx 22\,000$
+pour qu'il atteigne $10$.
+\end{visualisation}
+
+\begin{entrainement}[calculs et dérivées]
+\exo[\niveau{1}] Simplifier $\ln 8 - \ln 2$, puis $\ln\sqrt{5} + \frac12\ln 5$.
+
+\exo[\niveau{1}] Dériver $x \mapsto \ln(3x+1)$ sur $\left]-\frac13;+\infty\right[$,
+puis $x \mapsto \ln\left(x^{2}+1\right)$ sur $\R$.
+
+\exo[\niveau{2}] Calculer $\displaystyle\int_{1}^{2}\frac{3x^{2}}{x^{3}+1}\dx$.
+
+\exo[\niveau{3}] Étudier les variations de $f(x) = \dfrac{\ln x}{x}$ sur
+$\Rps$ et déterminer son maximum.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\ln 8 - \ln 2 = \ln 4 = 2\ln 2$ ; \
+$\ln\sqrt5 + \frac12\ln5 = \ln 5$.
+
+\textbf{2.} $\dfrac{3}{3x+1}$ ; \ $\dfrac{2x}{x^{2}+1}$.
+
+\textbf{3.} C'est $\dfrac{u'}{u}$ avec $u = x^{3}+1$ :
+$\bigl[\ln(x^{3}+1)\bigr]_{1}^{2} = \ln 9 - \ln 2 = \ln\dfrac92$.
+
+\textbf{4.} $f'(x) = \dfrac{1-\ln x}{x^{2}}$, du signe de $1-\ln x$ : $f$ croît
+sur $\intervalleof{0}{e}$, décroît ensuite. Maximum $f(e) = \dfrac{1}{e}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Équations, inéquations et systèmes}
+
+\begin{methode}{résoudre une équation avec des logarithmes}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item \textbf{Conditions d'existence.} Écrire que chaque expression placée
+        sous un $\ln$ est strictement positive.
+  \item \textbf{Résolution.} Utiliser la stricte croissance de $\ln$ :
+        $\ln A = \ln B \daccord A = B$ ($A,B>0$).
+  \item \textbf{Vérification.} Ne conserver que les solutions dans le domaine
+        trouvé à l'étape 1. C'est ici que se perdent le plus de points.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[une équation où une solution doit être écartée]
+Résolvons $\ln(x-1) + \ln(x+2) = \ln 4$.
+
+\emph{Conditions d'existence.} $x-1>0$ et $x+2>0$, soit $x>1$.
+
+\emph{Résolution.} $\ln\bigl[(x-1)(x+2)\bigr] = \ln 4 \daccord (x-1)(x+2)=4
+\daccord x^{2}+x-6=0$, racines $2$ et $-3$.
+
+\emph{Vérification.} Seul $2$ appartient à $\left]1;+\infty\right[$. Ensemble
+des solutions : $\{2\}$.
+\end{exemple}
+
+\begin{erreurclassique}
+Passer directement de $\ln A + \ln B = \ln C$ à $AB = C$ sans avoir posé les
+conditions d'existence conduit régulièrement à retenir une solution qui n'en
+est pas une. Posez les conditions \emph{avant} de calculer, pas après.
+\end{erreurclassique}
+
+\begin{exemple}[un système logarithmique]
+Résolvons
+$\begin{cases} \ln x + \ln y = \ln 12 \\ \ln x - \ln y = \ln 3 \end{cases}$,
+$x>0$, $y>0$.
+
+En additionnant : $2\ln x = \ln 36$, donc $x = 6$. En soustrayant :
+$2\ln y = \ln 4$, donc $y = 2$. Le couple $(6\,;2)$ est la solution.
+\end{exemple}
+
+\begin{entrainement}[équations et inéquations]
+\exo[\niveau{1}] Résoudre $\ln(2x-3) = 0$, puis $\ln(x^{2}) = \ln(3x-2)$.
+
+\exo[\niveau{2}] Résoudre l'inéquation $\ln(x-1) \leq \ln(5-x)$.
+
+\exo[\niveau{3}] Résoudre le système
+$\begin{cases} \ln x + 2\ln y = 5\ln 2 \\ 3\ln x - \ln y = \ln 2 \end{cases}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $2x-3 = 1$ avec $2x-3>0$ : $x = 2$. Pour la seconde, conditions
+$x \neq 0$ et $3x-2>0$ ; l'équation $x^{2} = 3x-2$ donne $x=1$ ou $x=2$, tous
+deux acceptables.
+
+\textbf{2.} Conditions : $1<x<5$. L'inéquation équivaut à $x \leq 3$.
+Solutions : $\intervalleof{1}{3}$.
+
+\textbf{3.} Posons $X = \ln x$ et $Y = \ln y$ : le système devient
+$X+2Y = 5\ln2$ et $3X-Y = \ln2$. On trouve $X = \ln 2$ et $Y = 2\ln 2$, d'où
+$x = 2$ et $y = 4$.
+\end{corrige}
+
+% ===========================================================================
+\section{Logarithme décimal et logarithme de base quelconque}
+
+\begin{definition}[logarithme de base $a$]
+Soit $a>0$ avec $a \neq 1$. On appelle \textbf{logarithme de base $a$} la
+fonction définie sur $\Rps$ par
+$\log_{a} x = \dfrac{\ln x}{\ln a}$.
+Le cas $a = 10$ donne le \textbf{logarithme décimal}, noté $\log$.
+\end{definition}
+
+\begin{remarque}[à quoi sert le logarithme décimal]
+Pour un entier $N \geq 1$, le nombre de chiffres de son écriture décimale vaut
+$\ent{\log N}+1$. Le logarithme décimal mesure donc, littéralement, l'ordre de
+grandeur.
+\end{remarque}
+
+\begin{entrainement}[bases quelconques]
+\exo[\niveau{1}] Calculer $\log 100$, $\log_{2} 8$ et $\log_{3} \frac{1}{9}$.
+
+\exo[\niveau{2}] Combien de chiffres compte $2^{100}$ ? On donne
+$\log 2 \approx 0{,}301$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $2$ ; \ $3$ ; \ $-2$.
+
+\textbf{2.} $\log\left(2^{100}\right) = 100\log 2 \approx 30{,}1$, donc
+$\ent{30{,}1}+1 = 31$ chiffres.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Le logarithme est présent dans presque tous les sujets, et rarement seul. Les
+énoncés qui suivent sont repris de sessions réelles ; leur provenance est
+indiquée à chaque fois.
+
+\exoann[dérivabilité]{Baccalauréat, Congo-Brazzaville, série C, session 2023 — exercice 3}
+Soit $f(x) = \dfrac{6\ln(x+3)}{x+3}$ sur $\intervallefo{0}{+\infty}$.
+Démontrer que $f'(x) = \dfrac{6\left[1-\ln(x+3)\right]}{(x+3)^{2}}$, en
+déduire le sens de variation de $f$, puis calculer
+$\lim_{x\to+\infty}f(x)$ et dresser le tableau de variation.
+
+\exoann[dérivabilité]{Baccalauréat, Cameroun, série C, session 2023 — exercice 1}
+Sur $\intervalleo{1}{+\infty}$ on pose $f(x) = x-2+\ln\sqrt{x-1}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Dresser le tableau de variation de $f$.
+  \item Montrer que $2$ est l'unique solution de $f(x) = 0$.
+  \item En déduire le signe de $f(x)$ suivant les valeurs de $x$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 2}
+Résoudre dans $\R$ l'inéquation $\ln(1-x) < 2$.
+
+\exoann[calcul intégral]{Baccalauréat, Congo-Brazzaville, série C, session 2023 — exercice 3, suite}
+On garde $f(x) = \dfrac{6\ln(x+3)}{x+3}$ et l'on pose
+$g(x) = \ln^{2}(x+3)$. Montrer que $g'(x) = \frac13 f(x)$ et en déduire une
+primitive de $f$, puis la valeur de
+$\displaystyle\int_{0}^{n}f(x)\dx$ en fonction de $n$.
+
+\exoann[étude de fonction et calcul intégral]{Baccalauréat, France, série ES, Métropole–La Réunion, 22 juin 2016 — exercice 4, partie B (extrait)}
+On admet que la fonction $f$ est définie sur $\intervalle{0{,}5}{6}$ par
+$f(x) = -2x+5+3\ln(x)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $f'(x)$ et montrer que $f'(x) = \dfrac{-2x+3}{x}$.
+  \item Étudier le signe de $f'$ sur $\intervalle{0{,}5}{6}$, puis dresser le
+        tableau de variation de $f$.
+  \item Montrer que l'équation $f(x) = 0$ admet une unique solution $\alpha$
+        sur $\intervalle{0{,}5}{6}$, et donner une valeur approchée de
+        $\alpha$ à $10^{-2}$ près.
+  \item On pose $F(x) = -x^{2}+2x+3x\ln(x)$. Montrer que $F$ est une
+        primitive de $f$ sur $\intervalle{0{,}5}{6}$, puis calculer l'aire
+        exacte, en unités d'aire, du domaine compris entre la courbe de $f$,
+        l'axe des abscisses et les droites d'équations $x = 1$ et $x = 2$.
+        En donner une valeur arrondie au dixième.
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $f'(x) = 6\,\dfrac{\frac{1}{x+3}(x+3)-\ln(x+3)}{(x+3)^{2}}
+= \dfrac{6\left[1-\ln(x+3)\right]}{(x+3)^{2}}$. Pour $x \geq 0$ on a
+$x+3 \geq 3 > e$, donc $\ln(x+3)>1$ et $f'(x)<0$ : $f$ est strictement
+décroissante. Comme $\frac{\ln X}{X}\to0$, $f(x)\to0$ en $+\infty$ ; $f$
+décroît donc de $f(0) = 2\ln3$ à $0$.
+
+\textbf{2. a)} $f(x) = x-2+\frac12\ln(x-1)$ et
+$f'(x) = 1+\frac{1}{2(x-1)}>0$ : $f$ croît de $-\infty$ à $+\infty$.
+\textbf{b)} La stricte croissance donne au plus une racine, et $f(2) = 0$.
+\textbf{c)} $f$ est négative sur $\intervalleo{1}{2}$, positive sur
+$\intervalleo{2}{+\infty}$.
+
+\textbf{3.} L'existence impose $1-x>0$, soit $x<1$. L'inéquation équivaut
+alors à $1-x<e^{2}$, soit $x>1-e^{2}$. L'ensemble des solutions est
+$\intervalleo{1-e^{2}}{1}$.
+
+\textbf{4.} $g'(x) = \dfrac{2\ln(x+3)}{x+3} = \dfrac13 f(x)$, donc $3g$ est une
+primitive de $f$ et
+$\displaystyle\int_{0}^{n}f(x)\dx = 3\left[\ln^{2}(x+3)\right]_{0}^{n}
+= 3\left(\ln^{2}(n+3)-\ln^{2}3\right)$.
+
+\textbf{5. a)} $f'(x) = -2+\dfrac3x = \dfrac{-2x+3}{x}$.
+\textbf{b)} Sur $\intervalle{0{,}5}{6}$, $x>0$ donc $f'(x)$ a le signe de
+$-2x+3$, qui s'annule en $x = 1{,}5$ : $f'>0$ sur $\intervalle{0{,}5}{1{,}5}$
+et $f'<0$ sur $\intervalle{1{,}5}{6}$. La fonction $f$ croît donc de
+$f(0{,}5) = 4+3\ln0{,}5 \approx 1{,}92$ à $f(1{,}5) = 2+3\ln1{,}5 \approx
+3{,}22$, puis décroît jusqu'à $f(6) = -7+3\ln6 \approx -1{,}62$.
+\textbf{c)} Sur $\intervalle{1{,}5}{6}$, $f$ est continue et strictement
+décroissante, avec $f(1{,}5)>0$ et $f(6)<0$ : l'équation $f(x) = 0$ y admet
+une unique solution $\alpha$ (et $f$ ne s'annule pas ailleurs, puisqu'elle
+reste strictement positive sur $\intervalle{0{,}5}{1{,}5}$). Le balayage
+$f(4{,}87) \approx 0{,}009$ et $f(4{,}88) \approx -0{,}005$ donne
+$\alpha \approx 4{,}88$.
+\textbf{d)} $F'(x) = -2x+2+3\ln(x)+3 = -2x+5+3\ln(x) = f(x)$ : $F$ est bien
+une primitive de $f$. Comme $f\geq0$ sur $\intervalle{1}{2}\subset
+\intervalle{0{,}5}{\alpha}$, l'aire cherchée vaut
+\[
+  \mathcal{A} = F(2)-F(1) = \left(-4+4+6\ln2\right)-\left(-1+2+0\right)
+  = 6\ln2-1 \approx 3{,}2 \text{ unités d'aire.}
+\]
+\end{corrige}
+
+\begin{jecherche}[l'érosion d'un stock de devises]
+La Banque Centrale de Madagascar suit les réserves de change $R(t)$, en
+millions de dollars, d'un pays voisin qui les épuise progressivement, avec
+\[
+  R(t) = R_{0}\, e^{-kt}, \qquad t \geq 0,
+\]
+où $t$ est exprimé en années. On préfère travailler avec le logarithme :
+posons $\varphi(t) = \ln R(t)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Montrer que $\varphi(t) = \ln R_{0} - kt$ : la fonction $\varphi$ est
+        affine en $t$.
+  \item On observe $R_{0} = 800$ et $R(5) = 400$. Montrer que
+        $k = \dfrac{\ln 2}{5}$.
+  \item Exprimer, à l'aide du logarithme, la date $t_{1}$ à laquelle les
+        réserves ne représenteront plus que $10\,\%$ de $R_{0}$, puis donner
+        une valeur approchée de $t_{1}$ en années.
+  \item Justifier que $R$ ne s'annule jamais, bien qu'elle tende vers $0$.
+        Que peut-on en conclure pour la durée avant épuisement total ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[l'érosion d'un stock de devises]
+\textbf{1.} $\varphi(t) = \ln\left(R_{0}e^{-kt}\right) = \ln R_{0} + \ln\left(e^{-kt}\right)
+= \ln R_{0} - kt$, affine en $t$ de coefficient directeur $-k$.
+
+\textbf{2.} $R(5) = 400 = 800\,e^{-5k}$ donne $e^{-5k} = \tfrac12$, donc
+$-5k = \ln\tfrac12 = -\ln 2$, soit $k = \dfrac{\ln 2}{5}$.
+
+\textbf{3.} La condition $R(t_{1}) = 0{,}1\,R_{0}$ s'écrit
+$e^{-kt_{1}} = 0{,}1$, soit $t_{1} = \dfrac{-\ln 0{,}1}{k}
+= \dfrac{5\ln 10}{\ln 2} \approx 16{,}6$ années.
+
+\textbf{4.} La fonction exponentielle ne s'annule jamais, donc $R(t) > 0$
+pour tout $t$ : le modèle ne prévoit \emph{aucune} date d'épuisement total,
+seulement une décroissance sans fin vers $0$ — les réserves s'approchent de
+zéro sans jamais l'atteindre en temps fini.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item $\ln(a+b) = \ln a + \ln b$ pour tous $a>0$ et $b>0$.
+  \item L'équation $\ln x = -5$ n'a pas de solution.
+  \item Pour tout $x>0$, $\ln x \leq x-1$.
+  \item Une primitive de $x \mapsto \dfrac{1}{x}$ sur $\left]-\infty;0\right[$
+        est $x \mapsto \ln x$.
+  \item L'inéquation $\ln(x-2) \leq 3$ a pour solutions $x \leq e^{3}+2$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — c'est $\ln(ab)$ qui vaut $\ln a + \ln b$.
+\textbf{2.} Faux — $\ln$ est une bijection de $\Rps$ sur $\R$ ; ici
+$x = e^{-5}$.
+\textbf{3.} Vrai — concavité et tangente en $1$.
+\textbf{4.} Faux — $\ln x$ n'y est pas défini ; c'est $\ln(-x)$.
+\textbf{5.} Faux — il manque la condition d'existence $x>2$ : les solutions
+sont $\intervalleof{2}{e^{3}+2}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve — série OSE}
+Soit $f$ la fonction définie sur $\Rps$ par
+$f(x) = x - 2 + \dfrac{\ln x}{x}$, de courbe $(\Cf)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Déterminer les limites de $f$ en $0^{+}$ et en $+\infty$.
+        \hfill\textup{(1 pt)}
+  \item Montrer que la droite $(\mathscr{D})$ d'équation $y = x-2$ est
+        asymptote à $(\Cf)$ en $+\infty$, et étudier la position relative de la
+        courbe et de la droite. \hfill\textup{(1,25 pt)}
+  \item Montrer que $f'(x) = \dfrac{x^{2}+1-\ln x}{x^{2}}$, puis établir que
+        $f'(x)>0$ pour tout $x>0$. \emph{On pourra utiliser l'inégalité
+        $\ln x \leq x-1$.} \hfill\textup{(1,5 pt)}
+  \item Dresser le tableau de variation de $f$. \hfill\textup{(0,75 pt)}
+  \item Montrer que l'équation $f(x)=0$ admet une unique solution $\alpha$ et
+        que $1 < \alpha < 2$. \hfill\textup{(1 pt)}
+  \item Calculer $\displaystyle\int_{1}^{e} \frac{\ln x}{x}\dx$, puis l'aire du
+        domaine délimité par $(\Cf)$, la droite $(\mathscr{D})$ et les droites
+        $x=1$ et $x=e$. \hfill\textup{(1,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} En $0^{+}$ : $x-2 \to -2$ et $\dfrac{\ln x}{x} \to -\infty$, donc
+$f(x) \to -\infty$. En $+\infty$ : $\dfrac{\ln x}{x} \to 0$ donc
+$f(x) \to +\infty$.
+
+\textbf{2.} $f(x)-(x-2) = \dfrac{\ln x}{x} \to 0$ : asymptote. Le signe de
+cette différence est celui de $\ln x$ : la courbe est au-dessus de
+$(\mathscr{D})$ pour $x>1$, au-dessous pour $0<x<1$.
+
+\textbf{3.} $f'(x) = 1 + \dfrac{1-\ln x}{x^{2}} = \dfrac{x^{2}+1-\ln x}{x^{2}}$.
+Comme $\ln x \leq x-1 \leq x^{2}$ pour $x>0$, le numérateur est minoré par
+$1 > 0$ : donc $f'>0$.
+
+\textbf{4.} $f$ est strictement croissante sur $\Rps$, de $-\infty$ à
+$+\infty$.
+
+\textbf{5.} $f$ étant continue et strictement croissante, avec $f(1) = -1 < 0$
+et $f(2) = \dfrac{\ln 2}{2} > 0$, le théorème des valeurs intermédiaires donne
+une unique solution $\alpha \in \intervalleo{1}{2}$.
+
+\textbf{6.} L'expression $\dfrac{\ln x}{x}$ est de la forme $u'u$ avec
+$u = \ln x$ : une primitive est $\dfrac{(\ln x)^{2}}{2}$, d'où
+$\displaystyle\int_{1}^{e}\frac{\ln x}{x}\dx = \frac12$. Sur
+$\intervalle{1}{e}$ la courbe est au-dessus de la droite, donc l'aire vaut
+$\dfrac12$ unité d'aire.
+\end{corrige}

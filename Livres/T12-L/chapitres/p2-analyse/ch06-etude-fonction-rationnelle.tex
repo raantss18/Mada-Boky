@@ -1,0 +1,601 @@
+% ===========================================================================
+%  Chapitre 6 — Étude complète d'une fonction
+%  PE 2026, composante ANALYSE — RAPE, deuxième période
+% ===========================================================================
+\bmtchapitre{Étude complète d'une fonction}
+  {Mener l'étude complète d'une fonction rationnelle : ensemble de
+   définition, limites, dérivée, tableau de variation, points particuliers,
+   position de la courbe par rapport à une droite, et tracé dans un repère.}
+  {Analyse \textbullet\ environ 5 heures}
+
+Ce chapitre n'apporte presque aucune notion nouvelle : il assemble. Les
+limites viennent du chapitre 4, la dérivée du chapitre 5, le tableau de
+signes du chapitre 1. Ce qui s'apprend ici, c'est \emph{l'ordre} dans lequel
+on les met — et cet ordre est toujours le même, quelle que soit la fonction.
+
+C'est aussi le chapitre qui donne sa forme au problème du baccalauréat. Que
+la fonction contienne un logarithme, une exponentielle ou seulement un
+quotient de polynômes, les questions se suivent dans cet ordre-là, session
+après session. Apprenez le plan une fois, il servira toute l'année.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Tout vient des chapitres 1, 4 et 5.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Donner l'ensemble de définition de $x \mapsto \dfrac{x+1}{x^{2}-9}$.
+  \item Calculer $\limpinf \dfrac{2x^{2}+1}{x^{2}-x}$.
+  \item Dériver $x \mapsto \dfrac{x^{2}}{x+1}$.
+  \item Étudier le signe de $x^{2}-2x-3$.
+  \item Écrire l'équation de la tangente en $0$ à la courbe de
+        $x \mapsto x^{2}+x+1$.
+  \item Que signifie « la courbe est au-dessus de la droite $(D)$ » en
+        termes d'inégalité ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $\dfrac{4}{0^{+}}$
+  \item $\dfrac{-3}{0^{-}}$
+  \item $\limpinf \dfrac{x^{2}}{x}$
+  \item Signe de $(x-1)^{2}$
+  \item Valeur interdite de $\dfrac{5}{2x-6}$
+  \item $f(x) = \dfrac{x^{2}}{x-1}$ : calculer $f(2)$
+  \item $f(x) = \dfrac{x^{2}}{x-1}$ : calculer $f(0)$
+  \item Une courbe coupe $(Oy)$ en un point d'abscisse
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $+\infty$ \quad b) $+\infty$ \quad c) $+\infty$ \quad d) positif ou nul
+\quad e) $x = 3$ \quad f) $4$ \quad g) $0$ \quad h) $0$.
+\end{corrige}
+
+% ===========================================================================
+\section{Le plan d'étude, une fois pour toutes}
+
+\begin{methode}{étudier une fonction, en sept étapes}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.18em]
+  \item \emph{Ensemble de définition.} Écrire $\Df$ et le justifier — un
+        dénominateur non nul, une racine carrée positive.
+  \item \emph{Parité éventuelle.} Si $\Df$ est symétrique, tester $f(-x)$ ;
+        sinon, passer.
+  \item \emph{Limites aux bornes de $\Df$.} Une par borne, sans en oublier
+        aucune, et chacune suivie de son interprétation graphique.
+  \item \emph{Dérivée.} Calculer $f'(x)$, la réduire, factoriser le
+        numérateur.
+  \item \emph{Signe de $f'$ et tableau de variation.} Ligne de signes,
+        flèches, valeurs des extremums, limites aux extrémités.
+  \item \emph{Points particuliers.} Intersections avec les axes, tangente en
+        un point donné, position par rapport à une droite ou à une
+        asymptote.
+  \item \emph{Tracé.} Repère, unité, asymptotes en pointillé d'abord, puis
+        la courbe.
+\end{enumerate}
+\end{methode}
+
+\begin{remarque}
+Ce plan est celui du sujet d'examen, dans cet ordre. Un candidat qui
+connaît les sept étapes sait, en lisant l'énoncé, où il en est et combien de
+points restent à prendre.
+\end{remarque}
+
+% ===========================================================================
+\section{Premier type : \texorpdfstring{$f(x) = \dfrac{ax^{2}+bx+c}{dx+e}$}{quotient de degre 2 sur degre 1}}
+
+Ces fonctions ont une asymptote verticale et une asymptote oblique. La forme
+$f(x) = \alpha x+\beta+\dfrac{k}{dx+e}$ donne tout d'un coup.
+
+\begin{exemple}[une étude complète, du début au tracé]
+Soit $f(x) = \dfrac{x^{2}-3x+4}{x-2}$.
+
+\emph{1. Ensemble de définition.} $x-2 \neq 0$, donc
+$\Df = \R\setminus\{2\}$.
+
+\emph{2. Parité.} $\Df$ n'est pas symétrique par rapport à $0$ : la question
+ne se pose pas.
+
+\emph{3. Limites.} On vérifie que $f(x) = x-1+\dfrac{2}{x-2}$ :
+\[
+  (x-1)(x-2)+2 = x^{2}-3x+2+2 = x^{2}-3x+4 . \checkmark
+\]
+Donc $f(x) \to \pm\infty$ en $\pm\infty$, et la droite $(D) : y = x-1$ est
+asymptote oblique. En $2$, le terme $\frac{2}{x-2}$ tend vers $-\infty$ à
+gauche et $+\infty$ à droite : la droite $x = 2$ est asymptote verticale.
+
+\emph{4. Dérivée.}
+\[
+  f'(x) = \frac{(2x-3)(x-2)-\left(x^{2}-3x+4\right)}{(x-2)^{2}}
+  = \frac{x^{2}-4x+2}{(x-2)^{2}} .
+\]
+
+\emph{5. Signe et variations.} Le numérateur a pour discriminant
+$16-8 = 8$ et pour racines $2-\sqrt2 \approx 0{,}59$ et
+$2+\sqrt2 \approx 3{,}41$. Le dénominateur est positif :
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|ccccccccc|}
+\hline
+$x$ & $-\infty$ & & $2-\sqrt2$ & & $2$ & & $2+\sqrt2$ & & $+\infty$\\
+\hline
+$f'(x)$ & & $+$ & $0$ & $-$ & \textbardbl & $-$ & $0$ & $+$ & \\
+\hline
+$f$ & $-\infty$ & $\nearrow$ & $-1{,}83$ & $\searrow$ & \textbardbl &
+$\searrow$ & $4{,}83$ & $\nearrow$ & $+\infty$\\
+\hline
+\end{tabular}
+\end{center}
+
+\emph{6. Points particuliers.} La courbe coupe $(Oy)$ en
+$\left(0\,;\,-2\right)$. Elle ne coupe pas $(Ox)$ : $x^{2}-3x+4$ a un
+discriminant négatif. Position par rapport à $(D)$ : le signe de
+$f(x)-(x-1) = \frac{2}{x-2}$ est celui de $x-2$, donc la courbe est
+au-dessus de $(D)$ pour $x>2$ et en dessous pour $x<2$.
+
+\emph{7. Tracé.}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 11.2cm, height = 7cm,
+  axis lines = middle, xlabel = {$x$}, ylabel = {$y$},
+  xmin = -3.4, xmax = 7.4, ymin = -6.4, ymax = 9.4,
+  xtick = {-3,-2,-1,1,2,3,4,5,6,7}, ytick = {-6,-4,-2,2,4,6,8},
+  axis line style = {bmtGris},
+  tick label style = {font=\scriptsize, color=bmtGris},
+  grid = both, grid style = {bmtGrisClair, line width=0.3pt},
+  clip = true, restrict y to domain = -14:16,
+]
+  \addplot[bmtIndigo, line width=1.4pt, domain=-3.3:1.86, samples=220]
+    {(x^2-3*x+4)/(x-2)};
+  \addplot[bmtIndigo, line width=1.4pt, domain=2.14:7.3, samples=220]
+    {(x^2-3*x+4)/(x-2)};
+  \addplot[bmtLaterite, line width=1pt, dash pattern=on 3pt off 2pt,
+           domain=-3.3:7.3] {x-1};
+  \draw[bmtLaterite, line width=1pt, dash pattern=on 3pt off 2pt]
+    (axis cs:2,-6.3) -- (axis cs:2,9.3);
+  \filldraw[bmtVetiver] (axis cs:0.586,-1.828) circle (2pt);
+  \filldraw[bmtVetiver] (axis cs:3.414,4.828) circle (2pt);
+  \node[bmtLaterite, font=\scriptsize, anchor=west]
+    at (axis cs:5.6,4.2) {$(D) : y = x-1$};
+  \node[bmtLaterite, font=\scriptsize, anchor=south west]
+    at (axis cs:2.1,7.4) {$x = 2$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Les deux points marqués sont les extremums. On voit sur le dessin ce que le
+tableau annonçait : la branche de gauche est entièrement sous l'asymptote
+oblique, celle de droite entièrement au-dessus.
+\end{exemple}
+
+\begin{entrainement}[études de type 1]
+\exo[\niveau{2}] $f(x) = \dfrac{x^{2}+1}{x}$ : mener les étapes 1 à 5 du plan
+d'étude.
+
+\exo[\niveau{2}] $f(x) = \dfrac{x^{2}-x-2}{x-1}$ : montrer que
+$f(x) = x-\dfrac{2}{x-1}$, puis donner les asymptotes et la position de la
+courbe par rapport à l'asymptote oblique.
+
+\exo[\niveau{3}] $f(x) = \dfrac{2x^{2}-3x+1}{x-1}$ : simplifier $f(x)$ pour
+$x \neq 1$ et en déduire la nature de la courbe. Que se passe-t-il en
+$x = 1$ ?
+\end{entrainement}
+
+\begin{corrige}[études de type 1]
+\textbf{1.} $\Df = \R^{*}$ ; $f(x) = x+\frac1x$ est impaire ;
+$f' (x)= \frac{x^{2}-1}{x^{2}}$, positive à l'extérieur de
+$\intervalle{-1}{1}$ ; maximum local $-2$ en $-1$, minimum local $2$ en
+$1$ ; asymptotes $x = 0$ et $y = x$.
+
+\textbf{2.} $x(x-1)-2 = x^{2}-x-2$ \checkmark. Asymptotes : $x = 1$ et
+$y = x$. Le reste $-\frac{2}{x-1}$ est négatif pour $x>1$ : la courbe est
+sous l'asymptote à droite de $1$, au-dessus à gauche.
+
+\textbf{3.} $2x^{2}-3x+1 = (x-1)(2x-1)$, donc pour $x \neq 1$,
+$f(x) = 2x-1$ : la courbe est une droite privée du point d'abscisse $1$. En
+$x = 1$, la fonction n'est pas définie : le graphe présente un « trou » au
+point $(1\,;\,1)$.
+\end{corrige}
+
+% ===========================================================================
+\section{Deuxième type : \texorpdfstring{$f(x) = \dfrac{ax^{2}+bx+c}{dx^{2}+ex+l}$}{quotient de deux polynomes de degre 2}}
+
+Ici le degré est le même en haut et en bas : la courbe admet une
+\textbf{asymptote horizontale}, d'ordonnée le quotient des coefficients
+dominants. Les valeurs interdites, elles, sont les racines du dénominateur —
+il peut y en avoir deux, une, ou aucune.
+
+\begin{exemple}[deux valeurs interdites]
+Soit $f(x) = \dfrac{x^{2}+2}{x^{2}-1}$.
+
+\emph{1.} $x^{2}-1 = 0$ pour $x = \pm1$, donc
+$\Df = \R\setminus\{-1\,;\,1\}$.
+
+\emph{2.} $\Df$ est symétrique et $f(-x) = f(x)$ : la fonction est
+\textbf{paire}. Il suffira donc de l'étudier sur $\intervallefo{0}{+\infty}$
+et de compléter le tracé par symétrie d'axe $(Oy)$ — une économie
+considérable.
+
+\emph{3.} $\limpinf f(x) = \limpinf \frac{x^{2}}{x^{2}} = 1$ : la droite
+$y = 1$ est asymptote horizontale. En $1$, le numérateur tend vers $3>0$ et
+le dénominateur vers $0$, négatif à gauche, positif à droite : $-\infty$ puis
+$+\infty$. Les droites $x = -1$ et $x = 1$ sont asymptotes verticales.
+
+\emph{4.}
+\[
+  f'(x) = \frac{2x\left(x^{2}-1\right)-\left(x^{2}+2\right)2x}
+               {\left(x^{2}-1\right)^{2}}
+        = \frac{-6x}{\left(x^{2}-1\right)^{2}} .
+\]
+
+\emph{5.} Le dénominateur est positif : $f'$ a le signe de $-6x$, donc $f$
+croît sur les intervalles à gauche de $0$ et décroît à droite. En $0$,
+$f(0) = -2$ : c'est un maximum local, sur l'intervalle
+$\intervalleo{-1}{1}$.
+\end{exemple}
+
+\begin{avertissement}
+Sur cet exemple, $f$ est croissante sur $\intervalleo{-\infty}{-1}$
+\emph{et} sur $\intervalleo{-1}{0}$ — mais pas sur leur réunion : la
+fonction saute de $+\infty$ à $-\infty$ en traversant $-1$. On ne réunit
+jamais deux intervalles séparés par une valeur interdite.
+\end{avertissement}
+
+\begin{entrainement}[études de type 2]
+\exo[\niveau{2}] $f(x) = \dfrac{2x^{2}}{x^{2}+1}$ : $\Df$, parité, limite en
+$\pm\infty$, dérivée, variations.
+
+\exo[\niveau{2}] $f(x) = \dfrac{x^{2}-4}{x^{2}-9}$ : $\Df$, asymptotes,
+intersections avec les axes.
+
+\exo[\niveau{3}] $f(x) = \dfrac{3x^{2}+1}{x^{2}-4}$ : mener l'étude
+complète, tracé compris.
+\end{entrainement}
+
+\begin{corrige}[études de type 2]
+\textbf{1.} $\Df = \R$ (le dénominateur ne s'annule jamais) ; fonction
+paire ; $\limpinf f = 2$, asymptote $y = 2$ ;
+$f'(x) = \frac{4x}{\left(x^{2}+1\right)^{2}}$, du signe de $x$ : $f$ décroît
+sur $\R^{-}$, croît sur $\R^{+}$, minimum $f(0) = 0$.
+
+\textbf{2.} $\Df = \R\setminus\{-3\,;\,3\}$ ; asymptotes $x = -3$, $x = 3$ et
+$y = 1$ ; la courbe coupe $(Ox)$ en $-2$ et $2$, et $(Oy)$ en
+$\left(0\,;\,\frac49\right)$.
+
+\textbf{3.} $\Df = \R\setminus\{-2\,;\,2\}$ ; paire ; asymptote horizontale
+$y = 3$ et asymptotes verticales $x = \pm2$ ;
+$f'(x) = \frac{-26x}{\left(x^{2}-4\right)^{2}}$, du signe de $-x$ ; maximum
+local $f(0) = -\frac14$ sur $\intervalleo{-2}{2}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Position d'une courbe par rapport à une droite}
+
+\begin{methode}{comparer une courbe et une droite}
+Pour situer $\Cf$ par rapport à la droite $(D) : y = ax+b$ :
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item calculer la différence $d(x) = f(x)-(ax+b)$ ;
+  \item réduire au même dénominateur et factoriser ;
+  \item étudier le \textbf{signe} de $d(x)$ dans un tableau ;
+  \item conclure : $d(x) > 0$ signifie « la courbe est au-dessus »,
+        $d(x) < 0$ « en dessous », $d(x) = 0$ donne les points
+        d'intersection.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[une courbe qui traverse sa droite]
+Soit $f(x) = \dfrac{x^{3}}{x^{2}+1}$ et $(D) : y = x$. Alors
+\[
+  f(x)-x = \frac{x^{3}-x\left(x^{2}+1\right)}{x^{2}+1} = \frac{-x}{x^{2}+1},
+\]
+qui est du signe de $-x$. La courbe est donc au-dessus de $(D)$ pour
+$x<0$, en dessous pour $x>0$, et les deux se coupent en l'origine : une
+courbe traverse parfaitement son asymptote, et cela n'a rien d'anormal.
+\end{exemple}
+
+\begin{entrainement}[positions relatives]
+\exo[\niveau{1}] $f(x) = x+\dfrac{3}{x}$ et $(D) : y = x$ : étudier la
+position.
+
+\exo[\niveau{2}] $f(x) = \dfrac{2x^{2}-1}{x}$ et $(D) : y = 2x$ : étudier la
+position et donner les points d'intersection s'il en existe.
+
+\exo[\niveau{3}] $f(x) = \dfrac{x^{2}+x+1}{x+1}$ et $(D) : y = x$ : montrer
+que la courbe est toujours au-dessus de $(D)$ sur
+$\intervalleo{-1}{+\infty}$.
+\end{entrainement}
+
+\begin{corrige}[positions relatives]
+\textbf{1.} $f(x)-x = \frac3x$, du signe de $x$ : au-dessus pour $x>0$, en
+dessous pour $x<0$ ; aucun point d'intersection.
+\textbf{2.} $f(x)-2x = -\frac1x$, du signe de $-x$ : au-dessus pour $x<0$,
+en dessous pour $x>0$ ; aucun point d'intersection, la différence ne
+s'annulant jamais.
+\textbf{3.} $f(x)-x = \frac{x^{2}+x+1-x(x+1)}{x+1} = \frac{1}{x+1}$, qui est
+strictement positif dès que $x>-1$.
+\end{corrige}
+
+\begin{qcm}
+\exo Si $\limpinf f(x) = 2$ et $\limminf f(x) = 2$, la courbe admet :
+\textbf{a)} deux asymptotes horizontales distinctes \quad
+\textbf{b)} une seule asymptote horizontale, $y = 2$ \quad
+\textbf{c)} une asymptote oblique \quad \textbf{d)} aucune asymptote
+\reponseqcm{b}
+
+\exo Une fonction paire dont on connaît l'étude sur $\intervallefo{0}{+\infty}$ :
+\textbf{a)} doit être réétudiée sur $\R^{-}$ \quad
+\textbf{b)} se complète par symétrie d'axe $(Oy)$ \quad
+\textbf{c)} se complète par symétrie de centre $O$ \quad
+\textbf{d)} n'est pas définie sur $\R^{-}$ \reponseqcm{b}
+
+\exo La courbe de $f$ coupe l'axe des abscisses aux points d'abscisses :
+\textbf{a)} les valeurs interdites \quad \textbf{b)} les solutions de
+$f(x) = 0$ \quad \textbf{c)} les solutions de $f'(x) = 0$ \quad
+\textbf{d)} $f(0)$ \reponseqcm{b}
+
+\exo Pour $f(x) = \dfrac{ax^{2}+bx+c}{dx+e}$ avec $a \neq 0$ et $d \neq 0$,
+la courbe admet en $+\infty$ :
+\textbf{a)} une asymptote horizontale \quad \textbf{b)} une asymptote
+oblique \quad \textbf{c)} une asymptote verticale \quad \textbf{d)} aucune
+asymptote \reponseqcm{b}
+\end{qcm}
+
+% ===========================================================================
+\begin{annales}
+Les études complètes des sujets malgaches reposent sur le logarithme ou
+l'exponentielle et figurent donc aux chapitres 7 et 8. Les énoncés ci-dessous
+sont des études réelles de fonctions rationnelles, du même fonds vérifié.
+
+\exoann{Baccalauréat blanc, Lycée Philibert Tsiranana, session 2022-2023 —
+problème}
+Soit $f(x) = \dfrac{x^{2}-3x+4}{x-2}$, de courbe $\Cf$ dans un repère
+orthonormé d'unité $1$ cm.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer $\Df$ et les limites de $f$ aux bornes de $\Df$.
+  \item Vérifier que $f(x) = x-1+\dfrac{2}{x-2}$ et en déduire l'asymptote
+        oblique $(D)$.
+  \item Étudier la position de $\Cf$ par rapport à $(D)$.
+  \item Montrer que $f'(x) = \dfrac{x^{2}-4x+2}{(x-2)^{2}}$, puis dresser le
+        tableau de variation.
+  \item Tracer $(D)$, l'asymptote verticale et $\Cf$.
+\end{enumerate}
+
+\exoann{Baccalauréat probatoire, Cameroun, séries D et TI, session 2023 —
+exercice 4}
+Soit $f(x) = x+\dfrac{1}{x+1}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer $\Df$ et les limites aux bornes.
+  \item Montrer que la droite $y = x$ et la droite $x = -1$ sont asymptotes
+        à la courbe.
+  \item Montrer que $f'(x) = \dfrac{x(x+2)}{(x+1)^{2}}$ et dresser le
+        tableau de variation.
+  \item Étudier la position de la courbe par rapport à la droite $y = x$.
+  \item Tracer la courbe et ses asymptotes.
+\end{enumerate}
+
+\exoann{Baccalauréat probatoire, Cameroun, série D, session 2022 —
+exercice 4}
+Soit $f(x) = \dfrac{3x}{3+4x}$. Déterminer $\Df$, les limites aux bornes, la
+dérivée, le tableau de variation, puis tracer la courbe avec ses deux
+asymptotes.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} C'est exactement l'étude menée en exemple dans ce chapitre :
+$\Df = \R\setminus\{2\}$ ; limites $\pm\infty$ en $\pm\infty$, $-\infty$ en
+$2^{-}$ et $+\infty$ en $2^{+}$ ; asymptote oblique $y = x-1$, courbe
+au-dessus pour $x>2$ et en dessous pour $x<2$ ; extremums
+$f(2-\sqrt2) = 1-2\sqrt2 \approx -1{,}83$ (maximum local) et
+$f(2+\sqrt2) = 1+2\sqrt2 \approx 4{,}83$ (minimum local).
+
+\textbf{2.} $\Df = \R\setminus\{-1\}$ ; $f(x)-x = \frac{1}{x+1} \to 0$, donc
+$y = x$ est asymptote oblique, et la courbe est au-dessus de cette droite
+pour $x>-1$, en dessous pour $x<-1$ ; $x = -1$ est asymptote verticale
+($-\infty$ à gauche, $+\infty$ à droite) ; variations : croissante jusqu'en
+$-2$ (maximum $-3$), décroissante jusqu'en $-1$, décroissante de $-1$ à $0$
+(minimum $1$), puis croissante.
+
+\textbf{3.} $\Df = \R\setminus\left\{-\frac34\right\}$ ; asymptotes
+$y = \frac34$ et $x = -\frac34$ ; $f'(x) = \frac{9}{(3+4x)^{2}} > 0$ : la
+fonction est strictement croissante sur chacun des deux intervalles. La
+courbe coupe les deux axes à l'origine.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[reconstituer une fonction à partir de sa courbe]
+La courbe ci-dessous est celle d'une fonction de la forme
+$f(x) = \dfrac{ax+b}{x+c}$.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 9.6cm, height = 5.6cm,
+  axis lines = middle, xlabel = {$x$}, ylabel = {$y$},
+  xmin = -5.4, xmax = 5.4, ymin = -4.4, ymax = 6.4,
+  xtick = {-5,-4,-3,-2,-1,1,2,3,4,5}, ytick = {-4,-2,2,4,6},
+  axis line style = {bmtGris},
+  tick label style = {font=\scriptsize, color=bmtGris},
+  grid = both, grid style = {bmtGrisClair, line width=0.3pt},
+  clip = true, restrict y to domain = -10:12,
+]
+  \addplot[bmtIndigo, line width=1.4pt, domain=-5.3:0.88, samples=200]
+    {(2*x+4)/(x-1)};
+  \addplot[bmtIndigo, line width=1.4pt, domain=1.14:5.3, samples=200]
+    {(2*x+4)/(x-1)};
+  \addplot[bmtLaterite, line width=0.9pt, dash pattern=on 3pt off 2pt,
+           domain=-5.3:5.3] {2};
+  \draw[bmtLaterite, line width=0.9pt, dash pattern=on 3pt off 2pt]
+    (axis cs:1,-4.3) -- (axis cs:1,6.3);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Lire l'asymptote verticale et en déduire $c$.
+  \item Lire l'asymptote horizontale et en déduire $a$.
+  \item La courbe coupe l'axe des abscisses en $-2$. En déduire $b$.
+  \item Vérifier votre réponse en calculant $f(0)$ et en le comparant au
+        graphique.
+  \item Calculer $f'(x)$ et vérifier que le signe obtenu correspond bien au
+        sens de variation lu sur la figure.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[reconstituer une fonction à partir de sa courbe]
+\textbf{1.} L'asymptote verticale est $x = 1$, donc $x+c$ s'annule en $1$ :
+$c = -1$.
+
+\textbf{2.} L'asymptote horizontale est $y = 2$, et
+$\limpinf \frac{ax+b}{x-1} = a$ : donc $a = 2$.
+
+\textbf{3.} $f(-2) = 0$ impose $2\times(-2)+b = 0$, soit $b = 4$. Ainsi
+$f(x) = \frac{2x+4}{x-1}$.
+
+\textbf{4.} $f(0) = \frac{4}{-1} = -4$, ce que confirme le graphique.
+
+\textbf{5.} $f'(x) = \frac{2(x-1)-(2x+4)}{(x-1)^{2}} = \frac{-6}{(x-1)^{2}}
+< 0$ : la fonction décroît sur chacun des deux intervalles, ce qui est bien
+ce que montre la figure.
+\end{corrige}
+
+% ===========================================================================
+\begin{vraifaux}
+\exo Une fonction rationnelle dont le numérateur et le dénominateur ont le
+même degré admet une asymptote horizontale.
+
+\exo Si une courbe admet une asymptote oblique, elle ne peut pas avoir
+d'asymptote verticale.
+
+\exo Une fonction paire ne peut pas avoir d'asymptote oblique.
+
+\exo Les points d'intersection de $\Cf$ avec l'axe des abscisses sont donnés
+par $f'(x) = 0$.
+
+\exo Si $f(x)-(x+1)$ garde un signe constant, la courbe ne coupe jamais la
+droite $y = x+1$.
+\end{vraifaux}
+
+\begin{corrige}[vrai ou faux]
+\textbf{1.} Vrai — d'ordonnée le quotient des coefficients dominants.
+\textbf{2.} Faux — l'exemple du chapitre en a les deux.
+\textbf{3.} Faux, mais presque : si elle en a une en $+\infty$, la symétrie
+en donne une autre en $-\infty$, de coefficient directeur opposé. Une même
+droite ne peut pas être asymptote des deux côtés.
+\textbf{4.} Faux — c'est $f(x) = 0$ ; $f'(x) = 0$ donne les tangentes
+horizontales.
+\textbf{5.} Vrai — couper la droite exigerait que la différence s'annule.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Trente minutes.
+
+Soit $f(x) = \dfrac{x^{2}-4}{x-1}$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Déterminer $\Df$.
+  \item Vérifier que $f(x) = x+1-\dfrac{3}{x-1}$.
+  \item En déduire les trois asymptotes ou limites remarquables.
+  \item Étudier la position de $\Cf$ par rapport à la droite $y = x+1$.
+  \item Calculer $f'(x)$ et donner son signe.
+  \item Dresser le tableau de variation.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} $\Df = \R\setminus\{1\}$.
+\textbf{2.} $(x+1)(x-1)-3 = x^{2}-1-3 = x^{2}-4$. \checkmark
+\textbf{3.} $y = x+1$ est asymptote oblique en $\pm\infty$ ; $x = 1$ est
+asymptote verticale, avec $+\infty$ en $1^{-}$ et $-\infty$ en $1^{+}$ (le
+signe vient du $-3$ au numérateur du reste).
+\textbf{4.} $f(x)-(x+1) = -\frac{3}{x-1}$ : positif pour $x<1$ (courbe
+au-dessus), négatif pour $x>1$ (courbe en dessous).
+\textbf{5.} $f'(x) = 1+\frac{3}{(x-1)^{2}} > 0$ : toujours strictement
+positive.
+\textbf{6.} $f$ est strictement croissante sur $\intervalleo{-\infty}{1}$
+(de $-\infty$ à $+\infty$) et sur $\intervalleo{1}{+\infty}$ (de $-\infty$
+à $+\infty$).
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice original au format de l'épreuve — série A, options A1 et
+A2 \textbullet\ 10 points, format du problème}
+Soit $f$ la fonction définie sur $\R\setminus\{-1\}$ par
+\[
+  f(x) = \frac{x^{2}+2x+2}{x+1},
+\]
+de courbe $\Cf$ dans un repère orthonormé d'unité $1$ cm.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Justifier que $\Df = \R\setminus\{-1\}$. \bareme{0,5 ; 0,5}
+  \item Vérifier que, pour tout $x \neq -1$,
+        $f(x) = x+1+\dfrac{1}{x+1}$. \bareme{1,5 ; 1}
+  \item En déduire :
+    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
+      \item les limites de $f$ en $-\infty$ et en $+\infty$ ;
+            \bareme{1 ; 1}
+      \item les limites de $f$ en $-1^{-}$ et en $-1^{+}$, et l'asymptote
+            verticale qui en résulte. \bareme{1 ; 1}
+    \end{enumerate}
+  \item Montrer que la droite $(D) : y = x+1$ est asymptote oblique à $\Cf$
+        en $+\infty$ et en $-\infty$, puis étudier la position de $\Cf$ par
+        rapport à $(D)$. \bareme{2 ; 1,5}
+  \item Montrer que $f'(x) = \dfrac{x(x+2)}{(x+1)^{2}}$, étudier son signe et
+        dresser le tableau de variation de $f$. \bareme{2,5 ; 2,5}
+  \item Écrire une équation de la tangente $(T)$ à $\Cf$ au point d'abscisse
+        $0$. \bareme{1 ; 1}
+  \item Tracer $(D)$, l'asymptote verticale, $(T)$ et $\Cf$. \bareme{0,5 ; 1,5}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} Le dénominateur $x+1$ s'annule pour $x = -1$ seulement.
+
+\textbf{2.} $(x+1)(x+1)+1 = x^{2}+2x+1+1 = x^{2}+2x+2$. \checkmark
+
+\textbf{3. a)} $\frac{1}{x+1} \to 0$, donc $f(x) \sim x+1$ :
+$f \to -\infty$ en $-\infty$ et $+\infty$ en $+\infty$.
+\textbf{b)} En $-1$, le terme $x+1$ tend vers $0$ et $\frac{1}{x+1}$ vers
+$-\infty$ à gauche, $+\infty$ à droite. La droite $x = -1$ est asymptote
+verticale.
+
+\textbf{4.} $f(x)-(x+1) = \frac{1}{x+1} \to 0$ : $(D)$ est asymptote
+oblique. Ce reste a le signe de $x+1$ : la courbe est au-dessus de $(D)$
+pour $x>-1$, en dessous pour $x<-1$.
+
+\textbf{5.} $f'(x) = 1-\frac{1}{(x+1)^{2}} = \frac{(x+1)^{2}-1}{(x+1)^{2}}
+= \frac{x^{2}+2x}{(x+1)^{2}} = \frac{x(x+2)}{(x+1)^{2}}$. Le dénominateur
+est positif ; $x(x+2)$ est positif à l'extérieur de $\intervalle{-2}{0}$.
+Donc $f$ croît sur $\intervalleof{-\infty}{-2}$, décroît sur
+$\intervallefo{-2}{-1}$ et sur $\intervalleof{-1}{0}$, croît sur
+$\intervallefo{0}{+\infty}$. Maximum local $f(-2) = -2$, minimum local
+$f(0) = 2$.
+
+\textbf{6.} $f(0) = 2$ et $f'(0) = 0$ : la tangente est horizontale,
+$(T) : y = 2$.
+
+\textbf{7.} On trace d'abord les deux asymptotes en pointillé, puis la
+tangente horizontale $y = 2$, puis la courbe : une branche en haut à droite
+au-dessus de $(D)$, une branche en bas à gauche en dessous.
+\end{corrige}
+
+\begin{notepourlaclasse}
+Ce chapitre ne s'enseigne pas, il se \emph{fait faire}. Une seule étude
+menée par le professeur au tableau, du début au tracé, puis trois études
+conduites par les élèves eux-mêmes, en autonomie, avec la liste des sept
+étapes affichée au mur : c'est le rythme qui fonctionne.
+
+Exigez le tracé sur papier millimétré et une unité respectée. Les sujets
+précisent toujours l'unité graphique — $1$ cm, $2$ cm — et le tracé compte
+pour deux points, autant qu'un calcul de dérivée.
+
+Les élèves confondent régulièrement « position par rapport à l'asymptote »
+et « signe de la fonction ». Faites-leur écrire la différence $f(x)-(ax+b)$
+en toutes lettres avant tout calcul : le geste suffit à lever la confusion.
+\end{notepourlaclasse}

@@ -1,0 +1,828 @@
+% ===========================================================================
+%  Chapitre 4 — Primitives et calcul intégral
+%  PE 2026, composante ANALYSE
+% ===========================================================================
+\bmtchapitre{Primitives et calcul intégral}
+  {Calculer une primitive et une intégrale ; intégrer par parties et par
+   changement de variable affine ; calculer une aire, une valeur moyenne et le
+   volume d'un solide de révolution.}
+  {Analyse \textbullet\ environ 12 heures}
+
+Jusqu'ici, une fonction étant donnée, vous calculiez sa dérivée. Ce chapitre
+prend le problème à l'envers : une dérivée étant donnée, retrouver la fonction
+dont elle provient. L'opération n'a rien d'automatique — dériver est une
+mécanique, primitiver est une reconnaissance.
+
+Et il se produit alors quelque chose d'inattendu. Cette question purement
+algébrique, remonter d'une dérivée à sa fonction, donne la réponse à une
+question de géométrie que personne n'aurait crue liée : quelle est l'aire
+sous une courbe. C'est le résultat le plus surprenant du programme de
+terminale, et le plus fécond : il permettra de calculer des aires, des
+volumes, des valeurs moyennes, et de majorer des suites d'intégrales dont on
+ne sait rien par ailleurs.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Uniquement des dérivées — c'est le sens que ce chapitre va renverser.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Dériver : $x \mapsto x^{5}$, $x \mapsto \sqrt{x}$,
+        $x \mapsto \dfrac{1}{x^{2}}$, $x \mapsto \sin(2x)$.
+  \item Dériver $x \mapsto (3x+1)^{4}$, puis $x \mapsto \sqrt{2x-5}$.
+  \item Rappeler la formule de dérivation d'un produit.
+  \item Rappeler la formule $\left(u^{n}\right)'$ pour $n$ entier.
+  \item Quelle est l'aire d'un rectangle de largeur $b-a$ et de hauteur $h$ ?
+  \item Quel est le volume d'un cylindre de rayon $r$ et de hauteur $h$ ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item Dérivée de $x \mapsto \dfrac{x^{4}}{4}$
+  \item Dérivée de $x \mapsto 2\sqrt{x}$
+  \item Dérivée de $x \mapsto -\dfrac{1}{x}$
+  \item Dérivée de $x \mapsto -\dfrac{\cos(3x)}{3}$
+  \item Dérivée de $x \mapsto \dfrac{(2x+1)^{5}}{10}$
+  \item Une fonction dont la dérivée est $x \mapsto x$
+  \item Une fonction dont la dérivée est $x \mapsto \cos x$
+  \item Une fonction dont la dérivée est $x \mapsto 3x^{2}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $x^{3}$ \quad b) $\dfrac{1}{\sqrt{x}}$ \quad c) $\dfrac{1}{x^{2}}$ \quad
+d) $\sin(3x)$ \quad e) $(2x+1)^{4}$ \quad f) $\dfrac{x^{2}}{2}$ \quad
+g) $\sin x$ \quad h) $x^{3}$. Les quatre dernières annoncent exactement ce que
+le chapitre va formaliser.
+\end{corrige}
+
+% ===========================================================================
+\section{Les primitives}
+
+\begin{definition}[primitive]
+Soit $f$ une fonction définie sur un intervalle $I$. On appelle
+\textbf{primitive} de $f$ sur $I$ toute fonction $F$ dérivable sur $I$ telle
+que
+\[
+  F'(x) = f(x) \qquad \text{pour tout } x \in I .
+\]
+\end{definition}
+
+\begin{theoreme}[existence]
+Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.
+\end{theoreme}
+
+\begin{theoreme}[deux primitives diffèrent d'une constante]
+Si $F$ est une primitive de $f$ sur $I$, alors les primitives de $f$ sur $I$
+sont exactement les fonctions $x \mapsto F(x)+k$, où $k$ décrit $\R$.
+\end{theoreme}
+
+\begin{demonstration}
+Si $G$ est une autre primitive, la fonction $H = G-F$ vérifie
+$H' = G'-F' = f-f = 0$ sur l'intervalle $I$. Une fonction de dérivée nulle sur
+un intervalle y est constante — c'est une conséquence directe du théorème des
+accroissements finis, appliqué entre deux points quelconques $a$ et $b$ de
+$I$ : $H(b)-H(a) = (b-a)H'(c) = 0$. Donc $G = F+k$. Réciproquement, toute
+fonction $F+k$ a bien $f$ pour dérivée.
+\end{demonstration}
+
+\begin{avertissement}
+L'énoncé ci-dessus vaut sur un \emph{intervalle}. Sur une réunion de deux
+intervalles disjoints, les constantes peuvent différer d'un morceau à l'autre.
+Écrire « la primitive de $\frac{1}{x^{2}}$ sur $\Rs$ est $-\frac{1}{x}+k$ »
+est donc imprécis : il faut traiter séparément $\left]-\infty;0\right[$ et
+$\left]0;+\infty\right[$.
+\end{avertissement}
+
+\subsection{Le tableau des primitives usuelles}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{4.3cm} p{4.3cm} p{3.6cm}@{}}
+\toprule
+\textsf{\footnotesize\bfseries FONCTION $f$} &
+\textsf{\footnotesize\bfseries UNE PRIMITIVE $F$} &
+\textsf{\footnotesize\bfseries SUR} \\
+\midrule
+$x \mapsto a$ (constante)        & $x \mapsto ax$                       & $\R$ \\
+$x \mapsto x^{n}$, $n \in \N$    & $x \mapsto \dfrac{x^{n+1}}{n+1}$     & $\R$ \\
+$x \mapsto \dfrac{1}{x^{2}}$     & $x \mapsto -\dfrac{1}{x}$            & tout intervalle de $\Rs$ \\
+$x \mapsto \dfrac{1}{\sqrt{x}}$  & $x \mapsto 2\sqrt{x}$                & $\Rps$ \\
+$x \mapsto \cos x$               & $x \mapsto \sin x$                   & $\R$ \\
+$x \mapsto \sin x$               & $x \mapsto -\cos x$                  & $\R$ \\
+\midrule
+$u'u^{n}$, $n \neq -1$           & $\dfrac{u^{n+1}}{n+1}$               & où $u$ est dérivable \\
+$\dfrac{u'}{\sqrt{u}}$           & $2\sqrt{u}$                          & où $u > 0$ \\
+$u'\cos u$                       & $\sin u$                             & où $u$ est dérivable \\
+$u' \times (v'\circ u)$          & $v \circ u$                          & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bmtmarge{La seconde moitié du tableau est la plus utile : elle se lit comme
+les formules de dérivation prises à l'envers. Reconnaître un $u'u^{n}$ dans
+une expression compliquée est la compétence centrale du chapitre.}
+
+\begin{exemple}[reconnaître la forme $u'u^{n}$]
+Cherchons une primitive de $f(x) = 3x^{2}\left(x^{3}+1\right)^{4}$ sur $\R$.
+
+On pose $u(x) = x^{3}+1$, donc $u'(x) = 3x^{2}$. L'expression est exactement
+$u'u^{4}$, dont une primitive est $\dfrac{u^{5}}{5}$. Donc
+\[
+  F(x) = \frac{\left(x^{3}+1\right)^{5}}{5}
+\]
+convient, et l'on vérifie en dérivant.
+
+\smallskip
+Si l'énoncé avait donné $f(x) = x^{2}\left(x^{3}+1\right)^{4}$, il aurait fallu
+faire apparaître le facteur manquant :
+$f(x) = \dfrac{1}{3}\times 3x^{2}\left(x^{3}+1\right)^{4}$, et donc
+$F(x) = \dfrac{\left(x^{3}+1\right)^{5}}{15}$.
+\end{exemple}
+
+\begin{propriete}[primitive prenant une valeur donnée en un point]
+Soit $f$ continue sur $I$, $x_{0} \in I$ et $y_{0}$ un réel. Il existe une
+\emph{unique} primitive $F$ de $f$ sur $I$ telle que $F(x_{0}) = y_{0}$.
+\end{propriete}
+
+\begin{exemple}[fixer la constante]
+Déterminons la primitive $F$ de $f(x) = 2x-3$ sur $\R$ telle que $F(1) = 4$.
+
+Les primitives de $f$ sont les $x \mapsto x^{2}-3x+k$. La condition impose
+$1-3+k = 4$, soit $k = 6$. Donc $F(x) = x^{2}-3x+6$, et c'est la seule.
+\end{exemple}
+
+\begin{entrainement}[primitives]
+\exo[\niveau{1}] Déterminer une primitive de $x \mapsto 4x^{3}-2x+5$ sur $\R$,
+puis de $x \mapsto \dfrac{3}{x^{2}}$ sur $\Rps$.
+
+\exo[\niveau{2}] Déterminer une primitive de
+$x \mapsto \dfrac{2x}{\sqrt{x^{2}+1}}$ sur $\R$.
+
+\exo[\niveau{2}] Déterminer une primitive de $x \mapsto \sin x \cos^{3} x$ sur
+$\R$. \emph{On posera $u = \cos x$.}
+
+\exo[\niveau{3}] Déterminer la primitive $F$ de
+$x \mapsto \dfrac{x}{\left(x^{2}+1\right)^{2}}$ sur $\R$ telle que $F(0) = 1$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $x^{4}-x^{2}+5x$ ; \ $-\dfrac{3}{x}$.
+
+\textbf{2.} C'est $\dfrac{u'}{\sqrt{u}}$ avec $u = x^{2}+1$ : une primitive est
+$2\sqrt{x^{2}+1}$.
+
+\textbf{3.} Avec $u = \cos x$, $u' = -\sin x$, l'expression vaut $-u'u^{3}$,
+dont une primitive est $-\dfrac{u^{4}}{4} = -\dfrac{\cos^{4}x}{4}$.
+
+\textbf{4.} L'expression est $\dfrac{1}{2}u'u^{-2}$ avec $u = x^{2}+1$, de
+primitive $-\dfrac{1}{2u} = \dfrac{-1}{2(x^{2}+1)}$. La condition $F(0)=1$
+donne $-\tfrac12+k=1$, soit $k = \tfrac32$ :
+$F(x) = \dfrac{-1}{2(x^{2}+1)} + \dfrac{3}{2}$.
+\end{corrige}
+
+% ===========================================================================
+\section{L'intégrale}
+
+\begin{definition}[intégrale d'une fonction continue]
+Soit $f$ continue sur un intervalle $I$, et $a$, $b$ deux éléments de $I$. Si
+$F$ est une primitive quelconque de $f$ sur $I$, on pose
+\[
+  \int_{a}^{b} f(x)\dx = F(b)-F(a),
+\]
+quantité que l'on note aussi $\bigl[F(x)\bigr]_{a}^{b}$.
+\end{definition}
+
+\begin{remarque}
+Le résultat ne dépend pas de la primitive choisie : si l'on remplace $F$ par
+$F+k$, la différence $\bigl(F(b)+k\bigr)-\bigl(F(a)+k\bigr)$ est inchangée. La
+définition est donc légitime.
+\end{remarque}
+
+\begin{propriete}[règles de calcul]
+Pour $f$ et $g$ continues sur $I$, $a$, $b$, $c$ dans $I$ et $\lambda$ réel :
+\begin{align*}
+  \int_{a}^{a} f(x)\dx &= 0, &
+  \int_{b}^{a} f(x)\dx &= -\int_{a}^{b} f(x)\dx, \\[0.3em]
+  \int_{a}^{b} \bigl[f(x)+g(x)\bigr]\dx &= \int_{a}^{b} f + \int_{a}^{b} g, &
+  \int_{a}^{b} \lambda f(x)\dx &= \lambda \int_{a}^{b} f(x)\dx,
+\end{align*}
+et la \textbf{relation de Chasles} :
+\[
+  \int_{a}^{b} f(x)\dx = \int_{a}^{c} f(x)\dx + \int_{c}^{b} f(x)\dx .
+\]
+\end{propriete}
+
+\begin{propriete}[positivité et ordre]
+Si $a \leq b$ :
+\begin{itemize}[leftmargin=1.4em, itemsep=0.18em]
+  \item $f \geq 0$ sur $\intervalle{a}{b}$ entraîne $\displaystyle\int_{a}^{b} f(x)\dx \geq 0$ ;
+  \item $f \leq g$ sur $\intervalle{a}{b}$ entraîne
+        $\displaystyle\int_{a}^{b} f(x)\dx \leq \int_{a}^{b} g(x)\dx$ ;
+  \item si $m \leq f(x) \leq M$ sur $\intervalle{a}{b}$, alors
+        $m(b-a) \leq \displaystyle\int_{a}^{b} f(x)\dx \leq M(b-a)$.
+\end{itemize}
+\end{propriete}
+
+\begin{methode}{encadrer une intégrale qu'on ne sait pas calculer}
+La troisième propriété est celle qui tombe au baccalauréat, presque toujours
+sur une suite $(I_{n})$ d'intégrales. Le mécanisme ne varie pas :
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item encadrer la \emph{fonction} sous l'intégrale sur l'intervalle
+        d'intégration, sans jamais chercher à la primitiver ;
+  \item intégrer l'encadrement terme à terme, en respectant le sens des
+        inégalités ;
+  \item conclure sur la limite de $(I_{n})$ par le théorème des gendarmes.
+\end{enumerate}
+
+Notez qu'on ne calcule à aucun moment $I_{n}$ : c'est tout l'intérêt.
+\end{methode}
+
+% ===========================================================================
+\section{Deux techniques de calcul}
+
+\subsection{L'intégration par parties}
+
+\begin{theoreme}[intégration par parties]
+Soient $u$ et $v$ deux fonctions dérivables sur $\intervalle{a}{b}$, de
+dérivées continues. Alors
+\[
+  \int_{a}^{b} u(x)v'(x)\dx
+  = \bigl[u(x)v(x)\bigr]_{a}^{b} - \int_{a}^{b} u'(x)v(x)\dx .
+\]
+\end{theoreme}
+
+\begin{demonstration}
+La formule de dérivation d'un produit donne $(uv)' = u'v + uv'$. Les trois
+fonctions étant continues sur $\intervalle{a}{b}$, on intègre cette égalité
+entre $a$ et $b$ :
+\[
+  \bigl[u(x)v(x)\bigr]_{a}^{b} = \int_{a}^{b} u'(x)v(x)\dx + \int_{a}^{b} u(x)v'(x)\dx,
+\]
+puisque $uv$ est une primitive de $(uv)'$. Il ne reste qu'à isoler la seconde
+intégrale.
+\end{demonstration}
+
+\begin{methode}{choisir $u$ et $v'$}
+Tout le calcul dépend de ce choix, et le critère est simple : on prend pour
+$u$ la fonction que la dérivation \emph{simplifie}, et pour $v'$ celle que
+l'on sait primitiver sans peine.
+
+Un polynôme multiplié par un cosinus ou un sinus : le polynôme est $u$, car sa
+dérivée baisse d'un degré et finit par disparaître, tandis que le sinus et le
+cosinus se primitivent indéfiniment. Un polynôme multiplié par une racine
+carrée : le polynôme est encore $u$. Les chapitres 5 et 6 ajouteront deux
+familles à cette liste, et le critère restera le même.
+\end{methode}
+
+\begin{exemple}[une intégration par parties menée en entier]
+Calculons $\displaystyle\int_{0}^{\pi} x\sin x \dx$.
+
+On pose $u(x) = x$ et $v'(x) = \sin x$, d'où $u'(x) = 1$ et
+$v(x) = -\cos x$. La formule donne
+\[
+  \int_{0}^{\pi} x\sin x \dx
+  = \bigl[-x\cos x\bigr]_{0}^{\pi} - \int_{0}^{\pi} (-\cos x)\dx
+  = \bigl[-x\cos x\bigr]_{0}^{\pi} + \bigl[\sin x\bigr]_{0}^{\pi} .
+\]
+Or $\bigl[-x\cos x\bigr]_{0}^{\pi} = -\pi\cos\pi + 0 = \pi$ et
+$\bigl[\sin x\bigr]_{0}^{\pi} = 0-0 = 0$. Donc
+\[
+  \int_{0}^{\pi} x\sin x \dx = \pi .
+\]
+Le choix inverse — $u = \sin x$ et $v' = x$ — aurait conduit à une intégrale
+plus compliquée que celle de départ : c'est le signe qu'on s'est trompé de
+répartition.
+\end{exemple}
+
+\subsection{Le changement de variable affine}
+
+\begin{propriete}[changement de variable affine]
+Soit $f$ continue et $F$ une primitive de $f$. Pour $\alpha \neq 0$,
+\[
+  \int_{a}^{b} f(\alpha x + \beta)\dx
+  = \frac{1}{\alpha}\Bigl[F(\alpha x + \beta)\Bigr]_{a}^{b}
+  = \frac{1}{\alpha}\int_{\alpha a + \beta}^{\alpha b + \beta} f(t)\dt .
+\]
+\end{propriete}
+
+\begin{exemple}
+$\displaystyle\int_{0}^{1} (2x+1)^{3}\dx
+= \frac{1}{2}\left[\frac{(2x+1)^{4}}{4}\right]_{0}^{1}
+= \frac{1}{8}\left(81-1\right) = 10 .$
+\end{exemple}
+
+\begin{entrainement}[calcul d'intégrales]
+\exo[\niveau{1}] Calculer $\displaystyle\int_{1}^{2}\left(3x^{2}-4x+1\right)\dx$.
+
+\exo[\niveau{1}] Calculer $\displaystyle\int_{0}^{2} (3x-1)^{4}\dx$.
+
+\exo[\niveau{2}] Calculer $\displaystyle\int_{0}^{\frac{\pi}{2}} x\cos x \dx$
+par une intégration par parties.
+
+\exo[\niveau{3}] Calculer $\displaystyle\int_{0}^{1} \frac{x}{\sqrt{x^{2}+1}}\dx$,
+puis $\displaystyle\int_{0}^{\pi} x^{2}\sin x\dx$ par deux intégrations par
+parties successives.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\bigl[x^{3}-2x^{2}+x\bigr]_{1}^{2} = 2-0 = 2$.
+
+\textbf{2.} $\dfrac{1}{3}\left[\dfrac{(3x-1)^{5}}{5}\right]_{0}^{2}
+= \dfrac{1}{15}\left(5^{5}-(-1)^{5}\right) = \dfrac{3126}{15} = \dfrac{1042}{5}$.
+
+\textbf{3.} $u=x$, $v'=\cos x$ : $\bigl[x\sin x\bigr]_{0}^{\pi/2}
+- \int_{0}^{\pi/2}\sin x\dx = \dfrac{\pi}{2} - 1$.
+
+\textbf{4.} La première vaut $\bigl[\sqrt{x^{2}+1}\bigr]_{0}^{1} = \sqrt2 - 1$.
+Pour la seconde, $u = x^{2}$, $v' = \sin x$ donne
+$\bigl[-x^{2}\cos x\bigr]_{0}^{\pi} + 2\int_{0}^{\pi} x\cos x\dx
+= \pi^{2} + 2 \times (-2) = \pi^{2}-4$.
+\end{corrige}
+
+% ===========================================================================
+\section{Aires, valeur moyenne, volumes}
+
+\begin{theoreme}[interprétation d'une intégrale comme une aire]
+Soit $f$ continue et \emph{positive} sur $\intervalle{a}{b}$. Alors
+$\displaystyle\int_{a}^{b} f(x)\dx$ est l'aire, exprimée en unités d'aire, du
+domaine plan défini par
+\[
+  a \leq x \leq b \qquad \text{et} \qquad 0 \leq y \leq f(x).
+\]
+\end{theoreme}
+
+\begin{visualisation}[l'aire sous la courbe]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 10.6cm, height = 5.4cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -0.5, xmax = 5.4, ymin = -0.4, ymax = 3.4,
+  xtick = {1,4}, xticklabels = {$a$,$b$}, ytick = \empty,
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtIndigoPale, draw=none, fill=bmtIndigo, fill opacity=0.16,
+           domain=1:4, samples=100] {0.35*x^2 - 1.6*x + 3.1} \closedcycle;
+  \addplot[bmtIndigo, line width=1.3pt, domain=0.2:5.2, samples=140]
+    {0.35*x^2 - 1.6*x + 3.1};
+  \draw[bmtGris, dotted] (axis cs:1,0) -- (axis cs:1,1.85);
+  \draw[bmtGris, dotted] (axis cs:4,0) -- (axis cs:4,2.3);
+  \node[bmtIndigo, font=\footnotesize] at (axis cs:2.5,0.72)
+    {$\displaystyle\int_{a}^{b} f(x)\,dx$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+La partie teintée est bornée en bas par l'axe des abscisses, en haut par la
+courbe, et sur les côtés par les deux verticales. Son aire est exactement le
+nombre que produit le calcul $F(b)-F(a)$. Retenez la condition : la fonction
+doit rester positive sur l'intervalle. Si elle change de signe, découpez avec
+la relation de Chasles et prenez la valeur absolue sur chaque morceau — sinon
+les aires se compensent au lieu de s'ajouter.
+\end{visualisation}
+
+\begin{remarque}[unité d'aire]
+Si le repère a pour unités $1$ cm sur les deux axes, une unité d'aire vaut
+$1$ cm$^{2}$. Si l'unité graphique est $2$ cm, une unité d'aire vaut
+$2 \times 2 = 4$ cm$^{2}$ : n'oubliez pas ce facteur, il est régulièrement
+demandé dans les sujets.
+\end{remarque}
+
+\begin{definition}[valeur moyenne]
+La \textbf{valeur moyenne} de $f$ sur $\intervalle{a}{b}$, avec $a<b$, est le
+réel
+\[
+  \mu = \frac{1}{b-a}\int_{a}^{b} f(x)\dx .
+\]
+\end{definition}
+
+\begin{remarque}
+Géométriquement, $\mu$ est la hauteur du rectangle de base $\intervalle{a}{b}$
+qui aurait la même aire que le domaine sous la courbe. C'est la traduction
+exacte de l'idée de « hauteur moyenne ».
+\end{remarque}
+
+\begin{theoreme}[volume d'un solide de révolution]
+Soit $f$ continue et positive sur $\intervalle{a}{b}$. Le solide engendré par
+la rotation, autour de l'axe des abscisses, du domaine situé sous la courbe de
+$f$ a pour volume
+\[
+  V = \pi \int_{a}^{b} \bigl[f(x)\bigr]^{2}\dx ,
+\]
+exprimé en unités de volume.
+\end{theoreme}
+
+\begin{exemple}[retrouver le volume d'un cône]
+Prenons $f(x) = \dfrac{R}{h}x$ sur $\intervalle{0}{h}$, avec $R>0$ et $h>0$.
+La rotation de ce segment autour de l'axe des abscisses engendre un cône de
+rayon $R$ et de hauteur $h$. Son volume vaut
+\[
+  V = \pi \int_{0}^{h} \frac{R^{2}}{h^{2}}x^{2}\dx
+    = \pi \frac{R^{2}}{h^{2}}\left[\frac{x^{3}}{3}\right]_{0}^{h}
+    = \pi \frac{R^{2}}{h^{2}} \times \frac{h^{3}}{3}
+    = \frac{\pi R^{2} h}{3},
+\]
+c'est-à-dire la formule apprise au collège. Le calcul intégral la démontre au
+lieu de l'admettre.
+\end{exemple}
+
+\begin{entrainement}[aires et volumes]
+\exo[\niveau{1}] Calculer l'aire du domaine délimité par la courbe de
+$f(x) = x^{2}$, l'axe des abscisses et les droites $x=0$ et $x=3$.
+
+\exo[\niveau{2}] Calculer la valeur moyenne de $x \mapsto x^{2}$ sur
+$\intervalle{0}{3}$, et vérifier qu'elle est comprise entre le minimum et le
+maximum de la fonction sur cet intervalle.
+
+\exo[\niveau{2}] Calculer l'aire comprise entre les courbes de
+$f(x) = x^{2}$ et $g(x) = x$ sur $\intervalle{0}{1}$.
+
+\exo[\niveau{3}] Le domaine sous la courbe de $f(x) = \sqrt{x}$ sur
+$\intervalle{0}{4}$ tourne autour de l'axe des abscisses. Calculer le volume
+engendré.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\left[\dfrac{x^{3}}{3}\right]_{0}^{3} = 9$ unités d'aire.
+
+\textbf{2.} $\mu = \dfrac{1}{3}\times 9 = 3$, comprise entre $0$ et $9$.
+
+\textbf{3.} Sur $\intervalle{0}{1}$, $x^{2} \leq x$, donc l'aire vaut
+$\displaystyle\int_{0}^{1}(x-x^{2})\dx = \dfrac12 - \dfrac13 = \dfrac16$.
+
+\textbf{4.} $V = \pi\displaystyle\int_{0}^{4} x\dx = \pi\left[\dfrac{x^{2}}{2}\right]_{0}^{4} = 8\pi$.
+\end{corrige}
+
+% ===========================================================================
+% ===========================================================================
+\begin{annales}
+Les énoncés rassemblés ici sont repris de sujets réellement posés ; leur
+provenance est indiquée à chaque fois. Aucun ne fait appel au logarithme ni à
+l'exponentielle : tout s'y calcule avec les primitives établies dans ce
+chapitre.
+
+\exoann{Baccalauréat, Côte d'Ivoire, séries C et D, session 2023 — exercice 2}
+Soit $f$ la fonction définie sur $\R$ par $f(x) = \cos x - x\sin x$. Déterminer
+une primitive de $f$ sur $\R$.
+
+\exoann{Baccalauréat, Côte d'Ivoire, séries C et D, session 2023 — exercice 2, suite}
+En déduire la valeur de
+$\displaystyle\int_{0}^{\frac{\pi}{2}}\left(\cos x - x\sin x\right)\dx$.
+
+\exoann{Concours d'entrée, ENI Fianarantsoa, session 2008-2009 — exercice 3}
+Vérifier que pour tout réel $x \neq -1$,
+\[
+  \frac{x+3}{(x+1)^{3}} = \frac{1}{(x+1)^{2}} + \frac{2}{(x+1)^{3}} .
+\]
+
+\exoann{Concours d'entrée, ENI Fianarantsoa, session 2008-2009 — exercice 3, suite}
+En déduire la valeur de
+$\displaystyle J = \int_{1}^{3}\frac{x+3}{(x+1)^{3}}\dx$.
+
+\medskip
+\bmtsource{Les autres énoncés d'annales portant sur le calcul intégral font
+intervenir le logarithme ou l'exponentielle. Ils figurent donc aux
+chapitres 5 et 6, où ils sont signalés par la mention « calcul intégral ».}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} Le produit $x\cos x$ se dérive en $\cos x - x\sin x$, qui est
+exactement $f(x)$. Les primitives de $f$ sur $\R$ sont donc les fonctions
+$F(x) = x\cos x + k$, $k\in\R$. Rien n'oblige ici à une intégration par
+parties : reconnaître la dérivée d'un produit suffit, et c'est le réflexe que
+le sujet cherche à faire jouer.
+
+\textbf{2.} Avec $F(x) = x\cos x$,
+\[
+  \int_{0}^{\pi/2}\left(\cos x - x\sin x\right)\dx
+  = \left[x\cos x\right]_{0}^{\pi/2}
+  = \frac{\pi}{2}\cos\frac{\pi}{2} - 0\times\cos 0
+  = 0 .
+\]
+La valeur nulle n'a rien de surprenant : sur $\intervalle{0}{\frac{\pi}{2}}$
+la fonction $f$ est positive au début, négative ensuite, et les deux aires se
+compensent exactement.
+
+\textbf{3.} On écrit le numérateur en faisant apparaître le dénominateur :
+$x+3 = (x+1)+2$. En divisant par $(x+1)^{3}$,
+\[
+  \frac{x+3}{(x+1)^{3}} = \frac{x+1}{(x+1)^{3}} + \frac{2}{(x+1)^{3}}
+  = \frac{1}{(x+1)^{2}} + \frac{2}{(x+1)^{3}} .
+\]
+
+\textbf{4.} Chacun des deux morceaux est de la forme $u'u^{n}$ avec
+$u = x+1$ :
+\[
+  \int_{1}^{3}\frac{\dx}{(x+1)^{2}} = \left[\frac{-1}{x+1}\right]_{1}^{3}
+  = -\frac14+\frac12 = \frac14,
+  \qquad
+  \int_{1}^{3}\frac{2\dx}{(x+1)^{3}} = \left[\frac{-1}{(x+1)^{2}}\right]_{1}^{3}
+  = -\frac{1}{16}+\frac14 = \frac{3}{16}.
+\]
+En additionnant, $J = \dfrac14+\dfrac{3}{16} = \dfrac{7}{16}$.
+\end{corrige}
+
+\begin{jecherche}[le réservoir de la briqueterie]
+Une briqueterie d'Antsirabe possède un réservoir obtenu en faisant tourner
+autour de l'axe des abscisses la courbe de
+\[
+  f(x) = \sqrt{4-\frac{x^{2}}{4}}, \qquad x \in \intervalle{0}{4},
+\]
+les longueurs étant exprimées en mètres.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Vérifier que $f$ est bien définie et positive sur $\intervalle{0}{4}$,
+        et calculer $f(0)$ et $f(4)$.
+  \item Quelle forme géométrique la courbe de $f$ décrit-elle ? En déduire
+        l'allure du réservoir.
+  \item Calculer le volume du réservoir en mètres cubes.
+  \item Le réservoir est rempli jusqu'à l'abscisse $x=2$. Quel volume d'eau
+        contient-il alors ? Quelle fraction de sa capacité cela représente-t-il ?
+  \item L'usine veut repeindre la surface du disque de section à l'abscisse
+        $x$. Exprimer cette aire en fonction de $x$, puis déterminer sa valeur
+        moyenne sur $\intervalle{0}{4}$.
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[le réservoir de la briqueterie]
+\textbf{1.} $4-\dfrac{x^{2}}{4} \geq 0$ équivaut à $x^{2} \leq 16$, vrai sur
+$\intervalle{0}{4}$ : $f$ y est définie et positive. De plus $f(0) = 2$ et
+$f(4) = 0$.
+
+\textbf{2.} En posant $y = f(x)$ et en élevant au carré,
+$y^{2} = 4-\dfrac{x^{2}}{4}$, c'est-à-dire
+$\dfrac{x^{2}}{16}+\dfrac{y^{2}}{4} = 1$ : la courbe est un quart d'ellipse. Le
+réservoir est donc un demi-ellipsoïde de révolution, large de $2$ m au fond et
+effilé vers la sortie.
+
+\textbf{3.} $V = \pi\displaystyle\int_{0}^{4}\left(4-\frac{x^{2}}{4}\right)\dx
+= \pi\left[4x-\frac{x^{3}}{12}\right]_{0}^{4}
+= \pi\left(16-\frac{16}{3}\right) = \frac{32\pi}{3} \approx 33{,}5$ m$^{3}$.
+
+\textbf{4.} $\pi\displaystyle\int_{0}^{2}\left(4-\frac{x^{2}}{4}\right)\dx
+= \pi\left(8-\frac{2}{3}\right) = \frac{22\pi}{3} \approx 23{,}0$ m$^{3}$, soit
+$\dfrac{22}{32} = \dfrac{11}{16}$, environ $69\,\%$ de la capacité. Remplir la
+moitié de la longueur remplit donc bien plus que la moitié du volume : la
+partie large est au fond.
+
+\textbf{5.} L'aire du disque de section vaut
+$\pi\left[f(x)\right]^{2} = \pi\left(4-\dfrac{x^{2}}{4}\right)$. Sa valeur
+moyenne sur $\intervalle{0}{4}$ est
+$\dfrac{1}{4}\times\dfrac{32\pi}{3} = \dfrac{8\pi}{3} \approx 8{,}4$ m$^{2}$.
+\end{corrige}
+
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Une fonction continue sur un intervalle y admet une unique primitive.
+  \item $\displaystyle\int_{a}^{b} f(x)\dx$ est toujours positive.
+  \item Si $f \leq g$ sur $\intervalle{a}{b}$ avec $a<b$, alors
+        $\int_{a}^{b} f \leq \int_{a}^{b} g$.
+  \item L'intégration par parties transforme toujours l'intégrale en une plus
+        simple.
+  \item La valeur moyenne d'une fonction sur un intervalle est comprise entre
+        son minimum et son maximum sur cet intervalle.
+  \item Le volume d'un solide de révolution vaut $\int_{a}^{b} \pi f(x)\dx$.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elle en admet une infinité, qui diffèrent d'une constante.
+\textbf{2.} Faux — cela dépend du signe de $f$ et de l'ordre des bornes.
+\textbf{3.} Vrai.
+\textbf{4.} Faux — seulement si $u$ et $v'$ sont bien choisis ; le mauvais
+choix complique l'intégrale.
+\textbf{5.} Vrai — conséquence de l'encadrement $m(b-a) \leq \int f \leq M(b-a)$.
+\textbf{6.} Faux — c'est $\pi\int_{a}^{b} \left[f(x)\right]^{2}\dx$ : le carré
+est indispensable.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice au format de l'épreuve}
+Soit $f$ la fonction définie sur $\intervalle{0}{2}$ par
+$f(x) = x\sqrt{4-x^{2}}$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Vérifier que $f$ est positive sur $\intervalle{0}{2}$ et calculer
+        $f(0)$ et $f(2)$. \hfill\textup{(0,5 pt)}
+  \item Calculer $f'(x)$ et dresser le tableau de variation de $f$ sur
+        $\intervalle{0}{2}$. \hfill\textup{(1,5 pt)}
+  \item Déterminer une primitive de $f$ sur $\intervalle{0}{2}$.
+        \emph{On reconnaîtra une forme $u'u^{n}$.} \hfill\textup{(1 pt)}
+  \item En déduire l'aire, en unités d'aire, du domaine délimité par la courbe
+        de $f$, l'axe des abscisses et les droites $x=0$ et $x=2$.
+        \hfill\textup{(1 pt)}
+  \item Calculer la valeur moyenne de $f$ sur $\intervalle{0}{2}$.
+        \hfill\textup{(0,5 pt)}
+  \item Calculer le volume du solide engendré par la rotation de ce domaine
+        autour de l'axe des abscisses. \hfill\textup{(1,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[exercice au format de l'épreuve]
+\textbf{1.} Sur $\intervalle{0}{2}$, $x \geq 0$ et $4-x^{2} \geq 0$ : $f \geq 0$.
+$f(0) = f(2) = 0$.
+
+\textbf{2.} $f'(x) = \sqrt{4-x^{2}} - \dfrac{x^{2}}{\sqrt{4-x^{2}}}
+= \dfrac{4-2x^{2}}{\sqrt{4-x^{2}}}$, du signe de $2-x^{2}$ : $f$ croît sur
+$\intervalle{0}{\sqrt2}$ puis décroît sur $\intervalle{\sqrt2}{2}$, avec un
+maximum $f(\sqrt2) = 2$.
+
+\textbf{3.} $f(x) = -\dfrac{1}{2}\times(-2x)\left(4-x^{2}\right)^{1/2}$, forme
+$-\frac12 u'u^{1/2}$ avec $u = 4-x^{2}$ : une primitive est
+$-\dfrac{1}{3}\left(4-x^{2}\right)^{3/2}$.
+
+\textbf{4.} $\left[-\dfrac{(4-x^{2})^{3/2}}{3}\right]_{0}^{2} = 0 + \dfrac{8}{3}
+= \dfrac{8}{3}$ unités d'aire.
+
+\textbf{5.} $\mu = \dfrac{1}{2}\times\dfrac{8}{3} = \dfrac{4}{3}$.
+
+\textbf{6.} $V = \pi\displaystyle\int_{0}^{2} x^{2}\left(4-x^{2}\right)\dx
+= \pi\left[\dfrac{4x^{3}}{3}-\dfrac{x^{5}}{5}\right]_{0}^{2}
+= \pi\left(\dfrac{32}{3}-\dfrac{32}{5}\right) = \dfrac{64\pi}{15}$.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{Concours d'entrée, ENI Fianarantsoa, session 2002-2003 — exercice 4}
+Pour tout entier naturel $n$, on pose
+$\displaystyle I_{n} = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \dx$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Calculer $I_{0}$ et $I_{1}$.
+  \item Montrer que pour tout entier $n \geq 2$,
+        $n\,I_{n} = (n-1)\,I_{n-2}$.
+  \item En déduire les valeurs de $I_{2}$, $I_{4}$ et $I_{6}$.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} $I_{0} = \displaystyle\int_{0}^{\pi/2}\dx = \frac{\pi}{2}$ et
+$I_{1} = \left[-\cos x\right]_{0}^{\pi/2} = 1$.
+
+\textbf{2.} Pour $n \geq 2$, on écrit $\sin^{n}x = \sin^{n-1}x \times \sin x$
+et on intègre par parties avec $u = \sin^{n-1}x$ et $v' = \sin x$, donc
+$u' = (n-1)\sin^{n-2}x\cos x$ et $v = -\cos x$ :
+\[
+  I_{n} = \left[-\cos x \sin^{n-1}x\right]_{0}^{\pi/2}
+        + (n-1)\int_{0}^{\pi/2}\cos^{2}\!x\,\sin^{n-2}x \dx .
+\]
+Le crochet est nul aux deux bornes. En remplaçant $\cos^{2}x$ par
+$1-\sin^{2}x$, l'intégrale restante se sépare en $I_{n-2}-I_{n}$, d'où
+\[
+  I_{n} = (n-1)I_{n-2} - (n-1)I_{n},
+  \qquad\text{c'est-à-dire}\qquad
+  n\,I_{n} = (n-1)\,I_{n-2}.
+\]
+
+\textbf{3.} La relation $I_{n} = \dfrac{n-1}{n}I_{n-2}$ se déroule à partir de
+$I_{0}$ :
+\[
+  I_{2} = \frac12 \times \frac{\pi}{2} = \frac{\pi}{4},
+  \qquad
+  I_{4} = \frac34 \times \frac{\pi}{4} = \frac{3\pi}{16},
+  \qquad
+  I_{6} = \frac56 \times \frac{3\pi}{16} = \frac{5\pi}{32}.
+\]
+\end{corrige}
+
+
+% ===========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir porte sur ce chapitre
+et sur les trois qui le précèdent. Les énoncés sont repris de sessions réelles
+et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{D'après le baccalauréat probatoire, Cameroun, série C, session 2025 — exercice 2}{5 points}
+Soit $f$ la fonction définie par $f(x) = \dfrac{x^{2}-2x+2}{x-1}$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Montrer que $f(x) = x-1+\dfrac{1}{x-1}$ pour tout $x \neq 1$.
+        \hfill\textup{(1 pt)}
+  \item Calculer les limites de $f$ aux bornes de son ensemble de définition
+        et en déduire les deux asymptotes à sa courbe. \hfill\textup{(2 pts)}
+  \item Vérifier que $f'(x) = \dfrac{x^{2}-2x}{(x-1)^{2}}$, puis dresser le
+        tableau de variation de $f$ sur $\intervalleo{1}{+\infty}$.
+        \hfill\textup{(2 pts)}
+\end{enumerate}
+
+\exods{2}{D'après le concours ENI Fianarantsoa, session 2008-2009 (exercice 3) et le baccalauréat, Côte d'Ivoire, séries C et D, session 2023 (exercice 2)}{7 points}
+\textbf{Partie A.}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Vérifier que pour tout réel $x \neq -1$,
+        $\dfrac{x+3}{(x+1)^{3}} = \dfrac{1}{(x+1)^{2}}+\dfrac{2}{(x+1)^{3}}$.
+        \hfill\textup{(1,5 pt)}
+  \item En déduire la valeur de
+        $\displaystyle J = \int_{1}^{3}\frac{x+3}{(x+1)^{3}}\dx$.
+        \hfill\textup{(2 pts)}
+\end{enumerate}
+\textbf{Partie B.} Soit $g$ la fonction définie sur $\R$ par
+$g(x) = \cos x-x\sin x$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em, resume]
+  \item Déterminer une primitive de $g$ sur $\R$. \hfill\textup{(1,5 pt)}
+  \item Calculer
+        $\displaystyle\int_{0}^{\frac{\pi}{2}}\left(\cos x-x\sin x\right)\dx$.
+        \hfill\textup{(1 pt)}
+  \item Le résultat est nul, alors que $g$ n'est pas la fonction nulle.
+        Expliquer ce que cela signifie pour la courbe de $g$ sur
+        $\intervalle{0}{\frac{\pi}{2}}$. \hfill\textup{(1 pt)}
+\end{enumerate}
+
+\exods{3}{D'après le concours d'entrée, ENI Fianarantsoa, session 2002-2003 — exercice 4}{8 points}
+Pour tout entier naturel $n$, on pose
+$\displaystyle I_{n} = \int_{0}^{\frac{\pi}{2}}\sin^{n}x\dx$.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.2em]
+  \item Calculer $I_{0}$ et $I_{1}$. \hfill\textup{(1,5 pt)}
+  \item Démontrer que pour tout entier $n \geq 2$,
+        $n\,I_{n} = (n-1)\,I_{n-2}$. \hfill\textup{(3 pts)}
+  \item En déduire les valeurs exactes de $I_{2}$, $I_{4}$ et $I_{6}$.
+        \hfill\textup{(1,5 pt)}
+  \item Montrer que la suite $(I_{n})$ est positive et décroissante, puis
+        conclure quant à sa convergence. \hfill\textup{(2 pts)}
+\end{enumerate}
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1. 1.} $x^{2}-2x+2 = (x-1)^{2}+1$, donc
+$f(x) = \dfrac{(x-1)^{2}+1}{x-1} = x-1+\dfrac{1}{x-1}$.
+
+\textbf{2.} $\Df = \R\setminus\{1\}$. En $1^{-}$, $\frac{1}{x-1}\to-\infty$
+donc $f(x)\to-\infty$ ; en $1^{+}$, $f(x)\to+\infty$ : la droite $x = 1$ est
+asymptote verticale. Aux infinis, $f(x)-(x-1) = \frac{1}{x-1}\to0$ : la droite
+$y = x-1$ est asymptote oblique.
+
+\textbf{3.} $f'(x) = 1-\dfrac{1}{(x-1)^{2}} = \dfrac{(x-1)^{2}-1}{(x-1)^{2}}
+= \dfrac{x^{2}-2x}{(x-1)^{2}}$, du signe de $x(x-2)$. Sur
+$\intervalleo{1}{+\infty}$, ce produit est négatif avant $2$ et positif
+après : $f$ décroît de $+\infty$ jusqu'à $f(2) = 2$, puis croît vers
+$+\infty$.
+
+\medskip
+\textbf{Exercice 2. 1.} On écrit le numérateur en faisant apparaître le
+dénominateur : $x+3 = (x+1)+2$, d'où
+$\dfrac{x+3}{(x+1)^{3}} = \dfrac{x+1}{(x+1)^{3}}+\dfrac{2}{(x+1)^{3}}
+= \dfrac{1}{(x+1)^{2}}+\dfrac{2}{(x+1)^{3}}$.
+
+\textbf{2.} Chaque morceau est de la forme $u'u^{n}$ avec $u = x+1$ :
+\[
+  \int_{1}^{3}\frac{\dx}{(x+1)^{2}} = \left[\frac{-1}{x+1}\right]_{1}^{3}
+  = \frac14, \qquad
+  \int_{1}^{3}\frac{2\dx}{(x+1)^{3}} = \left[\frac{-1}{(x+1)^{2}}\right]_{1}^{3}
+  = \frac{3}{16},
+\]
+d'où $J = \dfrac14+\dfrac{3}{16} = \dfrac{7}{16}$.
+
+\textbf{3.} La dérivée du produit $x\cos x$ vaut $\cos x-x\sin x$, c'est-à-dire
+$g(x)$ : les primitives de $g$ sont les fonctions $G(x) = x\cos x+k$. Une
+intégration par parties n'est pas nécessaire — reconnaître la dérivée d'un
+produit suffit.
+
+\textbf{4.} $\displaystyle\int_{0}^{\pi/2}g(x)\dx
+= \left[x\cos x\right]_{0}^{\pi/2}
+= \frac{\pi}{2}\cos\frac{\pi}{2}-0 = 0$.
+
+\textbf{5.} La fonction $g$ n'est pas nulle : elle vaut $1$ en $0$ et
+$-\frac{\pi}{2}$ en $\frac{\pi}{2}$. Elle change donc de signe sur
+l'intervalle, et l'intégrale nulle signifie que l'aire comprise entre la
+courbe et l'axe des abscisses au-dessus de l'axe est exactement égale à celle
+située au-dessous : les deux se compensent.
+
+\medskip
+\textbf{Exercice 3. 1.} $I_{0} = \displaystyle\int_{0}^{\pi/2}\dx
+= \frac{\pi}{2}$ et
+$I_{1} = \left[-\cos x\right]_{0}^{\pi/2} = 0+1 = 1$.
+
+\textbf{2.} Pour $n \geq 2$, on écrit $\sin^{n}x = \sin^{n-1}x \times \sin x$
+et l'on intègre par parties avec $u = \sin^{n-1}x$ et $v' = \sin x$, donc
+$u' = (n-1)\sin^{n-2}x\cos x$ et $v = -\cos x$ :
+\[
+  I_{n} = \left[-\cos x\,\sin^{n-1}x\right]_{0}^{\pi/2}
+  +(n-1)\int_{0}^{\pi/2}\cos^{2}\!x\,\sin^{n-2}x\dx .
+\]
+Le crochet est nul aux deux bornes. En remplaçant $\cos^{2}x$ par
+$1-\sin^{2}x$, l'intégrale restante se sépare en $I_{n-2}-I_{n}$, d'où
+$I_{n} = (n-1)I_{n-2}-(n-1)I_{n}$, c'est-à-dire $n\,I_{n} = (n-1)\,I_{n-2}$.
+
+\textbf{3.} La relation $I_{n} = \frac{n-1}{n}I_{n-2}$ se déroule à partir de
+$I_{0}$ :
+\[
+  I_{2} = \frac12\times\frac{\pi}{2} = \frac{\pi}{4}, \qquad
+  I_{4} = \frac34\times\frac{\pi}{4} = \frac{3\pi}{16}, \qquad
+  I_{6} = \frac56\times\frac{3\pi}{16} = \frac{5\pi}{32}.
+\]
+
+\textbf{4.} Sur $\intervalle{0}{\frac{\pi}{2}}$ on a $0 \leq \sin x \leq 1$,
+donc $\sin^{n}x \geq 0$ : chaque $I_{n}$ est positif. De plus
+$\sin^{n+1}x \leq \sin^{n}x$ sur cet intervalle, et l'intégration conserve
+l'inégalité : $I_{n+1} \leq I_{n}$. La suite est donc décroissante et minorée
+par $0$ : elle converge. On peut ajouter que sa limite est nulle, puisque
+$n\,I_{n} = (n-1)I_{n-2}$ force $I_{n}$ à tendre vers $0$.
+\end{corrige}

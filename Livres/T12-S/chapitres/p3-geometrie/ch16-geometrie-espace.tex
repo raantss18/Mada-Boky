@@ -1,0 +1,743 @@
+% ===========================================================================
+%  Chapitre 16 — Géométrie dans l'espace
+%  PE 2026, composante GÉOMÉTRIE
+% ===========================================================================
+\bmtchapitre{Géométrie dans l'espace}
+  {Résoudre un problème dans l'espace : décomposition de vecteurs, produits
+   scalaire et vectoriel, équations de droites et de plans, positions
+   relatives.}
+  {Géométrie \textbullet\ environ 10 heures}
+
+Passer du plan à l'espace ajoute une coordonnée, et cela change moins de
+choses qu'on ne le craint : les vecteurs se manipulent de la même façon, le
+produit scalaire garde la même définition, les équations restent linéaires. Ce
+qui change, c'est le vocabulaire des positions relatives — deux droites de
+l'espace peuvent n'être ni sécantes ni parallèles — et l'apparition d'un outil
+nouveau, le produit vectoriel.
+
+Ce produit vectoriel est la clé du chapitre. Il fabrique, à partir de deux
+vecteurs, un troisième qui leur est orthogonal ; il donne donc directement le
+vecteur normal d'un plan défini par trois points. L'exercice de géométrie dans
+l'espace du baccalauréat, deux points sur vingt, commence presque toujours par
+ce calcul.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Géométrie plane et calcul vectoriel de première.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Rappeler l'expression analytique du produit scalaire dans le plan.
+  \item Que signifie $\scal{\vecu}{\vecv} = 0$ ?
+  \item Calculer la norme du vecteur de coordonnées $(2\,;-1\,;2)$.
+  \item Rappeler la relation de Chasles et la définition de deux vecteurs
+        colinéaires.
+  \item Écrire l'équation cartésienne d'une droite du plan de vecteur normal
+        $\vecn(a\,;b)$ passant par $A$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $\scal{(1;2;3)}{(1;0;-1)}$
+  \item Norme de $(3\,;0\,;4)$
+  \item $(1;0;0) \wedge (0;1;0)$
+  \item Vecteur normal du plan $2x-y+5z-3 = 0$
+  \item Le point $(1\,;1\,;0)$ appartient-il à $x+y-z = 2$ ?
+  \item Deux vecteurs colinéaires : leur produit vectoriel
+  \item Direction de la droite $x = 1+t$, $y = -t$, $z = 2t$
+  \item Distance de l'origine au plan $z = 3$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $-2$ \quad b) $5$ \quad c) $(0;0;1)$ \quad d) $(2;-1;5)$ \quad
+e) oui \quad f) le vecteur nul \quad g) $(1;-1;2)$ \quad h) $3$.
+\end{corrige}
+
+% ===========================================================================
+\section{Vecteurs de l'espace et décomposition}
+
+\begin{definition}[vecteurs coplanaires, base]
+Trois vecteurs de l'espace sont \textbf{coplanaires} s'il existe un plan dont
+ils dirigent des droites. Trois vecteurs non coplanaires forment une
+\textbf{base} de l'espace : tout vecteur $\vect{w}$ s'écrit alors de manière
+unique
+\[
+  \vect{w} = x\,\veci+y\,\vecj+z\,\veck .
+\]
+\end{definition}
+
+\begin{propriete}[repère orthonormé]
+Un repère $\left(O\,;\veci,\vecj,\veck\right)$ est \textbf{orthonormé} si les
+trois vecteurs sont deux à deux orthogonaux et de norme $1$. Dans un tel
+repère, pour $\vecu(x\,;y\,;z)$,
+\[
+  \norme{\vecu} = \sqrt{x^{2}+y^{2}+z^{2}},
+  \qquad
+  AB = \sqrt{(x_{B}-x_{A})^{2}+(y_{B}-y_{A})^{2}+(z_{B}-z_{A})^{2}} .
+\]
+\end{propriete}
+
+\begin{remarque}
+Trois points de l'espace définissent un plan si et seulement s'ils ne sont pas
+alignés, c'est-à-dire si $\vect{AB}$ et $\vect{AC}$ ne sont pas colinéaires.
+C'est la toute première vérification de tout exercice d'espace, et elle se
+fait par le produit vectoriel.
+\end{remarque}
+
+% ===========================================================================
+\section{Produit scalaire}
+
+\begin{definition}[produit scalaire dans l'espace]
+Pour $\vecu(x\,;y\,;z)$ et $\vecv(x'\,;y'\,;z')$ dans un repère orthonormé,
+\[
+  \scal{\vecu}{\vecv} = xx'+yy'+zz'
+  = \norme{\vecu}\,\norme{\vecv}\cos\theta,
+\]
+où $\theta$ est l'angle géométrique entre les deux vecteurs.
+\end{definition}
+
+\begin{propriete}[orthogonalité]
+Deux vecteurs non nuls sont orthogonaux si et seulement si leur produit
+scalaire est nul. Une droite est orthogonale à un plan si et seulement si son
+vecteur directeur est orthogonal à deux vecteurs non colinéaires du plan.
+\end{propriete}
+
+% ===========================================================================
+\section{Produit vectoriel}
+
+\begin{definition}[produit vectoriel]
+Le \textbf{produit vectoriel} de $\vecu(x\,;y\,;z)$ et $\vecv(x'\,;y'\,;z')$
+est le vecteur
+\[
+  \pvect{\vecu}{\vecv} =
+  \begin{pmatrix}
+    yz'-zy' \\ zx'-xz' \\ xy'-yx'
+  \end{pmatrix}.
+\]
+\end{definition}
+
+\begin{propriete}[caractérisation géométrique]
+$\pvect{\vecu}{\vecv}$ est orthogonal à $\vecu$ et à $\vecv$ ; sa norme vaut
+$\norme{\vecu}\,\norme{\vecv}\,\abs{\sin\theta}$, qui est l'aire du
+parallélogramme construit sur les deux vecteurs. Il est nul si et seulement si
+$\vecu$ et $\vecv$ sont colinéaires. Enfin
+$\pvect{\vecv}{\vecu} = -\pvect{\vecu}{\vecv}$ : le produit vectoriel n'est
+pas commutatif.
+\end{propriete}
+
+\begin{visualisation}[le vecteur qui sort du plan]
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, font=\footnotesize]
+  \fill[bmtVetiver, opacity=0.12] (-0.6,-0.4) -- (4.6,-0.4) -- (5.6,1.3)
+    -- (0.4,1.3) -- cycle;
+  \draw[bmtVetiver, opacity=0.5] (-0.6,-0.4) -- (4.6,-0.4) -- (5.6,1.3)
+    -- (0.4,1.3) -- cycle;
+  \coordinate (O) at (1.2,0.1);
+  \draw[bmtIndigo, line width=1.1pt, -{Stealth[length=2.6mm]}]
+    (O) -- ++(2.6,0.25) node[anchor=north west] {$\vecu$};
+  \draw[bmtLaterite, line width=1.1pt, -{Stealth[length=2.6mm]}]
+    (O) -- ++(1.05,0.95) node[anchor=south east] {$\vecv$};
+  \draw[bmtEncre, line width=1.2pt, -{Stealth[length=2.8mm]}]
+    (O) -- ++(0,2.35) node[anchor=south] {$\pvect{\vecu}{\vecv}$};
+  \draw[bmtGris, dashed] ($(O)+(2.6,0.25)$) -- ($(O)+(3.65,1.2)$)
+    -- ($(O)+(1.05,0.95)$);
+  \node[bmtGris] at ($(O)+(1.85,0.62)$) {aire};
+\end{tikzpicture}
+\end{center}
+
+Le produit vectoriel sort du plan des deux vecteurs : c'est précisément ce qui
+en fait l'outil du chapitre. Sa direction donne le vecteur normal d'un plan,
+sa norme mesure l'aire du parallélogramme dessiné en pointillés, et sa
+nullité signale que les deux vecteurs sont colinéaires — donc qu'ils ne
+définissent aucun plan.
+\end{visualisation}
+
+\begin{methode}{calculer un produit vectoriel sans se tromper}
+On écrit les deux triplets l'un sous l'autre, puis on répète les deux
+premières lignes en dessous. Chaque coordonnée du résultat s'obtient en
+« croisant » les deux lignes qui l'encadrent : produit descendant moins
+produit montant. La vérification est immédiate : le produit scalaire du
+résultat avec chacun des deux vecteurs doit être nul.
+\end{methode}
+
+\begin{exemple}[un plan par trois points]
+Soient $A(2\,;3\,;1)$, $B(-1\,;1\,;1)$ et $C(-3\,;1\,;0)$. Alors
+$\vect{AB}(-3\,;-2\,;0)$ et $\vect{AC}(-5\,;-2\,;-1)$, et
+\[
+  \pvect{\vect{AB}}{\vect{AC}} =
+  \begin{pmatrix}
+    (-2)(-1)-0 \times(-2) \\ 0 \times(-5)-(-3)(-1) \\
+    (-3)(-2)-(-2)(-5)
+  \end{pmatrix}
+  = \begin{pmatrix} 2 \\ -3 \\ -4 \end{pmatrix}.
+\]
+Ce vecteur n'est pas nul : les trois points ne sont pas alignés et
+définissent bien un plan, d'équation $2x-3y-4z+d = 0$. Le point $A$ donne
+$4-9-4+d = 0$, soit $d = 9$ :
+\[
+  (ABC) : \quad 2x-3y-4z+9 = 0 .
+\]
+\emph{Vérification.} $B$ : $-2-3-4+9 = 0$. $C$ : $-6-3-0+9 = 0$.
+\end{exemple}
+
+\begin{entrainement}[produits scalaire et vectoriel]
+\exo[\niveau{1}] Calculer $\scal{\vecu}{\vecv}$ et $\pvect{\vecu}{\vecv}$ pour
+$\vecu(1\,;2\,;-1)$ et $\vecv(3\,;0\,;2)$.
+
+\exo[\niveau{1}] Les vecteurs $(2\,;-4\,;6)$ et $(1\,;-2\,;3)$ sont-ils
+colinéaires ?
+
+\exo[\niveau{2}] Calculer l'aire du triangle $ABC$ pour $A(1\,;0\,;0)$,
+$B(0\,;2\,;0)$ et $C(0\,;0\,;3)$.
+
+\exo[\niveau{2}] Montrer que $\pvect{\vecu}{\vecu}$ est le vecteur nul.
+
+\exo[\niveau{3}] Montrer que $\norme{\pvect{\vecu}{\vecv}}^{2}
++\left(\scal{\vecu}{\vecv}\right)^{2}
+= \norme{\vecu}^{2}\norme{\vecv}^{2}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} $\scal{\vecu}{\vecv} = 3+0-2 = 1$ et
+$\pvect{\vecu}{\vecv} = \left(4\,;-5\,;-6\right)$. On vérifie que ce dernier
+est orthogonal aux deux : $4-10+6 = 0$ et $12+0-12 = 0$.
+
+\textbf{2.} $(2\,;-4\,;6) = 2\times(1\,;-2\,;3)$ : les deux vecteurs sont
+colinéaires, et leur produit vectoriel est nul.
+
+\textbf{3.} $\vect{AB}(-1\,;2\,;0)$ et $\vect{AC}(-1\,;0\,;3)$, donc
+$\pvect{\vect{AB}}{\vect{AC}} = (6\,;3\,;2)$, de norme
+$\sqrt{36+9+4} = 7$. L'aire du triangle est la moitié de cette norme, soit
+$\dfrac72$.
+
+\textbf{4.} Le produit vectoriel de deux vecteurs colinéaires est nul, et un
+vecteur est toujours colinéaire à lui-même. On peut aussi le lire sur les
+coordonnées : chaque composante est une différence de deux produits égaux.
+
+\textbf{5.} En notant $\theta$ l'angle des deux vecteurs,
+$\norme{\pvect{\vecu}{\vecv}} = \norme{\vecu}\norme{\vecv}\abs{\sin\theta}$ et
+$\scal{\vecu}{\vecv} = \norme{\vecu}\norme{\vecv}\cos\theta$. La somme des
+carrés vaut donc
+$\norme{\vecu}^{2}\norme{\vecv}^{2}\left(\sin^{2}\theta+\cos^{2}\theta\right)
+= \norme{\vecu}^{2}\norme{\vecv}^{2}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Équations de droites et de plans}
+
+\begin{propriete}[équation cartésienne d'un plan]
+Un plan de vecteur normal $\vecn(a\,;b\,;c)$ non nul a une équation de la
+forme
+\[
+  ax+by+cz+d = 0,
+\]
+et réciproquement toute équation de ce type définit un plan de vecteur normal
+$\vecn(a\,;b\,;c)$.
+\end{propriete}
+
+\begin{propriete}[représentation paramétrique d'une droite]
+La droite passant par $A(x_{0}\,;y_{0}\,;z_{0})$ et dirigée par
+$\vecu(\alpha\,;\beta\,;\gamma)$ est l'ensemble des points de coordonnées
+\[
+  \begin{cases}
+    x = x_{0}+\alpha t \\
+    y = y_{0}+\beta t \\
+    z = z_{0}+\gamma t
+  \end{cases}
+  \qquad t \in \R .
+\]
+\end{propriete}
+
+\begin{propriete}[distance d'un point à un plan]
+La distance du point $A(x_{A}\,;y_{A}\,;z_{A})$ au plan
+$(P) : ax+by+cz+d = 0$ vaut
+\[
+  d\left(A,(P)\right)
+  = \frac{\abs{ax_{A}+by_{A}+cz_{A}+d}}{\sqrt{a^{2}+b^{2}+c^{2}}} .
+\]
+\end{propriete}
+
+\begin{entrainement}[équations]
+\exo[\niveau{1}] Donner une équation du plan passant par $A(1\,;0\,;2)$ et de
+vecteur normal $\vecn(2\,;-1\,;3)$.
+
+\exo[\niveau{2}] Donner une représentation paramétrique de la droite passant
+par $A(1\,;-1\,;1)$ et $B(3\,;2\,;1)$.
+
+\exo[\niveau{2}] Calculer la distance du point $A(2\,;2\,;1)$ au plan
+$3x+2y+6z+33 = 0$.
+
+\exo[\niveau{3}] Déterminer une équation du plan contenant la droite
+$x = t$, $y = 1+t$, $z = 2-t$ et passant par l'origine.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{6.} $2(x-1)-(y-0)+3(z-2) = 0$, soit $2x-y+3z-8 = 0$.
+
+\textbf{7.} $\vect{AB}(2\,;3\,;0)$ est vecteur directeur, d'où
+$x = 1+2t$, $y = -1+3t$, $z = 1$, avec $t \in \R$. La cote est constante : la
+droite est horizontale, contenue dans le plan $z = 1$.
+
+\textbf{8.} $d = \dfrac{\abs{3\times2+2\times2+6\times1+33}}{\sqrt{9+4+36}}
+= \dfrac{49}{7} = 7$.
+
+\textbf{9.} La droite passe par $P(0\,;1\,;2)$ et a pour vecteur directeur
+$\vect{d}(1\,;1\,;-1)$. Le plan cherché contient $O$ et $P$, donc le vecteur
+$\vect{OP}(0\,;1\,;2)$, ainsi que $\vect{d}$ : un vecteur normal est
+$\pvect{\vect{d}}{\vect{OP}} = (3\,;-2\,;1)$. Passant par l'origine, le plan a
+pour équation $3x-2y+z = 0$ ; on vérifie que $P$ y appartient et que $\vect{d}$
+est bien orthogonal au vecteur normal.
+\end{corrige}
+
+% ===========================================================================
+\section{Positions relatives}
+
+\begin{propriete}[deux plans]
+Deux plans de vecteurs normaux $\vecn$ et $\vecn'$ sont parallèles si et
+seulement si $\vecn$ et $\vecn'$ sont colinéaires. Ils sont alors confondus ou
+strictement parallèles ; sinon ils se coupent suivant une droite.
+\end{propriete}
+
+\begin{propriete}[un plan et une droite]
+Soit $(P)$ de vecteur normal $\vecn$ et $(D)$ de vecteur directeur $\vecu$.
+\begin{itemize}[leftmargin=*, itemsep=0.1em]
+  \item Si $\scal{\vecn}{\vecu} \neq 0$ : la droite coupe le plan en un point
+        unique.
+  \item Si $\scal{\vecn}{\vecu} = 0$ : la droite est parallèle au plan —
+        contenue dedans si l'un de ses points y appartient, strictement
+        parallèle sinon.
+  \item Si $\vecu$ et $\vecn$ sont colinéaires, la droite est perpendiculaire
+        au plan.
+\end{itemize}
+\end{propriete}
+
+\begin{propriete}[deux droites de l'espace]
+Deux droites de l'espace sont parallèles si leurs vecteurs directeurs sont
+colinéaires. Sinon, elles sont sécantes ou \textbf{non coplanaires} : elles
+sont coplanaires si et seulement si les trois vecteurs $\vecu$, $\vecu'$ et
+$\vect{AA'}$ — où $A$ et $A'$ sont un point de chacune — sont coplanaires,
+c'est-à-dire si
+$\scal{\left(\pvect{\vecu}{\vecu'}\right)}{\vect{AA'}} = 0$.
+\end{propriete}
+
+\begin{avertissement}
+Dans l'espace, « non parallèles » n'entraîne pas « sécantes ». Deux droites
+peuvent n'avoir aucun point commun sans être parallèles : on dit alors
+qu'elles sont non coplanaires. C'est la situation la plus fréquemment
+proposée au baccalauréat, et l'oubli de ce cas fausse toute la question.
+\end{avertissement}
+
+\begin{methode}{montrer que deux droites sont non coplanaires}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que les vecteurs directeurs ne sont pas colinéaires : les
+        droites ne sont donc pas parallèles.
+  \item Choisir un point $A$ sur la première, $A'$ sur la seconde.
+  \item Calculer $\scal{\left(\pvect{\vecu}{\vecu'}\right)}{\vect{AA'}}$. S'il
+        est non nul, les droites ne sont pas coplanaires ; s'il est nul, elles
+        sont sécantes.
+\end{enumerate}
+\end{methode}
+
+\begin{exemple}[deux droites non coplanaires]
+Soient $(D_{1}) : x = 1+t$, $y = -1-2t$, $z = 1+3t$ et
+$(D_{2}) : x = 3+2m$, $y = m$, $z = 1-4m$.
+
+Les directions $\vecu(1\,;-2\,;3)$ et $\vecu'(2\,;1\,;-4)$ ne sont pas
+colinéaires. On prend $A(1\,;-1\,;1)$ et $A'(3\,;0\,;1)$, donc
+$\vect{AA'}(2\,;1\,;0)$. Alors
+\[
+  \pvect{\vecu}{\vecu'} = (5\,;10\,;5),
+  \qquad
+  \scal{(5;10;5)}{(2;1;0)} = 10+10+0 = 20 \neq 0 .
+\]
+Les deux droites ne sont donc pas coplanaires.
+\end{exemple}
+
+% ===========================================================================
+\begin{annales}
+L'exercice de géométrie dans l'espace vaut deux ou trois points et se traite
+en vingt minutes lorsqu'on maîtrise le produit vectoriel. Les énoncés qui
+suivent sont repris de sujets réellement posés ; leur provenance est indiquée
+à chaque fois.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — exercice 2}
+L'espace est rapporté à un repère orthonormé direct. On considère
+$A(1\,;-1\,;1)$, $B(3\,;2\,;1)$ et $C(2\,;-1\,;0)$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que l'équation du plan $(ABC)$ est $3x-2y+3z-8 = 0$.
+  \item Écrire une équation cartésienne du plan $(P)$ contenant $B$ et de
+        vecteur normal $\vect{AC}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — exercice 2, suite}
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Démontrer que l'intersection des plans $(ABC)$ et $(P)$ est la droite
+        $(D)$ de représentation paramétrique
+        $x = t+2$, $y = 3t-1$, $z = t$, avec $t \in \R$.
+  \item Montrer que $C$ est le projeté orthogonal de $A$ sur $(D)$ et en
+        déduire la distance du point $A$ à la droite $(D)$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — exercice 2, fin}
+Soit $(Q)$ le plan d'équation $x-y+z = 1$. Déterminer les coordonnées du point
+$I$, intersection des trois plans $(ABC)$, $(P)$ et $(Q)$.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2022 — exercice 2}
+L'espace est rapporté à un repère orthonormé direct. On donne
+$A(2\,;3\,;1)$, $B(-1\,;1\,;1)$, $C(-3\,;1\,;0)$ et $D(4\,;-1\,;3)$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer $\pvect{\vect{AB}}{\vect{AC}}$.
+  \item Écrire une équation cartésienne du plan $(ABC)$.
+  \item Donner une représentation paramétrique de la droite $(\Delta)$ de
+        vecteur directeur $\vecu(1\,;2\,;-1)$ passant par $D$.
+  \item Montrer que le plan $(ABC)$ et la droite $(\Delta)$ sont parallèles.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2023 — exercice 2}
+L'espace est muni d'un repère orthonormé. On donne le point $A(2\,;2\,;1)$ et
+le plan $(\mathcal P)$ d'équation $3x+2y+6z+33 = 0$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que $(\mathcal P)$ est strictement parallèle à un plan
+        $(\mathcal Q)$ contenant $A$ et de vecteur normal
+        $\vecn(-3\,;-2\,;-6)$.
+  \item Déterminer la distance qui sépare ces deux plans.
+  \item Soit $H(-1\,;0\,;-5)$. Justifier que $H \in (\mathcal P)$ et que
+        $(AH)$ et $(\mathcal P)$ sont orthogonaux, puis calculer
+        $\norme{\vect{AH}}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2026 — exercice 2}
+L'espace orienté est muni d'un repère orthonormé direct. Le plan $(P)$
+contient $A(1\,;-2\,;2)$ et est dirigé par $\vecu(-1\,;2\,;1)$ et
+$\vecv(-4\,;2\,;-2)$. La droite $(D)$ a pour représentation paramétrique
+$x = -2t+1$, $y = -2t+3$, $z = 2t-5$.
+\begin{enumerate}[label=\textbf{\arabic*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $(P)$ a pour équation cartésienne $x+y-z+3 = 0$.
+  \item Vérifier que $(P)$ et $(D)$ sont perpendiculaires.
+  \item Déterminer les coordonnées du point $F$, intersection de $(P)$ et
+        $(D)$.
+\end{enumerate}
+
+\exoann{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2021-2022 — exercice 2}
+Dans un repère orthonormé direct, on considère
+\[
+  (D_{1}) : \begin{cases} x = 1+t \\ y = -1-2t \\ z = 1+3t \end{cases}
+  \qquad\text{et}\qquad
+  (D_{2}) : \begin{cases} x = 3+2m \\ y = m \\ z = 1-4m \end{cases}
+\]
+Montrer que $(D_{1})$ et $(D_{2})$ ne sont pas coplanaires.
+
+\exoann{Baccalauréat blanc, lycée Philibert Tsiranana, Terminale S, 2021-2022 — exercice 2, suite}
+Soit $(P)$ le plan passant par $A(1\,;-1\,;1)$ et dirigé par
+$\vecu_{1}(1\,;-2\,;3)$ et $\vecu_{2}(2\,;1\,;-4)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer les composantes de $\vecn = \pvect{\vecu_{1}}{\vecu_{2}}$.
+  \item Écrire une équation cartésienne de $(P)$.
+  \item Vérifier que $(D_{1})$ est une droite du plan $(P)$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Cameroun, série C, session 2023 — exercice 3}
+L'espace est muni d'un repère orthonormé direct. Soient $A(-1\,;-1\,;0)$,
+$B(0\,;0\,;2)$ et $C(-1\,;1\,;2)$. Montrer que $A$, $B$ et $C$ définissent un
+plan, puis en donner une équation cartésienne.
+
+\exoann{Baccalauréat, Côte d'Ivoire, série C, session 2023 — exercice 1}
+Dire si la proposition suivante est vraie ou fausse, en justifiant.
+« Dans un repère orthonormé, pour le plan d'équation $2x+3y+4z-8 = 0$, le
+vecteur $\vecn\!\left(1\,;\frac32\,;2\right)$ est un vecteur normal. »
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1.} $\vect{AB}(2\,;3\,;0)$ et $\vect{AC}(1\,;0\,;-1)$. Le vecteur
+$(3\,;-2\,;3)$ vérifie $6-6+0 = 0$ et $3+0-3 = 0$ : il est normal au plan.
+L'équation est donc $3x-2y+3z+d = 0$, et $A$ donne $3+2+3+d = 0$, soit
+$d = -8$. Pour $(P)$, le vecteur normal est $\vect{AC}(1\,;0\,;-1)$ et
+$B(3\,;2\,;1)$ donne $3-1+d = 0$ : $(P) : x-z-2 = 0$.
+
+\textbf{2. a)} Un point de $(D)$ vérifie
+$3(t+2)-2(3t-1)+3t-8 = 3t+6-6t+2+3t-8 = 0$ et
+$(t+2)-t-2 = 0$ : il appartient aux deux plans. Comme les deux plans ne sont
+pas parallèles — leurs normales $(3\,;-2\,;3)$ et $(1\,;0\,;-1)$ ne sont pas
+colinéaires —, leur intersection est une droite, et c'est $(D)$.
+\textbf{b)} $C(2\,;-1\,;0)$ correspond à $t = 0$, donc $C \in (D)$. De plus
+$\vect{CA}(-1\,;0\,;1)$ est orthogonal au vecteur directeur $(1\,;3\,;1)$ de
+$(D)$ puisque $-1+0+1 = 0$ : $C$ est bien le projeté orthogonal de $A$, et la
+distance vaut $CA = \sqrt2$.
+
+\textbf{3.} On reporte les coordonnées de $(D)$ dans l'équation de $(Q)$ :
+$(t+2)-(3t-1)+t = 1$ donne $-t+3 = 1$, soit $t = 2$. Le point cherché est
+$I(4\,;5\,;2)$.
+
+\textbf{4.} $\vect{AB}(-3\,;-2\,;0)$ et $\vect{AC}(-5\,;-2\,;-1)$, donc
+$\pvect{\vect{AB}}{\vect{AC}} = (2\,;-3\,;-4)$. L'équation du plan est
+$2x-3y-4z+9 = 0$. La droite $(\Delta)$ a pour représentation
+$x = 4+t$, $y = -1+2t$, $z = 3-t$. Enfin
+$\scal{(2;-3;-4)}{(1;2;-1)} = 2-6+4 = 0$ : la direction de $(\Delta)$ est
+orthogonale à la normale du plan. Comme $D$ n'appartient pas au plan
+— $8+3-12+9 = 8 \neq 0$ —, la droite lui est strictement parallèle.
+
+\textbf{5.} Le vecteur $\vecn(-3\,;-2\,;-6)$ est colinéaire à $(3\,;2\,;6)$ :
+les deux plans sont parallèles. $(\mathcal Q)$ a pour équation
+$3x+2y+6z-16 = 0$, car $A$ donne $6+4+6 = 16$ ; les constantes diffèrent, donc
+le parallélisme est strict. La distance vaut
+$\frac{\abs{-33-(-16)}}{\sqrt{9+4+36}} = \frac{49}{7} = 7$. Enfin
+$3(-1)+0+6(-5)+33 = 0$ : $H \in (\mathcal P)$, et
+$\vect{AH}(-3\,;-2\,;-6)$ est colinéaire à la normale, donc $(AH)$ est
+orthogonale à $(\mathcal P)$ ; sa norme vaut $7$.
+
+\textbf{6.} $\pvect{\vecu}{\vecv} = (-6\,;-6\,;6)$, colinéaire à
+$(1\,;1\,;-1)$. L'équation est $x+y-z+d = 0$ et $A$ donne $1-2-2+d = 0$, soit
+$d = 3$. Le vecteur directeur de $(D)$ est $(-2\,;-2\,;2)$, colinéaire à la
+normale : la droite est perpendiculaire au plan. En reportant,
+$(-2t+1)+(-2t+3)-(2t-5)+3 = -6t+12 = 0$ donne $t = 2$, d'où
+$F(-3\,;-1\,;-1)$.
+
+\textbf{7.} Les directions $(1\,;-2\,;3)$ et $(2\,;1\,;-4)$ ne sont pas
+colinéaires. Avec $A(1\,;-1\,;1)$ et $A'(3\,;0\,;1)$, on a
+$\vect{AA'}(2\,;1\,;0)$ et $\pvect{\vecu}{\vecu'} = (5\,;10\,;5)$, donc
+$\scal{(5;10;5)}{(2;1;0)} = 20 \neq 0$ : les deux droites ne sont pas
+coplanaires.
+
+\textbf{8. a)} $\vecn = (5\,;10\,;5)$, colinéaire à $(1\,;2\,;1)$.
+\textbf{b)} $(P) : x+2y+z+d = 0$ avec $A(1\,;-1\,;1)$ : $1-2+1+d = 0$, donc
+$d = 0$ et $(P) : x+2y+z = 0$.
+\textbf{c)} Pour un point de $(D_{1})$ :
+$(1+t)+2(-1-2t)+(1+3t) = 1+t-2-4t+1+3t = 0$ : tous les points de $(D_{1})$
+appartiennent à $(P)$.
+
+\textbf{9.} $\vect{AB}(1\,;1\,;2)$ et $\vect{AC}(0\,;2\,;2)$ ne sont pas
+colinéaires — leur produit vectoriel vaut $(-2\,;-2\,;2)$, non nul — donc les
+trois points définissent un plan. Avec la normale $(1\,;1\,;-1)$, l'équation
+est $x+y-z+d = 0$ et $A$ donne $-1-1-0+d = 0$, soit $d = 2$ :
+$x+y-z+2 = 0$. On vérifie sur $B$ : $0+0-2+2 = 0$, et sur $C$ :
+$-1+1-2+2 = 0$.
+
+\textbf{10.} Vraie. Le vecteur $(2\,;3\,;4)$, lu sur l'équation, est normal
+au plan, et $(2\,;3\,;4) = 2\left(1\,;\frac32\,;2\right)$ : les deux vecteurs
+sont colinéaires, donc $\vecn$ est également normal au plan.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[la charpente d'un hangar]
+Un hangar a pour base le rectangle $OABC$ avec $O(0\,;0\,;0)$,
+$A(12\,;0\,;0)$, $B(12\,;8\,;0)$ et $C(0\,;8\,;0)$, l'unité valant un mètre.
+Le faîtage est le segment $[ST]$ avec $S(0\,;4\,;5)$ et $T(12\,;4\,;5)$. Les
+deux versants du toit sont les plans $(OAS)$ et $(CBT)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Déterminer une équation cartésienne de chacun des deux versants.
+  \item Vérifier que $T$ appartient au premier versant et que la droite
+        $(AT)$ y est contenue.
+  \item Calculer la distance du point $B$ au versant $(OAS)$.
+  \item Déterminer l'angle que fait le versant $(OAS)$ avec le sol, à un
+        dixième de degré près.
+  \item Montrer que l'intersection des deux versants est bien la droite
+        $(ST)$.
+  \item Un câble part de $B$ et suit la direction $\vecu(0\,;-1\,;1)$.
+        Rencontre-t-il le faîtage ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[la charpente d'un hangar]
+\textbf{1.} Les vecteurs $\vect{OA}(12\,;0\,;0)$ et $\vect{OS}(0\,;4\,;5)$ ont
+pour produit vectoriel $(0\,;-60\,;48)$, colinéaire à $(0\,;-5\,;4)$. Le plan passant par
+l'origine a donc pour équation $5y-4z = 0$. De même,
+$\vect{CB}(12\,;0\,;0)$ et $\vect{CS}(0\,;-4\,;5)$ donnent la normale
+$(0\,;5\,;4)$, et $C(0\,;8\,;0)$ conduit à $5y+4z = 40$.
+
+\textbf{2.} $T(12\,;4\,;5)$ : $5 \times 4-4 \times 5 = 0$, donc
+$T \in (OAS)$. Comme $A$ y appartient aussi — $0-0 = 0$ —, la droite $(AT)$
+est contenue dans le versant.
+
+\textbf{3.} $d\left(B,(OAS)\right) = \dfrac{\abs{5 \times 8-0}}{\sqrt{25+16}}
+= \dfrac{40}{\sqrt{41}} \approx 6{,}25$~mètres.
+
+\textbf{4.} Le sol a pour normale $(0\,;0\,;1)$ et le versant $(0\,;-5\,;4)$.
+L'angle $\theta$ des deux plans vérifie
+$\cos\theta = \dfrac{4}{\sqrt{41}} \approx 0{,}6247$, soit
+$\theta \approx 51{,}3^{\circ}$ — ce que confirme la pente, qui monte de
+$5$~mètres pour $4$~mètres d'avancée.
+
+\textbf{5.} Un point appartient aux deux versants si $5y-4z = 0$ et
+$5y+4z = 40$. En additionnant, $10y = 40$ donc $y = 4$, puis $z = 5$ ;
+l'abscisse reste libre. C'est exactement la droite passant par $S$ et $T$.
+
+\textbf{6.} Le câble a pour représentation $x = 12$, $y = 8-s$, $z = s$. Le
+faîtage est l'ensemble des points $(x\,;4\,;5)$. L'égalité imposerait
+$s = 5$ et $8-s = 4$, c'est-à-dire $s = 3$ : impossible. Le câble ne
+rencontre donc pas le faîtage, et les deux droites ne sont pas coplanaires.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Deux droites de l'espace qui ne sont pas parallèles sont sécantes.
+  \item Le produit vectoriel de deux vecteurs colinéaires est nul.
+  \item Si $\scal{\vecn}{\vecu} = 0$, la droite dirigée par $\vecu$ est
+        contenue dans le plan de normale $\vecn$.
+  \item $\pvect{\vecu}{\vecv} = \pvect{\vecv}{\vecu}$.
+  \item Deux plans dont les normales sont colinéaires sont parallèles.
+  \item L'équation $x+y+z = 0$ définit un plan passant par l'origine.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elles peuvent être non coplanaires.
+\textbf{2.} Vrai.
+\textbf{3.} Faux — elle est parallèle au plan, mais pas nécessairement
+contenue dedans ; il faut vérifier qu'un point lui appartient.
+\textbf{4.} Faux — les deux produits sont opposés.
+\textbf{5.} Vrai — confondus ou strictement parallèles.
+\textbf{6.} Vrai — les coordonnées de l'origine vérifient l'équation.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, série S, session 2026 — exercice 2}
+Dans un espace orienté muni d'un repère orthonormé direct, on considère le
+plan $(P)$ contenant le point $A(1\,;-2\,;2)$ et dirigé par les vecteurs
+$\vecu(-1\,;2\,;1)$ et $\vecv(-4\,;2\,;-2)$, ainsi que la droite $(D)$ de
+représentation paramétrique
+\[
+  (D) : \begin{cases} x = -2t+1 \\ y = -2t+3 \\ z = 2t-5 \end{cases}
+  \qquad t \in \R .
+\]
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Montrer que $(P)$ a pour équation cartésienne $x+y-z+3 = 0$.
+        \hfill\textup{(0,5 pt)}
+  \item Vérifier que $(P)$ et $(D)$ sont perpendiculaires.
+        \hfill\textup{(0,5 pt)}
+  \item Déterminer les coordonnées du point $F$, intersection de $(P)$ et
+        $(D)$. \hfill\textup{(0,5 pt)}
+  \item Soit $(D')$ la droite passant par $A$ et perpendiculaire à $(D)$.
+        Déterminer la distance minimale entre $(D)$ et $(D')$.
+        \hfill\textup{(0,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} Le produit vectoriel $\pvect{\vecu}{\vecv}$ a pour coordonnées
+\[
+  \bigl(2 \times (-2)-1 \times 2\,;\ 1 \times (-4)-(-1) \times (-2)\,;\
+  (-1) \times 2-2 \times (-4)\bigr),
+\]
+soit $(-6\,;-6\,;6)$, colinéaire à $(1\,;1\,;-1)$. L'équation est donc $x+y-z+d = 0$, et $A$ donne
+$1-2-2+d = 0$, soit $d = 3$.
+
+\textbf{2.} Le vecteur directeur de $(D)$ est $(-2\,;-2\,;2)$, colinéaire au
+vecteur normal $(1\,;1\,;-1)$ : la droite est perpendiculaire au plan.
+
+\textbf{3.} En reportant : $-6t+12 = 0$, donc $t = 2$ et
+$F(-3\,;-1\,;-1)$.
+
+\textbf{4.} $(D')$ est perpendiculaire à $(D)$ et passe par $A$, qui
+appartient à $(P)$ ; or $(D)$ est perpendiculaire à $(P)$, donc toute droite
+de $(P)$ passant par $A$ convient. La distance minimale entre $(D)$ et
+$(D')$ est donc la distance de $A$ au point $F$ :
+\[
+  AF = \sqrt{(-3-1)^{2}+(-1+2)^{2}+(-1-2)^{2}} = \sqrt{26}.
+\]
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{D'après un concours d'entrée en école d'ingénieurs}
+Dans un repère orthonormé, on considère les points $A(1\,;0\,;0)$,
+$B(0\,;1\,;0)$, $C(0\,;0\,;1)$ et $D(1\,;1\,;1)$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Montrer que $ABC$ est équilatéral et calculer son aire.
+  \item Déterminer une équation du plan $(ABC)$ et la distance de $D$ à ce
+        plan.
+  \item En déduire le volume du tétraèdre $ABCD$.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} $AB = AC = BC = \sqrt2$ : le triangle est équilatéral. Son aire
+vaut $\frac{\sqrt3}{4}\left(\sqrt2\right)^{2} = \frac{\sqrt3}{2}$ ; on la
+retrouve par $\frac12\norme{\pvect{\vect{AB}}{\vect{AC}}}$, avec
+$\pvect{\vect{AB}}{\vect{AC}} = (1\,;1\,;1)$ de norme $\sqrt3$.
+
+\textbf{2.} Le vecteur $(1\,;1\,;1)$ est normal, et $A$ donne
+$(ABC) : x+y+z-1 = 0$. La distance de $D(1\,;1\,;1)$ vaut
+$\frac{\abs{1+1+1-1}}{\sqrt3} = \frac{2}{\sqrt3} = \frac{2\sqrt3}{3}$.
+
+\textbf{3.} $V = \frac13 \times \text{aire} \times \text{hauteur}
+= \frac13 \times \frac{\sqrt3}{2} \times \frac{2\sqrt3}{3} = \frac13$.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+Le chapitre est mécanique, et c'est une bonne nouvelle : bien travaillé, il
+rapporte deux points en vingt minutes. Consacrez la première séance au seul
+produit vectoriel, avec la disposition en croix et la vérification
+systématique par produit scalaire. Un élève qui calcule juste ce produit
+traite l'exercice entier.
+
+Le point conceptuel unique est celui des droites non coplanaires. Faites-le
+sentir avec un objet : deux crayons tenus en l'air, qui ne se touchent pas et
+ne sont pas parallèles. Sans cette image, les élèves concluent
+systématiquement « non parallèles donc sécantes », et perdent la question.
+
+Le vocabulaire mérite d'être fixé au tableau : parallèle, strictement
+parallèle, confondu, perpendiculaire, orthogonal. Les sujets l'emploient avec
+précision, et une réponse juste rédigée avec le mauvais mot est comptée
+fausse.
+\end{notepourlaclasse}
+
+% =========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir est cumulatif : il porte sur ce chapitre et sur ceux qui le précèdent. Les énoncés sont repris de sessions réelles et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{Baccalauréat, Cameroun, séries D et TI, session 2024 — exercice 1}{5 points}
+Le plan complexe est muni d'un repère orthonormé. On donne $A$, $B$ et $C$
+d'affixes respectives $Z_{A} = 2-i$, $Z_{B} = 3-2i$ et $Z_{C} = 1-2i$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer l'expression complexe de la similitude directe $s$ de
+        centre $C$ transformant $A$ en $B$.
+  \item Préciser les éléments caractéristiques de $s$.
+  \item Quelle est l'image de la droite $(AC)$ par $s$ ?
+\end{enumerate}
+
+\exods{2}{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 4}{7 points}
+On donne $\Omega(1+i)$, $A(1)$ et $B\!\left(\frac32+\frac i2\right)$. Étudier
+la similitude directe $S$ de centre $\Omega$ transformant $A$ en $B$ :
+déterminer son écriture complexe, puis son rapport et son angle.
+
+\exods{3}{Baccalauréat, Cameroun, série C, session 2023 — exercice 3}{8 points}
+L'espace est muni d'un repère orthonormé direct. Soient $A(-1\,;-1\,;0)$,
+$B(0\,;0\,;2)$ et $C(-1\,;1\,;2)$. Montrer que $A$, $B$ et $C$ définissent un
+plan, puis en donner une équation cartésienne.
+
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1. a)} $a = \dfrac{Z_{B}-Z_{C}}{Z_{A}-Z_{C}} = \dfrac{2}{1+i} = 1-i$,
+donc $z' = (1-i)(z-1+2i)+1-2i$.
+\textbf{b)} Centre $C(1-2i)$, rapport $\abs{1-i} = \sqrt2$, angle
+$-\frac{\pi}{4}$.
+\textbf{c)} Une similitude transforme une droite en droite. Comme
+$s(C) = C$ et $s(A) = B$, l'image de $(AC)$ est la droite $(BC)$.
+
+\textbf{Exercice 2.} $a = \dfrac{z_{B}-z_{\Omega}}{z_{A}-z_{\Omega}}
+= \dfrac{\frac32+\frac i2-1-i}{1-1-i}
+= \dfrac{\frac12-\frac i2}{-i} = \dfrac{1+i}{2}$. L'écriture complexe est
+$z' = \frac{1+i}{2}\left(z-1-i\right)+1+i$, le rapport vaut
+$\left|\frac{1+i}{2}\right| = \frac{\sqrt2}{2}$ et l'angle
+$\frac{\pi}{4}$.
+
+\textbf{Exercice 3.} $\vect{AB}(1\,;1\,;2)$ et $\vect{AC}(0\,;2\,;2)$ ne sont pas
+colinéaires — leur produit vectoriel vaut $(-2\,;-2\,;2)$, non nul — donc les
+trois points définissent un plan. Avec la normale $(1\,;1\,;-1)$, l'équation
+est $x+y-z+d = 0$ et $A$ donne $-1-1-0+d = 0$, soit $d = 2$ :
+$x+y-z+2 = 0$. On vérifie sur $B$ : $0+0-2+2 = 0$, et sur $C$ :
+$-1+1-2+2 = 0$.
+
+\end{corrige}

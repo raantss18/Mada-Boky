@@ -1,0 +1,937 @@
+% ===========================================================================
+%  Chapitre 8 — Suites numériques
+%  PE 2026, composante ALGÈBRE
+% ===========================================================================
+\bmtchapitre{Suites numériques}
+  {Utiliser les suites numériques pour résoudre des problèmes : raisonnement
+   par récurrence, convergence, suites du type $u_{n}=f(n)$ et
+   $u_{n+1}=g(u_{n})$, suites arithmétiques, géométriques, stationnaires et
+   adjacentes.}
+  {Algèbre \textbullet\ environ 12 heures}
+
+Une suite est une liste infinie de nombres, numérotée par les entiers. Cette
+définition tient en une ligne et ne dit rien de l'intérêt de l'objet : ce qui
+compte, c'est qu'une suite décrit un processus qui se répète — une population
+qui croît d'année en année, un capital qui produit des intérêts, une valeur
+approchée que l'on affine à chaque étape.
+
+Deux outils font la force de ce chapitre. Le raisonnement par récurrence,
+d'abord, qui permet de démontrer une propriété pour une infinité d'entiers en
+n'écrivant que deux lignes. L'inégalité des accroissements finis, ensuite, qui
+transforme une suite définie par $u_{n+1} = f(u_{n})$ en une suite dont on
+maîtrise la distance à sa limite. Le problème d'analyse du baccalauréat se
+termine presque toujours par cette combinaison.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Les acquis de première et les chapitres d'analyse suffisent.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Une suite arithmétique de premier terme $3$ et de raison $2$ :
+        donner $u_{5}$ et $u_{n}$.
+  \item Une suite géométrique de premier terme $1$ et de raison $\frac12$ :
+        donner $v_{4}$ et $v_{n}$.
+  \item Calculer $1+2+3+\cdots+100$.
+  \item Rappeler l'énoncé de l'inégalité des accroissements finis.
+  \item Résoudre $\left(\frac23\right)^{n} \leq 10^{-3}$.
+  \item Que vaut $\lim_{n\to+\infty}q^{n}$ selon les valeurs de $q$ ?
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $u_{n} = 3n-1$ : donner $u_{0}$ et $u_{10}$
+  \item $v_{n} = 2^{n}$ : donner $v_{0}$ et $v_{5}$
+  \item Somme $1+2+\cdots+n$
+  \item Somme $1+q+q^{2}+\cdots+q^{n}$ pour $q \neq 1$
+  \item $\lim\left(\frac12\right)^{n}$
+  \item $\lim\left(\frac32\right)^{n}$
+  \item $\lim (-1)^{n}$
+  \item $\lim \frac{1}{n}$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $-1$ et $29$ \quad b) $1$ et $32$ \quad c) $\frac{n(n+1)}{2}$ \quad
+d) $\frac{1-q^{n+1}}{1-q}$ \quad e) $0$ \quad f) $+\infty$ \quad
+g) pas de limite \quad h) $0$.
+\end{corrige}
+
+% ===========================================================================
+\section{Définition, modes de génération et représentation graphique}
+
+\begin{definition}[suite numérique]
+Une \textbf{suite numérique} est une fonction de $\N$ (ou d'une partie de
+$\N$) dans $\R$. L'image de l'entier $n$ se note $u_{n}$ et s'appelle le
+\textbf{terme de rang} $n$. La suite elle-même se note $(u_{n})$.
+\end{definition}
+
+\begin{propriete}[deux modes de génération]
+Une suite est donnée soit \textbf{explicitement}, par une formule
+$u_{n} = f(n)$ qui calcule directement chaque terme, soit \textbf{par
+récurrence}, par un premier terme et une relation $u_{n+1} = g(u_{n})$ qui
+fabrique chaque terme à partir du précédent.
+\end{propriete}
+
+\begin{remarque}
+La différence est pratique avant d'être théorique. Avec une formule
+explicite, $u_{1000}$ se calcule immédiatement ; avec une relation de
+récurrence, il faut mille étapes. C'est pourquoi tant d'exercices demandent de
+passer de la seconde forme à la première, par l'intermédiaire d'une suite
+auxiliaire.
+\end{remarque}
+
+\begin{visualisation}[la construction en escalier]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width = 9.6cm, height = 6.4cm,
+  axis lines = middle, xlabel = {$x$},
+  xmin = -0.3, xmax = 5.4, ymin = -0.3, ymax = 4.3,
+  xtick = {1, 1.75, 2.125}, xticklabels = {$u_{0}$, $u_{1}$, $u_{2}$},
+  ytick = \empty,
+  axis line style = {bmtGris},
+  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
+]
+  \addplot[bmtLaterite, line width=1.2pt, domain=0:4, samples=2] {x};
+  \addplot[bmtIndigo, line width=1.3pt, domain=0:4, samples=120]
+    {0.5*x + 1.25};
+  % escalier u0=1 -> u1=1.75 -> u2=2.125...
+  \draw[bmtVetiver, line width=0.9pt] (axis cs:1,0) -- (axis cs:1,1.75)
+    -- (axis cs:1.75,1.75) -- (axis cs:1.75,2.125)
+    -- (axis cs:2.125,2.125) -- (axis cs:2.125,2.3125)
+    -- (axis cs:2.3125,2.3125) -- (axis cs:2.3125,2.406);
+  \filldraw[bmtVetiver] (axis cs:1,1.75) circle (1.6pt);
+  \filldraw[bmtVetiver] (axis cs:1.75,2.125) circle (1.6pt);
+  \filldraw[bmtLaterite] (axis cs:2.5,2.5) circle (2pt);
+  \node[bmtLaterite, font=\footnotesize, anchor=north west]
+    at (axis cs:2.58,2.38) {$\ell$};
+  \node[bmtIndigo, font=\footnotesize, anchor=west]
+    at (axis cs:4.08,3.25) {$y = g(x)$};
+  \node[bmtLaterite, font=\footnotesize, anchor=south east]
+    at (axis cs:3.9,3.95) {$y = x$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Pour construire les termes d'une suite définie par $u_{n+1} = g(u_{n})$, on
+part de $u_{0}$ sur l'axe des abscisses, on monte jusqu'à la courbe — on lit
+$u_{1}$ en ordonnée —, puis on se déplace horizontalement jusqu'à la droite
+$y = x$ pour ramener cette valeur sur l'axe des abscisses. On recommence. La
+figure montre aussitôt ce qu'aucun calcul ne montre : la suite converge vers
+le point d'intersection de la courbe et de la droite, c'est-à-dire vers la
+solution de $g(x) = x$.
+\end{visualisation}
+
+% ===========================================================================
+\section{Raisonnement par récurrence}
+
+\begin{theoreme}[principe de récurrence]
+Soit $P(n)$ une propriété portant sur l'entier $n$, et $n_{0}$ un entier. Si
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.1em]
+  \item $P(n_{0})$ est vraie ;
+  \item pour tout $n \geq n_{0}$, $P(n)$ vraie entraîne $P(n+1)$ vraie ;
+\end{enumerate}
+alors $P(n)$ est vraie pour tout entier $n \geq n_{0}$.
+\end{theoreme}
+
+\begin{methode}{rédiger une récurrence}
+Quatre paragraphes, dans cet ordre, et le correcteur les cherche un par un.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item \emph{Énoncé.} Écrire explicitement la propriété $P(n)$ à démontrer.
+  \item \emph{Initialisation.} Vérifier $P(n_{0})$ par le calcul.
+  \item \emph{Hérédité.} Supposer $P(n)$ vraie pour un entier $n$ fixé, et
+        démontrer $P(n+1)$ en partant de l'hypothèse.
+  \item \emph{Conclusion.} Invoquer le principe de récurrence.
+\end{enumerate}
+\end{methode}
+
+\begin{avertissement}
+L'hypothèse de récurrence doit être \emph{utilisée} dans l'hérédité. Une
+démonstration qui n'y fait jamais appel n'est pas une récurrence : soit elle
+est fausse, soit la propriété se démontrait directement. Autre faute
+fréquente : écrire « supposons que $P(n)$ soit vraie pour tout $n$ », ce qui
+suppose déjà le résultat.
+\end{avertissement}
+
+\begin{exemple}[une récurrence complète]
+Montrons que pour tout $n \in \N$, $4^{n}+6n-1$ est divisible par $9$.
+
+\emph{Propriété.} $P(n)$ : « $9$ divise $4^{n}+6n-1$ ».
+
+\emph{Initialisation.} Pour $n = 0$, $4^{0}+0-1 = 0$, divisible par $9$.
+
+\emph{Hérédité.} Supposons $4^{n}+6n-1 = 9k$ avec $k$ entier. Alors
+\[
+  4^{n+1}+6(n+1)-1 = 4\left(4^{n}+6n-1\right)-18n+9
+  = 9\left(4k-2n+1\right),
+\]
+qui est bien divisible par $9$.
+
+\emph{Conclusion.} La propriété est vraie pour tout entier naturel $n$.
+\end{exemple}
+
+\begin{entrainement}[récurrence]
+\exo[\niveau{1}] Démontrer que $\displaystyle\sum_{k=1}^{n}k
+= \frac{n(n+1)}{2}$.
+
+\exo[\niveau{2}] Démontrer que $\displaystyle\sum_{k=1}^{n}k^{2}
+= \frac{n(n+1)(2n+1)}{6}$.
+
+\exo[\niveau{2}] Démontrer que pour tout $n \geq 1$, $2^{n} \geq n+1$.
+
+\exo[\niveau{3}] Soit $(u_{n})$ définie par $u_{0} = 1$ et
+$u_{n+1} = \sqrt{2+u_{n}}$. Démontrer que pour tout $n$,
+$1 \leq u_{n} \leq 2$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{1.} L'égalité est vraie au rang $1$ : $1 = \frac{1\times2}{2}$. Si
+elle vaut au rang $n$, alors
+$\sum_{k=1}^{n+1}k = \frac{n(n+1)}{2}+(n+1) = \frac{(n+1)(n+2)}{2}$, qui est
+la formule au rang $n+1$.
+
+\textbf{2.} Au rang $1$ : $1 = \frac{1\times2\times3}{6}$. Si la formule vaut
+au rang $n$,
+\[
+  \sum_{k=1}^{n+1}k^{2} = \frac{n(n+1)(2n+1)}{6}+(n+1)^{2}
+  = \frac{(n+1)\left[n(2n+1)+6(n+1)\right]}{6}
+  = \frac{(n+1)(n+2)(2n+3)}{6},
+\]
+puisque $2n^{2}+7n+6 = (n+2)(2n+3)$.
+
+\textbf{3.} Au rang $1$ : $2 \geq 2$. Si $2^{n} \geq n+1$, alors
+$2^{n+1} = 2\times2^{n} \geq 2(n+1) = 2n+2 \geq n+2$, la dernière inégalité
+étant vraie dès que $n \geq 0$.
+
+\textbf{4.} Au rang $0$ : $u_{0} = 1$ et $1 \leq 1 \leq 2$. Si
+$1 \leq u_{n} \leq 2$, alors $3 \leq 2+u_{n} \leq 4$, donc
+$\sqrt3 \leq u_{n+1} \leq 2$. Comme $\sqrt3 > 1$, l'encadrement demandé est
+conservé.
+\end{corrige}
+
+% ===========================================================================
+\section{Suites majorées, minorées, bornées}
+
+\begin{definition}[majorant, minorant]
+La suite $(u_{n})$ est \textbf{majorée} s'il existe un réel $M$ tel que
+$u_{n} \leq M$ pour tout $n$ ; \textbf{minorée} s'il existe $m$ tel que
+$u_{n} \geq m$ pour tout $n$ ; \textbf{bornée} si elle est à la fois majorée
+et minorée.
+\end{definition}
+
+\begin{propriete}[monotonie]
+$(u_{n})$ est \textbf{croissante} si $u_{n+1} \geq u_{n}$ pour tout $n$. Pour
+l'établir, on étudie le signe de $u_{n+1}-u_{n}$ ; si tous les termes sont
+strictement positifs, on peut aussi comparer $\dfrac{u_{n+1}}{u_{n}}$ à $1$.
+\end{propriete}
+
+\begin{entrainement}[monotonie et bornes]
+\exo[\niveau{1}] Étudier le sens de variation de $u_{n} = \dfrac{n}{n+1}$ et
+montrer qu'elle est bornée.
+
+\exo[\niveau{2}] Étudier le sens de variation de $v_{n} = \dfrac{2^{n}}{n!}$.
+
+\exo[\niveau{2}] Montrer que $w_{n} = \dfrac{\sin n}{n}$ est bornée.
+
+\exo[\niveau{3}] Soit $u_{0} = 2$ et $u_{n+1} = \frac12\left(u_{n}
++\frac{2}{u_{n}}\right)$. Montrer que $u_{n} \geq \sqrt2$ pour tout $n$, puis
+que la suite décroît.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{5.} $u_{n} = 1-\dfrac{1}{n+1}$ : la suite $\left(\frac{1}{n+1}\right)$
+décroît, donc $(u_{n})$ croît. De plus $0 \leq u_{n} < 1$ : la suite est
+bornée, minorée par $u_{0} = 0$ et majorée par $1$.
+
+\textbf{6.} $\dfrac{v_{n+1}}{v_{n}} = \dfrac{2}{n+1}$. Ce quotient vaut $2$
+pour $n = 0$, vaut $1$ pour $n = 1$, et est strictement inférieur à $1$ dès
+que $n \geq 2$. La suite croît donc de $v_{0} = 1$ à $v_{1} = 2$, reste égale
+à $2$ en $v_{2}$, puis décroît strictement.
+
+\textbf{7.} Pour tout $n \geq 1$, $\abs{\sin n} \leq 1$, donc
+$\abs{w_{n}} \leq \dfrac1n \leq 1$ : la suite est bornée, encadrée par $-1$ et
+$1$.
+
+\textbf{8.} Pour $a>0$, $\dfrac12\left(a+\dfrac2a\right)-\sqrt2
+= \dfrac{a^{2}-2\sqrt2\,a+2}{2a} = \dfrac{\left(a-\sqrt2\right)^{2}}{2a}
+\geq 0$ : tout terme obtenu par cette formule est donc supérieur ou égal à
+$\sqrt2$, et $u_{0} = 2 \geq \sqrt2$. Ensuite
+$u_{n+1}-u_{n} = \dfrac{2-u_{n}^{2}}{2u_{n}} \leq 0$ puisque
+$u_{n}^{2} \geq 2$ : la suite décroît.
+\end{corrige}
+
+% ===========================================================================
+\section{Convergence et divergence d'une suite}
+
+\begin{definition}[limite d'une suite]
+La suite $(u_{n})$ \textbf{converge} vers le réel $\ell$ si tout intervalle
+ouvert contenant $\ell$ contient tous les termes de la suite à partir d'un
+certain rang. On écrit alors $\limn u_{n} = \ell$. Une suite qui ne converge
+pas est dite \textbf{divergente}.
+\end{definition}
+
+\begin{theoreme}[convergence monotone]
+Toute suite croissante et majorée converge. Toute suite décroissante et
+minorée converge.
+\end{theoreme}
+
+\begin{avertissement}
+Ce théorème affirme l'existence de la limite, jamais sa valeur. Une suite
+croissante majorée par $10$ ne converge pas nécessairement vers $10$ : elle
+converge vers un réel inférieur ou égal à $10$. C'est une erreur classique, et
+elle est lourdement sanctionnée.
+\end{avertissement}
+
+\begin{theoreme}[limite d'une suite récurrente]
+Si $u_{n+1} = g(u_{n})$, si $g$ est continue sur un intervalle contenant tous
+les termes, et si $(u_{n})$ converge vers $\ell$, alors $\ell$ vérifie
+$g(\ell) = \ell$.
+\end{theoreme}
+
+\begin{demonstration}
+La suite $(u_{n+1})$ converge vers $\ell$, comme $(u_{n})$ dont elle n'est que
+le décalage. Par continuité de $g$, la suite $\left(g(u_{n})\right)$ converge
+vers $g(\ell)$. Or ces deux suites sont égales terme à terme : leurs limites
+coïncident.
+\end{demonstration}
+
+\begin{methode}{encadrer l'écart à la limite}
+C'est le schéma du problème d'analyse au baccalauréat, et il se déroule
+toujours de la même façon.
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que l'équation $g(x) = x$ admet une solution unique $\alpha$
+        sur un intervalle $I$ — continuité, stricte monotonie, changement de
+        signe.
+  \item Montrer par récurrence que tous les termes restent dans $I$.
+  \item Majorer $\abs{g'}$ par un réel $k<1$ sur $I$, puis appliquer
+        l'inégalité des accroissements finis entre $u_{n}$ et $\alpha$ :
+        $\abs{u_{n+1}-\alpha} \leq k\abs{u_{n}-\alpha}$.
+  \item En déduire par récurrence
+        $\abs{u_{n}-\alpha} \leq k^{n}\abs{u_{0}-\alpha}$, puis conclure à la
+        convergence, le majorant tendant vers $0$.
+\end{enumerate}
+\end{methode}
+
+% ===========================================================================
+\section{Suites explicites et suites récurrentes}
+
+\begin{exemple}[la même suite, deux visages]
+Soit $u_{0} = 5$ et $u_{n+1} = \dfrac{u_{n}+3}{4}$. Posons
+$v_{n} = u_{n}-1$. Alors
+\[
+  v_{n+1} = u_{n+1}-1 = \frac{u_{n}+3}{4}-1 = \frac{u_{n}-1}{4}
+  = \frac14 v_{n}.
+\]
+La suite $(v_{n})$ est géométrique de raison $\frac14$ et de premier terme
+$v_{0} = 4$ : $v_{n} = 4 \times \left(\frac14\right)^{n}$. On revient alors à
+la forme explicite
+\[
+  u_{n} = 1+4\left(\frac14\right)^{n} = 1+4^{1-n}.
+\]
+Comme $\left|\frac14\right|<1$, la suite converge vers $1$ — ce que
+confirme la résolution de $x = \frac{x+3}{4}$.
+\end{exemple}
+
+\begin{methode}{deviner la bonne suite auxiliaire}
+Le point fixe $\alpha$, solution de $g(x) = x$, est presque toujours la
+translation à effectuer : on pose $v_{n} = u_{n}-\alpha$. Si l'énoncé ne
+fournit pas la suite auxiliaire, c'est ce calcul-là qu'il faut tenter en
+premier.
+\end{methode}
+
+% ===========================================================================
+\section{Suites arithmétiques et géométriques}
+
+\begin{definition}[suites arithmétiques et géométriques]
+$(u_{n})$ est \textbf{arithmétique} de raison $r$ si $u_{n+1} = u_{n}+r$ pour
+tout $n$ ; \textbf{géométrique} de raison $q$ si $u_{n+1} = q\,u_{n}$.
+\end{definition}
+
+\begin{propriete}[terme général et sommes]
+Pour une suite arithmétique de premier terme $u_{0}$ :
+\[
+  u_{n} = u_{0}+nr, \qquad
+  \sum_{k=0}^{n}u_{k} = (n+1)\,\frac{u_{0}+u_{n}}{2}.
+\]
+Pour une suite géométrique de raison $q \neq 1$ :
+\[
+  u_{n} = u_{0}\,q^{n}, \qquad
+  \sum_{k=0}^{n}u_{k} = u_{0}\,\frac{1-q^{n+1}}{1-q}.
+\]
+\end{propriete}
+
+\begin{demonstration}
+Pour la somme géométrique, on pose $S = u_{0}+u_{0}q+\cdots+u_{0}q^{n}$ et
+l'on calcule $S-qS = u_{0}-u_{0}q^{n+1}$ : tous les termes intermédiaires se
+détruisent deux à deux. Comme $q \neq 1$, on divise par $1-q$.
+\end{demonstration}
+
+\begin{propriete}[limite d'une suite géométrique]
+$\limn q^{n} = 0$ si $\abs q<1$ ; $=+\infty$ si $q>1$ ; $=1$ si $q = 1$ ; et
+la suite n'a pas de limite si $q \leq -1$.
+\end{propriete}
+
+\begin{entrainement}[arithmétiques et géométriques]
+\exo[\niveau{1}] $(u_{n})$ est arithmétique, $u_{3} = 7$ et $u_{8} = 22$.
+Déterminer $r$, $u_{0}$ et $u_{n}$.
+
+\exo[\niveau{1}] Calculer $1+3+3^{2}+\cdots+3^{10}$.
+
+\exo[\niveau{2}] $(v_{n})$ est géométrique de raison $\frac23$ et
+$v_{0} = 81$. À partir de quel rang $v_{n}<10^{-2}$ ?
+
+\exo[\niveau{2}] Une population de $12\,000$ habitants croît de $2{,}5\,\%$
+par an. Exprimer $P_{n}$ et déterminer l'année du doublement.
+
+\exo[\niveau{3}] Soit $u_{0} = 2$ et $u_{n+1} = eu_{n}$. Calculer
+$S_{n} = u_{0}+\cdots+u_{n}$ et $P_{n} = u_{1}\times\cdots\times u_{n}$.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{9.} $u_{8}-u_{3} = 5r = 22-7 = 15$, donc $r = 3$. Puis
+$u_{3} = u_{0}+3r$ donne $u_{0} = 7-9 = -2$, et $u_{n} = 3n-2$.
+
+\textbf{10.} C'est la somme des onze premiers termes d'une suite géométrique
+de raison $3$ et de premier terme $1$ :
+$\dfrac{3^{11}-1}{3-1} = \dfrac{177\,147-1}{2} = 88\,573$.
+
+\textbf{11.} $v_{n} = 81\left(\frac23\right)^{n}$, et l'inéquation
+$v_{n}<10^{-2}$ équivaut à $\left(\frac32\right)^{n} > 8100$, soit
+$n > \dfrac{\ln 8100}{\ln 1{,}5} \approx 22{,}2$. Le premier rang convenable
+est $n = 23$ : on vérifie $v_{22} \approx 1{,}08\times10^{-2}$ et
+$v_{23} \approx 7{,}2\times10^{-3}$.
+
+\textbf{12.} $P_{n} = 12\,000\times1{,}025^{n}$. Le doublement s'obtient pour
+$1{,}025^{n} = 2$, soit $n = \dfrac{\ln2}{\ln 1{,}025} \approx 28{,}1$ : la
+population aura doublé au cours de la vingt-neuvième année.
+
+\textbf{13.} La suite est géométrique de raison $e$ et de premier terme $2$,
+donc $u_{n} = 2e^{n}$. La somme vaut
+$S_{n} = 2\,\dfrac{e^{n+1}-1}{e-1}$, et le produit
+$P_{n} = 2^{n}e^{1+2+\cdots+n} = 2^{n}e^{\frac{n(n+1)}{2}}$.
+\end{corrige}
+
+% ===========================================================================
+\section{Suites arithmético-géométriques}
+
+\begin{definition}[suite arithmético-géométrique]
+Une suite est \textbf{arithmético-géométrique} lorsqu'elle vérifie
+$u_{n+1} = a\,u_{n}+b$, avec $a \neq 1$.
+\end{definition}
+
+\begin{propriete}[réduction]
+Soit $\alpha$ le point fixe, solution de $\alpha = a\alpha+b$, c'est-à-dire
+$\alpha = \dfrac{b}{1-a}$. Alors la suite $v_{n} = u_{n}-\alpha$ est
+géométrique de raison $a$, et
+\[
+  u_{n} = \alpha + \left(u_{0}-\alpha\right)a^{n}.
+\]
+\end{propriete}
+
+\begin{demonstration}
+$v_{n+1} = u_{n+1}-\alpha = au_{n}+b-(a\alpha+b) = a\left(u_{n}-\alpha\right)
+= a\,v_{n}$.
+\end{demonstration}
+
+\begin{entrainement}[arithmético-géométriques]
+\exo[\niveau{1}] $u_{0} = 0$ et $u_{n+1} = 3u_{n}+4$ : déterminer $u_{n}$.
+
+\exo[\niveau{2}] $u_{0} = 10$ et $u_{n+1} = 0{,}8u_{n}+30$ : déterminer la
+limite et l'interpréter.
+
+\exo[\niveau{3}] Un bassin contient $200$ litres. Chaque jour on retire un
+cinquième du contenu puis on ajoute $60$ litres. Modéliser, puis déterminer
+le contenu à long terme.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{14.} Le point fixe de $x \mapsto 3x+4$ est $\ell = -2$. En posant
+$v_{n} = u_{n}+2$, on obtient $v_{n+1} = 3v_{n}$ avec $v_{0} = 2$, donc
+$v_{n} = 2\times3^{n}$ et $u_{n} = 2\times3^{n}-2$.
+
+\textbf{15.} Le point fixe de $x \mapsto 0{,}8x+30$ est $\ell = 150$. En
+posant $v_{n} = u_{n}-150$, on obtient $v_{n} = -140\times0{,}8^{n}$, d'où
+$u_{n} = 150-140\times0{,}8^{n}$. Comme $0{,}8^{n}\to0$, la suite converge
+vers $150$ : quelle que soit la valeur de départ, le procédé se stabilise à
+ce niveau.
+
+\textbf{16.} Si $u_{n}$ désigne le contenu au bout de $n$ jours, retirer un
+cinquième puis ajouter $60$ donne $u_{n+1} = \frac45u_{n}+60$, avec
+$u_{0} = 200$. Le point fixe est $\ell = 300$ ; en posant
+$v_{n} = u_{n}-300$, il vient $v_{n} = -100\times\left(\frac45\right)^{n}$,
+donc $u_{n} = 300-100\left(\frac45\right)^{n}$. À long terme, le bassin se
+stabilise à $300$ litres.
+\end{corrige}
+
+% ===========================================================================
+\section{Suites stationnaires et suites adjacentes}
+
+\begin{definition}[suite stationnaire, suites adjacentes]
+Une suite est \textbf{stationnaire} si elle est constante à partir d'un
+certain rang. Deux suites $(u_{n})$ et $(v_{n})$ sont \textbf{adjacentes} si
+l'une croît, l'autre décroît, et si $\limn\left(v_{n}-u_{n}\right) = 0$.
+\end{definition}
+
+\begin{theoreme}[théorème des suites adjacentes]
+Deux suites adjacentes convergent vers la même limite $\ell$, et pour tout
+$n$, $u_{n} \leq \ell \leq v_{n}$.
+\end{theoreme}
+
+\begin{demonstration}
+La suite $(v_{n}-u_{n})$ décroît et tend vers $0$ : elle est donc positive,
+d'où $u_{n} \leq v_{n}$ pour tout $n$. Ainsi $(u_{n})$ est croissante et
+majorée par $v_{0}$, donc convergente ; de même $(v_{n})$ est décroissante et
+minorée par $u_{0}$. Enfin la différence des limites vaut $0$.
+\end{demonstration}
+
+\begin{entrainement}[suites adjacentes]
+\exo[\niveau{2}] Montrer que $u_{n} = 1-\frac1n$ et $v_{n} = 1+\frac{1}{n^{2}}$
+sont adjacentes.
+
+\exo[\niveau{3}] Soit $u_{n} = \displaystyle\sum_{k=0}^{n}\frac{1}{k!}$ et
+$v_{n} = u_{n}+\frac{1}{n\times n!}$. Montrer qu'elles sont adjacentes.
+\end{entrainement}
+
+\begin{corrige}
+\textbf{17.} $(u_{n})$ croît puisque $\frac1n$ décroît ; $(v_{n})$ décroît
+puisque $\frac{1}{n^{2}}$ décroît ; enfin
+$v_{n}-u_{n} = \frac1n+\frac{1}{n^{2}} \to 0$, et cette différence est
+strictement positive. Les deux suites sont donc adjacentes, de limite commune
+$1$.
+
+\textbf{18.} $(u_{n})$ croît, chaque terme ajouté étant strictement positif.
+Pour $(v_{n})$,
+\[
+  v_{n+1}-v_{n} = \frac{1}{(n+1)!}+\frac{1}{(n+1)(n+1)!}-\frac{1}{n\times n!}
+  = \frac{-1}{n(n+1)(n+1)!} < 0,
+\]
+après réduction au même dénominateur : la suite décroît. Enfin
+$v_{n}-u_{n} = \frac{1}{n\times n!} \to 0$, et cette différence est positive.
+Les deux suites sont adjacentes ; leur limite commune est le nombre $e$.
+\end{corrige}
+
+% ===========================================================================
+\begin{annales}
+La suite arrive en fin de problème d'analyse, une fois la fonction étudiée.
+Les énoncés qui suivent sont repris de sujets réellement posés ; leur
+provenance est indiquée à chaque fois. Lorsqu'un énoncé s'appuie sur une
+fonction étudiée en amont du sujet, ses propriétés utiles sont rappelées et
+admises.
+
+\exoann{Baccalauréat, Madagascar, série S, session 2021 — problème 2, partie B}
+\emph{On admet que la fonction $f$ du sujet vérifie : $f$ est continue sur
+$\intervalle{1}{2}$, $f\!\left(\intervalle{1}{2}\right) \subset
+\intervalle{1}{2}$, et $\abs{f'(x)} \leq \frac23$ sur cet intervalle. On note
+$\alpha$ l'unique solution de $f(x) = x$ dans $\intervalle{1}{2}$.}
+
+Soit $(U_{n})$ définie par $U_{0} = 1$ et $U_{n+1} = f(U_{n})$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Démontrer par récurrence que $U_{n} \in \intervalle{1}{2}$ pour tout
+        $n$.
+  \item Démontrer que $\abs{U_{n+1}-\alpha} \leq \frac23\abs{U_{n}-\alpha}$,
+        puis que $\abs{U_{n}-\alpha} \leq \left(\frac23\right)^{n}$.
+  \item En déduire la convergence de $(U_{n})$.
+  \item Déterminer le plus petit entier $n_{0}$ tel que $U_{n_{0}}$ soit une
+        valeur approchée de $\alpha$ à $10^{-3}$ près.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série C, session 2012 — problème 2, partie A}
+\emph{On admet que la fonction $f$ du sujet est continue sur
+$I = \intervalle{2}{3}$, que $f(I) \subset I$, et que
+$\abs{f'(x)} \leq \frac12$ sur $I$. On note $\alpha$ l'unique solution de
+$f(x) = x$ dans $I$.}
+
+Soit $(u_{n})$ définie par $u_{0} = 2$ et $u_{n+1} = f(u_{n})$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Démontrer par récurrence que $u_{n} \in I$ pour tout $n$.
+  \item Montrer que $\abs{u_{n+1}-\alpha} \leq \frac12\abs{u_{n}-\alpha}$,
+        puis que $\abs{u_{n}-\alpha} \leq \left(\frac12\right)^{n}$.
+  \item En déduire que $(u_{n})$ converge vers $\alpha$.
+  \item Déterminer $n_{0}$ pour que $u_{n_{0}}$ soit une valeur approchée de
+        $\alpha$ à $0{,}1$ près.
+\end{enumerate}
+
+\exoann{Baccalauréat, Congo-Brazzaville, série C, session 2022 — exercice 3}
+\emph{On admet que la fonction $f$ du sujet envoie $\intervalle{2}{2{,}5}$
+dans lui-même, que $-0{,}5 \leq f'(x) < 0$ sur cet intervalle, et que $\alpha$
+en est l'unique point fixe.}
+
+Soit $(u_{n})$ définie par $u_{0} = 2$ et $u_{n+1} = f(u_{n})$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que si $u_{n} \in \intervalle{2}{2{,}5}$ alors
+        $u_{n+1} \in \intervalle{2}{2{,}5}$.
+  \item Montrer que $\abs{u_{n+1}-\alpha} \leq \frac12\abs{u_{n}-\alpha}$,
+        puis que $\abs{u_{n}-\alpha} \leq
+        \left(\frac12\right)^{n}\abs{u_{0}-\alpha} \leq
+        \left(\frac12\right)^{n+1}$.
+  \item En déduire la convergence, puis trouver $n_{0}$ tel que
+        $\abs{u_{n}-\alpha} \leq 10^{-3}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série A, session 2026 — exercice 1}
+Soit $(U_{n})$ définie par $U_{0} = 5$ et
+$U_{n+1} = \dfrac{U_{n}+3}{4}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item On pose $V_{n} = U_{n}-1$. Montrer que $(V_{n})$ est géométrique et
+        préciser sa raison.
+  \item Exprimer $V_{n}$ puis $U_{n}$ en fonction de $n$, et donner la limite
+        de $(U_{n})$.
+  \item Calculer $S_{n} = U_{0}+U_{1}+\cdots+U_{n}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Burkina Faso, série D, session 2023 — exercice 2}
+Soit $(U_{n})$ définie par $U_{0} = 2$ et
+$\ln\!\left(U_{n+1}\right) = 1+\ln\!\left(U_{n}\right)$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $U_{n+1} = eU_{n}$, puis que $(U_{n})$ est géométrique.
+  \item Exprimer $U_{n}$ en fonction de $n$, étudier sa monotonie et sa
+        limite.
+  \item Calculer $S_{n} = U_{0}+\cdots+U_{n}$, puis
+        $P = U_{1}\times\cdots\times U_{n}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Mauritanie, série C, session 2022 — exercice 5}
+\emph{On admet que $I_{n} = \int_{0}^{1}x^{n}e^{-x}\dx$ vérifie
+$I_{n+1} = (n+1)I_{n}-e^{-1}$ et $I_{0} = 1-\frac1e$.}
+
+On pose $u_{n} = \dfrac{I_{n}}{n!}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que $u_{n+1}-u_{n} = \dfrac{-e^{-1}}{(n+1)!}$.
+  \item En déduire que
+        $e\left(1-u_{n}\right) = \displaystyle\sum_{k=0}^{n}\frac{1}{k!}$.
+  \item Sachant que $I_{n} \to 0$, en déduire
+        $\displaystyle\lim_{n\to+\infty}\sum_{k=0}^{n}\frac{1}{k!}$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Madagascar, série S, session 2022 — problème 2, partie B}
+Pour $x \in \intervalle{0}{\frac14}$ et $n \in \N^{*}$, on pose
+$S_{n}(x) = 1+4x^{2}+\left(4x^{2}\right)^{2}+\cdots+\left(4x^{2}\right)^{n}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Vérifier que
+        $S_{n}(x) = \dfrac{1}{1-4x^{2}}-\dfrac{\left(4x^{2}\right)^{n+1}}{1-4x^{2}}$.
+  \item En intégrant sur $\intervalle{0}{\frac14}$, montrer que
+        \[
+          \frac14+\frac{1}{3\times4^{2}}+\frac{1}{5\times4^{3}}+\cdots
+          +\frac{1}{(2n+1)\times4^{n+1}} = \frac14\ln3-I_{n},
+        \]
+        où $I_{n} = \int_{0}^{1/4}\frac{\left(4x^{2}\right)^{n+1}}{1-4x^{2}}\dx$.
+  \item Sachant que $I_{n} \to 0$, calculer la limite de la somme.
+\end{enumerate}
+
+\exoann{Baccalauréat, Congo-Brazzaville, série C, session 2023 — exercice 3}
+\emph{On admet que $f(x) = \frac{6\ln(x+3)}{x+3}$ est décroissante et tend
+vers $0$ en $+\infty$.}
+
+On pose $u_{n} = \displaystyle\int_{n}^{n+1}f(x)\dx$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Encadrer $f(x)$ sur $\intervalle{n}{n+1}$, puis établir
+        $f(n+1) \leq u_{n} \leq f(n)$.
+  \item En déduire la limite de $(u_{n})$.
+\end{enumerate}
+
+\exoann{Baccalauréat, Côte d'Ivoire, série D, session 2023 — exercice 5}
+\emph{On admet que $f(x) = xe^{-x}$ est croissante sur $\intervalle{0}{1}$ et
+que $\alpha \in \intervalleo{0}{1}$ vérifie $f(\alpha) = \frac14$.}
+
+Soit $(u_{n})$ définie par $u_{0} = \alpha$ et
+$u_{n+1} = u_{n}e^{-u_{n}}$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que tous les termes sont strictement positifs.
+  \item Montrer que $(u_{n})$ est décroissante.
+  \item En déduire qu'elle converge, puis déterminer sa limite.
+\end{enumerate}
+
+\exoann{Baccalauréat, Côte d'Ivoire, série C, session 2024 — exercice 2}
+Déterminer, en justifiant, la limite de la suite définie par
+$u_{n} = \left(-\dfrac23\right)^{n}$.
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{1. a)} $U_{0} = 1 \in \intervalle{1}{2}$ ; si $U_{n} \in
+\intervalle{1}{2}$ alors $U_{n+1} = f(U_{n}) \in \intervalle{1}{2}$ puisque
+$f$ envoie l'intervalle dans lui-même.
+\textbf{b)} L'inégalité des accroissements finis entre $U_{n}$ et $\alpha$
+donne $\abs{f(U_{n})-f(\alpha)} \leq \frac23\abs{U_{n}-\alpha}$, soit
+$\abs{U_{n+1}-\alpha} \leq \frac23\abs{U_{n}-\alpha}$. Une récurrence donne
+$\abs{U_{n}-\alpha} \leq \left(\frac23\right)^{n}\abs{U_{0}-\alpha}$, et
+$\abs{U_{0}-\alpha} \leq 1$.
+\textbf{c)} $\left(\frac23\right)^{n} \to 0$, donc $U_{n} \to \alpha$.
+\textbf{d)} $\left(\frac23\right)^{n} \leq 10^{-3}$ équivaut à
+$n \geq \frac{3\ln10}{\ln1{,}5} \approx 17{,}03$ : le plus petit entier est
+$n_{0} = 18$.
+
+\textbf{2.} Le raisonnement est identique avec $k = \frac12$ :
+$\abs{u_{n}-\alpha} \leq \left(\frac12\right)^{n}$, la suite converge vers
+$\alpha$, et $\left(\frac12\right)^{n} \leq 0{,}1$ dès que
+$n \geq \frac{\ln10}{\ln2} \approx 3{,}32$, donc $n_{0} = 4$.
+
+\textbf{3.} La stabilité de l'intervalle est donnée par l'énoncé. Comme
+$\abs{f'} \leq \frac12$, l'inégalité des accroissements finis donne le
+facteur $\frac12$, puis la récurrence
+$\abs{u_{n}-\alpha} \leq \left(\frac12\right)^{n}\abs{u_{0}-\alpha}$ ; enfin
+$\abs{u_{0}-\alpha} \leq \frac12$ puisque $u_{0}$ et $\alpha$ sont dans un
+intervalle de longueur $\frac12$. La convergence suit, et
+$\left(\frac12\right)^{n+1} \leq 10^{-3}$ donne $n \geq 9$.
+
+\textbf{4.} $V_{n+1} = U_{n+1}-1 = \frac{U_{n}+3}{4}-1 = \frac{U_{n}-1}{4}
+= \frac14V_{n}$ : suite géométrique de raison $\frac14$, de premier terme
+$V_{0} = 4$. Donc $V_{n} = 4\left(\frac14\right)^{n}$ et
+$U_{n} = 1+4^{1-n}$, qui tend vers $1$. Enfin
+$S_{n} = (n+1)+4\dfrac{1-\left(\frac14\right)^{n+1}}{1-\frac14}
+= (n+1)+\frac{16}{3}\left(1-4^{-(n+1)}\right)$.
+
+\textbf{5.} $\ln U_{n+1} = \ln(eU_{n})$ donne $U_{n+1} = eU_{n}$ : la suite
+est géométrique de raison $e>1$, donc $U_{n} = 2e^{n}$, croissante, de limite
+$+\infty$. La somme vaut $S_{n} = 2\dfrac{e^{n+1}-1}{e-1}$. Enfin
+$\ln P = \sum_{k=1}^{n}\left(\ln2+k\right) = n\ln2+\frac{n(n+1)}{2}$, donc
+$P = 2^{n}e^{n(n+1)/2}$.
+
+\textbf{6.} $u_{n+1}-u_{n} = \frac{(n+1)I_{n}-e^{-1}}{(n+1)!}
+-\frac{I_{n}}{n!} = \frac{-e^{-1}}{(n+1)!}$. En sommant de $0$ à $n-1$ et en
+utilisant $u_{0} = I_{0} = 1-\frac1e$, on obtient
+$u_{n} = 1-\frac1e\sum_{k=0}^{n}\frac{1}{k!}$, d'où l'égalité annoncée. Comme
+$I_{n} \to 0$ et $n! \to +\infty$, $u_{n} \to 0$ et la somme tend vers $e$.
+
+\textbf{7.} $S_{n}(x)$ est une somme géométrique de raison $4x^{2} \neq 1$ sur
+$\intervalle{0}{\frac14}$, d'où l'expression demandée. En intégrant terme à
+terme, $\int_{0}^{1/4}\left(4x^{2}\right)^{k}\dx
+= \frac{4^{k}}{4^{2k+1}(2k+1)} = \frac{1}{(2k+1)4^{k+1}}$, ce qui donne la
+somme de gauche ; à droite, $\int_{0}^{1/4}\frac{\dx}{1-4x^{2}}
+= \frac14\ln3$. La limite de la somme vaut donc $\frac14\ln3$.
+
+\textbf{8.} Sur $\intervalle{n}{n+1}$, la décroissance donne
+$f(n+1) \leq f(x) \leq f(n)$ ; l'intervalle étant de longueur $1$,
+l'intégration conserve ces bornes. Comme $f(n) \to 0$, l'encadrement donne
+$u_{n} \to 0$.
+
+\textbf{9.} Tous les termes sont positifs car $u_{0} = \alpha>0$ et
+$xe^{-x}>0$ pour $x>0$. De plus $e^{-u_{n}}<1$, donc $u_{n+1}<u_{n}$ : la
+suite décroît et reste minorée par $0$, donc converge vers un réel $\ell$
+vérifiant $\ell = \ell e^{-\ell}$, ce qui impose $\ell = 0$.
+
+\textbf{10.} $\abs{-\frac23} = \frac23<1$, donc la suite converge vers $0$ ;
+elle est alternée, ses termes changeant de signe à chaque rang.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[le remboursement d'un prêt agricole]
+Une coopérative emprunte $12\,000\,000$ d'ariary à un taux mensuel de
+$1\,\%$. Elle rembourse chaque mois une mensualité constante de $M$ ariary,
+versée juste après que les intérêts du mois ont été ajoutés. On note $C_{n}$
+le capital restant dû après le $n$-ième versement, et $C_{0} = 12\,000\,000$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Justifier que $C_{n+1} = 1{,}01\,C_{n}-M$.
+  \item Déterminer le point fixe de cette relation et l'interpréter : que se
+        passe-t-il si $M = 120\,000$ ?
+  \item On prend $M = 300\,000$. Exprimer $C_{n}$ en fonction de $n$.
+  \item Au bout de combien de mois le prêt est-il soldé ?
+  \item Quel est le coût total du crédit ?
+  \item La coopérative souhaite solder en $36$ mois exactement. Quelle
+        mensualité doit-elle verser ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[le remboursement d'un prêt agricole]
+\textbf{1.} Les intérêts du mois valent $1\,\%$ du capital restant, soit
+$0{,}01\,C_{n}$ ; on ajoute puis on retire la mensualité :
+$C_{n+1} = C_{n}+0{,}01C_{n}-M = 1{,}01C_{n}-M$.
+
+\textbf{2.} Le point fixe vérifie $\alpha = 1{,}01\alpha-M$, soit
+$\alpha = 100M$. Pour $M = 120\,000$, $\alpha = 12\,000\,000 = C_{0}$ : le
+capital reste constant, la mensualité ne paie que les intérêts et le prêt
+n'est jamais remboursé.
+
+\textbf{3.} Pour $M = 300\,000$, $\alpha = 30\,000\,000$ et
+$C_{n}-\alpha$ est géométrique de raison $1{,}01$ :
+\[
+  C_{n} = 30\,000\,000-18\,000\,000\times1{,}01^{n}.
+\]
+
+\textbf{4.} $C_{n} \leq 0$ équivaut à
+$1{,}01^{n} \geq \frac{30}{18} = \frac53$, soit
+$n \geq \frac{\ln(5/3)}{\ln1{,}01} \approx 51{,}3$ : le prêt est soldé au
+cours du $52^{\text{e}}$ mois.
+
+\textbf{5.} La coopérative verse $51$ mensualités pleines et un solde partiel.
+En arrondissant, le total versé approche $15\,400\,000$ ariary, soit un coût
+du crédit d'environ $3\,400\,000$ ariary.
+
+\textbf{6.} Il faut $C_{36} = 0$, c'est-à-dire
+$100M-\left(100M-12\,000\,000\right)1{,}01^{36} = 0$, d'où
+\[
+  M = \frac{12\,000\,000 \times 1{,}01^{36}}{100\left(1{,}01^{36}-1\right)}
+  \approx 398\,600 \ \text{ariary}.
+\]
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Toute suite croissante tend vers $+\infty$.
+  \item Une suite croissante et majorée par $10$ converge vers $10$.
+  \item Si $u_{n+1} = g(u_{n})$ et si $(u_{n})$ converge vers $\ell$ avec $g$
+        continue, alors $g(\ell) = \ell$.
+  \item Une suite bornée converge.
+  \item La suite $\left((-1)^{n}\right)$ est bornée et divergente.
+  \item Deux suites adjacentes ont la même limite.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — elle peut être majorée, et converger.
+\textbf{2.} Faux — elle converge vers un réel inférieur ou égal à $10$.
+\textbf{3.} Vrai — c'est le théorème du point fixe.
+\textbf{4.} Faux — $\left((-1)^{n}\right)$ est bornée sans converger.
+\textbf{5.} Vrai.
+\textbf{6.} Vrai — c'est la conclusion du théorème des suites adjacentes.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Baccalauréat, série S, session 2021 — problème 2, partie B}
+Soit $f$ la fonction du problème, continue sur $\intervalle{1}{2}$, à valeurs
+dans $\intervalle{1}{2}$, et telle que $\abs{f'(x)} \leq \frac23$ sur cet
+intervalle. On pose $h(x) = f(x)-x$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item À l'aide de l'étude de $h$ sur $\intervalle{1}{2}$, montrer que
+        l'équation $h(x) = 0$ admet une solution unique
+        $\alpha \in \intervalle{1}{2}$. \hfill\textup{(0,75 pt)}
+  \item Soit $(U_{n})$ définie par $U_{0} = 1$ et $U_{n+1} = f(U_{n})$.
+        \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em]
+          \item Démontrer par récurrence que $U_{n} \in \intervalle{1}{2}$.
+                \hfill\textup{(0,5 pt)}
+          \item Démontrer que
+                $\abs{U_{n+1}-\alpha} \leq \frac23\abs{U_{n}-\alpha}$, puis
+                que $\abs{U_{n}-\alpha} \leq \left(\frac23\right)^{n}$.
+                \hfill\textup{(0,5 pt $\times$ 2)}
+          \item En déduire l'étude de la convergence de $(U_{n})$.
+                \hfill\textup{(0,25 pt)}
+          \item Déterminer le plus petit entier $n_{0}$ tel que $U_{n_{0}}$
+                soit une valeur approchée de $\alpha$ à $10^{-3}$ près.
+                \hfill\textup{(0,25 pt)}
+        \end{enumerate}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{1.} $h$ est continue sur $\intervalle{1}{2}$ ; comme $f$ y prend ses
+valeurs, $h(1) = f(1)-1 \geq 0$ et $h(2) = f(2)-2 \leq 0$. De plus
+$h'(x) = f'(x)-1 \leq \frac23-1<0$ : $h$ est strictement décroissante. Le
+théorème des valeurs intermédiaires donne l'existence, la stricte monotonie
+l'unicité.
+
+\textbf{2. a)} $U_{0} = 1$ appartient à l'intervalle ; si $U_{n}$ y
+appartient, $U_{n+1} = f(U_{n})$ aussi puisque $f$ y prend ses valeurs.
+\textbf{b)} L'inégalité des accroissements finis appliquée entre $U_{n}$ et
+$\alpha$ donne le facteur $\frac23$ ; la récurrence donne ensuite
+$\abs{U_{n}-\alpha} \leq \left(\frac23\right)^{n}\abs{U_{0}-\alpha}$, et
+$\abs{U_{0}-\alpha} \leq 1$.
+\textbf{c)} Le majorant tend vers $0$ : la suite converge vers $\alpha$.
+\textbf{d)} $\left(\frac23\right)^{n} \leq 10^{-3}$ donne
+$n \geq \frac{3\ln10}{\ln1{,}5} \approx 17{,}03$, soit $n_{0} = 18$.
+\end{corrige}
+
+% ===========================================================================
+\begin{concours}
+\bmtsource{D'après un concours d'entrée en classes préparatoires}
+On pose $u_{n} = \displaystyle\sum_{k=1}^{n}\frac{1}{k}-\ln n$ pour
+$n \geq 1$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
+  \item Montrer que pour tout $k \geq 1$,
+        $\dfrac{1}{k+1} \leq \ln(k+1)-\ln k \leq \dfrac{1}{k}$.
+  \item En déduire que $(u_{n})$ est décroissante.
+  \item Montrer que $(u_{n})$ est minorée par $0$, puis conclure.
+\end{enumerate}
+\end{concours}
+
+\begin{corrige}[vers le concours]
+\textbf{1.} L'inégalité des accroissements finis appliquée à $\ln$ sur
+$\intervalle{k}{k+1}$ donne
+$\frac{1}{k+1} \leq \ln(k+1)-\ln k \leq \frac1k$, puisque la dérivée
+$\frac1x$ y est comprise entre $\frac{1}{k+1}$ et $\frac1k$.
+
+\textbf{2.} $u_{n+1}-u_{n} = \frac{1}{n+1}-\left(\ln(n+1)-\ln n\right)
+\leq 0$ d'après l'inégalité de gauche : la suite décroît.
+
+\textbf{3.} En sommant l'inégalité de droite pour $k$ de $1$ à $n-1$, on
+obtient $\ln n \leq \sum_{k=1}^{n-1}\frac1k \leq \sum_{k=1}^{n}\frac1k$, donc
+$u_{n} \geq 0$. Décroissante et minorée, la suite converge : sa limite est la
+constante d'Euler, environ $0{,}577$.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+Douze heures suffisent à condition de ne pas refaire le programme de
+première. Les suites arithmétiques et géométriques doivent être révisées en
+une séance, pas trois : ce qui est neuf ici, c'est la récurrence et le
+traitement de $u_{n+1} = f(u_{n})$.
+
+Sur la récurrence, la faute constante est l'hérédité qui n'utilise pas
+l'hypothèse. Faites-la repérer par les élèves eux-mêmes : distribuez deux
+copies, l'une correcte, l'autre non, et demandez de trouver la différence.
+L'exercice prend dix minutes et vaut mieux qu'un discours.
+
+Le schéma du problème d'analyse — point fixe, stabilité de l'intervalle,
+inégalité des accroissements finis, majoration géométrique — mérite d'être
+affiché au tableau une fois pour toutes, sous forme de quatre étapes. Les
+élèves reconnaissent alors immédiatement le scénario, quelle que soit la
+fonction, et il ne leur reste plus qu'à mener les calculs.
+\end{notepourlaclasse}
+
+% =========================================================================
+\begin{devoir}[2 heures]
+Trois exercices indépendants, notés sur $20$. Le devoir est cumulatif : il porte sur ce chapitre et sur ceux qui le précèdent. Les énoncés sont repris de sessions réelles et assemblés ici en épreuve ; leur provenance est indiquée à chaque fois.
+
+\exods{1}{Baccalauréat, Cameroun, séries C et E, session 2024 — exercice 3}{5 points}
+Soit $f(x) = e^{-x^{2}}$ sur $\R$. Étudier les variations de $f$ et en déduire
+un encadrement de $f(x)$ pour $x$ appartenant à $\intervalle{0}{1}$.
+
+\exods{2}{Baccalauréat, Côte d'Ivoire, série C, session 2024 — exercice 2}{7 points}
+Résoudre dans $\R$ l'équation différentielle $y'+2y = 0$, puis déterminer la
+solution vérifiant $y(0) = 3$.
+
+\exods{3}{Baccalauréat, Congo-Brazzaville, série C, session 2022 — exercice 3}{8 points}
+\emph{On admet que la fonction $f$ du sujet envoie $\intervalle{2}{2{,}5}$
+dans lui-même, que $-0{,}5 \leq f'(x) < 0$ sur cet intervalle, et que $\alpha$
+en est l'unique point fixe.}
+
+Soit $(u_{n})$ définie par $u_{0} = 2$ et $u_{n+1} = f(u_{n})$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Montrer que si $u_{n} \in \intervalle{2}{2{,}5}$ alors
+        $u_{n+1} \in \intervalle{2}{2{,}5}$.
+  \item Montrer que $\abs{u_{n+1}-\alpha} \leq \frac12\abs{u_{n}-\alpha}$,
+        puis que $\abs{u_{n}-\alpha} \leq
+        \left(\frac12\right)^{n}\abs{u_{0}-\alpha} \leq
+        \left(\frac12\right)^{n+1}$.
+  \item En déduire la convergence, puis trouver $n_{0}$ tel que
+        $\abs{u_{n}-\alpha} \leq 10^{-3}$.
+\end{enumerate}
+
+\end{devoir}
+
+\begin{corrige}[devoir surveillé]
+\textbf{Exercice 1.} $f'(x) = -2xe^{-x^{2}}$, du signe de $-x$ : $f$ croît sur
+$\left]-\infty\,;0\right]$ et décroît ensuite, avec pour maximum $f(0) = 1$.
+Sur $\intervalle{0}{1}$ elle décroît de $1$ à $e^{-1}$, donc
+$\frac1e \leq f(x) \leq 1$.
+
+\textbf{Exercice 2.} Les solutions sont les $x\mapsto Ce^{-2x}$ ; la condition
+$y(0) = 3$ impose $C = 3$, soit $y(x) = 3e^{-2x}$.
+
+\textbf{Exercice 3.} La stabilité de l'intervalle est donnée par l'énoncé. Comme
+$\abs{f'} \leq \frac12$, l'inégalité des accroissements finis donne le
+facteur $\frac12$, puis la récurrence
+$\abs{u_{n}-\alpha} \leq \left(\frac12\right)^{n}\abs{u_{0}-\alpha}$ ; enfin
+$\abs{u_{0}-\alpha} \leq \frac12$ puisque $u_{0}$ et $\alpha$ sont dans un
+intervalle de longueur $\frac12$. La convergence suit, et
+$\left(\frac12\right)^{n+1} \leq 10^{-3}$ donne $n \geq 9$.
+
+\end{corrige}

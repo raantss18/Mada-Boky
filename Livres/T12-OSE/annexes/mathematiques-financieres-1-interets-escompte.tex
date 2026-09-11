@@ -1,0 +1,494 @@
+% ===========================================================================
+%  Annexe — Mathématiques financières, I. Intérêts et escompte
+%  Hors des quatre composantes chiffrées du PE 2026 ; RAPE, période 4 ;
+%  exercice 3 de chaque sujet de baccalauréat OSE examiné.
+% ===========================================================================
+\chapter{Intérêts et escompte}
+\markboth{Mathématiques financières}{Intérêts et escompte}
+
+Premier volet de cette annexe consacrée aux mathématiques financières :
+calculer un intérêt simple, une valeur acquise, un escompte commercial et
+une valeur actuelle, mener un calcul d'intérêt composé, et choisir la
+méthode adaptée à une situation de financement à court ou moyen terme.
+
+Un capital ne dort jamais tout à fait : placé, il produit un intérêt ;
+emprunté, il en coûte un. Les mathématiques financières décrivent ce
+mécanisme avec précision, et c'est le langage que parle toute banque, toute
+coopérative d'épargne, tout commerçant qui négocie un crédit ou escompte une
+traite.
+
+Cette annexe traite deux grandes familles de calcul. L'\textbf{intérêt
+simple}, réservé aux opérations courtes, où l'intérêt ne produit lui-même
+aucun intérêt. L'\textbf{intérêt composé}, adapté aux placements plus longs,
+où chaque intérêt s'ajoute au capital et se met à son tour à produire des
+intérêts. Entre les deux se glisse l'\textbf{escompte}, opération par
+laquelle un commerçant obtient aujourd'hui, contre une retenue, l'argent
+qu'il n'aurait touché qu'à une échéance future.
+
+% ---------------------------------------------------------------------------
+\begin{revision}
+Pourcentages et proportionnalité.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.35em]
+  \item Calculer $8\,\%$ de $250\,000$.
+  \item Un article coûte $60\,000$~Ar après une hausse de $20\,\%$. Quel
+        était son prix initial ?
+  \item Convertir $8$ mois en douzièmes d'année, puis $90$ jours en
+        trois-cent-soixantièmes d'année.
+  \item Résoudre $1{,}08^{4} = x$ à l'aide d'une calculatrice ou d'un
+        développement.
+  \item Résoudre $300 \times (1+t) = 324$ d'inconnue $t$.
+\end{enumerate}
+\end{revision}
+
+\begin{automatismes}
+Sans calculatrice, sans brouillon.
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.25em]
+  \item $10\,\%$ de $500\,000$
+  \item $C(1+t)$ pour $C = 100\,000$ et $t = 0{,}05$
+  \item Durée de $6$ mois en douzièmes d'année
+  \item Durée de $60$ jours en trois-cent-soixantièmes d'année
+  \item $1{,}1^{2}$
+  \item Valeur acquise d'un capital de $200\,000$ après un intérêt de
+        $18\,000$
+  \item $(1+t)^{-1}$ pour $t = 0{,}25$
+  \item Sens de variation de $C(1+t)^{n}$ en $n$, pour $t>0$
+\end{enumerate}
+\end{automatismes}
+
+\begin{corrige}[automatismes]
+a) $50\,000$ \quad b) $105\,000$ \quad c) $\frac12$ \quad d) $\frac16$
+\quad e) $1{,}21$ \quad f) $218\,000$ \quad g) $0{,}8$ \quad h) croissante.
+\end{corrige}
+
+% ===========================================================================
+\section{Intérêt simple}
+
+\begin{definition}[intérêt simple]
+Un capital $C$ placé à \textbf{intérêt simple}, au taux annuel $t$, pendant
+une durée $n$ (exprimée en années), produit l'intérêt
+\[
+  I = C \times t \times n .
+\]
+La \textbf{valeur acquise} au terme du placement est $C_{n} = C+I
+= C(1+tn)$.
+\end{definition}
+
+\begin{remarque}
+Dans l'intérêt simple, l'intérêt ne porte que sur le capital initial : il ne
+se recapitalise jamais. C'est pourquoi ce mode de calcul convient aux
+opérations courtes — quelques mois, rarement plus d'un an — comme un crédit
+de campagne agricole ou une avance de trésorerie.
+\end{remarque}
+
+\begin{methode}{convertir une durée en années}
+Une durée exprimée en mois se divise par $12$ ; une durée exprimée en jours
+se divise par $360$ dans les usages commerciaux courants (année bancaire de
+douze mois de trente jours), sauf précision contraire de l'énoncé.
+\end{methode}
+
+\begin{exemple}[intérêt simple et valeur acquise]
+Un commerçant emprunte $250\,000$~Ar à intérêt simple, au taux annuel de
+$12\,\%$, pendant $8$ mois. La durée vaut $n = \frac{8}{12}$ d'année, donc
+\[
+  I = 250\,000 \times 0{,}12 \times \frac{8}{12} = 20\,000 \text{ Ar},
+\]
+et la valeur acquise est $C_{n} = 250\,000+20\,000 = 270\,000$~Ar.
+\end{exemple}
+
+\begin{propriete}[retrouver le taux ou la durée]
+Les trois grandeurs $C$, $t$, $n$ se déduisent les unes des autres à partir
+de $I = Ctn$ :
+\[
+  t = \frac{I}{Cn}, \qquad n = \frac{I}{Ct}, \qquad C = \frac{I}{tn} .
+\]
+Le réflexe à avoir est toujours le même : identifier ce que donne l'énoncé,
+et isoler l'inconnue dans cette unique formule.
+\end{propriete}
+
+\begin{entrainement}[intérêt simple]
+\exo[\niveau{1}] Un capital de $180\,000$~Ar est placé à intérêt simple au
+taux de $9\,\%$ pendant $5$ mois. Calculer l'intérêt puis la valeur acquise.
+
+\exo[\niveau{1}] Un placement de $6$ mois au taux de $7\,\%$ a rapporté
+$10\,500$~Ar d'intérêt. Déterminer le capital placé.
+
+\exo[\niveau{2}] Un capital placé à intérêt simple pendant $9$ mois a permis
+d'obtenir une valeur acquise égale à $107\,5\,\%$ du capital initial.
+Déterminer le taux annuel.
+
+\exo[\niveau{2}] Deux capitaux, de somme $500\,000$~Ar, sont placés
+respectivement $4$ mois au taux de $10\,\%$ et $8$ mois au taux de $8\,\%$ ;
+les intérêts produits sont égaux. Déterminer chaque capital.
+\end{entrainement}
+
+% ===========================================================================
+\section{Escompte commercial}
+
+\begin{definition}[effet de commerce, escompte]
+Un \textbf{effet de commerce} (traite, billet à ordre) est un document par
+lequel un débiteur s'engage à payer une somme, appelée \textbf{valeur
+nominale} $N$, à une date d'\textbf{échéance} fixée. \textbf{Escompter} un
+effet, c'est le céder à une banque avant son échéance, contre une somme
+immédiate inférieure à $N$ : la différence est l'\textbf{escompte}.
+\end{definition}
+
+\begin{theoreme}[escompte commercial]
+Pour un effet de valeur nominale $N$, escompté $n$ jours avant l'échéance au
+taux annuel $t$, l'\textbf{escompte commercial} et la \textbf{valeur
+actuelle commerciale} valent
+\[
+  e = N \times t \times \frac{n}{360}, \qquad
+  a = N-e .
+\]
+\end{theoreme}
+
+\begin{avertissement}
+L'escompte commercial se calcule sur la valeur nominale $N$, et non sur la
+somme réellement perçue $a$ : c'est un intérêt simple calculé « à
+l'envers », depuis l'échéance vers aujourd'hui. C'est pourquoi le taux
+réellement supporté par celui qui escompte est toujours un peu supérieur au
+taux annoncé $t$ — un point détaillé dans l'exercice-recherche de cette
+annexe.
+\end{avertissement}
+
+\begin{remarque}[escompte rationnel]
+Une seconde méthode, l'\textbf{escompte rationnel}, calcule directement la
+valeur actuelle par actualisation à intérêt simple :
+\[
+  a' = \frac{N}{1+t\frac{n}{360}}, \qquad e' = N-a' .
+\]
+On démontre que $e' \leq e$ : l'escompte rationnel est toujours inférieur ou
+égal à l'escompte commercial, à mêmes données. C'est l'escompte commercial
+qui est utilisé dans la pratique bancaire courante, et c'est celui que
+retient ce manuel sauf mention contraire.
+\end{remarque}
+
+\begin{exemple}[escompte commercial]
+Un effet de valeur nominale $500\,000$~Ar est escompté $90$ jours avant son
+échéance, au taux annuel de $9\,\%$.
+\[
+  e = 500\,000 \times 0{,}09 \times \frac{90}{360}
+  = 500\,000 \times 0{,}0225 = 11\,250 \text{ Ar},
+\]
+\[
+  a = 500\,000-11\,250 = 488\,750 \text{ Ar}.
+\]
+Le porteur de l'effet reçoit donc $488\,750$~Ar aujourd'hui, contre
+$500\,000$~Ar promis dans trois mois.
+\end{exemple}
+
+\begin{entrainement}[escompte]
+\exo[\niveau{1}] Un effet de $300\,000$~Ar est escompté $60$ jours avant
+l'échéance au taux de $10\,\%$. Calculer l'escompte et la valeur actuelle.
+
+\exo[\niveau{2}] Un effet est escompté $120$ jours avant échéance au taux de
+$12\,\%$ ; l'escompte vaut $16\,000$~Ar. Déterminer la valeur nominale de
+l'effet.
+
+\exo[\niveau{2}] Un commerçant reçoit $291\,000$~Ar pour un effet de valeur
+nominale $300\,000$~Ar, escompté au taux de $12\,\%$. Déterminer le nombre de
+jours restant avant l'échéance.
+\end{entrainement}
+
+% ===========================================================================
+\section{Intérêt composé}
+
+\begin{definition}[intérêt composé]
+Un capital $C$ placé à \textbf{intérêt composé}, au taux annuel $t$, pendant
+$n$ années entières, a pour valeur acquise
+\[
+  C_{n} = C(1+t)^{n} .
+\]
+\end{definition}
+
+\begin{remarque}
+Ici, chaque intérêt annuel s'incorpore au capital avant de produire à son
+tour un intérêt l'année suivante : c'est la « capitalisation ». C'est le mode
+de calcul adapté aux placements de plusieurs années — épargne, emprunt
+immobilier, obligation — car il reflète correctement la croissance réelle
+d'un capital réinvesti.
+\end{remarque}
+
+\begin{visualisation}[intérêt simple contre intérêt composé]
+\begin{center}
+\begin{tikzpicture}[x=1.35cm, y=0.055cm, font=\footnotesize]
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (-0.3,0) -- (6.3,0)
+    node[anchor=north west] {$n$ (années)};
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (0,-10) -- (0,340)
+    node[anchor=south east] {valeur acquise};
+  \draw[bmtVetiver, line width=1.1pt]
+    (0,100) -- (1,110) -- (2,120) -- (3,130) -- (4,140) -- (5,150)
+    -- (6,160);
+  \draw[bmtLaterite, line width=1.1pt]
+    (0,100) -- (1,110) -- (2,121) -- (3,133.1) -- (4,146.41)
+    -- (5,161.05) -- (6,177.16);
+  \node[bmtVetiver, anchor=west] at (6.05,160) {intérêt simple};
+  \node[bmtLaterite, anchor=west] at (6.05,177) {intérêt composé};
+\end{tikzpicture}
+\end{center}
+
+Les deux courbes partent du même capital et du même taux, et coïncident la
+première année. Ensuite, l'intérêt simple progresse en ligne droite — chaque
+année rapporte exactement le même montant — tandis que l'intérêt composé
+s'incurve vers le haut : l'écart entre les deux, faible au début, se creuse
+rapidement. C'est pourquoi l'intérêt composé est toujours préféré au-delà
+d'un an ou deux.
+\end{visualisation}
+
+\begin{propriete}[retrouver le taux ou la durée]
+À partir de $C_{n} = C(1+t)^{n}$, en passant au logarithme népérien,
+\[
+  n = \frac{\ln\left(\dfrac{C_{n}}{C}\right)}{\ln(1+t)},
+  \qquad
+  t = \left(\frac{C_{n}}{C}\right)^{1/n}-1
+    = e^{\frac1n\ln\left(\frac{C_{n}}{C}\right)}-1 .
+\]
+\end{propriete}
+
+\begin{demonstration}
+De $C_{n} = C(1+t)^{n}$ on tire $(1+t)^{n} = \dfrac{C_{n}}{C}$, puis, en
+prenant le logarithme népérien de chaque membre,
+$n\ln(1+t) = \ln\left(\dfrac{C_{n}}{C}\right)$, d'où la formule de $n$. Pour
+le taux, on isole $1+t = \left(\dfrac{C_{n}}{C}\right)^{1/n}
+= e^{\frac1n\ln\left(\frac{C_{n}}{C}\right)}$, ce qui donne $t$.
+\end{demonstration}
+
+\begin{exemple}[valeur acquise à intérêt composé]
+Un capital de $300\,000$~Ar est placé à intérêt composé au taux annuel de
+$8\,\%$ pendant $4$ ans.
+\[
+  C_{4} = 300\,000 \times (1{,}08)^{4}
+  = 300\,000 \times 1{,}360\,489 \approx 408\,146{,}69 \text{ Ar}.
+\]
+\end{exemple}
+
+\begin{remarque}[taux équivalents]
+Deux taux, l'un annuel $t$, l'autre relatif à une période plus courte (par
+exemple semestrielle $t_{s}$), sont dits \textbf{équivalents} lorsqu'ils
+produisent la même valeur acquise sur une année :
+$(1+t_{s})^{2} = 1+t$. Ainsi, pour $t = 8\,\%$,
+\[
+  t_{s} = \sqrt{1{,}08}-1 \approx 0{,}039\,23,
+  \qquad \text{soit environ } 3{,}92\,\%.
+\]
+\end{remarque}
+
+\begin{entrainement}[intérêt composé]
+\exo[\niveau{1}] Un capital de $250\,000$~Ar est placé à $6\,\%$ à intérêt
+composé pendant $3$ ans. Calculer la valeur acquise.
+
+\exo[\niveau{2}] Un capital placé à $5\,\%$ à intérêt composé double en
+combien d'années entières ?
+
+\exo[\niveau{2}] Un capital de $400\,000$~Ar atteint $486\,202{,}82$~Ar après
+$4$ ans de placement à intérêt composé. Déterminer le taux annuel.
+
+\exo[\niveau{3}] Déterminer le taux semestriel équivalent à un taux annuel de
+$10\,\%$, puis le taux mensuel équivalent à ce même taux annuel.
+\end{entrainement}
+
+% ===========================================================================
+\begin{annales}
+Les mathématiques financières forment l'exercice 3 de l'épreuve, presque
+toujours structuré en deux ou trois parties indépendantes : intérêt simple,
+puis intérêt composé, puis annuités. L'énoncé qui suit — dont les deux
+premières parties relèvent de ce volet, la troisième étant traitée au volet
+suivant de cette annexe — est repris d'un sujet réellement posé.
+
+\exoann{Baccalauréat de l'Enseignement Général, Madagascar, série OSE, option OSE, session 2026 — exercice 3, parties I et II}
+\textbf{Partie I.} Un capital $C$ est placé à intérêt simple pendant
+$15$ mois ; sa valeur acquise dépasse le capital initial de $10\,\%$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer le taux annuel $t$ de ce placement.
+  \item Sachant que l'intérêt produit vaut $40\,000$~Ar, déterminer $C$ puis
+        la valeur acquise.
+\end{enumerate}
+
+\textbf{Partie II.} On place désormais un capital $C = 400\,000$~Ar à
+intérêt composé au taux annuel de $6\,\%$, pendant $n$ périodes.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Déterminer la durée $n$ nécessaire pour que la valeur acquise atteigne
+        $535\,290{,}23$~Ar.
+  \item En posant $C_{n} = C(1+t)^{n}$, montrer que
+        $t = e^{\frac1n\ln\left(\frac{C_{n}}{C}\right)}-1$.
+  \item En utilisant cette formule, déterminer le taux annuel nécessaire
+        pour que ce même capital atteigne $600\,000$~Ar au bout de $5$~ans.
+\end{enumerate}
+\end{annales}
+
+\begin{corrige}[annales]
+\textbf{Partie I. a)} La valeur acquise vaut $1{,}10\,C$, donc l'intérêt
+vaut $0{,}10\,C$. Avec $n = \frac{15}{12} = 1{,}25$ année,
+$I = Ctn$ donne $0{,}10\,C = C \times t \times 1{,}25$, d'où
+$t = \dfrac{0{,}10}{1{,}25} = 0{,}08$, soit $t = 8\,\%$.
+
+\textbf{b)} $I = 40\,000 = C \times 0{,}08 \times 1{,}25 = 0{,}10\,C$, donc
+$C = \dfrac{40\,000}{0{,}10} = 400\,000$~Ar, et la valeur acquise vaut
+$400\,000+40\,000 = 440\,000$~Ar.
+
+\textbf{Partie II. a)} On résout $400\,000 \times (1{,}06)^{n}
+= 535\,290{,}23$, soit $(1{,}06)^{n} \approx 1{,}338\,226$. Or
+$(1{,}06)^{5} = 1{,}338\,226$ : la durée est $n = 5$ périodes (ici, cinq
+ans).
+
+\textbf{b)} De $C_{n} = C(1+t)^{n}$ on tire, pour $C \neq 0$,
+$(1+t)^{n} = \dfrac{C_{n}}{C}$. En prenant le logarithme népérien, strictement
+croissant sur $\Rps$ :
+$n\ln(1+t) = \ln\!\left(\dfrac{C_{n}}{C}\right)$, d'où
+$\ln(1+t) = \dfrac1n\ln\!\left(\dfrac{C_{n}}{C}\right)$, puis, en composant
+par l'exponentielle,
+$1+t = e^{\frac1n\ln\left(\frac{C_{n}}{C}\right)}$, ce qui donne bien
+$t = e^{\frac1n\ln\left(\frac{C_{n}}{C}\right)}-1$.
+
+\textbf{c)} Avec $C = 400\,000$, $C_{n} = 600\,000$ et $n = 5$ :
+\[
+  t = e^{\frac15\ln\left(\frac{600\,000}{400\,000}\right)}-1
+  = e^{\frac15\ln1{,}5}-1
+  = 1{,}5^{1/5}-1 \approx 1{,}084\,47-1 \approx 0{,}0845,
+\]
+soit un taux annuel voisin de $8{,}45\,\%$.
+\end{corrige}
+
+% ===========================================================================
+\begin{jecherche}[l'escompte de la traite du riz]
+Un collecteur de riz détient une traite de valeur nominale $800\,000$~Ar,
+payable dans $120$ jours par un grossiste. Pressé de financer ses achats, il
+la fait escompter par sa banque, au taux annuel de $10{,}5\,\%$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.3em]
+  \item Calculer l'escompte commercial, puis la valeur actuelle commerciale
+        que la banque doit lui verser.
+  \item La banque ajoute en réalité une commission fixe de $5\,000$~Ar,
+        prélevée en plus de l'escompte. Calculer les \textbf{agios totaux}
+        (escompte $+$ commission) et la somme nette réellement perçue par le
+        collecteur.
+  \item Montrer que le \textbf{taux réel} supporté par le collecteur — celui
+        qui, appliqué seul en intérêt simple sur la somme nette perçue,
+        redonnerait la valeur nominale à l'échéance — vaut environ
+        $12{,}9\,\%$, sensiblement plus que le taux annoncé de $10{,}5\,\%$.
+  \item Calculer, à titre de comparaison, l'escompte rationnel associé aux
+        mêmes données, et vérifier qu'il est bien inférieur à l'escompte
+        commercial.
+  \item Le collecteur pourrait attendre l'échéance sans escompter. Dans
+        quelles circonstances économiques ce choix serait-il préférable ?
+\end{enumerate}
+\end{jecherche}
+
+\begin{corrige}[l'escompte de la traite du riz]
+\textbf{1.} $e = 800\,000 \times 0{,}105 \times \dfrac{120}{360}
+= 800\,000 \times 0{,}035 = 28\,000$~Ar, et la valeur actuelle commerciale
+vaut $a = 800\,000-28\,000 = 772\,000$~Ar.
+
+\textbf{2.} Les agios totaux valent $28\,000+5\,000 = 33\,000$~Ar, et la
+somme nette perçue est $800\,000-33\,000 = 767\,000$~Ar.
+
+\textbf{3.} On cherche $t'$ tel que
+$767\,000 \times \left(1+t' \times \dfrac{120}{360}\right) = 800\,000$,
+soit $1+\dfrac{t'}{3} = \dfrac{800\,000}{767\,000} \approx 1{,}043\,02$,
+d'où $\dfrac{t'}{3} \approx 0{,}043\,02$ et $t' \approx 0{,}129$, soit
+environ $12{,}9\,\%$. La commission fixe, répartie sur une somme nette plus
+faible, alourdit sensiblement le coût réel du crédit par rapport au taux
+affiché.
+
+\textbf{4.} L'escompte rationnel vérifie
+$a' = \dfrac{800\,000}{1+0{,}105 \times \frac{120}{360}}
+= \dfrac{800\,000}{1{,}035} \approx 772\,946$~Ar, donc
+$e' = 800\,000-772\,946 \approx 27\,054$~Ar, un peu inférieur à l'escompte
+commercial de $28\,000$~Ar — conformément à la propriété du cours.
+
+\textbf{5.} Attendre serait préférable si le collecteur dispose déjà de
+liquidités suffisantes pour financer ses achats sans escompter, ou si le taux
+d'escompte proposé est nettement supérieur au coût d'un autre financement
+disponible : l'escompte n'est avantageux que lorsque le besoin immédiat de
+trésorerie dépasse le coût réel du crédit qu'il représente.
+\end{corrige}
+
+% ===========================================================================
+\begin{jemeteste}
+Répondre par vrai ou faux, en justifiant en une ligne.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.28em]
+  \item Dans l'intérêt simple, l'intérêt produit lui-même des intérêts.
+  \item L'escompte commercial se calcule sur la valeur nominale de l'effet.
+  \item L'intérêt composé convient mieux qu'un intérêt simple pour un
+        placement de dix ans.
+  \item Deux taux équivalents produisent la même valeur acquise sur une
+        année.
+  \item L'escompte rationnel est toujours supérieur à l'escompte commercial.
+  \item $C_{n} = C(1+t)^{n}$ suppose que le taux $t$ reste le même à chaque
+        période.
+\end{enumerate}
+\end{jemeteste}
+
+\begin{corrige}[je me teste]
+\textbf{1.} Faux — c'est la définition même de l'intérêt \emph{composé}, pas
+simple.
+\textbf{2.} Vrai.
+\textbf{3.} Vrai — la capitalisation reflète mieux la croissance réelle d'un
+capital sur une longue durée.
+\textbf{4.} Vrai, par définition.
+\textbf{5.} Faux — c'est l'inverse : l'escompte rationnel est toujours
+inférieur ou égal à l'escompte commercial.
+\textbf{6.} Vrai.
+\end{corrige}
+
+% ===========================================================================
+\begin{commeaubac}
+\bmtsource{Exercice original, au format de l'épreuve — série OSE}
+\textbf{Partie I.} Un capital $C$ est placé à intérêt simple pendant
+$10$ mois ; sa valeur acquise dépasse le capital initial de $6\,\%$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer le taux annuel $t$ de ce placement. \hfill\textup{(0,5 pt)}
+  \item Sachant que l'intérêt produit vaut $18\,000$~Ar, déterminer $C$ puis
+        la valeur acquise. \hfill\textup{(0,75 pt)}
+\end{enumerate}
+
+\textbf{Partie II.} La valeur acquise obtenue en partie I est aussitôt
+replacée à intérêt composé, au taux annuel de $5\,\%$.
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=0.15em]
+  \item Calculer la valeur acquise de ce nouveau placement au bout de
+        $4$~ans. \hfill\textup{(0,75 pt)}
+  \item Déterminer, en nombre entier d'années, la durée nécessaire pour que
+        ce capital double. \hfill\textup{(0,5 pt)}
+\end{enumerate}
+\end{commeaubac}
+
+\begin{corrige}[comme au baccalauréat]
+\textbf{Partie I. a)} La valeur acquise vaut $1{,}06\,C$, donc l'intérêt
+vaut $0{,}06\,C$. Avec $n = \frac{10}{12}$ année,
+$0{,}06\,C = C \times t \times \frac{10}{12}$, d'où
+$t = 0{,}06 \times \frac{12}{10} = 0{,}072$, soit $t = 7{,}2\,\%$.
+
+\textbf{b)} $I = 18\,000 = C \times 0{,}072 \times \frac{10}{12}
+= 0{,}06\,C$, donc $C = \dfrac{18\,000}{0{,}06} = 300\,000$~Ar, et la valeur
+acquise vaut $300\,000+18\,000 = 318\,000$~Ar.
+
+\textbf{Partie II. a)} $C_{4} = 318\,000 \times (1{,}05)^{4}
+= 318\,000 \times 1{,}215\,506 \approx 386\,530{,}99$~Ar.
+
+\textbf{b)} On cherche le plus petit entier $n$ tel que
+$(1{,}05)^{n} \geq 2$. Or $(1{,}05)^{14} \approx 1{,}979\,9<2$ et
+$(1{,}05)^{15} \approx 2{,}078\,9 \geq 2$ : il faut donc $15$ années pour que
+le capital double.
+\end{corrige}
+
+% ===========================================================================
+\begin{notepourlaclasse}
+La difficulté de cette annexe n'est jamais le calcul lui-même, mais le choix
+de la bonne formule et de la bonne unité de durée. Imposez une phrase de
+diagnostic avant tout calcul : simple ou composé ? mois ou jours ? année de
+$360$ ou de $365$ jours ? C'est cette lecture, pas l'algèbre, qui distingue
+les copies qui réussissent l'exercice 3.
+
+L'écart entre escompte commercial et taux réel supporté — révélé par
+l'exercice-recherche — mérite d'être commenté en classe au-delà du calcul :
+c'est un vrai point d'économie, qui explique pourquoi les commerçants
+négocient leurs commissions bancaires autant que leurs taux.
+
+Enfin, faites toujours vérifier un résultat d'intérêt composé par ordre de
+grandeur avant de le rendre définitif : une inversion d'exposant, fréquente
+sur $(1+t)^{n}$, produit une erreur souvent visible à l'œil nu si l'élève a
+pris l'habitude d'estimer la valeur acquise avant de calculer.
+\end{notepourlaclasse}

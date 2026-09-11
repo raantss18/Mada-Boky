@@ -1,0 +1,84 @@
+% ===========================================================================
+%  BOKY MATEMATIKA — TERMINALE S
+%  Programme d'Études 2026 — Enseignement Secondaire Général, Madagascar
+%
+%  Compilation :  make eleve   |  make prof   |  make ch01
+%  Moteur      :  LuaLaTeX (latexmk -lualatex)
+% ===========================================================================
+\documentclass[11pt, twoside, openright]{book}
+
+\usepackage{preambule/bmt-style}
+\usepackage{preambule/bmt-macros}
+\usepackage{preambule/bmt-blocks}
+
+% --- Recompiler un seul chapitre : décommenter et adapter ------------------
+% \includeonly{chapitres/p1-analyse/ch01-limites-continuite}
+
+\begin{document}
+
+\frontmatter
+\include{front/couverture}
+\include{front/page-titre}
+\include{front/avant-propos}
+\include{front/mode-emploi}
+
+{\hypersetup{linkcolor=bmtEncre}\tableofcontents}
+
+\mainmatter
+
+% ===========================================================================
+\bmtpartie{bmtIndigo}{I}{Analyse}{60 heures}{%
+  L'analyse occupe à elle seule près d'un tiers de l'année. Tout y converge :
+  ce que vous démontrez sur les limites au premier jour sert encore, à la
+  dernière épreuve, à justifier la convergence d'une suite ou l'aire sous une
+  courbe. Prenez le temps des premières pages, elles portent le reste.}
+
+\include{chapitres/p1-analyse/ch01-limites-continuite}
+\include{chapitres/p1-analyse/ch02-derivabilite}
+\include{chapitres/p1-analyse/ch03-etude-graphique}
+\include{chapitres/p1-analyse/ch04-primitives-integrales}
+\include{chapitres/p1-analyse/ch05-logarithmes}
+\include{chapitres/p1-analyse/ch06-exponentielle-puissance}
+\include{chapitres/p1-analyse/ch07-equations-differentielles}
+
+% ===========================================================================
+\bmtpartie{bmtLaterite}{II}{Algèbre}{45 heures}{%
+  L'arithmétique et le calcul matriciel ont une réputation d'exercices à part.
+  Elle est trompeuse : ce sont des outils de raisonnement, et le baccalauréat
+  Malagasy les place presque chaque année en ouverture de sujet.}
+
+\include{chapitres/p2-algebre/ch08-suites}
+\include{chapitres/p2-algebre/ch09-arithmetique}
+\include{chapitres/p2-algebre/ch10-numeration}
+\include{chapitres/p2-algebre/ch11-calcul-matriciel}
+
+% ===========================================================================
+\bmtpartie{bmtVetiver}{III}{Géométrie}{45 heures}{%
+  Les nombres complexes ouvrent la partie, et ce n'est pas un hasard : ils
+  donnent au plan un langage de calcul. Une rotation devient une
+  multiplication, une similitude une écriture d'une ligne.}
+
+\include{chapitres/p3-geometrie/ch12-nombres-complexes}
+\include{chapitres/p3-geometrie/ch13-barycentre}
+\include{chapitres/p3-geometrie/ch14-transformations-isometries}
+\include{chapitres/p3-geometrie/ch15-similitudes}
+\include{chapitres/p3-geometrie/ch16-geometrie-espace}
+
+% ===========================================================================
+\bmtpartie{bmtRaphia}{IV}{Traitement des données et probabilités}{45 heures}{%
+  La partie que l'on traite en dernier, et pourtant celle dont les questions
+  se résolvent le plus vite quand le vocabulaire est en place. Un arbre bien
+  construit fait la moitié du travail.}
+
+\include{chapitres/p4-donnees/ch17-probabilites}
+\include{chapitres/p4-donnees/ch18-variables-aleatoires}
+
+% ===========================================================================
+\appendix
+\ifbmtprof\include{annexes/progression-prof}\fi
+\include{annexes/formulaire}
+\include{annexes/glossaire}
+\include{annexes/sujets}
+
+\backmatter
+\end{document}
