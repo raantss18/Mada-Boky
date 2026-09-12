@@ -70,6 +70,41 @@ Une \textbf{transformation} du plan est une application bijective du plan dans
 lui-même. Un point $M$ tel que $f(M) = M$ est dit \textbf{invariant}.
 \end{definition}
 
+% Vignettes adaptées de TCD/Affine/Lesona.tex et TCD/Isometrie/Lesona.tex.
+\begin{visualisation}[trois gestes géométriques à reconnaître]
+\begin{center}
+\begin{tikzpicture}[x=.9cm,y=.9cm,font=\scriptsize]
+  \begin{scope}[xshift=-5.2cm]
+    \draw[bmtGris!65] (0,0)--(1.15,.15)--(.35,1)--cycle;
+    \draw[bmtAccent,line width=1pt] (1.45,.45)--(2.6,.6)--(1.8,1.45)--cycle;
+    \draw[bmtLaterite,-{Stealth[length=2mm]}] (.55,.55)--(2,.98);
+    \node at (1.3,-.42) {translation};
+  \end{scope}
+  \begin{scope}
+    \fill[bmtEncre] (0,0) circle (1.6pt) node[below left] {$O$};
+    \draw[bmtGris!65] (.65,.15)--(1.65,.2)--(1.05,1.05)--cycle;
+    \draw[bmtAccent,line width=1pt,rotate=55]
+      (.65,.15)--(1.65,.2)--(1.05,1.05)--cycle;
+    \draw[bmtLaterite,-{Stealth[length=2mm]}] (0:.72) arc (0:55:.72);
+    \node at (.85,-.42) {rotation};
+  \end{scope}
+  \begin{scope}[xshift=4.25cm]
+    \draw[bmtVetiver,line width=.9pt] (0,-.15)--(0,1.65) node[above] {$(D)$};
+    \draw[bmtGris!65] (-1.65,.1)--(-.55,.2)--(-1.2,1.05)--cycle;
+    \draw[bmtAccent,line width=1pt] (1.65,.1)--(.55,.2)--(1.2,1.05)--cycle;
+    \draw[bmtGris,dashed] (-1.2,.65)--(1.2,.65);
+    \node at (0,-.42) {réflexion};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+Une translation fait \emph{glisser}, une rotation fait \emph{tourner} autour
+d'un centre et une réflexion fait \emph{basculer} de l'autre côté d'un axe.
+Les deux premières conservent l'orientation du triangle ; la réflexion
+l'inverse. Cette vérification visuelle évite de confondre déplacement et
+antidéplacement.
+\end{visualisation}
+
 \begin{definition}[les six transformations du programme]
 \begin{itemize}[leftmargin=*, itemsep=0.15em]
   \item \textbf{Translation} $\trans{u}$ : $\vect{MM'} = \vecu$.
@@ -183,6 +218,36 @@ où $H \in (D)$ et $H'$ est son projeté orthogonal sur $(D')$. C'est une
 translation de vecteur orthogonal aux deux axes, de norme le double de leur
 distance.
 \end{theoreme}
+
+% Construction adaptée de la composition de réflexions dans
+% TCD/Isometrie/Lesona.tex.
+\begin{visualisation}[deux axes parallèles donnent une translation]
+\begin{center}
+\begin{tikzpicture}[x=1.15cm,y=1.15cm,font=\footnotesize]
+  \draw[bmtVetiver,line width=1pt] (0,-1)--(0,1.45) node[above] {$(D)$};
+  \draw[bmtVetiver,line width=1pt] (1.5,-1)--(1.5,1.45) node[above] {$(D')$};
+  \coordinate (M) at (-1,.35);
+  \coordinate (M1) at (1,.35);
+  \coordinate (M2) at (2,.35);
+  \draw[bmtGris,dashed] (M)--(M2);
+  \fill[bmtIndigo] (M) circle (2.2pt) node[above] {$M$};
+  \fill[bmtGris] (M1) circle (2pt) node[above] {$M_1$};
+  \fill[bmtLaterite] (M2) circle (2.3pt) node[above] {$M'$};
+  \draw[bmtIndigo,-{Stealth[length=2.2mm]}] (-.92,.08)--(.92,.08)
+    node[midway,below] {$s_{(D)}$};
+  \draw[bmtLaterite,-{Stealth[length=2.2mm]}] (1.08,.08)--(1.92,.08)
+    node[midway,below] {$s_{(D')}$};
+  \draw[bmtAccent,line width=1.15pt,-{Stealth[length=2.5mm]}]
+    (-1,-.62)--(2,-.62) node[midway,below] {$2\,\vect{HH'}$};
+  \fill[bmtEncre] (0,-.62) circle (1.5pt) node[below left] {$H$};
+  \fill[bmtEncre] (1.5,-.62) circle (1.5pt) node[below right] {$H'$};
+\end{tikzpicture}
+\end{center}
+
+Le premier miroir envoie $M$ sur $M_1$ ; le second envoie $M_1$ sur $M'$.
+Au total, tous les points avancent perpendiculairement aux axes d'une longueur
+égale au double de la distance $HH'$ : la composée est bien une translation.
+\end{visualisation}
 
 \begin{theoreme}[axes sécants]
 Si $(D)$ et $(D')$ se coupent en $O$ en formant l'angle
