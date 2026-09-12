@@ -45,9 +45,9 @@ Sans calculatrice, sans brouillon.
   \item Dérivée de $x \mapsto -\dfrac{1}{x}$
   \item Dérivée de $x \mapsto -\dfrac{\cos(3x)}{3}$
   \item Dérivée de $x \mapsto \dfrac{(2x+1)^{5}}{10}$
-  \item Une fonction dont la dérivée est $x \mapsto x$
-  \item Une fonction dont la dérivée est $x \mapsto \cos x$
-  \item Une fonction dont la dérivée est $x \mapsto 3x^{2}$
+  \item Donner un exemple de $F$ tel que $F'(x)=x$
+  \item Donner un exemple de $F$ tel que $F'(x)=\cos x$
+  \item Donner un exemple de $F$ tel que $F'(x)=3x^{2}$
 \end{enumerate}
 \end{automatismes}
 
@@ -206,7 +206,8 @@ Pour $f$ et $g$ continues sur $I$, $a$, $b$, $c$ dans $I$ et $\lambda$ réel :
 \begin{align*}
   \int_{a}^{a} f(x)\dx &= 0, &
   \int_{b}^{a} f(x)\dx &= -\int_{a}^{b} f(x)\dx, \\[0.3em]
-  \int_{a}^{b} \bigl[f(x)+g(x)\bigr]\dx &= \int_{a}^{b} f + \int_{a}^{b} g, &
+  \int_{a}^{b} (f+g)(x)\dx
+    &= \int_{a}^{b} f(x)\dx + \int_{a}^{b} g(x)\dx, &
   \int_{a}^{b} \lambda f(x)\dx &= \lambda \int_{a}^{b} f(x)\dx,
 \end{align*}
 et la \textbf{relation de Chasles} :

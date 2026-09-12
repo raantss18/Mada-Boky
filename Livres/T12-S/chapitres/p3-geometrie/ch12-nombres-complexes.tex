@@ -222,6 +222,38 @@ c'est la \textbf{forme trigonométrique}.
 \]
 \end{propriete}
 
+% Figure adaptée des constructions du dossier TCD/Complexe/Lesona.tex.
+\begin{visualisation}[multiplier, c'est tourner et dilater]
+\begin{center}
+\begin{tikzpicture}[x=1.05cm,y=1.05cm,font=\footnotesize]
+  \coordinate (O) at (0,0);
+  \coordinate (Z) at (25:2.15);
+  \coordinate (U) at (70:1.55);
+  \coordinate (P) at (95:3.05);
+  \draw[bmtGris,-{Stealth[length=2.2mm]}] (-.25,0)--(3.35,0);
+  \draw[bmtGris,-{Stealth[length=2.2mm]}] (0,-.25)--(0,3.35);
+  \draw[bmtIndigo,line width=1.05pt,-{Stealth[length=2.3mm]}] (O)--(Z)
+    node[pos=.72,below right] {$z$};
+  \draw[bmtVetiver,line width=1.05pt,-{Stealth[length=2.3mm]}] (O)--(U)
+    node[pos=.72,right] {$z'$};
+  \draw[bmtLaterite,line width=1.25pt,-{Stealth[length=2.5mm]}] (O)--(P)
+    node[pos=.78,left] {$zz'$};
+  \draw[bmtIndigo] (0:.68) arc (0:25:.68);
+  \node[bmtIndigo] at (12.5:.92) {$\alpha$};
+  \draw[bmtVetiver] (25:1.02) arc (25:95:1.02);
+  \node[bmtVetiver] at (61:1.27) {$\beta$};
+  \draw[bmtGris,dashed] (Z) arc (25:95:2.15);
+  \fill[bmtEncre] (O) circle (1.7pt) node[below left] {$O$};
+\end{tikzpicture}
+\end{center}
+
+Si $z=re^{i\alpha}$ et $z'=r'e^{i\beta}$, le produit a pour module
+$rr'$ et pour argument $\alpha+\beta$. Sur la figure, le passage de $z$ à
+$zz'$ combine donc une rotation d'angle $\beta$ et une multiplication des
+longueurs par $r'$. Cette lecture géométrique est celle que l'on réutilisera
+dans le chapitre sur les similitudes.
+\end{visualisation}
+
 \begin{propriete}[lecture géométrique d'un quotient]
 Pour trois points distincts $A$, $B$, $C$ :
 \[
@@ -518,6 +550,31 @@ $z^{n} = Z$ admet exactement $n$ solutions :
 Leurs images sont les sommets d'un polygone régulier à $n$ côtés inscrit dans
 le cercle de centre $O$ et de rayon $R^{1/n}$.
 \end{theoreme}
+
+% Figure adaptée des polygones réguliers de TCD/Appendix/Polygones.tex.
+\begin{visualisation}[les racines de l'unité sur un cercle]
+\begin{center}
+\begin{tikzpicture}[scale=1.02,font=\footnotesize]
+  \draw[bmtGris!55] (0,0) circle (2);
+  \draw[bmtGris,-{Stealth[length=2.1mm]}] (-2.35,0)--(2.55,0);
+  \draw[bmtGris,-{Stealth[length=2.1mm]}] (0,-2.35)--(0,2.5);
+  \draw[bmtAccent,line width=1.05pt]
+    (0:2)--(60:2)--(120:2)--(180:2)--(240:2)--(300:2)--cycle;
+  \foreach \k in {0,...,5}{
+    \fill[bmtLaterite] ({60*\k}:2) circle (2.2pt);
+    \node[fill=bmtPapier,inner sep=.6pt] at ({60*\k}:2.32) {$\omega^{\k}$};
+  }
+  \fill[bmtEncre] (0,0) circle (1.6pt) node[below left] {$O$};
+  \draw[bmtVetiver,-{Stealth[length=2mm]}] (0:.72) arc (0:60:.72);
+  \node[bmtVetiver] at (30:1.02) {$\frac{2\pi}{6}$};
+\end{tikzpicture}
+\end{center}
+
+Pour $z^{6}=1$, les six solutions ont le même module $1$ et deux arguments
+consécutifs diffèrent de $\frac{2\pi}{6}$. Elles forment donc un hexagone
+régulier. La même construction fonctionne pour tout $n$ : on partage le tour
+complet en $n$ angles égaux.
+\end{visualisation}
 
 \begin{demonstration}
 En écrivant $z = re^{i\theta}$, l'équation devient $r^{n}e^{in\theta}
