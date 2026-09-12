@@ -13,7 +13,7 @@ MAIN=livre-t12l
 BUILD=build
 
 # L'arborescence de build doit refléter celle des sources (fichiers .aux)
-mkdir -p "$BUILD"/{front,annexes,chapitres/{p1-algebre,p2-analyse,p3-suites,p4-donnees}}
+mkdir -p "$BUILD"/{front,annexes,chapitres/{p1-algebre,p2-analyse,p3-donnees}}
 
 LMK=(latexmk -xelatex -shell-escape -interaction=nonstopmode -outdir="$BUILD")
 

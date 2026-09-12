@@ -1,10 +1,10 @@
 % ===========================================================================
-%  Devoir surveillé nº 4 — fin de la partie Traitement des données
+%  Devoir surveillé nº 3 — fin de la partie Traitement des données
 %  Sujet complet, au format de l'épreuve
 % ===========================================================================
-\chapter*{Devoir surveillé nº\,4 — sujet complet}
-\markboth{Devoir surveillé nº\,4}{Devoir surveillé nº\,4}
-\addcontentsline{toc}{chapter}{Devoir surveillé nº\,4 — sujet complet}
+\chapter*{Devoir surveillé nº\,3 — sujet complet}
+\markboth{Devoir surveillé nº\,3}{Devoir surveillé nº\,3}
+\addcontentsline{toc}{chapter}{Devoir surveillé nº\,3 — sujet complet}
 
 \begin{devoirsurveille}[portée : tout le programme]
 \textbf{Durée : 2 h 15.} Les deux exercices et le problème sont obligatoires.
@@ -37,27 +37,39 @@ $3$ jetons jaunes et $3$ jetons rouges.
 \vspace{0.7em}
 \noindent\textbf{\sffamily EXERCICE 2} \hfill \textup{(05 points)}
 
-On considère la suite $\left(U_{n}\right)_{n \in \N}$ définie par
-$U_{0} = 1$ et, pour tout entier naturel $n$,
-\[
-  U_{n+1} = \frac12 U_{n}+3 .
-\]
+Le tableau ci-dessous donne le nombre d'inscrits à l'atelier de théâtre d'un
+établissement scolaire, sur six années consécutives.
+
+\begin{center}\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ANNÉE & $2019$ & $2020$ & $2021$ & $2022$ & $2023$ & $2024$\\
+\hline
+Rang de l'année $x_{i}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+\hline
+Nombre d'inscrits $y_{i}$ & $80$ & $85$ & $90$ & $88$ & $94$ & $100$\\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.25em]
-  \item Calculer $U_{1}$ et $U_{2}$. \bareme{0,5}
-  \item On pose $V_{n} = U_{n}-6$ pour tout entier naturel $n$.
+  \item Construire le nuage de points associé à cette série statistique dans
+        un repère orthogonal d'échelle : sur l'axe des abscisses, $2$ cm pour
+        $1$ unité ; sur l'axe des ordonnées, placer $75$ à l'origine puis
+        $1$ cm pour $5$ inscrits. \bareme{1}
+  \item Déterminer les coordonnées du point moyen $G$. \bareme{1}
+  \item On partage cette série en deux sous-groupes d'effectifs égaux, la
+        première partie formée des trois premières années et la seconde des
+        trois dernières.
     \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
-      \item Montrer que $\left(V_{n}\right)$ est une suite géométrique dont
-            on précisera la raison et le premier terme. \bareme{1,5}
-      \item Exprimer $V_{n}$ puis $U_{n}$ en fonction de $n$.
-            \bareme{1}
-      \item Calculer $\limn U_{n}$. \bareme{0,5}
+      \item Calculer les coordonnées respectives des points moyens $G_{1}$
+            et $G_{2}$ de ces deux sous-groupes. \bareme{1}
+      \item Établir l'équation de la droite d'ajustement
+            $\left(G_{1}G_{2}\right)$ par la méthode de Mayer. \bareme{1}
     \end{enumerate}
-  \item Soit $S_{n} = V_{0}+V_{1}+\cdots+V_{n}$.
-    \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.4em, itemsep=0.15em]
-      \item Exprimer $S_{n}$ en fonction de $n$. \bareme{1}
-      \item En déduire $T_{n} = U_{0}+U_{1}+\cdots+U_{n}$. \bareme{0,5}
-    \end{enumerate}
+  \item En utilisant cette droite, estimer le nombre d'inscrits en $2028$.
+        \bareme{1}
 \end{enumerate}
 
 \vspace{0.7em}
@@ -109,7 +121,7 @@ orthonormé $\left(O\,;\,\veci\,,\,\vecj\right)$ d'unité graphique $2$ cm.
 \end{enumerate}
 \end{devoirsurveille}
 
-\begin{corrige}[devoir surveillé nº 4 — exercice 1]
+\begin{corrige}[devoir surveillé nº 3 — exercice 1]
 \textbf{1. a)} $\combi{3}{10} = \frac{10\times9\times8}{6} = 120$ cas
 possibles.
 
@@ -130,26 +142,29 @@ $4\times3\times3 = 36$. Donc
 $\proba{D} = \frac{36}{1\,000} = \frac{9}{250}$.
 \end{corrige}
 
-\begin{corrige}[devoir surveillé nº 4 — exercice 2]
-\textbf{1.} $U_{1} = \frac12+3 = \frac72$ et
-$U_{2} = \frac74+3 = \frac{19}{4}$.
+\begin{corrige}[devoir surveillé nº 3 — exercice 2]
+\textbf{1.} Nuage de six points, croissant dans l'ensemble malgré le creux de
+la quatrième année.
 
-\textbf{2. a)} $V_{n+1} = U_{n+1}-6 = \frac12U_{n}+3-6 = \frac12U_{n}-3
-= \frac12\left(U_{n}-6\right) = \frac12 V_{n}$ : la suite est géométrique
-de raison $\frac12$ et de premier terme $V_{0} = 1-6 = -5$.
-\textbf{b)} $V_{n} = -5\left(\frac12\right)^{n}$ et
-$U_{n} = 6-5\left(\frac12\right)^{n}$.
-\textbf{c)} Comme $\left|\frac12\right|<1$, $\left(\frac12\right)^{n} \to 0$
-et $U_{n} \to 6$.
+\textbf{2.} $\moy x = \frac{1+2+3+4+5+6}{6} = 3{,}5$ et
+$\moy y = \frac{80+85+90+88+94+100}{6} = \frac{537}{6} = 89{,}5$ : donc
+$G(3{,}5\,;\,89{,}5)$.
 
-\textbf{3. a)} $S_{n} = -5\times
-\frac{1-\left(\frac12\right)^{n+1}}{1-\frac12}
-= -10\left(1-\left(\frac12\right)^{n+1}\right)$.
-\textbf{b)} Comme $U_{k} = V_{k}+6$ et qu'il y a $n+1$ termes :
-$T_{n} = S_{n}+6(n+1)$.
+\textbf{3. a)} Premier sous-groupe : $x_{G_{1}} = \frac{1+2+3}{3} = 2$ et
+$y_{G_{1}} = \frac{80+85+90}{3} = 85$, donc $G_{1}(2\,;\,85)$. Second
+sous-groupe : $x_{G_{2}} = \frac{4+5+6}{3} = 5$ et
+$y_{G_{2}} = \frac{88+94+100}{3} = 94$, donc $G_{2}(5\,;\,94)$.
+\textbf{b)} Coefficient directeur :
+$a = \dfrac{94-85}{5-2} = \dfrac93 = 3$. En reportant dans
+$y_{G_{1}} = a\,x_{G_{1}}+b$ : $85 = 3\times2+b$, donc $b = 79$. La droite de
+Mayer a pour équation $y = 3x+79$. \emph{Vérification gratuite :}
+$3\times3{,}5+79 = 89{,}5 = \moy y$ \checkmark.
+
+\textbf{4.} En $2028$, $x = 10$ : $y = 3\times10+79 = 109$. On peut estimer
+environ $109$ inscrits.
 \end{corrige}
 
-\begin{corrige}[devoir surveillé nº 4 — problème]
+\begin{corrige}[devoir surveillé nº 3 — problème]
 \textbf{1. a)} En $0^{+}$, $\frac1x \to +\infty$ et $\ln x \to -\infty$ :
 il faut lever l'indétermination. On écrit
 \[
@@ -207,8 +222,8 @@ Si vous le donnez en cours d'année plutôt qu'en fin, remplacez la question
 le reste du problème est alors accessible dès la fin du chapitre 9.
 
 Barème indicatif de correction : comptez un demi-point, dans chaque
-question, pour la \emph{phrase} de conclusion — asymptote, nature de la
-suite, interprétation de l'aire. C'est la part que les élèves de la série
-perdent le plus systématiquement, et la leur montrer chiffrée est le moyen
-le plus efficace de la leur faire écrire.
+question, pour la \emph{phrase} de conclusion — asymptote, interprétation du
+point moyen, interprétation de l'aire. C'est la part que les élèves de la
+série perdent le plus systématiquement, et la leur montrer chiffrée est le
+moyen le plus efficace de la leur faire écrire.
 \end{notepourlaclasse}

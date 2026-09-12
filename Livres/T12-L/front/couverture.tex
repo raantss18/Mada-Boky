@@ -29,15 +29,6 @@
         ([xshift={8.6cm + \j*0.68cm}, yshift={-4.5cm - \i*0.68cm}]current page.north west)
         rectangle ++(0.48cm, -0.48cm);}}
 
-  % Suites : les termes d'une suite géométrique décroissante
-  \begin{scope}[shift={([xshift=11.9cm, yshift=-7.6cm]current page.north west)}]
-    \draw[bmtPapier, line width=1pt, opacity=0.55] (-0.2,0) -- (3.5,0);
-    \foreach \k [count=\i from 0] in {1.85, 1.24, 0.83, 0.55, 0.37, 0.25}{
-      \draw[bmtPalissandre!85!bmtPapier, line width=1pt]
-        ({\i*0.6},0) -- ({\i*0.6},\k);
-      \fill[bmtPalissandre!70!bmtPapier] ({\i*0.6},\k) circle (0.085);}
-  \end{scope}
-
   % Probabilités : un arbre à deux niveaux
   \begin{scope}[shift={([xshift=8.9cm, yshift=-10.4cm]current page.north west)}]
     \draw[bmtRaphia, line width=1pt] (0,0) -- (1.0,0.54);
@@ -78,8 +69,7 @@
   \node[anchor=north west, text=bmtPapier, align=left, text width=13.6cm,
         font=\sffamily\fontsize{10.5}{15}\selectfont, opacity=0.92]
     at ([xshift=1.95cm, yshift=-17.35cm]current page.north west)
-    {Algèbre \quad Analyse \quad Suites numériques \quad Traitement des
-     données et probabilités};
+    {Algèbre \quad Analyse \quad Traitement des données et probabilités};
 
   % --- Bas de couverture ---------------------------------------------------
   \node[anchor=north west, text=bmtEncre, align=left, text width=12cm,
@@ -98,8 +88,8 @@
     at ([xshift=1.9cm, yshift=-23.35cm]current page.north west)
     {ÉDITIONS MADA-BOKY};
 
-  % Les quatre couleurs des quatre parties, en signature de bas de page
-  \foreach \c [count=\i from 0] in {bmtLaterite, bmtIndigo, bmtPalissandre, bmtRaphia}{
+  % Les trois couleurs des trois parties, en signature de bas de page
+  \foreach \c [count=\i from 0] in {bmtLaterite, bmtIndigo, bmtRaphia}{
     \fill[\c] ([xshift={1.9cm + \i*0.95cm}, yshift=2.5cm]current page.south west)
       rectangle ++(0.62cm, 0.62cm);}
 
