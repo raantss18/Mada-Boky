@@ -1,0 +1,5 @@
+$pdf_mode = 5;                     # XeLaTeX
+$xelatex  = 'xelatex -interaction=nonstopmode -synctex=1 %O %S';
+$out_dir  = 'build';
+$aux_dir  = 'build';
+$clean_ext = 'synctex.gz run.xml bbl fdb_latexmk fls xdv';

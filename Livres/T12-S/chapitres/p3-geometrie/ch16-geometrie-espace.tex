@@ -87,6 +87,30 @@ C'est la toute première vérification de tout exercice d'espace, et elle se
 fait par le produit vectoriel.
 \end{remarque}
 
+\begin{visualisation}[le repère de l'espace]
+\begin{center}
+\begin{tikzpicture}[x={(-0.5cm,-0.28cm)}, y={(1cm,0cm)}, z={(0cm,1cm)},
+                     font=\footnotesize]
+  \draw[bmtGris, opacity=0.5] (0,0,0) -- (2.4,0,0) -- (2.4,2.6,0) -- (0,2.6,0) -- cycle;
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (0,0,0) -- (2.9,0,0) node[anchor=north east]{$\veci$};
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (0,0,0) -- (0,3.1,0) node[anchor=north west]{$\vecj$};
+  \draw[bmtGris, -{Stealth[length=2.6mm]}] (0,0,0) -- (0,0,2.7) node[anchor=south]{$\veck$};
+  \node[bmtGris, anchor=east] at (0.15,-0.15,0) {$O$};
+  \draw[bmtGris, dotted] (1.6,0,0) -- (1.6,1.8,0) -- (0,1.8,0);
+  \draw[bmtGris, dotted] (1.6,1.8,0) -- (1.6,1.8,1.4);
+  \node[bmtGris, anchor=north] at (1.6,0,0) {$x$};
+  \node[bmtGris, anchor=north west] at (0,1.8,0) {$y$};
+  \node[bmtGris, anchor=east] at (0,0,1.4) {$z$};
+  \draw[bmtGris, dotted] (0,0,1.4) -- (1.6,1.8,1.4);
+  \filldraw[bmtIndigo] (1.6,1.8,1.4) circle (2pt) node[anchor=south west] {$M(x\,;y\,;z)$};
+\end{tikzpicture}
+\end{center}
+Dans le repère $\left(O\,;\veci,\vecj,\veck\right)$, chaque point $M$ se lit
+par ses trois projections sur les axes. Le parallélépipède en pointillés est
+le repère de lecture habituel : on avance de $x$ selon $\veci$, de $y$ selon
+$\vecj$, puis de $z$ selon $\veck$.
+\end{visualisation}
+
 % ===========================================================================
 \section{Produit scalaire}
 
@@ -104,6 +128,26 @@ Deux vecteurs non nuls sont orthogonaux si et seulement si leur produit
 scalaire est nul. Une droite est orthogonale à un plan si et seulement si son
 vecteur directeur est orthogonal à deux vecteurs non colinéaires du plan.
 \end{propriete}
+
+\begin{visualisation}[l'angle entre deux vecteurs]
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, font=\footnotesize]
+  \draw[bmtIndigo, line width=1.1pt, -{Stealth[length=2.6mm]}]
+    (0,0) -- (3.2,0) node[anchor=north west]{$\vecu$};
+  \draw[bmtLaterite, line width=1.1pt, -{Stealth[length=2.6mm]}]
+    (0,0) -- (35:2.6) node[anchor=south west]{$\vecv$};
+  \draw[bmtGris, dashed] (35:2.6) -- ({2.6*cos(35)},0);
+  \draw[bmtVetiver, line width=2.2pt] (0,0) -- ({2.6*cos(35)},0);
+  \node[bmtVetiver, anchor=north] at ({0.5*2.6*cos(35)},-0.05) {projeté};
+  \draw[bmtGris] (0.55,0) arc (0:35:0.55);
+  \node[bmtGris, anchor=west] at (17:0.75) {$\theta$};
+\end{tikzpicture}
+\end{center}
+Le produit scalaire $\scal{\vecu}{\vecv}$ mesure, à la norme de $\vecu$
+près, la longueur algébrique du projeté de $\vecv$ sur $\vecu$ : positif si
+$\theta$ est aigu, négatif s'il est obtus, nul à angle droit. C'est cette
+lecture qui rend le critère d'orthogonalité évident.
+\end{visualisation}
 
 % ===========================================================================
 \section{Produit vectoriel}
@@ -251,6 +295,42 @@ $\vecu(\alpha\,;\beta\,;\gamma)$ est l'ensemble des points de coordonnées
 \]
 \end{propriete}
 
+\begin{visualisation}[ce qui engendre un plan, ce qui engendre une droite]
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, font=\footnotesize]
+  \begin{scope}
+    \fill[bmtVetiver, opacity=0.12] (-0.6,-0.4) -- (3.4,-0.4) -- (4.2,1.1)
+      -- (0.2,1.1) -- cycle;
+    \draw[bmtVetiver, opacity=0.6] (-0.6,-0.4) -- (3.4,-0.4) -- (4.2,1.1)
+      -- (0.2,1.1) -- cycle;
+    \node[bmtVetiver, anchor=west] at (3.6,-0.15) {$(P)$};
+    \coordinate (A) at (1.6,0.25);
+    \filldraw[bmtEncre] (A) circle (2pt) node[anchor=north east]{$A$};
+    \draw[bmtLaterite, line width=1.2pt, -{Stealth[length=2.8mm]}]
+      (A) -- ++(0.1,1.7) node[anchor=south]{$\vecn(a\,;b\,;c)$};
+    \node[bmtGris, anchor=north, font=\footnotesize] at (1.8,-1.1)
+      {$ax+by+cz+d=0$};
+  \end{scope}
+  \begin{scope}[xshift=6.4cm]
+    \draw[bmtGris, line width=0.6pt] (-0.8,-0.9) -- (2.6,1.6);
+    \coordinate (A2) at (0.3,-0.15);
+    \coordinate (Mt) at (1.7,0.85);
+    \filldraw[bmtEncre] (A2) circle (2pt) node[anchor=north]{$A(x_{0};y_{0};z_{0})$};
+    \filldraw[bmtIndigo] (Mt) circle (1.8pt) node[anchor=south west]{$M$};
+    \draw[bmtLaterite, line width=1.2pt, -{Stealth[length=2.8mm]}]
+      (A2) -- ++(0.9,0.6) node[anchor=south east]{$\vecu$};
+    \node[bmtGris, anchor=north, font=\footnotesize] at (1,-1.1)
+      {$\vect{AM}=t\,\vecu$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+Un plan est engendré par un point et un vecteur normal : l'équation
+$ax+by+cz+d=0$ n'est jamais qu'une reformulation de
+$\scal{\vect{AM}}{\vecn} = 0$. Une droite est engendrée par un point et un
+vecteur directeur : tout point $M$ de la droite s'obtient en avançant de $t$
+fois $\vecu$ depuis $A$ — c'est exactement le système paramétrique.
+\end{visualisation}
+
 \begin{propriete}[distance d'un point à un plan]
 La distance du point $A(x_{A}\,;y_{A}\,;z_{A})$ au plan
 $(P) : ax+by+cz+d = 0$ vaut
@@ -329,6 +409,32 @@ peuvent n'avoir aucun point commun sans être parallèles : on dit alors
 qu'elles sont non coplanaires. C'est la situation la plus fréquemment
 proposée au baccalauréat, et l'oubli de ce cas fausse toute la question.
 \end{avertissement}
+
+\begin{visualisation}[deux droites qui ne se rencontrent jamais]
+\begin{center}
+\begin{tikzpicture}[x={(-0.5cm,-0.28cm)}, y={(1cm,0cm)}, z={(0cm,1cm)},
+                     font=\footnotesize]
+  \fill[bmtGris, opacity=0.10] (-0.6,-0.6,0) -- (3.2,-0.6,0)
+    -- (3.2,2.8,0) -- (-0.6,2.8,0) -- cycle;
+  \draw[bmtGris, opacity=0.45] (-0.6,-0.6,0) -- (3.2,-0.6,0)
+    -- (3.2,2.8,0) -- (-0.6,2.8,0) -- cycle;
+  \draw[bmtIndigo, line width=1.2pt] (0.2,0.3,0) -- (2.8,1.8,0)
+    node[anchor=west]{$(D_{1})$};
+  \draw[bmtLaterite, line width=1.2pt] (0.3,2.0,1.7) -- (2.6,0.2,2.1)
+    node[anchor=south]{$(D_{2})$};
+  \draw[bmtGris, dotted] (0.3,2.0,1.7) -- (0.3,2.0,0);
+  \draw[bmtGris, dotted] (2.6,0.2,2.1) -- (2.6,0.2,0);
+  \filldraw[bmtGris] (0.3,2.0,0) circle (1.3pt);
+  \filldraw[bmtGris] (2.6,0.2,0) circle (1.3pt);
+\end{tikzpicture}
+\end{center}
+$(D_{1})$ repose sur le plan de fond, $(D_{2})$ flotte au-dessus, dans une
+autre direction. Leurs projections verticales, en pointillés, ne se
+confondent avec $(D_{1})$ qu'aux deux pieds marqués : les deux droites ne
+sont ni parallèles ni sécantes, elles sont \textbf{non coplanaires}. C'est
+la situation la plus fréquente de l'exercice de baccalauréat, et la plus
+souvent oubliée.
+\end{visualisation}
 
 \begin{methode}{montrer que deux droites sont non coplanaires}
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.15em]

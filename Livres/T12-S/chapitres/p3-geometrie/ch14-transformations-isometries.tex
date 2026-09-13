@@ -86,6 +86,95 @@ lui-même. Un point $M$ tel que $f(M) = M$ est dit \textbf{invariant}.
 \end{itemize}
 \end{definition}
 
+\begin{visualisation}[quatre transformations, un même triangle]
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, font=\footnotesize]
+
+  % --- Panel 1 : translation --------------------------------------------
+  \begin{scope}
+    \coordinate (P1) at (0.2,-0.7);
+    \coordinate (P2) at (1.1,-0.5);
+    \coordinate (P3) at (0.5,0.6);
+    \coordinate (Q1) at (1.5,0.0);
+    \coordinate (Q2) at (2.4,0.2);
+    \coordinate (Q3) at (1.8,1.3);
+    \draw[bmtIndigo, line width=1pt] (P1) -- (P2) -- (P3) -- cycle;
+    \draw[bmtLaterite, line width=1pt, dashed] (Q1) -- (Q2) -- (Q3) -- cycle;
+    \draw[bmtVetiver, line width=1pt, -{Stealth[length=2.4mm]}] (P3) -- (Q3);
+    \node[bmtVetiver, anchor=south] at ($(P3)!0.5!(Q3)$) {$\vecu$};
+    \node[bmtGris, anchor=north, font=\footnotesize\sffamily\bfseries]
+      at (1.3,-1.5) {TRANSLATION};
+  \end{scope}
+
+  % --- Panel 2 : rotation -------------------------------------------------
+  \begin{scope}[xshift=4.6cm]
+    \coordinate (P1) at (0.2,-0.7);
+    \coordinate (P2) at (1.1,-0.5);
+    \coordinate (P3) at (0.5,0.6);
+    \coordinate (O)  at (0.3,-0.2);
+    \coordinate (Q1) at (0.8,-0.3);
+    \coordinate (Q2) at (0.6,0.6);
+    \coordinate (Q3) at (-0.5,0.0);
+    \draw[bmtIndigo, line width=1pt] (P1) -- (P2) -- (P3) -- cycle;
+    \draw[bmtLaterite, line width=1pt, dashed] (Q1) -- (Q2) -- (Q3) -- cycle;
+    \filldraw[bmtEncre] (O) circle (1.6pt) node[anchor=north west]{$O$};
+    \draw[bmtVetiver, line width=0.8pt, -{Stealth[length=2.2mm]}]
+      ($(O)+(0,0.42)$) arc (90:165:0.42);
+    \node[bmtVetiver, anchor=south east] at ($(O)+(-0.28,0.5)$) {$\theta$};
+    \node[bmtGris, anchor=north, font=\footnotesize\sffamily\bfseries]
+      at (0.3,-1.5) {ROTATION};
+  \end{scope}
+
+  % --- Panel 3 : homothetie -----------------------------------------------
+  \begin{scope}[yshift=-4.2cm]
+    \coordinate (P1) at (0.2,-0.7);
+    \coordinate (P2) at (1.1,-0.5);
+    \coordinate (P3) at (0.5,0.6);
+    \coordinate (O2) at (-0.4,-0.6);
+    \coordinate (Q1) at (0.56,-0.76);
+    \coordinate (Q2) at (2.0,-0.44);
+    \coordinate (Q3) at (1.04,1.32);
+    \draw[bmtGris, dashed, line width=0.5pt] (O2) -- (Q1);
+    \draw[bmtGris, dashed, line width=0.5pt] (O2) -- (Q2);
+    \draw[bmtGris, dashed, line width=0.5pt] (O2) -- (Q3);
+    \draw[bmtIndigo, line width=1pt] (P1) -- (P2) -- (P3) -- cycle;
+    \draw[bmtLaterite, line width=1pt, dashed] (Q1) -- (Q2) -- (Q3) -- cycle;
+    \filldraw[bmtEncre] (O2) circle (1.6pt) node[anchor=north east]{$O$};
+    \node[bmtGris, anchor=north, font=\footnotesize\sffamily\bfseries]
+      at (0.6,-1.6) {HOMOTHÉTIE};
+  \end{scope}
+
+  % --- Panel 4 : reflexion -------------------------------------------------
+  \begin{scope}[xshift=4.6cm, yshift=-4.2cm]
+    \coordinate (P1) at (0.2,-0.7);
+    \coordinate (P2) at (1.1,-0.5);
+    \coordinate (P3) at (0.5,0.6);
+    \coordinate (Q1) at (-0.8,-0.7);
+    \coordinate (Q2) at (-1.7,-0.5);
+    \coordinate (Q3) at (-1.1,0.6);
+    \draw[bmtGris, line width=1pt] (-0.3,-1.1) -- (-0.3,1.0)
+      node[anchor=south]{$(D)$};
+    \draw[bmtGris, dashed, line width=0.5pt] (P1) -- (Q1);
+    \draw[bmtGris, dashed, line width=0.5pt] (P2) -- (Q2);
+    \draw[bmtGris, dashed, line width=0.5pt] (P3) -- (Q3);
+    \draw[bmtIndigo, line width=1pt] (P1) -- (P2) -- (P3) -- cycle;
+    \draw[bmtLaterite, line width=1pt, dashed] (Q1) -- (Q2) -- (Q3) -- cycle;
+    \node[bmtGris, anchor=north, font=\footnotesize\sffamily\bfseries]
+      at (-0.7,-1.6) {RÉFLEXION};
+  \end{scope}
+
+\end{tikzpicture}
+\end{center}
+Le même triangle, transformé de quatre façons : image translatée par un
+vecteur $\vecu$ ; image tournée d'un angle $\theta$ autour d'un centre $O$ ;
+image agrandie ou réduite dans un rapport $k$ depuis un centre $O$, chaque
+sommet et son image alignés avec $O$ ; image retournée par rapport à un axe
+$(D)$, chaque sommet relié à son image par un segment perpendiculaire à
+$(D)$ et coupé par lui en son milieu. La symétrie centrale est le cas
+particulier $\theta = \pi$ de la rotation ; la symétrie glissée compose une
+réflexion et une translation le long de son axe.
+\end{visualisation}
+
 \begin{propriete}[ce que chacune conserve]
 Toutes conservent l'alignement, le parallélisme, les milieux et les rapports
 de longueurs. Les distances sont conservées par la translation, la rotation,
@@ -243,6 +332,35 @@ $\frac{\norme{\vecu}}{2}$. \emph{L'un des deux axes peut être choisi
 librement} parmi les droites perpendiculaires à $\vecu$ ; l'autre est alors
 imposé.
 \end{theoreme}
+
+\begin{visualisation}[deux miroirs parallèles, une translation]
+\begin{center}
+\begin{tikzpicture}[x=1.05cm, y=1.05cm, font=\footnotesize]
+  \draw[bmtGris, line width=1pt] (0,-1.1) -- (0,1.3) node[anchor=south]{$(D)$};
+  \draw[bmtGris, line width=1pt] (1.4,-1.1) -- (1.4,1.3) node[anchor=south]{$(D')$};
+  \coordinate (M)  at (-0.9,0.5);
+  \coordinate (M1) at (0.9,0.5);
+  \coordinate (M2) at (1.9,0.5);
+  \filldraw[bmtVetiver] (M) circle (2pt) node[anchor=south]{$M$};
+  \filldraw[bmtGris] (M1) circle (1.7pt) node[anchor=south]{$M_{1}$};
+  \filldraw[bmtLaterite] (M2) circle (2pt) node[anchor=south]{$M'$};
+  \draw[bmtGris, dashed] (M) -- (M1) -- (M2);
+  \filldraw[bmtEncre] (0,0.5) circle (1.4pt) node[anchor=north]{$H$};
+  \filldraw[bmtEncre] (1.4,0.5) circle (1.4pt) node[anchor=north]{$H'$};
+  \draw[bmtVetiver, decorate, decoration={brace, amplitude=3pt, mirror}]
+    (0,-1.3) -- (1.4,-1.3) node[midway, anchor=north, yshift=-3pt]{$d$};
+  \draw[bmtLaterite, line width=1.2pt, -{Stealth[length=2.6mm]}]
+    (-0.9,-0.55) -- (1.9,-0.55) node[midway, above=2pt]{$t_{2\vect{HH'}}$};
+  \draw[bmtGris, dotted] (M) -- (-0.9,-0.55);
+  \draw[bmtGris, dotted] (M2) -- (1.9,-0.55);
+\end{tikzpicture}
+\end{center}
+On réfléchit $M$ dans $(D)$, puis l'image dans $(D')$ : le résultat $M'$ se
+déduit de $M$ par une translation. Son vecteur est perpendiculaire aux deux
+axes, dirigé de $(D)$ vers $(D')$, et sa norme double la distance $d = HH'$
+qui sépare les miroirs — c'est deux fois, jamais une fois, l'erreur la plus
+fréquente sur ce théorème.
+\end{visualisation}
 
 \begin{theoreme}[décomposition d'une rotation]
 Toute rotation $\rot{O}{\theta}$ se décompose en produit de deux réflexions

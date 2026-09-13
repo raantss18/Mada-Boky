@@ -1,0 +1,25 @@
+# Dossier de compilation
+build/
+
+# Tous les PDF produits : ils sont joints aux releases, pas versionnés
+*.pdf
+
+# Auxiliaires LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.bbl
+*.blg
+*.run.xml
+
+# Éditeurs et systèmes
+*~
+.DS_Store
+.vscode/

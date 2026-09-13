@@ -1,0 +1,109 @@
+% ---------------------------------------------------------------------------
+%  bmt-macros.sty — notations mathématiques du livre
+%  Conventions alignées sur celles du Programme d'Études et des sujets
+%  officiels Malagasy, série S.
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bmt-macros}[2026/09/13 Notations du livre T11-S]
+
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+
+% --- Ensembles de nombres ---------------------------------------------------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Ns}{\mathbb{N}^{*}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rp}{\mathbb{R}^{+}}
+\newcommand{\Rm}{\mathbb{R}^{-}}
+\newcommand{\Rs}{\mathbb{R}^{*}}
+\newcommand{\Rps}{\mathbb{R}^{+*}}
+
+% --- Analyse ----------------------------------------------------------------
+% Les bornes d'une limite se placent TOUJOURS sous le mot « lim », y compris
+% dans une formule au fil du texte.
+\let\bmtlimorig\lim
+\renewcommand{\lim}{\bmtlimorig\limits}
+\newcommand{\Df}{\mathcal{D}}                      % ensemble de définition
+\newcommand{\Cf}{\mathscr{C}}                      % courbe représentative
+\newcommand{\limx}[1]{\lim_{x \to #1}}
+\newcommand{\limn}{\lim_{n \to +\infty}}
+\newcommand{\limpinf}{\lim_{x \to +\infty}}
+\newcommand{\limminf}{\lim_{x \to -\infty}}
+\newcommand{\limg}[1]{\lim_{\substack{x \to #1 \\ x < #1}}}   % limite à gauche
+\newcommand{\limd}[1]{\lim_{\substack{x \to #1 \\ x > #1}}}   % limite à droite
+\newcommand{\derx}[2]{\dfrac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\dx}{\,\mathrm{d}x}
+
+% --- Arithmétique -----------------------------------------------------------
+\DeclareMathOperator{\pgcd}{PGCD}
+\DeclareMathOperator{\ppcm}{PPCM}
+\newcommand{\divi}{\mid}
+\newcommand{\ndivi}{\nmid}
+% Écriture d'un entier dans une base : \base{1011}{2}
+\newcommand{\base}[2]{\overline{#1}^{\,#2}}
+
+% --- Logique ----------------------------------------------------------------
+\newcommand{\et}{\wedge}
+\newcommand{\ou}{\vee}
+\newcommand{\non}[1]{\overline{#1}}
+\newcommand{\pourtout}{\forall}
+\newcommand{\ilexiste}{\exists}
+\newcommand{\implique}{\Longrightarrow}
+\newcommand{\daccord}{\Longleftrightarrow}
+\newcommand{\ssi}{si et seulement si}
+
+% --- Géométrie --------------------------------------------------------------
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\vecu}{\vect{u}}
+\newcommand{\vecv}{\vect{v}}
+\newcommand{\vecw}{\vect{w}}
+\newcommand{\veci}{\vect{\imath}}
+\newcommand{\vecj}{\vect{\jmath}}
+\newcommand{\veck}{\vect{k}}
+\newcommand{\vecn}{\vect{n}}
+\newcommand{\norme}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\scal}[2]{#1 \cdot #2}
+\newcommand{\pvect}[2]{#1 \wedge #2}
+\newcommand{\bary}[1]{\operatorname{bar}\left\{#1\right\}}
+\newcommand{\rot}[2]{r_{(#1,\,#2)}}
+\newcommand{\homo}[2]{h_{(#1,\,#2)}}
+\newcommand{\trans}[1]{t_{\vect{#1}}}
+\newcommand{\symax}[1]{s_{#1}}                     % réflexion d'axe
+\newcommand{\symc}[1]{s_{#1}}                      % symétrie centrale
+\newcommand{\repere}{\left(O\,;\,\veci,\,\vecj\right)}
+\newcommand{\repereespace}{\left(O\,;\,\veci,\,\vecj,\,\veck\right)}
+
+% --- Trigonométrie ----------------------------------------------------------
+\DeclareMathOperator{\cotan}{cotan}
+\newcommand{\degre}{^{\circ}}
+\newcommand{\grade}{\,\mathrm{gr}}
+
+% --- Dénombrement et probabilités -------------------------------------------
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\proba}[1]{\Prob\!\left(#1\right)}
+\newcommand{\evtc}[1]{\overline{#1}}
+\newcommand{\arrang}[2]{A_{#2}^{#1}}
+\newcommand{\combi}[2]{\binom{#2}{#1}}
+\newcommand{\card}[1]{\operatorname{card}\left(#1\right)}
+\newcommand{\univers}{\Omega}
+
+% --- Statistique ------------------------------------------------------------
+\newcommand{\moy}[1]{\overline{#1}}
+\newcommand{\ecart}{\sigma}
+\DeclareMathOperator{\variance}{V}
+\newcommand{\quartile}[1]{Q_{#1}}
+\newcommand{\decile}[1]{D_{#1}}
+\newcommand{\mediane}{\mathrm{Me}}
+
+% --- Intervalles et divers --------------------------------------------------
+\newcommand{\intervalle}[2]{\left[#1\,;\,#2\right]}
+\newcommand{\intervalleo}[2]{\left]#1\,;\,#2\right[}
+\newcommand{\intervalleof}[2]{\left]#1\,;\,#2\right]}
+\newcommand{\intervallefo}[2]{\left[#1\,;\,#2\right[}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ent}[1]{\left\lfloor #1 \right\rfloor}
+
+\endinput

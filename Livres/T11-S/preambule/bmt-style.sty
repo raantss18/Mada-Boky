@@ -1,0 +1,328 @@
+% ---------------------------------------------------------------------------
+%  bmt-style.sty — mise en page, typographie et couleurs
+%  Boky Matematika — Première S (Programme d'Études 2026)
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bmt-style}[2026/09/13 Identite visuelle du livre T11-S]
+
+% --- Langue -----------------------------------------------------------------
+\RequirePackage{polyglossia}
+\setmainlanguage{french}
+
+% --- Typographie ------------------------------------------------------------
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+
+% Libertinus + Jost sur la machine d'Antsa ; repli TeX Gyre partout ailleurs,
+% pour que le livre compile a l'identique sur n'importe quelle installation.
+\IfFontExistsTF{LibertinusSerif-Regular.otf}{%
+  \setmainfont{LibertinusSerif}[
+    Extension = .otf, UprightFont = *-Regular, ItalicFont = *-Italic,
+    BoldFont = *-Bold, BoldItalicFont = *-BoldItalic, Numbers = OldStyle]
+  \setmathfont{LibertinusMath-Regular.otf}
+}{%
+  \setmainfont{texgyrepagella}[
+    Extension = .otf, UprightFont = *-regular, ItalicFont = *-italic,
+    BoldFont = *-bold, BoldItalicFont = *-bolditalic]
+  \setmathfont{latinmodern-math.otf}
+}
+
+\IfFontExistsTF{Jost-Regular.otf}{%
+  \setsansfont{Jost}[
+    Extension = .otf, UprightFont = *-Regular, ItalicFont = *-Italic,
+    BoldFont = *-SemiBold, BoldItalicFont = *-SemiBoldItalic]
+}{%
+  \setsansfont{texgyreheros}[
+    Extension = .otf, UprightFont = *-regular, ItalicFont = *-italic,
+    BoldFont = *-bold, BoldItalicFont = *-bolditalic]
+}
+
+\IfFontExistsTF{JetBrainsMono-Regular.ttf}{%
+  \setmonofont{JetBrainsMono}[
+    Extension = .ttf, UprightFont = *-Regular, BoldFont = *-Bold, Scale = 0.92]
+}{%
+  \setmonofont{lmmono10-regular.otf}[Scale = 0.95]
+}
+
+% Chiffres alignes dans les contextes tabulaires et mathematiques
+\newfontfamily\bmtchiffres{texgyreheros}[Extension=.otf, UprightFont=*-regular,
+  BoldFont=*-bold]
+
+% --- Couleurs ---------------------------------------------------------------
+% Encre, papier et gris sont ceux de toute la collection : c'est ce qui fait
+% qu'un volume se reconnait au premier coup d'oeil. Les quatre couleurs de
+% composante, elles, sont propres au niveau Premiere — sarcelle des lacs,
+% grenat, ravenala, palissandre — et ne se confondent jamais avec l'indigo,
+% la laterite, le vetiver et le raphia des volumes de Terminale.
+\RequirePackage{xcolor}
+\definecolor{bmtEncre}   {HTML}{16181D}
+\definecolor{bmtPapier}  {HTML}{FCFAF6}
+\definecolor{bmtGris}    {HTML}{6E7178}
+\definecolor{bmtGrisClair}{HTML}{E4E1DA}
+
+\definecolor{bmtSarcelle}   {HTML}{10606B}   % Analyse
+\definecolor{bmtGrenat}     {HTML}{8E2A46}   % Algebre
+\definecolor{bmtRavenala}   {HTML}{4A6B22}   % Geometrie
+\definecolor{bmtPalissandre}{HTML}{7B4B2A}   % Donnees et probabilites
+\definecolor{bmtOcre}       {HTML}{C08A2E}   % Mathematiques financieres (T11-OSE)
+
+% Teintes claires associees (fonds de blocs)
+\colorlet{bmtSarcellePale}   {bmtSarcelle!8!bmtPapier}
+\colorlet{bmtGrenatPale}     {bmtGrenat!7!bmtPapier}
+\colorlet{bmtRavenalaPale}   {bmtRavenala!9!bmtPapier}
+\colorlet{bmtPalissandrePale}{bmtPalissandre!8!bmtPapier}
+\colorlet{bmtOcrePale}       {bmtOcre!10!bmtPapier}
+
+% Roles fonctionnels : les blocs qui ne dependent pas de la partie courante
+% (avertissement, methode, corrige, note pour la classe) s'y accrochent, de
+% sorte qu'un changement de palette n'oblige jamais a rouvrir bmt-blocks.
+\colorlet{bmtAlerte}{bmtGrenat}
+\colorlet{bmtMethode}{bmtRavenala}
+\colorlet{bmtAppui}{bmtPalissandre}
+
+% Couleur courante de la partie : redefinie a chaque \part
+\colorlet{bmtAccent}{bmtSarcelle}
+\colorlet{bmtAccentPale}{bmtSarcellePale}
+\newcommand{\bmtPartieCouleur}[1]{%
+  \colorlet{bmtAccent}{#1}%
+  \colorlet{bmtAccentPale}{#1!8!bmtPapier}%
+}
+
+% --- Geometrie de la page ---------------------------------------------------
+\RequirePackage[
+  a4paper, twoside,
+  top = 2.5cm, bottom = 2.6cm, inner = 2.3cm, outer = 4.8cm,
+  marginparwidth = 3.1cm, marginparsep = 0.65cm,
+  headsep = 0.9cm, footskip = 1.2cm
+]{geometry}
+
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{calc, positioning, decorations.pathreplacing, patterns,
+                arrows.meta, intersections, backgrounds, shapes.geometric}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat = 1.18}
+\RequirePackage{enumitem}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{microtype}
+
+\pagecolor{bmtPapier}
+\color{bmtEncre}
+
+% --- Titres -----------------------------------------------------------------
+\RequirePackage{titlesec}
+
+% Ouverture de partie : bandeau pleine largeur
+\titleclass{\part}{top}
+\titleformat{\part}[display]
+  {\thispagestyle{empty}\sffamily}
+  {}{0pt}
+  {\bmtOuverturePartie}
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+
+% Ouverture de chapitre : dessinee en TikZ (voir \bmtOuvertureChapitre).
+% Le dernier argument de \titleformat absorbe le titre : la macro le prend
+% donc en parametre, sans quoi il serait retypographie sous le bandeau.
+\titleformat{\chapter}[display]
+  {\thispagestyle{plain}\sffamily}
+  {}{0pt}
+  {\bmtOuvertureChapitre}
+\titlespacing*{\chapter}{0pt}{-1.2cm}{1.4cm}
+
+% Chapitres non numerotes (avant-propos, mode d'emploi, table des matieres) :
+% un titre sobre, sans bandeau ni encadre d'objectifs.
+\titleformat{name=\chapter, numberless}[display]
+  {\thispagestyle{plain}\sffamily}
+  {}{0pt}
+  {\bmtOuvertureChapitreSimple}
+\titlespacing*{name=\chapter, numberless}{0pt}{-0.9cm}{1.1cm}
+
+\titleformat{\section}
+  {\sffamily\bfseries\large\color{bmtAccent}\raggedright}
+  {\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{0.45\baselineskip}
+
+\titleformat{\subsection}
+  {\sffamily\bfseries\normalsize\color{bmtEncre}\raggedright}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{1.1\baselineskip}{0.3\baselineskip}
+
+% Colonne de tableau alignee a gauche, sans justification : evite les
+% debordements dans les colonnes etroites.
+\RequirePackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% --- Justification ----------------------------------------------------------
+% Le francais se coupe moins facilement que l'anglais : on autorise TeX a
+% detendre une derniere fois la ligne plutot que de laisser un mot deborder
+% dans la marge.
+\setlength{\emergencystretch}{2em}
+\tolerance=1200
+\hbadness=2500
+\vbadness=2500
+
+% --- En-tetes et pieds de page ---------------------------------------------
+\RequirePackage{fancyhdr}
+
+% Marques d'en-tete : le titre seul, sans le mot « Chapitre » ni le numero,
+% deja portes par le bandeau d'ouverture.
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+
+% Les pages blanches inserees par \cleardoublepage ne portent pas d'en-tete.
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \ifodd\c@page\else \null\thispagestyle{empty}\newpage \fi}
+
+\fancypagestyle{bmtcourant}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyhead[LE]{\sffamily\footnotesize\color{bmtGris}\nouppercase{\leftmark}}
+  \fancyhead[RO]{\sffamily\footnotesize\color{bmtGris}\nouppercase{\rightmark}}
+  \fancyfoot[LE,RO]{%
+    \tikz[baseline]{
+      \node[fill=bmtAccent, text=bmtPapier, rounded corners=1pt,
+            inner xsep=6pt, inner ysep=3pt, font=\sffamily\footnotesize\bfseries]
+           {\thepage};}}
+}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[LE,RO]{\sffamily\footnotesize\color{bmtGris}\thepage}
+}
+\pagestyle{bmtcourant}
+
+% --- Ouverture de partie ----------------------------------------------------
+% \bmtpartie{Couleur}{Numero romain}{Titre}{Duree}{Phrase de cadrage}
+\newcommand{\bmtpartie}[5]{%
+  \bmtPartieCouleur{#1}%
+  \cleardoublepage
+  \thispagestyle{empty}%
+  \begingroup
+  \noindent\begin{tikzpicture}[remember picture, overlay]
+    \fill[bmtAccent] (current page.north west) rectangle
+         ([yshift=-11.2cm]current page.north east);
+    % Trame geometrique discrete
+    \foreach \i in {0,...,7}{
+      \fill[bmtPapier, opacity=0.07]
+        ([xshift=\i cm + 12.5cm, yshift=-2.1cm]current page.north west)
+        circle (0.42cm);}
+    \node[anchor=north west, text=bmtPapier, font=\sffamily\fontsize{13}{15}\selectfont,
+          align=left]
+      at ([xshift=2.3cm, yshift=-3.1cm]current page.north west)
+      {PARTIE~#2};
+    \node[anchor=north west, text=bmtPapier, font=\sffamily\bfseries\fontsize{34}{40}\selectfont,
+          align=left, text width=14cm]
+      at ([xshift=2.3cm, yshift=-4.4cm]current page.north west)
+      {#3};
+    \node[anchor=north west, text=bmtPapier, font=\sffamily\fontsize{11}{14}\selectfont,
+          align=left]
+      at ([xshift=2.3cm, yshift=-8.6cm]current page.north west)
+      {#4};
+  \end{tikzpicture}%
+  \vspace*{11.8cm}\par
+  \noindent\begin{minipage}{0.78\linewidth}
+    \setlength{\parindent}{0pt}
+    \large #5
+  \end{minipage}
+  \endgroup
+  \par\vfill\newpage
+}
+
+% --- Ouverture de chapitre --------------------------------------------------
+% Renseignes par \bmtchapitre avant l'appel a \chapter
+\newcommand{\bmtChapTitre}{}
+\newcommand{\bmtChapObjectif}{}
+\newcommand{\bmtChapDuree}{}
+
+% \bmtchapitre{Titre}{Résultat d'apprentissage visé}{Durée}
+\newcommand{\bmtchapitre}[3]{%
+  \renewcommand{\bmtChapTitre}{#1}%
+  \renewcommand{\bmtChapObjectif}{#2}%
+  \renewcommand{\bmtChapDuree}{#3}%
+  \chapter{#1}%
+}
+
+\newcommand{\bmtOuvertureChapitre}[1]{%
+  \begin{tikzpicture}
+    \node[anchor=north west, inner sep=0pt] (bandeau) at (0,0)
+      {\begin{tikzpicture}
+         \fill[bmtAccent] (0,0) rectangle (\textwidth, 3.15cm);
+         % Le numero est cale a droite d'une gouttiere fixe : un nombre a deux
+         % chiffres ne peut donc pas venir mordre sur le titre.
+         \node[anchor=east, text=bmtPapier,
+               font=\sffamily\bfseries\fontsize{46}{46}\selectfont]
+           at (2.35cm, 1.62cm) {\thechapter};
+         \draw[bmtPapier, line width=0.6pt, opacity=0.55]
+           (2.72cm, 0.42cm) -- (2.72cm, 2.72cm);
+         \node[anchor=west, text=bmtPapier, align=left,
+               text width=\dimexpr\textwidth-3.75cm\relax,
+               font=\sffamily\bfseries\fontsize{20}{24}\selectfont]
+           at (3.05cm, 1.72cm) {#1};
+         \node[anchor=west, text=bmtPapier, align=left,
+               text width=\dimexpr\textwidth-3.75cm\relax,
+               font=\sffamily\fontsize{9}{11}\selectfont, opacity=0.9]
+           at (3.05cm, 0.68cm) {\bmtChapDuree};
+       \end{tikzpicture}};
+  \end{tikzpicture}%
+  \par\vspace{0.7em}
+  \noindent\begin{tikzpicture}
+    \node[anchor=north west, text width=\dimexpr\textwidth-1.2cm-2.2pt\relax,
+          inner xsep=0.6cm, inner ysep=0.42cm, fill=bmtAccentPale,
+          font=\normalsize] (obj) at (0,0)
+      {\textsf{\footnotesize\bfseries\color{bmtAccent}CE QUE VOUS SAUREZ FAIRE À LA FIN}\\[0.25em]
+       \bmtChapObjectif};
+    \draw[bmtAccent, line width=2.2pt] (obj.north west) -- (obj.south west);
+  \end{tikzpicture}
+  \par\vspace{0.4em}
+}
+
+% Titre sobre pour les chapitres non numerotes
+\newcommand{\bmtOuvertureChapitreSimple}[1]{%
+  \begingroup
+  \noindent{\color{bmtAccent}\rule{3.4cm}{2.6pt}}\par\vspace{0.45em}
+  \noindent{\sffamily\bfseries\fontsize{24}{28}\selectfont\color{bmtEncre} #1}\par
+  \endgroup}
+
+% --- Notes marginales -------------------------------------------------------
+\newcommand{\bmtmarge}[1]{%
+  \marginpar{\raggedright\footnotesize\sffamily\color{bmtGris} #1}}
+
+% --- Table des matieres -----------------------------------------------------
+\RequirePackage{titletoc}
+\titlecontents{chapter}[3.2em]
+  {\vspace{0.55em}\sffamily\bfseries}
+  {\contentslabel[\color{bmtAccent}\thecontentslabel]{2.6em}}
+  {\hspace*{-3.2em}}
+  {\hfill\sffamily\normalfont\color{bmtGris}\contentspage}
+\titlecontents{section}[5.4em]
+  {\sffamily\small\color{bmtEncre}}
+  {\contentslabel{2.4em}}
+  {}
+  {\titlerule*[0.7pc]{\color{bmtGrisClair}.}\small\color{bmtGris}\contentspage}
+
+% --- Renvois ----------------------------------------------------------------
+\RequirePackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle  = {Boky Matematika — Première S},
+  pdfauthor = {Éditions Mada-Boky},
+  colorlinks = true, linkcolor = bmtAccent, urlcolor = bmtRavenala,
+  citecolor = bmtRavenala
+}
+\RequirePackage[french]{cleveref}
+
+% Les titres contiennent des formules ; on donne à hyperref une version
+% textuelle utilisable dans les signets du PDF.
+\pdfstringdefDisableCommands{%
+  \def\leq{<=}\def\geq{>=}\def\neq{!=}\def\times{x}%
+  \def\ln{ln}\def\exp{exp}\def\infty{inf}%
+  \def\mathbb#1{#1}\def\mathcal#1{#1}\def\mathscr#1{#1}\def\mathrm#1{#1}%
+  \def\N{N}\def\Z{Z}\def\Q{Q}\def\R{R}\def\C{C}\def\D{D}%
+  \def\textbullet{ - }\def\,{ }\def\;{ }\def\!{}\def\quad{ }%
+}
+
+\endinput

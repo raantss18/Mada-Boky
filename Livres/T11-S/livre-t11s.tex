@@ -1,0 +1,102 @@
+% ===========================================================================
+%  BOKY MATEMATIKA — PREMIÈRE S
+%  Programme d'Études — Enseignement Secondaire Général, Madagascar
+%
+%  Compilation :  ./compiler.sh eleve | prof | les-deux | propre
+%  Moteur      :  XeLaTeX (latexmk -xelatex)
+% ===========================================================================
+\documentclass[11pt, twoside, openright]{book}
+
+\usepackage{preambule/bmt-style}
+\usepackage{preambule/bmt-macros}
+\usepackage{preambule/bmt-blocks}
+
+% --- Périmètre de la compilation en cours ----------------------------------
+% Commenter cette ligne une fois tous les chapitres rédigés.
+\includeonly{
+  front/couverture,
+  front/page-titre,
+  front/avant-propos,
+  front/mode-emploi,
+  chapitres/p1-analyse/ch01-generalites-fonctions
+}
+
+\begin{document}
+
+\frontmatter
+\include{front/couverture}
+\include{front/page-titre}
+\include{front/avant-propos}
+\include{front/mode-emploi}
+
+{\hypersetup{linkcolor=bmtEncre}\tableofcontents}
+
+\mainmatter
+
+% ===========================================================================
+\bmtpartie{bmtSarcelle}{I}{Analyse}{45 heures}{%
+  Étudier une fonction, c'est répondre à cinq questions dans le même ordre :
+  où est-elle définie, vers quoi tend-elle aux bornes, comment varie-t-elle,
+  quels points remarquables porte-t-elle, à quoi ressemble sa courbe. Les
+  cinq chapitres qui suivent installent ces cinq questions une à une. À la
+  fin, vous les poserez sans y penser.}
+
+\include{chapitres/p1-analyse/ch01-generalites-fonctions}
+\include{chapitres/p1-analyse/ch02-limites-continuite}
+\include{chapitres/p1-analyse/ch03-branches-infinies}
+\include{chapitres/p1-analyse/ch04-derivation}
+\include{chapitres/p1-analyse/ch05-etude-graphique}
+\include{chapitres/p1-analyse/ds1-analyse}
+
+% ===========================================================================
+\bmtpartie{bmtGrenat}{II}{Algèbre}{40 heures}{%
+  Cette partie s'ouvre sur la logique et se ferme sur les suites, et ce n'est
+  pas un ordre arbitraire. Entre les deux, on résout : des équations, des
+  systèmes, des questions de divisibilité. Chaque fois, la même exigence —
+  dire ce que l'on cherche, dire ce que l'on sait, dire ce qui permet de
+  passer de l'un à l'autre.}
+
+\include{chapitres/p2-algebre/ch06-logique}
+\include{chapitres/p2-algebre/ch07-algorithmique}
+\include{chapitres/p2-algebre/ch08-equations-inequations}
+\include{chapitres/p2-algebre/ch09-systemes-lineaires}
+\include{chapitres/p2-algebre/ch10-arithmetique}
+\include{chapitres/p2-algebre/ch11-numeration}
+\include{chapitres/p2-algebre/ch12-suites}
+\include{chapitres/p2-algebre/ds2-algebre}
+
+% ===========================================================================
+\bmtpartie{bmtRavenala}{III}{Géométrie}{45 heures}{%
+  Le plan d'abord, l'espace ensuite, et entre les deux la trigonométrie qui
+  sert aux deux. Vous verrez qu'un même énoncé se traite tantôt par une
+  figure, tantôt par un calcul de coordonnées, tantôt par une relation
+  vectorielle : savoir choisir vaut mieux que savoir tout faire.}
+
+\include{chapitres/p3-geometrie/ch13-calcul-vectoriel}
+\include{chapitres/p3-geometrie/ch14-barycentre}
+\include{chapitres/p3-geometrie/ch15-transformations}
+\include{chapitres/p3-geometrie/ch16-trigonometrie}
+\include{chapitres/p3-geometrie/ch17-geometrie-espace}
+\include{chapitres/p3-geometrie/ds3-geometrie}
+
+% ===========================================================================
+\bmtpartie{bmtPalissandre}{IV}{Traitement des données et probabilités}{20 heures}{%
+  Vingt heures, trois chapitres, et pourtant c'est ici que les mathématiques
+  rejoignent le plus directement ce que vous lirez dans un journal ou un
+  rapport. Décrire une série, compter sans énumérer, mesurer une chance : les
+  trois gestes tiennent ensemble.}
+
+\include{chapitres/p4-donnees/ch18-organisation-donnees}
+\include{chapitres/p4-donnees/ch19-denombrement}
+\include{chapitres/p4-donnees/ch20-probabilite}
+\include{chapitres/p4-donnees/ds4-donnees}
+
+% ===========================================================================
+\appendix
+\ifbmtprof\include{annexes/progression-prof}\fi
+\include{annexes/formulaire}
+\include{annexes/glossaire}
+\include{annexes/sujets}
+
+\backmatter
+\end{document}

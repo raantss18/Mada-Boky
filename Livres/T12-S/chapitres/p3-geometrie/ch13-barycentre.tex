@@ -239,6 +239,35 @@ choisir l'un des points comme origine et développer par Chasles : le résultat
 est un vecteur fixe, à exprimer à l'aide des données de la figure.
 \end{methode}
 
+\begin{visualisation}[une somme de trois vecteurs qui n'en fait plus qu'un]
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\footnotesize]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3,0);
+  \coordinate (C) at (0,3);
+  \coordinate (G) at (1,1);
+  \coordinate (M) at (-1.7,-1.1);
+  \draw[bmtGris, line width=0.6pt] (A) -- (B) -- (C) -- cycle;
+  \filldraw[bmtEncre] (A) circle (1.8pt) node[anchor=north east]{$A$};
+  \filldraw[bmtEncre] (B) circle (1.8pt) node[anchor=north west]{$B$};
+  \filldraw[bmtEncre] (C) circle (1.8pt) node[anchor=south east]{$C$};
+  \filldraw[bmtLaterite] (G) circle (2pt) node[anchor=south west]{$G$};
+  \filldraw[bmtVetiver] (M) circle (2pt) node[anchor=north east]{$M$};
+  \draw[bmtGris, dashed, -{Stealth[length=2mm]}] (M) -- (A);
+  \draw[bmtGris, dashed, -{Stealth[length=2mm]}] (M) -- (B);
+  \draw[bmtGris, dashed, -{Stealth[length=2mm]}] (M) -- (C);
+  \draw[bmtLaterite, line width=1.3pt, -{Stealth[length=2.8mm]}] (M) -- (G)
+    node[midway, above, sloped] {$\vect{MG}$};
+\end{tikzpicture}
+\end{center}
+Les trois vecteurs $\vect{MA}$, $\vect{MB}$ et $\vect{MC}$, tracés en
+pointillés depuis un même point $M$ quelconque, se recombinent toujours en un
+seul vecteur, exactement $\alpha\vect{MG}$ — ici $\alpha = 3$ puisque les
+trois coefficients valent $1$. Déplacez $M$ mentalement : les trois
+pointillés changent complètement, mais leur somme reste toujours ce même
+multiple de $\vect{MG}$.
+\end{visualisation}
+
 \begin{exemple}[une égalité de normes]
 Soit $ABCD$ un carré direct de côté $4$. Cherchons l'ensemble $(\Gamma)$ des
 points $M$ tels que

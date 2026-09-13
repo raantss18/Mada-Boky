@@ -146,6 +146,35 @@ d'une similitude indirecte » est une faute de vocabulaire fréquente, et le
 correcteur la relève.
 \end{avertissement}
 
+\begin{visualisation}[refléter et agrandir]
+\begin{center}
+\begin{tikzpicture}[x=1.1cm, y=1.1cm, font=\footnotesize]
+  \coordinate (W) at (0,0);
+  \draw[bmtGris, line width=0.8pt] (15:-2.6) -- (15:2.6)
+    node[anchor=south west]{$(\Delta)$};
+  \coordinate (M)  at (70:2.2);
+  \coordinate (M1) at (-40:1.9);
+  \coordinate (M2) at (-40:3.7);
+  \filldraw[bmtEncre] (W) circle (2pt) node[anchor=north east] {$\Omega$};
+  \filldraw[bmtIndigo] (M) circle (2pt) node[anchor=south west] {$M$};
+  \filldraw[bmtGris] (M1) circle (1.7pt);
+  \node[bmtGris] at ($(M1)+(-0.15,-0.35)$) {$M_{1}$};
+  \filldraw[bmtLaterite] (M2) circle (2.1pt) node[anchor=north west] {$M'$};
+  \draw[bmtGris, dashed] (M) -- (M1);
+  \draw[bmtGris] (W) -- (M2);
+  \draw[bmtLaterite, line width=1.1pt,
+        {Stealth[length=2.2mm]}-{Stealth[length=2.2mm]}]
+    (-40:2.15) -- (-40:3.45);
+  \node[bmtLaterite] at ($(-40:2.8)+(0.4,0.15)$) {$\times k$};
+\end{tikzpicture}
+\end{center}
+Une similitude indirecte se lit, elle aussi, en deux temps depuis son
+centre : on réfléchit par rapport à l'axe $(\Delta)$, puis on éloigne ou l'on
+rapproche dans le rapport $k$. À la différence du cas direct, il n'y a pas
+d'angle à mesurer : l'axe remplace entièrement l'angle dans la description
+du mouvement.
+\end{visualisation}
+
 % ===========================================================================
 \section{Expression complexe des transformations}
 

@@ -133,6 +133,34 @@ de l'exercice de probabilités au baccalauréat, et le calcul direct y est
 toujours plus long.
 \end{methode}
 
+\begin{visualisation}[réunion, intersection, contraire]
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize]
+  \draw[bmtGris, line width=0.8pt] (-2.4,-1.5) rectangle (2.4,1.5);
+  \node[bmtGris, anchor=north east] at (2.35,1.45) {$\Omega$};
+  \begin{scope}
+    \clip (-2.4,-1.5) rectangle (2.4,1.5);
+    \fill[bmtIndigo, opacity=0.18] (-0.75,0) circle (1.35);
+    \fill[bmtLaterite, opacity=0.18] (0.75,0) circle (1.35);
+    \fill[bmtVetiver, opacity=0.35] (-0.75,0) circle (1.35)
+      (0.75,0) circle (1.35);
+  \end{scope}
+  \draw[bmtIndigo, line width=1pt] (-0.75,0) circle (1.35);
+  \draw[bmtLaterite, line width=1pt] (0.75,0) circle (1.35);
+  \node[bmtIndigo] at (-1.55,0.95) {$A$};
+  \node[bmtLaterite] at (1.55,0.95) {$B$};
+  \node[bmtVetiver, font=\footnotesize\bfseries] at (0,0) {$A \cap B$};
+  \node[bmtGris, anchor=north, align=center] at (0,-1.85)
+    {$A \cup B$ : la zone teintée, comptée une seule fois};
+\end{tikzpicture}
+\end{center}
+La formule $\proba{A \cup B} = \proba{A}+\proba{B}-\proba{A \cap B}$ se lit
+sur ce dessin : en additionnant simplement $\proba{A}$ et $\proba{B}$, la
+zone commune $A \cap B$ est comptée deux fois, il faut donc la retrancher
+une fois. Le contraire $\evtc{A}$ est tout ce qui, dans le rectangle $\Omega$,
+reste en dehors du cercle $A$.
+\end{visualisation}
+
 % ===========================================================================
 \section{Tirages successifs et tirages simultanés}
 
