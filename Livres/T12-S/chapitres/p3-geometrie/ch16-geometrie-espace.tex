@@ -139,7 +139,7 @@ pas commutatif.
   \draw[bmtIndigo, line width=1.1pt, -{Stealth[length=2.6mm]}]
     (O) -- ++(2.6,0.25) node[anchor=north west] {$\vecu$};
   \draw[bmtLaterite, line width=1.1pt, -{Stealth[length=2.6mm]}]
-    (O) -- ++(1.05,0.95) node[anchor=south east] {$\vecv$};
+    (O) -- ++(1.05,0.95) node[anchor=north west] {$\vecv$};
   \draw[bmtEncre, line width=1.2pt, -{Stealth[length=2.8mm]}]
     (O) -- ++(0,2.35) node[anchor=south] {$\pvect{\vecu}{\vecv}$};
   \draw[bmtGris, dashed] ($(O)+(2.6,0.25)$) -- ($(O)+(3.65,1.2)$)
@@ -273,11 +273,11 @@ $(P) : ax+by+cz+d = 0$ vaut
   \node[bmtAccent] at (2.05,.37) {$(P)$};
   \draw[bmtLaterite,line width=1.1pt,dashed] (A)--(H);
   \draw[bmtVetiver,line width=1pt,-{Stealth[length=2.3mm]}]
-    (H)--(.25,1.38) node[midway,right] {$\vecn$};
+    (H)--(.25,1.38) node[pos=.85,left=4pt] {$\vecn$};
   \draw[bmtEncre] (.25,.18)--(.48,.18)--(.48,.41)--(.25,.41);
   \fill[bmtLaterite] (A) circle (2.3pt) node[above] {$A$};
   \fill[bmtEncre] (H) circle (2pt) node[below left] {$H$};
-  \draw[bmtLaterite,decorate,decoration={brace,amplitude=4pt}]
+  \draw[bmtLaterite,decorate,decoration={brace,mirror,amplitude=4pt}]
     (.62,.18)--(.62,2.35) node[midway,right=5pt] {$d(A,(P))=AH$};
 \end{tikzpicture}
 \end{center}
@@ -349,7 +349,8 @@ Soit $(P)$ de vecteur normal $\vecn$ et $(D)$ de vecteur directeur $\vecu$.
   \begin{scope}[xshift=-5cm]
     \fill[bmtAccent!8] (-1.6,-.45)--(1,-.45)--(1.65,.42)--(-.95,.42)--cycle;
     \draw[bmtAccent] (-1.6,-.45)--(1,-.45)--(1.65,.42)--(-.95,.42)--cycle;
-    \draw[bmtLaterite,line width=1pt] (-.9,1.25)--(.75,-1);
+    \draw[bmtLaterite,line width=1pt] (-.9,1.25)--(0,.04);
+    \draw[bmtLaterite,line width=1pt,dashed] (0,.04)--(.75,-.968333);
     \fill[bmtEncre] (0,.04) circle (1.8pt) node[right] {$I$};
     \node at (0,-1.35) {sécante};
   \end{scope}

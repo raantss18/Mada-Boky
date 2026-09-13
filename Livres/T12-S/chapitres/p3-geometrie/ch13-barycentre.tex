@@ -117,9 +117,9 @@ le signe de la somme des coefficients est donc le tout premier geste.
   \node[bmtLaterite, anchor=north] at (2,-0.12) {$G$};
   \node[bmtIndigo, anchor=south] at (0,0.15) {$\alpha = 3$};
   \node[bmtIndigo, anchor=south] at (5,0.15) {$\beta = 2$};
-  \draw[bmtLaterite, decorate, decoration={brace, amplitude=4pt}]
+  \draw[bmtLaterite, decorate, decoration={brace,mirror, amplitude=4pt}]
     (0,-0.55) -- (2,-0.55) node[midway, anchor=north, yshift=-4pt] {$2$};
-  \draw[bmtLaterite, decorate, decoration={brace, amplitude=4pt}]
+  \draw[bmtLaterite, decorate, decoration={brace,mirror, amplitude=4pt}]
     (2,-0.55) -- (5,-0.55) node[midway, anchor=north, yshift=-4pt] {$3$};
   \draw[bmtVetiver, line width=1.4pt] (1.6,-1.35) -- (2.4,-1.35);
   \draw[bmtVetiver] (2,-1.35) -- (2,-1.1);
@@ -225,7 +225,8 @@ C'est le symétrique par rapport à $O$ du milieu de $[AB]$.
   \fill[bmtLaterite] (G) circle (2.4pt) node[right] {$G$};
   \draw[bmtAccent,decorate,decoration={brace,amplitude=3.5pt}]
     ($(I)+(.18,.06)$)--($(G)+(.18,.06)$)
-    node[midway,right=5pt] {$IG=GC$};
+    ;
+  \node[bmtAccent] at (3.5,2.15) {$IG=GC$};
 \end{tikzpicture}
 \end{center}
 

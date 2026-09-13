@@ -229,19 +229,19 @@ c'est la \textbf{forme trigonométrique}.
   \coordinate (O) at (0,0);
   \coordinate (Z) at (25:2.15);
   \coordinate (U) at (70:1.55);
-  \coordinate (P) at (95:3.05);
+  \coordinate (P) at (95:{2.15*1.55});
   \draw[bmtGris,-{Stealth[length=2.2mm]}] (-.25,0)--(3.35,0);
-  \draw[bmtGris,-{Stealth[length=2.2mm]}] (0,-.25)--(0,3.35);
+  \draw[bmtGris,-{Stealth[length=2.2mm]}] (0,-.25)--(0,3.65);
   \draw[bmtIndigo,line width=1.05pt,-{Stealth[length=2.3mm]}] (O)--(Z)
     node[pos=.72,below right] {$z$};
   \draw[bmtVetiver,line width=1.05pt,-{Stealth[length=2.3mm]}] (O)--(U)
-    node[pos=.72,right] {$z'$};
+    node[pos=.85,right=5pt] {$z'$};
   \draw[bmtLaterite,line width=1.25pt,-{Stealth[length=2.5mm]}] (O)--(P)
     node[pos=.78,left] {$zz'$};
   \draw[bmtIndigo] (0:.68) arc (0:25:.68);
   \node[bmtIndigo] at (12.5:.92) {$\alpha$};
   \draw[bmtVetiver] (25:1.02) arc (25:95:1.02);
-  \node[bmtVetiver] at (61:1.27) {$\beta$};
+  \node[bmtVetiver] at (45:1.27) {$\beta$};
   \draw[bmtGris,dashed] (Z) arc (25:95:2.15);
   \fill[bmtEncre] (O) circle (1.7pt) node[below left] {$O$};
 \end{tikzpicture}

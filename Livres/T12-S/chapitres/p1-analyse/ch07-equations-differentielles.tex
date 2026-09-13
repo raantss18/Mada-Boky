@@ -280,22 +280,23 @@ Soit $m$ un réel strictement positif.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-  width = 11.2cm, height = 5.4cm,
+  width = 11.2cm, height = 7.1cm,
   axis lines = middle, xlabel = {$x$},
-  xmin = -0.4, xmax = 6.6, ymin = -2.6, ymax = 3.4,
-  xtick = \empty, ytick = \empty,
+  xmin = -0.4, xmax = 6.6, ymin = -2.6, ymax = 9.5,
+  xtick = {0,2,4,6}, ytick = {-2,2,4,6,8},
   axis line style = {bmtGris}, clip = true,
 ]
-  \addplot[bmtLaterite, line width=1.3pt, domain=0:2.4, samples=100] {0.55*exp(0.62*x)};
-  \addplot[bmtVetiver, line width=1.3pt, domain=0:6.4, samples=200] {2*cos(deg(1.5*x))};
-  \node[bmtLaterite, font=\footnotesize, anchor=west] at (axis cs:2.15,2.9) {$y''=m^{2}y$};
-  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:4.5,1.6) {$y''=-m^{2}y$};
+  \addplot[bmtLaterite, line width=1.3pt, domain=0:6.4, samples=240] {0.2*exp(x)};
+  \addplot[bmtVetiver, line width=1.3pt, domain=0:6.4, samples=200] {2*cos(deg(x))};
+  \node[bmtLaterite, font=\footnotesize, anchor=west] at (axis cs:.5,7.6) {$y=0{,}2e^x$};
+  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:4.1,2.6) {$y=2\cos x$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
-Un seul signe sépare les deux équations, et pourtant leurs solutions n'ont
-rien de commun. À gauche, avec le signe $+$, la courbe s'envole : la fonction
+La figure prend $m=1$ : la courbe rouge vérifie $y''=y$, la verte
+$y''=-y$. Les deux équations ont la solution nulle en commun, mais leurs
+solutions non nulles ont des comportements très différents. Avec le signe $+$, la courbe s'envole : la fonction
 et sa dérivée seconde tirent dans le même sens, l'écart s'amplifie. Avec le
 signe $-$, la dérivée seconde ramène toujours la fonction vers zéro : elle
 oscille indéfiniment sans jamais s'échapper. C'est la différence entre une

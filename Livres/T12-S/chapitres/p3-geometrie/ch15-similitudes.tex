@@ -114,8 +114,7 @@ second point d'intersection de deux cercles bien choisis.
     (0:1.25) arc (0:40:1.25);
   \node[bmtVetiver, anchor=west] at (20:1.4) {$\theta$};
   \draw[bmtLaterite, line width=1.1pt, {Stealth[length=2.2mm]}-{Stealth[length=2.2mm]}]
-    (40:2.32) -- (40:3.28);
-  \node[bmtLaterite, anchor=west, rotate=40] at (40:2.8) {$\times k$};
+    (40:2.32) -- (40:3.28) node[midway,sloped,below=5pt] {$\times k$};
 \end{tikzpicture}
 \end{center}
 
@@ -146,7 +145,7 @@ d'une similitude indirecte » est une faute de vocabulaire fréquente, et le
 correcteur la relève.
 \end{avertissement}
 
-% Comparaison adaptée des figures de TCD/Similitude/Lesona.tex.
+% Transformations exactes : rapports 1,4 et 1,3 ; axe x=1,65.
 \begin{visualisation}[directe ou indirecte : suivre l'orientation]
 \begin{center}
 \begin{tikzpicture}[x=.92cm,y=.92cm,font=\footnotesize]
@@ -156,10 +155,10 @@ correcteur la relève.
     \node[bmtGris,below] at (1.25,.15) {$B$};
     \node[bmtGris,above] at (.35,1) {$C$};
     \draw[bmtAccent,line width=1.15pt]
-      (1.75,.15)--(3.65,.55)--(2.25,1.65)--cycle;
+      (1.75,.15)--(3.5,.36)--(2.24,1.55)--cycle;
     \node[bmtAccent,below] at (1.75,.15) {$A'$};
-    \node[bmtAccent,right] at (3.65,.55) {$B'$};
-    \node[bmtAccent,above] at (2.25,1.65) {$C'$};
+    \node[bmtAccent,right] at (3.5,.36) {$B'$};
+    \node[bmtAccent,above] at (2.24,1.55) {$C'$};
     \draw[bmtLaterite,-{Stealth[length=2mm]}] (1.2,1.42) arc (145:55:.48);
     \node at (1.8,-.48) {similitude directe};
     \node[bmtVetiver] at (1.8,-.82) {même sens de parcours};
@@ -172,10 +171,10 @@ correcteur la relève.
     \node[bmtGris,below] at (1.15,.15) {$B$};
     \node[bmtGris,above] at (.35,1) {$C$};
     \draw[bmtAccent,line width=1.15pt]
-      (3.55,0)--(2.1,.2)--(3.25,1.35)--cycle;
-    \node[bmtAccent,below right] at (3.55,0) {$A'$};
-    \node[bmtAccent,below] at (2.1,.2) {$B'$};
-    \node[bmtAccent,above] at (3.25,1.35) {$C'$};
+      (3.795,0)--(2.3,.195)--(3.34,1.3)--cycle;
+    \node[bmtAccent,below right] at (3.795,0) {$A'$};
+    \node[bmtAccent,below] at (2.3,.195) {$B'$};
+    \node[bmtAccent,above] at (3.34,1.3) {$C'$};
     \draw[bmtLaterite,-{Stealth[length=2mm]}] (1.25,1.43) arc (35:145:.46);
     \node at (1.8,-.48) {similitude indirecte};
     \node[bmtLaterite] at (1.8,-.82) {sens de parcours inversé};

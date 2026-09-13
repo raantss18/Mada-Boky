@@ -1,0 +1,17 @@
+% Source originale de Heritiana, TCD/ExpoLog/Lesona.tex, lignes 149-167.
+\begin{tikzpicture}[line cap=round,line join=round,>=stealth,scale=.9]
+                  \draw[->,color=black] (-4.2,0) -- (5.24,0);
+                  \foreach \x in {-4,-3,-2,-1,1,2,3,4,5}
+                  \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+                  \draw[->,color=black] (0,-4.2) -- (0,5.3);
+                  \foreach \y in {-4,-3,-2,-1,1,2,3,4,5}
+                  \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+                  \draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+                  \clip(-4,-4) rectangle (5.7,5.7);
+                  \draw[color=loko2, smooth,samples=100,domain=0.001:5, thick] 
+                        plot(\x,{ln((\x))}) node[fill=white,sloped,above left] {$y=\ln x$};
+                  \draw[color=loko1, smooth,samples=100,domain=0:1.6, thick] 
+                                                                  plot(\x,{2.718281828^(\x)}) node[fill=white] {$y=\expo x$};
+                  \draw[color=loko1, smooth,samples=100,domain=0:5, thick] plot({-\x},{1/(2.718281828^(\x))});
+                  \draw[color=loko3, smooth,samples=100,domain=-4:5, thick] plot(\x,{(\x)}) node[fill=white] {$y=x$};
+                  \end{tikzpicture}

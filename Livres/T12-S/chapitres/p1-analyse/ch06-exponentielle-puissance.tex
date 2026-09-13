@@ -123,23 +123,7 @@ propre dérivée — c'est la raison de sa présence dans tout le chapitre suiva
 
 \begin{visualisation}[deux courbes symétriques]
 \begin{center}
-\begin{tikzpicture}
-\begin{axis}[
-  width = 10.4cm, height = 6.6cm,
-  axis lines = middle, xlabel = {$x$},
-  xmin = -3.4, xmax = 4.4, ymin = -3.4, ymax = 4.4,
-  xtick = {1}, ytick = {1},
-  axis line style = {bmtGris},
-  tick label style = {font=\footnotesize, color=bmtGris}, clip = true,
-]
-  \addplot[bmtIndigo, line width=1.3pt, domain=-3.2:1.45, samples=140] {exp(x)};
-  \addplot[bmtVetiver, line width=1.3pt, domain=0.04:4.2, samples=200] {ln(x)};
-  \addplot[bmtGris, dashed, line width=0.75pt, domain=-3.2:4.2, samples=2] {x};
-  \node[bmtIndigo, font=\footnotesize, anchor=south] at (axis cs:1.5,3.5) {$y=e^{x}$};
-  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:3.3,1.4) {$y=\ln x$};
-  \node[bmtGris, font=\footnotesize, anchor=north west] at (axis cs:2.6,2.5) {$y=x$};
-\end{axis}
-\end{tikzpicture}
+\input{figures/exp-ln}
 \end{center}
 
 Pliez mentalement la feuille le long de la droite grise : les deux courbes se

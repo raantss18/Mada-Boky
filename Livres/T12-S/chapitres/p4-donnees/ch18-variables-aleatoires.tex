@@ -128,6 +128,11 @@ la plus grande.
   \addplot[bmtGris, dotted, line width=0.7pt] coordinates {(1,0.125) (1,0.5)};
   \addplot[bmtGris, dotted, line width=0.7pt] coordinates {(2,0.5) (2,0.875)};
   \addplot[bmtGris, dotted, line width=0.7pt] coordinates {(3,0.875) (3,1)};
+
+  \addplot[only marks,mark=*,mark size=1.7pt,bmtIndigo]
+    coordinates {(0,.125) (1,.5) (2,.875) (3,1)};
+  \addplot[only marks,mark=o,mark size=1.7pt,bmtIndigo,mark options={fill=bmtPapier}]
+    coordinates {(0,0) (1,.125) (2,.5) (3,.875)};
 \end{axis}
 \end{scope}
 \end{tikzpicture}
