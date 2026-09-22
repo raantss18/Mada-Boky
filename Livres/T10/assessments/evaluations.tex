@@ -1,0 +1,655 @@
+\chapter{Banque d'exercices et de problèmes}
+
+\newcommand{\calcoui}{\textcolor{VE!70!black}{\textbf{Calculatrice : autorisée}}}
+\newcommand{\calcnon}{\textcolor{OR!80!black}{\textbf{Calculatrice : non nécessaire}}}
+\renewcommand{\corrige}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
+\renewcommand{\corrigeP}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
+
+\begin{tcolorbox}[enhanced,breakable,frame hidden,
+  borderline west={2pt}{0pt}{BN},colback=BN!3,sharp corners,
+  left=12pt,right=10pt,top=7pt,bottom=7pt]
+Chaque bloc est autonome et peut être inséré directement dans une évaluation.
+L'indication relative à la calculatrice s'applique à l'ensemble du bloc.
+Les exercices sont classés par domaine et par niveau de difficulté.
+\end{tcolorbox}
+
+\section{Repère diagnostique}
+
+\begin{exo}[Calculs et méthodes de base \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Calculer et donner le résultat sous forme irréductible :
+  \[
+    A=\frac34-\frac56
+    \qquad\text{et}\qquad
+    B=\frac{5}{12}+\frac78.
+  \]
+  \item Simplifier $2^3\times2^{-5}$ et $\sqrt{81}$.
+  \item Développer $(x+3)(x-2)$, puis factoriser $4x^2-12x$.
+  \item Résoudre l'équation $7x-5=16$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Repérage, vecteurs et données \calcnon \corrige]{1}
+Dans un repère orthonormé, on donne $A(-1;2)$ et $B(3;5)$.
+\begin{enumerate}
+  \item Déterminer les coordonnées du vecteur $\vv{AB}$.
+  \item Calculer les coordonnées du milieu $I$ de $[AB]$.
+  \item Calculer la longueur $AB$.
+  \item Pour la série $6,8,8,10,13$, déterminer la moyenne, la médiane
+  et l'étendue.
+\end{enumerate}
+\end{exo}
+
+\section{Logique et algorithmique}
+
+\begin{exo}[Propositions et valeurs de vérité \calcnon \corrige]{1}
+On considère les phrases suivantes :
+\[
+\begin{aligned}
+  P&:\text{ « $11$ est un nombre premier »},\\
+  Q&:\text{ « $x+4=9$ »},\\
+  R&:\text{ « pour tout $x\in\R$, $x^2+1>0$ »}.
+\end{aligned}
+\]
+\begin{enumerate}
+  \item Indiquer celles qui sont des propositions.
+  \item Donner la valeur de vérité de chaque proposition.
+  \item Transformer la phrase $Q$ en proposition vraie en précisant une
+  valeur de $x$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Connecteurs logiques \calcnon \corrige]{1}
+On pose $P$ : « $n$ est pair » et $Q$ : « $n$ est multiple de $3$ ».
+\begin{enumerate}
+  \item Traduire en français $P\land Q$ puis $P\lor Q$.
+  \item Donner un entier vérifiant $P\land Q$.
+  \item Donner un entier vérifiant $P\lor Q$ mais pas $P\land Q$.
+  \item Écrire la négation de $P\lor Q$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Implication et équivalence \calcnon \corrige]{2}
+Pour un entier $n$, on considère :
+\[
+  P:\text{ « $n$ est multiple de $4$ »},\qquad
+  Q:\text{ « $n$ est pair »}.
+\]
+\begin{enumerate}
+  \item Dire si l'implication $P\Rightarrow Q$ est vraie. Justifier.
+  \item Dire si l'implication $Q\Rightarrow P$ est vraie. Donner, si
+  nécessaire, un contre-exemple.
+  \item Les propositions $P$ et $Q$ sont-elles équivalentes ?
+  \item Écrire la contraposée de $P\Rightarrow Q$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Quantificateurs et négations \calcnon \corrige]{2}
+\begin{enumerate}
+  \item Écrire avec des quantificateurs : « tout réel possède un carré
+  positif ou nul ».
+  \item Écrire avec des quantificateurs : « l'équation $x^2=7$ possède
+  une solution réelle ».
+  \item Nier chacune des deux propositions précédentes.
+  \item Déterminer la valeur de vérité de chaque proposition.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Exécution d'un algorithme conditionnel \calcnon \corrige]{1}
+On applique l'algorithme suivant à un réel $x$ :
+\[
+  y\leftarrow 2x+1;\qquad
+  \text{si }y\geq0\text{ alors }z\leftarrow y
+  \text{ sinon }z\leftarrow-y.
+\]
+\begin{enumerate}
+  \item Compléter un tableau donnant les valeurs de $y$ et $z$ pour
+  $x=-3$, $x=-\frac12$ et $x=2$.
+  \item Quelle expression mathématique l'algorithme calcule-t-il ?
+  \item Modifier la condition afin que l'algorithme affiche $0$ lorsque
+  $y=0$ et distingue strictement les deux autres cas.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Boucle et cumul \calcnon \corrige]{2}
+On initialise $S\leftarrow0$, puis on répète pour $k$ allant de $1$ à $5$ :
+\[
+  S\leftarrow S+2k.
+\]
+\begin{enumerate}
+  \item Recopier et compléter un tableau donnant $k$ et $S$ après chaque
+  passage dans la boucle.
+  \item Donner la valeur finale de $S$.
+  \item Écrire une version qui calcule la somme des $n$ premiers nombres
+  pairs positifs.
+  \item Adapter l'algorithme pour additionner les nombres impairs de $1$ à $9$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Concevoir un algorithme \calcnon \corrige]{2}
+On saisit un entier naturel $n$.
+\begin{enumerate}
+  \item Écrire un algorithme qui affiche « pair » ou « impair ».
+  \item Compléter cet algorithme pour afficher les cinq premiers multiples
+  positifs de $n$.
+  \item Exécuter l'algorithme obtenu pour $n=6$.
+  \item Expliquer le rôle de la variable de boucle.
+\end{enumerate}
+\end{exo}
+
+\section{Nombres réels et calculs}
+
+\begin{exo}[Ensembles de nombres \calcnon \corrige]{1}
+Pour chacun des nombres
+\[
+ -5,\quad \frac73,\quad 0{,}125,\quad \sqrt{49},\quad \sqrt{2},
+\]
+\begin{enumerate}
+  \item donner le plus petit ensemble parmi $\N$, $\Z$, $\D$, $\Q$ et $\R$
+  auquel il appartient ;
+  \item ranger les cinq nombres dans l'ordre croissant ;
+  \item donner une valeur décimale approchée de $\sqrt2$ au centième.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fractions et priorités opératoires \calcnon \corrige]{1}
+Calculer en détaillant les étapes :
+\[
+ A=\frac56-\frac14,\qquad
+ B=\frac23+\frac57,\qquad
+ C=\frac{3-\frac12}{1+\frac14}.
+\]
+\begin{enumerate}
+  \item Donner chaque résultat sous forme irréductible.
+  \item Comparer $A$ et $B$ sans utiliser leurs écritures décimales.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Puissances et écriture scientifique \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Simplifier $2^3\times2^{-5}$ et $\dfrac{3^7}{3^4}$.
+  \item Écrire $0{,}000\,072$ en notation scientifique.
+  \item Écrire $5{,}4\times10^6$ sous forme décimale.
+  \item Calculer
+  \[
+    D=\frac{(4\times10^3)(3\times10^{-5})}{6\times10^{-2}}
+  \]
+  et donner le résultat en notation scientifique.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Radicaux \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Simplifier $\sqrt{48}$, $\sqrt{75}$ et $\sqrt{147}$.
+  \item Réduire $3\sqrt{12}-2\sqrt{27}+\sqrt{48}$.
+  \item Développer $(\sqrt5+2)(\sqrt5-2)$.
+  \item Comparer $3\sqrt2$ et $\sqrt{20}$ en justifiant.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Intervalles et valeur absolue \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Traduire $-2\leq x<5$ sous forme d'intervalle.
+  \item Traduire $x\in]-\infty;3]\cup[7;+\infty[$ sous forme d'inégalités.
+  \item Résoudre $|x-1|\leq3$.
+  \item Résoudre $|2x+1|>5$.
+  \item Représenter les deux ensembles de solutions sur une droite graduée.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Encadrements et valeurs approchées \calcnon \corrige]{2}
+\begin{enumerate}
+  \item Encadrer $\sqrt{30}$ entre deux entiers consécutifs.
+  \item En déduire un encadrement de $2\sqrt{30}-3$ par deux entiers.
+  \item Sachant que $1{,}414<\sqrt2<1{,}415$, encadrer $5\sqrt2+1$.
+  \item Donner une valeur approchée de $5\sqrt2+1$ au centième.
+\end{enumerate}
+\end{exo}
+
+\section{Équations, inéquations et polynômes}
+
+\begin{exo}[Trinôme : discriminant et racines \calcnon \corrige]{1}
+On considère $f(x)=2x^2-5x-3$.
+\begin{enumerate}
+  \item Identifier $a$, $b$ et $c$, puis calculer le discriminant.
+  \item Résoudre l'équation $f(x)=0$.
+  \item Factoriser $f(x)$.
+  \item Vérifier les résultats obtenus en développant.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Forme canonique et variations \calcnon \corrige]{2}
+On considère $g(x)=x^2-6x+5$.
+\begin{enumerate}
+  \item Mettre $g$ sous forme canonique.
+  \item Donner les coordonnées du sommet de la parabole.
+  \item Dresser le tableau de variations de $g$.
+  \item Résoudre $g(x)\leq0$.
+  \item Retrouver le résultat précédent à l'aide de la forme factorisée.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Étude du signe d'un trinôme \calcnon \corrige]{2}
+Soit $h(x)=-2x^2+8x-6$.
+\begin{enumerate}
+  \item Calculer les racines de $h$.
+  \item Factoriser $h(x)$.
+  \item Dresser le tableau de signes de $h$.
+  \item Résoudre $h(x)>0$, puis $h(x)\leq0$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Polynôme du troisième degré \calcnon \corrige]{2}
+On considère $P(x)=x^3-2x^2-5x+6$.
+\begin{enumerate}
+  \item Vérifier que $1$ est une racine de $P$.
+  \item Déterminer un trinôme $Q$ tel que $P(x)=(x-1)Q(x)$.
+  \item Factoriser complètement $P$.
+  \item Résoudre $P(x)=0$.
+  \item Dresser le tableau de signes de $P$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Équation rationnelle \calcnon \corrige]{2}
+On considère l'équation
+\[
+  \frac{2x-1}{x-3}=\frac{x+2}{x+1}.
+\]
+\begin{enumerate}
+  \item Déterminer les valeurs interdites.
+  \item Transformer l'équation en une équation polynomiale.
+  \item Résoudre l'équation obtenue.
+  \item Vérifier que les solutions respectent les conditions d'existence.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Inéquation rationnelle \calcnon \corrige]{3}
+Résoudre dans $\R$ :
+\[
+  \frac{x-2}{x+1}\geq0.
+\]
+\begin{enumerate}
+  \item Donner la valeur interdite et la valeur qui annule le numérateur.
+  \item Construire le tableau de signes du quotient.
+  \item Donner l'ensemble des solutions sous forme d'intervalle.
+  \item Contrôler le résultat en testant une valeur dans chaque intervalle.
+\end{enumerate}
+\end{exo}
+
+\section{Géométrie analytique et vecteurs}
+
+\begin{exo}[Équation cartésienne d'une droite \calcnon \corrige]{1}
+Dans un repère, on donne $A(-1;1)$ et $B(3;3)$.
+\begin{enumerate}
+  \item Calculer les coordonnées de $\vv{AB}$.
+  \item Donner un vecteur normal à la droite $(AB)$.
+  \item Déterminer une équation cartésienne de $(AB)$.
+  \item Vérifier que les points $A$ et $B$ satisfont cette équation.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Formes d'une équation de droite \calcnon \corrige]{2}
+On considère la droite $d:2x-y+3=0$.
+\begin{enumerate}
+  \item Donner un vecteur directeur de $d$.
+  \item Écrire une équation réduite de $d$.
+  \item Donner une représentation paramétrique de $d$.
+  \item Déterminer les coordonnées des intersections de $d$ avec les axes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Parallélisme et perpendicularité \calcnon \corrige]{2}
+On donne $A(2;-1)$ et la droite $d:3x-2y+4=0$.
+\begin{enumerate}
+  \item Déterminer une équation de la droite $d_1$ passant par $A$ et
+  parallèle à $d$.
+  \item Déterminer une équation de la droite $d_2$ passant par $A$ et
+  perpendiculaire à $d$.
+  \item Calculer le point d'intersection de $d_2$ et $d$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Intersection de deux droites \calcnon \corrige]{1}
+On considère
+\[
+ d_1:2x+y-7=0
+ \qquad\text{et}\qquad
+ d_2:x-3y+5=0.
+\]
+\begin{enumerate}
+  \item Justifier que $d_1$ et $d_2$ ne sont pas parallèles.
+  \item Résoudre le système formé par leurs équations.
+  \item En déduire les coordonnées de leur point d'intersection.
+  \item Vérifier ce résultat dans les deux équations.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Équation d'un cercle \calcnon \corrige]{1}
+On considère
+\[
+ \mathcal C:(x-2)^2+(y+1)^2=16.
+\]
+\begin{enumerate}
+  \item Donner le centre et le rayon de $\mathcal C$.
+  \item Dire si $A(2;3)$ appartient à $\mathcal C$.
+  \item Dire si $B(6;2)$ est intérieur ou extérieur au cercle.
+  \item Développer l'équation de $\mathcal C$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Retrouver un cercle \calcnon \corrige]{2}
+Le cercle $\mathcal C$ a pour diamètre $[AB]$, avec $A(-2;1)$ et $B(4;5)$.
+\begin{enumerate}
+  \item Déterminer les coordonnées de son centre $\Omega$.
+  \item Calculer son rayon.
+  \item Écrire une équation cartésienne de $\mathcal C$.
+  \item Étudier l'appartenance du point $M(1;5)$ à $\mathcal C$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Intersection d'une droite et d'un cercle \calcnon \corrige]{3}
+On considère le cercle $\mathcal C:x^2+y^2=25$ et la droite $d:y=3$.
+\begin{enumerate}
+  \item Résoudre le système formé par les équations de $\mathcal C$ et $d$.
+  \item Donner les coordonnées des points d'intersection.
+  \item Calculer la longueur de la corde découpée par $d$.
+  \item Comparer la distance du centre de $\mathcal C$ à $d$ avec le rayon.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Colinéarité et alignement \calcnon \corrige]{2}
+Dans un repère, on donne $A(-2;1)$, $B(1;3)$ et $C(4;5)$.
+\begin{enumerate}
+  \item Calculer $\vv{AB}$ et $\vv{AC}$.
+  \item Montrer que les vecteurs sont colinéaires.
+  \item En déduire que $A$, $B$ et $C$ sont alignés.
+  \item Déterminer le réel $k$ tel que $\vv{AC}=k\vv{AB}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Produit scalaire et nature d'un triangle \calcnon \corrige]{2}
+Dans un repère orthonormé, on donne $A(0;1)$, $B(4;3)$ et $C(2;-3)$.
+\begin{enumerate}
+  \item Calculer $\vv{AB}$ et $\vv{AC}$.
+  \item Calculer $\vv{AB}\cdot\vv{AC}$.
+  \item En déduire la nature du triangle $ABC$ en $A$.
+  \item Calculer $AB$ et $AC$, puis préciser complètement la nature de $ABC$.
+\end{enumerate}
+\end{exo}
+
+\section{Fonctions et trigonométrie}
+
+\begin{exo}[Domaine et images \calcnon \corrige]{1}
+On considère $f(x)=\sqrt{x+2}$ et $g(x)=\dfrac{1}{x-3}$.
+\begin{enumerate}
+  \item Déterminer $D_f$ et $D_g$.
+  \item Calculer $f(2)$ et $g(5)$.
+  \item Déterminer les antécédents de $2$ par $f$.
+  \item Expliquer pourquoi $3$ n'a pas d'image par $g$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions de référence \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Donner le domaine de définition de $x\mapsto x^2$, $x\mapsto x^3$,
+  $x\mapsto|x|$ et $x\mapsto\sqrt{x}$.
+  \item Préciser lesquelles sont paires ou impaires.
+  \item Donner les variations de chacune sur son domaine.
+  \item Résoudre graphiquement ou algébriquement $x^2=4$ et $|x|=3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lecture d'un tableau de variations \calcnon \corrige]{2}
+Une fonction $f$ est définie sur $[-4;5]$. Elle est décroissante de $3$ à
+$-2$ sur $[-4;1]$, puis croissante de $-2$ à $6$ sur $[1;5]$.
+\begin{enumerate}
+  \item Dresser le tableau de variations de $f$.
+  \item Donner le minimum de $f$ et la valeur où il est atteint.
+  \item Comparer $f(-3)$ et $f(0)$.
+  \item Peut-on comparer avec certitude $f(0)$ et $f(3)$ ? Justifier.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonction valeur absolue \calcnon \corrige]{2}
+On considère $f(x)=|x-2|-1$.
+\begin{enumerate}
+  \item Calculer $f(-1)$, $f(0)$, $f(2)$ et $f(5)$.
+  \item Résoudre $f(x)=0$.
+  \item Résoudre $f(x)\leq0$.
+  \item Donner les variations de $f$.
+  \item Tracer sa courbe dans un repère.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonction quadratique \calcnon \corrige]{2}
+On considère $g(x)=x^2-4x+3$.
+\begin{enumerate}
+  \item Donner les formes canonique et factorisée de $g$.
+  \item Déterminer son sommet et son axe de symétrie.
+  \item Dresser son tableau de variations.
+  \item Résoudre $g(x)\leq0$.
+  \item Tracer l'allure de la courbe en faisant apparaître les points remarquables.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Angles et cercle trigonométrique \calcnon \corrige]{1}
+\begin{enumerate}
+  \item Convertir $150^\circ$ et $-45^\circ$ en radians.
+  \item Convertir $\dfrac{5\pi}{6}$ et $\dfrac{7\pi}{4}$ en degrés.
+  \item Placer ces quatre angles sur un cercle trigonométrique.
+  \item Donner une mesure principale de $\dfrac{17\pi}{6}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Valeurs trigonométriques \calcnon \corrige]{2}
+\begin{enumerate}
+  \item Donner $\cos(2\pi/3)$ et $\sin(2\pi/3)$.
+  \item Donner $\cos(5\pi/6)$ et $\sin(5\pi/6)$.
+  \item Sachant que $\sin\theta=\dfrac35$ et que $\theta$ appartient au
+  deuxième quadrant, déterminer $\cos\theta$.
+  \item En déduire $\tan\theta$.
+\end{enumerate}
+\end{exo}
+
+\section{Statistique descriptive}
+
+\begin{exo}[Série brute \calcnon \corrige]{1}
+On considère la série
+\[
+  4,\ 6,\ 6,\ 7,\ 8,\ 8,\ 8,\ 10,\ 11.
+\]
+\begin{enumerate}
+  \item Donner l'effectif total et le mode.
+  \item Calculer la moyenne.
+  \item Déterminer la médiane et l'étendue.
+  \item Expliquer l'effet sur la moyenne du remplacement de $11$ par $20$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tableau d'effectifs \calcnon \corrige]{2}
+Les notes obtenues sont résumées ci-dessous :
+\[
+\begin{array}{c|ccccc}
+\text{Note} & 6 & 8 & 10 & 12 & 14\\ \hline
+\text{Effectif} & 2 & 5 & 7 & 4 & 2
+\end{array}
+\]
+\begin{enumerate}
+  \item Calculer l'effectif total.
+  \item Calculer les fréquences, en pourcentage.
+  \item Déterminer la moyenne et la médiane.
+  \item Construire le diagramme en bâtons correspondant.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Variance et écart-type \calcoui \corrige]{2}
+On considère la série $0,1,2,2,3,4,4,8$.
+\begin{enumerate}
+  \item Calculer la moyenne et la médiane.
+  \item Calculer la variance.
+  \item En déduire l'écart-type, arrondi au centième.
+  \item Reprendre les calculs après suppression de la valeur $8$ et commenter.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Données regroupées en classes \calcoui \corrige]{2}
+Une enquête donne les effectifs $4$, $10$, $18$ et $8$ pour les classes
+$[0;5[$, $[5;10[$, $[10;15[$ et $[15;20[$.
+\begin{enumerate}
+  \item Calculer les fréquences et les effectifs cumulés croissants.
+  \item Identifier la classe modale et la classe médiane.
+  \item Estimer la moyenne à l'aide des centres de classes.
+  \item Estimer la variance et l'écart-type.
+  \item Expliquer la limite de ces estimations.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Comparer deux distributions \calcoui \corrige]{3}
+Deux classes ont obtenu les résultats suivants :
+\[
+\begin{array}{c|ccc}
+ & \text{moyenne} & \text{médiane} & \text{écart-type}\\ \hline
+\text{Classe A} & 11{,}8 & 12 & 2{,}1\\
+\text{Classe B} & 11{,}8 & 11 & 4{,}3
+\end{array}
+\]
+\begin{enumerate}
+  \item Comparer les niveaux moyens des deux classes.
+  \item Comparer la dispersion des résultats.
+  \item Expliquer ce que suggère la différence entre les médianes.
+  \item Rédiger une conclusion de trois phrases sans dépasser les informations
+  fournies par le tableau.
+\end{enumerate}
+\end{exo}
+
+\section{Problèmes de synthèse}
+
+\begin{probleme}[Réservoir et algorithme \calcnon \corrigeP]{2}
+Un réservoir contient initialement $120$ litres. Une pompe y ajoute $6$ litres
+par minute. Sa capacité maximale est de $360$ litres.
+\begin{enumerate}
+  \item Calculer les volumes présents après une minute puis après deux minutes.
+  \item Exprimer le volume $V(n)$ après $n$ minutes.
+  \item Écrire un algorithme qui saisit $n$ et affiche $V(n)$.
+  \item Déterminer le premier entier $n$ tel que $V(n)>300$.
+  \item Déterminer à partir de quelle minute le réservoir déborde.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Tarifs de transport \calcnon \corrigeP]{2}
+Une entreprise propose deux tarifs pour un trajet de $x$ kilomètres :
+\[
+ A(x)=2500+600x
+ \qquad\text{et}\qquad
+ B(x)=4000+450x,
+\]
+les montants étant exprimés en ariary.
+\begin{enumerate}
+  \item Calculer les deux prix pour $x=5$ puis pour $x=20$.
+  \item Résoudre l'équation $A(x)=B(x)$.
+  \item Déterminer, selon la distance, le tarif le moins cher.
+  \item Représenter $A$ et $B$ dans un même repère et interpréter le point
+  d'intersection.
+  \item Écrire un algorithme qui affiche le tarif le plus avantageux pour une
+  distance saisie.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Cercle, droite et interprétation \calcnon \corrigeP]{2}
+Dans un repère orthonormé, on donne $A(-1;2)$, $B(3;4)$,
+$d:x+2y-5=0$ et
+\[
+ \mathcal C:(x-1)^2+(y-1)^2=9.
+\]
+\begin{enumerate}
+  \item Calculer $\vv{AB}$ et déterminer une équation de $(AB)$.
+  \item Déterminer les coordonnées du point d'intersection de $(AB)$ et $d$.
+  \item Donner le centre et le rayon de $\mathcal C$.
+  \item Étudier la position de $B$ par rapport à $\mathcal C$.
+  \item Déterminer les points d'intersection de $d$ et $\mathcal C$, ou
+  justifier qu'il n'en existe pas.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Terrain rectangulaire \calcnon \corrigeP]{2}
+Un terrain rectangulaire a un périmètre de $80$ m. On note $x$ sa largeur.
+\begin{enumerate}
+  \item Exprimer sa longueur en fonction de $x$.
+  \item Justifier que $0<x<40$.
+  \item Montrer que son aire est $A(x)=-x^2+40x$.
+  \item Mettre $A$ sous forme canonique.
+  \item Déterminer les dimensions donnant l'aire maximale et calculer cette aire.
+  \item Déterminer les dimensions possibles lorsque l'aire vaut $300$ m$^2$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Boîte sans couvercle \calcoui \corrigeP]{3}
+On découpe dans les quatre coins d'une feuille rectangulaire de
+$40$ cm sur $20$ cm des carrés de côté entier $x$ cm, puis on relève les bords.
+\begin{enumerate}
+  \item Justifier que $x$ est un entier vérifiant $1\leq x\leq9$.
+  \item Montrer que le volume de la boîte est
+  \[
+    V(x)=x(40-2x)(20-2x).
+  \]
+  \item Construire un tableau donnant $V(x)$ pour toutes les valeurs possibles.
+  \item Déterminer la valeur de $x$ donnant le plus grand volume dans ce modèle.
+  \item Écrire un algorithme qui effectue cette recherche.
+  \item Expliquer pourquoi cette étude ne donne pas le maximum parmi toutes
+  les valeurs réelles possibles de $x$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Organisation d'une enquête \calcoui \corrigeP]{2}
+On a relevé le temps de trajet de $40$ élèves. Les effectifs sont $4$, $10$,
+$18$ et $8$ dans les classes $[0;5[$, $[5;10[$, $[10;15[$ et $[15;20[$,
+les durées étant exprimées en minutes.
+\begin{enumerate}
+  \item Construire un tableau contenant les classes, les centres, les effectifs,
+  les fréquences et les effectifs cumulés.
+  \item Tracer un histogramme de la distribution.
+  \item Déterminer la classe modale et la classe médiane.
+  \item Estimer la moyenne, la variance et l'écart-type.
+  \item Rédiger une conclusion présentant une tendance centrale, une mesure de
+  dispersion et la limite liée au regroupement en classes.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Trajectoire et sécurité \calcoui \corrigeP]{3}
+Dans un repère, la hauteur d'un objet est modélisée par
+\[
+  h(x)=-x^2+6x+7,
+\]
+où $x\geq0$ représente la distance horizontale et $h(x)$ la hauteur en mètres.
+\begin{enumerate}
+  \item Mettre $h$ sous forme canonique.
+  \item Déterminer la hauteur maximale et la distance à laquelle elle est atteinte.
+  \item Résoudre $h(x)=0$ et interpréter la solution positive.
+  \item Un obstacle de hauteur $12$ m se trouve à $x=2$ m. L'objet le franchit-il ?
+  \item Déterminer les distances pour lesquelles la hauteur est au moins $12$ m.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Cercle circonscrit \calcnon \corrigeP]{3}
+Dans un repère orthonormé, on donne $A(-2;0)$, $B(4;2)$ et $C(1;5)$.
+\begin{enumerate}
+  \item Déterminer le milieu $I$ de $[AB]$ et une équation de la médiatrice
+  de $[AB]$.
+  \item Déterminer le milieu $J$ de $[AC]$ et une équation de la médiatrice
+  de $[AC]$.
+  \item Calculer les coordonnées du point $\Omega$ d'intersection des deux
+  médiatrices.
+  \item Vérifier que $\Omega A=\Omega B=\Omega C$.
+  \item Écrire une équation du cercle circonscrit au triangle $ABC$.
+\end{enumerate}
+\end{probleme}
+
+\begin{tcolorbox}[enhanced,breakable,frame hidden,
+  borderline west={2pt}{0pt}{VE},colback=VE!3,sharp corners,
+  left=12pt,right=10pt,top=7pt,bottom=7pt]
+\textbf{Composition d'une évaluation.} Sélectionner des exercices portant sur
+les capacités effectivement enseignées. Une évaluation formative peut réunir
+des exercices ciblés et indépendants. Une évaluation sommative peut associer
+plusieurs domaines et un problème de synthèse. Adopter une même règle de
+calculatrice pour l'ensemble du sujet.
+\end{tcolorbox}

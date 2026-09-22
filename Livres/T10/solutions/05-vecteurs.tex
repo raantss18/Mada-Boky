@@ -1,0 +1,1135 @@
+\section*{Chapitre 5 \textemdash\ Vecteurs du plan}
+\addcontentsline{toc}{section}{Chapitre 5 \textemdash\ Vecteurs du plan}
+
+\subsection*{Exercices}
+\addcontentsline{toc}{subsection}{Exercices}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{1}{Coordonn\'ees et norme}
+
+$A(1,2)$, $B(4,6)$, $C(-1,0)$, $D(3,-2)$.
+\begin{enumerate}
+  \item $\vv{AB}=(3,4)$~; $\vv{BA}=(-3,-4)$~; $\vv{AC}=(-2,-2)$~; $\vv{CD}=(4,-2)$.
+  \item $\norme{\vv{AB}}=\sqrt{9+16}=5$~; $\norme{\vv{AC}}=\sqrt{4+4}=2\sqrt{2}$~;
+        $\norme{\vv{CD}}=\sqrt{16+4}=2\sqrt{5}$.
+  \item $M=\bigl(\tfrac{1+4}{2},\tfrac{2+6}{2}\bigr)=\bigl(\tfrac{5}{2},4\bigr)$.
+  \item $G=\bigl(\tfrac{1+4-1}{3},\tfrac{2+6+0}{3}\bigr)=\bigl(\tfrac{4}{3},\tfrac{8}{3}\bigr)$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{2}{Op\'erations vectorielles}
+
+$\vec{u}=(2,-1)$, $\vec{v}=(-1,3)$.
+\begin{enumerate}
+  \item $\vec{u}+\vec{v}=(1,2)$~; $\vec{u}-\vec{v}=(3,-4)$~;
+        $2\vec{u}+3\vec{v}=(1,7)$~; $\vec{u}-2\vec{v}=(4,-7)$.
+  \item $\norme{\vec{u}}=\sqrt{5}$~; $\norme{\vec{v}}=\sqrt{10}$~;
+        $\norme{\vec{u}+\vec{v}}=\sqrt{5}$.
+  \item $\sqrt{5}\leq\sqrt{5}+\sqrt{10}$.\checkmark\quad
+        (L'in\'egalit\'e est ici une \'egalit\'e, ce qui signifie que
+        $\vec{u}+\vec{v}=(1,2)$ est colin\'eaire \`a $\vec{u}$ et $\vec{v}$~:
+        en fait $\vec{u}+\vec{v}=(1,2)$ a la m\^eme direction que $\vec{v}=(-1,3)$~?
+        Non, simplement $\norme{\vec{u}+\vec{v}}\leq\norme{\vec{u}}+\norme{\vec{v}}$
+        avec $\sqrt{5}\leq\sqrt{5}+\sqrt{10}\approx5{,}39$.\checkmark)
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{3}{Produits scalaires}
+
+\begin{enumerate}
+  \item $\vec{u}\cdot\vec{v}=3-8=-5$~; $\cos\theta=\frac{-5}{5\sqrt{5}}=\frac{-1}{\sqrt{5}}$~;
+        $\theta=\arccos(-1/\sqrt{5})\approx116{,}6^{\circ}$.
+  \item $\vec{u}\cdot\vec{v}=-2+2=0$~; $\theta=90^{\circ}$ (vecteurs orthogonaux).
+  \item $\vec{u}\cdot\vec{v}=0$~; $\theta=90^{\circ}$.
+  \item $\vec{u}\cdot\vec{v}=1-1=0$~; $\theta=90^{\circ}$.
+  \item $\vec{u}\cdot\vec{v}=0$~; $\theta=90^{\circ}$.
+  \item $\vec{u}\cdot\vec{v}=\sqrt{3}+\sqrt{3}=2\sqrt{3}$~;
+        $\norme{\vec{u}}=2$, $\norme{\vec{v}}=2$~;
+        $\cos\theta=\frac{2\sqrt{3}}{4}=\frac{\sqrt{3}}{2}$~; $\theta=30^{\circ}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{4}{Parall\'elogramme}
+
+\textbf{(1)} $\vv{AB}=(3,2)$, $\vv{DC}=(3,2)$.\checkmark\quad $ABCD$ est un parall\'elogramme.
+$AB=DC=\sqrt{13}$~; $AD=BC=\sqrt{10}$~; $AC=\sqrt{8}$, $BD=\sqrt{20}=2\sqrt{5}$.
+
+\textbf{(2)} $\vv{AB}=(4,2)$, $\vv{DC}=(4,2)$.\checkmark\quad $ABCD$ est un parall\'elogramme.
+$AB=DC=2\sqrt{5}$~; $AD=BC=\sqrt{8}=2\sqrt{2}$~; $AC=\sqrt{36+4}=\sqrt{40}$, $BD=\sqrt{16+16}=4\sqrt{2}$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{5}{Orthogonalit\'e}
+
+Condition~: $\vec{u}\cdot\vec{v}=0$.
+\begin{enumerate}
+  \item $2k+3(k-1)=0\Rightarrow5k=3\Rightarrow k=\tfrac{3}{5}$.
+  \item $4k+2k^2=0\Rightarrow2k(k+2)=0\Rightarrow k=0$ ou $k=-2$.
+  \item $k+9k=0\Rightarrow10k=0\Rightarrow k=0$.
+  \item $3(k+1)+2(k-1)=0\Rightarrow5k+1=0\Rightarrow k=-\tfrac{1}{5}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{6}{Colin\'earit\'e et alignement}
+
+\begin{enumerate}
+  \item $\det(2,4;1,2)=4-4=0$~: colin\'eaires.\checkmark\quad
+        $\det(3,1;6,3)=9-6=3\ne0$~: non colin\'eaires.\quad
+        $\det(1,-2;2,4)=4+4=8\ne0$~: non colin\'eaires.
+  \item $\vv{AB}=(2,4)$, $\vv{AC}=(4,8)$~: $\det=16-16=0$.\checkmark\quad Align\'es.
+  \item $\vv{PQ}=(2,3)$, $\vv{PR}=(4,7)$~: $\det=14-12=2\ne0$. Non align\'es.
+  \item $\vv{AB}=(k-1,2)$, $\vv{AC}=(2,4)$~: $\det=4(k-1)-4=4k-8=0\Rightarrow k=2$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{7}{Relation de Chasles}
+
+\begin{enumerate}
+  \item $\vv{AB}+\vv{BC}=\vv{AC}$.
+  \item $\vv{AB}+\vv{BC}+\vv{CA}=\vv{AC}+\vv{CA}=\vec{0}$.
+  \item $\vv{MA}+\vv{AB}+\vv{BM}=\vv{MA}+\vv{AM}=\vec{0}$.
+        \emph{(On utilise $\vv{AB}+\vv{BM}=\vv{AM}$.)}
+  \item $\vv{AB}-\vv{AC}=\vv{AB}+\vv{CA}=\vv{CA}+\vv{AB}=\vv{CB}$.
+  \item Si $G=O$ est le centre de gravité de $ABC$~: $\vv{OA}+\vv{OB}+\vv{OC}=\vec{0}$.
+  \item $2(\vv{GA}+\vv{GB}+\vv{GC})=2\vec{0}=\vec{0}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{8}{Norme et distance}
+
+$A(-2,3)$, $B(4,-1)$, $C(1,5)$.
+\begin{enumerate}
+  \item $AB=\sqrt{36+16}=\sqrt{52}=2\sqrt{13}$~;
+        $BC=\sqrt{9+36}=\sqrt{45}=3\sqrt{5}$~;
+        $CA=\sqrt{9+4}=\sqrt{13}$.
+  \item $CA=\sqrt{13}$, $AB=2\sqrt{13}=2\cdot CA$~: isoc\`ele ($BC\ne CA\ne AB$, mais
+        $AB=2CA$, v\'erifier d'abord~: non \'equilat\'eral). Non isoc\`ele (trois c\^ot\'es distincts).
+  \item P\'erim\`etre~: $2\sqrt{13}+3\sqrt{5}+\sqrt{13}=3\sqrt{13}+3\sqrt{5}$.
+  \item Milieu de $[AB]$~: $(1,1)$~; milieu de $[BC]$~: $(\frac{5}{2},2)$~;
+        milieu de $[CA]$~: $(-\frac{1}{2},4)$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{9}{Vecteur directeur d'une droite}
+
+\begin{enumerate}
+  \item Deux points de $y=2x-1$~: $(0,-1)$ et $(1,1)$. Vecteur~: $(1,2)$.\checkmark
+  \item $y=-3x+5$~: vecteur directeur $(1,-3)$.
+  \item $2x-y+1=0$~: vecteur directeur $(1,2)$
+        (le vecteur normal est $(2,-1)$, donc le directeur est $(1,2)$).
+  \item $y=2x+1$~: vecteur directeur $(1,2)$.
+        $4x-2y-3=0$~: vecteur directeur $(1,2)$.
+        $\det(1,2;1,2)=0$~: les droites sont parall\`eles.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{10}{Vecteur normal \`a une droite}
+
+\begin{enumerate}
+  \item $2x-3y+1=0$~: vecteur normal $(2,-3)$.
+        Deux points~: $(0,1/3)$ et $(1,1)$. Vecteur directeur~: $(1,2/3)$.
+        Produit scalaire~: $2\cdot1+(-3)\cdot\frac{2}{3}=2-2=0$.\checkmark
+  \item $y=x+1$, soit $x-y+1=0$~: vecteur normal $(1,-1)$.
+  \item $x+2y=0$~: vecteur normal $(1,2)$.
+        $2x-y+3=0$~: vecteur normal $(2,-1)$.
+        $(1,2)\cdot(2,-1)=2-2=0$~: perpendiculaires.\checkmark
+  \item \'Equation~: $3(x-1)-1(y-2)=0\Rightarrow3x-y-1=0$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{11}{Formulaires vectoriels}
+
+$\norme{\vec{u}}=3$, $\norme{\vec{v}}=4$, $\vec{u}\cdot\vec{v}=6$.
+\begin{enumerate}
+  \item $\norme{\vec{u}+\vec{v}}^2=9+2\cdot6+16=37$.
+  \item $\norme{\vec{u}-\vec{v}}^2=9-12+16=13$.
+  \item $(\vec{u}+\vec{v})\cdot(\vec{u}-\vec{v})=\norme{\vec{u}}^2-\norme{\vec{v}}^2=9-16=-7$.
+  \item $\norme{2\vec{u}-\vec{v}}^2=4\cdot9-4\cdot6+16=36-24+16=28$.
+  \item $\cos\theta=6/(3\cdot4)=1/2\Rightarrow\theta=60^{\circ}$.
+  \item $\norme{\vec{u}+\vec{v}}=\sqrt{37}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{12}{Construction de figures par vecteurs}
+
+$A(0,0)$, $B(4,0)$, $C(2,3)$.
+\begin{enumerate}
+  \item $\vv{AB}=(4,0)$~; $\vv{BC}=(-2,3)$~; $\vv{CA}=(-2,-3)$.
+  \item $\vv{AB}\cdot\vv{BC}=-8+0=-8\ne0$~: pas rectangle en $B$.
+  \item $ABDC$ parall\'elogramme~: $\vv{AB}=\vv{CD}\Rightarrow D=C+\vv{BA}=(2,3)+(-4,0)=(-2,3)$.
+  \item Milieu de $[BD]$~: $(\frac{4-2}{2},\frac{0+3}{2})=(1,\frac{3}{2})$.
+        Milieu de $[AC]$~: $(1,\frac{3}{2})$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{13}{Vecteur et valeur param\'etrique}
+
+$(d)$~: $\begin{cases}x=1+3t\\y=2-t\end{cases}$.
+\begin{enumerate}
+  \item \'Equations param\'etriques donn\'ees.\checkmark
+  \item $t=0\to(1,2)$~; $t=1\to(4,1)$~; $t=-1\to(-2,3)$.
+  \item $P(7,0)$~: $7=1+3t\Rightarrow t=2$~; $y=2-2=0$.\checkmark\quad $P\in(d)$.
+  \item \'Elimination de $t$~: $t=2-y$ et $x=1+3(2-y)=7-3y$.
+        $x+3y=7$, ou $y=\frac{x-7}{-3}=\frac{7-x}{3}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{14}{Point image par translation}
+
+$\vec{t}=(2,-3)$.
+\begin{enumerate}
+  \item $M(1,4)\to M'(3,1)$.
+  \item $M'(5,1)=M+(2,-3)\Rightarrow M(3,4)$.
+  \item Image de $[AB]$ avec $A(0,0)$, $B(3,2)$~: segment $[A'B']$, $A'(2,-3)$, $B'(5,-1)$.
+  \item Image du triangle $OAB$~: triangle $O'A'B'$ avec $O'(2,-3)$, $A'(2,-3)$... m\^eme r\'esultat.
+        \emph{(Le triangle se translate~; $O'=(2,-3)$, $A'=(2,-3)$... non~: $O=(0,0)\to O'=(2,-3)$,
+        $A=(4,0)\to A'=(6,-3)$, $B=(3,2)\to B'=(5,-1)$.)}
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{15}{Homoth\'etie et vecteur}
+
+\textbf{(1)} $k=2$, $O(0,0)$~: $A'=2A=(2,6)$~; $B'=2B=(-2,4)$~; $C'=2C=(4,-2)$.
+
+\textbf{(2)} $O(1,1)$, $k=3$~: $\vv{OA}=(1,2)$~; $\vv{OA'}=3(1,2)=(3,6)$~;
+$A'=O+\vv{OA'}=(4,7)$.
+
+\textbf{(3)} $k=-1$, $O(0,0)$~: $A(1,0)\to A'(-1,0)$~; $B(3,2)\to B'(-3,-2)$.
+Image de $[AB]$~: segment $[A'B']=[-1,0]\to[-3,-2]$, parall\`ele \`a $[AB]$ mais oppos\'e.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{16}{Angle et produit scalaire}
+
+$A(2,3)$, $B(5,1)$, $C(4,6)$.
+\begin{enumerate}
+  \item $\vv{AB}=(3,-2)$, $\vv{AC}=(2,3)$.
+        $\vv{AB}\cdot\vv{AC}=6-6=0$.\checkmark\quad Le triangle est rectangle en $A$.
+  \item Rectangle en $A$ (prouv\'e). V\'erif. en $B$~: $\vv{BA}=(-3,2)$, $\vv{BC}=(-1,5)$~;
+        $(-3)(-1)+(2)(5)=13\ne0$. En $C$~: $\vv{CA}=(-2,-3)$, $\vv{CB}=(1,-5)$~;
+        $-2-15=-17\ne0$. Rectangle \textbf{uniquement en} $A$.
+  \item $\hat{A}=90^{\circ}$.
+  \item Aire~: $\frac{1}{2}\norme{\vv{AB}}\norme{\vv{AC}}=\frac{1}{2}\sqrt{13}\sqrt{13}=\frac{13}{2}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{17}{D\'emontrer des propri\'et\'es g\'eom\'etriques}
+
+\textbf{(1)} $ABCD$ parall\'elogramme~: $\vv{AB}=\vv{DC}$, donc $\vec{b}-\vec{a}=\vec{c}-\vec{d}$,
+soit $\vec{a}+\vec{c}=\vec{b}+\vec{d}$ (vecteurs positions depuis $O$).
+Milieu de $[AC]$~: $\frac{\vec{a}+\vec{c}}{2}=\frac{\vec{b}+\vec{d}}{2}$ = milieu de $[BD]$.\hfill$\square$
+
+\textbf{(2)} $M$ milieu de $[BC]$~: $\vv{AM}=\vv{AB}+\vv{BM}=\vv{AB}+\frac{1}{2}\vv{BC}
+=\vv{AB}+\frac{1}{2}(\vv{AC}-\vv{AB})=\frac{1}{2}(\vv{AB}+\vv{AC})$.\hfill$\square$
+
+\textbf{(3)} $\vv{OA}+\vv{OB}+\vv{OC}=\vec{0}$. Pour tout $P$~:
+$\vv{PA}+\vv{PB}+\vv{PC}=(\vv{PO}+\vv{OA})+(\vv{PO}+\vv{OB})+(\vv{PO}+\vv{OC})
+=3\vv{PO}+\vec{0}=3\vv{PO}$.
+Donc $\vv{PA}+\vv{PB}+\vv{PC}=\vec{0}\Leftrightarrow\vv{PO}=\vec{0}\Leftrightarrow P=O$.
+Ainsi $O$ est le centre de gravité.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{18}{Formule de polarisation}
+
+\textbf{(1)} $\frac{1}{2}(\norme{\vec{u}}^2+\norme{\vec{v}}^2-\norme{\vec{u}-\vec{v}}^2)
+=\frac{1}{2}(a^2+b^2+c^2+d^2-(a-c)^2-(b-d)^2)
+=\frac{1}{2}(2ac+2bd)=ac+bd=\vec{u}\cdot\vec{v}$.\hfill$\square$
+
+\textbf{(2)} $A(1,2)$, $B(4,6)$, $C(0,-1)$.
+$AB=5$~; $AC=\sqrt{1+9}=\sqrt{10}$~; $BC=\sqrt{16+49}=\sqrt{65}$.
+$\vv{AB}\cdot\vv{AC}=\frac{1}{2}(25+10-65)=\frac{1}{2}(-30)=-15$.
+V\'erif. directe~: $\vv{AB}=(3,4)$, $\vv{AC}=(-1,-3)$~; $-3-12=-15$.\checkmark
+
+\textbf{(3)} $\cos\hat{A}=\frac{-15}{5\sqrt{10}}=\frac{-3}{\sqrt{10}}$~;
+$\hat{A}=\arccos(-3/\sqrt{10})\approx161{,}6^{\circ}$.
+\emph{Remarque~: l'angle interne du triangle est $180^{\circ}-161{,}6^{\circ}=18{,}4^{\circ}$ --- non,
+$\arccos(-3/\sqrt{10})\approx108{,}4^{\circ}$, ce qui est l'angle entre les vecteurs
+$\vv{AB}$ et $\vv{AC}$ orient\'es depuis $A$. C'est bien l'angle interne
+$\hat{A}\approx108{,}4^{\circ}$.}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{19}{Formule du parall\'elogramme}
+
+\textbf{(1)} $\norme{\vec{u}+\vec{v}}^2=(\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})
+=\norme{\vec{u}}^2+2\vec{u}\cdot\vec{v}+\norme{\vec{v}}^2$.
+$\norme{\vec{u}-\vec{v}}^2=\norme{\vec{u}}^2-2\vec{u}\cdot\vec{v}+\norme{\vec{v}}^2$.
+
+\textbf{(2)} Somme~: $\norme{\vec{u}+\vec{v}}^2+\norme{\vec{u}-\vec{v}}^2
+=2\norme{\vec{u}}^2+2\norme{\vec{v}}^2$.\hfill$\square$
+
+\textbf{(3)} Dans le parall\'elogramme $OABC$~:
+$\vec{u}=\vv{OA}$, $\vec{v}=\vv{OC}$, $\vv{OB}=\vec{u}+\vec{v}$ (diagonale).
+$\vec{u}+\vec{v}=\vv{OB}$ (grande diagonale)~;
+$\vec{u}-\vec{v}=\vv{CA}$ (petite diagonale).
+La formule dit~: \emph{la somme des carr\'es des diagonales
+\'egale la somme des carr\'es des quatre c\^ot\'es.}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{20}{Alignement et colin\'earit\'e}
+
+\textbf{(1)} $\vv{AB}=(2,4)$, $\vv{AC}=(4,8)=2\vv{AB}$~: colin\'eaires.\checkmark\quad Align\'es.\hfill$\square$
+
+\textbf{(2)} $D$ sur $(AB)$ avec $AD=2\cdot AB$~: $D=A+2\vv{AB}=(1,2)+2(2,4)=(5,10)$.
+
+\textbf{(3)} $A(0,0)$, $B(3,1)$, $C(5,4)$, $D(2,3)$.
+$\vv{AB}=(3,1)$, $\vv{DC}=(3,1)$.\checkmark\quad Parall\'elogramme.
+$AB=\sqrt{10}$, $AD=\sqrt{13}$~: c\^ot\'es in\'egaux, pas un losange.
+$AC=\sqrt{41}$, $BD=\sqrt{5}$~: diagonales in\'egales, pas un rectangle.
+$ABCD$ est un \textbf{parall\'elogramme ordinaire}.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{21}{Vecteurs et g\'eom\'etrie classique}
+
+$A(0,0)$, $B(6,0)$, $C(2,4)$.
+\begin{enumerate}
+  \item $I_{AB}=(3,0)$~; $I_{BC}=(4,2)$~; $I_{CA}=(1,2)$.
+  \item M\'ediane $AI_{BC}$~: param\'etriquement $(0,0)+t(4,2)=(4t,2t)$.
+        M\'ediane $BI_{CA}$~: $(6,0)+s(-5,2)=(6-5s,2s)$.
+        $4t=6-5s$ et $2t=2s\Rightarrow t=s$~; $4t=6-5t\Rightarrow9t=6\Rightarrow t=2/3$.
+        $G=(8/3,4/3)$.
+  \item V\'erif.~: $\tfrac{0+6+2}{3}=\tfrac{8}{3}$, $\tfrac{0+0+4}{3}=\tfrac{4}{3}$.\checkmark
+  \item $\vv{AG}=(8/3,4/3)$~; $\vv{GI_{BC}}=(4-8/3,2-4/3)=(4/3,2/3)=\frac{1}{2}\vv{AG}$.
+        $AG/GI_{BC}=2$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{22}{Projection orthogonale et distance}
+
+$(d)$~: $2x+y-5=0$, $A(3,1)$.
+\begin{enumerate}
+  \item Vecteur directeur de $(d)$~: $(1,-2)$. $H=(3+t,1-2t)$ sur $(d)$~:
+        $2(3+t)+(1-2t)-5=0\Rightarrow2=0$~!
+        \emph{Correction~: $2(3+t)+(1-2t)=5\Rightarrow7=5$~; incoh\'erent.
+        Reprenons~: $H\in(d)\Rightarrow2(3+t)+(1-2t)-5=0\Rightarrow6+2t+1-2t-5=2\ne0$.
+        Donc le vecteur directeur de $(d)$ est $(1,-2)$ mais $A(3,1)$ n'est pas sur $(d)$
+        ($2\cdot3+1-5=2\ne0$). $H=A+t\vec{n}=(3+2t,1+t)$ o\`u $\vec{n}=(2,1)$ est le vecteur normal.
+        $H\in(d)$~: $2(3+2t)+(1+t)-5=0\Rightarrow6+4t+1+t-5=2+5t=0\Rightarrow t=-2/5$.
+        $H=(3-4/5,1-2/5)=(11/5,3/5)$.}
+  \item $AH=\sqrt{(3-11/5)^2+(1-3/5)^2}=\sqrt{(4/5)^2+(2/5)^2}=\frac{2\sqrt{5}}{5}$.
+        Formule~: $d=\frac{|2\cdot3+1\cdot1-5|}{\sqrt{4+1}}=\frac{2}{\sqrt{5}}=\frac{2\sqrt{5}}{5}$.\checkmark
+  \item G\'en\'eralisation~: $H=A-t\vec{n}$, $t=\frac{ax_A+by_A+c}{a^2+b^2}$.
+        $d(A,(d))=|t|\cdot\norme{\vec{n}}=\frac{|ax_A+by_A+c|}{\sqrt{a^2+b^2}}$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{23}{Vecteurs et calcul d'angle}
+
+$A(2,0)$, $B(6,2)$, $C(4,6)$.
+\begin{enumerate}
+  \item $\vv{AB}=(4,2)$, $\vv{AC}=(2,6)$, $\vv{BC}=(-2,4)$, $\vv{CB}=(2,-4)$.
+        $\cos\hat{A}=\frac{\vv{AB}\cdot\vv{AC}}{\norme{\vv{AB}}\norme{\vv{AC}}}
+        =\frac{8+12}{\sqrt{20}\sqrt{40}}=\frac{20}{\sqrt{800}}=\frac{20}{20\sqrt{2}}=\frac{1}{\sqrt{2}}$~; $\hat{A}=45^{\circ}$.
+        $\cos\hat{B}=\frac{\vv{BA}\cdot\vv{BC}}{|\vv{BA}||\vv{BC}|}
+        =\frac{(-4)(-2)+(-2)(4)}{\sqrt{20}\sqrt{20}}=\frac{8-8}{20}=0$~; $\hat{B}=90^{\circ}$.
+        $\hat{C}=180^{\circ}-45^{\circ}-90^{\circ}=45^{\circ}$.
+  \item $45^{\circ}+90^{\circ}+45^{\circ}=180^{\circ}$.\checkmark
+  \item Aire~: $\frac{1}{2}\norme{\vv{AB}}\norme{\vv{BC}}|\sin90^{\circ}|
+        =\frac{1}{2}\sqrt{20}\sqrt{20}=10$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{24}{Coordonn\'ees et \'equations de droites}
+
+\begin{enumerate}
+  \item Vecteur normal $\vec{n}=(3,4)$, passe par $A(2,-1)$~:
+        $3(x-2)+4(y+1)=0\Rightarrow3x+4y-2=0$.
+  \item $\vv{AB}=(2,-3)$~: vecteur normal $(3,2)$.
+        $3(x-1)+2(y-2)=0\Rightarrow3x+2y-7=0$.
+  \item Milieu de $[AB]$~: $I(5,4)$. Vecteur $\vv{AB}=(6,-4)$, normal $(4,6)$ (ou $(2,3)$).
+        M\'ediatrice~: $2(x-5)+3(y-4)=0\Rightarrow2x+3y-22=0$.
+  \item Le circocentre est \'egal\`a l'intersection de deux m\'ediatrices.
+        En calculant les m\'ediatrices des deux autres c\^ot\'es, on obtient le m\^eme point~:
+        c'est une propri\'et\'e classique.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{25}{Milieu et centre de gravité~: applications}
+
+$A(2,0)$, $B(8,4)$, $C(4,10)$.
+\begin{enumerate}
+  \item Milieu $[AB]=(5,2)$~; milieu $[BC]=(6,7)$~; milieu $[CA]=(3,5)$.
+  \item $G=\bigl(\tfrac{2+8+4}{3},\tfrac{0+4+10}{3}\bigr)=(14/3,14/3)$.
+  \item $\vv{GA}=(2-14/3,0-14/3)=(-8/3,-14/3)$.
+        $\vv{GB}=(8-14/3,4-14/3)=(10/3,-2/3)$.
+        $\vv{GC}=(4-14/3,10-14/3)=(-2/3,16/3)$.
+        Somme~: $(-8+10-2,\,-14-2+16)/3=(0,0)/3=\vec{0}$.\checkmark
+  \item La m\'ediane de $A$ vers milieu de $[BC]=(6,7)$~:
+        param\'etriquement $(2,0)+t(4,7)$. En $t=2/3$~: $(2+8/3,14/3)=(14/3,14/3)=G$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{26}{\'Equation vectorielle}
+
+\begin{enumerate}
+  \item $\vv{OM}=2(3,1)-(1,5)=(5,-3)$~: $M(5,-3)$.
+  \item $\vv{AM}=3\vv{AB}=3(3,3)=(9,9)$~: $M=A+\vv{AM}=(10,11)$.
+  \item $\vv{MA}+\vv{MB}=\vec{0}$~: $M$ est le milieu de $[AB]$.
+  \item $\vv{OM}=t(1,2)$, $\norme{\vv{OM}}=t\sqrt{5}=5$ (avec $t>0$)~: $t=\sqrt{5}$.
+        $M=(\sqrt{5},2\sqrt{5})$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{27}{Sym\'etrie centrale par vecteurs}
+
+\textbf{(1)} $\vv{CA'}=-\vv{CA}$~: $A'=2C-A=2(1,2)-(3,5)=(-1,-1)$.
+
+\textbf{(2)} $B'=-B=(2,-4)$.
+
+\textbf{(3)} $\vv{CM'}=-\vv{CM}$ signifie $M'=2C-M$, i.e.\ $C=\frac{M+M'}{2}$~:
+$C$ est le milieu de $[MM']$.\hfill$\square$
+
+\textbf{(4)} $M'N'=(M+\vec{t})(N+\vec{t})$... la sym\'etrie centrale n'est pas une translation.
+$M\to M'=2C-M$, $N\to N'=2C-N$.
+$M'N'=|N'-M'|=|(2C-N)-(2C-M)|=|M-N|=MN$.\checkmark\quad Les distances sont conserv\'ees.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{28}{Produit scalaire et angle dans un triangle}
+
+$A(1,0)$, $B(4,0)$, $C(2,3)$.
+\begin{enumerate}
+  \item $\vv{AB}=(3,0)$, $\vv{AC}=(1,3)$, $\vv{BC}=(-2,3)$.
+        $\cos\hat{A}=\frac{3}{\sqrt{9}\sqrt{10}}=\frac{3}{3\sqrt{10}}=\frac{1}{\sqrt{10}}$~;
+        $\hat{A}\approx71{,}6^{\circ}$.
+        $\cos\hat{B}=\frac{(-3)(-2)+0\cdot3}{\sqrt{9}\sqrt{13}}=\frac{6}{3\sqrt{13}}=\frac{2}{\sqrt{13}}$~;
+        $\hat{B}\approx56{,}3^{\circ}$.
+        $\hat{C}=180^{\circ}-71{,}6^{\circ}-56{,}3^{\circ}\approx52{,}1^{\circ}$.
+  \item Tous les cosinus sont positifs~: triangle \textbf{acutangle}.
+  \item Aire~: $\frac{1}{2}|\det(\vv{AB},\vv{AC})|=\frac{1}{2}|3\cdot3-0\cdot1|=\frac{9}{2}$.
+        V\'erif. par base$\times$hauteur~: base $AB=3$, hauteur $= y_C-y_{AB}=3$. Aire $=\frac{1}{2}\cdot3\cdot3=\frac{9}{2}$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{29}{Condition d'alignement}
+
+\begin{enumerate}
+  \item $\vv{AB}=(2,3)$, $\vv{AC}=(4,6)=2\vv{AB}$~: $\det=0$. Align\'es.
+  \item $\vv{AB}=(2,3)$, $\vv{AC}=(6,9)=3\vv{AB}$~: $\det=0$. Align\'es.
+  \item $\vv{AB}=(3,-3)$, $\vv{AC}=(6,-7)$~: $\det=3(-7)-(-3)6=-21+18=-3\ne0$. Non align\'es.
+  \item $\vv{AB}=(4,-2)$, $\vv{AC}=(8,-3)$~: $\det=4(-3)-(-2)8=-12+16=4\ne0$. Non align\'es.
+        Pour (d)~: $\det(\vv{AB},\vv{AC})=(4)(k-3)-(-2)(8)=4k-12+16=4k+4=0\Rightarrow k=-1$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{30}{Quadrilat\`ere et vecteurs}
+
+$A(0,0)$, $B(4,1)$, $C(5,4)$, $D(1,3)$.
+\begin{enumerate}
+  \item $\vv{AB}=(4,1)$~; $\vv{BC}=(1,3)$~; $\vv{CD}=(-4,-1)$~; $\vv{DA}=(-1,-3)$.
+  \item $\vv{AB}=(4,1)=\vv{DC}=(4,1)$.\checkmark\quad $ABCD$ est un parall\'elogramme.
+  \item $AB=\sqrt{17}$~; $BC=\sqrt{10}$~;
+        $AC=\sqrt{41}$ (diagonale)~; $BD=\sqrt{13}$ (diagonale).
+  \item Rectangle~: diagonales \'egales~? $\sqrt{41}\ne\sqrt{13}$~: non.
+        Losange~: $AB=BC$~? $\sqrt{17}\ne\sqrt{10}$~: non.
+        $ABCD$ est un parall\'elogramme ordinaire.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{31}{\logicoalgo\ Algorithme~: tester l'alignement}
+
+\begin{enumerate}
+  \item La condition $d=0$ est une CNS pour l'alignement~:
+        $A,B,C$ align\'es $\Leftrightarrow\det(\vv{AB},\vv{AC})=0$.
+        C'est bien une \'equivalence logique.\hfill$\square$
+  \item $A(0,0),B(2,3),C(4,6)$~: $d=2\cdot6-4\cdot3=0$. Align\'es.\checkmark\quad
+        $A(1,1),B(2,3),C(4,6)$~: $d=(1)(5)-(3)(2)=5-6=-1\ne0$. Non align\'es.\checkmark
+  \item Oui~: en virgule flottante, $d=0$ exactement peut \^etre manqu\'e.
+        La condition $|d|<\varepsilon$ est plus robuste.
+  \item
+\begin{lstlisting}[language=Python]
+def alignes(xA,yA, xB,yB, xC,yC, eps=1e-9):
+    d = (xB-xA)*(yC-yA) - (xC-xA)*(yB-yA)
+    return abs(d) < eps
+\end{lstlisting}
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{32}{Losange et produit scalaire}
+
+$ABCD$ losange~: $AB=BC=CD=DA=a$. Vecteurs~: $\vec{u}=\vv{AB}$, $\vec{v}=\vv{AD}$~;
+$\norme{\vec{u}}=\norme{\vec{v}}=a$.
+\begin{enumerate}
+  \item $\vv{AC}=\vec{u}+\vec{v}$~; $\vv{BD}=\vec{v}-\vec{u}$.
+  \item $\vv{AC}\cdot\vv{BD}=(\vec{u}+\vec{v})\cdot(\vec{v}-\vec{u})
+        =\norme{\vec{v}}^2-\norme{\vec{u}}^2=a^2-a^2=0$.
+  \item $\vv{AC}\perp\vv{BD}$~: les diagonales sont perpendiculaires.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{33}{Th\'eor\`eme de la m\'ediane}
+
+$M$ milieu de $[BC]$~: $\vv{BM}=\frac{1}{2}\vv{BC}$.
+\begin{enumerate}
+  \item $\vv{AB}=\vv{AM}+\vv{MB}=\vv{AM}-\vv{BM}$~;
+        $\vv{AC}=\vv{AM}+\vv{MC}=\vv{AM}+\vv{BM}$.
+  \item $AB^2+AC^2=\norme{\vv{AM}-\vv{BM}}^2+\norme{\vv{AM}+\vv{BM}}^2
+        =2\norme{\vv{AM}}^2+2\norme{\vv{BM}}^2=2AM^2+2BM^2$.
+  \item D\'emonstration compl\`ete.\hfill$\square$
+  \item $A(1,1)$, $B(5,3)$, $C(-1,7)$~; $M=(2,5)$.
+        $AB^2=20$, $AC^2=40$, $AM^2=17$, $BM^2=13$.
+        Ainsi $AB^2+AC^2=60=2\cdot17+2\cdot13$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{34}{Th\'eor\`eme de l'angle inscrit dans un demi-cercle}
+
+$[AB]$ diam\`etre, $O$ centre, $\norme{\vv{OA}}=\norme{\vv{OM}}=R$.
+\begin{enumerate}
+  \item $\vv{OA}=\vec{a}$, $\vv{OM}=\vec{m}$, $\vv{OB}=-\vec{a}$ (diam\`etre).
+  \item $\vv{MA}=\vv{OA}-\vv{OM}=\vec{a}-\vec{m}$~;
+        $\vv{MB}=\vv{OB}-\vv{OM}=-\vec{a}-\vec{m}$.
+  \item $\vv{MA}\cdot\vv{MB}=(\vec{a}-\vec{m})\cdot(-\vec{a}-\vec{m})
+        =-(\vec{a}-\vec{m})(\vec{a}+\vec{m})
+        =-(\norme{\vec{a}}^2-\norme{\vec{m}}^2)=-(R^2-R^2)=0$.
+  \item $\vv{MA}\perp\vv{MB}$~: $\widehat{AMB}=90^{\circ}$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{35}{Centre de gravité et vecteurs}
+
+\begin{enumerate}
+  \item $\vv{PA}+\vv{PB}+\vv{PC}
+        =(\vv{PG}+\vv{GA})+(\vv{PG}+\vv{GB})+(\vv{PG}+\vv{GC})
+        =3\vv{PG}+(\vv{GA}+\vv{GB}+\vv{GC})$.
+        Si $G$ est le centre de gravité~: $\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$ (voir (2)).
+        Donc $\vv{PA}+\vv{PB}+\vv{PC}=3\vv{PG}$.\hfill$\square$
+  \item Poser $P=G$~: $\vv{GA}+\vv{GB}+\vv{GC}=3\vv{GG}=\vec{0}$.\hfill$\square$
+  \item Soit $M_A$ milieu de $[BC]$. Montrer $G\in[AM_A]$ avec $AG=2\cdot GM_A$.
+        $G=\frac{A+B+C}{3}=\frac{A+2M_A}{3}=A+\frac{2}{3}\vv{AM_A}$.
+        Donc $G$ est \`a $\frac{2}{3}$ du chemin de $A$ vers $M_A$~:
+        $AG/GM_A=2$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{36}{Loi des cosinus}
+
+\begin{enumerate}
+  \item $\vv{BC}=\vv{AC}-\vv{AB}$.
+        $a^2=\norme{\vv{BC}}^2=\norme{\vv{AC}-\vv{AB}}^2
+        =\norme{\vv{AC}}^2-2\vv{AC}\cdot\vv{AB}+\norme{\vv{AB}}^2
+        =b^2+c^2-2bc\cos A$.\hfill$\square$
+  \item $A(0,0)$, $B(4,0)$, $C(1,3)$~: $a=BC=\sqrt{9+9}=3\sqrt{2}$,
+        $b=CA=\sqrt{10}$, $c=AB=4$.
+        $\cos A=\frac{\vv{AB}\cdot\vv{AC}}{AB\cdot AC}=\frac{4+0}{4\sqrt{10}}=\frac{1}{\sqrt{10}}$.
+        $b^2+c^2-2bc\cos A=10+16-2\cdot4\cdot\sqrt{10}\cdot\frac{1}{\sqrt{10}}=26-8=18=a^2$.\checkmark
+  \item Si $A=90^{\circ}$~: $\cos A=0$, d'o\`u $a^2=b^2+c^2$~: th\'eor\`eme de Pythagore.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{37}{Orthocentre d'un triangle}
+
+$A(0,4)$, $B(-2,0)$, $C(3,0)$.
+\begin{enumerate}
+  \item $\vv{BC}=(5,0)$. Hauteur de $A$~: $\vv{HA}\cdot\vv{BC}=0$, i.e.\ $H$ sur la verticale $x=0$.
+  \item Hauteur de $A$~: perpendiculaire \`a $BC$ (horizontal), donc $x=0$ (droite verticale).
+        Hauteur de $B$~: $\vv{AC}=(3,-4)$, pente $-4/3$, normale de pente $3/4$.
+        Droite issue de $B(-2,0)$~: $y=\frac{3}{4}(x+2)$.
+  \item En $x=0$~: $y=\frac{3}{4}\cdot2=\frac{3}{2}$. $H=\bigl(0,\frac{3}{2}\bigr)$.
+  \item $\vv{HC}=(3,-\frac{3}{2})$, $\vv{AB}=(-2,-4)$.
+        $\vv{HC}\cdot\vv{AB}=3(-2)+(-\frac{3}{2})(-4)=-6+6=0$.\checkmark\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{38}{\logiq\ Propositions sur les vecteurs}
+
+\begin{enumerate}
+  \item \textbf{Vraie} (commutativit\'e).
+        N\'egation~: $\exists\vec{u},\vec{v},\;\vec{u}+\vec{v}\ne\vec{v}+\vec{u}$.
+  \item \textbf{Vraie} (\'el\'ement neutre).
+        N\'egation~: $\exists\vec{u},\;\vec{u}+\vec{0}\ne\vec{u}$.
+  \item \textbf{Fausse.} $\vec{u}\cdot\vec{u}=\norme{\vec{u}}^2\geq0$, nul uniquement si $\vec{u}=\vec{0}$.
+        Contre-exemple~: il n'existe pas de $\vec{u}\ne\vec{0}$ tel que $\vec{u}\cdot\vec{u}=0$.
+  \item \textbf{Fausse.} Contre-exemple~: $\vec{u}=(1,0)$, $\vec{v}=(0,1)$~:
+        $\vec{u}\cdot\vec{v}=0$ mais $\vec{u}\ne\vec{0}$ et $\vec{v}\ne\vec{0}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{39}{\logiq\ Colin\'earit\'e~: condition n\'ecessaire et suffisante}
+
+\begin{enumerate}
+  \item La condition $\det(\vec{u},\vec{v})=0$ est une \textbf{CNS} pour $\vec{u}\parallel\vec{v}$.
+  \item $\vec{u}\parallel\vec{v}\Leftrightarrow\det(\vec{u},\vec{v})=x_1y_2-x_2y_1=0$.
+  \item $\vec{u}\parallel\vec{v}$ et $\vec{v}\parallel\vec{w}$~:
+        $\vec{v}=\lambda\vec{u}$ et $\vec{w}=\mu\vec{v}=\mu\lambda\vec{u}$~;
+        donc $\vec{w}=(\mu\lambda)\vec{u}$~: $\vec{u}\parallel\vec{w}$.
+        C'est un raisonnement \textbf{transitif direct}.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{40}{\logiq\ Raisonnement par l'absurde en g\'eom\'etrie}
+
+\begin{enumerate}
+  \item Suppos. que $A,B,C$ ne sont pas align\'es.
+        Alors $\vv{AB}$ et $\vv{AC}$ ne sont pas colin\'eaires, i.e.\ $\det\ne0$.
+        Contradiction avec l'hypoth\`ese.\hfill$\square$
+  \item Suppos. que les diagonales $[AC]$ et $[BD]$ se coupent en leur milieu $I$,
+        mais que $ABCD$ n'est pas un parall\'elogramme.
+        Or $I$ milieu de $[AC]$ et de $[BD]$~: $\vv{IA}=\vv{IC'}$... 
+        En fait~: $\vv{OI}=\frac{\vv{OA}+\vv{OC}}{2}=\frac{\vv{OB}+\vv{OD}}{2}$
+        $\Rightarrow\vv{OA}+\vv{OC}=\vv{OB}+\vv{OD}$
+        $\Rightarrow\vv{AB}=\vv{DC}$~: $ABCD$ est un parall\'elogramme.
+        Contradiction avec l'hypoth\`ese.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{41}{\logiq\ Implication en g\'eom\'etrie}
+
+\begin{enumerate}
+  \item Implication vraie, r\'eciproque \textbf{fausse}~:
+        un losange non carr\'e n'est pas un carr\'e.
+  \item \'Equivalence~: $\vec{u}\cdot\vec{v}=0\Leftrightarrow\vec{u}\perp\vec{v}$.
+        C'est une d\'efinition~; vraie dans les deux sens.
+  \item \'Equivalence~: $\vv{AB}=\vv{DC}\Leftrightarrow ABCD$ est un parall\'elogramme.
+        Les deux sens sont vrais.\hfill$\square$
+  \item \'Equivalence~: $M$ milieu de $[AB]\Leftrightarrow\vv{MA}+\vv{MB}=\vec{0}$.
+        Vraie dans les deux sens (d\'efinition).\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{42}{\logiq\ Conditions pour un rectangle}
+
+\begin{enumerate}
+  \item $ABCD$ parall\'elogramme rectangle
+        $\Leftrightarrow AC=BD$ (diagonales \'egales).
+  \item Sens direct~: $ABCD$ rectangle, $\vv{AB}\perp\vv{AD}$.
+        $\norme{\vv{AC}}^2=\norme{\vv{AB}+\vv{AD}}^2=\norme{\vv{AB}}^2+2\vv{AB}\cdot\vv{AD}+\norme{\vv{AD}}^2=\norme{\vv{AB}}^2+\norme{\vv{AD}}^2$.
+        $\norme{\vv{BD}}^2=\norme{\vv{AB}-\vv{AD}}^2=\norme{\vv{AB}}^2+\norme{\vv{AD}}^2$.
+        Donc $AC=BD$.\hfill$\square$
+  \item Contrapos\'ee~: si $AC\ne BD$, alors $ABCD$ n'est pas un rectangle.
+  \item Parall\'elogramme $A(0,0),B(3,0),C(4,2),D(1,2)$~:
+        $AC=\sqrt{20}$, $BD=\sqrt{4+4}=2\sqrt{2}$~: in\'egaux.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{43}{\logiq\ Quantificateurs et g\'eom\'etrie}
+
+\begin{enumerate}
+  \item La phrase s'écrit
+        $\exists !M\in\mathcal P,\ MA=MB$. Elle est fausse : l'ensemble des
+        points équidistants de $A$ et $B$ est la médiatrice de $[AB]$.
+  \item $\{M\in\mathcal P\mid MA=MB\}$ est la médiatrice de $[AB]$ et
+        $\exists !M\in[AB],\ MA=MB$; ce point est le milieu de $[AB]$.
+  \item Pour tout triangle non aplati $ABC$, il existe un unique point $G$
+        tel que $\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$.
+  \item Existence~: $G=\bigl(\frac{x_A+x_B+x_C}{3},\frac{y_A+y_B+y_C}{3}\bigr)$ v\'erifie la propri\'et\'e
+        (v\'erification par calcul direct). Unicit\'e~: si $G'$ v\'erifie aussi la propri\'et\'e,
+        alors $3\vv{GG'}=(\vv{G'A}+\vv{G'B}+\vv{G'C})-(\vv{GA}+\vv{GB}+\vv{GC})=\vec{0}$,
+        donc $G'=G$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{44}{\algo\ Algorithme~: tester si $ABCD$ est un parall\'elogramme}
+
+Trace~:
+$A(0,0),B(3,1),C(4,3),D(1,2)$~: $\vv{AB}=(3,1)$, $\vv{DC}=(3,1)$.\checkmark\quad Parall\'elogramme.
+$A(0,0),B(2,0),C(3,2),D(1,3)$~: $\vv{AB}=(2,0)$, $\vv{DC}=(2,-1)\ne\vv{AB}$. Pas un parall\'elogramme.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{45}{\algo\ Algorithme~: nature d'un quadrilat\`ere \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+def nature(A, B, C, D):
+    AB = (B[0]-A[0], B[1]-A[1])
+    DC = (C[0]-D[0], C[1]-D[1])
+    para = (abs(AB[0]-DC[0]) < 1e-9 and abs(AB[1]-DC[1]) < 1e-9)
+    if not para:
+        return "Aucun"
+    AB_n = math.hypot(*AB)
+    BC = (C[0]-B[0], C[1]-B[1])
+    BC_n = math.hypot(*BC)
+    AC = (C[0]-A[0], C[1]-A[1])
+    BD = (D[0]-B[0], D[1]-B[1])
+    loz = abs(AB_n - BC_n) < 1e-9
+    rect = abs(AB[0]*BC[0] + AB[1]*BC[1]) < 1e-9
+    if loz and rect: return "Carre"
+    if loz: return "Losange"
+    if rect: return "Rectangle"
+    return "Parallelogramme"
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{46}{\algo\ Algorithme~: centre de gravité et milieux}
+
+\begin{lstlisting}[language=Python]
+def analyse_triangle(A, B, C):
+    G = ((A[0]+B[0]+C[0])/3, (A[1]+B[1]+C[1])/3)
+    mAB = ((A[0]+B[0])/2, (A[1]+B[1])/2)
+    mBC = ((B[0]+C[0])/2, (B[1]+C[1])/2)
+    mCA = ((C[0]+A[0])/2, (C[1]+A[1])/2)
+    # Verifier que la mediane de A passe par G
+    # G = A + t*(mBC - A) avec t = 2/3
+    t = 2/3
+    G_check = (A[0]+t*(mBC[0]-A[0]), A[1]+t*(mBC[1]-A[1]))
+    ok = abs(G_check[0]-G[0]) < 1e-9
+    return G, mAB, mBC, mCA, ok
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{47}{\algo\ Algorithme~: orthocentre d'un triangle \computer}
+
+\begin{lstlisting}[language=Python]
+def orthocentre(A, B, C):
+    # Hauteur de A: perp a BC
+    # BC direction: (C-B); perp normal: (-(C-B)[1], (C-B)[0])
+    # H = A + t*(perp_A), on resout systeme lineaire
+    import numpy as np
+    BC = [C[0]-B[0], C[1]-B[1]]
+    AC = [C[0]-A[0], C[1]-A[1]]
+    # H.x*BC[0]+H.y*BC[1] = A[0]*BC[0]+A[1]*BC[1]
+    # H.x*AC[0]+H.y*AC[1] = B[0]*AC[0]+B[1]*AC[1]
+    M = np.array([BC, AC], dtype=float)
+    r = np.array([A[0]*BC[0]+A[1]*BC[1], B[0]*AC[0]+B[1]*AC[1]], dtype=float)
+    H = np.linalg.solve(M, r)
+    return tuple(H)
+
+H = orthocentre((0,4),(-2,0),(3,0))
+print(H)  # (0.0, 1.5)
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{48}{\algo\ Algorithme~: produit scalaire et angle \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+def angles_triangle(A, B, C):
+    def ps(u, v): return u[0]*v[0]+u[1]*v[1]
+    def norme(u): return math.hypot(*u)
+    def vec(P,Q): return (Q[0]-P[0], Q[1]-P[1])
+    AB, AC = vec(A,B), vec(A,C)
+    BA, BC = vec(B,A), vec(B,C)
+    CA, CB = vec(C,A), vec(C,B)
+    cosA = ps(AB,AC)/(norme(AB)*norme(AC))
+    cosB = ps(BA,BC)/(norme(BA)*norme(BC))
+    cosC = ps(CA,CB)/(norme(CA)*norme(CB))
+    aA = math.degrees(math.acos(max(-1,min(1,cosA))))
+    aB = math.degrees(math.acos(max(-1,min(1,cosB))))
+    aC = math.degrees(math.acos(max(-1,min(1,cosC))))
+    print(f"A={aA:.2f}, B={aB:.2f}, C={aC:.2f}, somme={aA+aB+aC:.4f}")
+    typ = "rectangle" if any(abs(a-90)<1e-6 for a in [aA,aB,aC]) \
+          else ("acutangle" if all(a<90 for a in [aA,aB,aC]) else "obtusangle")
+    print("Type:", typ)
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{5}{49}{\algo\ Algorithme~: distance d'un point \`a une droite \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+def dist_point_droite(x0, y0, a, b, c):
+    return abs(a*x0 + b*y0 + c) / math.sqrt(a**2 + b**2)
+
+# Test: A(3,4), droite 3x+4y-25=0
+print(dist_point_droite(3, 4, 3, 4, -25))  # 0.0 (A est sur la droite)
+\end{lstlisting}
+\emph{V\'erif.~: $3\cdot3+4\cdot4-25=9+16-25=0$~: le point $A$ est sur la droite.
+Distance $= 0$.\checkmark}
+
+%────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+\addcontentsline{toc}{subsection}{Probl\`emes}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{1}{Navigation et cap}
+
+$\vec{u_1}=(3,4)$, $\vec{u_2}=(-1,2)$, $\vec{u_3}=(2,-3)$.
+\textbf{(1)} $P=\vec{u_1}+\vec{u_2}+\vec{u_3}=(4,3)$.
+\textbf{(2)} $OP=\sqrt{16+9}=5$~km.
+\textbf{(3)} $\vec{t}=(4,3)$ (vecteur direct de $O$ \`a $P$).
+\textbf{(4)} Cap (depuis le Nord, axe $Oy$)~:
+$\theta=\arctan\bigl(\frac{x_P}{y_P}\bigr)=\arctan\bigl(\frac{4}{3}\bigr)\approx53{,}1^{\circ}$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{2}{G\'eom\'etrie du parall\'elogramme}
+
+$A(0,0)$, $B(4,0)$, $D(1,3)$.
+\textbf{(1)} $C=B+\vv{AD}=B+D=(5,3)$.
+\textbf{(2)} $AB=4$, $AD=\sqrt{10}$, $BC=AD=\sqrt{10}$, $CD=AB=4$.
+$AC=\sqrt{25+9}=\sqrt{34}$, $BD=\sqrt{9+9}=3\sqrt{2}$.
+\textbf{(3)} Rectangle~: $AC=BD$~? $\sqrt{34}\ne3\sqrt{2}$~: non.
+Losange~: $AB=AD$~? $4\ne\sqrt{10}$~: non.
+$ABCD$ est un \textbf{parall\'elogramme ordinaire}.
+\textbf{(4)} Aire~: $|\det(\vv{AB},\vv{AD})|=|4\cdot3-0\cdot1|=12$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{3}{Barycentre et partage d'un segment}
+
+\textbf{(1)} $\vv{OG}=\frac{1}{1+k}\bigl(\vv{OA}+k\vv{OB}\bigr)$~:
+$G=\frac{A+kB}{1+k}$.
+\textbf{(2)} $A(1,2)$, $B(5,6)$, $k=3$~: $G=\frac{(1,2)+3(5,6)}{4}=\frac{(16,20)}{4}=(4,5)$.
+\textbf{(3)} $AG=3GB$~: $G=\frac{A+3B}{4}=\frac{(0,0)+3(8,4)}{4}=(6,3)$.
+\textbf{(4)} Si $G=\lambda B+(1-\lambda)A$~:
+$\vv{AG}=\lambda\vv{AB}$, $\vv{GB}=(1-\lambda)\vv{AB}$.
+$\vv{OG}=(1-\lambda)\vv{OA}+\lambda\vv{OB}$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{4}{Vecteurs et physique~: forces}
+
+$\vec{F_1}=(3,4)$~N, $\vec{F_2}=(-1,2)$~N.
+\textbf{(1)} $\vec{R}=(2,6)$~N.
+\textbf{(2)} $\norme{\vec{R}}=\sqrt{4+36}=\sqrt{40}=2\sqrt{10}\approx6{,}32$~N.
+\textbf{(3)} $\vec{F_3}=-\vec{R}=(-2,-6)$~N.
+\textbf{(4)} $\cos\theta=\frac{\vec{F_1}\cdot\vec{F_2}}{\norme{\vec{F_1}}\norme{\vec{F_2}}}
+=\frac{-3+8}{5\sqrt{5}}=\frac{5}{5\sqrt{5}}=\frac{1}{\sqrt{5}}$~;
+$\theta\approx63{,}4^{\circ}$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{5}{Cercle d\'efini par son diam\`etre}
+
+$A(1,-1)$, $B(5,3)$.
+\textbf{(1)} $\Omega=(3,1)$~; $R=\frac{AB}{2}=\frac{\sqrt{16+16}}{2}=2\sqrt{2}$.
+\textbf{(2)} $(x-3)^2+(y-1)^2=8$.
+\textbf{(3)} $\vv{MA}=(1-x,-1-y)$, $\vv{MB}=(5-x,3-y)$.
+$\vv{MA}\cdot\vv{MB}=(1-x)(5-x)+(-1-y)(3-y)
+=5-6x+x^2-3+2y+y^2-3+x^2+y^2=(x-3)^2+(y-1)^2-8$.
+Donc $M$ sur le cercle $\Leftrightarrow(x-3)^2+(y-1)^2=8\Leftrightarrow\vv{MA}\cdot\vv{MB}=0$.\hfill$\square$
+\textbf{(4)} $M(1,3)$~: $(1-3)^2+(3-1)^2=4+4=8$.\checkmark\quad
+$M(5,-1)$~: $(5-3)^2+(-1-1)^2=4+4=8$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{6}{M\'ediane, hauteur, m\'ediatrice}
+
+$A(0,6)$, $B(-4,0)$, $C(4,0)$.
+\textbf{(1)} centre de gravité~: $G=\bigl(0,2\bigr)$.
+Circocentre~: par sym\'etrie (triangle isoc\`ele $AB=AC=2\sqrt{13}$), $O'=(0,y)$.
+M\'ediatrice de $BC$~: $x=0$. M\'ediatrice de $AC$~: milieu $(2,3)$, pente $AC$~: $\frac{0-6}{4-0}=-\frac{3}{2}$, perp.~: $\frac{2}{3}$.
+$y-3=\frac{2}{3}(x-2)$. En $x=0$~: $y=3-\frac{4}{3}=\frac{5}{3}$.
+$O'=\bigl(0,\frac{5}{3}\bigr)$.
+Orthocentre~: hauteur de $A$~: $x=0$ (axe de sym\'etrie). Hauteur de $B$~: vecteur $AC=(4,-6)$, perp. $(3,2)$. Droite issue de $B(-4,0)$~: $y=\frac{2}{3}(x+4)$. En $x=0$~: $y=\frac{8}{3}$.
+$H=\bigl(0,\frac{8}{3}\bigr)$.
+
+\textbf{(2)} $O'=(0,\frac{5}{3})$, $G=(0,2)$, $H=(0,\frac{8}{3})$~: m\^eme abscisse $\Rightarrow$ align\'es.\checkmark
+$\vv{O'G}=(0,\frac{1}{3})$, $\vv{GH}=(0,\frac{2}{3})=2\vv{O'G}$~:
+$O'G=\dfrac{GH}{2}$.\checkmark
+
+\textbf{(3)} $AB=AC=2\sqrt{13}$~: triangle isoc\`ele. Non \'equilat\'eral. Non rectangle
+($\vv{AB}\cdot\vv{AC}=(-4)(4)+(0-6)(0-6)... = -16+36=20\ne0$).
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{7}{Vecteurs et d\'eplacement}
+
+S\'equence depuis $A(0,0)$~: Nord $(0,2)$, Est $(2,0)$, Nord $(0,2)$, Sud-Est $(1,-1)$, Est $(2,0)$.
+\textbf{(1)} $B=(0,0)+(0,2)+(2,0)+(0,2)+(1,-1)+(2,0)=(5,3)$.
+\textbf{(2)} $\vv{AB}=(5,3)$.
+\textbf{(3)} Trois mouvements~: par exemple Est $(2,0)$, Nord $(0,2)$, puis $(3,1)$ (en un seul vecteur)~;
+ou Est $(5,0)$ + Nord $(0,2)$ + Sud-Est $(0,1)$... Une solution simple~:
+$\vec{t_1}=(2,0)$, $\vec{t_2}=(2,0)$, $\vec{t_3}=(1,3)$ (somme $=(5,3)$).\checkmark
+
+\textbf{(4)}
+\begin{lstlisting}[language=Python]
+mouvements = [(0,2),(2,0),(0,2),(1,-1),(2,0)]
+x, y = 0, 0
+print(f"Depart: ({x},{y})")
+for dx, dy in mouvements:
+    x += dx; y += dy
+    print(f"Position: ({x},{y})")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{8}{Vecteurs et r\'egression lin\'eaire}
+
+Points~: $(1,2),(2,3),(3,5),(4,4),(5,6)$.
+\textbf{(1)} $\bar{x}=3$, $\bar{y}=4$.
+\textbf{(2)} $\vec{m}=(3,4)$.
+\textbf{(3)} $\sum(x_i-\bar{x})^2=4+1+0+1+4=10$.
+$\sum(x_i-\bar{x})(y_i-\bar{y})=(-2)(-2)+(-1)(-1)+0+1\cdot0+2\cdot2=4+1+0+0+4=9$.
+\textbf{(4)} $a=9/10=0{,}9$~; $b=4-0{,}9\times3=1{,}3$.
+Droite de r\'egression~: $y=0{,}9x+1{,}3$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{9}{Polygone r\'egulier~: hexagone}
+
+$A(2,0)$~; rotation de $60^{\circ}$~: $(x,y)\mapsto(\frac{x-y\sqrt{3}}{2},\frac{x\sqrt{3}+y}{2})$.
+$B=(1,\sqrt{3})$~; $C=(-1,\sqrt{3})$~; $D=(-2,0)$~; $E=(-1,-\sqrt{3})$~; $F=(1,-\sqrt{3})$.
+
+\textbf{(2)} Somme~: $x$-coordonn\'ees~: $2+1-1-2-1+1=0$~; $y$~: $0+\sqrt{3}+\sqrt{3}+0-\sqrt{3}-\sqrt{3}=0$.\checkmark
+
+\textbf{(3)} $\vv{AB}=(-1,\sqrt{3})$, $\vv{BC}=(-2,0)$.
+$\vv{AB}\cdot\vv{BC}=(-1)(-2)+\sqrt{3}\cdot0=2$.
+(Angle entre c\^ot\'es cons\'ecutifs~: $\cos\theta=\frac{2}{2\cdot2}=\frac{1}{2}$~; $\theta=60^{\circ}$.)
+
+\textbf{(4)} Aire~: 6 triangles \'equilat\'eraux de c\^ot\'e $2$.
+Aire d'un triangle~: $\frac{\sqrt{3}}{4}\cdot4=\sqrt{3}$.
+Aire totale~: $6\sqrt{3}$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{10}{Construction d'un point par vecteur}
+
+$A(2,1)$, $B(5,4)$, $C(1,6)$.
+\textbf{(1)} $ABDC$ parall\'elogramme~: $\vv{AB}=\vv{CD}\Rightarrow D=C+\vv{BA}=C-(B-A)=(1,6)-(3,3)=(-2,3)$.
+\textbf{(2)} $\vv{AE}=2\vv{AB}+\vv{AC}=2(3,3)+(-1,5)=(5,11)$~; $E=(7,12)$.
+\textbf{(3)} $F$ milieu de $[BE]$~: $F=\bigl(\frac{5+7}{2},\frac{4+12}{2}\bigr)=(6,8)$.
+\textbf{(4)} $G=\frac{A+B+C}{3}=\bigl(\frac{8}{3},\frac{11}{3}\bigr)$.
+$\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$~: propri\'et\'e du centre de gravité.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{11}{Vecteurs et r\`egle de Thal\`es}
+
+$A(0,0)$, $B(6,0)$, $C(0,4)$. $M$ milieu de $[AB]$, $N$ milieu de $[AC]$.
+\textbf{(1)} $M=(3,0)$~; $N=(0,2)$.
+\textbf{(2)} $\vv{MN}=(-3,2)$~; $\vv{BC}=(-6,4)=2\vv{MN}$.
+$MN\parallel BC$ et $MN=BC/2$.
+\textbf{(3)} $MN=\sqrt{13}$~; $BC=2\sqrt{13}$~; $MN/BC=1/2$.
+\textbf{(4)} $\det(\vv{MN},\vv{BC})=(-3)(4)-2(-6)=-12+12=0$~: colin\'eaires.\checkmark\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{12}{Vecteurs et invariance par translation}
+
+Translation de vecteur $\vec{t}=(a,b)$.
+\textbf{(1)} $M'N'=\norme{\vv{M'N'}}=\norme{(\vv{MN}+\vec{t})-\vec{t}}=\norme{\vv{MN}}=MN$.\hfill$\square$
+\textbf{(2)} L'angle entre $\vv{M'P'}$ et $\vv{M'Q'}$ est \'egal \`a celui entre $\vv{MP}$ et $\vv{MQ}$
+car les vecteurs sont identiques (on ajoute $\vec{t}$ \`a tous les points).\hfill$\square$
+\textbf{(3)} Deux droites parall\`eles ont des vecteurs directeurs colin\'eaires.
+La translation ne change pas les vecteurs directeurs.\hfill$\square$
+\textbf{(4)} Non, l'\'equation change.
+Image de $y=x$ par $(1,2)$~: les points $(x,x)$ deviennent $(x+1,x+2)$.
+Relation~: $y'=x'+1$, soit $y=x+1$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{13}{\logiq\ Logique et preuves g\'eom\'etriques}
+
+\textbf{(1)} D\'emonstration du losange~: voir exo~32 (ci-dessus).
+\'Equivalence (second membre admis)~:
+$ABCD$ losange $\Leftrightarrow AB=BC\wedge\vv{AC}\perp\vv{BD}$.
+
+\textbf{(2)} $M$ est sur la m\'ediatrice de $[AB]$
+$\Leftrightarrow MA=MB\Leftrightarrow MA^2=MB^2$
+$\Leftrightarrow(x-x_A)^2+(y-y_A)^2=(x-x_B)^2+(y-y_B)^2$.
+C'est une \'equation lin\'eaire~: une droite (la m\'ediatrice).\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{14}{\logiq\ Logique et propri\'et\'es du produit scalaire}
+
+\textbf{(1)} $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2=x_2x_1+y_2y_1=\vec{v}\cdot\vec{u}$~:
+vraie pour tout $\vec{u},\vec{v}$.\hfill$\square$
+
+\textbf{(2)} $\vec{u}\cdot(\vec{v}+\vec{w})=x_1(x_2+x_3)+y_1(y_2+y_3)
+=x_1x_2+y_1y_2+x_1x_3+y_1y_3=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}$.\hfill$\square$
+
+\textbf{(3)} \textbf{Fausse.} Contre-exemple~: $\vec{u}=(1,0)$, $\vec{v}=(0,1)$~;
+$\vec{u}\cdot\vec{v}=0$ mais ni $\vec{u}$ ni $\vec{v}$ n'est nul.
+La propri\'et\'e est sp\'ecifique aux nombres r\'eels (\og pas de diviseur de z\'ero\fg),
+elle ne s'applique pas au produit scalaire.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{15}{\algo\ Algorithme~: cercle circonscrit \computer}
+
+\begin{lstlisting}[language=Python]
+import numpy as np, math
+
+def circocentre(A, B, C):
+    # Deux mediatrices
+    mAB = [(A[0]+B[0])/2, (A[1]+B[1])/2]
+    mBC = [(B[0]+C[0])/2, (B[1]+C[1])/2]
+    dAB = [B[0]-A[0], B[1]-A[1]]  # direction AB
+    dBC = [C[0]-B[0], C[1]-B[1]]  # direction BC
+    # Systeme: mAB + t*perp(dAB) = mBC + s*perp(dBC)
+    pAB = [-dAB[1], dAB[0]]
+    pBC = [-dBC[1], dBC[0]]
+    M = np.array([[pAB[0], -pBC[0]], [pAB[1], -pBC[1]]], dtype=float)
+    r = np.array([mBC[0]-mAB[0], mBC[1]-mAB[1]], dtype=float)
+    ts = np.linalg.solve(M, r)
+    O = [mAB[0]+ts[0]*pAB[0], mAB[1]+ts[0]*pAB[1]]
+    R = math.hypot(O[0]-A[0], O[1]-A[1])
+    return tuple(O), R
+
+O, R = circocentre((0,0),(4,0),(1,3))
+print(f"Centre: {O}, Rayon: {R:.4f}")
+print(f"Equation: (x-{O[0]:.3f})^2+(y-{O[1]:.3f})^2={R**2:.3f}")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{5}{16}{\algo\ Algorithme~: tracer une trajectoire vectorielle \computer}
+
+\begin{lstlisting}[language=Python]
+import matplotlib.pyplot as plt, math
+
+vecteurs = [(3,4), (-1,2), (2,-3)]  # exemple
+x, y = 0, 0
+xs, ys = [x], [y]
+dist = 0
+for dx, dy in vecteurs:
+    x += dx; y += dy
+    dist += math.hypot(dx, dy)
+    xs.append(x); ys.append(y)
+
+plt.figure()
+plt.plot(xs, ys, 'b-o')
+plt.xlabel('x'); plt.ylabel('y')
+plt.title(f'Trajectoire - distance totale: {dist:.2f}')
+plt.grid(True)
+plt.show()
+print(f"Distance totale: {dist:.4f}")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+\addcontentsline{toc}{subsection}{D\'efis}
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~1~\textendash\ \textit{D\'emonstrations g\'eom\'etriques fondamentales}}
+\par\smallskip
+
+\textbf{(1)} Voir exercice~32~: $\vv{AC}\cdot\vv{BD}=\norme{\vec{v}}^2-\norme{\vec{u}}^2=0$ car $\norme{\vec{u}}=\norme{\vec{v}}=a$.\hfill$\square$
+
+\textbf{(2)} Voir exercice~33~: $AB^2+AC^2=2AM^2+2BM^2$.\hfill$\square$
+
+\textbf{(3)} Voir exercice~34~: $\vv{MA}\cdot\vv{MB}=0$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~2~\textendash\ \textit{G\'eom\'etrie et coordonn\'ees~: droite d'Euler}}
+\par\smallskip
+
+$A(0,0)$, $B(4,0)$, $C(1,3)$.
+centre de gravité~: $G=(5/3,1)$.
+Circocentre~: m\'ediatrice de $AB$~: $x=2$.
+M\'ediatrice de $AC$~: milieu $(1/2,3/2)$, pente $AC=3$, perp.~: $-1/3$.
+$y-3/2=-\frac{1}{3}(x-1/2)$. En $x=2$~: $y=3/2-1/2=1$. $O'=(2,1)$.
+Orthocentre~: hauteur de $A\perp BC$~: $\vv{BC}=(-3,3)$, perp. direction $(1,1)$.
+Droite~: $y=x$. Hauteur de $B\perp AC$~: pente $AC=3$, perp.~: $-1/3$.
+Droite issue de $B(4,0)$~: $y=-\frac{1}{3}(x-4)$. En $y=x$~: $x=-\frac{x-4}{3}\Rightarrow4x=4\Rightarrow x=1$.
+$H=(1,1)$.
+
+Alignement~: $O'=(2,1)$, $G=(5/3,1)$, $H=(1,1)$~: ordonnée $=1$ pour les trois.\checkmark
+$\vv{O'G}=(-1/3,0)$, $\vv{O'H}=(-1,0)$~: $\vv{O'G}=\frac{1}{3}\vv{O'H}$.\checkmark
+
+Cercle des neuf points~: cercle passant par les milieux des c\^ot\'es, les pieds des hauteurs et les milieux des segments joignant les sommets \`a l'orthocentre. Son centre est le milieu de $[O'H]$.
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~3~\textendash\ \textit{Produit vectoriel en 2D~: aire orient\'ee}}
+\par\smallskip
+
+\textbf{(1)} $A(1,2)$, $B(4,6)$, $C(-1,3)$~:
+$\vv{AB}=(3,4)$, $\vv{AC}=(-2,1)$.
+$\det=3\cdot1-4\cdot(-2)=3+8=11$.
+Aire~: $\frac{1}{2}|11|=\frac{11}{2}$.
+
+\textbf{(2)} $\det(\vv{AB},\vv{AC})=0\Leftrightarrow$ vecteurs colin\'eaires $\Leftrightarrow A,B,C$ align\'es.\hfill$\square$
+
+\textbf{(3)} Quadrilat\`ere $A(0,0),B(3,1),C(4,4),D(1,3)$.
+Diviser en deux triangles $ABC$ et $ACD$.
+$\det(\vv{AB},\vv{AC})=3\cdot4-1\cdot4=8$~; Aire$_{ABC}=4$.
+$\det(\vv{AC},\vv{AD})=4\cdot3-4\cdot1=8$~; Aire$_{ACD}=4$.
+Aire totale~: $8$.
+
+\textbf{(4)} $\det(\vec{u}+\vec{v},\vec{w})=(a+c)f-(b+d)e=af-be+cf-de
+=\det(\vec{u},\vec{w})+\det(\vec{v},\vec{w})$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~4~\textendash\ \textit{Transformations et vecteurs}}
+\par\smallskip
+
+\textbf{(1)} Sym\'etrie de centre $O(1,1)$~: $A'=2O-A=2(1,1)-(2,3)=(0,-1)$,
+$B'=2O-B=2(1,1)-(-1,4)=(3,-2)$.
+Image de $[AB]$~: segment $[A'B']$.
+
+\textbf{(2)} R\'eflexion $(Ox)$~: $M(x,y)\to M'(x,-y)$.
+$M'N'=\sqrt{(x_M-x_N)^2+(-y_M+y_N)^2}=\sqrt{(x_M-x_N)^2+(y_M-y_N)^2}=MN$.\hfill$\square$
+
+\textbf{(3)} Translation $\vec{t}=(1,0)$ puis sym\'etrie de centre $O$~:
+$M\to M+(1,0)\to-(M+(1,0))=-M-(1,0)$.
+C'est une sym\'etrie centrale de centre $(-1/2,0)$.
+
+\textbf{(4)} Translation $\vec{t_1}$ puis $\vec{t_2}$~: $M\to M+\vec{t_1}+\vec{t_2}$.
+C'est la translation de vecteur $\vec{t_1}+\vec{t_2}$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~5~\textendash\ \textit{Vecteurs et d\'emonstration analytique}}
+\par\smallskip
+
+\textbf{(1)} $\vec{w}=\lambda(1,2)+\mu(-2,1)=(\lambda-2\mu,2\lambda+\mu)$.
+Syst\`eme~: $\lambda-2\mu=a$, $2\lambda+\mu=b$.
+Solution~: $\lambda=\frac{a+2b}{5}$, $\mu=\frac{2b-a}{5}\cdot\frac{1}{2}$...
+\emph{Calcul~:} $5\lambda=a+2b$ et $5\mu=2b-2a$~?
+Vrai~: $\lambda=\frac{a+2b}{5}$, $\mu=\frac{-2a+b}{5}$.
+\textbf{V\'erif.~:} $\lambda(1,2)+\mu(-2,1)=\bigl(\frac{a+2b}{5}-\frac{-4a+2b}{5},\frac{2a+4b}{5}+\frac{-2a+b}{5}\bigr)=(a,b)$.\checkmark
+
+\textbf{(2)} G\'en\'eralisation~: $\lambda=\frac{\vec{u}\cdot\vec{w}}{\norme{\vec{u}}^2}$,
+$\mu=\frac{\vec{v}\cdot\vec{w}}{\norme{\vec{v}}^2}$ (projection orthogonale).
+
+\textbf{(3)} Sur $\vec{\imath}=(1,0)$, $\vec{\jmath}=(0,1)$~:
+$\vec{w}=(5,3)=5\vec{\imath}+3\vec{\jmath}$.
+Sur $\vec{e_1}=(1,1)/\sqrt{2}$, $\vec{e_2}=(1,-1)/\sqrt{2}$~:
+$\lambda=\vec{e_1}\cdot\vec{w}=\frac{5+3}{\sqrt{2}}=4\sqrt{2}$,
+$\mu=\vec{e_2}\cdot\vec{w}=\frac{5-3}{\sqrt{2}}=\sqrt{2}$.
+$\vec{w}=4\sqrt{2}\cdot\vec{e_1}+\sqrt{2}\cdot\vec{e_2}$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~6~\textendash\ \textit{Vecteurs en physique~: trajectoire}}
+\par\smallskip
+
+$\vec{v_0}=(30,40)$~m/s, $g=10$~m/s$^2$.
+
+\textbf{(1)} Positions~:
+\begin{center}
+\begin{tabular}{c|cc}
+$t$ (s) & $x=30t$ (m) & $y=40t-5t^2$ (m) \\\hline
+0 & 0 & 0 \\ 1 & 30 & 35 \\ 2 & 60 & 60 \\ 3 & 90 & 75 \\ 4 & 120 & 80
+\end{tabular}
+\end{center}
+
+\textbf{(2)} Hauteur max.~: $v_y=40-10t=0\Rightarrow t=4$~s~; $y_{max}=80$~m.
+
+\textbf{(3)} Sol~: $y=0\Rightarrow t(40-5t)=0\Rightarrow t=8$~s.
+Port\'ee~: $x=30\times8=240$~m.
+
+\textbf{(4)}
+\begin{lstlisting}[language=Python]
+import matplotlib.pyplot as plt
+import numpy as np
+t = np.linspace(0, 8, 200)
+x = 30*t; y = 40*t - 5*t**2
+plt.plot(x, y); plt.xlabel('x (m)'); plt.ylabel('y (m)')
+plt.title('Trajectoire du projectile'); plt.grid(True); plt.show()
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~7~\textendash\ \textit{\logiq\ Droite d'Euler et logique}}
+\par\smallskip
+
+\textbf{(1)} $\forall$ triangle $ABC$ non \'equilat\'eral, les points $O'$, $G$, $H$ sont align\'es.
+
+\textbf{(2)} Pour un triangle \'equilat\'eral~: $O'=G=H$ (ils co\"incident).
+La proposition \og pour tout triangle\fg\ est \textbf{vraie} (dans le cas \'equilat\'eral, l'alignement est trivial car les trois points sont \'egaux).
+
+\textbf{(3)} Voir D\'efi~2 ci-dessus (exemple $A(0,0)$, $B(4,0)$, $C(1,3)$).\checkmark
+
+\textbf{(4)} Contrapos\'ee~: si $O'$, $G$, $H$ ne sont pas align\'es, alors ce n'est pas un triangle (contradiction~: $O'$, $G$, $H$ sont toujours align\'es pour tout triangle). La contrapos\'ee n'a donc pas de cas d'application r\'eel.
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~8~\textendash\ \textit{\algo\ Polygone r\'egulier \computer}}
+\par\smallskip
+
+\begin{lstlisting}[language=Python]
+import math, matplotlib.pyplot as plt
+
+def polygone_regulier(n, r=1, cx=0, cy=0):
+    sommets = [(cx + r*math.cos(2*math.pi*k/n),
+                cy + r*math.sin(2*math.pi*k/n))
+               for k in range(n)]
+    perimetre = n * 2 * r * math.sin(math.pi/n)
+    aire = 0.5 * n * r**2 * math.sin(2*math.pi/n)
+    return sommets, perimetre, aire
+
+for n in [3,4,5,6,8,12,100]:
+    _, p, _ = polygone_regulier(n)
+    print(f"n={n:3d}: perimetre={p:.6f}, 2pi={2*math.pi:.6f}")
+
+# Trace pour n=6
+s, _, _ = polygone_regulier(6)
+xs = [p[0] for p in s] + [s[0][0]]
+ys = [p[1] for p in s] + [s[0][1]]
+plt.figure(); plt.plot(xs, ys, 'b-o')
+plt.axis('equal'); plt.grid(True); plt.show()
+\end{lstlisting}
+
+\needspace{3\baselineskip}
+\needspace{3\baselineskip}

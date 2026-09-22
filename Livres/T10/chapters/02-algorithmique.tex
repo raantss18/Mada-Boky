@@ -1,0 +1,950 @@
+\chapter{Algorithmique}
+\input{activities/02-algorithmique}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[L'origine du mot \og algorithme\fg]
+Le mot \textbf{algorithme} vient du nom du math\'ematicien perse
+Muhammad ibn M\^{u}s\^{a} \textbf{al-Khw\^{a}rizm\^{i}} ($780$--$850$),
+dont le nom latinement translitt\'er\'e donna \textit{Algoritmi}. Ce m\^{e}me
+savant donna son nom \`a une autre discipline : l'\textbf{alg\`ebre},
+de \textit{al-jabr}, titre de son trait\'e fondateur. Un homme, deux sciences.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Comprendre la notion d'algorithme et ses propri\'et\'es.
+  \item Lire, ex\'ecuter et tracer un algorithme en pseudo-code.
+  \item Tracer et lire un organigramme.
+  \item \'Ecrire un algorithme simple pour un probl\`eme math\'ematique.
+\end{itemize}
+\end{objectifs}
+
+\section{Qu'est-ce qu'un algorithme ?}
+
+\begin{defn}[Algorithme]
+Un \textbf{algorithme} est une suite finie et non ambigu\"{e} d'instructions
+permettant de r\'esoudre un probl\`eme. Il doit \^{e}tre :
+\textbf{fini} (il termine), \textbf{valide} (il donne le bon r\'esultat),
+et \textbf{d\'eterministe} (m\^{e}me entr\'ee $\Rightarrow$ m\^{e}me sortie).
+\end{defn}
+
+\section{Variables, affectation, s\'equence}
+
+\begin{defn}[Variable et affectation]
+Une \textbf{variable} est un emplacement m\'emoire identifi\'e par un nom.
+L'instruction $A \leftarrow 5$ signifie \og affecter la valeur $5$ \`a $A$\fg.
+Attention : $A \leftarrow A + 1$ remplace l'ancienne valeur de $A$ par
+$(\text{ancienne valeur}) + 1$.
+\end{defn}
+
+\begin{ex}[Trace d'algorithme]
+Ex\'ecuter :
+$A \leftarrow 3,\quad B \leftarrow A + 7,\quad A \leftarrow A \times 2$
+
+\medskip\centering
+\begin{tabular}{cccc}
+\toprule
+\'Etape & Instruction & $A$ & $B$ \\
+\midrule
+1 & $A \leftarrow 3$ & $3$ & -- \\
+2 & $B \leftarrow A+7$ & $3$ & $10$ \\
+3 & $A \leftarrow A \times 2$ & $6$ & $10$ \\
+\bottomrule
+\end{tabular}
+\end{ex}
+
+\section{Structures de contr\^{o}le}
+
+\begin{defn}[Structures de base]
+\begin{itemize}
+  \item \textbf{S\'equence} : les instructions s'ex\'ecutent dans l'ordre.
+  \item \textbf{Alternative} (\texttt{Si \ldots Sinon}) : ex\'ecution conditionnelle.
+  \item \textbf{It\'eration} (\texttt{Tant que} / \texttt{Pour}) : r\'ep\'etition.
+\end{itemize}
+\end{defn}
+
+% Organigrammes
+\begin{figure}[H]
+\centering
+\input{figures/structures-controle}
+\caption{Les trois structures de contr\^ole en organigramme.
+\textbf{Alternative}~: ex\'ecute l'une ou l'autre branche.
+\textbf{Tant que}~: r\'ep\`ete tant que la condition est vraie (test au d\'ebut).
+\textbf{Pour}~: r\'ep\`ete un nombre fix\'e de fois.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.3cm,
+  box/.style={draw=BN,fill=BN!8,rounded corners=3pt,minimum width=3.8cm,
+              minimum height=0.75cm,align=center,font=\small},
+  diam/.style={draw=OR,fill=OR!10,shape=diamond,aspect=2.8,minimum width=3.8cm,
+               minimum height=0.75cm,align=center,font=\small},
+  io/.style={draw=VE,fill=VE!10,trapezium,trapezium left angle=75,
+             trapezium right angle=105,minimum width=3.2cm,minimum height=0.7cm,
+             align=center,font=\small},
+  arr/.style={-Stealth,BN,thick}]
+
+  \node[box,fill=BN,text=white] (debut) {D\'ebut};
+  \node[io,below=of debut] (acq) {Saisir $a$, $b$};
+  \node[diam,below=of acq] (test) {$a = 0$ ?};
+  \node[box,below left=1.1cm and 1.8cm of test] (sinf) {Afficher \og pas de solution\fg};
+  \node[box,below right=1.1cm and 1.2cm of test] (sreal) {Afficher $x = -\dfrac{b}{a}$};
+  \node[box,fill=BN,text=white,below=3.2cm of test] (fin) {Fin};
+
+  \draw[arr] (debut)--(acq);
+  \draw[arr] (acq)--(test);
+  \draw[arr] (test)--node[left,font=\scriptsize]{Oui}(sinf);
+  \draw[arr] (test)--node[right,font=\scriptsize]{Non}(sreal);
+  \draw[arr] (sinf)|-(fin);
+  \draw[arr] (sreal)|-(fin);
+\end{tikzpicture}
+\caption{Organigramme : r\'esolution de $ax + b = 0$.}
+\end{figure}
+
+\noindent Le m\^eme algorithme en pseudo-code~:
+
+\begin{algorithm}[H]
+\caption{R\'esolution de $ax+b=0$}
+\KwIn{deux r\'eels $a$ et $b$}
+\KwOut{la (ou les) solution(s) de $ax+b=0$}
+\Lire $a$, $b$\;
+\Si{$a = 0$}{
+  \Si{$b = 0$}{
+    \Afficher \og Tout r\'eel est solution\fg\;
+  }\Sinon{
+    \Afficher \og Pas de solution\fg\;
+  }
+}\Sinon{
+  $x \leftarrow -b / a$\;
+  \Afficher \og Solution unique~: $x =\ $\fg, $x$\;
+}
+\end{algorithm}
+
+
+\horsprogramme{Cette partie propose des algorithmes plus longs qui combinent variables, conditions et boucles.}
+\section{M\'ethodes et compl\'ements de cours}
+
+\begin{methode}[Construire la trace d'ex\'ecution]
+\index{trace d'exécution}
+Pour \emph{ex\'ecuter \`a la main} un algorithme~:
+\begin{enumerate}
+  \item Cr\'eer un tableau avec une colonne par variable.
+  \item Ex\'ecuter chaque instruction dans l'ordre, ligne par ligne.
+  \item \`A chaque affectation, mettre \`a jour la colonne concern\'ee
+        en barrant l'ancienne valeur.
+  \item Pour un \texttt{Si}/\texttt{Sinon}, \'evaluer la condition
+        \emph{avant} de choisir la branche.
+  \item Pour un \texttt{Tant que}, r\'ep\'eter l'\'evaluation de la
+        condition \`a chaque it\'eration.
+\end{enumerate}
+\end{methode}
+
+\begin{methode}[Conventions de pseudo-code]
+\index{pseudo-code}
+Dans ce manuel, on utilise les conventions suivantes~:
+\begin{itemize}
+  \item \textbf{Affectation~:} $X \leftarrow \text{expression}$
+  \item \textbf{Lecture~:} \texttt{Lire}($X$)\quad (saisie utilisateur)
+  \item \textbf{\'Ecriture~:} \texttt{Afficher}($X$)
+  \item \textbf{Alternative~:}
+        \texttt{Si} \emph{condition} \texttt{alors} \ldots\
+        \texttt{Sinon} \ldots\ \texttt{Fin Si}
+  \item \textbf{Boucle born\'ee~:}
+        \texttt{Pour} $i$ \texttt{de} $a$ \texttt{\`a} $b$ \texttt{faire}
+        \ldots\ \texttt{Fin Pour}
+  \item \textbf{Boucle non born\'ee~:}
+        \texttt{Tant que} \emph{condition} \texttt{faire}
+        \ldots\ \texttt{Fin Tant que}
+\end{itemize}
+\end{methode}
+
+\begin{defn}[Invariant de boucle]
+\index{invariant de boucle}
+Un \textbf{invariant de boucle} est une propri\'et\'e vraie avant
+la boucle, conserv\'ee \`a chaque it\'eration, et qui permet de
+prouver la correction de l'algorithme \`a la sortie.
+\end{defn}
+
+\begin{remarque}
+Le \textbf{co\^ut} d'un algorithme se mesure en comptant le nombre
+d'op\'erations \'el\'ementaires effectu\'ees en fonction de la taille $n$
+de l'entr\'ee. Plus ce nombre cro\^it lentement avec $n$, plus l'algorithme
+est efficace. On parle d'algorithme \emph{rapide} (peu d'op\'erations) ou
+\emph{lent} (beaucoup d'op\'erations).
+\end{remarque}
+
+\begin{anecdote}[Ada Lovelace, premi\`ere programmeuse]
+En 1843, Ada Lovelace ($1815$--$1852$) publia ce qui est consid\'er\'e
+comme le premier algorithme destin\'e \`a \^etre ex\'ecut\'e par une machine~:
+un programme pour calculer les nombres de Bernoulli sur la
+\emph{machine analytique} de Babbage, qui ne fut jamais construite.
+Elle imagina aussi que la machine pourrait composer de la musique,
+un si\`ecle avant l'ordinateur.
+\end{anecdote}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Traces et \'ecriture directe}
+
+\begin{exo}[\algo\ Trace simple \corrige]{1}
+Donner la trace d'ex\'ecution et les valeurs finales de $A$, $B$, $C$~:
+\[
+A \leftarrow 5 \quad B \leftarrow 3 \quad C \leftarrow A + B \quad
+A \leftarrow A \times B \quad B \leftarrow C - A
+\]
+\end{exo}
+
+\begin{exo}[\algo\ Trace avec variables suppl\'ementaires \corrige]{1}
+Donner la trace et les valeurs finales~:
+\[
+X \leftarrow 10 \quad Y \leftarrow 3 \quad
+Z \leftarrow X \div Y \quad R \leftarrow X - Z \times Y \quad
+X \leftarrow Z
+\]
+\emph{(L'op\'erateur $\div$ d\'esigne ici la division enti\`ere.)}
+\end{exo}
+
+\begin{exo}[\algo\ \'Echange de deux variables \corrige]{1}
+On veut \'echanger les valeurs de $A$ et $B$.
+\begin{enumerate}
+  \item Montrer que le code suivant est incorrect~:
+        $A \leftarrow B ;\; B \leftarrow A$.
+  \item \'Ecrire un algorithme correct utilisant une variable temporaire $T$.
+  \item Donner la trace pour $A=7$, $B=3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calcul de moyenne \corrige]{1}
+\'Ecrire en pseudo-code puis impl\'ementer \computer\ un algorithme qui~:
+\begin{enumerate}
+  \item Saisit trois notes $n_1, n_2, n_3$ (entre $0$ et $20$).
+  \item Calcule et affiche leur moyenne.
+  \item Affiche \og Re\c cu\fg\ si la moyenne est $\geq 10$,
+        \og Recal\'e\fg\ sinon.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Equation du premier degr\'e \corrige]{1}
+\'Ecrire un algorithme qui saisit $a$ et $b$, puis r\'esout $ax+b=0$
+en g\'erant les trois cas~: $a\ne0$ (une solution), $a=0$ et $b=0$
+(infinit\'e de solutions), $a=0$ et $b\ne0$ (pas de solution).
+\end{exo}
+
+\begin{exo}[Organigramme pair/impair \corrige]{1}
+\begin{enumerate}
+  \item Dessiner l'organigramme d'un algorithme qui saisit
+        un entier $n$ et affiche \og pair\fg\ ou \og impair\fg.
+  \item \'Ecrire le pseudo-code correspondant.
+\end{enumerate}
+\index{organigramme}
+\end{exo}
+
+\begin{exo}[Valeur absolue \corrige]{1}
+\'Ecrire un algorithme qui saisit un r\'eel $x$ et affiche $|x|$
+sans utiliser de fonction pr\'ed\'efinie.
+Tester pour $x = -5$, $x = 0$, $x = 3{,}14$.
+\end{exo}
+
+\begin{exo}[Maximum de trois nombres \corrige]{1}
+\'Ecrire un algorithme qui saisit trois r\'eels $a, b, c$ et affiche
+le plus grand des trois.
+\begin{enumerate}
+  \item Version avec des \texttt{Si} imbriqu\'es.
+  \item Version en utilisant une variable \texttt{Max}.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Table de multiplication \corrige]{1}
+\'Ecrire un algorithme qui saisit un entier $n \geq 1$ et affiche
+sa table de multiplication de $1\times n$ \`a $10\times n$.
+Donner la trace pour $n=3$, puis impl\'ementer en Python \computer.
+\end{exo}
+
+\begin{exo}[Lecture d'algorithme \corrige]{1}
+Que calcule et affiche cet algorithme~?
+
+\begin{algorithm}[H]
+\Lire $N$\;
+$S \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $N$}{
+  $S \leftarrow S + i$\;
+}
+\Afficher $S$\;
+\end{algorithm}
+
+V\'erifier pour $N=5$.
+\end{exo}
+
+\begin{exo}[Compter les multiples \corrige]{1}
+\'Ecrire un algorithme qui affiche tous les multiples de $3$
+strictement inf\'erieurs \`a $100$.
+Combien y en a-t-il~?
+\end{exo}
+
+\begin{exo}[Conversion Celsius/Fahrenheit \corrige]{1}
+La conversion est $F = \frac{9}{5}C + 32$.
+\'Ecrire un algorithme qui affiche un tableau de conversion pour
+$C \in \{0, 10, 20, \ldots, 100\}$.
+\end{exo}
+
+\begin{exo}[Puissance enti\`ere \corrige]{1}
+\'Ecrire un algorithme qui saisit $x$ et $n \geq 0$ et calcule $x^n$
+par multiplications successives (sans utiliser d'op\'erateur puissance).
+Tester pour $x=2$, $n=8$.
+\end{exo}
+
+\begin{exo}[Somme des chiffres d'un entier \corrige]{1}
+\'Ecrire un algorithme qui saisit un entier $n > 0$ et affiche la somme
+de ses chiffres.
+\emph{Indication~: utiliser la division euclidienne par $10$.}
+Tester pour $n = 1234$.
+\end{exo}
+
+\begin{exo}[Lecture de trace \corrige]{1}
+Ex\'ecuter cet algorithme pour $A=4$, $B=6$ et d\'ecrire ce qu'il calcule~:
+
+\begin{algorithm}[H]
+\KwIn{deux entiers $A, B > 0$}
+\KwOut{un entier}
+\Lire $A$, $B$\;
+\TantQue{$B \neq 0$}{
+  $R \leftarrow A \mod B$\tcp*[r]{reste de la division de $A$ par $B$}
+  $A \leftarrow B$\;
+  $B \leftarrow R$\;
+}
+\Afficher $A$\;
+\end{algorithm}
+
+\emph{(Rappel~: $A \mod B$ est le reste de la division de $A$ par $B$.)}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Boucles et structures combin\'ees}
+
+\begin{exo}[Suite arithm\'etique \corrige]{2}
+\'Ecrire un algorithme qui saisit $u_0$ et $r$, puis affiche les $20$
+premiers termes de la suite arithm\'etique $u_n = u_0 + nr$.
+Calculer aussi la somme $S = u_0 + u_1 + \cdots + u_{19}$ et v\'erifier
+avec la formule $S = 20u_0 + 190r$.
+\end{exo}
+
+\begin{exo}[Suite g\'eom\'etrique et seuil \corrige]{2}
+On consid\`ere la suite g\'eom\'etrique $u_n = 3 \times 2^n$.
+\'Ecrire un algorithme puis l'impl\'ementer \computer\ pour~:
+\begin{enumerate}
+  \item Afficher les $10$ premiers termes.
+  \item Trouver le plus petit $n$ tel que $u_n > 1000$.
+\end{enumerate}
+V\'erifier alg\'ebriquement le r\'esultat de (2).
+\end{exo}
+
+\begin{exo}[\algo\ Factorielle \corrige]{2}
+\'Ecrire un algorithme calculant $n!$ pour un entier $n \geq 0$ saisi.
+\begin{enumerate}
+  \item Version it\'erative (\texttt{Pour}).
+  \item Ajouter une v\'erification~: si $n < 0$, afficher un message d'erreur.
+  \item Combien de multiplications effectue l'algorithme~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Maximum et position \corrige]{2}
+\'Ecrire un algorithme qui lit une s\'equence de $n$ r\'eels (un par un)
+et retourne~:
+\begin{itemize}
+  \item La valeur maximale.
+  \item Sa position dans la s\'equence (rang du premier maximum trouv\'e).
+\end{itemize}
+Combien de comparaisons effectue-t-il~?
+\end{exo}
+
+\begin{exo}[Recherche lin\'eaire \corrige]{2}
+\'Ecrire un algorithme qui lit $n$ entiers puis une valeur cible $v$,
+et affiche la position de la premi\`ere occurrence de $v$
+(ou un message si $v$ est absent).
+\begin{enumerate}
+  \item Version avec \texttt{Tant que}.
+  \item Combien de comparaisons dans le pire cas~?
+\end{enumerate}
+\index{recherche linéaire}
+\end{exo}
+
+\begin{exo}[Palindrome \corrige]{2}
+Un mot est un \emph{palindrome} s'il se lit de la m\^eme fa\c con dans
+les deux sens (\og \textit{kayak}\fg, \og \textit{radar}\fg, etc.).
+
+\'Ecrire un algorithme qui saisit un mot (une cha\^ine de caract\`eres)
+et d\'etermine si c'est un palindrome.
+\emph{Indication~: comparer le $i$-\`eme et le $(n-i)$-\`eme caract\`ere.}
+\end{exo}
+
+\begin{exo}[Suite de Syracuse \corrige]{2}
+La suite de Syracuse part d'un entier $n > 0$~:
+\[ u_{k+1} = \begin{cases} \dfrac{u_k}{2} & \text{si } u_k \text{ est pair,} \\
+3u_k + 1 & \text{si } u_k \text{ est impair.}\end{cases} \]
+\'Ecrire un algorithme qui~:
+\begin{enumerate}
+  \item Affiche tous les termes jusqu'\`a ce que $u_k = 1$.
+  \item Compte le nombre de termes (le \emph{temps de vol}).
+  \item Calcule le maximum atteint (le \emph{vol}).
+\end{enumerate}
+Tester pour $n = 6$ et $n = 27$.
+\end{exo}
+
+\begin{exo}[Diviseurs d'un entier \corrige]{2}
+\'Ecrire un algorithme qui saisit $n > 0$ et affiche tous ses diviseurs.
+\begin{enumerate}
+  \item Version testant tous les entiers de $1$ \`a $n$.
+  \item Version optimis\'ee testant de $1$ \`a $\lfloor\sqrt{n}\rfloor$
+        (et affichant les diviseurs par paires).
+  \item Comparer le nombre de tests dans les deux versions pour $n=360$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Nombre premier \corrige]{2}
+\'Ecrire un algorithme qui teste si un entier $n \geq 2$ est premier.
+\begin{enumerate}
+  \item Justifier pourquoi il suffit de tester les diviseurs jusqu'\`a $\sqrt{n}$.
+  \item \'Ecrire le pseudo-code.
+  \item Afficher tous les nombres premiers inf\'erieurs \`a $100$,
+        puis impl\'ementer en Python \computer.
+\end{enumerate}
+\index{nombre premier}
+\end{exo}
+
+\begin{exo}[Z\'ero d'une fonction par dichotomie \computer\ \corrige]{2}
+On cherche \`a approcher une racine de $f(x) = x^3 - 2$ sur $[1, 2]$.
+\begin{enumerate}
+  \item V\'erifier que $f(1)<0$ et $f(2)>0$ (th\'eor\`eme des valeurs
+        interm\'ediaires).
+  \item \'Ecrire un algorithme de \emph{dichotomie}~: tant que $b-a > \varepsilon$,
+        calculer $m=\dfrac{a+b}{2}$ et mettre \`a jour $[a,b]$.
+  \item Combien d'it\'erations pour $\varepsilon = 10^{-6}$~?
+  \item Comparer avec $\sqrt[3]{2}$.
+\end{enumerate}
+\index{dichotomie}
+\end{exo}
+
+\begin{exo}[Codage de C\'esar \corrige]{2}
+Le chiffrement de C\'esar d\'ecale chaque lettre de $k$ rangs dans l'alphabet.
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui chiffre un message lettre par lettre
+        (on supposera les lettres cod\'ees de $0$ \`a $25$).
+  \item \'Ecrire l'algorithme de d\'echiffrement.
+  \item Quel est le lien avec les calculs modulo $26$~?
+  \item Pourquoi ce chiffrement est-il consid\'er\'e comme non s\'ecuris\'e~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Alignement de points \corrige]{2}
+\'Ecrire un algorithme qui saisit trois points $A(x_A,y_A)$,
+$B(x_B,y_B)$, $C(x_C,y_C)$ et d\'etermine s'ils sont align\'es.
+\emph{Rappel~: $A$, $B$, $C$ sont align\'es ssi
+$\vv{AB}\times\vv{AC}=0$, i.e.\
+$(x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A)=0$.}
+Tester avec $A(0,0)$, $B(1,2)$, $C(2,4)$ et $A(0,0)$, $B(1,2)$, $C(2,5)$.
+\end{exo}
+
+\begin{exo}[Calcul de $\pi$ par s\'erie \corrige]{2}
+La s\'erie de Leibniz donne~:
+$\pi/4 = 1 - 1/3 + 1/5 - 1/7 + \cdots = \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}$.
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui calcule la somme des $N$ premiers termes.
+  \item Afficher l'approximation de $\pi$ pour $N = 10, 100, 1000, 10000$.
+  \item Cette s\'erie converge-t-elle vite~? Combien de termes pour avoir
+        $5$ d\'ecimales correctes~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Sch\'ema de H\"orner \corrige]{2}
+\'Evaluer le polyn\^ome $P(x) = a_n x^n + \cdots + a_1 x + a_0$ en un
+point $x_0$ par le sch\'ema de H\"orner~:
+\[ P(x_0) = (\ldots((a_n x_0 + a_{n-1})x_0 + a_{n-2})\ldots)x_0 + a_0. \]
+\begin{enumerate}
+  \item \'Ecrire l'algorithme (les coefficients sont lus de $a_n$ \`a $a_0$).
+  \item Combien de multiplications effectue-t-il~? Comparer avec
+        la m\'ethode na\"\i ve.
+  \item Appliquer \`a $P(x) = 2x^3 - 5x^2 + 3x - 1$ en $x_0 = 2$.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ Raisonnement et algorithmes avanc\'es}
+
+\begin{exo}[\algo\ Suite de Fibonacci et rapport dor\'e \computer\ \corrige]{3}
+\'Ecrire un algorithme calculant les $N$ premiers termes de la suite
+de Fibonacci ($u_0=0$, $u_1=1$, $u_{n+1}=u_n+u_{n-1}$).
+\begin{enumerate}
+  \item Afficher aussi le rapport $\dfrac{u_{n+1}}{u_n}$ pour $n \geq 1$.
+  \item Vers quelle valeur ce rapport semble-t-il converger~?
+        (C'est le nombre d'or $\varphi = \dfrac{1+\sqrt{5}}{2}$.)
+  \item Modifier l'algorithme pour s'arr\^eter d\`es que ce rapport
+        diff\`ere de $\varphi$ de moins de $10^{-6}$.
+\end{enumerate}
+\index{suite de Fibonacci}
+\end{exo}
+
+\begin{exo}[\algo\ Preuve de correction~: invariant \corrige]{3}
+Consid\'erons l'algorithme de calcul de $n!$~:
+\begin{algorithm}[H]
+\caption{Calcul it\'eratif de $n!$}
+\KwIn{un entier $n\geq 0$}
+\KwOut{$n!$}
+\Lire $n$\;
+$F \leftarrow 1$\;
+$k \leftarrow 1$\;
+\TantQue{$k \leq n$}{
+  $F \leftarrow F \times k$\;
+  $k \leftarrow k + 1$\;
+}
+\Afficher $F$\;
+\end{algorithm}
+\begin{enumerate}
+  \item V\'erifier que $F = (k-1)!$ est un invariant de boucle.
+  \item En d\'eduire la valeur de $F$ \`a la sortie de la boucle.
+  \item L'algorithme est-il correct~? Termine-t-il toujours~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Algorithme d'Euclide \corrige]{3}
+L'algorithme d'Euclide calcule $\pgcd(a,b)$~:
+tant que $b \ne 0$, poser $r \leftarrow a \mod b$, $a \leftarrow b$, $b \leftarrow r$.
+\begin{enumerate}
+  \item \'Ecrire le pseudo-code et donner la trace pour $a=48$, $b=18$.
+  \item D\'emontrer la correction~: montrer que $\pgcd(a,b) = \pgcd(b, a\mod b)$.
+  \item Montrer que l'algorithme termine (le reste strictement d\'ecro\^it).
+  \item Combien d'\'etapes pour $a=F_{n+1}$, $b=F_n$ (nombres de Fibonacci)~?
+\end{enumerate}
+\index{algorithme d'Euclide}
+\end{exo}
+
+\begin{exo}[\algo\ Exponentiation rapide \corrige]{3}
+La m\'ethode na\"\i ve calcule $x^n$ en $n-1$ multiplications.
+L'\emph{exponentiation rapide} (squaring) utilise~:
+\[ x^n = \begin{cases} 1 & n=0, \\ (x^{n/2})^2 & n \text{ pair,} \\ x \cdot x^{n-1} & n \text{ impair.}\end{cases} \]
+\begin{enumerate}
+  \item \'Ecrire l'algorithme it\'eratif correspondant.
+  \item Donner la trace pour $x=2$, $n=13$.
+  \item Combien de multiplications effectue-t-il en fonction de $n$~?
+  \item Comparer avec la m\'ethode na\"\i ve pour $n=1000$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Tri bulles \corrige]{3}
+Le \emph{tri \`a bulles} parcourt le tableau en comparant chaque paire
+d'\'el\'ements adjacents et en les \'echangeant si n\'ecessaire, r\'ep\'etant
+jusqu'\`a ce que le tableau soit tri\'e.
+\begin{enumerate}
+  \item \'Ecrire le pseudo-code du tri \`a bulles pour un tableau de $n$ \'el\'ements.
+  \item Donner la trace pour $[5, 3, 8, 1, 9, 2]$.
+  \item Combien de comparaisons dans le pire cas~?
+  \item Proposer une optimisation~: s'arr\^eter si aucun \'echange n'a eu lieu.
+\end{enumerate}
+\index{tri à bulles}
+\end{exo}
+
+\begin{exo}[\algo\ Recherche dichotomique \corrige]{3}
+Dans un tableau tri\'e de $n$ \'el\'ements, la \emph{recherche dichotomique}
+compare la valeur cherch\'ee avec l'\'el\'ement du milieu et r\'eduit le
+domaine de recherche de moiti\'e \`a chaque \'etape.
+\begin{enumerate}
+  \item \'Ecrire le pseudo-code.
+  \item Donner la trace pour la recherche de $17$ dans
+        $[2, 5, 8, 12, 17, 23, 38]$.
+  \item Pour $n=8$~: combien d'it\'erations sont n\'ecessaires~?
+        Et pour $n=16$, $n=64$, $n=1024$~? Remplir le tableau~:
+        \begin{center}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \rowcolor{BN!10}$n$ & Dichotomie & Lin\'eaire (pire cas) \\ \hline
+        $8$ & & \\ $16$ & & \\ $64$ & & \\ $1024$ & & \\ \hline
+        \end{tabular}
+        \end{center}
+  \item Pour $n = 10^6$~: estimer le nombre d'it\'erations de chaque m\'ethode.
+
+\end{enumerate}
+\index{recherche dichotomique}
+\end{exo}
+
+\begin{exo}[Codage et d\'ecodage binaire \corrige]{3}
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui convertit un entier $n \geq 0$ en binaire
+        (afficher les bits de poids faible au poids fort en utilisant
+        la division euclidienne par $2$).
+  \item \'Ecrire l'algorithme inverse (binaire vers d\'ecimal).
+  \item Tester pour $n = 42$.
+  \item Combien de bits faut-il pour repr\'esenter un entier $n$~?
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Simulation d'un jeu de d\'es \corrigeP]{1}
+On simule le lancer de deux d\'es \`a 6 faces.
+Le score est la somme des deux r\'esultats.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme ci-dessous en pseudo-code, puis
+        l'impl\'ementer \computer~:
+
+\begin{algorithm}[H]
+\caption{Simulation de $N$ lancers de d\'es}
+\KwIn{un entier $N$ (nombre de lancers)}
+\KwOut{le nombre de fois o\`u la somme vaut $7$}
+$\mathit{compte} \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $N$}{
+  $d_1 \leftarrow \texttt{Hasard}(1,6)$\tcp*[r]{entier al\'eatoire entre 1 et 6}
+  $d_2 \leftarrow \texttt{Hasard}(1,6)$\;
+  \Si{$d_1 + d_2 = 7$}{
+    $\mathit{compte} \leftarrow \mathit{compte} + 1$\;
+  }
+}
+\Afficher $\mathit{compte}$\;
+\end{algorithm}
+
+  \item Calculer th\'eoriquement la probabilit\'e d'obtenir $7$.
+        V\'erifier avec votre simulation pour $N = 1000$.
+  \item Modifier l'algorithme pour afficher la distribution compl\`ete
+        des sommes possibles (de $2$ \`a $12$).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Suite de Collatz et conjecture \corrigeP]{2}
+La suite de Collatz est $u_{n+1} = \frac{u_n}{2}$ si $u_n$ pair,
+$3u_n + 1$ sinon. La conjecture (non prouv\'ee~!) affirme qu'elle
+atteint toujours $1$.
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui calcule le temps de vol
+        (nombre de pas avant d'atteindre $1$) pour tout $n$ donn\'e.
+  \item Trouver par ordinateur la valeur $n \leq 1000$ qui maximise
+        le temps de vol. Quelle est cette valeur maximale~?
+  \item Pourquoi ne peut-on pas \og prouver\fg\ la conjecture
+        par cet algorithme, m\^eme en testant des millions de cas~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[M\'ethode de H\'eron : racine carr\'ee \corrigeP]{1}
+La m\'ethode de H\'eron approche $\sqrt{a}$ par la suite~:
+$u_0 = a$, $\quad u_{n+1} = \dfrac{1}{2}\!\left(u_n + \dfrac{a}{u_n}\right)$.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme suivant et le tester \computer~:
+
+\begin{algorithm}[H]
+\caption{Approximation de $\sqrt{a}$ par la m\'ethode de H\'eron}
+\KwIn{un r\'eel $a > 0$, une pr\'ecision $\varepsilon > 0$}
+\KwOut{une approximation de $\sqrt{a}$}
+$u \leftarrow a$\;
+\Repeter{$|u_{\text{new}} - u| < \varepsilon$}{
+  $u_{\text{new}} \leftarrow \dfrac{1}{2}\!\left(u + \dfrac{a}{u}\right)$\;
+  $u \leftarrow u_{\text{new}}$\;
+}
+\Afficher $u$\;
+\end{algorithm}
+
+  \item Calculer \`a la main les $4$ premiers termes pour $a = 2$.
+        Comparer avec $\sqrt{2} \approx 1{,}41421$.
+  \item La suite converge-t-elle vite~? Compte le nombre d'it\'erations
+        pour $\varepsilon = 10^{-6}$.
+  \item D\'emontrer alg\'ebriquement que si $u_n > 0$, alors $u_{n+1} \geq \sqrt{a}$.
+        \emph{(Indication~: in\'egalit\'e arithm\'etico-g\'eom\'etrique
+        $\frac{x+y}{2} \geq \sqrt{xy}$ pour $x,y>0$.)}
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Algorithme de Horner et \'evaluation de polyn\^omes \corrigeP]{2}
+On consid\`ere $P(x) = 3x^4 - 7x^3 + 2x^2 + x - 5$.
+\begin{enumerate}
+  \item Calculer $P(2)$ en d\'eveloppant directement.
+        Compter le nombre de multiplications effectu\'ees.
+  \item Le sch\'ema de H\"orner r\'e\'ecrit~:
+        $P(x) = ((((3)x - 7)x + 2)x + 1)x - 5.$
+        Calculer $P(2)$ en appliquant les parenth\`eses de l'int\'erieur
+        vers l'ext\'erieur. Compter les multiplications.
+
+\begin{algorithm}[H]
+\caption{Sch\'ema de H\"orner pour $P(x_0) = a_n x^n + \cdots + a_0$}
+\KwIn{les coefficients $a_n, a_{n-1}, \ldots, a_0$ et un r\'eel $x_0$}
+\KwOut{$P(x_0)$}
+$\mathit{val} \leftarrow a_n$\;
+\Pour{$k \leftarrow n-1$ \KwTo $0$}{
+  $\mathit{val} \leftarrow \mathit{val} \times x_0 + a_k$\;
+}
+\Afficher $\mathit{val}$\;
+\end{algorithm}
+
+  \item Appliquer l'algorithme \`a la main pour $P(x)=3x^4-7x^3+2x^2+x-5$,
+        $x_0=2$. V\'erifier que vous obtenez le m\^eme r\'esultat qu'en (1).
+  \item Impl\'ementer cet algorithme \computer\ et tester sur
+        $P(x) = x^3 - 6x^2 + 11x - 6$ pour $x_0 \in \{1,2,3\}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Cryptographie par d\'ecalage : attaque \corrigeP]{2}
+Un message est chiffr\'e par d\'ecalage de C\'esar avec une cl\'e $k$ inconnue.
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui essaie toutes les cl\'es de $0$ \`a $25$
+        et affiche les $26$ d\'echiffrements possibles.
+  \item Comment identifier automatiquement le bon d\'echiffrement~?
+        \emph{(Indication~: compter la lettre \og e\fg, la plus fr\'equente
+        en fran\c cais.)}
+  \item Cet algorithme d'attaque est dit \emph{force brute}. Pourquoi
+        est-il inapplicable contre des chiffrements modernes~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Jeu du plus/moins \corrigeP]{1}
+L'ordinateur choisit un entier al\'eatoire $n$ entre $1$ et $100$.
+L'utilisateur propose des valeurs~; l'ordinateur r\'epond
+\og plus\fg, \og moins\fg\ ou \og trouv\'e\fg.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme du jeu.
+  \item Quelle strat\'egie minimise le nombre de tentatives~?
+  \item Montrer que la strat\'egie optimale (dichotomie) r\'eussit
+        en au plus $\lceil\log_2 100\rceil = 7$ tentatives.
+  \item Modifier l'algorithme pour compter les tentatives.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Crible d'\'Eratosth\`ene \corrigeP]{2}
+Le \emph{crible d'\'Eratosth\`ene} liste tous les nombres premiers
+jusqu'\`a $N$~: on initialise un tableau de bool\'eens \`a \vrai,
+puis pour chaque premier $p$, on marque \`a \faux\ ses multiples
+$p^2, p^2+p, p^2+2p, \ldots$
+\begin{enumerate}
+  \item \'Ecrire l'algorithme en pseudo-code.
+  \item Donner la trace pour $N=30$.
+  \item Pour $N=100$~: compter le nombre total de cases marqu\'ees
+        pendant l'ex\'ecution. L'algorithme est-il rapide~?
+  \item Pourquoi commence-t-on le marquage \`a $p^2$ plut\^ot qu'\`a $2p$~?
+\end{enumerate}
+\index{crible d'Ératosthène}
+\end{probleme}
+
+\begin{probleme}[Tri fusion : principe \corrigeP]{3}
+Le \emph{tri fusion} divise le tableau en deux moiti\'es,
+les trie r\'ecursivement, puis les fusionne.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme de \emph{fusion} de deux tableaux tri\'es.
+  \item \'Ecrire le sch\'ema r\'ecursif du tri fusion
+        (on peut d\'ecrire la r\'ecursion sans la coder enti\`erement).
+  \item Appliquer sur $[5,3,8,1,9,2,4,7]$ en d\'etaillant les \'etapes.
+  \item Pour $n=8$ \'el\'ements, compter le nombre total de comparaisons.
+        Le tri fusion est-il plus rapide que le tri \`a bulles sur cet exemple~?
+\end{enumerate}
+\index{tri fusion}
+\end{probleme}
+
+\begin{probleme}[Chiffrement de Vigen\`ere \corrigeP]{2}
+Le chiffrement de Vigen\`ere est une extension du chiffre de C\'esar~: on
+utilise une cl\'e de plusieurs lettres. Si la cl\'e est \og CLÉ\fg{} (rang
+$2$, $11$, $4$ dans l'alphabet), on d\'ecale le $i$-\`eme caract\`ere
+du message par le $i$-\`eme rang de la cl\'e (cycliquement).
+\begin{enumerate}
+  \item Chiffrer le message \og BONJOUR\fg{} avec la cl\'e \og MATHS\fg.
+        \emph{(A=0, B=1, \ldots, Z=25~; appliquer le d\'ecalage modulo 26.)}
+  \item \'Ecrire l'algorithme de chiffrement \computer.
+  \item \'Ecrire l'algorithme de d\'echiffrement.
+  \item Pourquoi ce chiffrement est-il plus s\^ur que le chiffre de C\'esar seul~?
+        Combien de cl\'es de longueur $5$ existe-t-il~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Algorithme de compression RLE \corrigeP]{2}
+Le \emph{Run-Length Encoding} (RLE) compresse une s\'equence en
+remplaçant les suites de caract\`eres identiques par le caract\`ere
+et son nombre de r\'ep\'etitions (ex.~: \texttt{AAABBBBA} $\to$
+\texttt{3A4B1A}).
+\begin{enumerate}
+  \item \'Ecrire l'algorithme de compression.
+  \item \'Ecrire l'algorithme de d\'ecompression.
+  \item Tester sur \texttt{AAAAAABBBCCCCCD}.
+  \item Dans quels cas ce codage est-il inefficace~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logicoalgo\ Correction logique d'un algorithme \corrigeP]{2}
+Voici un algorithme cens\'e calculer le maximum d'une liste de $n$ valeurs~:
+
+\begin{algorithm}[H]
+\caption{Maximum (avec bug)}
+$\mathit{max} \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $n$}{
+  \Si{$L[i] > \mathit{max}$}{
+    $\mathit{max} \leftarrow L[i]$\;
+  }
+}
+\Afficher $\mathit{max}$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Tester avec $L = \{3, 7, 2, 9, 5\}$~: donne-t-il le bon r\'esultat~?
+  \item Tester avec $L = \{-4, -1, -7, -2\}$~: est-ce correct~?
+        Si non, identifier logiquement l'erreur.
+  \item La proposition \og l'algorithme calcule correctement le maximum
+        pour toute liste\fg\ est-elle vraie ou fausse~?
+        Donner un contre-exemple si fausse.
+  \item Corriger l'algorithme pour qu'il soit correct pour n'importe quelle liste.
+  \item \'Enoncer sous forme logique l'invariant correct~: quelle propri\'et\'e
+        \texttt{max} doit-il v\'erifier apr\`es chaque it\'eration~?
+\end{enumerate}
+\end{probleme}
+
+
+
+
+\begin{probleme}[Calcul de $\pi$ par m\'ethode de Monte-Carlo \corrigeP]{2}
+On tire al\'eatoirement des points $(x,y)$ dans $[0,1]^2$.
+Un point est dans le quart de disque unit\'e si $x^2+y^2\leq 1$.
+La proportion de tels points approche $\pi/4$.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme simulant $N$ tirages et estimant $\pi$.
+  \item Tester pour $N = 100$, $1000$, $10^6$.
+  \item Estimer l'erreur en fonction de $N$.
+  \item Pourquoi appelle-t-on cela la \emph{m\'ethode de Monte-Carlo}~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Statistiques par algorithme \computer \corrigeP]{2}
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item Lit une liste de $n$ notes (entre $0$ et $20$) saisies par l'utilisateur.
+  \item Calcule et affiche la moyenne, le minimum, le maximum et l'\'etendue.
+  \item Calcule et affiche la m\'ediane (apr\`es tri de la liste).
+  \item Trace un histogramme des notes regroup\'ees par tranches~:
+        $[0,5[$, $[5,10[$, $[10,15[$, $[15,20]$.
+  \item Bonus~: afficher si la classe a une moyenne $\geq 10$ ou $< 10$.
+\end{enumerate}
+\emph{On pourra utiliser les fonctions \texttt{sorted()}, \texttt{len()},
+et la biblioth\`eque \texttt{matplotlib} pour le trac\'e.}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Tri par s\'election]
+Le \emph{tri par s\'election} cherche le minimum dans la partie non tri\'ee
+et le place au d\'ebut.
+\begin{enumerate}
+  \item \'Ecrire le pseudo-code.
+  \item Donner la trace pour $[5, 3, 8, 1, 9, 2]$.
+  \item Compter les comparaisons et les \'echanges.
+  \item Compter le nombre de comparaisons lorsque la liste contient $n$
+        valeurs, puis lorsque la liste est déjà triée.
+  \item Comparer avec le tri \`a bulles (exercice~\hyperref[exo:2.31]{2.31}).
+\end{enumerate}
+\index{tri par sélection}
+\end{challenge}
+
+\begin{challenge}[R\'ecursivit\'e~: flocon de Koch]
+Le \emph{flocon de Koch} se construit ainsi~: on part d'un segment de longueur $L$.
+\`A chaque \'etape, on remplace chaque segment par quatre segments,
+chacun de longueur $L/3$, en formant une \og bosse\fg\ triangulaire.
+\begin{enumerate}
+  \item D\'ecrire en pseudo-code l'algorithme r\'ecursif qui affiche le nombre
+        de segments et la longueur totale apr\`es $n$ \'etapes.
+        \emph{(Param\`etres~: longueur initiale, profondeur $n$.)}
+  \item Compl\'eter le tableau~:
+        \begin{center}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \rowcolor{BN!10}
+        \'Etape $n$ & Nombre de segments & Longueur totale \\
+        \hline
+        0 & 1 & $L$ \\
+        1 & 4 & $4L/3$ \\
+        2 & & \\
+        3 & & \\
+        $n$ & & \\
+        \hline
+        \end{tabular}
+        \end{center}
+  \item La longueur totale est-elle born\'ee quand $n\to+\infty$~?
+        Que se passe-t-il si on part d'un triangle \'equilat\'eral
+        et qu'on applique la construction \`a chacun de ses c\^ot\'es~?
+  \item Expliquer pourquoi un algorithme r\'ecursif sans condition
+        d'arr\^et serait probl\'ematique~: que se passerait-il~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Probl\`eme des quatre reines]
+Placer $4$ reines sur un \'echiquier $4\times4$ sans qu'aucune ne menace
+une autre (pas deux sur la m\^eme ligne, la m\^eme colonne, ni la m\^eme diagonale).
+\begin{enumerate}
+  \item Pourquoi est-il impossible de placer $2$ reines sur un \'echiquier
+        $2\times2$~? Et $3$ reines sur un $3\times3$~?
+  \item Sur le $4\times4$, on place les reines une par colonne.
+        La premi\`ere reine est en colonne $1$, ligne $a$.
+        Pour chaque valeur de $a\in\{1,2,3,4\}$, d\'eterminer
+        quelles lignes sont disponibles en colonne $2$.
+  \item En continuant le raisonnement, trouver \textbf{\`a la main}
+        toutes les solutions (il y en a exactement $2$).
+        Les dessiner sur des grilles $4\times4$.
+  \item \'Ecrire en pseudo-code un algorithme qui essaie syst\'ematiquement
+        toutes les positions possibles pour les $4$ reines
+        (une par colonne) et affiche les solutions valides.
+        Combien d'essais au maximum~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Simulation d'un automate simple]
+Un \emph{distributeur de boissons} fonctionne comme suit~:
+il accepte des pi\`eces de $1$\,\euro{} ou $2$\,\euro{}
+et distribue une boisson quand le total atteint ou d\'epasse $3$\,\euro{}.
+\begin{enumerate}
+  \item \'Ecrire un algorithme qui simule ce distributeur~: il lit
+        des pi\`eces une par une (valeur $1$ ou $2$) et affiche
+        \og Boisson distribu\'ee~!\fg\ d\`es que la somme $\geq 3$.
+        Il restitue l'exc\'edent \'eventuel.
+  \item Donner la trace pour la s\'equence de pi\`eces $1, 1, 2$.
+        Puis pour $2, 2$.
+  \item Modifier l'algorithme pour refuser les pi\`eces qui ne sont
+        ni $1$\,\euro{} ni $2$\,\euro{} (afficher \og Pi\`ece invalide\fg).
+  \item Combien existe-t-il de s\'equences de pi\`eces diff\'erentes
+        aboutissant \`a exactement $3$\,\euro{} (sans exc\'edent)~?
+        Les lister syst\'ematiquement.
+  \item \textbf{Extension~:} le distributeur a un \emph{\'etat interne}
+        (montant cumul\'e). Repr\'esenter les \'etats possibles
+        et les transitions entre eux par un diagramme
+        (cercles $=$ \'etats, fl\`eches $=$ pi\`eces).
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Optimisation~: le probl\`eme du rendu de monnaie]
+Un caissier doit rendre $n$ centimes en utilisant le moins de pi\`eces possible.
+Les pi\`eces disponibles sont~: $1$, $2$, $5$, $10$, $20$, $50$ centimes.
+\begin{enumerate}
+  \item \textbf{Algorithme glouton~:} choisir \`a chaque \'etape la plus grande
+        pi\`ece possible sans d\'epasser le montant restant.
+        \'Ecrire son pseudo-code.
+  \item Appliquer l'algorithme pour rendre $87$ centimes.
+        Donner la trace et le nombre de pi\`eces utilis\'ees.
+  \item Tester pour $n = 6$, $n = 30$, $n = 41$.
+        L'algorithme glouton donne-t-il toujours le minimum de pi\`eces~?
+  \item \textbf{Contre-exemple~:} avec les pi\`eces $\{1, 3, 4\}$ et $n=6$,
+        l'algorithme glouton donne $4+1+1 = 3$ pi\`eces.
+        Peut-on faire mieux~? Trouver la solution optimale.
+        Conclure~: l'algorithme glouton est-il toujours optimal~?
+  \item \'Ecrire un algorithme \emph{exhaustif} (essayant toutes les combinaisons)
+        pour $n \leq 10$ centimes avec les pi\`eces $\{1,2,5\}$.
+        Combien de combinaisons teste-t-il~?
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Algorithme}~: suite finie, non ambigu\"{e} d'instructions.
+        Propri\'et\'es~: finitude, validit\'e, d\'eterminisme.
+  \item \textbf{Variables et affectation}~: $X\leftarrow\text{expr}$
+        remplace l'ancienne valeur. Penser \`a la trace.
+  \item \textbf{Structures}~: s\'equence, alternative (\texttt{Si/Sinon}),
+        it\'eration (\texttt{Pour}, \texttt{Tant que}).
+  \item \textbf{Organigramme}~: repr\'esentation graphique du flux.
+        Losange $=$ test, trap\`eze $=$ E/S, rectangle $=$ traitement.
+  \item \textbf{Invariant de boucle}~: propri\'et\'e conserv\'ee \`a chaque
+        it\'eration~; permet de prouver la correction.
+\end{itemize}
+\end{bilan}

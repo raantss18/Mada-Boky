@@ -1,0 +1,63 @@
+% Adapted from the TikZ construction supplied by the project owner:
+% Google Drive, Appendix/Trigonometrie.tex (retrieved 2026-09-19).
+% Changes: project palette, unique angle labels, staggered coordinate labels,
+% equal x/y units, and clearer positive/negative orientation arrows.
+\begin{tikzpicture}[x=4cm,y=4cm,>=Stealth]
+  \draw[BN,very thick] (0,0) circle (1);
+  \draw[-Stealth,BN!70,thick] (-1.32,0)--(1.35,0)
+    node[right,font=\small,text=BN] {$\cos\theta$};
+  \draw[-Stealth,BN!70,thick] (0,-1.32)--(0,1.35)
+    node[above,font=\small,text=BN] {$\sin\theta$};
+  \fill[BN] (0,0) circle (0.7pt) node[below left,font=\scriptsize] {$O$};
+
+  \foreach \a in {0,30,...,330}
+    \draw[TQ!65,thin] (0,0)--({cos(\a)},{sin(\a)});
+  \foreach \a in {45,135,225,315}
+    \draw[OR!75,thin] (0,0)--({cos(\a)},{sin(\a)});
+
+  \draw[TQ,dashed,semithick] (30:1)--(150:1)--(210:1)--(330:1)--cycle;
+  \draw[TQ,dashed,semithick] (60:1)--(120:1)--(240:1)--(300:1)--cycle;
+  \draw[OR,dashed,semithick] (45:1)--(135:1)--(225:1)--(315:1)--cycle;
+
+  \foreach \a/\lab in {
+    0/$0$,30/$\frac{\pi}{6}$,45/$\frac{\pi}{4}$,60/$\frac{\pi}{3}$,
+    90/$\frac{\pi}{2}$,120/$\frac{2\pi}{3}$,135/$\frac{3\pi}{4}$,
+    150/$\frac{5\pi}{6}$,180/$\pi$,210/$\frac{7\pi}{6}$,
+    225/$\frac{5\pi}{4}$,240/$\frac{4\pi}{3}$,270/$\frac{3\pi}{2}$,
+    300/$\frac{5\pi}{3}$,315/$\frac{7\pi}{4}$,330/$\frac{11\pi}{6}$}
+  {
+    \fill[BN] ({cos(\a)},{sin(\a)}) circle (0.7pt);
+    \node[fill=white,inner sep=1pt,font=\scriptsize,text=BN]
+      at ({1.15*cos(\a)},{1.15*sin(\a)}) {\lab};
+  }
+
+  \foreach \v/\lab/\dy in {
+    -0.866025/$-\frac{\sqrt3}{2}$/-0.13,
+    -0.707107/$-\frac{\sqrt2}{2}$/-0.23,
+    -0.5/$-\frac12$/-0.13,
+     0.5/$\frac12$/-0.13,
+     0.707107/$\frac{\sqrt2}{2}$/-0.23,
+     0.866025/$\frac{\sqrt3}{2}$/-0.13}
+  {
+    \draw[BN,thick] (\v,0.018)--(\v,-0.018);
+    \node[font=\tiny,fill=white,inner sep=0.5pt] at (\v,\dy) {\lab};
+  }
+  \foreach \v/\lab/\dx in {
+    -0.866025/$-\frac{\sqrt3}{2}$/0.18,
+    -0.707107/$-\frac{\sqrt2}{2}$/0.31,
+    -0.5/$-\frac12$/0.18,
+     0.5/$\frac12$/0.18,
+     0.707107/$\frac{\sqrt2}{2}$/0.31,
+     0.866025/$\frac{\sqrt3}{2}$/0.18}
+  {
+    \draw[BN,thick] (0.018,\v)--(-0.018,\v);
+    \node[font=\tiny,fill=white,inner sep=0.5pt] at (-\dx,\v) {\lab};
+  }
+
+  \draw[-Stealth,VE!80!black,line width=1pt] (8:1.28) arc[start angle=8,end angle=34,radius=1.28];
+  \node[font=\small\bfseries,text=VE!80!black,fill=white,inner sep=1pt]
+    at (48:1.33) {$+$};
+  \draw[-Stealth,BO,line width=1pt] (-8:1.28) arc[start angle=-8,end angle=-34,radius=1.28];
+  \node[font=\small\bfseries,text=BO,fill=white,inner sep=1pt]
+    at (-48:1.33) {$-$};
+\end{tikzpicture}

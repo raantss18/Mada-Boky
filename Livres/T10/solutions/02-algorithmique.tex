@@ -1,0 +1,1158 @@
+\section*{Chapitre 2 \textemdash\ Algorithmique}
+\addcontentsline{toc}{section}{Chapitre 2 \textemdash\ Algorithmique}
+
+%────────────────────────────────────────────────────────────────
+
+\subsection*{Exercices}
+\addcontentsline{toc}{subsection}{Exercices}
+
+\solutiontitle{2}{1}{Trace simple}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+Instruction & $A$ & $B$ & $C$ \\
+\midrule
+$A\leftarrow5$ & 5 & — & — \\
+$B\leftarrow3$ & 5 & 3 & — \\
+$C\leftarrow A+B$ & 5 & 3 & 8 \\
+$A\leftarrow A\times B$ & 15 & 3 & 8 \\
+$B\leftarrow C-A$ & 15 & $-7$ & 8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Valeurs finales~: $A=15$, $B=-7$, $C=8$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{2}{Trace avec variables suppl\'ementaires}
+
+$X\leftarrow10$, $Y\leftarrow3$~: division enti\`ere $Z\leftarrow X\div Y = \lfloor10/3\rfloor=3$.
+Reste~: $R\leftarrow X-Z\times Y=10-9=1$.
+$X\leftarrow Z=3$.
+
+Valeurs finales~: $X=3$, $Y=3$, $Z=3$, $R=1$.
+$R$ est le reste de la division euclidienne de $10$ par $3$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{3}{\'Echange de deux variables}
+
+\begin{enumerate}
+  \item Code incorrect~: $A\leftarrow B$ \'ecrase la valeur de $A$ avant qu'elle
+        soit sauvegard\'ee. Ensuite $B\leftarrow A$ ne fait que copier $B$ dans $B$.
+  \item Algorithme correct avec variable temporaire~:
+\begin{algorithm}[H]
+\caption{\'Echange correct}
+$T \leftarrow A$\;
+$A \leftarrow B$\;
+$B \leftarrow T$\;
+\end{algorithm}
+  \item Trace pour $A=7$, $B=3$~: $T\leftarrow7$~; $A\leftarrow3$~; $B\leftarrow7$.
+        R\'esultat~: $A=3$, $B=7$. \'Echange r\'eussi.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{4}{Calcul de moyenne}
+
+\begin{algorithm}[H]
+\caption{Moyenne et r\'esultat}
+\Lire $n_1, n_2, n_3$\;
+$M \leftarrow (n_1 + n_2 + n_3) / 3$\;
+\Afficher \og Moyenne~: \fg, $M$\;
+\Si{$M \geq 10$}{\Afficher \og Re\c cu\fg\;}
+\Sinon{\Afficher \og Recal\'e\fg\;}
+\end{algorithm}
+
+Impl\'ementation Python~:
+\begin{lstlisting}[style=python]
+n1, n2, n3 = float(input()), float(input()), float(input())
+m = (n1 + n2 + n3) / 3
+print(f"Moyenne : {m:.2f}")
+print("Recu" if m >= 10 else "Recale")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{5}{\'Equation du premier degr\'e}
+
+\begin{algorithm}[H]
+\caption{R\'esolution de $ax+b=0$}
+\Lire $a, b$\;
+\Si{$a \ne 0$}{
+  $x \leftarrow -b/a$\;
+  \Afficher \og Solution unique~: $x=$\fg, $x$\;
+}\SinonSi{$b = 0$}{
+  \Afficher \og Tout r\'eel est solution\fg\;
+}\Sinon{
+  \Afficher \og Pas de solution\fg\;
+}
+\end{algorithm}
+
+Exemples~: $a=2, b=-6\Rightarrow x=3$~;
+$a=0, b=0\Rightarrow$ infinit\'e~; $a=0, b=5\Rightarrow$ aucune.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{6}{Organigramme pair/impair}
+
+\begin{enumerate}
+  \item Organigramme~:
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.8cm and 0.5cm,
+  box/.style={draw=BN,fill=BN!8,rounded corners=3pt,minimum width=3cm,
+              minimum height=0.65cm,align=center,font=\small},
+  diam/.style={draw=OR,fill=OR!10,diamond,aspect=2.5,minimum width=3cm,
+               minimum height=0.65cm,align=center,font=\small},
+  io/.style={draw=VE,fill=VE!10,trapezium,trapezium left angle=75,
+             trapezium right angle=105,minimum width=2.5cm,minimum height=0.6cm,
+             align=center,font=\small},
+  arr/.style={-Stealth,BN,thick}]
+  \node[box,fill=BN,text=white] (d) {D\'ebut};
+  \node[io,below=of d] (r) {Lire $n$};
+  \node[diam,below=of r] (t) {$n \bmod 2 = 0$~?};
+  \node[io,below left=0.8cm and 1.5cm of t] (p) {Afficher \og pair\fg};
+  \node[io,below right=0.8cm and 1.2cm of t] (i) {Afficher \og impair\fg};
+  \node[box,fill=BN,text=white,below=2.8cm of t] (f) {Fin};
+  \draw[arr](d)--(r); \draw[arr](r)--(t);
+  \draw[arr](t)--node[left,font=\scriptsize]{Oui}(p);
+  \draw[arr](t)--node[right,font=\scriptsize]{Non}(i);
+  \draw[arr](p)|-(f); \draw[arr](i)|-(f);
+\end{tikzpicture}
+\end{center}
+  \item Pseudo-code~:
+\begin{algorithm}[H]
+\caption{Pair ou impair}
+\Lire $n$\;
+\Si{$n \bmod 2 = 0$}{\Afficher \og pair\fg\;}
+\Sinon{\Afficher \og impair\fg\;}
+\end{algorithm}
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{7}{Valeur absolue}
+
+\begin{algorithm}[H]
+\caption{Valeur absolue}
+\Lire $x$\;
+\Si{$x \geq 0$}{\Afficher $x$\;}
+\Sinon{\Afficher $-x$\;}
+\end{algorithm}
+
+Tests~: $x=-5\Rightarrow5$~; $x=0\Rightarrow0$~; $x=3{,}14\Rightarrow3{,}14$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{8}{Maximum de trois nombres}
+
+\textbf{(1) Si imbriqu\'es~:}
+\begin{algorithm}[H]
+\caption{Maximum (Si imbriqu\'es)}
+\Lire $a, b, c$\;
+\Si{$a \geq b$}{
+  \Si{$a \geq c$}{\Afficher $a$\;}
+  \Sinon{\Afficher $c$\;}
+}\Sinon{
+  \Si{$b \geq c$}{\Afficher $b$\;}
+  \Sinon{\Afficher $c$\;}
+}
+\end{algorithm}
+
+\textbf{(2) Variable Max~:}
+\begin{algorithm}[H]
+\caption{Maximum (variable Max)}
+\Lire $a, b, c$\;
+$\mathit{Max} \leftarrow a$\;
+\Si{$b > \mathit{Max}$}{$\mathit{Max} \leftarrow b$\;}
+\Si{$c > \mathit{Max}$}{$\mathit{Max} \leftarrow c$\;}
+\Afficher $\mathit{Max}$\;
+\end{algorithm}
+
+La deuxi\`eme version est plus g\'en\'eralisable~: remplacer les deux \texttt{Si}
+par une boucle sur $n$ \'el\'ements.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{9}{Table de multiplication}
+
+Trace pour $n=3$~: affiche $3, 6, 9, 12, 15, 18, 21, 24, 27, 30$.
+
+\begin{algorithm}[H]
+\caption{Table de $n$}
+\Lire $n$\;
+\Pour{$k \leftarrow 1$ \KwTo $10$}{
+  \Afficher $k$, \og$\times$\fg, $n$, \og$=$\fg, $k \times n$\;
+}
+\end{algorithm}
+
+\begin{lstlisting}[style=python]
+n = int(input("n = "))
+for k in range(1, 11):
+    print(f"{k} x {n} = {k*n}")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{10}{Lecture d'algorithme}
+
+L'algorithme calcule $S = 1 + 2 + \cdots + N = \dfrac{N(N+1)}{2}$.
+
+V\'erification pour $N=5$~: $S=15=5\times6/2$.\checkmark
+
+L'invariant de boucle est \og apr\`es $i$ it\'erations, $S=1+2+\cdots+i$\fg.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{11}{Compter les multiples}
+
+\begin{algorithm}[H]
+\caption{Multiples de 3 $< 100$}
+$\mathit{compte} \leftarrow 0$\;
+\Pour{$k \leftarrow 3$ \KwTo $99$ \textbf{par pas de} $3$}{
+  \Afficher $k$\;
+  $\mathit{compte} \leftarrow \mathit{compte}+1$\;
+}
+\Afficher \og Total~: \fg, $\mathit{compte}$\;
+\end{algorithm}
+
+Il y en a $\lfloor 99/3\rfloor = 33$ (de $3$ \`a $99$).
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{12}{Conversion Celsius/Fahrenheit}
+
+\begin{algorithm}[H]
+\caption{Tableau Celsius/Fahrenheit}
+\Pour{$C \leftarrow 0$ \KwTo $100$ \textbf{par pas de} $10$}{
+  $F \leftarrow \frac{9}{5}\times C + 32$\;
+  \Afficher $C$, \og degrés Celsius = \fg, $F$, \og degrés Fahrenheit\fg\;
+}
+\end{algorithm}
+
+Premi\`eres lignes~: $0^{\circ}\text{C}=32^{\circ}\text{F}$~;
+$10^{\circ}\text{C}=50^{\circ}\text{F}$~; $100^{\circ}\text{C}=212^{\circ}\text{F}$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{13}{Puissance enti\`ere}
+
+\begin{algorithm}[H]
+\caption{$x^n$ par multiplications}
+\Lire $x, n$\;
+$P \leftarrow 1$\;
+\Pour{$k \leftarrow 1$ \KwTo $n$}{$P \leftarrow P \times x$\;}
+\Afficher $P$\;
+\end{algorithm}
+
+Trace pour $x=2$, $n=8$~: $P$ prend les valeurs $2,4,8,16,32,64,128,256$.
+Valeur finale~: $P=256=2^8$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{14}{Somme des chiffres d'un entier}
+
+\begin{algorithm}[H]
+\caption{Somme des chiffres}
+\Lire $n$\;
+$S \leftarrow 0$\;
+\TantQue{$n > 0$}{
+  $S \leftarrow S + (n \bmod 10)$\;
+  $n \leftarrow \lfloor n/10 \rfloor$\;
+}
+\Afficher $S$\;
+\end{algorithm}
+
+Trace pour $n=1234$~:
+$S=0+4=4$, $n=123$~;
+$S=4+3=7$, $n=12$~;
+$S=7+2=9$, $n=1$~;
+$S=9+1=10$, $n=0$~;
+Fin~: $S=10=1+2+3+4$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{15}{Lecture de trace~: algorithme d'Euclide}
+
+Trace pour $A=48$, $B=18$~:
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ccc}
+\toprule
+$A$ & $B$ & $R = A\bmod B$ \\
+\midrule
+48 & 18 & 12 \\
+18 & 12 & 6 \\
+12 & 6 & 0 \\
+6 & 0 & — \\
+\bottomrule
+\end{tabular}
+\end{center}
+L'algorithme calcule le \textbf{PGCD}. Valeur finale de $A=6=\pgcd(48,18)$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{16}{Suite arithm\'etique}
+
+\begin{algorithm}[H]
+\caption{Suite arithm\'etique et somme}
+\Lire $u_0, r$\;
+$u \leftarrow u_0$~;\quad $S \leftarrow 0$\;
+\Pour{$n \leftarrow 0$ \KwTo $19$}{
+  \Afficher \og $u_n=$\fg, $u$\;
+  $S \leftarrow S + u$\;
+  $u \leftarrow u + r$\;
+}
+\Afficher \og Somme~: \fg, $S$\;
+\end{algorithm}
+
+V\'erification~: $S = 20u_0 + r(0+1+\cdots+19)=20u_0+190r$.
+Par exemple pour $u_0=1$, $r=2$~: $S=20+190\times2=400$.
+Formule~: $20\times1+190\times2=20+380=400$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{17}{Suite g\'eom\'etrique et seuil}
+
+\begin{algorithm}[H]
+\caption{Suite g\'eom\'etrique $u_n=3\times2^n$}
+$u \leftarrow 3$~;\quad $n \leftarrow 0$\;
+\Pour{$k \leftarrow 0$ \KwTo $9$}{\Afficher \og $u_k=$\fg, $u$~;\quad $u \leftarrow 2\times u$\;}
+$u \leftarrow 3$~;\quad $n \leftarrow 0$\;
+\TantQue{$u \leq 1000$}{$u \leftarrow 2\times u$~;\quad $n \leftarrow n+1$\;}
+\Afficher \og Premier $n$ tel que $u_n>1000$~: \fg, $n$\;
+\end{algorithm}
+
+V\'erification alg\'ebrique~: $3\times2^n>1000\Rightarrow2^n>333{,}3\Rightarrow n>\log_2(333{,}3)\approx8{,}38$.
+Donc $n=9$~: $u_9=3\times512=1536>1000$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{18}{Factorielle}
+
+\begin{algorithm}[H]
+\caption{Factorielle}
+\Lire $n$\;
+\Si{$n < 0$}{\Afficher \og Erreur~: $n$ doit être $\geq 0$\fg~;\quad \textbf{Stop}\;}
+$F \leftarrow 1$\;
+\Pour{$k \leftarrow 1$ \KwTo $n$}{$F \leftarrow F \times k$\;}
+\Afficher $F$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Version it\'erative~: voir ci-dessus.
+  \item Si $n<0$, on affiche un message et on arr\^ete.
+  \item Nombre de multiplications~: $n-1$ (pour $n\geq1$~; $0$ pour $n=0$).
+\end{enumerate}
+
+Exemples~: $5!=120$~; $0!=1$~; $10!=3628800$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{19}{Maximum et position}
+
+\begin{algorithm}[H]
+\caption{Maximum et sa position}
+\Lire $n$\;
+\Lire $x_1$~;\quad $M \leftarrow x_1$~;\quad $\mathit{pos} \leftarrow 1$\;
+\Pour{$i \leftarrow 2$ \KwTo $n$}{
+  \Lire $x_i$\;
+  \Si{$x_i > M$}{$M \leftarrow x_i$~;\quad $\mathit{pos} \leftarrow i$\;}
+}
+\Afficher \og Max~: \fg, $M$, \og en position~: \fg, $\mathit{pos}$\;
+\end{algorithm}
+
+Nombre de comparaisons~: exactement $n-1$ (une par \'el\'ement apr\`es le premier).
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{20}{Recherche lin\'eaire}
+
+\begin{algorithm}[H]
+\caption{Recherche lin\'eaire}
+\Lire $n, v$~;\quad $i \leftarrow 1$~;\quad \Vrai{trouv\'e} $\leftarrow$ \Faux\;
+\TantQue{$i \leq n$ \textbf{et} \textbf{non} trouv\'e}{
+  \Lire $x_i$\;
+  \Si{$x_i = v$}{trouv\'e $\leftarrow$ \Vrai\;}
+  \Sinon{$i \leftarrow i+1$\;}
+}
+\Si{trouv\'e}{\Afficher \og Trouv\'e en position~: \fg, $i$\;}
+\Sinon{\Afficher \og $v$ absent\fg\;}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Version \texttt{Tant que}~: voir ci-dessus.
+  \item Pire cas~: $v$ absent, on fait $n$ comparaisons.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{21}{Palindrome}
+
+\begin{algorithm}[H]
+\caption{Test palindrome}
+\Lire $s$~;\quad $n \leftarrow \text{longueur}(s)$~;\quad $\mathit{pal} \leftarrow$ \Vrai\;
+\Pour{$i \leftarrow 1$ \KwTo $\lfloor n/2\rfloor$}{
+  \Si{$s[i] \ne s[n+1-i]$}{$\mathit{pal} \leftarrow$ \Faux\;}
+}
+\Si{$\mathit{pal}$}{\Afficher \og Palindrome\fg\;}
+\Sinon{\Afficher \og Pas un palindrome\fg\;}
+\end{algorithm}
+
+Tests~: \texttt{radar}~: $r=r$, $a=a$, $d=d$~$\Rightarrow$ palindrome.
+\texttt{bonjour}~: $b\ne r$~$\Rightarrow$ non palindrome.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{22}{Suite de Syracuse}
+
+\begin{algorithm}[H]
+\caption{Suite de Syracuse}
+\Lire $n$~;\quad $k \leftarrow 0$~;\quad $\mathit{max} \leftarrow n$\;
+\TantQue{$n \ne 1$}{
+  \Si{$n \bmod 2 = 0$}{$n \leftarrow n/2$\;}
+  \Sinon{$n \leftarrow 3n+1$\;}
+  $k \leftarrow k+1$\;
+  \Si{$n > \mathit{max}$}{$\mathit{max} \leftarrow n$\;}
+}
+\Afficher \og Temps de vol~: \fg, $k$~;\quad \Afficher \og Altitude max~: \fg, $\mathit{max}$\;
+\end{algorithm}
+
+Pour $n=6$~: $6\to3\to10\to5\to16\to8\to4\to2\to1$~: temps de vol~$8$, altitude max~$16$.
+
+La conjecture de Collatz (non d\'emontr\'ee) affirme que toute suite atteint $1$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{23}{Diviseurs d'un entier}
+
+\textbf{Version 1~:}
+\begin{algorithm}[H]
+\caption{Diviseurs (version na\"ive)}
+\Lire $n$\;
+\Pour{$k \leftarrow 1$ \KwTo $n$}{
+  \Si{$n \bmod k = 0$}{\Afficher $k$\;}
+}
+\end{algorithm}
+$n$ op\'erations.
+
+\textbf{Version 2 (optimis\'ee)~:}
+\begin{algorithm}[H]
+\caption{Diviseurs (version optimis\'ee)}
+\Lire $n$\;
+\Pour{$k \leftarrow 1$ \KwTo $\lfloor\sqrt{n}\rfloor$}{
+  \Si{$n \bmod k = 0$}{
+    \Afficher $k$\;
+    \Si{$k \ne n/k$}{\Afficher $n/k$\;}
+  }
+}
+\end{algorithm}
+$\lfloor\sqrt{n}\rfloor$ op\'erations~: beaucoup moins pour les grands $n$.
+
+Pour $n=36$~: diviseurs $1,2,3,4,6,9,12,18,36$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{24}{Nombre premier}
+
+\begin{enumerate}
+  \item Si $n$ admet un diviseur $d > \sqrt{n}$, alors $n/d < \sqrt{n}$
+        est aussi un diviseur. Donc il suffit de tester jusqu'\`a $\sqrt{n}$.
+  \item Pseudo-code~:
+\begin{algorithm}[H]
+\caption{Test de primalit\'e}
+\Lire $n$\;
+\Si{$n < 2$}{\Afficher \og Non premier\fg~;\quad \textbf{Stop}\;}
+$\mathit{premier} \leftarrow$ \Vrai\;
+$k \leftarrow 2$\;
+\TantQue{$k \leq \sqrt{n}$ \textbf{et} $\mathit{premier}$}{
+  \Si{$n \bmod k = 0$}{$\mathit{premier} \leftarrow$ \Faux\;}
+  $k \leftarrow k+1$\;
+}
+\Si{$\mathit{premier}$}{\Afficher \og Premier\fg\;}
+\Sinon{\Afficher \og Non premier\fg\;}
+\end{algorithm}
+  \item Premiers $< 100$~: $2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97$.
+        Il y en a $25$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{25}{Z\'ero d'une fonction par dichotomie}
+
+\begin{enumerate}
+  \item $f(1)=1-2=-1<0$ et $f(2)=8-2=6>0$.\checkmark\ (TVI garantit une racine dans $]1,2[$.)
+  \item Algorithme~:
+\begin{algorithm}[H]
+\caption{Dichotomie pour $f(x)=x^3-2$}
+$a \leftarrow 1$~;\quad $b \leftarrow 2$~;\quad $\varepsilon \leftarrow 10^{-6}$\;
+\TantQue{$b - a > \varepsilon$}{
+  $m \leftarrow \frac{a+b}{2}$\;
+  \Si{$f(m) \times f(a) \leq 0$}{$b \leftarrow m$\;}
+  \Sinon{$a \leftarrow m$\;}
+}
+\Afficher \og Racine $\approx$ \fg, $\frac{a+b}{2}$\;
+\end{algorithm}
+  \item Nombre d'it\'erations~: $n \geq \log_2((b-a)/\varepsilon)=\log_2(10^6)\approx20$.
+  \item Limite~: $\sqrt[3]{2}\approx1{,}25992$. V\'erification~: $1{,}25992^3\approx2$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{26}{Codage de C\'esar}
+
+\begin{algorithm}[H]
+\caption{Chiffrement de C\'esar}
+\Lire $k$~; (la cl\'e de d\'ecalage)\;
+\Lire $\mathit{message}$\;
+\Pour{chaque lettre $c$ de $\mathit{message}$}{
+  $\mathit{rang} \leftarrow (\text{rang}(c) + k) \bmod 26$\;
+  \Afficher la lettre de rang $\mathit{rang}$\;
+}
+\end{algorithm}
+
+D\'echiffrement~: remplacer $+k$ par $-k$ (ou $+26-k$).
+
+La cl\'e $k=13$ donne ROT13~: son propre inverse car $13+13=26\equiv0$.
+Le nombre de cl\'es possibles est $26$~: force brute triviale (essayer toutes).
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{27}{Alignement de points}
+
+\begin{algorithm}[H]
+\caption{Test d'alignement}
+\Lire $x_A, y_A, x_B, y_B, x_C, y_C$\;
+$d \leftarrow (x_B-x_A)\times(y_C-y_A) - (x_C-x_A)\times(y_B-y_A)$\;
+\Si{$d = 0$}{\Afficher \og Align\'es\fg\;}
+\Sinon{\Afficher \og Non align\'es\fg\;}
+\end{algorithm}
+
+Test $A(0,0)$, $B(1,2)$, $C(2,4)$~:
+$d=(1)(4)-(2)(2)=4-4=0$~: align\'es.\checkmark
+
+Test $A(0,0)$, $B(1,2)$, $C(3,5)$~:
+$d=(1)(5)-(3)(2)=5-6=-1\ne0$~: non align\'es.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{28}{Calcul de $\pi$ par s\'erie de Leibniz}
+
+\begin{algorithm}[H]
+\caption{$\pi$ par Leibniz}
+\Lire $N$~;\quad $S \leftarrow 0$\;
+\Pour{$k \leftarrow 0$ \KwTo $N-1$}{
+  $S \leftarrow S + (-1)^k / (2k+1)$\;
+}
+\Afficher $4\times S$\;
+\end{algorithm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccc}
+\toprule
+$N$ & $4S$ & Erreur\\
+\midrule
+10 & $3{,}0418\ldots$ & $10^{-1}$\\
+100 & $3{,}1316\ldots$ & $10^{-2}$\\
+1\,000 & $3{,}1406\ldots$ & $10^{-3}$\\
+10\,000 & $3{,}1415\ldots$ & $10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+La convergence est lente : multiplier le nombre de termes par $10$ ne gagne
+qu'environ une décimale. La série de Machin converge beaucoup plus vite.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{29}{Sch\'ema de H\"orner}
+
+\begin{algorithm}[H]
+\caption{Sch\'ema de H\"orner}
+\Lire $n, x_0$~;\quad \Lire $a_n$~;\quad $P \leftarrow a_n$\;
+\Pour{$k \leftarrow n-1$ \KwTo $0$ \textbf{(d\'ecroissant)}}{
+  \Lire $a_k$~;\quad $P \leftarrow P \times x_0 + a_k$\;
+}
+\Afficher $P$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Nombre de multiplications~: $n$ (une par \'etape)~;
+        m\'ethode na\"ive~: $\approx n^2/2$. H\"orner est donc optimal.
+  \item Pour $P(x)=2x^3-5x^2+3x-1$ en $x_0=2$~:
+        H\"orner~: $((2\times2-5)\times2+3)\times2-1=(-1\times2+3)\times2-1=1\times2-1=1$.
+        V\'erification~: $2(8)-5(4)+3(2)-1=16-20+6-1=1$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{30}{Suite de Fibonacci et nombre d'or}
+
+\begin{algorithm}[H]
+\caption{Fibonacci et nombre d'or}
+$u \leftarrow 0$~;\quad $v \leftarrow 1$\;
+\Pour{$n \leftarrow 1$ \KwTo $N$}{
+  \Afficher \og $F_n=$\fg, $v$, \og rapport~: \fg, $v/u$\;
+  $(u,v) \leftarrow (v, u+v)$\;
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Premiers termes (en commen\c cant \`a $F_1=1$)~:
+        $1,1,2,3,5,8,13,21,34,55,89,144,\ldots$
+  \item Rapports $F_{n+1}/F_n$~: $1, 2, 1{,}5, 1{,}667, 1{,}6, 1{,}625, 1{,}615,\ldots$
+        Limite~: $\varphi = \dfrac{1+\sqrt{5}}{2} \approx 1{,}61803\ldots$ (nombre d'or).
+  \item D\'emonstration de la limite~: si $F_{n+1}/F_n\to L$, alors en divisant
+        $F_{n+2}=F_{n+1}+F_n$ par $F_{n+1}$~: $L=1+1/L$, soit $L^2-L-1=0$,
+        d'o\`u $L=\varphi$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{31}{Preuve de correction~: invariant}
+
+\textbf{Invariant~:} au d\'ebut de chaque it\'eration avec valeur $k$,
+$F = (k-1)!$.
+
+\textbf{Initialisation~:} avant la boucle, $F=1=0!=(1-1)!$. \checkmark
+
+\textbf{Conservation~:} si $F=(k-1)!$ en entrant dans l'it\'eration,
+alors apr\`es $F\leftarrow F\times k$, on a $F=k!=(k+1-1)!$. \checkmark
+
+\textbf{Terminaison~:} la boucle s'arr\^ete quand $k>n$, soit $k=n+1$.
+\`A ce moment, l'invariant donne $F=(n+1-1)!=n!$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{32}{Algorithme d'Euclide}
+
+\begin{enumerate}
+  \item Pseudo-code et trace~:
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ccc}
+\toprule
+$a$ & $b$ & $r=a\bmod b$ \\ \midrule
+48 & 18 & 12 \\
+18 & 12 & 6 \\
+12 & 6 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+R\'esultat~: $\pgcd(48,18)=6$.
+  \item \textbf{Correction~:} montrons que $\pgcd(a,b)=\pgcd(b,r)$ o\`u $r=a\bmod b$.
+        Tout diviseur commun de $a$ et $b$ divise $r=a-qb$,
+        donc divise $b$ et $r$. R\'eciproquement, tout diviseur commun de $b$
+        et $r$ divise $a=qb+r$. L'ensemble des diviseurs communs est identique~:
+        $\pgcd(a,b)=\pgcd(b,r)$.\hfill$\square$
+  \item À chaque étape, le second nombre diminue strictement; l'algorithme finit
+        donc par atteindre un reste nul.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{33}{Exponentiation rapide}
+
+\begin{algorithm}[H]
+\caption{Exponentiation rapide (it\'erative)}
+\Lire $x, n$~;\quad $P \leftarrow 1$~;\quad $b \leftarrow x$\;
+\TantQue{$n > 0$}{
+  \Si{$n \bmod 2 = 1$}{$P \leftarrow P \times b$\;}
+  $b \leftarrow b \times b$~;\quad $n \leftarrow \lfloor n/2\rfloor$\;
+}
+\Afficher $P$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Version it\'erative~: voir ci-dessus.
+  \item Pour $n=13=1101_2$~: $13$ en binaire. Nombre de multiplications~:
+        $\lfloor\log_2 13\rfloor+\text{nb de 1 dans }1101 = 3+3 = 6$.
+        M\'ethode na\"ive~: $12$ multiplications.
+  \item La division répétée de l'exposant par $2$ explique la diminution rapide
+        du nombre de multiplications.
+\end{enumerate}
+
+Trace pour $x=2$, $n=10$~:
+$P=1,b=2,n=10$ $\to$ $b=4,n=5$ $\to$ $P=4,b=16,n=2$ $\to$ $b=256,n=1$ $\to$ $P=1024$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{34}{Tri \`a bulles}
+
+\begin{algorithm}[H]
+\caption{Tri \`a bulles}
+\KwIn{Tableau $T$ de $n$ \'el\'ements}
+\Pour{$i \leftarrow 1$ \KwTo $n-1$}{
+  \Pour{$j \leftarrow 1$ \KwTo $n-i$}{
+    \Si{$T[j] > T[j+1]$}{
+      \'Echanger $T[j]$ et $T[j+1]$\;
+    }
+  }
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Pseudo-code~: voir ci-dessus.
+  \item Trace pour $T=[5,3,1,4,2]$~:
+        \textbf{Passe 1}~: $[3,1,4,2,5]$~;
+        \textbf{Passe 2}~: $[1,3,2,4,5]$~;
+        \textbf{Passe 3}~: $[1,2,3,4,5]$~;
+        \textbf{Passe 4}~: $[1,2,3,4,5]$.
+  \item Nombre de comparaisons~: $(n-1)+(n-2)+\cdots+1=\dfrac{n(n-1)}{2}$.
+  \item Optimisation~: si aucun \'echange ne se produit lors d'une passe,
+        le tableau est tri\'e~: arr\^eter.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{35}{Recherche dichotomique}
+
+\begin{algorithm}[H]
+\caption{Recherche dichotomique}
+\KwIn{Tableau $T$ tri\'e, valeur $v$}
+$g \leftarrow 1$~;\quad $d \leftarrow n$\;
+\TantQue{$g \leq d$}{
+  $m \leftarrow \lfloor(g+d)/2\rfloor$\;
+  \Si{$T[m] = v$}{\Afficher \og Trouv\'e en position~: \fg, $m$~;\quad \textbf{Stop}\;}
+  \SinonSi{$T[m] < v$}{$g \leftarrow m+1$\;}
+  \Sinon{$d \leftarrow m-1$\;}
+}
+\Afficher \og $v$ absent\fg\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Pseudo-code~: voir ci-dessus.
+  \item Trace pour $T=[2,5,8,12,16,23,38,56]$, $v=23$~:
+        $g=1,d=8,m=4$, $T[4]=12<23$, $g=5$.
+        $g=5,d=8,m=6$, $T[6]=23=v$~: trouv\'e en position $6$.
+  \item Pour $n=10^6$, au plus $20$ partages successifs suffisent, contre
+        jusqu'à un million de tests dans une lecture élément par élément.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{2}{36}{Codage et d\'ecodage binaire}
+
+\begin{algorithm}[H]
+\caption{D\'ecimal vers binaire}
+\Lire $n$\;
+\Si{$n = 0$}{\Afficher \og 0\fg~;\quad \textbf{Stop}\;}
+$\mathit{bits} \leftarrow$ cha\^ine vide\;
+\TantQue{$n > 0$}{
+  $\mathit{bits} \leftarrow (n \bmod 2) + \mathit{bits}$\;
+  $n \leftarrow \lfloor n/2\rfloor$\;
+}
+\Afficher $\mathit{bits}$\;
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Binaire vers d\'ecimal}
+\Lire une cha\^ine de bits $b_1b_2\ldots b_k$~;\quad $N \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $k$}{
+  $N \leftarrow 2\times N + b_i$\;
+}
+\Afficher $N$\;
+\end{algorithm}
+
+Pour $n=42$~: $42=32+8+2=101010_2$.
+V\'erification~: $1\cdot32+0\cdot16+1\cdot8+0\cdot4+1\cdot2+0\cdot1=42$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+\addcontentsline{toc}{subsection}{Probl\`emes}
+%────────────────────────────────────────────────────────────────
+
+\psolutiontitle{2}{1}{Simulation d'un jeu de d\'es}
+
+\begin{enumerate}
+  \item Pseudo-code~:
+\begin{algorithm}[H]
+\caption{Simulation de $N$ lancers de d\'es}
+\Lire $N$~;\quad $\mathit{compte\_double} \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $N$}{
+  $d_1 \leftarrow$ entier al\'eatoire dans $\{1,\ldots,6\}$\;
+  $d_2 \leftarrow$ entier al\'eatoire dans $\{1,\ldots,6\}$\;
+  $S \leftarrow d_1 + d_2$\;
+  \Si{$d_1 = d_2$}{$\mathit{compte\_double} \leftarrow \mathit{compte\_double}+1$\;}
+  \Afficher $d_1$, $d_2$, $S$\;
+}
+\Afficher \og Fr\'equence doubles~: \fg, $\mathit{compte\_double}/N$\;
+\end{algorithm}
+  \item Probabilit\'e th\'eorique d'un double~: $6/36=1/6\approx16{,}7\%$.
+  \item Pour $N=1000$, la fr\'equence converge vers $1/6$ (loi des grands nombres).
+  \item Impl\'ementation Python~:
+\begin{lstlisting}[style=python]
+import random
+N = int(input("N = "))
+doubles = 0
+for _ in range(N):
+    d1, d2 = random.randint(1,6), random.randint(1,6)
+    if d1 == d2:
+        doubles += 1
+print(f"Frequence doubles : {doubles/N:.3f}")
+\end{lstlisting}
+\end{enumerate}
+
+\psolutiontitle{2}{2}{Suite de Collatz et conjecture}
+
+\begin{enumerate}
+  \item Algorithme~:
+\begin{algorithm}[H]
+\caption{Temps de vol de Collatz}
+\Lire $n$~;\quad $t \leftarrow 0$\;
+\TantQue{$n \ne 1$}{
+  \Si{$n \bmod 2 = 0$}{$n \leftarrow n/2$\;}
+  \Sinon{$n \leftarrow 3n+1$\;}
+  $t \leftarrow t+1$\;
+}
+\Afficher $t$\;
+\end{algorithm}
+  \item Exemples~: $n=6\to$ temps $8$~; $n=27\to$ temps $111$.
+  \item Pour trouver le maximum sur $1..N$, on boucle sur toutes les valeurs.
+        L'entier $n=27$ a un temps de vol de $111$ pour des $n$ jusqu'\`a $100$.
+  \item La conjecture est non d\'emontr\'ee~: on ne sait pas si \emph{tous} les entiers
+        atteignent $1$ en temps fini.
+\end{enumerate}
+
+\psolutiontitle{2}{3}{M\'ethode de H\'eron~: racine carr\'ee}
+
+\begin{enumerate}
+  \item Pseudo-code~:
+\begin{algorithm}[H]
+\caption{M\'ethode de H\'eron}
+\Lire $a, \varepsilon$~;\quad $u \leftarrow a$\;
+\TantQue{$|u - a/u| > \varepsilon$}{
+  $u \leftarrow (u + a/u)/2$\;
+}
+\Afficher $u$\;
+\end{algorithm}
+  \item Trace pour $a=2$, $\varepsilon=10^{-4}$~: $u_0=2$, $u_1=1{,}5$, $u_2=1{,}4167$,
+        $u_3=1{,}4142\ldots\approx\sqrt{2}$. Convergence en $4$ it\'erations.
+  \item La convergence est \textbf{quadratique}~: le nombre de d\'ecimales correctes
+        double \`a chaque it\'eration. C'est bien plus rapide que la dichotomie.
+\end{enumerate}
+
+\psolutiontitle{2}{4}{Algorithme de H\"orner et \'evaluation de polyn\^omes}
+
+$P(x)=3x^4-7x^3+2x^2+x-5$.
+
+\begin{enumerate}
+  \item Na\"ivement~: $P(2)=3(16)-7(8)+2(4)+2-5=48-56+8+2-5=-3$.
+        Nombre de multiplications~: $4+3+2+1=10$ (en d\'eveloppant les puissances).
+  \item H\"orner~: $((((3)\times2-7)\times2+2)\times2+1)\times2-5
+        =(((-1)\times2+2)\times2+1)\times2-5
+        =((0)\times2+1)\times2-5=1\times2-5=-3$.\checkmark
+        Nombre de multiplications~: $4$~: un par degr\'e.
+  \item H\"orner utilise une multiplication par degré, ce qui évite de recalculer
+        séparément toutes les puissances de $x$.
+\end{enumerate}
+
+\psolutiontitle{2}{5}{Cryptographie par d\'ecalage~: attaque}
+
+\begin{enumerate}
+  \item Force brute (essayer les $26$ cl\'es)~:
+\begin{algorithm}[H]
+\caption{Attaque par force brute}
+\Lire $\mathit{message}$\;
+\Pour{$k \leftarrow 0$ \KwTo $25$}{
+  \Afficher \og Cl\'e \fg, $k$, \og~: \fg, d\'echiffrer($\mathit{message}$, $k$)\;
+}
+\end{algorithm}
+  \item Identification automatique~: une approche consiste \`a calculer la
+        fr\'equence des lettres du texte d\'echiffr\'e et de la comparer
+        aux fr\'equences du fran\c cais (la lettre la plus fr\'equente est \og E\fg~:
+        $17\%$). La cl\'e correcte maximise la correspondance.
+  \item Le chiffrement de C\'esar a une s\'ecurit\'e nulle~: une machine peut essayer
+        les $26$ possibilit\'es en microsecondes.
+\end{enumerate}
+
+\psolutiontitle{2}{6}{Jeu du plus/moins}
+
+\begin{algorithm}[H]
+\caption{Jeu du plus/moins}
+$n \leftarrow$ entier al\'eatoire dans $[1,100]$~;\quad $\mathit{nb\_essais} \leftarrow 0$\;
+\Repeter{$\mathit{prop} = n$}{
+  \Lire $\mathit{prop}$~;\quad $\mathit{nb\_essais} \leftarrow \mathit{nb\_essais}+1$\;
+  \Si{$\mathit{prop} < n$}{\Afficher \og Plus\fg\;}
+  \SinonSi{$\mathit{prop} > n$}{\Afficher \og Moins\fg\;}
+  \Sinon{\Afficher \og Trouv\'e en \fg, $\mathit{nb\_essais}$, \og essais\fg\;}
+}
+\end{algorithm}
+
+La strat\'egie optimale est la \textbf{dichotomie}~: toujours proposer le milieu
+de l'intervalle possible. Avec $100$ nombres, on trouve en $\leq7$ essais
+car $\lceil\log_2 100\rceil=7$.
+
+\psolutiontitle{2}{7}{Crible d'\'Eratosth\`ene}
+
+\begin{algorithm}[H]
+\caption{Crible d'\'Eratosth\`ene}
+\KwIn{entier $N \geq 2$}
+Cr\'eer un tableau $\mathit{est\_premier}[2..N]$ initialis\'e \`a \Vrai\;
+$p \leftarrow 2$\;
+\TantQue{$p^2 \leq N$}{
+  \Si{$\mathit{est\_premier}[p]$}{
+    $k \leftarrow p^2$\;
+    \TantQue{$k \leq N$}{
+      $\mathit{est\_premier}[k] \leftarrow$ \Faux\;
+      $k \leftarrow k + p$\;
+    }
+  }
+  $p \leftarrow p+1$\;
+}
+Afficher tous les $i$ tels que $\mathit{est\_premier}[i]$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Pseudo-code~: voir ci-dessus.
+  \item Justification de $p^2$~: si $p$ est premier et $k<p^2$, alors
+        $k$ a d\'ej\`a \'et\'e barr\'e par un premier $q<p$.
+  \item Le crible évite de tester séparément tous les diviseurs possibles de
+        chaque entier.
+  \item Nombre de premiers $\leq 100$~: $25$.
+\end{enumerate}
+
+\psolutiontitle{2}{8}{Tri fusion~: principe}
+
+\textbf{Fusion de deux tableaux tri\'es~:}
+\begin{algorithm}[H]
+\caption{Fusion}
+\KwIn{Tableaux tri\'es $A[1..p]$ et $B[1..q]$}
+$i\leftarrow1$~; $j\leftarrow1$~; $k\leftarrow1$\;
+\TantQue{$i\leq p$ \textbf{et} $j\leq q$}{
+  \Si{$A[i]\leq B[j]$}{$C[k]\leftarrow A[i]$~; $i\leftarrow i+1$\;}
+  \Sinon{$C[k]\leftarrow B[j]$~; $j\leftarrow j+1$\;}
+  $k\leftarrow k+1$\;
+}
+Copier les \'el\'ements restants de $A$ ou $B$ dans $C$\;
+\end{algorithm}
+
+\textbf{Sch\'ema r\'ecursif~:}
+\begin{algorithm}[H]
+\caption{Tri fusion (sch\'ema)}
+\KwIn{Tableau $T[g..d]$}
+\Si{$g < d$}{
+  $m \leftarrow \lfloor(g+d)/2\rfloor$\;
+  Trier r\'ecursivement $T[g..m]$ et $T[m+1..d]$\;
+  Fusionner $T[g..m]$ et $T[m+1..d]$\;
+}
+\end{algorithm}
+
+Le tri fusion partage d'abord la liste, puis fusionne les sous-listes déjà triées.
+
+\psolutiontitle{2}{9}{Chiffrement de Vigen\`ere}
+
+\begin{algorithm}[H]
+\caption{Chiffrement de Vigen\`ere}
+\Lire $\mathit{cle}$ (longueur $L$), $\mathit{message}$\;
+\Pour{$i \leftarrow 1$ \KwTo longueur($\mathit{message}$)}{
+  $c \leftarrow$ rang du caract\`ere $i$ du message ($0..25$)\;
+  $k \leftarrow$ rang du caract\`ere $((i-1)\bmod L + 1)$ de la cl\'e\;
+  \Afficher lettre de rang $(c+k)\bmod26$\;
+}
+\end{algorithm}
+
+Exemple~: cl\'e \og CLE\fg\ (rangs 2,11,4).
+\og BONJOUR\fg\ $\to$ \og DZRJYAS\fg~:
+$B(1)+C(2)=D(3)$~; $O(14)+L(11)=Z(25)$~; $N(13)+E(4)=R(17)$~; etc.
+
+Le chiffrement de Vigen\`ere est plus s\^ur que C\'esar car il d\'epend d'une cl\'e~:
+$26^L$ cl\'es possibles pour une cl\'e de longueur $L$.
+
+\psolutiontitle{2}{10}{Compression RLE}
+
+\begin{algorithm}[H]
+\caption{Compression RLE}
+\KwIn{Cha\^ine $s$}
+$i \leftarrow 1$\;
+\TantQue{$i \leq$ longueur($s$)}{
+  $c \leftarrow s[i]$~;\quad $\mathit{count} \leftarrow 1$\;
+  \TantQue{$i+\mathit{count} \leq$ longueur($s$) \textbf{et} $s[i+\mathit{count}]=c$}{
+    $\mathit{count} \leftarrow \mathit{count}+1$\;
+  }
+  \Afficher $\mathit{count}$, $c$\;
+  $i \leftarrow i+\mathit{count}$\;
+}
+\end{algorithm}
+
+Exemple~: \texttt{AAABBBBA}~:
+\texttt{3A4B1A}.
+
+La d\'ecompression lit un chiffre $n$ suivi d'un caract\`ere $c$ et \'ecrit $c$ $n$ fois.
+Le RLE est efficace pour les s\'equences avec beaucoup de r\'ep\'etitions (images, texte simple)
+mais peut \emph{augmenter} la taille pour des s\'equences vari\'ees.
+
+\psolutiontitle{2}{11}{Correction logique d'un algorithme}
+
+\begin{enumerate}
+  \item $L=\{3,7,2,9,5\}$~: max $=9$. L'algorithme donne $9$~: correct ici.
+  \item $L=\{-4,-1,-7,-2\}$~: toutes les valeurs sont n\'egatives.
+        L'algorithme initialise \texttt{max}$=0$~: aucune valeur n'est $>0$,
+        donc \texttt{max} reste $0$. Mais le vrai maximum est $-1$.
+        \textbf{Bug~: initialisation incorrecte.}
+  \item La proposition est \textbf{fausse}~: contre-exemple~$L=\{-5,-3,-1\}$
+        donne $0$ au lieu de $-1$.
+  \item Correction~: initialiser \texttt{max}$\leftarrow L[1]$ (premier \'el\'ement).
+  \item Invariant correct~: \og apr\`es $i$ it\'erations, \texttt{max}
+        est le maximum de $L[1..i]$\fg.
+\end{enumerate}
+
+\psolutiontitle{2}{12}{Calcul de $\pi$ par m\'ethode de Monte-Carlo}
+
+\begin{algorithm}[H]
+\caption{Monte-Carlo pour $\pi$}
+\Lire $N$~;\quad $\mathit{dans} \leftarrow 0$\;
+\Pour{$i \leftarrow 1$ \KwTo $N$}{
+  $x \leftarrow$ r\'eel al\'eatoire dans $[0,1]$\;
+  $y \leftarrow$ r\'eel al\'eatoire dans $[0,1]$\;
+  \Si{$x^2+y^2 \leq 1$}{$\mathit{dans} \leftarrow \mathit{dans}+1$\;}
+}
+\Afficher $4 \times \mathit{dans}/N$\;
+\end{algorithm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccc}
+\toprule
+$N$ & Approximation typique & Erreur \\
+\midrule
+100 & $3{,}1$ & $\pm0{,}1$ \\
+1\,000 & $3{,}14$ & $\pm0{,}03$ \\
+100\,000 & $3{,}141$ & $\pm0{,}003$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+La convergence est lente, mais la méthode est facile à implémenter et peut être
+adaptée à d'autres simulations.
+
+\psolutiontitle{2}{13}{Statistiques par algorithme}
+
+\begin{lstlisting}[style=python]
+def statistiques():
+    n = int(input("Nombre de notes : "))
+    notes = [float(input(f"Note {i+1} : ")) for i in range(n)]
+    
+    moyenne = sum(notes) / n
+    mini = min(notes)
+    maxi = max(notes)
+    etendue = maxi - mini
+    
+    notes_triees = sorted(notes)
+    if n % 2 == 1:
+        mediane = notes_triees[n // 2]
+    else:
+        mediane = (notes_triees[n//2 - 1] + notes_triees[n//2]) / 2
+    
+    print(f"Moyenne : {moyenne:.2f}")
+    print(f"Min : {mini}, Max : {maxi}, Etendue : {etendue}")
+    print(f"Mediane : {mediane}")
+\end{lstlisting}
+
+Pour le tracé de l'histogramme, on peut utiliser \texttt{matplotlib}~:
+\texttt{plt.hist(notes, bins=5)} produit un histogramme en $5$ classes.
+
+%────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+\addcontentsline{toc}{subsection}{D\'efis}
+%────────────────────────────────────────────────────────────────
+
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~1~\textendash\ \textit{Tri par s\'election}}
+\par\smallskip
+
+\begin{algorithm}[H]
+\caption{Tri par s\'election}
+\KwIn{Tableau $T[1..n]$}
+\Pour{$i \leftarrow 1$ \KwTo $n-1$}{
+  $\mathit{imin} \leftarrow i$\;
+  \Pour{$j \leftarrow i+1$ \KwTo $n$}{
+    \Si{$T[j] < T[\mathit{imin}]$}{$\mathit{imin} \leftarrow j$\;}
+  }
+  \'Echanger $T[i]$ et $T[\mathit{imin}]$\;
+}
+\end{algorithm}
+
+Trace pour $[5,3,1,4,2]$~:
+$i=1$~: min en pos.~$3$ (val.~$1$), \'echanger~: $[1,3,5,4,2]$.
+$i=2$~: min en pos.~$5$ (val.~$2$)~: $[1,2,5,4,3]$.
+$i=3$~: min en pos.~$5$ (val.~$3$)~: $[1,2,3,4,5]$. Termin\'e.
+
+Nombre de comparaisons~: $(n-1)+(n-2)+\cdots+1=n(n-1)/2$.
+Le tri effectue au plus $n-1$ échanges, puisqu'un élément est placé définitivement
+à chaque passage.
+
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~2~\textendash\ \textit{Flocon de Koch}}
+\par\smallskip
+
+Le flocon de Koch se construit en it\'erant sur chaque segment~:
+le diviser en $3$, retirer le tiers central et y placer un triangle \'equilat\'eral.
+
+\begin{algorithm}[H]
+\caption{Flocon de Koch (simulation)}
+$\mathit{nombre\_segments} \leftarrow 3$~;\quad $\mathit{longueur} \leftarrow 1$\;
+\Pour{$k \leftarrow 1$ \KwTo $N$}{
+  $\mathit{nombre\_segments} \leftarrow 4 \times \mathit{nombre\_segments}$\;
+  $\mathit{longueur} \leftarrow \mathit{longueur}/3$\;
+  $\mathit{perimetre} \leftarrow \mathit{nombre\_segments} \times \mathit{longueur}$\;
+  \Afficher \og It\'eration~: \fg, $k$, \og P\'erim\`etre~: \fg, $\mathit{perimetre}$\;
+}
+\end{algorithm}
+
+Apr\`es $k$ it\'erations~: $3\times4^k$ segments de longueur $(1/3)^k$.
+P\'erim\`etre~: $3\times(4/3)^k\to+\infty$ (le p\'erim\`etre est infini~!).
+Aire~: $\dfrac{2\sqrt{3}}{5}$ (finie).
+C'est un exemple de \textbf{fractale} : courbe de longueur infinie enfermant une aire finie.
+
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~3~\textendash\ \textit{Probl\`eme des 4 reines}}
+\par\smallskip
+
+\begin{algorithm}[H]
+\caption{4 reines par force brute}
+\Pour{$c_1 \leftarrow 1$ \KwTo $4$}{
+  \Pour{$c_2 \leftarrow 1$ \KwTo $4$}{
+    \Pour{$c_3 \leftarrow 1$ \KwTo $4$}{
+      \Pour{$c_4 \leftarrow 1$ \KwTo $4$}{
+        \Si{configuration valide$(c_1,c_2,c_3,c_4)$}{
+          \Afficher $c_1,c_2,c_3,c_4$\;
+        }
+      }
+    }
+  }
+}
+\end{algorithm}
+
+La condition \og configuration valide\fg\ v\'erifie~:
+toutes les colonnes distinctes~; pas de diagonale commune
+($|c_i-c_j|\ne|i-j|$ pour $i\ne j$).
+
+Solutions pour $4\times4$~: $\{2,4,1,3\}$ et $\{3,1,4,2\}$ (exactement $2$ solutions).
+
+Pour $8\times8$, il y a $92$ solutions~: la force brute serait lente~;
+on utilise le retour sur trace (backtracking).
+
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~5~\textendash\ \textit{Automate distributeur}}
+\par\smallskip
+
+\begin{algorithm}[H]
+\caption{Automate distributeur}
+$\mathit{solde} \leftarrow 0$\;
+\TantQue{\Vrai}{
+  \Afficher \og Solde~: \fg, $\mathit{solde}$, \og~\texteuro\fg\;
+  \Lire $\mathit{action}$\;
+  \Si{$\mathit{action}=$ \og inser\fg}{
+    \Lire $\mathit{piece}$~;\quad $\mathit{solde}\leftarrow\mathit{solde}+\mathit{piece}$\;
+  }\SinonSi{$\mathit{action}=$ \og choisir\fg}{
+    \Lire $\mathit{prix}$\;
+    \Si{$\mathit{solde} \geq \mathit{prix}$}{
+      \Afficher \og Distribuition\fg\;
+      $\mathit{solde}\leftarrow\mathit{solde}-\mathit{prix}$\;
+      \Si{$\mathit{solde} > 0$}{\Afficher \og Monnaie~: \fg, $\mathit{solde}$\;}
+      $\mathit{solde}\leftarrow0$\;
+    }\Sinon{\Afficher \og Solde insuffisant\fg\;}
+  }\SinonSi{$\mathit{action}=$ \og annuler\fg}{
+    \Afficher \og Remboursement~: \fg, $\mathit{solde}$~;\quad $\mathit{solde}\leftarrow0$\;
+  }
+}
+\end{algorithm}
+
+Les \textbf{invariants} de cet automate~:
+$\mathit{solde}\geq0$ toujours~;
+un article n'est distribu\'e que si le solde le permet.
+
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~6~\textendash\ \textit{Rendu de monnaie optimal}}
+\par\smallskip
+
+\begin{algorithm}[H]
+\caption{Rendu de monnaie glouton}
+\KwIn{Montant \`a rendre $R$, pi\`eces disponibles $[200,100,50,20,10,5,2,1]$}
+\Pour{chaque valeur $v$ des pi\`eces (par ordre d\'ecroissant)}{
+  \TantQue{$R \geq v$}{
+    \Afficher $v$~;\quad $R\leftarrow R-v$\;
+  }
+}
+\end{algorithm}
+
+Pour $R=63$ ct~: $50+10+2+1=63$. L'algorithme glouton donne toujours l'optimal
+pour le syst\`eme de pi\`eces europ\'een (propri\'et\'e de la structure canonique).
+
+Pour un syst\`eme arbitraire de pi\`eces, le glouton peut \^etre sous-optimal.
+Exemple~: pi\`eces $\{1,3,4\}$, montant $6$~:
+glouton donne $4+1+1=3$ pi\`eces~; optimal est $3+3=2$ pi\`eces.
+Dans ce cas, il faut utiliser la programmation dynamique.
+
+
+\needspace{3\baselineskip}

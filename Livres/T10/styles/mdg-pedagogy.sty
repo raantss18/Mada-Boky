@@ -1,0 +1,164 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/mdg-pedagogy}[2026/09/19 Environments pedagogiques]
+\RequirePackage{tkz-tab}
+
+\newcommand{\diff}[1]{\ifcase#1\or{\color{VE}$\bigstar$}%
+  \or{\color{OD}$\bigstar\bigstar$}%
+  \or{\color{BO}$\bigstar\bigstar\bigstar$}\fi}
+\newcommand{\computer}{\tikz[baseline=-1pt]\node[draw=BN!40,fill=BN!5,
+  rounded corners=2pt,inner sep=2pt,font=\tiny\sffamily\upshape\color{BN}]
+  {\textbf{Python}};\xspace}
+\newcommand{\logiq}{\tikz[baseline=-1pt]\node[draw=TQ!70,fill=TQ!10,
+  rounded corners=2pt,inner sep=2pt,font=\tiny\sffamily\upshape\bfseries\color{TQ!80!black}]
+  {\textsc{Log}};\xspace}
+\newcommand{\algo}{\tikz[baseline=-1pt]\node[draw=VI!70,fill=VI!10,
+  rounded corners=2pt,inner sep=2pt,font=\tiny\sffamily\upshape\bfseries\color{VI!80!black}]
+  {\textsc{Algo}};\xspace}
+\newcommand{\logicoalgo}{\tikz[baseline=-1pt]\node[draw=VI!60,fill=VI!8,
+  rounded corners=2pt,inner sep=2.5pt,font=\tiny\sffamily\upshape\bfseries\color{VI!80!black}]
+  {$\mathcal{L}$\&$\mathcal{A}$};\xspace}
+
+% Compact number-line sketches used in the interval reference table.
+% A filled endpoint belongs to the interval; an open endpoint does not.
+\newcommand{\intervalcc}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[BN,very thick](-1,0)--(1,0);
+  \fill[BN](-1,0)circle(2pt) (1,0)circle(2pt);
+  \node[below,font=\scriptsize]at(-1,0){$a$};\node[below,font=\scriptsize]at(1,0){$b$};}}
+\newcommand{\intervaloo}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[BN,very thick](-1,0)--(1,0);
+  \draw[BN,fill=white](-1,0)circle(2pt) (1,0)circle(2pt);
+  \node[below,font=\scriptsize]at(-1,0){$a$};\node[below,font=\scriptsize]at(1,0){$b$};}}
+\newcommand{\intervalco}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[BN,very thick](-1,0)--(1,0);
+  \fill[BN](-1,0)circle(2pt);\draw[BN,fill=white](1,0)circle(2pt);
+  \node[below,font=\scriptsize]at(-1,0){$a$};\node[below,font=\scriptsize]at(1,0){$b$};}}
+\newcommand{\intervaloc}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[BN,very thick](-1,0)--(1,0);
+  \draw[BN,fill=white](-1,0)circle(2pt);\fill[BN](1,0)circle(2pt);
+  \node[below,font=\scriptsize]at(-1,0){$a$};\node[below,font=\scriptsize]at(1,0){$b$};}}
+\newcommand{\intervalright}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[-Stealth,BN,very thick](-1,0)--(1.9,0);
+  \fill[BN](-1,0)circle(2pt);\node[below,font=\scriptsize]at(-1,0){$a$};}}
+\newcommand{\intervalleft}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[-Stealth,BN!55](-2,0)--(2,0); \draw[Stealth-,BN,very thick](-1.9,0)--(1,0);
+  \fill[BN](1,0)circle(2pt);\node[below,font=\scriptsize]at(1,0){$b$};}}
+\newcommand{\intervalall}{\tikz[baseline=-0.55ex,x=0.62cm,y=0.62cm]{
+  \draw[Stealth-Stealth,BN,very thick](-2,0)--(2,0);}}
+
+\definecolor{pyblue}{RGB}{0,70,160}
+\definecolor{pygreen}{RGB}{0,110,50}
+\definecolor{pygray}{RGB}{120,120,120}
+\definecolor{pybg}{RGB}{251,251,248}
+\lstdefinestyle{python}{language=Python,backgroundcolor=\color{pybg},
+  basicstyle=\ttfamily\footnotesize,columns=fullflexible,keepspaces=true,
+  keywordstyle=\color{pyblue}\bfseries,
+  stringstyle=\color{pygreen},commentstyle=\color{pygray}\itshape,
+  numberstyle=\tiny\color{pygray},numbers=left,numbersep=9pt,
+  breaklines=true,breakatwhitespace=false,breakindent=1em,
+  frame=single,framerule=0.5pt,rulecolor=\color{pygray!40},
+  showstringspaces=false,tabsize=4,xleftmargin=14pt,
+  literate={é}{{\'{e}}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1
+    {à}{{\`{a}}}1 {â}{{\^{a}}}1 {î}{{\^{i}}}1 {ô}{{\^{o}}}1
+    {ù}{{\`{u}}}1 {û}{{\^{u}}}1 {ç}{{\c{c}}}1
+    {<=}{{\(\leq\)}}1 {>=}{{\(\geq\)}}1 {!=}{{\(\neq\)}}1}
+% Most legacy modules specify only [language=Python].  Make the project style
+% the global default so line wrapping and margins are applied consistently.
+\lstset{style=python}
+
+\newcommand{\tcbrule}[1]{\par\vspace{3pt}{\color{#1!30}\rule{\linewidth}{0.3pt}}\par\vspace{4pt}}
+\newtcolorbox{objectifs}{enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{BN!50},
+  colback=BN!3,sharp corners,left=14pt,right=10pt,top=8pt,bottom=8pt,
+  before upper={{\color{BN}\small\scshape\bfseries Objectifs du chapitre}\tcbrule{BN}}}
+\newtcolorbox{prerequis}{enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{TQ!70},
+  colback=TQ!3,sharp corners,left=14pt,right=10pt,top=7pt,bottom=7pt,
+  before upper={{\color{TQ!80!black}\small\scshape\bfseries Prérequis à réactiver}\tcbrule{TQ}}}
+\newtcolorbox{automatismes}{enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{VE},
+  colback=VE!3,sharp corners,left=14pt,right=10pt,top=7pt,bottom=7pt,
+  before upper={{\color{VE!80!black}\small\scshape\bfseries Automatismes}\tcbrule{VE}}}
+\newtcolorbox{activite}[1][Activité de recherche]{enhanced,breakable,frame hidden,
+  borderline west={3pt}{0pt}{OD},colback=OD!4,sharp corners,left=14pt,right=10pt,top=8pt,bottom=8pt,
+  before upper={{\color{OD!80!black}\small\scshape\bfseries #1}\tcbrule{OD}}}
+\newtcolorbox{traceecrite}{enhanced,breakable,frame hidden,borderline west={3pt}{0pt}{BN},
+  colback=BN!4,sharp corners,left=14pt,right=10pt,top=8pt,bottom=8pt,
+  before upper={{\color{BN}\small\scshape\bfseries Trace écrite essentielle}\tcbrule{BN}}}
+% Every optional extension is deliberately more conspicuous than ordinary
+% pedagogy: red vertical rule, red heading, and pale red background.  The rule
+% continues on every page when the box breaks.
+\definecolor{HPred}{RGB}{185,28,28}
+\newtcolorbox{extensiont10box}[1][]{enhanced,breakable,frame hidden,
+  borderline west={5pt}{0pt}{HPred},colback=HPred!3,sharp corners,
+  left=14pt,right=9pt,top=7pt,bottom=7pt,
+  before upper={{\color{HPred}\small\scshape\bfseries Hors programme T10 -- non exigible\if\relax\detokenize{#1}\relax\else\ -- #1\fi}\par\vspace{3pt}{\color{HPred!35}\rule{\linewidth}{0.45pt}}\par\vspace{4pt}}}
+\NewDocumentEnvironment{extensiont10}{O{}}{\begin{extensiont10box}[#1]}{\end{extensiont10box}}
+\newcommand{\horsprogramme}[1]{\begin{extensiont10box}[Début d'un approfondissement]\textbf{\color{HPred}Tout le développement signalé ci-après est hors programme T10 : ne pas l'enseigner comme prérequis et ne pas l'évaluer.} #1\end{extensiont10box}}
+\DeclareRobustCommand{\ExtensionTTen}{\textcolor{HPred}{\textbf{\scriptsize [HORS PROGRAMME T10]}}}
+\newcommand{\TeacherOnly}[1]{\ifmdgteacher#1\fi}
+\newcommand{\enseignant}[1]{\TeacherOnly{\marginpar{\raggedright\tiny\color{VI}\textbf{Prof.} #1}}}
+
+\newtcolorbox[auto counter,number within=chapter]{defn}[1][]{enhanced,breakable,frame hidden,
+  borderline west={3pt}{0pt}{TQ},colback=white,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{TQ}\small\scshape\bfseries Définition~\thetcbcounter
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{TQ}}}
+\newtcolorbox[auto counter,number within=chapter]{thm}[1][]{enhanced,breakable,frame hidden,
+  borderline west={4pt}{0pt}{BN},colback=BN!5,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{BN}\small\scshape\bfseries Théorème~\thetcbcounter
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{BN}}}
+\newtcolorbox[auto counter,number within=chapter]{prop}[1][]{enhanced,breakable,frame hidden,
+  borderline west={2pt}{0pt}{BN!55},colback=white,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{BN!70!black}\small\scshape\bfseries Propriété~\thetcbcounter
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{BN}}}
+\newtcolorbox[auto counter,number within=chapter]{methode}[1][]{enhanced,breakable,frame hidden,
+  borderline west={2pt}{0pt}{OR!75},colback=OR!4,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{OR!80!black}\small\scshape\bfseries Méthode~\thetcbcounter
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{OR}}}
+
+\newcounter{nexemple}[chapter]
+\renewcommand{\thenexemple}{\thechapter.\arabic{nexemple}}
+\newenvironment{ex}[1][]{\refstepcounter{nexemple}\par\medskip\noindent
+  {\color{VE}\small\scshape\bfseries Exemple~\thenexemple
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}
+  \par\smallskip\noindent\ignorespaces}{\par\medskip}
+\newenvironment{remarque}{\par\smallskip\small\noindent
+  {\color{GM!70!black}\textit{Remarque.}}\enspace\ignorespaces}{\normalsize\par\smallskip}
+\newtcolorbox{attention}{enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{BO!80},
+  colback=BO!4,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{BO}\small\scshape\bfseries $\blacktriangle$\enspace Attention}\tcbrule{BO}}}
+\newtcolorbox{anecdote}[1][Histoire des mathématiques]{enhanced,breakable,frame hidden,
+  colback=VI!6,sharp corners,left=16pt,right=16pt,top=10pt,bottom=10pt,
+  before upper={{\color{VI}\small\scshape\bfseries #1}\par\vspace{5pt}},fontupper=\small\itshape}
+\newtcolorbox{bilan}{enhanced,breakable,frame hidden,borderline west={3pt}{0pt}{OR},
+  colback=OR!6,sharp corners,left=14pt,right=10pt,top=8pt,bottom=10pt,
+  before upper={{\color{OR!80!black}\small\scshape\bfseries Bilan du chapitre}\tcbrule{OR}}}
+
+\newcounter{nexo}[chapter]
+\renewcommand{\thenexo}{\thechapter.\arabic{nexo}}
+\newcommand{\corrige}{\TeacherOnly{\enspace\hyperref[sol:\thenexo]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
+\newenvironment{exo}[2][]{\stepcounter{nexo}\par\addvspace{7pt}
+  {\color{BN!18}\rule{\textwidth}{0.25pt}}\par\nopagebreak\addvspace{4pt}
+  \phantomsection\label{exo:\thenexo}\noindent{\color{BN}\bfseries\small Exercice~\thenexo}
+  \if\relax\detokenize{#1}\relax\else\enspace{\color{GM!65!black}\small\textit{#1}}\fi
+  \hfill\diff{#2}\par\smallskip\noindent\ignorespaces}{\par\addvspace{5pt}}
+\newcounter{nprob}[chapter]
+\renewcommand{\thenprob}{\thechapter.\arabic{nprob}}
+\newcommand{\corrigeP}{\TeacherOnly{\enspace\hyperref[sol:P\thenprob]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
+\newenvironment{probleme}[2][]{\stepcounter{nprob}\par\addvspace{8pt}\phantomsection\label{prob:\thenprob}
+  \begin{tcolorbox}[enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{OD!80},
+  colback=OD!5,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{OD!80!black}\small\scshape\bfseries Problème~\thenprob
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}
+  \hfill\diff{#2}\tcbrule{OD}}]}{\end{tcolorbox}\par\addvspace{6pt}}
+\newenvironment{challenge}[1][]{\par\addvspace{8pt}\begin{tcolorbox}[enhanced,breakable,frame hidden,
+  borderline west={5pt}{0pt}{HPred},colback=HPred!3,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+  before upper={{\color{HPred}\small\scshape\bfseries$\bigstar$\enspace Défi -- hors programme T10, non exigible
+  \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{HPred}}]}
+  {\end{tcolorbox}\par\addvspace{6pt}}
+
+\newcommand{\solutiontitle}[3]{\needspace{5\baselineskip}\par\addvspace{10pt}
+  \noindent\phantomsection\label{sol:#1.#2}{\color{BN}\bfseries\small Exercice~#1.#2
+  \if\relax\detokenize{#3}\relax\else\ -- \textit{#3}\fi}\enspace
+  \hyperref[exo:#1.#2]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
+\newcommand{\psolutiontitle}[3]{\needspace{5\baselineskip}\par\addvspace{10pt}
+  \noindent\phantomsection\label{sol:P#1.#2}{\color{OD!80!black}\bfseries\small Problème~#1.#2
+  \if\relax\detokenize{#3}\relax\else\ -- \textit{#3}\fi}\enspace
+  \hyperref[prob:#1.#2]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
+\endinput

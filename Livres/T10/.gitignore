@@ -1,0 +1,29 @@
+# Auxiliary LaTeX files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Generated working directories and packaged deliveries
+build/student/
+build/teacher/
+output/
+qa/
+
+# Editor and operating-system files
+*~
+*.swp
+.DS_Store
+

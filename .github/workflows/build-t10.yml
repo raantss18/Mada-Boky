@@ -1,0 +1,49 @@
+name: Build and validate T10
+
+on:
+  push:
+    paths:
+      - "Livres/T10/**"
+      - ".github/workflows/build-t10.yml"
+  pull_request:
+    paths:
+      - "Livres/T10/**"
+      - ".github/workflows/build-t10.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v4
+
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends \
+            latexmk \
+            texlive-fonts-recommended \
+            texlive-lang-french \
+            texlive-latex-extra \
+            texlive-pictures
+
+      - name: Run structural checks
+        working-directory: Livres/T10
+        run: make qa
+
+      - name: Build student and teacher editions
+        working-directory: Livres/T10
+        run: make all
+
+      - name: Upload generated PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuel-t10-pdf
+          path: Livres/T10/build/manuel-mathematiques-t10-*.pdf
+          if-no-files-found: error
