@@ -1,0 +1,1084 @@
+\chapter{Droites et Cercles}
+\input{activities/06-droites-cercles}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[Euclide et les \'El\'ements]
+Vers $300$ av.\ J.-C., Euclide \'ecrivit les \textit{\'El\'ements} en 13 livres,
+d\'emontrant des centaines de r\'esultats \`a partir de 5 postulats. Au
+\textsc{xix}$^{\text{e}}$ si\`ecle, on d\'ecouvrit des g\'eom\'etries sans le
+5$^{\text{e}}$ postulat (Lobatchevski, Riemann) : l'Univers lui-m\^{e}me
+n'est pas strictement euclidien.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item \'Ecrire les \'equations d'une droite sous toutes ses formes.
+  \item \'Ecrire et reconna\^itre l'\'equation d'un cercle.
+  \item Calculer la distance d'un point \`a une droite.
+  \item \'Etudier la position relative d'une droite et d'un cercle.
+\end{itemize}
+\end{objectifs}
+
+\section{\'Equations d'une droite}
+
+\begin{defn}[Formes d'une droite]
+Dans un rep\`ere :
+\begin{itemize}
+  \item \textbf{Cart\'esienne} : $ax + by + c = 0$.
+  \item \textbf{R\'eduite} : $y = mx + p$ ($m$ = coefficient directeur).
+  \item \textbf{Param\'etrique} :
+        $\begin{cases}x = x_0 + t\,d_x\\ y = y_0 + t\,d_y\end{cases}$,
+        $(d_x,d_y)$ vecteur directeur.
+\end{itemize}
+\end{defn}
+
+\section{Cercles et distance}
+
+\begin{defn}[\'Equation d'un cercle]
+Cercle de centre $\Omega(a,b)$ et rayon $r>0$ :
+$$(x-a)^2 + (y-b)^2 = r^2.$$
+\end{defn}
+
+\begin{thm}[Distance d'un point \`a une droite]
+Distance du point $A(x_0,y_0)$ \`a la droite $ax+by+c=0$ :
+$$d\bigl(A,(\Delta)\bigr) = \frac{\abs{ax_0+by_0+c}}{\sqrt{a^2+b^2}}.$$
+\end{thm}
+
+\begin{thm}[Position droite/cercle]
+Pour le cercle de centre $\Omega$, rayon $r$, et la droite $(\Delta)$ :
+\begin{itemize}
+  \item $d(\Omega,\Delta) > r$ : ext\'erieure (0 point commun).
+  \item $d(\Omega,\Delta) = r$ : tangente (1 point commun).
+  \item $d(\Omega,\Delta) < r$ : s\'ecante (2 points communs).
+\end{itemize}
+\end{thm}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \foreach \xc/\lbl/\clr/\dy in {-5.5/ext\'erieure/GM/2.2, 0/tangente/OR/1.5, 5.5/s\'ecante/BO/0.8}{
+    \begin{scope}[xshift=\xc cm]
+      \draw[\clr,thick] (0,0) circle (1.5cm);
+      \fill[BN] (0,0) circle (1.5pt) node[above,font=\scriptsize] {$\Omega$};
+      \draw[\clr!80!black,thick] (-2.2,-\dy)--+(4.4,0)
+        node[right,font=\scriptsize] {$\Delta$};
+      \node[font=\small,text=\clr!70!black] at (0,-2.5) {\lbl};
+    \end{scope}
+  }
+\end{tikzpicture}
+\caption{Trois positions relatives d'une droite et d'un cercle.}
+\end{figure}
+
+
+\section{Droites~: propri\'et\'es et m\'ethodes}
+
+\begin{prop}[Pente et coefficient directeur]
+\index{coefficient directeur}
+Pour une droite $y=mx+p$~:
+\begin{itemize}
+  \item $m>0$~: droite croissante (monte de gauche \`a droite).
+  \item $m<0$~: droite d\'ecroissante.
+  \item $m=0$~: droite horizontale.
+  \item Droite verticale~: \'equation $x=k$ (pas de coefficient directeur).
+\end{itemize}
+\end{prop}
+
+\begin{methode}[\'Ecrire l'\'equation d'une droite]
+\begin{enumerate}
+  \item \textbf{Par deux points $A(x_A,y_A)$ et $B(x_B,y_B)$~:}
+        $m = \dfrac{y_B-y_A}{x_B-x_A}$ (si $x_A\ne x_B$),
+        puis $p = y_A - mx_A$.
+  \item \textbf{Par un point et une pente~:}
+        $y - y_A = m(x-x_A)$.
+  \item \textbf{Parall\`ele \`a $y=mx+p$~:} m\^eme pente $m$, chercher $p'$
+        via le point donn\'e.
+  \item \textbf{Perpendiculaire \`a $y=mx+p$~:} pente $m' = -1/m$.
+\end{enumerate}
+\end{methode}
+
+\begin{prop}[Parall\'elisme et perpendicularit\'e]
+\index{droites parallèles}\index{droites perpendiculaires}
+Deux droites $d_1$~: $y=m_1x+p_1$ et $d_2$~: $y=m_2x+p_2$~:
+\begin{itemize}
+  \item $d_1 \parallel d_2 \Leftrightarrow m_1=m_2$.
+  \item $d_1 \perp d_2 \Leftrightarrow m_1\times m_2 = -1$.
+\end{itemize}
+\end{prop}
+
+\begin{ex}[Droite m\'ediatrice]
+La m\'ediatrice de $[AB]$ ($A(1,3)$, $B(5,1)$) passe par le milieu
+$I(3,2)$ et est perpendiculaire \`a $\vv{AB}=(4,-2)$,
+donc son coefficient directeur est $m=2$.
+\'Equation~: $y-2 = 2(x-3)$, soit $y=2x-4$.
+\end{ex}
+
+\section{Cercles~: propri\'et\'es et m\'ethodes}
+
+\begin{methode}[Identifier l'\'equation d'un cercle]
+\index{cercle!équation}
+L'\'equation $x^2+y^2+Dx+Ey+F=0$ repr\'esente un cercle si et seulement si
+$D^2+E^2-4F > 0$.
+On le met sous forme standard en compl\'etant le carr\'e~:
+$$\left(x+\frac{D}{2}\right)^2+\left(y+\frac{E}{2}\right)^2 = \frac{D^2+E^2-4F}{4}.$$
+Centre~: $\Omega\!\left(-\dfrac{D}{2},\,-\dfrac{E}{2}\right)$~;
+rayon~: $r=\dfrac{\sqrt{D^2+E^2-4F}}{2}$.
+\end{methode}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.25]
+  % Circle and tangent
+  \coordinate (O) at (0,0);
+  \coordinate (A) at ({1.5*cos(40)},{1.5*sin(40)});  % point on circle
+  \draw[BN,thick] (O) circle (1.5cm);
+  % radius OA
+  \draw[OR,very thick,->] (O)--(A)
+    node[midway,above left,font=\small,text=OR] {$r$};
+  % tangent at A (perpendicular to OA)
+  \pgfmathsetmacro{\tx}{-sin(40)}
+  \pgfmathsetmacro{\ty}{cos(40)}
+  \draw[VE,very thick] ({1.5*cos(40)-1.35*\tx},{1.5*sin(40)-1.35*\ty}) --
+                       ({1.5*cos(40)+1.35*\tx},{1.5*sin(40)+1.35*\ty})
+    node[above right,font=\small,text=VE] {tangente};
+  % right angle mark
+  \pgfmathsetmacro{\ds}{0.12}
+  \draw[BN,thin]
+    ({1.5*cos(40)+\ds*\tx-\ds*cos(40)},{1.5*sin(40)+\ds*\ty-\ds*sin(40)}) --
+    ({1.5*cos(40)+\ds*\tx},{1.5*sin(40)+\ds*\ty}) --
+    ({1.5*cos(40)-\ds*cos(40)},{1.5*sin(40)-\ds*sin(40)});
+  % labels
+  \fill[BN] (O) circle (2pt) node[below left,font=\small] {$\Omega$};
+  \fill[OR!80] (A) circle (2.5pt) node[above right,font=\small,text=OR] {$A$};
+  % annotation
+  \node[font=\small,draw=BN!30,fill=GC,rounded corners=2pt,
+        inner sep=4pt,align=center] at (1.8,-1.1)
+    {$\Omega A \perp$ tangente\\$d(\Omega,\text{tang.})=r$};
+\end{tikzpicture}
+\caption{La tangente \`a un cercle en un point $A$ est perpendiculaire
+au rayon $\Omega A$. La distance du centre \`a la tangente est exactement
+\'egale au rayon.}
+\end{figure}
+
+\begin{prop}[Tangente \`a un cercle]
+\index{tangente à un cercle}
+La tangente au cercle $\mathcal{C}$ de centre $\Omega$ en un point $A$ de $\mathcal{C}$~:
+\begin{itemize}
+  \item Est perpendiculaire au rayon $\Omega A$.
+  \item Passe par $A$.
+\end{itemize}
+Pour $\mathcal{C}$~: $x^2+y^2=r^2$ et $A(x_0,y_0)\in\mathcal{C}$~:
+\'equation de la tangente~: $x_0 x + y_0 y = r^2$.
+\end{prop}
+
+\begin{prop}[Position relative de deux cercles]
+\index{cercles!position relative}
+Deux cercles de centres $\Omega_1$, $\Omega_2$ et de rayons $r_1$, $r_2$
+avec $d = \Omega_1\Omega_2$~:
+\begin{itemize}
+  \item $d > r_1+r_2$~: ext\'erieurs l'un \`a l'autre (0 point commun).
+  \item $d = r_1+r_2$~: tangents ext\'erieurement (1 point commun).
+  \item $|r_1-r_2| < d < r_1+r_2$~: s\'ecants (2 points communs).
+  \item $d = |r_1-r_2|$~: tangents int\'erieurement (1 point commun).
+  \item $d < |r_1-r_2|$~: l'un \`a l'int\'erieur de l'autre (0 point commun).
+\end{itemize}
+\end{prop}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.72]
+  % extérieurs
+  \begin{scope}[shift={(-5,2)}]
+    \draw[BN,thick] (0,0) circle (1cm);
+    \draw[OR,thick] (2.8,0) circle (1cm);
+    \node[font=\small] at (1.4,-1.55) {ext\'erieurs};
+  \end{scope}
+  % tangents ext
+  \begin{scope}[shift={(0,2)}]
+    \draw[BN,thick] (0,0) circle (1cm);
+    \draw[OR,thick] (2,0) circle (1cm);
+    \fill[VE] (1,0) circle (2.5pt);
+    \node[font=\small] at (1,-1.55) {tangents ext.};
+  \end{scope}
+  % sécants
+  \begin{scope}[shift={(5,2)}]
+    \draw[BN,thick] (0,0) circle (1cm);
+    \draw[OR,thick] (1.2,0) circle (1cm);
+    \node[font=\small] at (0.6,-1.55) {s\'ecants};
+  \end{scope}
+  % tangents int
+  \begin{scope}[shift={(-2.7,-2.2)}]
+    \draw[BN,thick] (0,0) circle (1.5cm);
+    \draw[OR,thick] (0.5,0) circle (1cm);
+    \fill[VE] (1.5,0) circle (2.5pt);
+    \node[font=\small] at (0,-1.9) {tangents int.};
+  \end{scope}
+  % intérieur
+  \begin{scope}[shift={(2.7,-2.2)}]
+    \draw[BN,thick] (0,0) circle (1.5cm);
+    \draw[OR,thick] (0,0) circle (0.7cm);
+    \node[font=\small] at (0,-1.9) {int\'erieurs};
+  \end{scope}
+\end{tikzpicture}
+\caption{Cinq positions relatives de deux cercles.}
+\end{figure}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ \'Equations et calculs directs}
+
+\begin{exo}[\'Equation d'une droite \corrige]{1}
+D\'eterminer l'\'equation r\'eduite de la droite~:
+\begin{enumerate}
+  \item passant par $A(2,3)$ et $B(5,9)$
+  \item passant par $P(-1,4)$, de coefficient directeur $m=-2$
+  \item passant par $Q(3,0)$, parall\`ele \`a $y=2x-1$
+  \item passant par $R(1,2)$ et $S(1,5)$ (cas vertical)
+  \item passant par $A(0,-1)$ et perpendiculaire \`a $y=3x+2$
+  \item passant par $A(-2,4)$ et $B(4,-2)$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Droite~: forme cart\'esienne \corrige]{1}
+Mettre chaque \'equation sous forme r\'eduite $y=mx+p$, puis identifier
+la pente et l'ordonn\'ee \`a l'origine~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $2x - y + 3 = 0$
+  \item $x + 3y - 6 = 0$
+  \item $-4x + 2y - 8 = 0$
+  \item $5x + y = 0$
+  \item $3x - 4y + 12 = 0$
+  \item $x = -2$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[\'Equation d'un cercle \corrige]{1}
+\begin{enumerate}
+  \item \'Ecrire l'\'equation du cercle de centre $\Omega(1,-2)$ et rayon $3$.
+  \item \'Ecrire l'\'equation du cercle de centre $O(0,0)$ et rayon $5$.
+  \item Le point $A(4,-2)$ est-il sur le premier cercle~? Et $B(0,0)$~?
+  \item Le point $C(3,4)$ est-il sur le second cercle~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Identifier centre et rayon \corrige]{1}
+Mettre chaque \'equation sous forme standard et identifier centre et rayon~:
+\begin{enumerate}
+  \item $x^2 + y^2 - 6x + 4y - 3 = 0$
+  \item $x^2 + y^2 + 2x - 8 = 0$
+  \item $(x-3)^2 + y^2 = 16$
+  \item $x^2 + y^2 - 4x - 6y + 4 = 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Distance d'un point \`a une droite \corrige]{1}
+Calculer la distance du point $A$ \`a la droite $(\Delta)$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $A(-2,3)$~; $4x-3y+5=0$
+  \item $A(1,1)$~; $3x+4y-5=0$
+  \item $A(0,0)$~; $5x-12y+26=0$
+  \item $A(2,-1)$~; $x+y-1=0$
+  \item $A(3,4)$~; $y=2x-1$
+  \item $A(1,2)$~; $x=4$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Parall\`ele et perpendiculaire \corrige]{1}
+\begin{enumerate}
+  \item \'Ecrire l'\'equation de la droite passant par $A(2,1)$
+        et parall\`ele \`a $y=3x-5$.
+  \item \'Ecrire l'\'equation de la droite passant par $B(-1,3)$
+        et perpendiculaire \`a $y=2x+1$.
+  \item \'Ecrire l'\'equation de la droite passant par $C(0,4)$
+        et perpendiculaire \`a $2x-y+1=0$.
+  \item V\'erifier que $y=3x-1$ et $3y+x=5$ sont perpendiculaires.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Intersection de deux droites \corrige]{1}
+Trouver le point d'intersection des droites~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $y=2x-1$ et $y=-x+5$
+  \item $y=x+3$ et $y=3x-1$
+  \item $2x-y=4$ et $x+3y=9$
+  \item $y=4$ et $x-2y+6=0$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Position relative droite/cercle \corrige]{1}
+\'Etudier la position relative de la droite $(\Delta)$ et du cercle $\mathcal{C}$~:
+\begin{enumerate}
+  \item $\mathcal{C}$~: $(x-1)^2+(y+2)^2=25$~; $(\Delta)$~: $3x-4y+2=0$
+  \item $\mathcal{C}$~: $x^2+y^2=9$~; $(\Delta)$~: $y=x+4$
+  \item $\mathcal{C}$~: $(x-2)^2+(y-1)^2=4$~; $(\Delta)$~: $y=3$
+  \item $\mathcal{C}$~: $x^2+y^2=25$~; $(\Delta)$~: $4x+3y=25$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[M\'ediatrice d'un segment \corrige]{1}
+\index{médiatrice}
+\'Ecrire l'\'equation de la m\'ediatrice du segment $[AB]$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $A(1,3)$, $B(5,1)$
+  \item $A(0,0)$, $B(4,4)$
+  \item $A(-2,1)$, $B(4,-3)$
+  \item $A(2,5)$, $B(2,-1)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Droites sp\'eciales d'un triangle \corrige]{1}
+On donne le triangle $A(0,6)$, $B(-3,0)$, $C(3,0)$.
+\begin{enumerate}
+  \item \'Ecrire les \'equations des trois c\^ot\'es.
+  \item \'Ecrire les \'equations des trois m\'ediatrices.
+  \item V\'erifier que les trois m\'ediatrices se coupent en un m\^eme point
+        (le circocentre).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Hauteur d'un triangle \corrige]{1}
+\index{hauteur d'un triangle}
+La hauteur issue de $A$ dans le triangle $ABC$ est la perpendiculaire
+\`a $BC$ passant par $A$.
+Pour $A(1,5)$, $B(0,0)$, $C(4,2)$~:
+\begin{enumerate}
+  \item \'Ecrire l'\'equation de $BC$.
+  \item \'Ecrire l'\'equation de la hauteur issue de $A$.
+  \item Calculer le pied $H$ de cette hauteur (intersection avec $BC$).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tangente \`a un cercle \corrige]{1}
+\begin{enumerate}
+  \item \'Ecrire l'\'equation de la tangente au cercle $x^2+y^2=25$
+        au point $A(3,4)$.
+  \item \'Ecrire l'\'equation de la tangente au cercle $(x-1)^2+(y+2)^2=10$
+        au point $B(2,1)$.
+  \item V\'erifier que la tangente est perpendiculaire au rayon en son point de contact.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Cercle passant par trois points \corrige]{1}
+Un cercle a une \'equation de la forme $x^2+y^2+Dx+Ey+F=0$.
+Trouver le cercle passant par $A(0,0)$, $B(4,0)$, $C(0,2)$.
+\emph{Substituer les coordonn\'ees pour obtenir un syst\`eme $3\times3$.}
+\end{exo}
+
+\begin{exo}[Lire une figure \corrige]{1}
+Sur la figure ci-dessous (non repr\'esent\'ee ici, \`a construire)~:
+\begin{enumerate}
+  \item Tracer le cercle $\mathcal{C}$ de centre $\Omega(2,1)$ et rayon $3$.
+  \item Tracer la droite $(\Delta)$~: $y=x-1$.
+  \item D\'eterminer graphiquement puis alg\'ebriquement si $(\Delta)$
+        est s\'ecante, tangente ou ext\'erieure \`a $\mathcal{C}$.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Combinaisons et d\'emonstrations}
+
+\begin{exo}[Droites et cercle~: intersection \corrige]{2}
+Trouver les points communs du cercle $\mathcal{C}$~: $x^2+y^2=25$
+et de la droite $(\Delta)$~: $y=x+1$.
+\begin{enumerate}
+  \item Substituer $y=x+1$ dans l'\'equation du cercle.
+  \item R\'esoudre l'\'equation obtenue.
+  \item Calculer les coordonn\'ees des points d'intersection.
+  \item Tracer la figure.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Axe radical de deux cercles \corrige]{2}
+\index{axe radical}
+L'\textbf{axe radical} de deux cercles est l'ensemble des points ayant
+la m\^eme \emph{puissance} par rapport aux deux cercles.
+Pour deux cercles $\mathcal{C}_1$~: $x^2+y^2+D_1x+E_1y+F_1=0$
+et $\mathcal{C}_2$~: $x^2+y^2+D_2x+E_2y+F_2=0$~:
+l'axe radical a pour \'equation $(D_1-D_2)x+(E_1-E_2)y+(F_1-F_2)=0$.
+\begin{enumerate}
+  \item Calculer l'axe radical de $\mathcal{C}_1$~: $x^2+y^2-4x+2y=0$
+        et $\mathcal{C}_2$~: $x^2+y^2+2x-6y+6=0$.
+  \item Si les deux cercles se coupent, montrer que l'axe radical passe par
+        les deux points d'intersection.
+  \item V\'erifier en calculant les intersections de $\mathcal{C}_1$ et $\mathcal{C}_2$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lieu g\'eom\'etrique \corrige]{2}
+\index{lieu géométrique}
+D\'ecrire le lieu des points $M(x,y)$ v\'erifiant chaque condition~:
+\begin{enumerate}
+  \item $MA = MB$ avec $A(1,0)$ et $B(3,0)$.
+  \item $MA^2 + MB^2 = 10$ avec $A(1,0)$ et $B(-1,0)$.
+  \item $MA = 2\,MB$ avec $A(0,0)$ et $B(3,0)$.
+  \item $\vv{MA}\cdot\vv{MB}=0$ avec $A(2,0)$ et $B(-2,0)$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Droite et cercle~: param\`etre \corrige]{2}
+Soit la droite $(\Delta_k)$~: $y=kx+1$ et le cercle $\mathcal{C}$~: $x^2+y^2=4$.
+\begin{enumerate}
+  \item Pour quelles valeurs de $k$ la droite est-elle s\'ecante au cercle~?
+  \item Pour quelles valeurs de $k$ est-elle tangente~?
+  \item Pour $k=0$, trouver les points d'intersection.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Droite m\'ediatrice et circocentre \corrige]{2}
+Pour le triangle $A(1,4)$, $B(-2,-2)$, $C(5,-2)$~:
+\begin{enumerate}
+  \item Calculer les m\'ediatrices de $[AB]$ et $[BC]$.
+  \item Trouver leur intersection $O'$ (circocentre).
+  \item V\'erifier que $O'$ est \'equidistant de $A$, $B$, $C$.
+  \item \'Ecrire l'\'equation du cercle circonscrit.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Hauteurs et orthocentre \corrige]{2}
+Pour le triangle $A(0,4)$, $B(-2,0)$, $C(2,0)$~:
+\begin{enumerate}
+  \item \'Ecrire les \'equations des hauteurs issues de $A$ et de $B$.
+  \item Calculer l'orthocentre $H$ (intersection des hauteurs).
+  \item V\'erifier que $H$ appartient aussi \`a la hauteur issue de $C$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Position relative de deux cercles \corrige]{2}
+\'Etudier la position relative des cercles $\mathcal{C}_1$ et $\mathcal{C}_2$~:
+\begin{enumerate}
+  \item $\mathcal{C}_1$~: centre $(0,0)$, rayon $3$~;
+        $\mathcal{C}_2$~: centre $(5,0)$, rayon $1$.
+  \item $\mathcal{C}_1$~: centre $(0,0)$, rayon $3$~;
+        $\mathcal{C}_2$~: centre $(2,0)$, rayon $2$.
+  \item $\mathcal{C}_1$~: $x^2+y^2=16$~;
+        $\mathcal{C}_2$~: $(x-3)^2+y^2=1$.
+  \item $\mathcal{C}_1$~: $(x-1)^2+(y-1)^2=8$~;
+        $\mathcal{C}_2$~: $(x-4)^2+(y-5)^2=2$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tangente ext\'erieure \`a un cercle depuis un point \corrige]{2}
+Soit le cercle $\mathcal{C}$~: $x^2+y^2=9$ et le point $P(5,0)$
+ext\'erieur au cercle.
+\begin{enumerate}
+  \item V\'erifier que $P$ est ext\'erieur au cercle.
+  \item Une tangente depuis $P$ au cercle a pour \'equation $y=m(x-5)$.
+        Exprimer la distance du centre $O$ \`a cette droite.
+  \item En imposant cette distance \'egale \`a $3$, trouver $m$.
+  \item \'Ecrire les \'equations des deux tangentes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Equation cart\'esienne d'une parabole \corrige]{2}
+\index{parabole}
+Le \emph{lieu des points \'equidistants} du point $F(0,1)$ et de la droite
+$y=-1$ est une courbe appel\'ee parabole.
+\begin{enumerate}
+  \item \'Ecrire la condition $MF = d(M, y=-1)$ pour $M(x,y)$.
+  \item D\'evelopper et simplifier.
+  \item Identifier l'\'equation obtenue.
+  \item Tracer la courbe.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Droite d\'efinie par ses intercepts \corrige]{2}
+Une droite coupe l'axe $Ox$ en $a$ et l'axe $Oy$ en $b$ ($a,b\ne0$).
+Son \'equation est $\dfrac{x}{a}+\dfrac{y}{b}=1$.
+\begin{enumerate}
+  \item V\'erifier que $A(a,0)$ et $B(0,b)$ sont sur cette droite.
+  \item Pour $a=3$, $b=4$~: \'ecrire l'\'equation sous forme $ax+by+c=0$.
+  \item La droite passant par $A(4,0)$ et $B(0,-3)$~: \'ecrire son \'equation.
+  \item Pour quelle valeur de $a$ la droite $x/a+y/4=1$ passe-t-elle par $P(6,2)$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Position relative : syst\`eme \corrige]{1}
+D\'eterminer la position relative des droites $d_1$ et $d_2$
+(parall\`eles, confondues, ou s\'ecantes)~:
+\begin{enumerate}
+  \item $d_1$~: $y=2x+1$~; $d_2$~: $y=2x-3$
+  \item $d_1$~: $3x-y+2=0$~; $d_2$~: $6x-2y+4=0$
+  \item $d_1$~: $y=x+1$~; $d_2$~: $y=-x+5$
+  \item $d_1$~: $2x+3y=6$~; $d_2$~: $4x+6y=11$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Cercle~: construire l'\'equation \corrige]{1}
+\'Ecrire l'\'equation du cercle satisfaisant les conditions~:
+\begin{enumerate}
+  \item Centre $\Omega(3,-1)$, passant par $A(7,-1)$.
+  \item Diam\`etre $[AB]$ avec $A(-1,2)$, $B(3,4)$.
+  \item Centre \`a l'origine, passant par $P(5,12)$.
+  \item Centre $\Omega(2,3)$, tangent \`a l'axe des $x$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calculer la distance : applications \corrige]{2}
+\begin{enumerate}
+  \item Un point $P$ est-il \`a l'int\'erieur, sur, ou \`a l'ext\'erieur
+        du cercle $\mathcal{C}$~: $(x-2)^2+(y+1)^2=25$~?
+        V\'erifier pour $P_1(6,2)$, $P_2(5,3)$, $P_3(0,0)$.
+  \item La droite $d$~: $3x+4y=12$ est-elle s\'ecante, tangente,
+        ou ext\'erieure au cercle $x^2+y^2=9$~?
+  \item Trouver tous les points de $d$ \`a distance $3$ de l'origine.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Triangle rectangle inscrit dans un cercle \corrige]{2}
+Soit le cercle de centre $\Omega(1,2)$ et rayon $4$.
+\begin{enumerate}
+  \item V\'erifier que $A(-3,2)$, $B(5,2)$, $C(1,6)$ sont sur le cercle.
+  \item $[AB]$ est-il un diam\`etre~?
+  \item D\'emontrer que $\widehat{ACB}=90^{\circ}$ en calculant $\vv{CA}\cdot\vv{CB}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[R\'egion du plan d\'efinie par un cercle \corrige]{2}
+Soit $\mathcal{C}$~: $x^2+y^2=9$.
+\begin{enumerate}
+  \item D\'ecrire la r\'egion $\{M \mid OM < 3\}$.
+  \item D\'ecrire la r\'egion $\{M \mid OM \geq 3\}$.
+  \item La droite $x+y=5$ coupe-t-elle l'int\'erieur du disque~?
+  \item Trouver la droite $y=x+k$ tangente \`a $\mathcal{C}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Trouver le cercle par conditions \corrige]{2}
+\begin{enumerate}
+  \item Un cercle a son centre sur l'axe $Ox$ et passe par $A(0,3)$
+        et $B(4,1)$. Trouver son centre et son rayon.
+  \item Un cercle a son centre sur $y=x$ et est tangent aux deux axes.
+        Trouver son \'equation.
+  \item Un cercle passe par $A(2,0)$, $B(-2,0)$ et a son centre
+        sur $y=x$. Trouver tous les cercles solutions.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Droite et cercle~: intersection explicite \corrige]{2}
+Calculer les coordonn\'ees exactes des points d'intersection~:
+\begin{enumerate}
+  \item $\mathcal{C}$~: $x^2+y^2=25$ et $(\Delta)$~: $3x+4y=0$
+  \item $\mathcal{C}$~: $(x-2)^2+y^2=16$ et $(\Delta)$~: $y=x-2$
+  \item $\mathcal{C}$~: $x^2+y^2-2x=0$ et $(\Delta)$~: $y=1$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Angle au centre vs angle inscrit \corrige]{1}
+Un triangle \'equilat\'eral est inscrit dans le cercle unit\'e.
+Ses sommets sont \`a $\theta=\pi/6$, $5\pi/6$, $3\pi/2$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees des trois sommets.
+  \item V\'erifier que les trois c\^ot\'es ont la m\^eme longueur.
+  \item Calculer le p\'erim\`etre et l'aire du triangle.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lieu g\'eom\'etrique~: exercice suppl\'ementaire \corrige]{2}
+D\'eterminer le lieu des points $M(x,y)$ tels que~:
+$\dfrac{MA}{MB}=2$ avec $A(0,0)$ et $B(3,0)$.
+\emph{(C'est un cercle d'Apollonius.)}
+\begin{enumerate}
+  \item \'Ecrire la condition $MA^2=4MB^2$ et d\'evelopper.
+  \item Mettre sous forme $(x-a)^2+(y-b)^2=r^2$.
+  \item Identifier centre et rayon.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: position d'une droite et d'un cercle \corrige]{2}
+
+\begin{algorithm}[H]
+\caption{Position relative droite/cercle}
+\KwIn{centre $\Omega(a,b)$, rayon $r$, droite $\alpha x+\beta y+\gamma=0$}
+\KwOut{position relative}
+$d \leftarrow |\alpha a + \beta b + \gamma| \div \sqrt{\alpha^2+\beta^2}$\;
+\Si{$d > r$}{\Afficher \og Ext\'erieure\fg\;}
+\SinonSi{$d = r$}{\Afficher \og Tangente\fg\;}
+\Sinon{\Afficher \og S\'ecante\fg\;}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Les trois cas $d>r$, $d=r$, $d<r$ forment-ils une partition exhaustive~?
+        \'Enoncer cela comme une disjonction de cas.
+  \item Appliquer pour~: $\Omega(1,-2)$, $r=5$, droite $3x-4y+2=0$.
+  \item Appliquer pour~: $\Omega(0,0)$, $r=3$, droite $y=x+4$.
+  \item Modifier pour calculer et afficher aussi les coordonn\'ees
+        du (ou des) point(s) de contact si la droite est tangente
+        ou s\'ecante.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations}
+
+\begin{exo}[Cercle de diam\`etre {$[AB]$} \corrige]{3}
+D\'emontrer que le cercle de diam\`etre $[AB]$ est l'ensemble des
+points $M$ tels que $\vv{MA}\cdot\vv{MB}=0$.
+\begin{enumerate}
+  \item Poser $A(a,0)$ et $B(-a,0)$ (sans perte de g\'en\'eralit\'e).
+        Pour $M(x,y)$, calculer $\vv{MA}\cdot\vv{MB}$.
+  \item Montrer que $\vv{MA}\cdot\vv{MB}=0 \Leftrightarrow x^2+y^2=a^2$.
+  \item Identifier~: c'est bien le cercle de diam\`etre $[AB]$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Distance entre droites parall\`eles \corrige]{3}
+La distance entre deux droites parall\`eles $ax+by+c_1=0$ et $ax+by+c_2=0$
+est $d = \dfrac{|c_1-c_2|}{\sqrt{a^2+b^2}}$.
+\begin{enumerate}
+  \item D\'emontrer cette formule en calculant la distance d'un point
+        quelconque de la premi\`ere droite \`a la seconde.
+  \item Calculer la distance entre $3x-4y+5=0$ et $3x-4y-10=0$.
+  \item Calculer la distance entre $y=2x+1$ et $y=2x-4$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Bipoint et axe radical \corrige]{3}
+Soit deux cercles s\'ecants $\mathcal{C}_1$ et $\mathcal{C}_2$ se coupant
+en $A$ et $B$.
+\begin{enumerate}
+  \item D\'emontrer que la droite $AB$ est perpendiculaire \`a la droite
+        des centres $\Omega_1\Omega_2$.
+        \emph{(Utiliser que $\Omega_1A=\Omega_1B=r_1$ et
+        $\Omega_2A=\Omega_2B=r_2$ : les deux centres sont sur la
+        m\'ediatrice de $[AB]$.)}
+  \item Montrer que le milieu de $[AB]$ est sur la droite des centres.
+  \item Application~: $\mathcal{C}_1$~: $x^2+y^2=10$~;
+        $\mathcal{C}_2$~: $(x-2)^2+y^2=6$.
+        Trouver $A$ et $B$, puis v\'erifier (1) et (2).
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Triange inscrit dans un cercle \corrigeP]{1}
+Le triangle $A(5,0)$, $B(-5,0)$, $C(0,5)$ est-il inscrit dans le cercle
+$x^2+y^2=25$~?
+\begin{enumerate}
+  \item V\'erifier que les trois points sont sur le cercle.
+  \item Calculer les longueurs des c\^ot\'es.
+  \item Calculer les angles du triangle (produit scalaire).
+  \item Calculer l'aire du triangle de deux mani\`eres~:
+        formule de base~; $\frac{1}{2}|det(\vv{AB},\vv{AC})|$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Intersection cercle--droite et corde \corrigeP]{2}
+Soit $\mathcal{C}$~: $x^2+y^2=25$ et $(\Delta)$~: $3x+4y-25=0$.
+\begin{enumerate}
+  \item D\'eterminer la position relative de $(\Delta)$ et $\mathcal{C}$.
+  \item Trouver le(s) point(s) commun(s).
+  \item Si la droite est s\'ecante, calculer la longueur de la corde
+        (segment reliant les deux intersections).
+  \item \'Ecrire l'\'equation de la tangente \`a $\mathcal{C}$ en chaque
+        point d'intersection.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[M\'ediane, hauteur, m\'ediatrice~: r\'ecap \corrigeP]{2}
+Pour le triangle $A(2,6)$, $B(-4,0)$, $C(4,0)$~:
+\begin{enumerate}
+  \item Calculer les coordonn\'ees du centre de gravité $G$, du circocentre $O'$
+        et de l'orthocentre $H$.
+  \item V\'erifier que $O'$, $G$, $H$ sont align\'es (droite d'Euler)
+        et que $O'G = \dfrac{GH}{2}$.
+  \item Identifier le type du triangle (scalène/isoc\`ele/\'equilat\'eral
+        et acutangle/rectangle/obtusangle).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Le th\'eor\`eme de Thal\`es en coordonn\'ees \corrigeP]{1}
+Soit $A(0,0)$, $B(6,0)$, $C(0,4)$ et $M$ le point de $[AB]$ tel que $AM=4$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees de $M$.
+  \item La droite parall\`ele \`a $BC$ passant par $M$ coupe $[AC]$ en $N$.
+        \'Ecrire l'\'equation de cette droite et trouver $N$.
+  \item V\'erifier que $AM/AB = AN/AC$ (th\'eor\`eme de Thal\`es).
+  \item Calculer $MN$ et v\'erifier que $MN/BC = AM/AB$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Triangle quelconque inscrit \corrigeP]{1}
+\begin{enumerate}
+  \item Trouver le cercle circonscrit au triangle $A(2,0)$, $B(-2,0)$, $C(0,3)$.
+  \item Calculer le p\'erim\`etre du triangle.
+  \item Calculer les trois angles du triangle \`a $1^{\circ}$ pr\`es.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Droites et syst\`emes~: triangle \corrigeP]{2}
+Trois droites $d_1$~: $y=2x$~; $d_2$~: $y=-x+6$~; $d_3$~: $y=1$
+forment un triangle.
+\begin{enumerate}
+  \item Calculer les trois sommets du triangle.
+  \item Calculer le p\'erim\`etre et l'aire.
+  \item \'Ecrire l'\'equation du cercle inscrit
+        (son centre est \`a \'egale distance des trois c\^ot\'es).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Perpendiculaire en un point \corrigeP]{1}
+On donne la droite $(\Delta)$~: $2x-3y+6=0$ et le point $A(4,5)$.
+\begin{enumerate}
+  \item La droite perpendiculaire \`a $(\Delta)$ passant par $A$.
+  \item Le pied $H$ de la perpendiculaire (intersection des deux droites).
+  \item La distance $AH$.
+  \item V\'erifier avec la formule de distance point-droite.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Syst\`eme de cercles coaxiaux \corrigeP]{3}
+Soit $\mathcal{C}_1$~: $x^2+y^2-4x=0$ et $\mathcal{C}_2$~: $x^2+y^2+2x-6=0$.
+\begin{enumerate}
+  \item Trouver les centres et rayons.
+  \item D\'eterminer la position relative (s\'ecants, tangents, ext\'erieurs).
+  \item Calculer les coordonn\'ees des points d'intersection \'eventuels.
+  \item \'Ecrire l'\'equation de l'axe radical.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Localisation par distance~: GPS simplifi\'e \corrigeP]{1}
+Trois antennes $A(0,0)$, $B(10,0)$, $C(5,8)$ d\'etectent un signal.
+Les distances mesur\'ees sont~: $d_A=5$, $d_B=5$, $d_C=8$.
+\begin{enumerate}
+  \item \'Ecrire l'\'equation du cercle de centre $A$, rayon $5$.
+  \item M\^eme chose pour $B$ et $C$.
+  \item Trouver le point $M$ commun aux trois cercles.
+  \item En g\'en\'eral, deux cercles donnent $\leq 2$ solutions.
+        Pourquoi le troisi\`eme cercle permet-il d'en s\'electionner une seule~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Triangle rectangle et cercle \corrigeP]{2}
+\begin{enumerate}
+  \item D\'emontrer que si $ABC$ est rectangle en $C$, alors $C$ est sur le cercle
+        de diam\`etre $[AB]$.
+        \emph{(Utiliser $\vv{CA}\cdot\vv{CB}=0$.)}
+  \item La r\'eciproque est-elle vraie~?
+  \item Application~: pour $A(-3,0)$ et $B(3,0)$, trouver tous les points $C$
+        sur le cercle de diam\`etre $[AB]$ tels que $AC=BC$ (triangle isoc\`ele rectangle).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Distance minimale \corrigeP]{2}
+On cherche le point de la droite $(\Delta)$~: $y=2x+1$ le plus proche
+de $A(5,3)$.
+\begin{enumerate}
+  \item Ce point $H$ est le pied de la perpendiculaire de $A$ sur $(\Delta)$.
+        \'Ecrire l'\'equation de la perpendiculaire \`a $(\Delta)$ passant par $A$.
+  \item Trouver $H$ (intersection avec $(\Delta)$).
+  \item Calculer $AH$.
+  \item V\'erifier avec la formule $d(A,\Delta)$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Angle au centre et arc \corrigeP]{2}
+Soit $\mathcal{C}$ le cercle de centre $O(0,0)$ et rayon $5$.
+Les points $A(5,0)$, $B(0,5)$, $C(-5,0)$, $D(0,-5)$ sont sur $\mathcal{C}$.
+\begin{enumerate}
+  \item Calculer l'angle $\widehat{AOB}$ (angle au centre).
+  \item Calculer les angles $\widehat{AOC}$ et $\widehat{BOD}$.
+  \item Pour un point $M(3,4)$~: v\'erifier que $M$ est sur $\mathcal{C}$
+        et calculer $\widehat{AOM}$.
+  \item Calculer le p\'erim\`etre du carr\'e $ABCD$ et le comparer avec
+        la circonf\'erence $2\pi r$.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Cercle circonscrit~: construction]
+D\'eterminer l'\'equation du cercle passant par $A(0,0)$, $B(4,0)$, $C(1,3)$.
+\begin{enumerate}
+  \item L'\'equation g\'en\'erale est $x^2+y^2+Dx+Ey+F=0$.
+        Substituer les trois points pour obtenir un syst\`eme.
+  \item R\'esoudre le syst\`eme.
+  \item Identifier centre et rayon.
+  \item V\'erifier que les trois points sont bien sur le cercle.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Th\'eor\`eme de Ptolom\'ee]
+\index{théorème de Ptolémée}
+Pour un quadrilat\`ere $ABCD$ inscrit dans un cercle~:
+$AC\cdot BD = AB\cdot CD + AD\cdot BC.$
+V\'erifier num\'eriquement sur le carr\'e $A(1,0)$, $B(0,1)$, $C(-1,0)$, $D(0,-1)$.
+\begin{enumerate}
+  \item Calculer $AC$, $BD$, $AB$, $CD$, $AD$, $BC$.
+  \item V\'erifier l'\'egalit\'e.
+  \item Ce quadrilat\`ere est-il inscrit dans quel cercle~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Positions relatives~: discussion selon un param\`etre]
+Soit $\mathcal{C}$~: $x^2+y^2=r^2$ et $(\Delta_k)$~: $x+y=k$.
+\begin{enumerate}
+  \item Calculer la distance du centre $O(0,0)$ \`a $(\Delta_k)$.
+  \item Selon les valeurs de $k$ (en fonction de $r$), d\'eterminer
+        la position relative~: s\'ecante, tangente, ou ext\'erieure.
+  \item Pour $r=3$~: trouver les valeurs de $k$ pour la tangence
+        et les points de tangence.
+  \item Tracer la figure pour $r=3$ et $k=0, 3\sqrt{2}, 5$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Cercle inscrit dans un triangle]
+\index{cercle inscrit}
+Le cercle inscrit dans un triangle est tangent aux trois c\^ot\'es.
+Son centre $I$ est \`a \'egale distance des trois c\^ot\'es.
+Pour $A(0,4)$, $B(-3,0)$, $C(3,0)$~:
+\begin{enumerate}
+  \item Calculer les longueurs $a=BC$, $b=CA$, $c=AB$.
+  \item Les coordonn\'ees du centre sont $I=\dfrac{a\cdot A+b\cdot B+c\cdot C}{a+b+c}$.
+        Calculer $I$.
+  \item Calculer le rayon $r = $ distance de $I$ \`a $BC$.
+        En notant $\mathcal A$ l'aire du triangle et
+        $s=\dfrac{a+b+c}{2}$ son demi-p\'erim\`etre, v\'erifier la formule
+        $r=\dfrac{\mathcal A}{s}=\dfrac{2\mathcal A}{a+b+c}$.
+  \item \'Ecrire l'\'equation du cercle inscrit.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Puissance d'un point par rapport \`a un cercle]
+\index{puissance d'un point}
+La \emph{puissance} du point $P$ par rapport au cercle $\mathcal{C}$
+de centre $\Omega$ et rayon $r$ est~:
+$\pi(P) = P\Omega^2 - r^2.$
+\begin{enumerate}
+  \item Calculer $\pi(P)$ pour $P(4,3)$ et $\mathcal{C}$~: $x^2+y^2=25$.
+  \item Si $\pi(P)>0$~: $P$ est ext\'erieur. Si $\pi(P)=0$~: $P$ est sur $\mathcal{C}$.
+        Si $\pi(P)<0$~: $P$ est int\'erieur. V\'erifier sur cet exemple.
+  \item Montrer que $\pi(P) = x_P^2+y_P^2-r^2$ pour un cercle centr\'e \`a l'origine.
+  \item L'axe radical de deux cercles est l'ensemble $\{\pi_1(M)=\pi_2(M)\}$.
+        Retrouver la formule de l'axe radical.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Th\'eor\`eme de la corde commune]
+Deux cercles s\'ecants d\'eterminent une \emph{corde commune}
+(le segment reliant leurs deux intersections).
+\begin{enumerate}
+  \item Pour $\mathcal{C}_1$~: $x^2+y^2=25$ et $\mathcal{C}_2$~: $(x-3)^2+y^2=16$~:
+        trouver les deux points d'intersection.
+  \item Calculer la longueur de la corde commune.
+  \item Montrer que la corde commune est perpendiculaire \`a la droite des centres.
+  \item Calculer l'angle \`a l'intersection~: l'angle entre la corde et la droite
+        des centres.
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Droite~:} $ax+by+c=0$~; $y=mx+p$~; param\'etrique.
+        Pentes~: $\parallel \Leftrightarrow m_1=m_2$~;
+        $\perp \Leftrightarrow m_1m_2=-1$.
+  \item \textbf{Cercle} de centre $\Omega(a,b)$, rayon $r$~:
+        $(x-a)^2+(y-b)^2=r^2$.
+        Forme g\'en\'erale~: compl\'eter le carr\'e.
+  \item \textbf{Distance}~: $d(A,\Delta)=|ax_0+by_0+c|/\sqrt{a^2+b^2}$.
+  \item \textbf{Position droite/cercle}~: comparer $d(\Omega,\Delta)$ et $r$.
+  \item \textbf{Tangente en $A\in\mathcal{C}$~:}
+        perpendiculaire au rayon $\Omega A$ en $A$.
+  \item \textbf{Position deux cercles~:}
+        comparer $d=\Omega_1\Omega_2$ avec $r_1+r_2$ et $|r_1-r_2|$.
+  \item \textbf{M\'ediatrice}~: droite perpendiculaire au segment en son milieu.
+        Circocentre $=$ intersection des trois m\'ediatrices.
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%──────────���──────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Propositions sur les droites \corrige]{1}
+\'Enoncer la n\'egation et d\'eterminer si vraie~:
+\begin{enumerate}
+  \item \og Deux droites de m\^eme pente sont parall\`eles.\fg
+  \item \og $\exists$ une droite passant par deux points quelconques.\fg
+  \item \og Pour toute droite $d$, il existe une unique droite $\perp d$
+        passant par un point donn\'e.\fg
+  \item \og Deux droites perpendiculaires ne se coupent pas.\fg
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ \'Equivalences sur les droites \corrige]{1}
+Pour chaque couple, indiquer si c'est $\Rightarrow$, $\Leftarrow$ ou $\Leftrightarrow$~:
+\begin{enumerate}
+  \item \og $d_1\parallel d_2$\fg\ et \og $d_1$ et $d_2$ ont la m\^eme pente\fg.
+  \item \og $d_1\perp d_2$\fg\ et \og $m_1\cdot m_2=-1$\fg.
+  \item \og $A\in d$\fg\ et \og les coordonn\'ees de $A$ satisfont l'\'equation de $d$\fg.
+  \item \og Le cercle $\mathcal{C}$ est tangent \`a $d$\fg\ et \og $d(\Omega,d)=r$\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Raisonnement sur la position droite/cercle \corrige]{2}
+Soit $\mathcal{C}$ un cercle de centre $\Omega$ et rayon $r$, et $d$ une droite.
+\begin{enumerate}
+  \item Les trois cas ($d$ ext., tangente, s\'ecante) forment-ils une partition~?
+        Formuler cela logiquement.
+  \item D\'emontrer par l'absurde que si $d$ est tangente,
+        le point de contact est unique.
+  \item \'Enoncer la contrapos\'ee~:
+        si $d$ n'est pas tangente, que peut-on dire~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Lieux g\'eom\'etriques et \'equivalences \corrige]{2}
+\'Enoncer chaque lieu comme une \'equivalence logique~:
+\begin{enumerate}
+  \item $M$ est sur la m\'ediatrice de $[AB]$.
+  \item $M$ est sur le cercle de diam\`etre $[AB]$.
+  \item $M$ est \`a distance $r$ de $\Omega$.
+  \item Pour chaque cas, d\'emontrer le sens r\'eciproque.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Conditions sur l'\'equation d'un cercle \corrige]{2}
+$x^2+y^2+Dx+Ey+F=0$ repr\'esente un cercle ssi $D^2+E^2-4F>0$.
+\begin{enumerate}
+  \item Cette condition est-elle CN, CS ou CNS~?
+  \item \'Enoncer la n\'egation.
+  \item Donner un exemple o\`u $D^2+E^2-4F=0$ (cercle d\'eg\'en\'er\'e en point).
+  \item Donner un exemple o\`u $D^2+E^2-4F<0$ (ensemble vide).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Th\'eor\`eme de Thal\`es~: logique \corrige]{3}
+Le th\'eor\`eme de Thal\`es dit~: si $M$ est sur $[AB]$ avec $AM/AB=k$,
+et la parall\`ele \`a $BC$ coupe $[AC]$ en $N$, alors $AN/AC=k$.
+\begin{enumerate}
+  \item \'Enoncer sous forme d'implication $P\Rightarrow Q$.
+  \item La r\'eciproque est-elle vraie~?
+  \item \'Enoncer la contrapos\'ee.
+  \item V\'erifier avec les coordonn\'ees.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: \'equation d'une droite par deux points \corrige]{1}
+
+\begin{algorithm}[H]
+\caption{\'Equation de la droite $AB$}
+\KwIn{$A(x_A,y_A)$, $B(x_B,y_B)$}
+\Si{$x_A = x_B$}{\Afficher $x = x_A$\;}
+\Sinon{
+  $m \leftarrow (y_B - y_A)/(x_B - x_A)$\;
+  $p \leftarrow y_A - m\times x_A$\;
+  \Afficher $y = $ $m$ $x + $ $p$\;
+}
+\end{algorithm}
+
+Tester pour $(0,0),(3,6)$~; $(2,1),(2,5)$~; $(-1,4),(3,-2)$.
+Impl\'ementer \computer.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: position relative droite/cercle \computer \corrige]{2}
+(Voir exercice \logicoalgo\ plus haut.)
+Modifier pour afficher \'egalement les coordonn\'ees des points d'intersection
+quand la droite est s\'ecante.
+Utiliser la substitution de $y=mx+p$ dans l'\'equation du cercle.
+Tester sur $\mathcal{C}$~: $x^2+y^2=25$ et $d$~: $y=x+1$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: m\'ediatrice \corrige]{1}
+\'Ecrire un algorithme puis l'impl\'ementer \computer\ pour calculer
+l'\'equation de la m\'ediatrice du segment $[AB]$.
+Tester pour $A(1,3)$, $B(5,1)$.
+V\'erifier que le milieu de $[AB]$ appartient bien \`a la m\'ediatrice.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: tangente \`a un cercle depuis un point ext\'erieur \computer \corrige]{2}
+\'Ecrire un programme qui, \'etant donn\'es un cercle $\mathcal{C}$ et un point $P$
+ext\'erieur, calcule les \'equations des deux tangentes \`a $\mathcal{C}$ passant par $P$.
+Tester sur $\mathcal{C}$~: $x^2+y^2=9$ et $P(5,0)$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: cercle passant par trois points \computer \corrige]{2}
+\'Ecrire un programme Python \computer\ qui trouve le cercle passant par trois
+points donn\'es en r\'esolvant le syst\`eme $3\times3$ sur $D$, $E$, $F$.
+Tester sur $A(0,0)$, $B(4,0)$, $C(1,3)$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: distance point--droite sur une grille \computer \corrige]{2}
+\'Ecrire un programme qui, pour tous les points entiers $(x,y)$
+avec $x,y\in\{-5,\ldots,5\}$, calcule leur distance \`a la droite $y=2x+1$
+et affiche ceux \`a distance inf\'erieure \`a $1$.
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique des cercles \corrigeP]{2}
+\begin{enumerate}
+  \item \'Enoncer sous forme d'\'equivalence~:
+        \og $P$ est \`a l'int\'erieur du cercle $\mathcal{C}$.\fg
+  \item Deux cercles sont tangents ext\'erieurement ssi $d(\Omega_1,\Omega_2)=r_1+r_2$.
+        D\'emontrer la condition suffisante.
+  \item La n\'egation de \og deux cercles sont s\'ecants\fg~: formuler et caract\'eriser.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ Logique et lieux g\'eom\'etriques \corrigeP]{2}
+\begin{enumerate}
+  \item D\'emontrer rigoureusement (en utilisant les vecteurs)~:
+        $M$ est sur le cercle de diam\`etre $[AB]$ si et seulement si $\vv{MA}\cdot\vv{MB}=0$.
+  \item D\'emontrer que l'axe radical de deux cercles non concentriques
+        est une droite.
+  \item \'Enoncer la proposition de l'axe radical avec des quantificateurs.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: GPS simplififi\'e \computer \corrigeP]{1}
+(Voir probl\`eme GPS dans ce chapitre.)
+\'Ecrire un programme Python qui, \'etant donn\'es trois cercles (antennes),
+trouve leur intersection commune en r\'esolvant les \'equations.
+G\'en\'eraliser~: que se passe-t-il avec seulement deux antennes~?
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: tracer une droite et un cercle \computer \corrigeP]{1}
+\'Ecrire un programme Python qui trace~:
+\begin{enumerate}
+  \item Un cercle de centre et rayon donn\'es.
+  \item Une droite d'\'equation $y=mx+p$ donn\'ee.
+  \item Calcule et affiche la position relative.
+  \item Si s\'ecant, marque les points d'intersection.
+\end{enumerate}
+Utiliser \texttt{matplotlib}.
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Logique des droites de Faisceau]
+Un \emph{faisceau de droites} est l'ensemble de toutes les droites
+passant par un point fix\'e $P$.
+\begin{enumerate}
+  \item \'Enoncer avec des quantificateurs~:
+        \og Il y a une infinit\'e de droites dans le faisceau.\fg
+  \item Montrer~: deux droites distinctes ont au plus un point commun.
+  \item En d\'eduire~: deux droites distinctes qui ne se coupent pas sont parall\`eles.
+        Identifier le type de raisonnement.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ G\'eom\'etrie analytique compl\`ete \computer]
+\'Ecrire un programme Python complet qui, donn\'es les sommets d'un triangle~:
+\begin{enumerate}
+  \item Calcule le centre de gravité, le circocentre et l'orthocentre.
+  \item V\'erifie la droite d'Euler (alignement et rapport $1:2$).
+  \item Trace le triangle avec les trois points sp\'eciaux.
+  \item Affiche le cercle circonscrit.
+\end{enumerate}
+Tester sur plusieurs triangles (acutangle, rectangle, obtusangle).
+\end{challenge}
+
+\end{bilan}

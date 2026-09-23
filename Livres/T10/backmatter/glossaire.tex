@@ -1,0 +1,141 @@
+\chapter*{Glossaire}
+\addcontentsline{toc}{chapter}{Glossaire}
+
+\begin{description}[leftmargin=4cm, style=nextline, font=\color{BN}\bfseries]
+
+  \item[Algorithme]
+    Suite finie et non ambigu\"e d'instructions permettant de
+    r\'esoudre un probl\`eme. Propri\'et\'es~: finitude, validit\'e,
+    d\'eterminisme. Le mot vient du nom du math\'ematicien
+    al-Khw\^arizm\^i ($\approx$820).
+
+  \item[Affectation]
+    Instruction $X\leftarrow\text{expr}$ qui stocke une valeur
+    dans une variable, \'ecrasant l'ancienne. Ne pas confondre
+    avec l'\'egalit\'e math\'ematique.
+
+  \item[Dichotomie]
+    M\'ethode de recherche ou d'approximation qui divise le
+    domaine en deux \`a chaque \'etape.
+
+  \item[Invariant de boucle]
+    Propri\'et\'e logique vraie avant la boucle et conserv\'ee
+    \`a chaque it\'eration~; permet de prouver la correction.
+
+  \item[It\'eration]
+    R\'ep\'etition d'un bloc d'instructions~: boucle \texttt{Pour}
+    (nombre d'it\'erations connu) ou \texttt{Tant que}
+    (arr\^et conditionnel).
+
+  \item[Organigramme]
+    Repr\'esentation graphique d'un algorithme.
+    Conventions~: losange (test), trap\`eze (E/S),
+    rectangle (traitement), fl\`eches (flux).
+
+  \item[Pseudo-code]
+    Langage informel, \`a mi-chemin entre le fran\c cais et un
+    langage de programmation, utilis\'e pour d\'ecrire un algorithme
+    ind\'ependamment de toute syntaxe particuli\`ere.
+
+  \item[Tri]
+    Algorithme qui r\'eordonne les valeurs d'un tableau, par exemple
+    dans l'ordre croissant ou décroissant.
+
+  \item[Variable]
+    Emplacement m\'emoire nomm\'e pouvant contenir une valeur.
+    En algorithmique, toute variable est d'un type
+    (entier, r\'eel, bool\'een, cha\^ine\ldots).
+    Structure alg\'ebrique munie de deux op\'erations ($\land$, $\lor$)
+    et d'un compl\'ement ($\lnot$), satisfaisant des axiomes analogues
+    \`a ceux des ensembles. Fond\`ee par George Boole (1854).
+
+  \item[Assertion / Proposition]
+    \'Enonc\'e ayant une valeur de v\'erit\'e d\'etermin\'ee~:
+    vrai (\vrai) ou faux (\faux). Contraste avec le pr\'edicat
+    (dont la valeur d\'epend d'une variable).
+
+  \item[Condition n\'ecessaire]
+    $P$ est \emph{condition n\'ecessaire} pour $Q$ si
+    $Q\Rightarrow P$. Autrement dit~: sans $P$, pas de $Q$.
+
+  \item[Condition suffisante]
+    $P$ est \emph{condition suffisante} pour $Q$ si $P\Rightarrow Q$.
+    Autrement dit~: $P$ \og suffit\fg\ pour garantir $Q$.
+
+  \item[Connecteur logique]
+    Symbole op\'erant sur une ou plusieurs propositions~:
+    $\lnot$ (n\'egation), $\land$ (conjonction), $\lor$ (disjonction),
+    $\Rightarrow$ (implication), $\Leftrightarrow$ (\'equivalence).
+
+  \item[Contradiction]
+    Proposition \emph{toujours fausse}, quelle que soit la valeur
+    de ses variables (ex.~: $P\land\lnot P$).
+
+  \item[Contrapos\'ee]
+    La contrapos\'ee de $P\Rightarrow Q$ est $\lnot Q\Rightarrow\lnot P$.
+    Une implication et sa contrapos\'ee sont toujours \'equivalentes.
+
+  \item[Contre-exemple]
+    Un \'el\'ement $x_0$ tel que $P(x_0)$ est fausse, utilis\'e pour
+    r\'efuter $\forall x,\,P(x)$.
+
+  \item[D\'emonstration par l'absurde]
+    Raisonnement dans lequel on suppose $\lnot P$ et l'on aboutit \`a
+    une contradiction, concluant que $P$ est vraie.
+
+  \item[Discriminant]
+    Pour $ax^2+bx+c=0$~: $\Delta=b^2-4ac$.
+    Son signe d\'etermine le nombre de racines r\'eelles.
+
+  \item[\'Equivalence logique]
+    $P\Leftrightarrow Q$~: vraie si $P$ et $Q$ ont la m\^eme valeur
+    de v\'erit\'e. \'Equivalent \`a $(P\Rightarrow Q)\land(Q\Rightarrow P)$.
+
+  \item[Implication]
+    $P\Rightarrow Q$~: fausse uniquement quand $P=\vrai$ et $Q=\faux$.
+    Se lit \og si $P$ alors $Q$\fg.
+
+  \item[Irrationnel]
+    Nombre r\'eel qui ne peut pas s'\'ecrire $p/q$ avec $p\in\Z$,
+    $q\in\N^*$. Exemples~: $\sqrt{2}$, $\sqrt{3}$, $\pi$, $e$.
+
+  \item[Lois de De Morgan]
+    $\lnot(P\land Q)\equiv\lnot P\lor\lnot Q$ ;
+    $\lnot(P\lor Q)\equiv\lnot P\land\lnot Q$.
+    Permettent de distribuer la n\'egation.
+
+  \item[N\'egation]
+    $\lnot P$~: vraie si $P$ est fausse, fausse si $P$ est vraie.
+
+  \item[Pr\'edicat]
+    \'Enonc\'e $P(x)$ dont la valeur de v\'erit\'e d\'epend de $x$.
+    Devient une proposition pour une valeur particuli\`ere de $x$.
+
+  \item[Quantificateur existentiel $\exists$]
+    $\exists x\in E,\,P(x)$~: il existe au moins un $x$ dans $E$
+    pour lequel $P(x)$ est vraie.
+
+  \item[Quantificateur universel $\forall$]
+    $\forall x\in E,\,P(x)$~: pour tout $x$ dans $E$,
+    $P(x)$ est vraie.
+
+  \item[R\'eciproque]
+    La r\'eciproque de $P\Rightarrow Q$ est $Q\Rightarrow P$.
+    Elle n'est \textbf{pas} \'equivalente \`a l'implication initiale
+    en g\'en\'eral.
+
+  \item[Table de v\'erit\'e]
+    Tableau listant la valeur d'une formule logique pour toutes
+    les combinaisons de valeurs de ses variables.
+
+  \item[Tautologie]
+    Proposition \emph{toujours vraie}, quelle que soit la valeur
+    de ses variables (ex.~: $P\lor\lnot P$).
+
+  \item[Vecteur]
+    Objet d\'efini par une direction, un sens et une norme.
+    Dans un rep\`ere~: $\vec u=(x_1,y_1)$.
+
+\end{description}
+
+%% ── NOTATIONS ───────────────────────────────────────────────────

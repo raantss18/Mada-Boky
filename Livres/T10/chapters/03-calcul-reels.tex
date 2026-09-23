@@ -1,0 +1,1265 @@
+\part{Calcul Alg\'ebrique}
+
+%% ════════════════════════════════════════════════════════════════
+\chapter{Calcul dans $\mathbb{R}$}
+\input{activities/03-calcul-reels}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[L'irrationnel qui d\'erangea les Pythagoriciens]
+Vers $500$ av.\ J.-C., Hippase de M\'etaponte d\'ecouvrit que $\sqrt{2}$ ne pouvait
+pas s'\'ecrire comme rapport de deux entiers. Selon la l\'egende, les Pythagoriciens
+--- pour qui \og tout est nombre\fg\ (entier) --- le jet\`erent par-dessus bord d'un
+bateau. La d\'ecouverte des irrationnels fut une r\'evolution qui ouvrit la voie \`a $\R$.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Ma\^itriser la hi\'erarchie $\N \subset \Z \subset \Q \subset \R$.
+  \item Calculer avec les fractions, puissances et racines carr\'ees.
+  \item Utiliser la valeur absolue et r\'esoudre des \'equations/in\'equations.
+  \item Utiliser les notations d'intervalles et d'encadrements.
+\end{itemize}
+\end{objectifs}
+
+\section{Les ensembles de nombres}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  % Nested sets diagram
+  \draw[BN,thick,fill=BN!5,rounded corners=12pt] (-6,-2.0) rectangle (6,2.0);
+  \node[BN,font=\bfseries] at (5.45,1.62) {$\R$};
+  \draw[TQ,thick,fill=TQ!6,rounded corners=9pt] (-4.8,-1.45) rectangle (4.8,1.45);
+  \node[TQ,font=\bfseries] at (4.25,1.10) {$\Q$};
+  \draw[OR,thick,fill=OR!6,rounded corners=7pt] (-3.5,-0.95) rectangle (3.5,0.95);
+  \node[OR,font=\bfseries] at (2.95,0.61) {$\Z$};
+  \draw[VE,thick,fill=VE!8,rounded corners=5pt] (-1.7,-0.48) rectangle (1.7,0.48);
+  \node[VE,font=\bfseries] at (1.38,0.30) {$\N$};
+  % Examples in each region
+  \node[VE,font=\small] at (-0.12,-0.08) {$0,1,2,3\ldots$};
+  \node[OR,font=\small] at (-2.55,0) {$-3,\,-1$};
+  \node[TQ,font=\small] at (-4.12,0) {$\frac{1}{2},\,-\frac{3}{4}$};
+  \node[BN,font=\small] at (-5.42,0.45) {$\sqrt{2}$};
+  \node[BN,font=\small] at (5.40,0.20) {$\pi$};
+  \node[BN,font=\small] at (5.35,-0.65) {$e$};
+\end{tikzpicture}
+\caption{Hi\'erarchie des ensembles de nombres~: $\N\subset\Z\subset\Q\subset\R$.
+Chaque ensemble contient le pr\'ec\'edent, plus de nouveaux nombres.}
+\end{figure}
+
+\begin{defn}[Hi\'erarchie des ensembles]
+$$\N \subset \Z \subset \Q \subset \R$$
+\begin{itemize}
+  \item $\N = \{0, 1, 2, 3, \ldots\}$ (entiers naturels)
+  \item $\Z = \{\ldots, -2, -1, 0, 1, 2, \ldots\}$ (entiers relatifs)
+  \item $\Q = \bigl\{\frac{p}{q} \mid p \in \Z,\ q \in \N^*\bigr\}$ (rationnels)
+  \item $\R$ : tous les r\'eels, incluant les irrationnels ($\sqrt{2}$, $\pi$, $e$, \ldots)
+\end{itemize}
+\end{defn}
+
+\begin{methode}[Poser une division euclidienne]
+Pour diviser $157$ par $12$, on cherche le plus grand multiple de $12$ qui ne
+d\'epasse pas $157$. La disposition ci-dessous est celle attendue sur une copie~:
+\begin{center}
+\begin{tikzpicture}[x=0.72cm,y=0.48cm,font=\normalsize]
+  \node[anchor=east] at (0,0) {$157$};
+  \node[anchor=west] at (0.45,0) {$12$};
+  \draw[BN,thick] (0.25,0.45)--(0.25,-2.9);
+  \draw[BN,thick] (0.25,-0.45)--(1.45,-0.45);
+  \node[anchor=west] at (0.45,-1.0) {$13$};
+  \node[anchor=east] at (0,-0.9) {$-12$};
+  \draw[thin] (-0.75,-1.25)--(0,-1.25);
+  \node[anchor=east] at (0,-1.7) {$37$};
+  \node[anchor=east] at (0,-2.35) {$-36$};
+  \draw[thin] (-0.75,-2.65)--(0,-2.65);
+  \node[anchor=east] at (0,-3.1) {$1$};
+\end{tikzpicture}
+\end{center}
+On lit $157=12\times13+1$~: le quotient est $13$ et le reste est $1$.
+Toujours v\'erifier que $0\leq r<12$.
+\end{methode}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=1.3,yscale=0.8]
+  \draw[-Stealth,BN,thick] (-4.6,0)--(4.8,0) node[right] {$\R$};
+  \foreach \x in {-4,...,4}
+    \draw[BN] (\x,0.1)--(\x,-0.1) node[below,font=\small] {\x};
+  \fill[OR] (-3.14159,0) circle (2.5pt)
+    node[above,font=\small,text=OR] {$-\pi$};
+  \fill[BO] ({-sqrt(2)},0) circle (2.5pt)
+    node[above,font=\small,text=BO] {$-\!\sqrt{2}$};
+  \fill[TQ] (0,0) circle (2.5pt)
+    node[above,font=\small,text=TQ] {$0$};
+  \fill[VE] ({sqrt(2)},0) circle (2.5pt)
+    node[above,font=\small,text=VE] {$\sqrt{2}$};
+  \fill[OR] (3.14159,0) circle (2.5pt)
+    node[above,font=\small,text=OR] {$\pi$};
+\end{tikzpicture}
+\caption{Droite des r\'eels avec quelques points remarquables.}
+\end{figure}
+
+\section{Puissances et racines}
+
+\begin{prop}[R\`egles des puissances]
+Pour $a, b \in \R^*$ et $m, n \in \Z$ :
+$$a^m \times a^n = a^{m+n},\quad \frac{a^m}{a^n} = a^{m-n},\quad
+  (a^m)^n = a^{mn},\quad (ab)^n = a^n b^n.$$
+\end{prop}
+
+\begin{prop}[Racines carr\'ees]
+Pour $a \geq 0$, $b > 0$ :
+$$\sqrt{ab} = \sqrt{a}\,\sqrt{b},\qquad
+  \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}},\qquad
+  \bigl(\sqrt{a}\bigr)^2 = a.$$
+\end{prop}
+
+\section{Valeur absolue}
+
+\begin{defn}[Valeur absolue]
+Pour tout r\'eel $x$ :
+$$\abs{x} = \begin{cases} x & \text{si } x \geq 0, \\ -x & \text{si } x < 0. \end{cases}$$
+G\'eom\'etriquement, $\abs{x}$ est la \emph{distance} de $x$ \`a l'origine.
+$\abs{x - a}$ est la distance de $x$ au point $a$.
+\end{defn}
+
+\begin{thm}[In\'egalit\'e triangulaire]
+Pour tous r\'eels $a$ et $b$ : $\abs{a + b} \leq \abs{a} + \abs{b}$.
+\end{thm}
+
+\begin{methode}[R\'esoudre $\abs{f(x)} \leq k$]
+\begin{enumerate}
+  \item $\abs{f(x)} \leq k \Leftrightarrow -k \leq f(x) \leq k$.
+  \item $\abs{f(x)} \geq k \Leftrightarrow f(x) \leq -k \text{ ou } f(x) \geq k$.
+  \item $\abs{f(x)} = k \Leftrightarrow f(x) = k \text{ ou } f(x) = -k$.
+\end{enumerate}
+\end{methode}
+
+
+\section{Intervalles et encadrements}
+\index{intervalle}
+
+\begin{defn}[Intervalles de $\R$]
+Un \textbf{intervalle} est un sous-ensemble de $\R$ form\'e de tous les r\'eels
+compris entre deux bornes. On distingue~:
+\begin{center}\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Notation & D\'efinition & Repr\'esentation \\
+\hline
+$[a,b]$ & $a \leq x \leq b$ & \intervalcc \\
+$]a,b[$ & $a < x < b$ & \intervaloo \\
+$[a,b[$ & $a \leq x < b$ & \intervalco \\
+$]a,b]$ & $a < x \leq b$ & \intervaloc \\
+$[a,+\infty[$ & $x \geq a$ & \intervalright \\
+$]-\infty,b]$ & $x \leq b$ & \intervalleft \\
+$\R = ]-\infty,+\infty[$ & tous les r\'eels & \intervalall \\
+\hline
+\end{tabular}
+\end{center}
+\end{defn}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=1.05,yscale=0.9]
+  % Grid lines
+  \foreach \row in {1,2,3,4}{
+    \draw[BN!25,thin] (-3.6,\row)--(3.6,\row);
+  }
+  % Axis ticks
+  \foreach \x in {-3,-2,-1,0,1,2,3}{
+    \draw[BN!40,thin] (\x,0.6)--(\x,4.4);
+    \node[below,font=\scriptsize,text=BN!60] at (\x,0.6) {$\x$};
+  }
+  %% Row 4: [-2, 3] fermé-fermé
+  \draw[BN,very thick] (-2,4)--(3,4);
+  \fill[BN] (-2,4) circle (4pt);
+  \fill[BN] (3,4) circle (4pt);
+  \node[right,font=\scriptsize,text=BN!80] at (3.65,4) {$[-2,3]$ : ferm\'e};
+  %% Row 3: ]0.5, 2.5[ ouvert-ouvert
+  \draw[BN,very thick] (0.5,3)--(2.5,3);
+  \draw[BN,thick] (0.5,3) circle (4pt);
+  \draw[BN,thick] (2.5,3) circle (4pt);
+  \node[right,font=\scriptsize,text=BN!80] at (3.65,3) {$]0{,}5;\,2{,}5[$ : ouvert};
+  %% Row 2: [-1, 2[ fermé-ouvert
+  \draw[BN,very thick] (-1,2)--(2,2);
+  \fill[BN] (-1,2) circle (4pt);
+  \draw[BN,thick] (2,2) circle (4pt);
+  \node[right,font=\scriptsize,text=BN!80] at (3.65,2) {$[-1,2[$ : ferm\'e en $-1$, ouvert en $2$};
+  %% Row 1: ]-3, 0] ouvert-fermé
+  \draw[BN,very thick] (-3,1)--(0,1);
+  \draw[BN,thick] (-3,1) circle (4pt);
+  \fill[BN] (0,1) circle (4pt);
+  \node[right,font=\scriptsize,text=BN!80] at (3.65,1) {$]-3,0]$ : ouvert en $-3$, ferm\'e en $0$};
+\end{tikzpicture}
+\caption{Repr\'esentation des quatre types d'intervalles sur la droite r\'eelle.
+Point plein $\bullet$ $=$ borne incluse~; cercle vide $\circ$ $=$ borne exclue.}
+\end{figure}
+
+\begin{remarque}
+$+\infty$ et $-\infty$ ne sont \textbf{pas} des r\'eels~: on \'ecrit toujours
+$]a,+\infty[$ et $]-\infty,b[$ (crochets ouverts).
+\end{remarque}
+
+\begin{prop}[Intersection et r\'eunion d'intervalles]
+\begin{itemize}
+  \item $[1,4] \cap [3,7] = [3,4]$ (valeurs \emph{communes} aux deux intervalles)
+  \item $[1,4] \cup [3,7] = [1,7]$ (valeurs dans \emph{au moins un} des deux)
+  \item $[1,3] \cap [5,7] = \emptyset$ (intervalles disjoints)
+\end{itemize}
+\end{prop}
+
+\begin{methode}[Encadrer un r\'eel]
+\index{encadrement}
+Pour encadrer $\sqrt{n}$ entre deux entiers cons\'ecutifs~:
+\begin{enumerate}
+  \item Trouver $k$ tel que $k^2 \leq n < (k+1)^2$.
+  \item Conclure~: $k \leq \sqrt{n} < k+1$.
+\end{enumerate}
+\emph{Exemple~:} $4^2=16 < 17 < 25=5^2$, donc $4 < \sqrt{17} < 5$.
+\end{methode}
+
+\section{Fractions et calcul alg\'ebrique}
+\index{fractions}
+
+\begin{prop}[Op\'erations sur les fractions]
+Pour $b, d \ne 0$~:
+$$\frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd},\qquad
+  \frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd},\qquad
+  \frac{a/b}{c/d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}.$$
+\end{prop}
+
+\begin{methode}[Rationaliser un d\'enominateur]
+\index{rationalisation}
+Pour \'eliminer une racine carr\'ee au d\'enominateur, multiplier num\'erateur
+et d\'enominateur par l'\emph{expression conjugu\'ee}~:
+$$\frac{1}{\sqrt{a}+\sqrt{b}} \times \frac{\sqrt{a}-\sqrt{b}}{\sqrt{a}-\sqrt{b}}
+  = \frac{\sqrt{a}-\sqrt{b}}{a-b}.$$
+\end{methode}
+
+\begin{ex}[Rationalisations]
+\begin{itemize}
+  \item $\dfrac{1}{\sqrt{3}} = \dfrac{\sqrt{3}}{3}$ \quad
+        (multiplier par $\sqrt{3}/\sqrt{3}$)
+  \item $\dfrac{2}{\sqrt{5}-1} = \dfrac{2(\sqrt{5}+1)}{(\sqrt{5})^2-1^2}
+        = \dfrac{2(\sqrt{5}+1)}{4} = \dfrac{\sqrt{5}+1}{2}$
+\end{itemize}
+\end{ex}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Ma\^itriser les bases}
+
+\begin{exo}[Classification des nombres \corrige]{1}
+Classer chaque nombre dans le plus petit ensemble auquel il appartient
+($\N$, $\Z$, $\Q$ ou $\R\setminus\Q$)~:
+\begin{multicols}{4}
+\begin{enumerate}
+  \item $-7$
+  \item $5/3$
+  \item $\sqrt{16}$
+  \item $\sqrt{3}$
+  \item $0$
+  \item $\pi$
+  \item $-2/3$
+  \item $\sqrt{9/4}$
+  \item $\sqrt{2}\times\sqrt{8}$
+  \item $1{,}\overline{3}$
+  \item $e$
+  \item $\sqrt{25}-5$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Puissances : calcul direct \corrige]{1}
+Calculer sans calculatrice~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $3^4 \times 3^{-2}$
+  \item $2^7 / 2^3$
+  \item $(5^2)^3$
+  \item $(-2)^5$
+  \item $4^{-2}$
+  \item $\bigl(\tfrac{2}{3}\bigr)^3$
+  \item $2^3 \times 5^3$
+  \item $(3^2)^0$
+  \item $\frac{6^4}{2^4}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Racines carr\'ees : simplification \corrige]{1}
+Simplifier sans calculatrice~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $\sqrt{72}$
+  \item $\sqrt{50}/\sqrt{2}$
+  \item $(\sqrt{3}+1)(\sqrt{3}-1)$
+  \item $\sqrt{12}+\sqrt{3}$
+  \item $(\sqrt{5})^4$
+  \item $\sqrt{0{,}25}$
+  \item $\sqrt{18}\times\sqrt{2}$
+  \item $\sqrt{75}-\sqrt{27}$
+  \item $\frac{\sqrt{8}}{\sqrt{2}}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Valeur absolue : calcul \corrige]{1}
+Calculer~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $\abs{-5}$
+  \item $\abs{3-7}$
+  \item $\abs{\pi-4}$
+  \item $\abs{-3}+\abs{2}$
+  \item $\abs{x-2}$ pour $x=1$
+  \item $\abs{x-2}$ pour $x=5$
+  \item $\abs{2x+1}$ pour $x=-1$
+  \item $\abs{(-3)^2-10}$
+  \item $\bigl|\abs{5}-\abs{-3}\bigr|$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Intervalles : \'ecriture et repr\'esentation \corrige]{1}
+\begin{enumerate}
+  \item Repr\'esenter sur une droite~: $[-2,3[$,\quad $]1,5]$,\quad
+        $]-\infty,2[$,\quad $[0,+\infty[$.
+  \item \'Ecrire en notation d'intervalle les ensembles suivants~:
+        \begin{itemize}
+          \item les r\'eels $x$ tels que $-1 \leq x \leq 4$
+          \item les r\'eels $x$ tels que $x > 3$
+          \item les r\'eels $x$ tels que $x \leq -2$ ou $x \geq 1$
+        \end{itemize}
+  \item Pour chaque affirmation, dire si elle est vraie~:
+        $5 \in [-1,5]$~?\quad $0 \in ]0,3[$~?\quad $-1 \in ]-2,0[$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Ecriture scientifique \corrige]{1}
+Mettre en \'ecriture scientifique $a\times10^n$ avec $1\leq a < 10$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $45\,000\,000$
+  \item $0{,}000038$
+  \item $3{,}14 \times 10^2 \times 5 \times 10^3$
+  \item $(6 \times 10^8)/(2 \times 10^{-3})$
+  \item $0{,}0000001$
+  \item $123\,456$
+  \item $5{,}2\times10^3 + 3\times10^2$
+  \item $(2\times10^4)^3$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[\'Equations simples avec valeur absolue \corrige]{1}
+R\'esoudre dans $\R$ et noter la solution en intervalle ou ensemble~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\abs{x} = 3$
+  \item $\abs{x} < 5$
+  \item $\abs{x-2} = 4$
+  \item $\abs{x+1} \leq 3$
+  \item $\abs{x} > 2$
+  \item $\abs{3x} = 6$
+  \item $\abs{x-1} = 0$
+  \item $\abs{x+2} \geq 0$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Op\'erations sur les fractions \corrige]{1}
+Calculer et simplifier~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\dfrac{2}{3} + \dfrac{5}{6}$
+  \item $\dfrac{3}{4} \times \dfrac{8}{9}$
+  \item $\dfrac{5}{6} - \dfrac{1}{4}$
+  \item $\dfrac{7}{3} \div \dfrac{14}{9}$
+  \item $\dfrac{1}{2} + \dfrac{1}{3} + \dfrac{1}{6}$
+  \item $\left(\dfrac{3}{5}\right)^2 - \dfrac{1}{25}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Intersection et r\'eunion d'intervalles \corrige]{1}
+Calculer $A\cap B$ et $A\cup B$ pour~:
+\begin{enumerate}
+  \item $A = [-3,5]$ et $B = [1,8]$
+  \item $A = ]-2,4[$ et $B = [3,7[$
+  \item $A = ]-\infty,2[$ et $B = [1,+\infty[$
+  \item $A = [-1,1]$ et $B = [3,5]$
+  \item $A = [0,4]$ et $B = \R$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe d'une expression \corrige]{1}
+D\'eterminer le signe de chaque expression selon les valeurs de $x$~:
+\begin{enumerate}
+  \item $x - 3$ \quad (cas $x > 3$, $x = 3$, $x < 3$)
+  \item $2 - x$
+  \item $x + 5$ sur $\R$
+  \item $x^2$ sur $\R$
+  \item $-x^2 - 1$ sur $\R$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Encadrements \corrige]{1}
+Sans calculatrice, encadrer chaque expression entre deux entiers cons\'ecutifs~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\sqrt{17}$
+  \item $\sqrt{50}$
+  \item $\sqrt{2}+1$
+  \item $2\sqrt{5}$
+  \item $\sqrt{99}$
+  \item $\sqrt{3}-1$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Compar\'e des r\'eels \corrige]{1}
+Ranger dans l'ordre croissant sans calculatrice~:
+\begin{enumerate}
+  \item $\sqrt{2}$,\quad $3/2$,\quad $1{,}4$,\quad $\sqrt{1{,}9}$
+  \item $2\sqrt{3}$,\quad $3\sqrt{2}$,\quad $4$
+  \item $\sqrt{5}-1$,\quad $1$,\quad $2-\sqrt{5}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Racines : d\'evelopper et factoriser \corrige]{1}
+D\'evelopper ou factoriser~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $(\sqrt{5}+\sqrt{2})(\sqrt{5}-\sqrt{2})$
+  \item $(\sqrt{3}+1)^2$
+  \item $(2-\sqrt{7})(2+\sqrt{7})$
+  \item $(\sqrt{6}-\sqrt{2})^2$
+  \item $3\sqrt{2}+2\sqrt{2}$
+  \item $\sqrt{20}-\sqrt{5}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Lire un intervalle sur une droite \corrige]{1}
+Pour chaque in\'equation, donner l'intervalle solution et le repr\'esenter~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $2x - 4 > 0$
+  \item $3x + 6 \leq 0$
+  \item $-x + 1 \geq 0$
+  \item $5 - 2x < 3$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Puissances n\'egatives et fractionnaires \corrige]{1}
+Simplifier en n'utilisant que des exposants positifs~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\dfrac{x^3 \cdot x^{-1}}{x^2}$
+  \item $\left(\dfrac{a^2}{b}\right)^{-3}$
+  \item $\dfrac{2^{-3}}{4^{-1}}$
+  \item $\dfrac{(xy)^4}{x^2 y^6}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Combiner les techniques}
+
+\begin{exo}[In\'equations avec valeur absolue \corrige]{2}
+R\'esoudre et repr\'esenter sur une droite~:
+\begin{enumerate}
+  \item $\abs{2x-3} \leq 5$
+  \item $\abs{x+4} > 2$
+  \item $1 \leq \abs{x-1} \leq 4$
+  \item $\abs{3x+2} < \abs{x-1}$
+  \item $\abs{2x-1} \geq \abs{x+3}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Rationalisations \corrige]{2}
+Rationaliser (\'eliminer la racine au d\'enominateur), puis simplifier~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\dfrac{1}{\sqrt{3}}$
+  \item $\dfrac{2}{\sqrt{5}-1}$
+  \item $\dfrac{\sqrt{3}+1}{\sqrt{3}-1}$
+  \item $\dfrac{4}{\sqrt{7}+\sqrt{3}}$
+  \item $\dfrac{\sqrt{2}}{\sqrt{6}-\sqrt{2}}$
+  \item $\dfrac{3}{2+\sqrt{5}}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Preuve d'in\'egalit\'e entre racines \corrige]{2}
+D\'emontrer~:
+\begin{enumerate}
+  \item $\sqrt{2}+\sqrt{3} \ne \sqrt{5}$
+        (comparer les carr\'es des deux membres).
+  \item $\sqrt{2}+\sqrt{3} > \sqrt{5}$
+        (montrer que $(\sqrt{2}+\sqrt{3})^2 > 5$).
+  \item Pour tout $a, b \geq 0$~:
+        $\sqrt{a+b} \leq \sqrt{a} + \sqrt{b}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe et tableau \corrige]{2}
+\'Etudier le signe de~:
+\begin{enumerate}
+  \item $(x-2)(x+3)$
+  \item $(2x-1)(-x+4)$
+  \item $\dfrac{x+1}{x-3}$
+  \item $\dfrac{(x-1)(x+2)}{x-5}$
+\end{enumerate}
+Pour chaque cas, donner l'ensemble des solutions de $f(x) > 0$.
+\end{exo}
+
+\begin{exo}[\'Equations sans carr\'es \corrige]{2}
+R\'esoudre sans erreur de domaine~:
+\begin{enumerate}
+  \item $\sqrt{x} = 3$
+  \item $\sqrt{2x+1} = 3$
+  \item $\sqrt{x+5} = x-1$\quad (attention~: v\'erifier les solutions)
+  \item $\sqrt{x^2} = 2$\quad (attention~: $\sqrt{x^2} = \abs{x}$)
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Cha\^ines d'in\'egalit\'es \corrige]{2}
+\begin{enumerate}
+  \item Si $a \leq b$ et $b \leq c$, peut-on conclure $a \leq c$~?
+        G\'en\'eraliser~: c'est la \emph{transitivit\'e}.
+  \item Si $a < b$ et $c > 0$, montrer que $ac < bc$.
+  \item Si $a < b$ et $c < 0$, que se passe-t-il pour $ac$ et $bc$~?
+  \item \'Etudier le signe de $(x-1)^2 - 4$ en d\'eveloppant.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Approximation de r\'eels \corrige]{2}
+\begin{enumerate}
+  \item Encadrer $\sqrt{5}$ entre deux rationnels \`a $10^{-2}$ pr\`es~:
+        trouver $r_1$ et $r_2 = r_1 + 0{,}01$ tels que $r_1 < \sqrt{5} < r_2$.
+  \item Montrer que $2{,}236 < \sqrt{5} < 2{,}237$.
+  \item Donner l'encadrement de $1/\sqrt{5}$ correspondant.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Distances sur la droite r\'eelle \corrige]{2}
+\begin{enumerate}
+  \item Calculer la distance entre $a=3$ et $b=-5$ sur $\R$.
+  \item \'Ecrire l'ensemble des r\'eels \`a distance $\leq 2$ du point $1$.
+        Exprimer en valeur absolue, puis en intervalle.
+  \item \'Ecrire l'ensemble des r\'eels situ\'es \`a distance $>3$ du point $-1$.
+  \item Deux villes $A$ et $B$ sont \`a respectivement $120$ km et $80$ km
+        d'un point $O$ sur une autoroute.
+        Dans quels cas la distance $AB$ est-elle \'egale \`a $40$~km~?
+        \`A $200$~km~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fractions alg\'ebriques \corrige]{2}
+Simplifier les expressions (pr\'eciser les valeurs interdites de $x$)~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\dfrac{x^2-4}{x-2}$
+  \item $\dfrac{x^2-1}{x^2+2x+1}$
+  \item $\dfrac{1}{x} + \dfrac{1}{x+1}$
+  \item $\dfrac{x}{x-1} - \dfrac{1}{x+1}$
+  \item $\dfrac{x+2}{x-1} \times \dfrac{x-1}{x+3}$
+  \item $\dfrac{(x+1)^2}{x+1}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Puissances et ordre de grandeur \corrige]{2}
+\begin{enumerate}
+  \item Un grain de sable mesure $0{,}0001$ m.
+        Exprimer cette distance en notation scientifique.
+        Combien de grains de sable tiendraient bout \`a bout sur $1$ m~?
+  \item Un globule rouge mesure $8\times10^{-6}$ m.
+        Combien tiendraient dans $1$ mm~?
+  \item La lumi\`ere parcourt $3\times10^8$ m/s.
+        En combien de secondes parcourt-elle $1{,}5\times10^{11}$ m
+        (distance Terre-Soleil)~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Valeur absolue et distance \corrige]{2}
+\begin{enumerate}
+  \item D\'emontrer que $\abs{a} = \abs{-a}$ pour tout r\'eel $a$.
+  \item D\'emontrer l'in\'egalit\'e triangulaire~:
+        $\abs{a+b} \leq \abs{a}+\abs{b}$.
+        \emph{(Traiter les cas selon le signe de $a+b$, $a$, $b$.)}
+  \item En d\'eduire~: $\bigl|\abs{a}-\abs{b}\bigr| \leq \abs{a-b}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Syst\`eme d'in\'equations \corrige]{2}
+R\'esoudre les syst\`emes d'in\'equations et noter la solution en intervalle~:
+\begin{enumerate}
+  \item $\begin{cases} x + 1 > 0 \\ 2x - 3 \leq 5 \end{cases}$
+  \item $\begin{cases} 3x - 2 \geq 1 \\ x + 4 < 8 \end{cases}$
+  \item $\begin{cases} \abs{x} \leq 3 \\ x \geq 1 \end{cases}$
+  \item $\begin{cases} x^2 \geq 1 \\ x < 3 \end{cases}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Encadrements et d\'ecimales \corrige]{2}
+\begin{enumerate}
+  \item Montrer que $1 < \sqrt[3]{2} < 2$.
+  \item Montrer que $1{,}25 < \sqrt[3]{2} < 1{,}26$.
+        \emph{(V\'erifier $1{,}25^3$ et $1{,}26^3$.)}
+  \item De m\^eme, encadrer $\sqrt[3]{3}$ entre deux d\'ecimales \`a $0{,}1$ pr\`es.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: encadrer $\sqrt{n}$ \corrige]{2}
+Voici un algorithme qui cherche l'encadrement entier de $\sqrt{n}$~:
+
+\begin{algorithm}[H]
+\caption{Encadrement entier de $\sqrt{n}$}
+\KwIn{un entier $n \geq 0$}
+\KwOut{des entiers $k$ tels que $k^2 \leq n < (k+1)^2$}
+$k \leftarrow 0$\;
+\TantQue{$(k+1)^2 \leq n$}{
+  $k \leftarrow k + 1$\;
+}
+\Afficher $k$, $k+1$
+\end{algorithm}
+
+\begin{enumerate}
+  \item Donner la trace pour $n=17$~: quelles valeurs prend $k$~?
+        Quel est le r\'esultat affich\'e~?
+  \item V\'erifier~: $\sqrt{17}\in[4,5[$.
+  \item La condition \og$(k+1)^2\leq n$\fg\ est-elle vraie ou fausse
+        lorsque la boucle s'arr\^ete~? Justifier logiquement.
+  \item Pour $n=9$~: que retourne l'algorithme~? Est-ce correct~?
+  \item Modifier l'algorithme pour qu'il \'ecrive
+        \og$\sqrt{n}$ est entier\fg\ si $n$ est un carr\'e parfait.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations et rigueur}
+
+\begin{exo}[In\'egalit\'e par carr\'es \corrige]{2}
+\begin{enumerate}
+  \item Montrer que pour tous r\'eels $a,b$~: $a^2+b^2 \geq 2ab$.
+        \emph{(\'Etudier le signe de $(a-b)^2$.)}
+  \item En d\'eduire que si $a,b > 0$~: $\sqrt{ab} \leq \dfrac{a+b}{2}$.
+  \item Application~: montrer que pour $x>0$~: $x + \dfrac{4}{x} \geq 4$.
+  \item \'Egalit\'e~: pour quelle valeur de $x$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Irrationnalit\'e de $\sqrt{3}$ \corrige]{3}
+D\'emontrer que $\sqrt{3}\notin\Q$ par l'absurde.
+\emph{(D\'ej\`a vu en chapitre~1~; refaire ici en contexte alg\'ebrique.)}
+\end{exo}
+
+\begin{exo}[Puissances de $(1+x)$ et encadrements \corrige]{3}
+\begin{enumerate}
+  \item D\'evelopper $(1+x)^2$ et $(1+x)^3$ pour un r\'eel $x$ quelconque.
+  \item V\'erifier que $(1+x)^2 \geq 1 + 2x$ pour $x \geq -1$.
+        \emph{(\'Etudier le signe de $(1+x)^2 - (1+2x)$.)}
+  \item V\'erifier de m\^eme que $(1+x)^3 \geq 1 + 3x$ pour $x \geq -1$.
+  \item Pour $x = 0{,}1$~: calculer $(1{,}1)^n$ pour $n = 1,2,3,4,5$.
+        V\'erifier que chaque valeur est plus grande que $1 + 0{,}1n$.
+  \item Application~: montrer que $(1{,}05)^{10} \geq 1{,}5$.
+        \emph{(Utiliser $(1+x)^n \geq 1+nx$ adm
+        is pour tout $n \geq 1$, $x \geq -1$.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Somme de deux irrationnels \corrige]{3}
+\begin{enumerate}
+  \item La somme de deux irrationnels est-elle toujours irrationnelle~?
+        (\emph{Contre-exemple~:} $\sqrt{2} + (-\sqrt{2}) = 0 \in \Q$.)
+  \item Le produit de deux irrationnels est-il toujours irrationnel~?
+        (\emph{Contre-exemple \`a trouver.})
+  \item D\'emontrer que $\sqrt{2}+\sqrt{3}\notin\Q$.
+        \emph{Indication~: supposer $\sqrt{2}+\sqrt{3} = r \in \Q$,
+        puis montrer que $\sqrt{6} \in \Q$, puis contradiction.}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[In\'egalit\'e des moyennes \corrige]{3}
+Pour tous r\'eels $a, b \geq 0$, on admet que~:
+$$\text{Moyenne arithm\'etique} \geq \text{Moyenne g\'eom\'etrique}~:
+\quad\frac{a+b}{2} \geq \sqrt{ab}.$$
+\begin{enumerate}
+  \item D\'emontrer cette in\'egalit\'e.
+        \emph{(Indication~: \'etudier le signe de $(\sqrt{a}-\sqrt{b})^2$.)}
+  \item Quand y a-t-il \'egalit\'e~?
+  \item En d\'eduire que pour tout $x > 0$~:
+        $x + \dfrac{1}{x} \geq 2$.
+  \item Application~: montrer que le rectangle de p\'erim\`etre fix\'e $2p$
+        d'aire maximale est le carr\'e.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Approximer un irrationnel par des rationnels \corrige]{3}
+\begin{enumerate}
+  \item Calculer des fractions de plus en plus proches de $\sqrt{2}$ en
+        remplissant le tableau~:
+        \begin{center}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \rowcolor{BN!10} Fraction & Valeur d\'ecimale & $|\text{fraction}-\sqrt{2}|$ \\ \hline
+        $1$ & $1$ & \\
+        $3/2$ & $1{,}5$ & \\
+        $7/5$ & $1{,}4$ & \\
+        $17/12$ & & \\
+        $41/29$ & & \\
+        \hline
+        \end{tabular}
+        \end{center}
+  \item Entre $\sqrt{2}$ et $1{,}5$, trouver une fraction $p/q$ avec $q \leq 10$.
+  \item Peut-on trouver un rationnel arbitrairement proche de $\sqrt{2}$~?
+        (Oui~: les fractions du tableau convergent vers $\sqrt{2}$.)
+  \item Montrer que si $a$ et $b$ sont deux r\'eels distincts avec $a < b$,
+        alors la moyenne $(a+b)/2$ est comprise strictement entre $a$ et $b$.
+        En it\'erant, peut-on trouver une infinit\'e de r\'eels entre $a$ et $b$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Propri\'et\'es de la valeur absolue \corrige]{3}
+D\'emontrer les propri\'et\'es suivantes, directement depuis la d\'efinition~:
+\begin{enumerate}
+  \item $\abs{ab} = \abs{a}\cdot\abs{b}$ pour tous $a,b \in \R$.
+  \item $\left|\dfrac{a}{b}\right| = \dfrac{\abs{a}}{\abs{b}}$ pour $b\ne0$.
+  \item $\abs{a^2} = a^2$ pour tout $a\in\R$.
+  \item $\abs{a} = \sqrt{a^2}$ pour tout $a\in\R$.
+  \item Si $\abs{a}\leq M$ et $\abs{b}\leq N$, alors $\abs{ab}\leq MN$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Approximation de $\pi$ \corrige]{3}
+Archim\`ede ($287$--$212$ av.\ J.-C.) encadra $\pi$ en inscrivant et
+circonscrivan un polygone r\'egulier \`a $96$ c\^ot\'es dans et autour
+d'un cercle de rayon $1$. Il obtint~:
+$$\frac{223}{71} < \pi < \frac{22}{7}.$$
+\begin{enumerate}
+  \item V\'erifier ces in\'egalit\'es (calculatrice autoris\'ee).
+  \item Quelle d\'ecimale de $\pi$ est correcte avec cet encadrement~?
+  \item L'approximation $\pi \approx 22/7$ est-elle meilleure ou moins
+        bonne que $\pi \approx 3{,}14$~?
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Mesures et ordres de grandeur \corrigeP]{1}
+\begin{enumerate}
+  \item La masse d'un proton est $1{,}67\times10^{-27}$ kg.
+        La Terre pèse $5{,}97\times10^{24}$ kg.
+        Combien de protons faudrait-il pour faire la masse de la Terre~?
+  \item L'ADN d'une cellule humaine mesure environ $2$ m si on le
+        d\'eroule, alors que le noyau de la cellule mesure $6\times10^{-6}$ m.
+        Par quel facteur l'ADN doit-il \^etre comprim\'e~?
+  \item Un milliard vaut $10^9$. Un million de milliards vaut combien~?
+        \'Ecrire en notation scientifique.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Encadrements en physique \corrigeP]{1}
+En physique, la valeur approch\'ee d'une grandeur s'accompagne toujours
+d'une \emph{incertitude}.
+Si $g = 9{,}81 \pm 0{,}02$ m/s\textsuperscript{2}, cela signifie~:
+$9{,}79 \leq g \leq 9{,}83$.
+\begin{enumerate}
+  \item Un objet de masse $m = 2{,}0 \pm 0{,}1$ kg est pos\'e sur une surface.
+        \'Ecrire l'encadrement de son poids $P = mg$.
+  \item Un ressort d\'epasse d'une longueur $l = 15 \pm 0{,}5$ cm.
+        \'Ecrire l'encadrement de l'\'energie potentielle
+        $E = \frac{1}{2}k l^2$ pour $k = 200$ N/m.
+  \item Pourquoi dit-on que l'incertitude \og se propage\fg~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Rationnels proches d'un irrationnel \corrigeP]{2}
+On cherche \`a approcher $\sqrt{2}$ par des fractions.
+\begin{enumerate}
+  \item V\'erifier que $1 < \sqrt{2} < 2$, puis $1{,}4 < \sqrt{2} < 1{,}5$,
+        puis $1{,}41 < \sqrt{2} < 1{,}42$.
+        Comment obtient-on chaque \'etape \`a partir de la pr\'ec\'edente~?
+  \item Calculer $|r_k - \sqrt{2}|$ pour~:
+        $r_1=1$, $r_2=1{,}4$, $r_3=1{,}41$, $r_4=1{,}414$, $r_5=1{,}4142$.
+  \item \'Ecrire un algorithme qui, partant de l'intervalle $[1,2]$,
+        le divise en $10$ parties \'egales et d\'etermine lequel contient
+        $\sqrt{2}$, r\'ep\'etant $4$ fois. \computer
+  \item Entre les rationnels $1{,}41$ et $1{,}42$, trouver une fraction
+        irr\'eductible $p/q$ aussi proche que possible de $\sqrt{2}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[In\'egalit\'e de Bernoulli \corrigeP]{2}
+Pour tout entier $n \geq 1$ et tout r\'eel $x \geq -1$~:
+$(1+x)^n \geq 1 + nx$.
+\begin{enumerate}
+  \item V\'erifier pour $n=1,2,3$ et $x=0{,}1$.
+  \item D\'emontrer pour $n=2$~: d\'evelopper $(1+x)^2$ et conclure.
+  \item D\'emontrer pour $n=3$~: \'ecrire $(1+x)^3 = (1+x)^2(1+x)$
+        et utiliser le r\'esultat de (2).
+  \item Application~: montrer que $2^{10} \geq 1 + 10 = 11$.
+        La borne est-elle bonne~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[La spirale de Pythagore \corrigeP]{2}
+On construit une spirale de triangles rectangles~:
+$T_1$ a des c\^ot\'es $1$, $1$, $\sqrt{2}$.
+$T_2$ a des c\^ot\'es $1$, $\sqrt{2}$, $\sqrt{3}$.
+$T_n$ a des c\^ot\'es $1$, $\sqrt{n}$, $\sqrt{n+1}$.
+\begin{enumerate}
+  \item V\'erifier que chaque triangle est bien rectangle
+        (th\'eor\`eme de Pythagore).
+  \item Les longueurs $\sqrt{2},\sqrt{3},\sqrt{4},\ldots,\sqrt{n}$
+        sont-elles toujours irrationnelles~?
+  \item Calculer le p\'erim\`etre $P_n$ du triangle $T_n$.
+        Montrer que $2 < P_n < 1 + \sqrt{n+1}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Valeur absolue et in\'equations physiques \corrigeP]{2}
+En contr\^ole de qualit\'e, une pi\`ece est accept\'ee si sa longueur $\ell$ (en mm)
+v\'erifie $|\ell - 50| \leq 0{,}2$.
+\begin{enumerate}
+  \item D\'eterminer l'intervalle des longueurs accept\'ees.
+  \item La pi\`ece mesure $49{,}85$ mm. Est-elle accept\'ee~?
+  \item Si une machine produit des pi\`eces de longueur $\ell = 50 + 0{,}3\sin\theta$
+        (avec $\theta$ variant librement), ces pi\`eces sont-elles toutes accept\'ees~?
+  \item Une deuxi\`eme pi\`ece doit v\'erifier $|m - 30| \leq 0{,}5$.
+        Quel est l'intervalle des valeurs de la somme des deux longueurs~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Encadrements et d\'ecimales de $\sqrt{2}$ \corrigeP]{2}
+\begin{enumerate}
+  \item D\'eterminer le plus grand entier $n$ tel que $n^2 \leq 2000$.
+        En d\'eduire un encadrement de $\sqrt{2000}$.
+  \item Montrer que $1{,}41^2 < 2 < 1{,}42^2$, puis que
+        $1{,}414^2 < 2 < 1{,}415^2$.
+  \item \'Ecrire l'encadrement de $\sqrt{2}$ correspondant
+        \`a $5$ d\'ecimales correctes.
+  \item Calculer $\abs{\sqrt{2} - 1{,}41421}$ \`a l'aide d'une calculatrice.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Organisation et classement des fractions \corrigeP]{2}
+\begin{enumerate}
+  \item \'Ecrire toutes les fractions irr\'eductibles positives de
+        d\'enominateur $1$, $2$ ou $3$, situ\'ees dans $]0, 3[$.
+        Les classer dans l'ordre croissant.
+  \item Combien existe-t-il de fractions irr\'eductibles $p/q$ avec
+        $q \leq 4$ et $0 < p/q \leq 1$~? Les \'ecrire toutes.
+        (C'est l'id\'ee de la \emph{suite de Farey}.)
+  \item Entre deux fractions cons\'ecutives $a/b$ et $c/d$ dans cette
+        liste, montrer que la fraction \og m\'ediane\fg\ $(a+c)/(b+d)$
+        est comprise strictement entre elles.
+  \item V\'erifier cette propri\'et\'e sur deux exemples concrets.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Distance et m\'ediane \corrigeP]{2}
+Soit $n$ points r\'eels $x_1 \leq x_2 \leq \cdots \leq x_n$.
+On cherche le point $c$ qui minimise la somme des distances
+$S(c) = \abs{c-x_1} + \abs{c-x_2} + \cdots + \abs{c-x_n}$.
+\begin{enumerate}
+  \item Pour $n=2$~: montrer que tout $c \in [x_1, x_2]$ minimise $S(c)$.
+  \item Pour $n=3$~: v\'erifier que $c = x_2$ (la m\'ediane) minimise $S(c)$.
+  \item Pour $n=4$~: trouver le(s) minimiseur(s) de $S(c)$.
+  \item Conjecture~: quel est le minimiseur pour $n$ quelconque~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Notation scientifique et astronomie \corrigeP]{1}
+\begin{enumerate}
+  \item Distance Terre-Lune~: $3{,}84\times10^8$ m.
+        Combien de fois le tour de la Terre ($4\times10^7$ m) cela repr\'esente-t-il~?
+  \item Nombre d'atomes dans $1$ g d'hydrog\`ene~: $6{,}02\times10^{23}$.
+        Combien d'atomes dans $18$ g d'eau ($\text{H}_2\text{O}$)~?
+  \item Un an-lumi\`ere vaut $9{,}46\times10^{15}$ m.
+        L'\'etoile la plus proche (Proxima Centauri) est \`a $4{,}24$
+        ann\'ees-lumi\`ere. Calculer cette distance en m\`etres.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Fractions et th\`eme de la harmonique \corrigeP]{2}
+La s\'erie harmonique est $H_n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}$.
+\begin{enumerate}
+  \item Calculer $H_1, H_2, H_3, H_4, H_5$ sous forme de fractions exactes.
+  \item Montrer que $H_4 > \frac{3}{2}$ et que $H_8 > 2$.
+        \emph{(Indication~: regrouper $\frac{1}{3}+\frac{1}{4} > \frac{1}{2}$, etc.)}
+  \item Calculer $H_6$, $H_7$, $H_8$ sous forme de fractions exactes,
+        puis en d\'ecimaux.
+        Trouver le plus petit $n$ tel que $H_n > 2{,}5$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[D\'ecrire des ensembles de r\'eels \corrigeP]{2}
+\begin{enumerate}
+  \item Pour chaque ensemble, donner sa repr\'esentation en notation d'intervalle
+        et repr\'esenter sur une droite~:
+        \begin{itemize}
+          \item $A = \{x \in \R \mid x^2 < 4\}$
+          \item $B = \{x \in \R \mid (x-1)(x+3) \geq 0\}$
+          \item $C = \{x \in \R \mid \abs{x-2} \leq 1\}$
+          \item $D = \{x \in \R \mid x^2 > 9\}$
+        \end{itemize}
+  \item Calculer $A \cap C$, $A \cup D$, $B \cap C$.
+  \item Le point $x = 2$ appartient-il \`a $A$~? \`a $B$~? \`a $C$~? \`a $D$~?
+  \item \'Ecrire l'ensemble $\{x \in \R \mid \abs{x-3} \leq \abs{x+1}\}$
+        sous forme d'intervalle.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Approximation de $\sqrt{2}$ par l'algorithme babylonien]
+L'algorithme babylonien d'approximation de $\sqrt{2}$~:
+partant de $a_0 = 1$ et $b_0 = 1$, on pose~:
+$$a_{n+1} = a_n + 2b_n, \qquad b_{n+1} = a_n + b_n.$$
+\begin{enumerate}
+  \item Calculer $(a_0,b_0),\,(a_1,b_1),\,(a_2,b_2),\,(a_3,b_3)$.
+  \item Calculer les rapports $a_n/b_n$ pour $n=0,1,2,3$.
+        Ils semblent s'approcher de~?
+  \item V\'erifier que $a_n^2 - 2b_n^2 = (-1)^n$ pour $n=0,1,2,3$.
+        Admettre que cette propri\'et\'e est vraie pour tout $n$.
+        \emph{(On peut le v\'erifier~: si $a^2-2b^2=\pm1$, calculer
+        $(a+2b)^2 - 2(a+b)^2$ et montrer que c'est $-(a^2-2b^2)$.)}
+  \item En d\'eduire que $\bigl(\dfrac{a_n}{b_n}\bigr)^2 = 2 + \dfrac{(-1)^n}{b_n^2}$.
+        Que dit cela sur la pr\'ecision de l'approximation $a_n/b_n$ de $\sqrt{2}$~?
+        Plus $b_n$ est grand, l'approximation est-elle meilleure ou moins bonne~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Le nombre d'or $\varphi$]
+Le \emph{nombre d'or} $\varphi = \frac{1+\sqrt{5}}{2} \approx 1{,}618$ appara\^it
+en g\'eom\'etrie, en art et dans la nature.
+\begin{enumerate}
+  \item Montrer que $\varphi = 1 + \dfrac{1}{\varphi}$,
+        c'est-\`a-dire que $\varphi^2 = \varphi + 1$.
+  \item En d\'eduire que $\varphi^3 = \varphi^2 + \varphi = 2\varphi + 1$.
+        G\'en\'eraliser~: exprimer $\varphi^n$ comme $a_n\varphi + b_n$.
+  \item Le rectangle d'or a des c\^ot\'es dans le rapport $\varphi:1$.
+        Si on en retire un carr\'e, le rectangle restant est aussi d'or~:
+        v\'erifier en calculant le rapport des c\^ot\'es du rectangle restant.
+  \item Montrer que $\varphi$ est irrationnel.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Sommes et produits de rationnels et d'irrationnels]
+\begin{enumerate}
+  \item La somme de deux rationnels est-elle toujours rationnelle~?
+        D\'emontrer.
+  \item La somme d'un rationnel et d'un irrationnel est-elle toujours
+        irrationnelle~? D\'emontrer.
+        \emph{(Raisonnement par l'absurde~: si $r + i = q$ avec $r, q \in \Q$,
+        alors $i = q - r \in \Q$, contradiction.)}
+  \item Le produit de deux irrationnels peut-il \^etre rationnel~?
+        Donner deux exemples diff\'erents.
+  \item Classer les expressions suivantes en rationnelles ou irrationnelles,
+        en justifiant~:
+        $\sqrt{2}+\sqrt{2}$~;\quad $\sqrt{2}\times\sqrt{8}$~;\quad
+        $\sqrt{2}+\sqrt{3}$~;\quad $\sqrt{2}+\sqrt{2}+(-\sqrt{2})$~;\quad
+        $(\sqrt{5}+1)(\sqrt{5}-1)$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Repr\'esentation d\'ecimale des rationnels]
+Tout rationnel $p/q$ a un d\'eveloppement d\'ecimal \emph{p\'eriodique}.
+\begin{enumerate}
+  \item Calculer $1/7$, $2/7$, \ldots, $6/7$ en d\'ecimaux.
+        Quelle est la p\'eriode~?
+  \item Montrer que la p\'eriode de $1/q$ divise toujours $q-1$
+        (admis pour l'instant).
+        V\'erifier sur $q = 3, 7, 11$.
+  \item $0{,}\overline{142857} = 1/7$~: v\'erifier en multipliant par $7$.
+  \item $0{,}\overline{9} = 1$~: d\'emontrer ce fait surprenant.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Construction de $\sqrt{2}$ \`a la r\`egle et au compas]
+La diagonale d'un carr\'e de c\^ot\'e $1$ mesure $\sqrt{2}$.
+\begin{enumerate}
+  \item Construire \`a la r\`egle et au compas un segment de longueur
+        $\sqrt{2}$~: dessiner un carr\'e $ABCD$ de c\^ot\'e $1$ et tracer
+        la diagonale $AC$.
+  \item De m\^eme, construire $\sqrt{3}$~: construire un rectangle $1\times\sqrt{2}$
+        et prendre sa diagonale.
+  \item G\'en\'eraliser~: construire $\sqrt{n}$ pour tout entier $n \geq 1$
+        (en \"spirale\").
+  \item Peut-on construire $\sqrt[3]{2}$ \`a la r\`egle et au compas~?
+        Essayer de construire un segment de longueur $\sqrt[3]{2}$
+        \`a partir de $\sqrt{2}$. Expliquer pourquoi cela semble difficile
+        (on ne demande pas de d\'emonstration).
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Calcul alg\'ebrique avanc\'e avec les radicaux]
+\begin{enumerate}
+  \item Calculer sans calculatrice, en d\'etaillant chaque \'etape~:
+        $$\bigl(\sqrt{3}+\sqrt{2}\bigr)^4 - \bigl(\sqrt{3}-\sqrt{2}\bigr)^4.$$
+        \emph{(Indication~: poser $u=\sqrt{3}+\sqrt{2}$ et $v=\sqrt{3}-\sqrt{2}$,
+        remarquer que $uv=1$.)}
+  \item Montrer que $\dfrac{1}{\sqrt{n+1}-\sqrt{n}} = \sqrt{n+1}+\sqrt{n}$
+        pour tout entier $n \geq 0$.
+  \item En utilisant ce r\'esultat, calculer la somme t\'elescopique~:
+        $$S = \frac{1}{\sqrt{2}-1} + \frac{1}{\sqrt{3}-\sqrt{2}}
+             + \frac{1}{\sqrt{4}-\sqrt{3}} + \cdots + \frac{1}{\sqrt{9}-\sqrt{8}}.$$
+  \item G\'en\'eraliser~: calculer
+        $\displaystyle\sum_{k=1}^{n} \frac{1}{\sqrt{k+1}-\sqrt{k}}$.
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item $\N \subset \Z \subset \Q \subset \R$~; les irrationnels
+        ($\sqrt{2}$, $\pi$, $e$\ldots) comblent les \og trous\fg\ de $\Q$.
+  \item \textbf{Puissances}~: $a^m\cdot a^n = a^{m+n}$,\;
+        $(a^m)^n = a^{mn}$,\; $(ab)^n = a^nb^n$.
+  \item \textbf{Racines}~: $\sqrt{ab}=\sqrt{a}\sqrt{b}$ ($a,b\geq0$)~;
+        $\sqrt{a^2}=|a|$.
+  \item \textbf{Intervalles}~: $[a,b]$ (ferm\'e), $]a,b[$ (ouvert),
+        avec $\pm\infty$ toujours ouvert.
+  \item \textbf{Valeur absolue}~: $\abs{x-a}=$ distance de $x$ \`a $a$~;
+        $\abs{x}\leq r \Leftrightarrow x\in[-r,r]$~;
+        $\abs{x}\geq r \Leftrightarrow x\leq-r$ ou $x\geq r$.
+  \item \textbf{In\'egalit\'e triangulaire}~:
+        $\abs{a+b}\leq\abs{a}+\abs{b}$.
+  \item \textbf{Rationalisation}~:
+        multiplier par l'expression conjugu\'ee pour \'eliminer $\sqrt{}$
+        au d\'enominateur.
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Propositions sur les ensembles de nombres \corrige]{1}
+Pour chacune des propositions suivantes, dire si elle est vraie ou fausse,
+et \'enoncer sa n\'egation~:
+\begin{enumerate}
+  \item $\forall x\in\N,\ x\in\Z$.\quad
+  \item $\exists x\in\Q,\ x^2=2$.\quad
+  \item $\forall x\in\R,\ x^2\geq0$.\quad
+  \item $\exists x\in\Z,\ x/2\in\Z$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Implication et valeur absolue \corrige]{1}
+\'Enoncer la contrapos\'ee et d\'emontrer~:
+\begin{enumerate}
+  \item \og Si $|x|<3$, alors $-3<x<3$.\fg
+  \item \og Si $|x-2|<1$, alors $x>0$.\fg
+  \item La r\'eciproque de (1) est-elle vraie~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Nier une condition d'appartenance \corrige]{2}
+\'Ecrire la n\'egation de chaque proposition, puis d\'eterminer si elle est vraie~:
+\begin{enumerate}
+  \item $\forall x\in[-2,3],\ x^2\leq9$.
+  \item $\exists x\in\R,\ \sqrt{x}<0$.
+  \item $\forall x\in\R^*,\ 1/x>0$.
+  \item $\forall a,b\in\R,\ |a+b|=|a|+|b|$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Condition n\'ecessaire et suffisante \corrige]{2}
+Parmi les propositions suivantes, pr\'eciser si la condition est
+CN, CS, ou CNS (avec justification)~:
+\begin{enumerate}
+  \item \og $x>0$\fg\ pour que \og $\sqrt{x}$ existe\fg.
+  \item \og $x=0$\fg\ pour que \og $x^2=0$\fg.
+  \item \og $|x|<3$\fg\ pour que \og $x^2<9$\fg.
+  \item \og $\Delta>0$\fg\ pour que \og $ax^2+bx+c=0$ ait deux racines\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ R\'ediger une d\'emonstration par l'absurde \corrige]{3}
+D\'emontrer par l'absurde que~:
+\begin{enumerate}
+  \item Il n'existe pas de plus grand nombre rationnel.
+  \item Si $a^2$ est pair, alors $a$ est pair.
+  \item $\sqrt{2}+\sqrt{3}$ est irrationnel.
+        \emph{(Supposer $r=\sqrt{2}+\sqrt{3}\in\Q$, isoler $\sqrt{6}$.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Logique des in\'egalit\'es \corrige]{2}
+\begin{enumerate}
+  \item La proposition \og $a>b \Rightarrow a^2>b^2$\fg\ est-elle vraie~?
+        Donner un contre-exemple si fausse.
+  \item \'Enoncer les conditions exactes sous lesquelles $a>b\Rightarrow a^2>b^2$.
+  \item Est-ce que \og $a^2>b^2$\fg\ implique \og $a>b$\fg~?
+  \item R\'esumer sous forme de tableau en testant $(a,b)\in\{(2,1),(-2,1),(2,-1),(-1,-2)\}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: encadrement de $\sqrt{n}$ \corrige]{2}
+\emph{(Voir exercice \logicoalgo\ dans la section pr\'ec\'edente.)}
+Modifier l'algorithme pour qu'il calcule les $5$ premi\`eres d\'ecimales
+de $\sqrt{n}$~: apr\`es avoir trouv\'e $k$, recommencer avec un pas de $0{,}1$,
+puis $0{,}01$, etc.
+\begin{enumerate}
+  \item \'Ecrire l'algorithme g\'en\'eral.
+  \item Appliquer \`a $n=2$~: donner les $5$ d\'ecimales.
+  \item Combien d'it\'erations au total~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: v\'erifier si un nombre est dans un intervalle \corrige]{1}
+
+\begin{algorithm}[H]
+\caption{Test d'appartenance \`a $[a,b]$}
+\KwIn{des r\'eels $a$, $b$, $x$}
+\KwOut{\Vrai\ si $x\in[a,b]$, \Faux\ sinon}
+\Si{$x \geq a$ \textbf{et} $x \leq b$}{\Retourner \Vrai\;}
+\Sinon{\Retourner \Faux\;}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Tester pour $(a,b,x)=(1,5,3)$, $(1,5,7)$, $(1,5,1)$.
+  \item Modifier pour tester $x\in]a,b[$, $x\in[a,b[$, $x\in]a,b]$.
+  \item \'Ecrire en Python \computer.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: simplifier une fraction \corrige]{2}
+
+\begin{algorithm}[H]
+\caption{Simplification de $p/q$}
+\KwIn{deux entiers $p$, $q>0$}
+\KwOut{la fraction irr\'eductible}
+$d \leftarrow \pgcd(p,q)$\tcp*[r]{algorithme d'Euclide}
+\Afficher $p/d$, \og/\fg, $q/d$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Appliquer \`a $p=36$, $q=48$ en ex\'ecutant l'algorithme d'Euclide.
+  \item \'Ecrire l'algorithme d'Euclide explicitement et le combiner.
+  \item Impl\'ementer en Python \computer.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: d\'eterminer le type d'un r\'eel \corrige]{2}
+\'Ecrire un algorithme qui, \'etant donn\'e un r\'eel $x$, \'ecrit \og entier\fg,
+\og rationnel non entier\fg\ ou \og possiblement irrationnel\fg\ selon les tests~:
+\begin{enumerate}
+  \item $x = \lfloor x\rfloor$~? (entier)
+  \item Sinon, peut-on \'ecrire $x = p/q$ avec $p,q$ entiers saisis~?
+  \item \'Ecrire l'algorithme.
+  \item Tester pour $x=0{,}5$, $x=\sqrt{2}$ (approxim.), $x=3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: somme d'une s\'erie g\'eom\'etrique \corrige]{2}
+L'algorithme suivant calcule $S = 1 + r + r^2 + \cdots + r^n$~:
+
+\begin{algorithm}[H]
+\caption{Somme g\'eom\'etrique}
+\KwIn{un r\'eel $r$, un entier $n\geq0$}
+$S \leftarrow 0$~;\quad $t \leftarrow 1$\;
+\Pour{$k \leftarrow 0$ \KwTo $n$}{
+  $S \leftarrow S + t$\;
+  $t \leftarrow t \times r$\;
+}
+\Afficher $S$\;
+\end{algorithm}
+
+\begin{enumerate}
+  \item Donner la trace pour $r=2$, $n=4$.
+  \item V\'erifier avec la formule $S = (r^{n+1}-1)/(r-1)$ (pour $r\ne1$).
+  \item Modifier pour s'arr\^eter d\`es que $S>1000$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: trouver la racine carr\'ee par dichotomie \computer \corrige]{2}
+(Voir probl\`eme de H\'eron.) \'Ecrire un algorithme de dichotomie
+qui approche $\sqrt{a}$ \`a $10^{-4}$ pr\`es en partant de $[0, a]$.
+Impl\'ementer et comparer avec la m\'ethode de H\'eron.
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique des ensembles de nombres \corrigeP]{2}
+\begin{enumerate}
+  \item Montrer, par contrapos\'ee, que si $x^2\in\Q$ et $x\in\R$,
+        il n'est pas forc\'ement vrai que $x\in\Q$.
+        Donner un contre-exemple.
+  \item \'Enoncer et d\'emontrer~:
+        \og Si $x\in\Q$ et $y\in\Q$, alors $x+y\in\Q$.\fg
+  \item \'Enoncer et d\'emontrer~:
+        \og Si $x\in\Q$ et $y\notin\Q$, alors $x+y\notin\Q$.\fg
+  \item La proposition \og Si $xy\in\Q$, alors $x\in\Q$ ou $y\in\Q$\fg\ est-elle vraie~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ Logique et valeur absolue \corrigeP]{2}
+\begin{enumerate}
+  \item \'Enoncer sous forme de quantificateurs~:
+        \og La valeur absolue est toujours positive.\fg
+  \item D\'emontrer par cas~: $|x+y|\leq|x|+|y|$ pour tous $x,y\in\R$.
+  \item La r\'eciproque de l'in\'egalit\'e triangulaire est-elle vraie~?
+        Formuler et \'etudier.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: trier et calculer la m\'ediane \corrigeP]{2}
+\'Ecrire un algorithme qui calcule la m\'ediane d'une s\'erie de $n$ valeurs
+en la triant d'abord par insertion, puis en prenant la valeur centrale.
+Impl\'ementer \computer\ et tester sur $\{5,2,8,1,9,3\}$.
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: d\'ecimales d'un irrationnel \corrigeP]{2}
+\'Ecrire un algorithme qui encadre $\sqrt{2}$ \`a $10^{-k}$ pr\`es
+pour $k=1,2,3,4,5$ en utilisant la m\'ethode de dichotomie.
+Afficher \`a chaque \'etape l'intervalle et la pr\'ecision atteinte.
+Impl\'ementer \computer.
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Logique et irrationalit\'e de $\sqrt{p}$]
+Soit $p$ un nombre premier.
+\begin{enumerate}
+  \item Montrer que si $p\mid n^2$, alors $p\mid n$
+        (utiliser la d\'efinition de nombre premier).
+  \item En d\'eduire que $\sqrt{p}$ est irrationnel.
+  \item G\'en\'eraliser~: pour quels entiers $n$ est-ce que $\sqrt{n}$ est irrationnel~?
+        \'Enoncer la condition exacte sous forme logique.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ Algorithme de Newton-H\'eron g\'en\'eralis\'e \computer]
+La m\'ethode de Newton approche $\sqrt[k]{a}$ en posant $u_{n+1}=\frac{(k-1)u_n+a/u_n^{k-1}}{k}$.
+\begin{enumerate}
+  \item V\'erifier que pour $k=2$ on retrouve la m\'ethode de H\'eron.
+  \item \'Ecrire l'algorithme g\'en\'eral.
+  \item Impl\'ementer et comparer la convergence pour $k=2,3$ sur $a=2$.
+  \item Prouver que si $u_n>\sqrt[k]{a}$, alors $u_{n+1}>\sqrt[k]{a}$.
+\end{enumerate}
+\end{challenge}
+
+\end{bilan}
+
+
+%% ════════════════════════════════════════════════════════════════

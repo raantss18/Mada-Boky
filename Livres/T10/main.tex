@@ -1,0 +1,54 @@
+% !TeX program = pdflatex
+% Build the default student edition with: make student
+\providecommand{\MdgVersion}{student}
+\documentclass{seconde-mada}
+\usepackage{styles/mdg-pedagogy}
+\usepackage{styles/mdg-algorithms}
+
+\begin{document}
+\frontmatter
+\input{frontmatter/titlepage}
+\input{frontmatter/preface}
+\input{frontmatter/mode-emploi}
+\TeacherOnly{\input{teacher/guide-professeur}}
+\tableofcontents
+
+\mainmatter
+\input{chapters/01-logique}
+\input{chapters/02-algorithmique}
+\input{chapters/03-calcul-reels}
+\input{chapters/04-equations-inequations}
+\input{chapters/05-vecteurs}
+\input{chapters/06-droites-cercles}
+\input{chapters/07-fonctions}
+\input{chapters/08-trigonometrie}
+\input{chapters/09-statistiques}
+
+\input{assessments/automatismes}
+\input{assessments/evaluations}
+
+\TeacherOnly{%
+  \begingroup
+  \small
+  \input{solutions/00-introduction}
+  \input{solutions/01-logique}
+  \input{solutions/02-algorithmique}
+  \input{solutions/03-calcul-reels}
+  \input{solutions/04-equations-inequations}
+  \input{solutions/05-vecteurs}
+  \input{solutions/06-droites-cercles}
+  \input{solutions/07-fonctions}
+  \input{solutions/08-trigonometrie}
+  \input{solutions/09-statistiques}
+  \input{assessments/corrections}
+  \endgroup
+}
+
+\backmatter
+\input{backmatter/glossaire}
+\input{backmatter/notations}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+\input{backmatter/colophon}
+\end{document}

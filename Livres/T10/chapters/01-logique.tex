@@ -1,0 +1,1040 @@
+\part{Alg\`ebre et Algorithmique}
+
+%% ════════════════════════════════════════════════════════════════
+\chapter{Logique}
+\input{activities/01-logique}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[Histoire des math\'ematiques]
+Aristote ($384$--$322$ av.\ J.-C.) fonda la logique formelle. Deux mill\'enaires plus
+tard, George Boole ($1815$--$1864$) eut l'id\'ee de traiter la logique comme une
+alg\`ebre --- naissance de l'alg\`ebre de Boole, fondement de tous les ordinateurs
+modernes. Chaque fois que vous allumez un smartphone, vous utilisez la logique
+math\'ematique.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Distinguer \'enonc\'e, proposition et pr\'edicat.
+  \item Ma\^itriser les connecteurs logiques et leurs tables de v\'erit\'e.
+  \item Utiliser les quantificateurs $\forall$ et $\exists$.
+  \item Former la n\'egation et la r\'eciproque d'une implication.
+  \item D\'ecouvrir, en approfondissement, la contrapos\'ee et le raisonnement par l'absurde.
+\end{itemize}
+\end{objectifs}
+
+\section{\'Enonc\'es et propositions}
+
+\begin{defn}[Proposition]
+Une \textbf{proposition} est un \'enonc\'e pouvant \^etre \textbf{vrai}~(\vrai)
+ou \textbf{faux}~(\faux), mais pas les deux simultan\'ement.
+\end{defn}
+
+\begin{ex}
+\begin{itemize}
+  \item \og\(2 + 2 = 4\)\fg{} : proposition vraie.
+  \item \og\(7\) est pair\fg{} : proposition fausse.
+  \item \og\(x > 3\)\fg{} : pr\'edicat (sa valeur d\'epend de $x$), \emph{pas} une proposition.
+  \item \og Viens ici\fg{} : phrase imp\'erative, pas une proposition.
+\end{itemize}
+\end{ex}
+
+\section{N\'egation et connecteurs logiques}
+
+\begin{defn}[Connecteurs logiques]
+Soient $P$ et $Q$ deux propositions. On d\'efinit :
+
+\medskip\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  \rowcolor{BN!15}
+  $P$ & $Q$ & $\lnot P$ & $P \land Q$ & $P \lor Q$ & $P \Rightarrow Q$ \\
+  \hline
+  \vrai & \vrai & \faux & \vrai & \vrai & \vrai \\
+  \vrai & \faux & \faux & \faux & \vrai & \faux \\
+  \faux & \vrai & \vrai & \faux & \vrai & \vrai \\
+  \faux & \faux & \vrai & \faux & \faux & \vrai \\
+  \hline
+\end{tabular}
+
+\medskip\flushleft
+L'implication $P \Rightarrow Q$ est fausse \emph{uniquement} quand $P$~est vraie et
+$Q$~est fausse. Le \og ou\fg\ math\'ematique est \textbf{inclusif}.
+\end{defn}
+
+\begin{defn}[\'Equivalence]
+$P \Leftrightarrow Q$ est vraie si $P$ et $Q$ ont la m\^eme valeur de v\'erit\'e :
+$$P \Leftrightarrow Q \;\equiv\; (P \Rightarrow Q) \land (Q \Rightarrow P).$$
+\end{defn}
+
+\horsprogramme{La contrapos\'ee et le raisonnement par l'absurde sont propos\'es ici comme enrichissement. Ils ne doivent pas masquer les raisonnements directs attendus en T10.}
+
+\begin{methode}[Contrapos\'ee]
+La \textbf{contrapos\'ee} de $P \Rightarrow Q$ est $\lnot Q \Rightarrow \lnot P$.
+Ces deux implications sont toujours \'equivalentes. Pour d\'emontrer
+$P \Rightarrow Q$, il suffit de d\'emontrer $\lnot Q \Rightarrow \lnot P$.
+\end{methode}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm and 1.4cm,
+  decision/.style={draw=OR,fill=OR!10,diamond,aspect=2.5,
+                   minimum width=3.5cm,minimum height=0.9cm,
+                   align=center,font=\small},
+  action/.style={draw=BN,fill=BN!8,rounded corners=3pt,
+                 minimum width=3.3cm,minimum height=0.75cm,
+                 align=center,font=\small},
+  result/.style={draw=VE,fill=VE!10,rounded corners=4pt,
+                 minimum width=3.3cm,minimum height=0.75cm,
+                 align=center,font=\small\bfseries},
+  arr/.style={-Stealth,BN!70,thick}]
+
+  \node[action,fill=BN,text=white] (start) {D\'emontrer $P\Rightarrow Q$};
+  \node[decision,below=of start] (q1) {$\lnot Q\Rightarrow\lnot P$\\facile~?};
+  \node[result,below right=0.8cm and 1.6cm of q1] (contra)
+    {Contrapos\'ee\\$\lnot Q\Rightarrow\lnot P$};
+  \node[decision,below=1.6cm of q1] (q2) {Supposer $P\land\lnot Q$\\m\`ene \`a une\\contradiction~?};
+  \node[result,below right=0.8cm and 1.6cm of q2] (absurde)
+    {Absurde~:\\supposer $P\land\lnot Q$,\\trouver $\bot$};
+  \node[result,below=1.6cm of q2] (direct)
+    {Direct~:\\supposer $P$,\\d\'eduire $Q$};
+
+  \draw[arr] (start)--(q1);
+  \draw[arr] (q1) -- node[above right,font=\scriptsize]{Oui} (contra);
+  \draw[arr] (q1) -- node[left,font=\scriptsize]{Non} (q2);
+  \draw[arr] (q2) -- node[above right,font=\scriptsize]{Oui} (absurde);
+  \draw[arr] (q2) -- node[left,font=\scriptsize]{Non} (direct);
+\end{tikzpicture}
+\caption{Choisir sa m\'ethode de d\'emonstration.
+Commencer par chercher si la contrapos\'ee est plus simple~;
+si non, tenter l'absurde~; sinon, partir directement de $P$.}
+\end{figure}
+
+\begin{attention}
+Ne pas confondre une implication et sa r\'eciproque.
+\og\(x=2 \Rightarrow x^2=4\)\fg{} est vraie.
+\og\(x^2=4 \Rightarrow x=2\)\fg{} est \textbf{fausse} (contre-exemple : $x=-2$).
+\end{attention}
+
+\section{Quantificateurs}
+
+\begin{defn}[Quantificateurs $\forall$ et $\exists$]
+\begin{itemize}
+  \item $\forall x \in E,\ P(x)$ : \og pour tout $x$ dans $E$, $P(x)$ est vraie.\fg
+  \item $\exists x \in E,\ P(x)$ : \og il existe au moins un $x$ dans $E$ tel que
+        $P(x)$ est vraie.\fg
+\end{itemize}
+\end{defn}
+
+\begin{prop}[N\'egations des quantificateurs]
+$$\lnot\bigl(\forall x \in E,\ P(x)\bigr) \;\equiv\; \exists x \in E,\ \lnot P(x)$$
+$$\lnot\bigl(\exists x \in E,\ P(x)\bigr) \;\equiv\; \forall x \in E,\ \lnot P(x)$$
+\end{prop}
+
+% Diagramme de Venn
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.05]
+  \draw[BN,thick] (-3.8,-2.1) rectangle (3.8,2.1);
+  \node[BN,font=\small] at (3.4,1.8) {$\Omega$};
+  \fill[TQ!25] (-0.9,0) circle (1.6cm);
+  \fill[OR!25] (0.9,0) circle (1.6cm);
+  \begin{scope}
+    \clip (-0.9,0) circle (1.6cm);
+    \fill[TQ!35!OR!35] (0.9,0) circle (1.6cm);
+  \end{scope}
+  \draw[TQ,thick] (-0.9,0) circle (1.6cm);
+  \draw[OR,thick] (0.9,0) circle (1.6cm);
+  \node[font=\bfseries,text=TQ] at (-2,0) {$P$};
+  \node[font=\bfseries,text=OR] at (2,0) {$Q$};
+  \node[font=\small,text=BN] at (0,0) {$P \land Q$};
+  \node[font=\footnotesize,text=GM!70!black,align=center] at (0,-2.7)
+    {L'union des deux cercles est $P \lor Q$.\quad
+     L'intersection est $P \land Q$.};
+\end{tikzpicture}
+\caption{Diagramme de Venn : conjonction et disjonction.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\columncolor{BN!8}}c|>{\columncolor{BN!8}}c||c|c|c|c|}
+\hline
+\rowcolor{BN!18}
+$P$ & $Q$ & $\lnot P$ & $P\land Q$ & $P\lor Q$ & $P\Rightarrow Q$ \\
+\hline
+\textcolor{VE!80!black}{\textbf{V}} & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{VE!80!black}{\textbf{V}} \\
+\textcolor{VE!80!black}{\textbf{V}} & \textcolor{BO}{\textbf{F}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{BO}{\textbf{F}} \\
+\rowcolor{BN!4}
+\textcolor{BO}{\textbf{F}} & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{VE!80!black}{\textbf{V}} \\
+\rowcolor{BN!4}
+\textcolor{BO}{\textbf{F}} & \textcolor{BO}{\textbf{F}}
+  & \textcolor{VE!80!black}{\textbf{V}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{BO}{\textbf{F}}
+  & \textcolor{VE!80!black}{\textbf{V}} \\
+\hline
+\end{tabular}
+\caption{Tables de v\'erit\'e des connecteurs principaux.
+\textcolor{VE!80!black}{\textbf{V}} = vrai~; \textcolor{BO}{\textbf{F}} = faux.
+$P\Rightarrow Q$ est fausse \emph{uniquement} quand $P$ est vraie et $Q$ est fausse.}
+\end{figure}
+
+%─────────────────────────────────────────────────────────────────
+\horsprogramme{Ces schémas de preuve permettent de consolider le raisonnement direct et de découvrir d'autres démarches de démonstration.}
+\section{Types de raisonnement}
+%─────────────────────────────────────────────────────────────────
+
+\begin{methode}[Raisonnement direct]
+Pour d\'emontrer $P \Rightarrow Q$ directement :
+on \textbf{suppose $P$ vraie} et on en d\'eduit, par une cha\^ine d'implications,
+que $Q$ est vraie.
+\end{methode}
+
+\begin{methode}[Raisonnement par contrapos\'ee]
+On d\'emontre $\lnot Q \Rightarrow \lnot P$ \`a la place de $P \Rightarrow Q$.
+\textbf{\'Etapes :} (1) Supposer $\lnot Q$. (2) En d\'eduire $\lnot P$.
+\end{methode}
+
+\begin{methode}[Raisonnement par l'absurde]
+Pour d\'emontrer $P$ :
+on \textbf{suppose $\lnot P$} et on aboutit \`a une \textbf{contradiction}.
+La contradiction montre que $\lnot P$ est fausse, donc $P$ est vraie.
+\end{methode}
+
+\begin{attention}
+Un contre-exemple suffit pour r\'efuter $\forall x \in E,\ P(x)$.
+En revanche, un seul exemple ne suffit pas pour prouver une propri\'et\'e
+universelle.
+\end{attention}
+
+\begin{ex}[Raisonnement par l'absurde]
+D\'emontrons que $\sqrt{2}$ est irrationnel.
+\emph{Supposons} $\sqrt{2} \in \Q$ : il existe $p, q \in \N^*$ avec $\pgcd(p,q)=1$
+et $\sqrt{2} = p/q$.
+Alors $2q^2 = p^2$, donc $p^2$ est pair, donc $p$ est pair : $p = 2k$.
+On obtient $2q^2 = 4k^2$, d'o\`u $q^2 = 2k^2$, et $q$ est pair.
+Mais alors $2 \mid \pgcd(p,q)$, ce qui contredit $\pgcd(p,q)=1$. \textbf{Contradiction.}
+Donc $\sqrt{2} \notin \Q$.
+\end{ex}
+
+%─────────────────────────────────────────────────────────────────
+\section{Exercices}
+%─────────────────────────────────────────────────────────────────
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Bases et reconnaissance}
+
+\begin{exo}[\logiq\ Propositions ou non \corrige]{1}
+Parmi les \'enonc\'es ci-dessous, indiquer lesquels sont des \textbf{propositions}.
+Si c'est une proposition, pr\'eciser sa valeur de v\'erit\'e.
+\index{proposition}
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $5 \times 4 = 20$
+  \item $\sqrt{2}$ est un entier
+  \item $x + 3 = 7$
+  \item Tout triangle \'equilat\'eral est isoc\`ele
+  \item $0 \times 999 = 0$
+  \item Bonjour, comment vas-tu~?
+  \item $\pi > 3$
+  \item $n$ est premier
+  \item $\forall n \in \N,\ n \geq 0$
+  \item Ferme la porte.
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[\logiq\ N\'egations simples \corrige]{1}
+Donner la n\'egation\index{négation} de chaque proposition.
+\begin{enumerate}
+  \item $17$ est un nombre premier.
+  \item Le triangle $ABC$ est rectangle.
+  \item $x \geq 5$.
+  \item Il pleut \textbf{et} il fait froid.
+  \item Il pleut \textbf{ou} il fait chaud.
+  \item $\forall n \in \N,\ n^2 \geq n$.
+  \item $\exists x \in \R,\ x^2 = -1$.
+  \item $2n$ est pair pour tout entier $n$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Tables de v\'erit\'e \`a deux variables \corrige]{1}
+Dresser la table de v\'erit\'e compl\`ete des formules suivantes.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\lnot P \lor Q$
+  \item $P \land \lnot Q$
+  \item $(P \lor Q) \land \lnot P$
+  \item $\lnot(P \land Q)$
+  \item $\lnot P \land \lnot Q$
+  \item $\lnot P \lor \lnot Q$
+\end{enumerate}
+\end{multicols}
+Comparer les lignes (4) et (6), puis (3) et (5).
+Que remarque-t-on~? (Lois de De Morgan\index{lois de De Morgan}.)
+\end{exo}
+
+\begin{exo}[Valeur de v\'erit\'e d'une implication \corrige]{1}
+Chacune des implications suivantes est-elle vraie ou fausse~?
+Justifier bri\`evement.
+\begin{enumerate}
+  \item Si $2 + 2 = 4$, alors $3 + 3 = 6$.
+  \item Si $2 + 2 = 5$, alors la Terre est plate.
+  \item Si $2 + 2 = 4$, alors $1 = 0$.
+  \item Si $n$ est divisible par $4$, alors $n$ est divisible par $2$.
+  \item Si $n$ est divisible par $2$, alors $n$ est divisible par $4$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Quantificateurs : traduction \corrige]{1}
+Traduire en fran\c cais, puis d\'eterminer la valeur de v\'erit\'e.
+\begin{enumerate}
+  \item $\forall x \in \N,\ x+1 > x$
+  \item $\exists n \in \Z,\ n^2 = -4$
+  \item $\forall x \in \R,\ x^2 \geq 0$
+  \item $\exists x \in \Q,\ x^2 = 2$
+  \item $\forall x \in \R^*,\ 1/x > 0$
+  \item $\exists n \in \N,\ n^2 = 2n$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Ecrire avec des quantificateurs \corrige]{1}
+Traduire les propositions suivantes en utilisant $\forall$ et $\exists$.
+\begin{enumerate}
+  \item Tout carr\'e est un rectangle.
+  \item Il existe un entier pair qui est premier.
+  \item La somme de deux entiers pairs est toujours paire.
+  \item Tout nombre r\'eel admet un oppos\'e.
+  \item Il n'existe pas d'entier strictement compris entre $0$ et $1$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[N\'egation avec quantificateurs \corrige]{1}
+\'Ecrire la n\'egation de chaque proposition, puis d\'eterminer la valeur
+de v\'erit\'e de la n\'egation.
+\begin{enumerate}
+  \item $\forall x \in \R,\ x^2 > 0$
+  \item $\exists n \in \N,\ 2n+1 = 0$
+  \item $\forall n \in \N,\ n^2 \geq n$
+  \item $\exists x \in \R,\ x^3 = -8$
+  \item $\forall x \in \R,\; \forall y \in \R,\ x + y = y + x$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ R\'eciproque et contrapos\'ee \corrige]{1}
+Pour chaque implication, \'ecrire (a)~la r\'eciproque\index{réciproque},
+(b)~la contrapos\'ee\index{contraposée}.
+Indiquer laquelle est vraie parmi l'implication et sa r\'eciproque.
+\begin{enumerate}
+  \item Si $ABC$ est \'equilat\'eral, alors $ABC$ est isoc\`ele.
+  \item Si $x = 3$, alors $x^2 = 9$.
+  \item Si $n$ est divisible par $6$, alors $n$ est divisible par $3$.
+  \item Si $x > 1$, alors $x^2 > 1$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Contre-exemples \corrige]{1}
+R\'efuter chacune des propositions par un contre-exemple\index{contre-exemple}.
+\begin{enumerate}
+  \item $\forall n \in \N,\ n^2 > n$
+  \item $\forall x \in \R,\ \sqrt{x^2} = x$
+  \item Si $x^2 = 4$, alors $x = 2$.
+  \item Tout multiple de $4$ est un multiple de $8$.
+  \item $\forall n \in \Z,\ |n| = n$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Implication ou \'equivalence~? \corrige]{1}
+D\'eterminer si l'on a $(\Rightarrow)$, $(\Leftarrow)$ ou $(\Leftrightarrow)$.
+Justifier par une d\'emonstration ou un contre-exemple.
+\begin{enumerate}
+  \item $x = 2 \quad \text{et} \quad x^2 = 4$
+  \item $n$ pair \quad et \quad $n^2$ pair
+  \item $n$ divisible par $6$ \quad et \quad $n$ divisible par $2$
+  \item $|x| = 3$ \quad et \quad $x = 3$
+  \item $xy = 0$ \quad et \quad $x = 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Table : contrapos\'ee \corrige]{1}
+V\'erifier par table de v\'erit\'e que $P \Rightarrow Q$ et
+$\lnot Q \Rightarrow \lnot P$ ont toujours la m\^eme valeur de v\'erit\'e.
+\end{exo}
+
+\begin{exo}[Table : connecteur $\Leftrightarrow$ \corrige]{1}
+V\'erifier par table de v\'erit\'e :
+$$P \Leftrightarrow Q \;\equiv\; (P \Rightarrow Q) \land (Q \Rightarrow P).$$
+\end{exo}
+
+\begin{exo}[Calcul avec valeurs donn\'ees \corrige]{1}
+On pose $P = \vrai$, $Q = \faux$, $R = \vrai$.
+Calculer la valeur de v\'erit\'e de chaque formule.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $P \land Q$
+  \item $P \lor Q$
+  \item $P \Rightarrow Q$
+  \item $Q \Rightarrow P$
+  \item $(P \lor Q) \Rightarrow R$
+  \item $\lnot P \lor (Q \land R)$
+  \item $P \Leftrightarrow R$
+  \item $(P \land \lnot Q) \Rightarrow R$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Forme logique de r\'esultats math\'ematiques \corrige]{1}
+R\'e\'ecrire chacun des r\'esultats suivants sous la forme
+$\forall \ldots,\ P \Rightarrow Q$ (ou $P \Leftrightarrow Q$).
+\begin{enumerate}
+  \item Le carr\'e de tout entier impair est impair.
+  \item Un triangle est rectangle si et seulement si le carr\'e de son
+        plus grand c\^ot\'e \'egal la somme des carr\'es des deux autres.
+  \item Si $n$ est divisible par $2$ et par $3$, alors $n$ est divisible par $6$.
+  \item Tout nombre de la forme $4k+2$ est divisible par $2$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Priorit\'e des connecteurs \corrige]{1}
+Les connecteurs logiques ob\'eissent \`a des priorit\'es :
+$\lnot$ (le plus prioritaire), puis $\land$, puis $\lor$, puis $\Rightarrow$,
+puis $\Leftrightarrow$ (le moins prioritaire).
+
+Mettre les parenth\`eses implicites dans les formules suivantes,
+puis dresser leur table de v\'erit\'e.
+\begin{enumerate}
+  \item $\lnot P \land Q \lor R$
+  \item $P \land Q \Rightarrow R$
+  \item $P \lor Q \land \lnot R$
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Combinaisons et raisonnements}
+
+\begin{exo}[\logiq\ De Morgan : simplifications \corrige]{2}
+Simplifier en utilisant les lois de De Morgan\index{lois de De Morgan}.
+\emph{Rappel :} $\lnot(P \land Q) \equiv \lnot P \lor \lnot Q$ ;
+$\lnot(P \lor Q) \equiv \lnot P \land \lnot Q$.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\lnot(\lnot P \land Q)$
+  \item $\lnot(P \lor \lnot Q)$
+  \item $\lnot\bigl((P \Rightarrow Q) \land P\bigr)$
+  \item $\lnot(\lnot P \lor \lnot Q)$
+  \item $\lnot\bigl(\lnot(P \land Q)\bigr)$
+  \item $\lnot(P \Leftrightarrow Q)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Table \`a trois variables \corrige]{2}
+Dresser la table de v\'erit\'e compl\`ete ($8$ lignes) de
+$(P \Rightarrow Q) \land (Q \Rightarrow R)$ et de $P \Rightarrow R$.
+Que constate-t-on~? Conclure sur la \textbf{transitivit\'e} de l'implication.
+\end{exo}
+
+\begin{exo}[\logiq\ Tautologies et contradictions \corrige]{2}
+V\'erifier par table de v\'erit\'e\index{tautologie}\index{contradiction} :
+\begin{enumerate}
+  \item $P \lor \lnot P$ est une tautologie.
+  \item $P \land \lnot P$ est une contradiction.
+  \item $P \Rightarrow (Q \Rightarrow P)$ est une tautologie.
+  \item $(P \Rightarrow Q) \Leftrightarrow (\lnot P \lor Q)$ est une tautologie.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Divisibilit\'e et implication \corrige]{2}
+Soit $P$ : \og $n$ est divisible par $4$\fg\ et
+$Q$ : \og $n$ est pair\fg.
+\begin{enumerate}
+  \item $P \Rightarrow Q$ est-elle vraie~? Et $Q \Rightarrow P$~?
+  \item L'\'equivalence $P \Leftrightarrow Q$ est-elle vraie~?
+  \item \'Ecrire et v\'erifier directement la contrapos\'ee de $P \Rightarrow Q$.
+  \item G\'en\'eraliser : si $a \mid b$ et $b \mid c$, que peut-on dire de $a$ et $c$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Quantificateurs imbriqu\'es \corrige]{2}
+Traduire en fran\c cais, d\'eterminer la valeur de v\'erit\'e,
+puis \'ecrire la n\'egation.
+\begin{enumerate}
+  \item $\forall x \in \R,\; \exists y \in \R,\; y = x + 1$
+  \item $\exists x \in \R,\; \forall y \in \R,\; y = x + 1$
+  \item $\forall x \in \R,\; \exists y \in \R,\; x + y = 0$
+  \item $\exists x \in \R,\; \forall y \in \R,\; x \cdot y = y$
+\end{enumerate}
+L'ordre des quantificateurs change-t-il le sens~?
+\end{exo}
+
+\begin{exo}[\logiq\ Raisonnement par contrapos\'ee \corrige]{2}
+D\'emontrer par contrapos\'ee\index{raisonnement par contraposée}.
+\begin{enumerate}
+  \item Si $n^2$ est impair, alors $n$ est impair.
+  \item Si $n^2$ est pair, alors $n$ est pair.
+  \item Si $n$ est tel que $n^2 + n$ soit impair, alors $n$ est pair.
+  \item Si $ab \ne 0$, alors $a \ne 0$ et $b \ne 0$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[G\'eom\'etrie et logique \corrige]{2}
+Soient $P$ : \og le triangle $ABC$ est isoc\`ele en $A$\fg\ et
+$Q$ : \og les angles $\hat B$ et $\hat C$ sont \'egaux\fg.
+\begin{enumerate}
+  \item Formuler $P \Rightarrow Q$ en fran\c cais. Est-ce vrai~?
+  \item Formuler $Q \Rightarrow P$. Conclure sur $P \Leftrightarrow Q$.
+  \item D\'emontrer la contrapos\'ee de $P \Rightarrow Q$.
+  \item \'Enoncer $\lnot P$ et $\lnot Q$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[N\'egation de propositions complexes \corrige]{2}
+\'Ecrire la n\'egation des propositions suivantes en langage naturel
+\emph{et} avec des symboles.
+\begin{enumerate}
+  \item \og Tout entier pair est divisible par $4$ ou par $6$.\fg
+  \item \og Il existe un entier $n$ tel que $n^2 < n < n^3$.\fg
+  \item \og Pour tout r\'eel $x > 0$, il existe $y > 0$ tel que $y < x$.\fg
+  \item \og Tout nombre premier est impair ou \'egal \`a $2$.\fg
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Erreurs classiques de raisonnement \corrige]{2}
+Identifier l'erreur logique\index{erreur de raisonnement} dans chaque argument.
+\begin{enumerate}
+  \item \og Tous les chats sont des animaux. Tous les chiens sont des animaux.
+        Donc tous les chats sont des chiens.\fg
+  \item \og Si $x^2 = 4$, alors $x = 2$. Or $(-2)^2 = 4$. Donc $-2 = 2$.\fg
+  \item \og J'ai v\'erifi\'e pour $n=1,\ldots,5$ que $n^2+n+41$ est premier.
+        Donc c'est toujours premier.\fg\ (Tester $n=40$.)
+  \item Preuve que $1 = 2$ : on pose $a=b=1$.
+        Alors $a^2 = ab$, donc $a^2 - b^2 = ab - b^2$,
+        donc $(a-b)(a+b) = b(a-b)$,
+        donc $a+b = b$, donc $1+1=1$, donc $2=1$.
+        O\`u est l'erreur~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Double implication \corrige]{2}
+D\'emontrer l'\'equivalence en montrant les deux implications s\'epar\'ement~:
+$$n \text{ est pair} \;\Leftrightarrow\; n^2 \text{ est pair}.$$
+\end{exo}
+
+\begin{exo}[Conditions n\'ecessaires et suffisantes \corrige]{2}
+\index{condition nécessaire}\index{condition suffisante}
+Pour chaque paire, pr\'eciser si la premi\`ere est une condition
+n\'ecessaire, suffisante, ou les deux (\textit{c.n.s.}) pour la seconde.
+\begin{enumerate}
+  \item $n$ divisible par $6$ ~;~ $n$ divisible par $2$.
+  \item $x = 0$ ~;~ $xy = 0$.
+  \item $ABCD$ est un carr\'e ~;~ $ABCD$ est un rectangle.
+  \item $\Delta = 0$ ~;~ le trin\^{o}me a une racine double.
+  \item $n$ impair ~;~ $n^2$ impair.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[D\'emonstration directe \corrige]{2}
+D\'emontrer les assertions suivantes par un raisonnement direct.
+\begin{enumerate}
+  \item Si $n$ est impair, alors $n^3$ est impair.
+  \item Si $n$ est impair, alors $n^2 + n$ est pair.
+  \item Pour tout $a, b \in \Z$ : si $a$ et $b$ sont impairs,
+        alors $a + b$ est pair.
+  \item Pour tout $a, b \in \Z$ : si $a \mid b$ et $b \mid c$, alors $a \mid c$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Trouver l'erreur dans une preuve \corrige]{2}
+Chacune des \og d\'emonstrations\fg\ suivantes contient une erreur.
+La trouver, l'expliquer et corriger la preuve.
+\begin{enumerate}
+  \item \textbf{Affirmation :} Tout entier v\'erifie $n^2 \geq n$.\\
+        \textbf{Preuve :} On divise par $n$ pour obtenir $n \geq 1$. \'Evident.
+  \item \textbf{Affirmation :} $\sqrt{a^2+b^2} = a + b$ pour $a,b \geq 0$.\\
+        \textbf{Preuve :} En \'elevant au carr\'e les deux membres~:
+        $a^2+b^2 = (a+b)^2 = a^2+2ab+b^2$, ce qui simplifie en $0=2ab$.
+        Cela est vrai pour $a=0$ ou $b=0$. Donc c'est prouv\'e.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations et profondeur}
+
+\begin{exo}[\logiq\ Irrationnalit\'e de $\sqrt{2}$ \corrige]{3}
+D\'emontrer par l'absurde\index{raisonnement par l'absurde} que $\sqrt{2}$
+est irrationnel.
+\emph{On supposera $\sqrt{2} = p/q$ avec $\pgcd(p,q)=1$.}
+
+Montrer ensuite que pour tout entier $k\geq 2$, si $k$ n'est pas un
+carr\'e parfait, alors $\sqrt{k}$ est irrationnel.
+\end{exo}
+
+\begin{exo}[\logiq\ Irrationnalit\'e de $\sqrt{3}$ \corrige]{3}
+D\'emontrer par l'absurde que $\sqrt{3}$ est irrationnel.
+\emph{Indication : montrer d'abord que si $3 \mid n^2$, alors $3 \mid n$.}
+\end{exo}
+
+\begin{exo}[Suite et logique \corrige]{3}
+Soit $P(n)$ : \og $n^2 - n$ est pair.\fg
+\begin{enumerate}
+  \item V\'erifier $P(n)$ pour $n = 0, 1, 2, 3, 4$.
+  \item D\'emontrer $\forall n \in \N,\ P(n)$ en \'ecrivant $n^2-n = n(n-1)$.
+  \item En d\'eduire : $\forall n \in \Z$, le carr\'e de $n$ est de la forme
+        $4k$ ou $4k+1$ pour un certain entier $k$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Infinit\'e des nombres premiers \corrige]{3}
+D\'emontrer par l'absurde qu'il existe une infinit\'e de nombres premiers.
+\index{nombre premier!infinité}
+
+\emph{Indication (Euclide) : supposer qu'il n'en existe qu'un nombre fini
+$p_1, p_2, \ldots, p_k$ et consid\'erer $N = p_1 p_2 \cdots p_k + 1$.}
+\end{exo}
+
+\begin{exo}[Combinaisons logiques \corrige]{3}
+D\'emontrer (par table de v\'erit\'e ou directement) :
+\begin{enumerate}
+  \item $P \Rightarrow (Q \Rightarrow R)
+        \;\equiv\; (P \land Q) \Rightarrow R$\quad\emph{(exportation)}
+  \item $(P \Rightarrow Q) \land (P \Rightarrow R)
+        \;\equiv\; P \Rightarrow (Q \land R)$
+  \item $P \lor (Q \land R)
+        \;\equiv\; (P \lor Q) \land (P \lor R)$
+        \quad\emph{(distributivit\'e)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Raisonner sur les r\'eels \corrige]{3}
+\begin{enumerate}
+  \item D\'emontrer $\forall x \in \R,\ x^2 \geq 0$.
+        En d\'eduire $\forall x \in \R,\ x^2 + 1 > 0$.
+  \item D\'emontrer par l'absurde qu'il n'existe pas de plus petit
+        r\'eel strictement positif.
+  \item D\'emontrer $\forall x, y \in \R,\ xy \leq \dfrac{x^2+y^2}{2}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Nombres rationnels et puissances \corrige]{3}
+\begin{enumerate}
+  \item Montrer que $2^n \ne 3^m$ pour tous entiers $n, m \geq 1$.
+        \emph{(Indication~: $2^n$ est pair, $3^m$ est impair.)}
+  \item En d\'eduire que la suite $(2^n/3^n)_{n\geq1}$ ne contient
+        jamais un entier.
+  \item Montrer que $(2/3)^n \to 0$ en v\'erifiant num\'eriquement
+        pour $n = 1, 5, 10, 20$.
+        L'expression $(2/3)^n$ peut-elle \^etre nulle~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[R\'eciproque du th\'eor\`eme de Pythagore \corrige]{3}
+\textbf{Th\'eor\`eme de Pythagore :} Si un triangle $ABC$ est rectangle en $C$,
+alors $AB^2 = AC^2 + BC^2$.
+
+\begin{enumerate}
+  \item \'Enoncer la contrapos\'ee du th\'eor\`eme de Pythagore.
+  \item \'Enoncer la r\'eciproque : si $AB^2 = AC^2 + BC^2$, alors le
+        triangle est rectangle en $C$.
+  \item En admettant la r\'eciproque, d\'eterminer si le triangle de c\^ot\'es
+        $5$, $12$, $13$ est rectangle, puis celui de c\^ot\'es $6$, $8$, $10$.
+  \item La contrapos\'ee de la r\'eciproque est-elle vraie~? La formuler.
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Circuit \`a trois interrupteurs \corrigeP]{1}
+On code par \vrai{} un interrupteur ferm\'e et par \faux{} un interrupteur ouvert.
+Le courant passe exactement lorsque la proposition suivante est vraie~:
+$$\Phi(A,B,C) = \bigl(A \land (B \lor C)\bigr) \lor (\lnot A \land B \land C).$$
+\begin{enumerate}
+  \item Recopier et compl\'eter la table de v\'erit\'e ($8$ configurations possibles).
+  \item Relever les configurations pour lesquelles le courant passe.
+  \item Montrer que $\Phi \equiv (A\land B)\lor(A\land C)\lor(B\land C)$.
+  \item Le courant passe-t-il exactement lorsqu'au moins deux interrupteurs sont ferm\'es~?
+        Cette r\`egle est appel\'ee \emph{fonction majorit\'e}.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Chevaliers et coquins \corrigeP]{1}
+Sur l'\^ile des logiciens, les chevaliers disent toujours vrai
+et les coquins mentent toujours. Vous rencontrez $X$, $Y$, $Z$.
+\begin{itemize}
+  \item $X$ d\'eclare : \og $Y$ est un coquin.\fg
+  \item $Y$ d\'eclare : \og $X$ et $Z$ sont du m\^eme type.\fg
+\end{itemize}
+\begin{enumerate}
+  \item Poser $P$ : \og $X$ est chevalier\fg\ et $Q$ : \og $Y$ est chevalier\fg.
+        Traduire les d\'eclarations en propositions logiques.
+  \item Analyser les quatre cas $(P,Q)\in\{\vrai,\faux\}^2$.
+  \item En d\'eduire la nature de $X$, $Y$, $Z$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Portes logiques universelles \corrigeP]{2}
+Une porte \textsc{nand} calcule $\lnot(P \land Q)$ ;
+une porte \textsc{nor} calcule $\lnot(P \lor Q)$.
+\begin{enumerate}
+  \item Exprimer $\lnot P$ en utilisant uniquement des portes \textsc{nand}.
+  \item Exprimer $P \land Q$ en utilisant uniquement des portes \textsc{nand}.
+  \item Exprimer $P \lor Q$ en utilisant uniquement des portes \textsc{nand}.
+  \item Conclure : les portes \textsc{nand} suffisent \`a calculer toute
+        fonction logique. On dit qu'elles forment un syst\`eme \emph{fonctionnellement complet}.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Enigme logique : qui a fait quoi~? \corrigeP]{1}
+Trois suspects $A$, $B$, $C$ sont interrog\'es apr\`es un vol.
+Chacun fait une d\'eclaration :
+\begin{itemize}
+  \item $A$ : \og Ce n'est pas moi.\fg
+  \item $B$ : \og C'est $A$.\fg
+  \item $C$ : \og Ce n'est pas $A$.\fg
+\end{itemize}
+On sait qu'exactement une d\'eclaration est vraie.
+D\'eterminer qui a commis le vol.
+\end{probleme}
+
+\begin{probleme}[Le berger, le loup, la ch\`evre et le chou \corrigeP]{1}
+Un berger doit traverser une rivi\`ere avec un loup, une ch\`evre et un chou
+en un seul voyage par trajet. Sa barque ne peut transporter qu'un seul passager.
+Sans surveillance, le loup mange la ch\`evre, et la ch\`evre mange le chou.
+\begin{enumerate}
+  \item Mod\'eliser l'\'etat du probl\`eme par un quadruplet de propositions
+        $(B, L, C, X)$ ($\vrai$ = c\^ot\'e d'arriv\'ee, $\faux$ = c\^ot\'e de d\'epart).
+  \item Lister tous les \'etats interdits.
+  \item Trouver une solution en $7$ traversées.
+  \item Y a-t-il plusieurs solutions~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Parit\'e des puissances \corrigeP]{2}
+\begin{enumerate}
+  \item D\'emontrer que pour tout entier $n$,
+        $n$ et $n^3$ ont la m\^eme parit\'e.
+  \item D\'emontrer que si $n$ est impair, alors $n^2 = 8k+1$
+        pour un certain entier $k$.
+        \emph{(Indication~: $n = 2m+1$, d\'evelopper $n^2$.)}
+  \item En d\'eduire que si la somme $a^2 + b^2$ est divisible par $4$,
+        alors $a$ et $b$ sont tous les deux pairs.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Divisibilit\'e et parit\'e des carr\'es \corrigeP]{2}
+\begin{enumerate}
+  \item D\'emontrer que le carr\'e de tout entier est de la forme $4k$
+        ou $4k+1$ pour un certain entier $k$.
+        \emph{(Distinguer le cas $n$ pair et $n$ impair.)}
+  \item En d\'eduire que la somme $a^2 + b^2$ ne peut jamais \^etre
+        de la forme $4k+3$.
+        Donc une somme de deux carr\'es ne peut pas \^etre \'egale \`a
+        $3$, $7$, $11$, $15$, \ldots
+  \item V\'erifier ces faits pour $a^2+b^2 \in \{1,2,3,4,5,6,7,8\}$~:
+        lesquelles de ces valeurs sont effectivement impossibles~?
+  \item Quels entiers de $\{1,\ldots,20\}$ sont sommes de deux carr\'es~?
+        Dresser la liste.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Logique dans les preuves g\'eom\'etriques \corrigeP]{2}
+On consid\`ere les propositions~:
+$P$~: \og le quadrilat\`ere $ABCD$ est un carr\'e\fg~;
+$Q$~: \og $ABCD$ est un rectangle\fg~;
+$R$~: \og $ABCD$ est un losange\fg~;
+$S$~: \og $ABCD$ est un parall\'elogramme\fg.
+\begin{enumerate}
+  \item Pour chaque paire, pr\'eciser si on a $\Rightarrow$, $\Leftarrow$
+        ou $\Leftrightarrow$~: $(P,Q)$~; $(P,R)$~; $(Q,S)$~; $(R,S)$~; $(P,S)$.
+  \item Formuler la contrapos\'ee de \og\(P \Rightarrow Q\)\fg{}
+        et de \og\(Q \Rightarrow S\)\fg{}.
+  \item D\'emontrer par contrapos\'ee~:
+        \og Si $ABCD$ n'est pas un parall\'elogramme, alors ce n'est pas un carr\'e.\fg
+  \item \'Ecrire la n\'egation de~:
+        \og Tout carr\'e est \`a la fois un rectangle et un losange.\fg{}
+        Puis montrer que cette n\'egation est fausse.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Sudoku $4\times 4$ par d\'eduction logique \corrigeP]{1}
+La grille $4\times 4$ suivante doit \^etre compl\'et\'ee avec les chiffres $1$, $2$, $3$, $4$
+de fa\c con que chaque ligne, colonne et bloc $2\times 2$ contienne chaque chiffre exactement une fois.
+\[
+\begin{array}{|cc|cc|}
+\hline
+  & 2 & 3 &   \\
+3 &   &   & 2 \\
+\hline
+  & 3 & 4 &   \\
+4 &   &   & 3 \\
+\hline
+\end{array}
+\]
+\begin{enumerate}
+  \item Expliquer chaque \'etape de votre raisonnement sous forme d'implication
+        (ex. : \og La case $(1,1)$ ne peut pas contenir $3$ car...\fg).
+  \item Combien d'implications avez-vous utilis\'ees~?
+  \item Y a-t-il une autre solution~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Sommes et formules alg\'ebriques \corrigeP]{2}
+\begin{enumerate}
+  \item V\'erifier pour $n = 1, 2, 3, 4, 5$ que~:
+        $1 + 2 + \cdots + n = \dfrac{n(n+1)}{2}.$
+  \item V\'erifier la formule en calculant la somme des $n$ premiers entiers
+        de deux fa\c cons~: directement, et via la formule.
+        Sont-elles \'egales~?
+  \item \'Ecrire un algorithme qui calcule $S = 1+2+\cdots+n$ par une boucle,
+        puis v\'erifie si $S = n(n+1)/2$. Tester pour $n = 10, 100$.
+  \item En observant le tableau de valeurs, conjecturer une formule
+        pour $1 + 3 + 5 + \cdots + (2n-1)$ (somme des $n$ premiers impairs).
+        V\'erifier pour $n = 1, 2, 3, 4, 5$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Codage et logique~: parit\'e \corrigeP]{2}
+Un bit de parit\'e est ajout\'e \`a un message binaire pour d\'etecter les erreurs~:
+le nombre total de $1$ dans le message \emph{plus} le bit de parit\'e doit \^etre pair.
+\begin{enumerate}
+  \item Le message \texttt{1011} a-t-il un nombre pair ou impair de $1$~?
+        Quel bit de parit\'e faut-il ajouter~?
+  \item Si on re\c coit \texttt{10110} (message~+~parit\'e), y a-t-il une erreur~?
+  \item Si on re\c coit \texttt{10100}, y a-t-il une erreur~?
+  \item Ce syst\`eme peut-il d\'etecter \emph{deux} erreurs simultan\'ees~?
+        Expliquer.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[D\'eduction logique~: tournoi de foot \corrigeP]{1}
+Dans un tournoi \`a la ronde, chaque \'equipe joue contre chacune des autres
+exactement une fois. Il y a $4$ \'equipes~: $A$, $B$, $C$, $D$.
+Les r\`egles~: une victoire donne $3$ points, un nul $1$ point, une d\'efaite $0$.
+On sait que~:
+\begin{itemize}
+  \item $A$ a gagn\'e ses $3$ matchs.
+  \item $B$ a obtenu exactement $6$ points.
+  \item $C$ et $D$ ont chacune le m\^eme nombre de points.
+\end{itemize}
+\begin{enumerate}
+  \item Combien de matchs ont \'et\'e jou\'es en tout~?
+  \item Combien de points $A$ a-t-elle~?
+  \item D\'eterminer les points de $B$, $C$ et $D$.
+        \emph{(Attention~: une victoire distribue $3$ points, mais un match nul
+        n'en distribue que $2$.)}
+  \item Reconstituer le classement final.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Le paradoxe du menteur]
+\index{paradoxe du menteur}
+Consid\'erons la phrase~: \og Cette phrase est fausse.\fg
+\begin{enumerate}
+  \item Si on suppose qu'elle est \textbf{vraie}, qu'en d\'eduit-on~?
+        Si on suppose qu'elle est \textbf{fausse}, qu'en d\'eduit-on~?
+  \item Pourquoi cette phrase n'est-elle pas une proposition au sens
+        du cours~?
+  \item Inventer deux autres phrases auto-r\'ef\'erentes.
+        Sont-elles des propositions~? Lesquelles~?
+        \begin{itemize}
+          \item \og Cette phrase contient cinq mots.\fg
+          \item \og Cette phrase est vraie.\fg
+        \end{itemize}
+  \item Le \emph{paradoxe de Russell}~: consid\'erons \og l'ensemble de tous
+        les ensembles qui ne se contiennent pas eux-m\^emes\fg.
+        Cet ensemble se contient-il lui-m\^eme~?
+        En quoi retrouve-t-on la m\^eme structure que le paradoxe du menteur~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Construire sa propre table de v\'erit\'e]
+Un \emph{ou exclusif} (not\'e $P \oplus Q$) est vrai quand exactement
+l'une des deux propositions est vraie (mais pas les deux).
+\begin{enumerate}
+  \item Dresser la table de v\'erit\'e de $P \oplus Q$.
+  \item V\'erifier que $P \oplus Q \equiv (P \lor Q) \land \lnot(P \land Q)$.
+  \item Exprimer $P \oplus Q$ uniquement avec $\Rightarrow$ et $\lnot$.
+        \emph{(Indication~: partir de $(P\lor Q)\land\lnot(P\land Q)$
+        et utiliser $(P\Rightarrow Q)\equiv(\lnot P\lor Q)$.)}
+  \item V\'erifier que $P \oplus P \equiv \faux$ et $P \oplus \lnot P \equiv \vrai$
+        pour toutes valeurs de $P$.
+  \item Application~: le chiffrement XOR. Si un message est cod\'e
+        par le bit $M$ et une cl\'e secrète $K$, le chiffr\'e est $C = M \oplus K$.
+        Montrer que $C \oplus K = M$ (le d\'echiffrement est la m\^eme op\'eration).
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Enigmes logiques~: chevaliers et coquins]
+\index{chevaliers et coquins}
+Sur l'\^ile des logiciens, les \emph{chevaliers} disent toujours vrai
+et les \emph{coquins} mentent toujours.
+\begin{enumerate}
+  \item Vous rencontrez $A$ et $B$.
+        $A$ dit~: \og Nous sommes tous les deux des coquins.\fg
+        D\'eterminer la nature de $A$ et de $B$.
+        \emph{(Raisonner par cas~: si $A$ est chevalier\ldots)}
+  \item Vous rencontrez $C$, $D$, $E$.
+        $C$ dit~: \og Au moins l'un d'entre nous est un coquin.\fg
+        $D$ dit~: \og$C$ est un coquin.\fg
+        $E$ ne dit rien.
+        Quelles sont les natures possibles de $C$, $D$, $E$~?
+  \item Inventer une \'enigme du m\^eme type avec $3$ personnes
+        et \textbf{exactement une} solution.
+  \item Formaliser la question~(1) \`a l'aide de propositions logiques
+        ($P$~: \og$A$ est chevalier\fg, $Q$~: \og$B$ est chevalier\fg)
+        et r\'esoudre par table de v\'erit\'e.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Bijections et taille d'ensembles]
+\index{bijection}\index{Cantor, Georg}
+Deux ensembles ont \og autant\fg\ d'\'el\'ements si l'on peut associer
+\`a chaque \'el\'ement de l'un exactement un \'el\'ement de l'autre
+(c'est une \emph{bijection}).
+\begin{enumerate}
+  \item Les ensembles $\{1,2,3\}$ et $\{a,b,c\}$ ont-ils autant
+        d'\'el\'ements~? Exhiber une bijection.
+  \item L'ensemble $\N = \{0,1,2,3,\ldots\}$ et
+        $\Z = \{\ldots,-2,-1,0,1,2,\ldots\}$
+        ont-ils autant d'\'el\'ements~?
+        \emph{Tentative de bijection~:}
+        $f(0)=0,\; f(1)=1,\; f(2)=-1,\; f(3)=2,\; f(4)=-2,\ldots$
+        \'Ecrire la formule explicite de $f(n)$ selon que $n$ est pair ou impair.
+  \item Les entiers pairs $\{0,2,4,6,\ldots\}$ ont-ils autant d'\'el\'ements
+        que $\N$ tout entier~?
+        C'est le \emph{paradoxe de Galileo}~: une partie peut \^etre
+        en bijection avec le tout~!
+  \item Cantor ($1845$--$1918$) a montr\'e que $\R$ est \og plus grand\fg\ que $\N$~:
+        il n'existe aucune bijection $\N\to\R$.
+        Sans d\'emontrer cela, expliquer pourquoi il est impossible de
+        \og lister\fg\ tous les r\'eels de $[0,1]$.
+\end{enumerate}
+\end{challenge}
+
+\begin{probleme}[\logicoalgo\ Logique et calcul alg\'ebrique \corrigeP]{2}
+Les propositions suivantes portent sur des r\'eels $x$ et $y$.
+\begin{enumerate}
+  \item \'Enoncer la n\'egation de~:
+        \og Pour tout r\'eel $x$, $x^2 \geq 0$.\fg
+        Puis v\'erifier que la proposition originale est vraie.
+  \item \'Enoncer la contrapos\'ee de~:
+        \og Si $x^2 = 0$ alors $x = 0$.\fg
+        D\'emontrer la contrapos\'ee.
+  \item \'Enoncer sous forme logique~:
+        \og $ax^2+bx+c=0$ a deux racines distinctes si et seulement si
+        $\Delta > 0$.\fg
+        Quelle est la r\'eciproque~? Est-elle vraie~?
+  \item \'Enoncer la n\'egation de \og $\exists x\in\R,\ x^2+1=0$\fg\ et
+        v\'erifier que la n\'egation est vraie.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logicoalgo\ Algorithme et divisibilit\'e \corrigeP]{2}
+On cherche tous les entiers $n$ entre $1$ et $100$ divisibles par $3$ mais pas par $9$.
+
+\begin{algorithm}[H]
+\caption{Divisible par 3 mais pas par 9}
+\KwIn{rien (on examine $n = 1, \ldots, 100$)}
+\Pour{$n \leftarrow 1$ \KwTo $100$}{
+  \Si{$n \mod 3 = 0$ \textbf{et} $n \mod 9 \ne 0$}{
+    \Afficher $n$\;
+  }
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item La condition \og$n\mod3=0$ et $n\mod9\ne0$\fg\ est-elle
+        \'equivalente \`a \og$3\mid n$ et $9\nmid n$\fg~? Justifier.
+  \item \'Enoncer la n\'egation de cette condition.
+  \item Ex\'ecuter l'algorithme pour $n\in\{3,6,9,12,18,21\}$.
+  \item Combien d'entiers entre $1$ et $100$ v\'erifient cette condition~?
+        Donner la r\'eponse avec un argument logique sans tout \'enum\'erer.
+\end{enumerate}
+\end{probleme}
+
+\begin{challenge}[Raisonnement par l'absurde~: deux preuves classiques]
+\begin{enumerate}
+  \item \textbf{Infinit\'e des multiples de $7$.}
+        On suppose par l'absurde qu'il n'existe qu'un nombre fini de
+        multiples de $7$~: $7, 14, 21, \ldots, 7k$ (le plus grand).
+        Montrer que $7(k+1)$ est aussi un multiple de $7$, et conclure.
+  \item \textbf{Il n'y a pas de plus grand entier.}
+        Supposons qu'il existe un plus grand entier $N$.
+        D\'eriver une contradiction.
+  \item \textbf{$\sqrt{5}$ est irrationnel.}
+        Adapter la preuve de $\sqrt{2}$ (exercice~\hyperref[exo:1.29]{1.29})~:
+        si $\sqrt{5}=p/q$ irr\'eductible, montrer que $5\mid p$
+        puis $5\mid q$.
+  \item \textbf{Il n'existe pas deux r\'eels cons\'ecutifs.}
+        Montrer que pour tous $a < b$ r\'eels, il existe toujours
+        un r\'eel $c$ v\'erifiant $a < c < b$.
+        \emph{(Indication~: prendre $c = (a+b)/2$.)}
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Construire un syst\`eme de r\`egles logiques]
+La r\`egle du \emph{modus ponens}\index{modus ponens} dit~:
+si l'on sait que $P$ est vraie, et que $P \Rightarrow Q$ est vraie,
+alors on peut conclure que $Q$ est vraie.
+\begin{enumerate}
+  \item Appliquer le modus ponens dans les situations suivantes~:
+        \begin{itemize}
+          \item $P$~: \og Il pleut.\fg\quad
+                $P\Rightarrow Q$~: \og S'il pleut, le sol est mouill\'e.\fg\\
+                Conclure~?
+          \item $P$~: \og $n$ est divisible par $6$.\fg\quad
+                $P\Rightarrow Q$~: \og Si $n$ est divisible par $6$, il est
+                divisible par $2$.\fg\quad Conclure~?
+        \end{itemize}
+  \item Cha\^ine de raisonnement~: on dispose de~:
+        (1)~$P$, \quad (2)~$P\Rightarrow Q$, \quad (3)~$Q\Rightarrow R$.
+        D\'eduire $R$ en appliquant deux fois le modus ponens.
+  \item Montrer que le syll\-o\-gisme (si tous les $A$ sont des $B$,
+        et si tous les $B$ sont des $C$, alors tous les $A$ sont des $C$)
+        est une application du modus ponens avec des quantificateurs.
+  \item Construire soi-m\^eme un enchanement de $3$ implications vraies
+        m\^enant d'une hypoth\`ese de d\'epart \`a une conclusion non triviale.
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Proposition} : \'enonc\'e vrai ou faux
+        (pas un pr\'edicat, ni un ordre).
+  \item \textbf{Connecteurs} :
+        $\lnot$ (non), $\land$ (et), $\lor$ (ou inclusif),
+        $\Rightarrow$ (implique), $\Leftrightarrow$ (\'equivaut).
+  \item \textbf{Implication} : fausse \emph{uniquement} quand
+        $P=\vrai$ et $Q=\faux$.
+  \item \textbf{Contrapos\'ee} : $P\Rightarrow Q\equiv\lnot Q\Rightarrow\lnot P$. \\
+        La r\'eciproque $Q\Rightarrow P$ n'est pas \'equivalente.
+  \item \textbf{Quantificateurs} : $\forall$ et $\exists$.
+        N\'egation : $\lnot\forall \equiv \exists\lnot$ ;
+        $\lnot\exists \equiv \forall\lnot$.
+  \item \textbf{De Morgan} :
+        $\lnot(P\land Q)\equiv\lnot P\lor\lnot Q$ ;
+        $\lnot(P\lor Q)\equiv\lnot P\land\lnot Q$.
+  \item \textbf{Raisonnements} : direct, contrapos\'ee, absurde.
+        Un seul contre-exemple r\'efute un $\forall$.
+\end{itemize}
+\end{bilan}
+
+%% ════════════════════════════════════════════════════════════════

@@ -5,13 +5,15 @@ pour le lycée à Madagascar, rédigés en LaTeX.
 
 ## Version courante : 1.1
 
-Trois manuels, six PDF, deux éditions chacun — élève et professeur.
+Trois manuels de Terminale publiés, auxquels s'ajoute un manuel T10
+complet, avec ses deux éditions — élève et professeur.
 
 | Manuel | Élève | Professeur | Exercices | Devoirs surveillés |
 |---|---|---|---|---|
 | Terminale S | 224 p. | 286 p. | 248 + 177 d'annales | 18 |
 | Terminale L | 136 p. | 170 p. | 281 + 64 d'annales | 4 |
 | Terminale OSE | 178 p. | 210 p. | 159 + 85 d'annales | — |
+| T10 (Seconde) | 295 p. | 469 p. | 42 exercices et 8 problèmes dans la banque | Banque modulable |
 
 Ce que la version 1.1 apporte, en trois lignes : la série S tient désormais
 sans exception la règle « pas de question avant la notion », gagne un devoir
@@ -26,7 +28,7 @@ Le détail, manuel par manuel, est dans le **[journal des versions](CHANGELOG.md
 
 | Dossier | Description |
 |---|---|
-| `Livres/` | Sources LaTeX des manuels : `T12-S`, `T12-L`, `T12-OSE` |
+| `Livres/` | Sources LaTeX des manuels : `T10`, `T11-S`, `T12-S`, `T12-L`, `T12-OSE` |
 | `Sujets/` | Sujets de BAC (officiels et blancs) et de concours ENI |
 | `PSE/` | Programmes scolaires, répartitions annuelles et documents d'accompagnement |
 | `Captures/`, `captureTsymety/` | Captures d'écran de travail |

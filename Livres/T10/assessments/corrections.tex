@@ -1,0 +1,424 @@
+\chapter*{Corrigés de la banque d'exercices et de problèmes}
+\addcontentsline{toc}{chapter}{Corrigés de la banque d'exercices et de problèmes}
+
+\section*{Repère diagnostique}
+
+\paragraph{Calculs et méthodes de base.}
+\begin{enumerate}
+  \item $A=-\dfrac1{12}$ et $B=\dfrac{31}{24}$.
+  \item $2^3\times2^{-5}=2^{-2}=\dfrac14$ et $\sqrt{81}=9$.
+  \item $(x+3)(x-2)=x^2+x-6$ et $4x^2-12x=4x(x-3)$.
+  \item $7x-5=16\iff x=3$.
+\end{enumerate}
+
+\paragraph{Repérage, vecteurs et données.}
+\begin{enumerate}
+  \item $\vv{AB}=(4;3)$.
+  \item $I\left(1;\dfrac72\right)$.
+  \item $AB=\sqrt{4^2+3^2}=5$.
+  \item Moyenne $9$, médiane $8$ et étendue $7$.
+\end{enumerate}
+
+\section*{Logique et algorithmique}
+
+\paragraph{Propositions et valeurs de vérité.}
+$P$ et $R$ sont des propositions vraies. $Q$ est un prédicat : sa valeur
+dépend de $x$. Avec $x=5$, la phrase devient la proposition vraie $5+4=9$.
+
+\paragraph{Connecteurs logiques.}
+\begin{enumerate}
+  \item $P\land Q$ : « $n$ est pair et multiple de $3$ » ;
+  $P\lor Q$ : « $n$ est pair ou multiple de $3$ ».
+  \item Par exemple $n=6$.
+  \item Par exemple $n=2$ ou $n=3$.
+  \item « $n$ n'est ni pair ni multiple de $3$ ».
+\end{enumerate}
+
+\paragraph{Implication et équivalence.}
+\begin{enumerate}
+  \item $P\Rightarrow Q$ est vraie : tout multiple de $4$ est pair.
+  \item $Q\Rightarrow P$ est fausse ; $n=2$ est un contre-exemple.
+  \item $P$ et $Q$ ne sont pas équivalentes.
+  \item « Si $n$ n'est pas pair, alors $n$ n'est pas multiple de $4$ ».
+\end{enumerate}
+
+\paragraph{Quantificateurs et négations.}
+\begin{enumerate}
+  \item $\forall x\in\R,\ x^2\geq0$.
+  \item $\exists x\in\R,\ x^2=7$.
+  \item Les négations sont $\exists x\in\R,\ x^2<0$ et
+  $\forall x\in\R,\ x^2\neq7$.
+  \item Les deux propositions initiales sont vraies.
+\end{enumerate}
+
+\paragraph{Exécution d'un algorithme conditionnel.}
+\begin{center}
+\begin{tabular}{c|ccc}
+$x$ & $-3$ & $-\frac12$ & $2$\\ \hline
+$y$ & $-5$ & $0$ & $5$\\
+$z$ & $5$ & $0$ & $5$
+\end{tabular}
+\end{center}
+L'algorithme calcule $|2x+1|$. Pour distinguer les trois cas : tester
+d'abord $y>0$, puis $y<0$, et traiter enfin $y=0$.
+
+\paragraph{Boucle et cumul.}
+\[
+\begin{array}{c|ccccc}
+k&1&2&3&4&5\\ \hline
+S&2&6&12&20&30
+\end{array}
+\]
+Pour $n$, répéter $S\leftarrow S+2k$ pour $k=1,\ldots,n$. Pour les impairs
+de $1$ à $9$, répéter $S\leftarrow S+(2k-1)$ pour $k=1,\ldots,5$ ;
+la somme vaut $25$.
+
+\paragraph{Concevoir un algorithme.}
+Tester le reste de la division de $n$ par $2$. Pour $k=1,\ldots,5$, afficher
+$kn$. Avec $n=6$, on obtient $6,12,18,24,30$. La variable $k$ compte les
+passages et fournit le rang du multiple.
+
+\section*{Nombres réels et calculs}
+
+\paragraph{Ensembles de nombres.}
+$-5\in\Z$, $\frac73\in\Q$, $0{,}125\in\D$, $\sqrt{49}=7\in\N$ et
+$\sqrt2\in\R\setminus\Q$. L'ordre est
+\[
+ -5<0{,}125<\sqrt2<\frac73<7,
+\]
+et $\sqrt2\approx1{,}41$.
+
+\paragraph{Fractions et priorités opératoires.}
+\[
+ A=\frac7{12},\qquad B=\frac{29}{21},\qquad C=2.
+\]
+Comme $7\times21<29\times12$, on a $A<B$.
+
+\paragraph{Puissances et écriture scientifique.}
+\begin{enumerate}
+  \item $2^3\times2^{-5}=\dfrac14$ et $\dfrac{3^7}{3^4}=27$.
+  \item $0{,}000\,072=7{,}2\times10^{-5}$.
+  \item $5{,}4\times10^6=5\,400\,000$.
+  \item $D=2=2\times10^0$.
+\end{enumerate}
+
+\paragraph{Radicaux.}
+\[
+\sqrt{48}=4\sqrt3,\quad \sqrt{75}=5\sqrt3,\quad \sqrt{147}=7\sqrt3.
+\]
+L'expression réduite vaut $4\sqrt3$, le produit vaut $1$, et
+$3\sqrt2<\sqrt{20}$ car $18<20$.
+
+\paragraph{Intervalles et valeur absolue.}
+\begin{enumerate}
+  \item $[-2;5[$.
+  \item $x\leq3$ ou $x\geq7$.
+  \item $|x-1|\leq3\iff x\in[-2;4]$.
+  \item $|2x+1|>5\iff x<-3$ ou $x>2$.
+\end{enumerate}
+
+\paragraph{Encadrements et valeurs approchées.}
+\[
+5<\sqrt{30}<6,\qquad 7<2\sqrt{30}-3<9.
+\]
+De $1{,}414<\sqrt2<1{,}415$, on tire
+$8{,}070<5\sqrt2+1<8{,}075$. Au centième,
+$5\sqrt2+1\approx8{,}07$.
+
+\section*{Équations, inéquations et polynômes}
+
+\paragraph{Trinôme : discriminant et racines.}
+$a=2$, $b=-5$, $c=-3$ et $\Delta=49$. Les racines sont
+$-\dfrac12$ et $3$, donc
+\[
+ f(x)=(2x+1)(x-3).
+\]
+
+\paragraph{Forme canonique et variations.}
+\[
+ g(x)=(x-3)^2-4=(x-1)(x-5).
+\]
+Le sommet est $S(3;-4)$. La fonction décroît sur $]-\infty;3]$ puis croît
+sur $[3;+\infty[$. Enfin, $g(x)\leq0$ pour $x\in[1;5]$.
+
+\paragraph{Étude du signe d'un trinôme.}
+\[
+ h(x)=-2(x-1)(x-3).
+\]
+Les racines sont $1$ et $3$. Le trinôme est positif sur $]1;3[$ et négatif
+sur $]-\infty;1[\cup]3;+\infty[$. Ainsi,
+$h(x)\leq0$ sur $]-\infty;1]\cup[3;+\infty[$.
+
+\paragraph{Polynôme du troisième degré.}
+$P(1)=0$ et
+\[
+ P(x)=(x-1)(x^2-x-6)=(x+2)(x-1)(x-3).
+\]
+Les solutions sont $-2$, $1$ et $3$. Le signe est successivement
+$-$, $+$, $-$, $+$ sur les intervalles délimités par ces trois racines.
+
+\paragraph{Équation rationnelle.}
+Les valeurs interdites sont $-1$ et $3$. Le produit en croix donne
+\[
+(2x-1)(x+1)=(x+2)(x-3)
+\iff x^2+2x+5=0.
+\]
+Le discriminant vaut $-16$ : l'équation n'a pas de solution réelle.
+
+\paragraph{Inéquation rationnelle.}
+La valeur interdite est $-1$ et le numérateur s'annule en $2$.
+Le quotient est positif ou nul sur
+\[
+ ]-\infty;-1[\ \cup\ [2;+\infty[.
+\]
+
+\section*{Géométrie analytique et vecteurs}
+
+\paragraph{Équation cartésienne d'une droite.}
+$\vv{AB}=(4;2)$ ; un vecteur normal est $(1;-2)$. Une équation de $(AB)$ est
+\[
+ x-2y+3=0.
+\]
+
+\paragraph{Formes d'une équation de droite.}
+Un vecteur directeur est $(1;2)$ et l'équation réduite est $y=2x+3$.
+Une représentation paramétrique est
+\[
+ x=t,\qquad y=2t+3.
+\]
+Les intersections avec les axes sont $\left(-\frac32;0\right)$ et $(0;3)$.
+
+\paragraph{Parallélisme et perpendicularité.}
+\[
+ d_1:3x-2y-8=0,\qquad d_2:2x+3y-1=0.
+\]
+Le point d'intersection de $d$ et $d_2$ est
+\[
+ \left(-\frac{10}{13};\frac{11}{13}\right).
+\]
+
+\paragraph{Intersection de deux droites.}
+Les vecteurs normaux ne sont pas colinéaires. La résolution du système donne
+\[
+ x=\frac{16}{7},\qquad y=\frac{17}{7}.
+\]
+
+\paragraph{Équation d'un cercle.}
+Le centre est $\Omega(2;-1)$ et le rayon vaut $4$. Le point $A(2;3)$
+appartient au cercle. Pour $B(6;2)$, le carré de la distance au centre vaut
+$25>16$ : $B$ est extérieur. L'équation développée est
+\[
+ x^2+y^2-4x+2y-11=0.
+\]
+
+\paragraph{Retrouver un cercle.}
+\[
+\Omega(1;3),\qquad r=\sqrt{13},\qquad
+(x-1)^2+(y-3)^2=13.
+\]
+Pour $M(1;5)$, le carré de la distance au centre vaut $4$ : $M$ est intérieur
+au cercle mais ne lui appartient pas.
+
+\paragraph{Intersection d'une droite et d'un cercle.}
+Avec $y=3$, on obtient $x^2=16$. Les points d'intersection sont
+$(-4;3)$ et $(4;3)$ ; la corde mesure $8$. La distance du centre à la droite
+vaut $3<5$, ce qui confirme que la droite est sécante.
+
+\paragraph{Colinéarité et alignement.}
+\[
+\vv{AB}=(3;2),\qquad \vv{AC}=(6;4)=2\vv{AB}.
+\]
+Les trois points sont alignés et $k=2$.
+
+\paragraph{Produit scalaire et nature d'un triangle.}
+\[
+\vv{AB}=(4;2),\qquad \vv{AC}=(2;-4),\qquad
+\vv{AB}\cdot\vv{AC}=0.
+\]
+De plus, $AB=AC=2\sqrt5$. Le triangle est rectangle isocèle en $A$.
+
+\section*{Fonctions et trigonométrie}
+
+\paragraph{Domaine et images.}
+\[
+D_f=[-2;+\infty[,\qquad D_g=\R\setminus\{3\},\qquad
+f(2)=2,\qquad g(5)=\frac12.
+\]
+$f(x)=2$ donne $x=2$. Le nombre $3$ n'appartient pas à $D_g$ car il annule
+le dénominateur.
+
+\paragraph{Fonctions de référence.}
+$x^2$, $x^3$ et $|x|$ sont définies sur $\R$ ; $\sqrt{x}$ est définie sur
+$[0;+\infty[$. Les fonctions $x^2$ et $|x|$ sont paires ; $x^3$ est impaire.
+$x^2$ et $|x|$ décroissent puis croissent autour de $0$ ; $x^3$ et
+$\sqrt{x}$ sont croissantes sur leur domaine. Les solutions sont
+$x=\pm2$ pour $x^2=4$ et $x=\pm3$ pour $|x|=3$.
+
+\paragraph{Lecture d'un tableau de variations.}
+Le minimum est $-2$, atteint en $x=1$. Comme $f$ est décroissante sur
+$[-4;1]$, $f(-3)>f(0)$. Les données ne suffisent pas pour comparer
+$f(0)$ et $f(3)$, situés sur deux branches différentes.
+
+\paragraph{Fonction valeur absolue.}
+\[
+f(-1)=2,\quad f(0)=1,\quad f(2)=-1,\quad f(5)=2.
+\]
+Les zéros sont $1$ et $3$, et $f(x)\leq0$ sur $[1;3]$. La fonction décroît
+sur $]-\infty;2]$ puis croît sur $[2;+\infty[$.
+
+\paragraph{Fonction quadratique.}
+\[
+g(x)=(x-2)^2-1=(x-1)(x-3).
+\]
+Le sommet est $(2;-1)$, l'axe est $x=2$, la fonction décroît puis croît autour
+de $2$, et $g(x)\leq0$ sur $[1;3]$.
+
+\paragraph{Angles et cercle trigonométrique.}
+\[
+150^\circ=\frac{5\pi}{6},\qquad -45^\circ=-\frac{\pi}{4},
+\qquad \frac{5\pi}{6}=150^\circ,\qquad \frac{7\pi}{4}=315^\circ.
+\]
+Une mesure principale de $\dfrac{17\pi}{6}$ est $\dfrac{5\pi}{6}$.
+
+\paragraph{Valeurs trigonométriques.}
+\[
+\cos\frac{2\pi}{3}=-\frac12,\quad
+\sin\frac{2\pi}{3}=\frac{\sqrt3}{2},\quad
+\cos\frac{5\pi}{6}=-\frac{\sqrt3}{2},\quad
+\sin\frac{5\pi}{6}=\frac12.
+\]
+Dans le deuxième quadrant, $\cos\theta=-\dfrac45$ puis
+$\tan\theta=-\dfrac34$.
+
+\section*{Statistique descriptive}
+
+\paragraph{Série brute.}
+L'effectif est $9$, le mode est $8$, la moyenne vaut $\dfrac{68}{9}\approx
+7{,}56$, la médiane vaut $8$ et l'étendue vaut $7$. En remplaçant $11$ par
+$20$, la moyenne augmente d'une unité et devient $\dfrac{77}{9}\approx8{,}56$.
+
+\paragraph{Tableau d'effectifs.}
+L'effectif total vaut $20$. Les fréquences sont $10\%$, $25\%$, $35\%$,
+$20\%$ et $10\%$. La moyenne vaut $9{,}9$ et la médiane vaut $10$.
+
+\paragraph{Variance et écart-type.}
+Pour la série complète :
+\[
+\bar x=3,\qquad V=\frac{21}{4}=5{,}25,\qquad
+\sigma=\frac{\sqrt{21}}2\approx2{,}29.
+\]
+Sans la valeur $8$ :
+\[
+\bar x=\frac{16}{7},\qquad V=\frac{94}{49},\qquad
+\sigma=\frac{\sqrt{94}}7\approx1{,}39.
+\]
+La valeur $8$ augmente la moyenne et la dispersion.
+
+\paragraph{Données regroupées en classes.}
+Les fréquences sont $10\%$, $25\%$, $45\%$ et $20\%$ ; les effectifs cumulés
+sont $4$, $14$, $32$ et $40$. La classe modale et la classe médiane sont
+$[10;15[$. Avec les centres :
+\[
+\bar x=11{,}25,\qquad V=\frac{315}{16}\approx19{,}69,\qquad
+\sigma\approx4{,}44.
+\]
+Ces valeurs sont estimées en remplaçant chaque observation par le centre de sa
+classe.
+
+\paragraph{Comparer deux distributions.}
+Les deux moyennes sont égales. La classe A est nettement moins dispersée.
+Sa médiane plus élevée indique qu'au moins la moitié de ses résultats atteint
+$12$, contre $11$ pour la classe B. Ces indicateurs ne permettent pas de
+reconstituer les distributions complètes.
+
+\section*{Problèmes de synthèse}
+
+\paragraph{Réservoir et algorithme.}
+\[
+V(1)=126,\qquad V(2)=132,\qquad V(n)=120+6n.
+\]
+Le premier entier tel que $V(n)>300$ est $31$. Le réservoir déborde à partir
+de la $41^{\mathrm e}$ minute.
+
+\paragraph{Tarifs de transport.}
+\[
+\begin{array}{c|cc}
+x&A(x)&B(x)\\ \hline
+5&5500&6250\\
+20&14500&13000
+\end{array}
+\]
+Les tarifs sont égaux pour $x=10$. Le tarif A est moins cher pour $x<10$ ;
+le tarif B est moins cher pour $x>10$. Le point d'intersection est
+$(10;8500)$.
+
+\paragraph{Cercle, droite et interprétation.}
+\[
+\vv{AB}=(4;2),\qquad (AB):x-2y+5=0,\qquad
+(AB)\cap d=\left(0;\frac52\right).
+\]
+Le cercle a pour centre $(1;1)$ et pour rayon $3$. Comme
+$\Omega B=\sqrt{13}>3$, $B$ est extérieur. Les intersections de $d$ et
+$\mathcal C$ sont
+\[
+\left(\frac{7-2\sqrt{41}}5;\frac{9+\sqrt{41}}5\right)
+\quad\text{et}\quad
+\left(\frac{7+2\sqrt{41}}5;\frac{9-\sqrt{41}}5\right).
+\]
+
+\paragraph{Terrain rectangulaire.}
+La longueur vaut $40-x$ et $0<x<40$. On a
+\[
+A(x)=x(40-x)=-(x-20)^2+400.
+\]
+L'aire maximale vaut $400$ m$^2$ pour un carré de $20$ m de côté.
+Pour une aire de $300$ m$^2$, les dimensions sont $10$ m et $30$ m.
+
+\paragraph{Boîte sans couvercle.}
+\[
+\begin{array}{c|rrrrrrrrr}
+x&1&2&3&4&5&6&7&8&9\\ \hline
+V(x)&684&1152&1428&1536&1500&1344&1092&768&396
+\end{array}
+\]
+Le plus grand volume entier est $1536$ cm$^3$, obtenu pour $x=4$ cm.
+La boucle teste $x=1,\ldots,9$ et conserve le plus grand volume rencontré.
+Elle ne teste pas les valeurs non entières.
+
+\paragraph{Organisation d'une enquête.}
+Les centres sont $2{,}5$, $7{,}5$, $12{,}5$ et $17{,}5$. Les fréquences,
+effectifs cumulés et estimations sont ceux de l'exercice sur les données
+regroupées :
+\[
+\bar x=11{,}25,\qquad V\approx19{,}69,\qquad \sigma\approx4{,}44.
+\]
+La classe modale et la classe médiane sont $[10;15[$. Les indicateurs restent
+approchés car les valeurs individuelles sont inconnues.
+
+\paragraph{Trajectoire et sécurité.}
+\[
+h(x)=-(x-3)^2+16.
+\]
+La hauteur maximale est $16$ m, atteinte pour $x=3$ m. Les racines sont
+$-1$ et $7$ ; dans le contexte, l'objet retombe à $x=7$ m. Comme $h(2)=15$,
+il franchit l'obstacle. Enfin, $h(x)\geq12$ pour $x\in[1;5]$.
+
+\paragraph{Cercle circonscrit.}
+\[
+I(1;1),\qquad 3x+y-4=0,
+\]
+\[
+J\left(-\frac12;\frac52\right),\qquad 3x+5y-11=0.
+\]
+Les médiatrices se coupent en
+\[
+\Omega\left(\frac34;\frac74\right).
+\]
+On vérifie que
+\[
+\Omega A^2=\Omega B^2=\Omega C^2=\frac{85}{8}.
+\]
+Une équation du cercle circonscrit est
+\[
+\left(x-\frac34\right)^2+\left(y-\frac74\right)^2=\frac{85}{8}.
+\]

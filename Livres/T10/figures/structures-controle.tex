@@ -1,0 +1,73 @@
+% Three independent flowcharts.  Keeping them on separate rows avoids the
+% collisions caused by the former single, scaled horizontal picture.
+\begin{tikzpicture}[scale=0.9,transform shape,
+  node distance=0.65cm and 1.6cm,
+  box/.style={draw=BN,fill=BN!8,rounded corners=3pt,minimum width=3.2cm,
+              minimum height=0.62cm,align=center,font=\small},
+  diam/.style={draw=OR,fill=OR!10,diamond,aspect=2.6,minimum width=3.1cm,
+               minimum height=0.62cm,align=center,font=\small},
+  io/.style={draw=VE,fill=VE!10,trapezium,trapezium left angle=75,
+             trapezium right angle=105,minimum width=2.8cm,minimum height=0.6cm,
+             align=center,font=\small},
+  arr/.style={-Stealth,BN,thick}]
+  \node[font=\small\bfseries,text=BN] (title) {Alternative};
+  \node[box,fill=BN,text=white,below=of title] (d1) {D\'ebut};
+  \node[io,below=of d1] (i1) {Saisir $a$, $b$};
+  \node[diam,below=of i1] (t1) {$a=0$~?};
+  \node[box,below left=0.7cm and 1.6cm of t1] (s1a) {Afficher\\\og pas de solution\fg};
+  \node[box,below right=0.7cm and 1.6cm of t1] (s1b)
+    {$x\leftarrow-\dfrac{b}{a}$\\Afficher $x$};
+  \node[box,fill=BN,text=white,below=2.45cm of t1] (f1) {Fin};
+  \draw[arr](d1)--(i1); \draw[arr](i1)--(t1);
+  \draw[arr](t1)--node[left,font=\scriptsize]{Oui}(s1a);
+  \draw[arr](t1)--node[right,font=\scriptsize]{Non}(s1b);
+  \draw[arr](s1a)|-(f1); \draw[arr](s1b)|-(f1);
+\end{tikzpicture}
+
+\medskip
+\begin{tikzpicture}[scale=0.9,transform shape,
+  node distance=0.65cm and 1.5cm,
+  box/.style={draw=BN,fill=BN!8,rounded corners=3pt,minimum width=3.2cm,
+              minimum height=0.62cm,align=center,font=\small},
+  diam/.style={draw=OR,fill=OR!10,diamond,aspect=2.6,minimum width=3.1cm,
+               minimum height=0.62cm,align=center,font=\small},
+  io/.style={draw=VE,fill=VE!10,trapezium,trapezium left angle=75,
+             trapezium right angle=105,minimum width=2.8cm,minimum height=0.6cm,
+             align=center,font=\small},
+  arr/.style={-Stealth,BN,thick}]
+  \node[font=\small\bfseries,text=BN] (title) {Boucle \og Tant que\fg};
+  \node[box,fill=BN,text=white,below=of title] (d2) {D\'ebut};
+  \node[io,below=of d2] (i2) {$S\leftarrow0$, $i\leftarrow1$};
+  \node[diam,below=of i2] (t2) {$i\leq n$~?};
+  \node[box,below right=0.7cm and 1.6cm of t2] (s2)
+    {$S\leftarrow S+i$\\$i\leftarrow i+1$};
+  \node[io,below left=0.7cm and 1.6cm of t2] (o2) {Afficher $S$};
+  \node[box,fill=BN,text=white,below=of o2] (f2) {Fin};
+  \draw[arr](d2)--(i2); \draw[arr](i2)--(t2);
+  \draw[arr](t2)--node[above right,font=\scriptsize]{Oui}(s2);
+  \draw[arr](t2)--node[above left,font=\scriptsize]{Non}(o2);
+  \draw[arr](s2.east)--++(0.65,0)|-(t2.east);
+  \draw[arr](o2)--(f2);
+\end{tikzpicture}
+
+\medskip
+\begin{tikzpicture}[scale=0.9,transform shape,
+  node distance=0.55cm,
+  box/.style={draw=BN,fill=BN!8,rounded corners=3pt,minimum width=3.2cm,
+              minimum height=0.58cm,align=center,font=\small},
+  io/.style={draw=VE,fill=VE!10,trapezium,trapezium left angle=75,
+             trapezium right angle=105,minimum width=2.8cm,minimum height=0.58cm,
+             align=center,font=\small},
+  arr/.style={-Stealth,BN,thick}]
+  \node[font=\small\bfseries,text=BN] (title) {Boucle \og Pour\fg};
+  \node[box,fill=BN,text=white,below=of title] (d3) {D\'ebut};
+  \node[io,below=of d3] (i3) {$S\leftarrow0$};
+  \node[box,below=of i3] (fo) {Pour $i=1$ \`a $n$};
+  \node[box,below=of fo] (s3) {$S\leftarrow S+i$};
+  \node[io,below=of s3] (o3) {Afficher $S$};
+  \node[box,fill=BN,text=white,below=of o3] (f3) {Fin};
+  \draw[arr](d3)--(i3); \draw[arr](i3)--(fo);
+  \draw[arr](fo)--(s3); \draw[arr](s3)--(o3);
+  \draw[arr](s3.east)--++(0.75,0)|-(fo.east);
+  \draw[arr](o3)--(f3);
+\end{tikzpicture}

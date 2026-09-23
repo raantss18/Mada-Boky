@@ -1,0 +1,1138 @@
+\part{G\'eom\'etrie}
+
+%% ════════════════════════════════════════════════════════════════
+\chapter{Vecteurs du plan}
+\input{activities/05-vecteurs}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[Hermann Grassmann et l'alg\`ebre vectorielle]
+En $1844$, Hermann Grassmann publia \textit{Die Ausdehnungslehre}, introduisant
+les espaces vectoriels en toute g\'en\'eralit\'e --- une id\'ee tellement en avance
+sur son temps que peu de contemporains la comprirent. Aujourd'hui, les vecteurs
+sont au c\oe ur de la physique, de l'infographie et de l'intelligence artificielle.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Conna\^itre les caract\'eristiques d'un vecteur (direction, sens, norme).
+  \item Ma\^itriser l'addition vectorielle et la multiplication par un scalaire.
+  \item Calculer et utiliser le produit scalaire.
+  \item D\'emontrer colin\'earit\'e et orthogonalit\'e.
+\end{itemize}
+\end{objectifs}
+
+\section{G\'en\'eralit\'es}
+
+\begin{defn}[Vecteur]
+Un \textbf{vecteur} $\vv{AB}$ est d\'efini par sa \textbf{direction},
+son \textbf{sens} et sa \textbf{norme} $\norme{\vv{AB}} = AB$.
+Deux vecteurs sont \textbf{\'egaux} s'ils ont m\^{e}me direction, sens et norme.
+\end{defn}
+
+\begin{prop}[Milieu]
+$I$ est le milieu de $[AB]$ si et seulement si
+$\vv{IA} + \vv{IB} = \vv{0}$.
+\end{prop}
+
+\section{Produit scalaire}
+
+\begin{defn}[Produit scalaire]
+Soient $\vec{u}=(x_1,y_1)$ et $\vec{v}=(x_2,y_2)$ :
+$$\vec{u} \cdot \vec{v} = x_1 x_2 + y_1 y_2
+  = \norme{\vec{u}}\,\norme{\vec{v}}\cos\theta,$$
+o\`u $\theta$ est l'angle entre $\vec{u}$ et $\vec{v}$.
+\end{defn}
+
+\begin{prop}[Orthogonalit\'e et colin\'earit\'e]
+\begin{itemize}
+  \item $\vec{u} \perp \vec{v} \Leftrightarrow \vec{u}\cdot\vec{v}=0$.
+  \item $\vec{u} \parallel \vec{v} \Leftrightarrow x_1 y_2 - x_2 y_1 = 0$.
+\end{itemize}
+\end{prop}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.15]
+  \draw[-Stealth,BN,very thick] (0,0)--(3,1)
+    node[midway,above,font=\small,text=BN] {$\vec{u}$};
+  \draw[-Stealth,OR,very thick] (0,0)--(1.2,2.4)
+    node[midway,left,font=\small,text=OR] {$\vec{v}$};
+  \draw[-Stealth,VE,very thick] (0,0)--(4.2,3.4)
+    node[midway,right,font=\small,text=VE] {$\vec{u}+\vec{v}$};
+  \draw[dashed,BN!40] (3,1)--(4.2,3.4);
+  \draw[dashed,OR!40] (1.2,2.4)--(4.2,3.4);
+  \fill[BN] (0,0) circle (2pt) node[below left,font=\small] {$O$};
+  \draw[GM,-Stealth] (0.65,0.22) arc[start angle=18,end angle=63,radius=0.7cm];
+  \node[GM,font=\small] at (0.85,0.65) {$\theta$};
+\end{tikzpicture}
+\caption{Addition de vecteurs et angle form\'e.}
+\end{figure}
+
+
+\section{Op\'erations sur les vecteurs}
+
+\begin{defn}[Addition et multiplication par un scalaire]
+Soient $\vec{u}=(x_1,y_1)$, $\vec{v}=(x_2,y_2)$ et $\lambda\in\R$.
+$$\vec{u}+\vec{v} = (x_1+x_2,\, y_1+y_2),\qquad
+  \lambda\vec{u} = (\lambda x_1,\, \lambda y_1).$$
+Le vecteur $-\vec{u} = (-x_1,-y_1)$ est l'\textbf{oppos\'e} de $\vec{u}$.
+\end{defn}
+
+\begin{prop}[Propri\'et\'es de l'addition vectorielle]
+\begin{itemize}
+  \item \textbf{Commutativit\'e~:} $\vec{u}+\vec{v}=\vec{v}+\vec{u}$.
+  \item \textbf{Associativit\'e~:} $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$.
+  \item \textbf{\'El\'ement neutre~:} $\vec{u}+\vec{0}=\vec{u}$.
+  \item \textbf{Relation de Chasles~:} $\vv{AB}+\vv{BC}=\vv{AC}$.
+\end{itemize}
+\end{prop}
+
+\begin{methode}[Coordonn\'ees d'un vecteur]
+Si $A(x_A,y_A)$ et $B(x_B,y_B)$, alors~:
+$$\vv{AB} = (x_B-x_A,\; y_B-y_A),\qquad
+  \norme{\vv{AB}} = \sqrt{(x_B-x_A)^2+(y_B-y_A)^2}.$$
+\end{methode}
+
+\begin{defn}[Vecteurs colin\'eaires]
+\index{colinéarité}
+$\vec{u}=(x_1,y_1)$ et $\vec{v}=(x_2,y_2)$ sont \textbf{colin\'eaires}
+(m\^eme direction) si et seulement si~:
+$$x_1 y_2 - x_2 y_1 = 0.$$
+Cette expression s'appelle le \textbf{d\'eterminant} du couple $(\vec{u},\vec{v})$.
+\end{defn}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+  % Relation de Chasles: AB + BC = AC
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3,1.2);
+  \coordinate (C) at (4.5,-0.5);
+  % vectors
+  \draw[-Stealth,BN,very thick] (A)--(B)
+    node[midway,above left,font=\small] {$\vv{AB}$};
+  \draw[-Stealth,OR,very thick] (B)--(C)
+    node[midway,above right,font=\small] {$\vv{BC}$};
+  \draw[-Stealth,VE,very thick,shorten >=1pt] (A)--(C)
+    node[midway,below,font=\small] {$\vv{AC}=\vv{AB}+\vv{BC}$};
+  % points
+  \foreach \pt/\lbl/\pos in {A/{$A$}/below left, B/{$B$}/above, C/{$C$}/below right}{
+    \fill[BN] (\pt) circle (2pt);
+    \node[\pos,font=\small] at (\pt) {\lbl};
+  }
+  % second example: addition with parallelogram rule
+  \begin{scope}[xshift=7cm]
+    \coordinate (O) at (0,0);
+    \coordinate (U) at (2.5,0.8);
+    \coordinate (V) at (0.8,2);
+    \coordinate (W) at (3.3,2.8);
+    \draw[-Stealth,BN,very thick] (O)--(U)
+      node[midway,below right,font=\small] {$\vec{u}$};
+    \draw[-Stealth,OR,very thick] (O)--(V)
+      node[midway,left,font=\small] {$\vec{v}$};
+    \draw[-Stealth,VE,very thick] (O)--(W)
+      node[midway,above left,font=\small] {$\vec{u}+\vec{v}$};
+    \draw[dashed,BN!40] (U)--(W);
+    \draw[dashed,OR!40] (V)--(W);
+    \fill[BN] (O) circle (2pt);
+    \node[below left,font=\small] at (O) {$O$};
+  \end{scope}
+  % labels below
+  \node[font=\small,text=BN!70] at (2.2,-1.0)
+    {Relation de Chasles};
+  \node[font=\small,text=BN!70] at (9.4,-1.0)
+    {R\`egle du parall\'elogramme};
+\end{tikzpicture}
+\caption{Addition de vecteurs~: relation de Chasles (gauche)
+et r\`egle du parall\'elogramme (droite).}
+\end{figure}
+
+\begin{prop}[Isobarycentre et milieu]
+Le milieu $I$ de $[AB]$ a pour coordonn\'ees~:
+$I\!\left(\dfrac{x_A+x_B}{2},\; \dfrac{y_A+y_B}{2}\right).$
+
+\noindent
+Le centre de gravit\'e $G$ du triangle $ABC$ v\'erifie~:
+$\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$, et ses coordonn\'ees sont
+$G\!\left(\dfrac{x_A+x_B+x_C}{3},\; \dfrac{y_A+y_B+y_C}{3}\right).$
+\end{prop}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.0]
+  %% ── Gauche : règle du parallélogramme ─────────────────────
+  \draw[-Stealth,BN,very thick] (0,0)--(3,1)
+    node[midway,above,font=\small,text=BN] {$\vec{u}$};
+  \draw[-Stealth,OR,very thick] (0,0)--(1,2)
+    node[midway,left,font=\small,text=OR] {$\vec{v}$};
+  \draw[-Stealth,VE,very thick] (0,0)--(4,3)
+    node[pos=0.65,above right,font=\small,text=VE] {$\vec{u}+\vec{v}$};
+  \draw[dashed,BN!40] (3,1)--(4,3);
+  \draw[dashed,OR!40] (1,2)--(4,3);
+  \fill[BN] (0,0) circle (1.5pt);
+  \node[below left,font=\small] at (0,0) {$O$};
+  \node[font=\small,text=BN!60] at (2,-0.5) {Parallélogramme};
+  %% ── Droite : multiplication par un scalaire ──────────────
+  % séparateur vertical
+  \draw[BN!20,dashed] (5.0,-0.8)--(5.0,3.5);
+  % vecteur u entier
+  \draw[-Stealth,BN,thick] (5.8,0)--(5.8+2.8,0.93)
+    node[midway,below,font=\small,text=BN] {$\vec{u}$};
+  % demi-vecteur lambda*u, décalé au-dessus
+  \draw[-Stealth,TQ,thick] (5.8,1.4)--(5.8+1.4,1.4+0.47)
+    node[midway,above,font=\small,text=TQ] {$\tfrac{1}{2}\vec{u}$};
+  % vecteur -u, en dessous
+  \draw[-Stealth,BO,thick] (5.8,-0.8)--(5.8-2.8,-0.8-0.93)
+    node[midway,below,font=\small,text=BO] {$-\vec{u}$};
+  \fill[BN] (0,0) circle (1.5pt);
+  \node[font=\small,text=BN!60] at (7.8,-1.5) {Mult. par un scalaire};
+\end{tikzpicture}
+\caption{Gauche~: addition de vecteurs (r\`egle du parall\'elogramme).
+Droite~: multiplication de $\vec{u}$ par un scalaire~: $\frac{1}{2}\vec{u}$
+(demi-vecteur, bleu)~; $-\vec{u}$ (oppos\'e, rouge).}
+\end{figure}
+
+\section{Rep\`ere et coordonn\'ees}
+
+\begin{defn}[Rep\`ere orthonorm\'e]
+\index{repère orthonormé}
+Un \textbf{rep\`ere orthonorm\'e} $(O, \vec{\imath}, \vec{\jmath})$ est form\'e d'un
+point $O$ (origine) et de deux vecteurs perpendiculaires de norme $1$.
+Tout vecteur $\vec{u}$ s'\'ecrit $\vec{u} = x\vec{\imath} + y\vec{\jmath}$~;
+$(x,y)$ sont les \textbf{coordonn\'ees} de $\vec{u}$.
+\end{defn}
+
+\begin{methode}[D\'emontrer que des points sont align\'es]
+\index{alignement}
+$A$, $B$, $C$ sont align\'es ssi $\vv{AB}$ et $\vv{AC}$ sont colin\'eaires, c'est-\`a-dire~:
+$$\det(\vv{AB}, \vv{AC})
+  = (x_B-x_A)(y_C-y_A) - (x_C-x_A)(y_B-y_A) = 0.$$
+\end{methode}
+
+\begin{methode}[D\'emontrer qu'un quadrilat\`ere est un parall\'elogramme]
+$ABCD$ est un parall\'elogramme ssi $\vv{AB} = \vv{DC}$
+(ou, de mani\`ere \'equivalente, si les diagonales se coupent en leur milieu).
+\end{methode}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Calcul de base}
+
+\begin{exo}[Coordonn\'ees et norme \corrige]{1}
+On donne $A(1,2)$, $B(4,6)$, $C(-1,0)$, $D(3,-2)$.
+\begin{enumerate}
+  \item Calculer $\vv{AB}$, $\vv{BA}$, $\vv{AC}$, $\vv{CD}$.
+  \item Calculer $\norme{\vv{AB}}$, $\norme{\vv{AC}}$, $\norme{\vv{CD}}$.
+  \item Calculer les coordonn\'ees du milieu $M$ de $[AB]$.
+  \item Calculer le centre de gravit\'e $G$ du triangle $ABC$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Op\'erations vectorielles \corrige]{1}
+On pose $\vec{u}=(2,-1)$ et $\vec{v}=(-1,3)$.
+\begin{enumerate}
+  \item Calculer $\vec{u}+\vec{v}$, $\vec{u}-\vec{v}$,
+        $2\vec{u}+3\vec{v}$, $\vec{u}-2\vec{v}$.
+  \item Calculer $\norme{\vec{u}}$, $\norme{\vec{v}}$,
+        $\norme{\vec{u}+\vec{v}}$.
+  \item V\'erifier l'in\'egalit\'e triangulaire~:
+        $\norme{\vec{u}+\vec{v}} \leq \norme{\vec{u}}+\norme{\vec{v}}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Produits scalaires \corrige]{1}
+Calculer le produit scalaire, puis l'angle entre les vecteurs~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\vec{u}=(3,4)$, $\vec{v}=(1,-2)$
+  \item $\vec{u}=(2,1)$, $\vec{v}=(-1,2)$
+  \item $\vec{u}=(5,0)$, $\vec{v}=(0,7)$
+  \item $\vec{u}=(1,1)$, $\vec{v}=(1,-1)$
+  \item $\vec{u}=(3,0)$, $\vec{v}=(0,-4)$
+  \item $\vec{u}=(1,\sqrt{3})$, $\vec{v}=(\sqrt{3},1)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Parall\'elogramme \corrige]{1}
+V\'erifier que $ABCD$ est un parall\'elogramme avec~:
+\begin{enumerate}
+  \item $A(1,1)$, $B(4,3)$, $C(3,0)$, $D(0,-2)$.
+  \item $A(-1,2)$, $B(3,4)$, $C(5,1)$, $D(1,-1)$.
+\end{enumerate}
+Pour chacun, calculer les longueurs des c\^ot\'es et des diagonales.
+\end{exo}
+
+\begin{exo}[Orthogonalit\'e \corrige]{1}
+D\'eterminer la valeur de $k$ telle que $\vec{u}$ et $\vec{v}$ soient orthogonaux~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\vec{u}=(k,3)$, $\vec{v}=(2,k-1)$
+  \item $\vec{u}=(k,2k)$, $\vec{v}=(4,k)$
+  \item $\vec{u}=(1,k)$, $\vec{v}=(k,9)$
+  \item $\vec{u}=(k+1,2)$, $\vec{v}=(3,k-1)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Colin\'earit\'e et alignement \corrige]{1}
+\begin{enumerate}
+  \item D\'eterminer si les vecteurs sont colin\'eaires~:
+        $\vec{u}=(2,4)$ et $\vec{v}=(1,2)$~;
+        $\vec{u}=(3,1)$ et $\vec{v}=(6,3)$~;
+        $\vec{u}=(1,-2)$ et $\vec{v}=(2,4)$.
+  \item Les points $A(1,2)$, $B(3,6)$, $C(5,10)$ sont-ils align\'es~?
+  \item Les points $P(0,1)$, $Q(2,4)$, $R(4,8)$ sont-ils align\'es~?
+  \item D\'eterminer $k$ pour que $A(1,0)$, $B(k,2)$, $C(3,4)$ soient align\'es.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Relation de Chasles \corrige]{1}
+\index{relation de Chasles}
+En utilisant la relation de Chasles, simplifier~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\vv{AB}+\vv{BC}$
+  \item $\vv{AB}+\vv{BC}+\vv{CA}$
+  \item $\vv{MA}+\vv{AB}+\vv{BM}$
+  \item $\vv{AB}-\vv{AC}$
+  \item $\vv{OA}+\vv{OB}+\vv{OC}$ quand $G=O$ est le centre de gravité de $ABC$.
+  \item $2\vv{GA}+2\vv{GB}+2\vv{GC}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Norme et distance \corrige]{1}
+On donne $A(-2,3)$, $B(4,-1)$, $C(1,5)$.
+\begin{enumerate}
+  \item Calculer les longueurs $AB$, $BC$, $CA$.
+  \item Le triangle $ABC$ est-il \'equilat\'eral~? Isoc\`ele~?
+  \item Calculer le p\'erim\`etre du triangle.
+  \item Trouver les coordonn\'ees du milieu de chaque c\^ot\'e.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Vecteur directeur d'une droite \corrige]{1}
+\index{vecteur directeur}
+Un vecteur directeur d'une droite est un vecteur non nul parall\`ele
+\`a cette droite.
+\begin{enumerate}
+  \item La droite $y = 2x - 1$ a pour vecteur directeur $(1, 2)$.
+        V\'erifier.
+  \item Donner un vecteur directeur de la droite $y = -3x + 5$.
+  \item Donner un vecteur directeur de la droite $2x - y + 1 = 0$.
+  \item Deux droites de vecteurs directeurs $\vec{u}$ et $\vec{v}$
+        sont parall\`eles ssi $\vec{u}$ et $\vec{v}$ sont colin\'eaires.
+        D\'eterminer si les droites $y=2x+1$ et $4x-2y-3=0$ sont parall\`eles.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Vecteur normal \`a une droite \corrige]{1}
+\index{vecteur normal}
+Un vecteur \textbf{normal} \`a une droite lui est perpendiculaire.
+\begin{enumerate}
+  \item La droite $ax+by+c=0$ a pour vecteur normal $(a,b)$.
+        V\'erifier pour $2x-3y+1=0$.
+  \item Donner un vecteur normal \`a $y = x+1$.
+  \item Deux droites sont perpendiculaires ssi leurs vecteurs normaux sont
+        perpendiculaires. D\'eterminer si $x+2y=0$ et $2x-y+3=0$ sont perpendiculaires.
+  \item \'Ecrire l'\'equation d'une droite passant par $A(1,2)$ et
+        de vecteur normal $(3,-1)$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Formulaires vectoriels \corrige]{1}
+Calculer, sachant que $\norme{\vec{u}}=3$, $\norme{\vec{v}}=4$
+et $\vec{u}\cdot\vec{v}=6$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\norme{\vec{u}+\vec{v}}^2$
+  \item $\norme{\vec{u}-\vec{v}}^2$
+  \item $(\vec{u}+\vec{v})\cdot(\vec{u}-\vec{v})$
+  \item $\norme{2\vec{u}-\vec{v}}^2$
+  \item L'angle entre $\vec{u}$ et $\vec{v}$
+  \item $\norme{\vec{u}+\vec{v}}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Construction de figures par vecteurs \corrige]{1}
+On donne $A(0,0)$, $B(4,0)$, $C(2,3)$.
+\begin{enumerate}
+  \item Calculer $\vv{AB}$, $\vv{BC}$, $\vv{CA}$.
+  \item Calculer $\vv{AB}\cdot\vv{BC}$.
+        Le triangle est-il rectangle en $B$~?
+  \item Trouver le point $D$ tel que $ABDC$ soit un parall\'elogramme.
+  \item Trouver le point $M$ milieu de $[BD]$.
+        V\'erifier qu'il co\"incide avec le milieu de $[AC]$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Vecteur et valeur param\'etrique \corrige]{1}
+La droite $(d)$ passe par $A(1,2)$ et a pour vecteur directeur $\vec{u}=(3,-1)$.
+\begin{enumerate}
+  \item \'Ecrire les \'equations param\'etriques de $(d)$~:
+        $\begin{cases}x=1+3t\\y=2-t\end{cases}$, $t\in\R$.
+  \item Pour $t=0$, $t=1$, $t=-1$~: calculer les points correspondants.
+  \item Le point $P(7,0)$ appartient-il \`a $(d)$~?
+  \item \'Ecrire l'\'equation cart\'esienne de $(d)$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Point image par translation \corrige]{1}
+Une translation de vecteur $\vec{t}=(2,-3)$ transforme $M$ en $M'$.
+\begin{enumerate}
+  \item Si $M(1,4)$, calculer les coordonn\'ees de $M'$.
+  \item Si $M'(5,1)$, calculer les coordonn\'ees de $M$.
+  \item Quel est l'image du segment $[AB]$ avec $A(0,0)$, $B(3,2)$~?
+  \item Quel est l'image du triangle $OAB$ ($O$ origine)~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Homoth\'etie et vecteur \corrige]{1}
+\index{homothétie}
+L'homoth\'etie de centre $O$ et de rapport $k$ transforme $\vv{OM}$
+en $\vv{OM'} = k\vv{OM}$.
+\begin{enumerate}
+  \item Avec $O(0,0)$, $k=2$~: transformer $A(1,3)$, $B(-1,2)$, $C(2,-1)$.
+  \item Avec $O(1,1)$, $k=3$~: transformer $A(2,3)$.
+        \emph{(Indication~: $\vv{OA'} = 3\vv{OA}$~; calculer $A'$.)}
+  \item Quelle est l'image du segment $[AB]$ ($A(1,0)$, $B(3,2)$) par
+        l'homoth\'etie de centre $O(0,0)$ et rapport $-1$~?
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Applications et d\'emonstrations}
+
+\begin{exo}[Angle et produit scalaire \corrige]{2}
+On donne $A(2,3)$, $B(5,1)$, $C(4,6)$.
+\begin{enumerate}
+  \item Calculer $\vv{AB}\cdot\vv{AC}$.
+  \item Le triangle $ABC$ est-il rectangle en $A$~? En $B$~? En $C$~?
+  \item Calculer l'angle $\hat{A}$ du triangle \`a $1^{\circ}$ pr\`es.
+  \item Calculer l'aire du triangle.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[D\'emontrer des propri\'et\'es g\'eom\'etriques \corrige]{2}
+D\'emontrer chacune des propri\'et\'es suivantes par le calcul vectoriel.
+\begin{enumerate}
+  \item Les diagonales d'un parall\'elogramme se coupent en leur milieu.
+  \item Dans un triangle $ABC$, le milieu $M$ de $[BC]$ v\'erifie
+        $\vv{AM} = \frac{1}{2}(\vv{AB}+\vv{AC})$.
+  \item Si $\vv{OA}+\vv{OB}+\vv{OC} = \vec{0}$, alors $O$ est le centre de gravité de $ABC$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Formule de polarisation \corrige]{2}
+On admet que~:
+$\vec{u}\cdot\vec{v} = \dfrac{1}{2}\bigl(\norme{\vec{u}}^2+\norme{\vec{v}}^2
+-\norme{\vec{u}-\vec{v}}^2\bigr).$
+\begin{enumerate}
+  \item V\'erifier cette formule en coordonn\'ees pour $\vec{u}=(a,b)$
+        et $\vec{v}=(c,d)$.
+  \item Appliquer \`a $A(1,2)$, $B(4,6)$, $C(0,-1)$ pour calculer
+        $\vv{AB}\cdot\vv{AC}$ sans coordonn\'ees, \`a partir des distances.
+  \item En d\'eduire l'angle $\hat{A}$ du triangle.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Formule du parall\'elogramme \corrige]{2}
+D\'emontrer la formule~:
+$$\norme{\vec{u}+\vec{v}}^2 + \norme{\vec{u}-\vec{v}}^2
+  = 2\norme{\vec{u}}^2 + 2\norme{\vec{v}}^2.$$
+\begin{enumerate}
+  \item D\'evelopper $\norme{\vec{u}+\vec{v}}^2$ et $\norme{\vec{u}-\vec{v}}^2$
+        en utilisant $\norme{\vec{w}}^2=\vec{w}\cdot\vec{w}$.
+  \item Additionner et conclure.
+  \item Interpr\'etation g\'eom\'etrique~: dans le parall\'elogramme $OABC$
+        (o\`u $\vec{u}=\vv{OA}$ et $\vec{v}=\vv{OC}$), quelle est la signification
+        de chaque terme~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Alignement et colin\'earit\'e \corrige]{2}
+\begin{enumerate}
+  \item D\'emontrer que $A(1,2)$, $B(3,6)$, $C(5,10)$ sont align\'es.
+  \item Trouver le point $D$ sur la droite $(AB)$ tel que $AD = 2\cdot AB$.
+  \item D\'eterminer si le quadrilat\`ere $ABCD$ avec $A(0,0)$, $B(3,1)$,
+        $C(5,4)$, $D(2,3)$ est un parall\'elogramme, un losange, ou ni l'un ni l'autre.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Vecteurs et g\'eom\'etrie classique \corrige]{2}
+On consid\`ere un triangle $ABC$ avec $A(0,0)$, $B(6,0)$, $C(2,4)$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees des milieux $I_{AB}$, $I_{BC}$, $I_{CA}$
+        de chaque c\^ot\'e.
+  \item Montrer que les vecteurs $\vv{AI_{BC}}$ et $\vv{BI_{CA}}$
+        se coupent en un point $G$~: calculer ses coordonn\'ees.
+  \item V\'erifier que $G$ est bien le centre de gravité de $ABC$.
+  \item Calculer $AG$ et $GI_{BC}$. Quel est le rapport $AG/GI_{BC}$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Projection orth. et distance \corrige]{2}
+\index{projection orthogonale}
+La projection orthogonale de $A$ sur une droite $(d)$ est le pied $H$
+de la perpendiculaire men\'ee de $A$ \`a $(d)$.
+\begin{enumerate}
+  \item La droite $(d)$ a pour \'equation $2x+y-5=0$ et $A=(3,1)$.
+        Trouver les coordonn\'ees de $H$ en \'ecrivant que $H\in(d)$
+        et $\vv{AH}\cdot\vec{n}=0$ o\`u $\vec{n}$ est le vecteur normal \`a $(d)$.
+  \item Calculer la distance $AH$.
+  \item G\'en\'eraliser~: montrer que $d(A,(d)) = \dfrac{|ax_A+by_A+c|}{\sqrt{a^2+b^2}}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Vecteurs et calcul d'angle \corrige]{2}
+Dans un triangle $ABC$ avec $A(2,0)$, $B(6,2)$, $C(4,6)$~:
+\begin{enumerate}
+  \item Calculer les trois angles du triangle.
+  \item V\'erifier que leur somme vaut bien $180^{\circ}$.
+  \item Calculer les aires par la m\'ethode $\frac{1}{2}\norme{\vec{u}}\norme{\vec{v}}|\sin\theta|$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Coordonn\'ees et \'equations de droites \corrige]{2}
+\begin{enumerate}
+  \item \'Ecrire l'\'equation de la droite passant par $A(2,-1)$ et
+        perpendiculaire \`a $\vec{n}=(3,4)$.
+  \item \'Ecrire l'\'equation de la droite passant par $A(1,2)$ et
+        $B(3,-1)$ sous forme $ax+by+c=0$.
+  \item D\'eterminer la droite m\'ediatrice du segment $[AB]$
+        avec $A(2,6)$, $B(8,2)$.
+        \emph{(Elle passe par le milieu de $[AB]$ et lui est perpendiculaire.)}
+  \item V\'erifier que le centre du cercle circumscrit \`a un triangle
+        est l'intersection des trois m\'ediatrices.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Milieu et centre de gravité : applications \corrige]{2}
+$A(2,0)$, $B(8,4)$, $C(4,10)$.
+\begin{enumerate}
+  \item Calculer le milieu de chaque c\^ot\'e.
+  \item Calculer le centre de gravité $G$.
+  \item V\'erifier que $\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$.
+  \item Montrer que les m\'edianes se coupent en $G$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Equation vectorielle \corrige]{2}
+Trouver le point $M(x,y)$ v\'erifiant~:
+\begin{enumerate}
+  \item $\vv{OM} = 2\vv{OA} - \vv{OB}$ avec $A(3,1)$, $B(1,5)$.
+  \item $\vv{AM} = 3\vv{AB}$ avec $A(1,2)$, $B(4,5)$.
+  \item $\vv{MA} + \vv{MB} = \vec{0}$~: que repr\'esente $M$~?
+  \item $\norme{\vv{OM}} = 5$ et $\vv{OM} = t(1,2)$ pour un r\'eel $t>0$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Sym\'etrie centrale par vecteurs \corrige]{2}
+Le sym\'etrique $M'$ de $M$ par rapport \`a un centre $C$ v\'erifie
+$\vv{CM'} = -\vv{CM}$.
+\begin{enumerate}
+  \item Trouver le sym\'etrique de $A(3,5)$ par rapport \`a $C(1,2)$.
+  \item Trouver le sym\'etrique de $B(-2,4)$ par rapport \`a $O(0,0)$.
+  \item Montrer que $\vv{CM'}=-\vv{CM}$ implique que $C$ est le milieu de $[MM']$.
+  \item La sym\'etrie centrale conserve-t-elle les distances~? V\'erifier.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Produit scalaire et angle dans un triangle \corrige]{2}
+Pour $A(1,0)$, $B(4,0)$, $C(2,3)$~:
+\begin{enumerate}
+  \item Calculer tous les angles du triangle avec le produit scalaire.
+  \item D\'eterminer s'il est acutangle, rectangle ou obtusangle.
+  \item Calculer l'aire du triangle par deux m\'ethodes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Condition d'alignement \corrige]{1}
+D\'eterminer si les points sont align\'es~:
+\begin{enumerate}
+  \item $A(0,0)$, $B(2,3)$, $C(4,6)$
+  \item $A(1,2)$, $B(3,5)$, $C(7,11)$
+  \item $A(-1,4)$, $B(2,1)$, $C(5,-3)$
+  \item $A(0,3)$, $B(4,1)$, $C(8,0)$
+\end{enumerate}
+Pour (d), trouver $k$ tel que $A(0,3)$, $B(4,k)$, $C(8,0)$ soient align\'es.
+\end{exo}
+
+\begin{exo}[Quadrilat\`ere et vecteurs \corrige]{1}
+Pour $A(0,0)$, $B(4,1)$, $C(5,4)$, $D(1,3)$~:
+\begin{enumerate}
+  \item Calculer $\vv{AB}$, $\vv{BC}$, $\vv{CD}$, $\vv{DA}$.
+  \item V\'erifier que $\vv{AB}=\vv{DC}$. Quelle est la nature de $ABCD$~?
+  \item Calculer les longueurs des c\^ot\'es et des diagonales.
+  \item $ABCD$ est-il un rectangle~? Un losange~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: tester l'alignement de trois points \corrige]{2}
+Trois points $A(x_A,y_A)$, $B(x_B,y_B)$, $C(x_C,y_C)$ sont align\'es
+si et seulement si $\det(\vv{AB},\vv{AC}) = (x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A) = 0$.
+
+\begin{algorithm}[H]
+\caption{Test d'alignement de trois points}
+\KwIn{les coordonn\'ees de $A$, $B$, $C$}
+\KwOut{\Vrai\ si align\'es, \Faux\ sinon}
+$d \leftarrow (x_B-x_A)\times(y_C-y_A) - (x_C-x_A)\times(y_B-y_A)$\;
+\Si{$d = 0$}{\Afficher \og Align\'es\fg\;}
+\Sinon{\Afficher \og Non align\'es\fg\;}
+\end{algorithm}
+
+\begin{enumerate}
+  \item La condition $d=0$ est-elle n\'ecessaire \emph{et} suffisante~?
+        \'Enoncer cela sous forme d'\'equivalence logique.
+  \item Tester avec $A(0,0)$, $B(2,3)$, $C(4,6)$~;
+        puis avec $A(1,1)$, $B(2,3)$, $C(4,6)$.
+  \item La condition ``$|d| < \varepsilon$'' (avec $\varepsilon=10^{-9}$)
+        est-elle plus prudente que $d=0$~?
+        Pourquoi dans un programme~?
+  \item \'Ecrire une version Python \computer\ prenant les coordonn\'ees
+        en entr\'ee et retournant \texttt{True} ou \texttt{False}.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations vectorielles}
+
+\begin{exo}[Losange et produit scalaire \corrige]{3}
+D\'emontrer, \`a l'aide des vecteurs, que les diagonales d'un losange
+sont perpendiculaires.
+Soit $ABCD$ un losange (quatre c\^ot\'es \'egaux~: $AB=BC=CD=DA=a$).
+\begin{enumerate}
+  \item Exprimer $\vv{AC}$ et $\vv{BD}$ en fonction de $\vv{AB}$ et $\vv{AD}$.
+  \item Calculer $\vv{AC}\cdot\vv{BD}$.
+  \item Conclure.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Th\'eor\`eme de la m\'ediane \corrige]{3}
+\index{théorème de la médiane}
+Dans tout triangle $ABC$, si $M$ est le milieu de $[BC]$~:
+$$AB^2 + AC^2 = 2AM^2 + 2BM^2.$$
+\begin{enumerate}
+  \item Exprimer $\vv{AB}$ et $\vv{AC}$ en fonction de $\vv{AM}$
+        et $\vv{BM}$ (avec $\vv{MB}=-\vv{BM}$).
+  \item Calculer $AB^2+AC^2 = \norme{\vv{AB}}^2+\norme{\vv{AC}}^2$.
+  \item Conclure.
+  \item Application~: $A(1,1)$, $B(5,3)$, $C(-1,7)$.
+        V\'erifier num\'eriquement.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Th\'eor\`eme de l'angle inscrit dans un demi-cercle \corrige]{3}
+Soit un cercle de centre $O$ et un diam\`etre $[AB]$. Pour tout $M$
+sur le cercle ($M\ne A$, $M\ne B$), montrer que $\widehat{AMB} = 90^{\circ}$.
+\begin{enumerate}
+  \item Poser $\vv{OA}=\vec{a}$ et $\vv{OM}=\vec{m}$
+        avec $\norme{\vec{a}}=\norme{\vec{m}}=R$ (rayon).
+  \item Exprimer $\vv{MA}$ et $\vv{MB}$ en fonction de $\vec{a}$ et $\vec{m}$.
+  \item Calculer $\vv{MA}\cdot\vv{MB}$.
+  \item Conclure.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Centre de gravité et vecteurs \corrige]{3}
+\begin{enumerate}
+  \item D\'emontrer que si $G$ est le centre de gravité de $ABC$, alors pour tout
+        point $P$~: $\vv{PA}+\vv{PB}+\vv{PC} = 3\vv{PG}$.
+  \item En d\'eduire~: $\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$.
+  \item D\'emontrer que le centre de gravité partage chaque m\'ediane dans le rapport $2:1$.
+        \emph{(Montrer que $G$ est sur la m\'ediane issue de $A$, et que $AG/GM_A=2$.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Loi des cosinus \corrige]{3}
+\begin{enumerate}
+  \item D\'emontrer, \`a l'aide du produit scalaire, la loi des cosinus~:
+        $$a^2 = b^2 + c^2 - 2bc\cos\widehat{A},$$
+        o\`u $a=BC$, $b=CA$, $c=AB$ et $\widehat{A}=\widehat{BAC}$.
+        \emph{(Exprimer $\vv{BC}=\vv{AC}-\vv{AB}$ et calculer $\norme{\vv{BC}}^2$.)}
+  \item V\'erifier avec $A(0,0)$, $B(4,0)$, $C(1,3)$.
+  \item En quoi la loi des cosinus g\'en\'eralise-t-elle le th\'eor\`eme de Pythagore~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Orthocentre d'un triangle \corrige]{3}
+\index{orthocentre}
+L'\textbf{orthocentre} $H$ d'un triangle $ABC$ est l'intersection
+des trois hauteurs.
+\begin{enumerate}
+  \item Montrer que $H$ est caract\'eris\'e par~:
+        $\vv{HA}\cdot\vv{BC}=0$ et $\vv{HB}\cdot\vv{AC}=0$.
+  \item Pour $A(0,4)$, $B(-2,0)$, $C(3,0)$~:
+        trouver l'\'equation de la hauteur issue de $A$,
+        puis celle issue de $B$.
+  \item Calculer les coordonn\'ees de $H$.
+  \item V\'erifier que $\vv{HC}\cdot\vv{AB}=0$.
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Navigation et cap \corrigeP]{1}
+Un bateau quitte le port $O(0,0)$ et navigue successivement~:
+$\vv{u_1}=(3,4)$ km, puis $\vv{u_2}=(-1,2)$ km, puis $\vv{u_3}=(2,-3)$ km.
+\begin{enumerate}
+  \item Calculer la position finale $P$ du bateau.
+  \item Calculer la distance $OP$.
+  \item Quel vecteur unique $\vec{t}$ m\`enerait directement de $O$ \`a $P$~?
+  \item L'angle de cap (par rapport au Nord, i.e.\ l'axe $Oy$) vaut
+        $\arctan(x_P/y_P)$ si $y_P>0$. Calculer cet angle.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[G\'eom\'etrie du parall\'elogramme \corrigeP]{2}
+Soit $ABCD$ un parall\'elogramme ($A(0,0)$, $B(4,0)$, $D(1,3)$).
+\begin{enumerate}
+  \item Calculer les coordonn\'ees de $C$.
+  \item Calculer les longueurs des c\^ot\'es et des diagonales.
+  \item D\'eterminer si $ABCD$ est un rectangle, un losange, ou les deux.
+        \emph{(Rectangle~: diagonales \'egales~; losange~: c\^ot\'es \'egaux.)}
+  \item Calculer l'aire de $ABCD$.
+        \emph{(Aire~: $|x_B y_D - x_D y_B|$ pour un parall\'elogramme $OAD$.)}
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Barycentre et partage d'un segment \corrigeP]{2}
+Le point $G$ partage le segment $[AB]$ dans le rapport $k = AG/GB > 0$.
+\begin{enumerate}
+  \item Exprimer $\vv{OG}$ en fonction de $\vv{OA}$, $\vv{OB}$ et $k$.
+  \item Pour $A(1,2)$, $B(5,6)$, trouver $G$ tel que $AG/GB = 3$.
+  \item Trouver le point $G$ tel que $AG = 3\,GB$ avec $A(0,0)$, $B(8,4)$.
+  \item G\'en\'eraliser~: si $G$ divise $[AB]$ dans le rapport $\lambda/(1-\lambda)$,
+        montrer que $\vv{OG} = (1-\lambda)\vv{OA}+\lambda\vv{OB}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Vecteurs et physique~: forces \corrigeP]{1}
+Deux forces $\vec{F_1}=(3,4)$ N et $\vec{F_2}=(-1,2)$ N s'appliquent
+sur un objet.
+\begin{enumerate}
+  \item Calculer la force r\'esultante $\vec{R}=\vec{F_1}+\vec{F_2}$.
+  \item Calculer $\norme{\vec{R}}$ (l'intensit\'e de la force r\'esultante).
+  \item Une troisi\`eme force $\vec{F_3}$ s'ajoute pour que l'objet soit
+        en \'equilibre ($\vec{R}+\vec{F_3}=\vec{0}$). Trouver $\vec{F_3}$.
+  \item Calculer l'angle entre $\vec{F_1}$ et $\vec{F_2}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Cercle d\'efini par son diam\`etre \corrigeP]{2}
+Soit $A(1,-1)$ et $B(5,3)$.
+\begin{enumerate}
+  \item Calculer le milieu $\Omega$ de $[AB]$ et le rayon $R = \dfrac{AB}{2}$.
+  \item \'Ecrire l'\'equation du cercle de diam\`etre $[AB]$.
+  \item Pour un point $M(x,y)$ quelconque~:
+        montrer que $M$ est sur ce cercle ssi $\vv{MA}\cdot\vv{MB}=0$.
+  \item V\'erifier avec $M(1,3)$ et $M(5,-1)$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[M\'ediane, hauteur, m\'ediatrice \corrigeP]{2}
+Soit le triangle $A(0,6)$, $B(-4,0)$, $C(4,0)$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees du centre de gravité $G$,
+        du circocentre $O'$ (intersection des m\'ediatrices)
+        et de l'orthocentre $H$ (intersection des hauteurs).
+  \item V\'erifier la \emph{droite d'Euler}~: $O'$, $G$, $H$ sont align\'es
+        et $O'G = G H/2$.
+  \item Le triangle est-il rectangle~? Isoc\`ele~? \'Equilat\'eral~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Vecteurs et d\'eplacement \corrigeP]{1}
+Sur une grille, un robot part de $A(0,0)$ et ex\'ecute les instructions~:
+\begin{itemize}
+  \item ``Nord'' = $+2$ en $y$~;
+        ``Est'' = $+2$ en $x$~;
+        ``Sud-Est'' = $(1,-1)$.
+\end{itemize}
+S\'equence~: Nord, Est, Nord, Sud-Est, Est.
+\begin{enumerate}
+  \item Calculer la position finale $B$.
+  \item Quel est le vecteur $\vv{AB}$~?
+  \item Quelle s\'equence d'exactement $3$ mouvements m\`enerait de $A$ \`a $B$~?
+  \item \'Ecrire un algorithme Python \computer\ simulant cette trajectoire
+        et affichant chaque position interm\'ediaire.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Vecteurs et r\'egression lin\'eaire \corrigeP]{2}
+On dispose des points de mesures~:
+$(1,2)$, $(2,3)$, $(3,5)$, $(4,4)$, $(5,6)$.
+\begin{enumerate}
+  \item Calculer la moyenne $\bar{x}$ et $\bar{y}$ des coordonn\'ees.
+  \item Le vecteur $\vec{m}=(\bar{x},\bar{y})$ pointe vers le \og barycentre\fg\
+        des donn\'ees. Calculer $\vec{m}$.
+  \item Calculer $\sum(x_i-\bar{x})^2$ et $\sum(x_i-\bar{x})(y_i-\bar{y})$.
+  \item La droite de r\'egression a pour coefficient directeur
+        $a = \dfrac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}$.
+        Calculer $a$ et l'ordonn\'ee \`a l'origine $b=\bar{y}-a\bar{x}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Polygone r\'egulier \corrigeP]{3}
+On construit un hexagone r\'egulier $ABCDEF$ de centre $O$ et de sommet
+$A(2,0)$.
+\begin{enumerate}
+  \item Les six sommets sont obtenus en faisant tourner $\vv{OA}$
+        de $60^{\circ}$ \`a chaque \'etape. Calculer les coordonn\'ees de
+        $B$, $C$, $D$, $E$, $F$.
+        \emph{(Rotation de $60^{\circ}$~: $(x,y)\mapsto(x\cos60^{\circ}-y\sin60^{\circ},\,x\sin60^{\circ}+y\cos60^{\circ})$.)}
+  \item V\'erifier que $\vv{OA}+\vv{OB}+\vv{OC}+\vv{OD}+\vv{OE}+\vv{OF}=\vec{0}$.
+  \item Calculer le produit scalaire $\vv{AB}\cdot\vv{BC}$.
+  \item Calculer l'aire de l'hexagone.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Construction d'un point par vecteur \corrigeP]{1}
+On donne $A(2,1)$, $B(5,4)$, $C(1,6)$.
+\begin{enumerate}
+  \item Trouver $D$ tel que $ABDC$ soit un parall\'elogramme.
+  \item Trouver $E$ tel que $\vv{AE} = 2\vv{AB} + \vv{AC}$.
+  \item Trouver $F$ milieu de $[BE]$.
+  \item Définir le point $G$ par
+        $\vv{OG}=\dfrac{\vv{OA}+\vv{OB}+\vv{OC}}{3}$, puis vérifier que $G$
+        est le centre de gravité et
+        que $\vv{GA}+\vv{GB}+\vv{GC}=\vec{0}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Vecteurs et r\`egle de Thal\`es \corrigeP]{2}
+Soit $A(0,0)$, $B(6,0)$, $C(0,4)$. $M$ est le milieu de $[AB]$
+et $N$ est le milieu de $[AC]$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees de $M$ et $N$.
+  \item Calculer $\vv{MN}$ et $\vv{BC}$.
+        Que remarque-t-on~?
+  \item Calculer $MN$ et $BC$.
+        Quel est le rapport $MN/BC$~?
+  \item Montrer que $MN\parallel BC$ en utilisant la colin\'earit\'e des vecteurs.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Vecteurs et invariance par translation \corrigeP]{3}
+Une translation de vecteur $\vec{t}=(a,b)$ transforme $M(x,y)$ en $M'(x+a,y+b)$.
+\begin{enumerate}
+  \item Montrer que la translation conserve les distances (si $M\to M'$
+        et $N\to N'$, alors $MN=M'N'$).
+  \item Montrer que la translation conserve les angles.
+  \item Montrer que la translation conserve le parall\'elisme des droites.
+  \item Est-ce que la translation conserve les \'equations de droites~?
+        Quelle est l'image de $y=x$ par la translation $(1,2)$~?
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[D\'emonstrations g\'eom\'etriques fondamentales]
+D\'emontrer par le calcul vectoriel~:
+\begin{enumerate}
+  \item \textbf{Diagonales d'un losange~:} $ABCD$ est un losange
+        ($AB=BC=CD=DA$). Montrer que $\vv{AC}\perp\vv{BD}$.
+  \item \textbf{Th\'eor\`eme de la m\'ediane~:} Dans tout triangle $ABC$
+        de m\'ediane $AM$ ($M$ milieu de $[BC]$)~:
+        $AB^2+AC^2 = 2AM^2+2BM^2$.
+  \item \textbf{Angle inscrit dans un demi-cercle~:}
+        Si $[AB]$ est un diam\`etre et $M$ un point du cercle,
+        alors $\vv{MA}\cdot\vv{MB}=0$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[G\'eom\'etrie et coordonn\'ees — droite d'Euler]
+\index{droite d'Euler}
+Pour tout triangle $ABC$, les points remarquables suivants sont align\'es
+sur la \emph{droite d'Euler}~: le circocentre $O'$, le centre de gravité $G$, l'orthocentre $H$.
+De plus, $\vv{O'G} = \frac{1}{3}\vv{O'H}$.
+\begin{enumerate}
+  \item Calculer $O'$, $G$, $H$ pour $A(0,0)$, $B(4,0)$, $C(1,3)$.
+  \item V\'erifier l'alignement.
+  \item V\'erifier la relation $\vv{O'G} = \frac{1}{3}\vv{O'H}$.
+  \item Chercher la signification g\'eom\'etrique du cercle des neuf points
+        (cercle passant par les milieux des c\^ot\'es).
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Produit vectoriel en 2D~: aire orient\'ee]
+En dimension $2$, le \emph{d\'eterminant} de deux vecteurs
+$\vec{u}=(a,b)$ et $\vec{v}=(c,d)$ est $\det(\vec{u},\vec{v})=ad-bc$.
+L'aire du parall\'elogramme form\'e par $\vec{u}$ et $\vec{v}$
+vaut $|\det(\vec{u},\vec{v})|$.
+\begin{enumerate}
+  \item Calculer l'aire du triangle $A(1,2)$, $B(4,6)$, $C(-1,3)$
+        en utilisant~: aire $= \frac{1}{2}|\det(\vv{AB},\vv{AC})|$.
+  \item D\'emontrer que trois points $A$, $B$, $C$ sont align\'es ssi
+        $\det(\vv{AB},\vv{AC})=0$.
+  \item Calculer l'aire du quadrilat\`ere $A(0,0)$, $B(3,1)$, $C(4,4)$, $D(1,3)$.
+  \item Montrer que $\det(\vec{u}+\vec{v},\vec{w}) = \det(\vec{u},\vec{w})+\det(\vec{v},\vec{w})$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Transformations et vecteurs]
+\begin{enumerate}
+  \item La sym\'etrie centrale de centre $O$ transforme $\vv{OM}$ en $-\vv{OM}$.
+        Trouver l'image de $A(2,3)$, $B(-1,4)$, et du segment $[AB]$
+        par la sym\'etrie de centre $O(1,1)$.
+  \item La r\'eflexion d'axe $(Ox)$ transforme $(x,y)$ en $(x,-y)$.
+        V\'erifier qu'elle conserve les distances.
+  \item Composant une translation de vecteur $(1,0)$ et une sym\'etrie centrale
+        de centre $O$~: d\'ecrire la transformation r\'esultante.
+  \item Montrer qu'une translation suivie d'une autre translation est encore
+        une translation. Quelle est son vecteur~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Vecteurs et d\'emonstration analytique]
+\begin{enumerate}
+  \item Les vecteurs $\vec{u}=(1,2)$ et $\vec{v}=(-2,1)$ sont orthogonaux.
+        Montrer que tout vecteur $\vec{w}=(a,b)$ s'\'ecrit
+        $\vec{w}=\lambda\vec{u}+\mu\vec{v}$~: trouver $\lambda$ et $\mu$.
+  \item G\'en\'eraliser~: si $\vec{u}$ et $\vec{v}$ sont orthogonaux et non nuls,
+        tout vecteur du plan s'\'ecrit $\lambda\vec{u}+\mu\vec{v}$.
+        Trouver les formules de $\lambda$ et $\mu$ en fonction de
+        $\vec{u}\cdot\vec{w}$ et $\vec{v}\cdot\vec{w}$.
+  \item Application~: d\'ecomposer $\vec{w}=(5,3)$ sur la base $\vec{u}=(1,0)$
+        et $\vec{v}=(0,1)$. Puis sur la base $\vec{u}=(1,1)/\sqrt{2}$
+        et $\vec{v}=(1,-1)/\sqrt{2}$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Vecteurs en physique~: trajectoire]
+Un projectile est lanc\'e de $O(0,0)$ avec une vitesse initiale
+$\vec{v_0} = (v_x, v_y)$ (m/s). Sa position au temps $t$ est~:
+$$\vec{r}(t) = (v_x t,\; v_y t - \tfrac{1}{2}gt^2)$$
+avec $g = 10$ m/s$^2$.
+\begin{enumerate}
+  \item Pour $v_x = 30$ et $v_y = 40$ m/s~:
+        calculer la position aux instants $t=0, 1, 2, 3, 4$ s.
+  \item \`A quel instant le projectile atteint-il sa hauteur maximale~?
+  \item Quand retombe-t-il au sol ($y=0$)~? Quelle est la port\'ee~?
+  \item \'Ecrire un algorithme Python \computer\ qui trace la trajectoire.
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Vecteur~:} direction, sens, norme.
+        $\vv{AB}=(x_B-x_A, y_B-y_A)$~;
+        $\norme{\vv{AB}}=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$.
+  \item \textbf{Op\'erations~:} $\vec{u}+\vec{v}=(x_1+x_2,y_1+y_2)$~;
+        $\lambda\vec{u}=(\lambda x_1,\lambda y_1)$.
+  \item \textbf{Produit scalaire~:}
+        $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2=\norme{\vec{u}}\norme{\vec{v}}\cos\theta$.
+  \item \textbf{Orthogonalit\'e~:} $\vec{u}\perp\vec{v}\Leftrightarrow\vec{u}\cdot\vec{v}=0$.
+  \item \textbf{Colin\'earit\'e~:} $\vec{u}\parallel\vec{v}
+        \Leftrightarrow\det(\vec{u},\vec{v})=x_1y_2-x_2y_1=0$.
+  \item \textbf{Milieu~:} $I\!\left(\frac{x_A+x_B}{2},\frac{y_A+y_B}{2}\right)$.
+        centre de gravité~: $G\!\left(\frac{x_A+x_B+x_C}{3},\frac{y_A+y_B+y_C}{3}\right)$.
+  \item \textbf{Chasles~:} $\vv{AB}+\vv{BC}=\vv{AC}$.
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Propositions sur les vecteurs \corrige]{1}
+Pour chacune, dire si vraie ou fausse et \'enoncer la n\'egation~:
+\begin{enumerate}
+  \item $\forall\vec{u},\vec{v}$~: $\vec{u}+\vec{v}=\vec{v}+\vec{u}$.
+  \item $\forall\vec{u}$~: $\vec{u}+\vec{0}=\vec{u}$.
+  \item $\exists\vec{u}\ne\vec{0}$~: $\vec{u}\cdot\vec{u}=0$.
+  \item $\forall\vec{u},\vec{v}$~: $\vec{u}\cdot\vec{v}=0\Rightarrow\vec{u}=\vec{0}$ ou $\vec{v}=\vec{0}$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Colin\'earit\'e~: condition n\'ecessaire et suffisante \corrige]{1}
+\begin{enumerate}
+  \item La condition $\det(\vec{u},\vec{v})=0$ est-elle~: CN, CS, ou CNS pour $\vec{u}\parallel\vec{v}$~?
+  \item \'Enoncer l'\'equivalence compl\`ete.
+  \item Montrer que $\vec{u}\parallel\vec{v}$ et $\vec{v}\parallel\vec{w}\Rightarrow\vec{u}\parallel\vec{w}$
+        (transitivit\'e). C'est quel type de raisonnement~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Raisonnement par l'absurde en g\'eom\'etrie \corrige]{2}
+D\'emontrer par l'absurde~:
+\begin{enumerate}
+  \item Si $\vv{AB}$ et $\vv{AC}$ sont colin\'eaires et $\norme{\vv{AB}}\ne0$,
+        alors $A$, $B$, $C$ sont align\'es.
+  \item Si les diagonales d'un quadrilat\`ere se coupent en leur milieu,
+        alors c'est un parall\'elogramme.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Implication en g\'eom\'etrie \corrige]{2}
+Pour chaque proposition, indiquer si c'est une implication, une \'equivalence,
+et si la r\'eciproque est vraie~:
+\begin{enumerate}
+  \item \og $ABCD$ est un carr\'e $\Rightarrow$ $ABCD$ est un losange.\fg
+  \item \og $\vec{u}\cdot\vec{v}=0 \Rightarrow \vec{u}\perp\vec{v}$.\fg
+  \item \og $\vv{AB}=\vv{DC} \Rightarrow ABCD$ est un parall\'elogramme.\fg
+  \item \og $M$ est milieu de $[AB] \Rightarrow \vv{MA}+\vv{MB}=\vec{0}$.\fg
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Conditions pour un rectangle \corrige]{2}
+Un parall\'elogramme $ABCD$ est un rectangle ssi ses diagonales sont \'egales.
+\begin{enumerate}
+  \item Formuler cela comme une \'equivalence.
+  \item D\'emontrer le sens direct par le calcul vectoriel.
+  \item Formuler la contrapos\'ee.
+  \item Donner un exemple de parall\'elogramme non rectangle et v\'erifier
+        que ses diagonales sont in\'egales.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Quantificateurs et g\'eom\'etrie \corrige]{3}
+On suppose $A$ et $B$ distincts.
+\begin{enumerate}
+  \item Traduire avec des quantificateurs l'affirmation suivante, puis expliquer
+        pourquoi elle est fausse : « Il existe un unique point du plan à égale
+        distance de $A$ et de $B$. »
+  \item Formuler correctement les deux résultats suivants :
+        l'ensemble des points équidistants de $A$ et $B$ est la médiatrice de
+        $[AB]$; le milieu est l'unique point de $[AB]$ équidistant de $A$ et $B$.
+  \item Écrire avec des quantificateurs : « Tout triangle non aplati possède un
+        unique centre de gravité. »
+  \item Prouver l'existence et l'unicité de ce point en donnant ses coordonnées
+        à partir de celles des trois sommets.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: tester si $ABCD$ est un parall\'elogramme \corrige]{1}
+
+\begin{algorithm}[H]
+\caption{Test de parall\'elogramme}
+\KwIn{coordonn\'ees de $A(x_A,y_A)$, $B(x_B,y_B)$, $C(x_C,y_C)$, $D(x_D,y_D)$}
+$\vec{u}\leftarrow\vv{AB}=(x_B-x_A,y_B-y_A)$\;
+$\vec{v}\leftarrow\vv{DC}=(x_C-x_D,y_C-y_D)$\;
+\Si{$\vec{u}=\vec{v}$}{\Afficher \og Parall\'elogramme\fg\;}
+\Sinon{\Afficher \og Pas un parall\'elogramme\fg\;}
+\end{algorithm}
+
+Tester pour $A(0,0)$, $B(3,1)$, $C(4,3)$, $D(1,2)$.
+Puis pour $A(0,0)$, $B(2,0)$, $C(3,2)$, $D(1,3)$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: nature d'un quadrilat\`ere \computer \corrige]{2}
+\'Ecrire un algorithme Python qui, \'etant donn\'e quatre points,
+d\'etermine si $ABCD$ est~: parall\'elogramme, rectangle, losange, carr\'e, ou aucun.
+Utiliser~: cot\'es, diagonales, produits scalaires.
+Tester sur plusieurs exemples.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: centre de gravité et milieux \corrige]{1}
+\'Ecrire un algorithme qui calcule le centre de gravité d'un triangle $ABC$,
+les milieux des cot\'es, et v\'erifie que les m\'edianes se croisent en $G$.
+Impl\'ementer \computer.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: orthocentre d'un triangle \corrige]{2}
+\'Ecrire un programme Python \computer\ qui calcule l'orthocentre $H$ d'un triangle
+en trouvant l'intersection des hauteurs.
+V\'erifier que le troisi\`eme pied de hauteur passe par $H$.
+Tester sur $A(0,4)$, $B(-2,0)$, $C(3,0)$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: produit scalaire et angle \computer \corrige]{2}
+\'Ecrire un programme qui, \'etant donn\'es trois points $A$, $B$, $C$,
+calcule les trois angles du triangle en utilisant le produit scalaire,
+v\'erifie que la somme vaut $\pi$, et affiche le type du triangle.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: distance d'un point \`a une droite \corrige]{1}
+\'Ecrire un algorithme puis l'impl\'ementer \computer\ pour calculer
+la distance du point $A(x_0,y_0)$ \`a la droite $ax+by+c=0$.
+Tester pour $A(3,4)$ et la droite $3x+4y-25=0$.
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique et preuves g\'eom\'etriques \corrigeP]{2}
+D\'emontrer rigoureusement~:
+\begin{enumerate}
+  \item Les diagonales d'un losange sont perpendiculaires.
+        \'Enoncer l'\'equivalence~: \og $ABCD$ est un losange $\Leftrightarrow$
+        $AB=BC$ et $\vv{AC}\perp\vv{BD}$\fg\ (admettre le second membre).
+  \item La m\'ediatrice d'un segment est l'ensemble des points \'equidistants
+        des deux extr\'emit\'es.
+        Formuler cela avec des quantificateurs et d\'emontrer.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ Logique et propri\'et\'es du produit scalaire \corrigeP]{2}
+\begin{enumerate}
+  \item Montrer que $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$
+        (commutativit\'e). C'est une identit\'e~: vraie pour tout $\vec{u},\vec{v}$~?
+  \item Montrer que $\vec{u}\cdot(\vec{v}+\vec{w})=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}$
+        (distributivit\'e).
+  \item La r\'egle \og $\vec{u}\cdot\vec{v}=0 \Rightarrow \vec{u}=\vec{0}$ ou $\vec{v}=\vec{0}$\fg\
+        est-elle vraie~? Si non, donner un contre-exemple.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: cercle circonscrit \corrigeP]{2}
+\'Ecrire un programme Python \computer\ qui calcule le cercle circonscrit
+\`a un triangle $ABC$~:
+\begin{enumerate}
+  \item Calculer les m\'ediatrices de deux c\^ot\'es.
+  \item Trouver leur intersection (circocentre $O'$).
+  \item Calculer le rayon $R=O'A$.
+  \item Afficher l'\'equation du cercle.
+  \item Tester sur $A(0,0)$, $B(4,0)$, $C(1,3)$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: tracer une trajectoire vectorielle \computer \corrigeP]{2}
+Un point part de $A(0,0)$ et se d\'eplace selon des vecteurs $\vec{v_1},\ldots,\vec{v_n}$.
+\'Ecrire un programme Python \computer\ qui~:
+\begin{enumerate}
+  \item Lit les vecteurs de d\'eplacement.
+  \item Calcule chaque position interm\'ediaire.
+  \item Affiche la trajectoire avec \texttt{matplotlib}.
+  \item Calcule la distance totale parcourue.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Droite d'Euler et logique]
+La droite d'Euler dit~: pour tout triangle non \'equilat\'eral,
+le circocentre $O'$, le centre de gravité $G$ et l'orthocentre $H$ sont align\'es.
+\begin{enumerate}
+  \item Formuler ce r\'esultat avec des quantificateurs.
+  \item Quel est le statut de ce r\'esultat pour un triangle \'equilat\'eral~?
+        La proposition \og pour tout triangle\fg\ est-elle vraie ou fausse~?
+  \item V\'erifier sur un exemple num\'erique.
+  \item \'Enoncer la contrapos\'ee~: si les trois points ne sont pas align\'es,
+        que peut-on conclure~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ Algorithme g\'en\'eral~: polygone r\'egulier \computer]
+\'Ecrire un programme Python \computer\ qui~:
+\begin{enumerate}
+  \item G\'en\`ere les $n$ sommets d'un polygone r\'egulier inscrit
+        dans le cercle de rayon $r$ centr\'e en $O$.
+  \item Calcule le p\'erim\`etre et l'aire.
+  \item V\'erifie que pour $n\to+\infty$, le p\'erim\`etre tend vers $2\pi r$
+        en tabulant pour $n=3,4,5,6,8,12,100$.
+  \item Trace le polygone avec \texttt{matplotlib}.
+\end{enumerate}
+\end{challenge}
+
+\end{bilan}
+
+
+%% ════════════════════════════════════════════════════════════════

@@ -1,0 +1,1172 @@
+\chapter{Statistiques}
+\input{activities/09-statistiques}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[La loi des grands nombres]
+Jacob Bernoulli ($1654$--$1705$) d\'emontra la loi des grands nombres :
+plus on r\'ep\`ete une exp\'erience al\'eatoire, plus la fr\'equence d'un
+\'ev\'enement s'approche de sa probabilit\'e. Il mit $20$ ans \`a trouver la
+preuve. Son neveu Nicolas dit : \og Cela n'\'etait d\'ej\`a pas inconnu aux
+sots.\fg --- ce qui, peut-\^{e}tre, \'etait une exag\'eration.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Organiser des donn\'ees statistiques~: variable discr\`ete et continue.
+  \item Calculer et interpr\'eter les indicateurs de position~:
+        moyenne, m\'ediane, mode.
+  \item Calculer et interpr\'eter les indicateurs de dispersion~:
+        \'etendue, variance, \'ecart-type.
+  \item Construire et lire les repr\'esentations graphiques~:
+        diagramme en b\^atons, diagramme circulaire, histogramme.
+\end{itemize}
+\end{objectifs}
+
+\section{Statistiques descriptives}
+
+\begin{defn}[Indicateurs de position et de dispersion]
+Pour une s\'erie de valeurs $x_1, \ldots, x_n$ :
+\begin{itemize}
+  \item \textbf{Moyenne} : $\bar{x} = \dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i$.
+  \item \textbf{M\'ediane} $Q_2$ : valeur centrale une fois les donn\'ees tri\'ees.
+  \item \textbf{Quartiles} $Q_1$, $Q_3$ : valeurs \`a $25\%$ et $75\%$.
+  \item \textbf{\'Ecart-type} :
+        $\sigma = \sqrt{\dfrac{1}{n}\displaystyle\sum_{i=1}^n (x_i - \bar{x})^2}$.
+\end{itemize}
+\end{defn}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=0.55,yscale=1.2]
+  \draw[BN,-Stealth] (0,0)--(21.5,0) node[right,font=\small] {valeurs};
+  % Boîte à moustaches
+  \draw[BN,very thick] (5,0.3)--(5,-0.3);  % min
+  \draw[BN,very thick] (5,0)--(9,0);       % moustache gauche
+  \draw[BN,very thick,fill=TQ!20] (9,-0.6) rectangle (15,0.6);  % boîte
+  \draw[OR,very thick] (12,-0.6)--(12,0.6); % médiane
+  \draw[BN,very thick] (15,0)--(20,0);     % moustache droite
+  \draw[BN,very thick] (20,0.3)--(20,-0.3); % max
+  % Labels
+  \node[BN,font=\small] at (5,-1) {Min};
+  \node[TQ,font=\small] at (9,-1) {$Q_1$};
+  \node[OR,font=\small] at (12,-1) {$Q_2$};
+  \node[TQ,font=\small] at (15,-1) {$Q_3$};
+  \node[BN,font=\small] at (20,-1) {Max};
+\end{tikzpicture}
+\caption{Structure d'une bo\^ite \`a moustaches.}
+\end{figure}
+
+\horsprogramme{Approfondissement sur les quartiles, les fréquences cumulées et d'autres résumés d'une série.}
+\section{Caract\'eristiques compl\'ementaires}
+
+\begin{defn}[Mode et classe modale]
+Le \textbf{mode} d'une s\'erie statistique est la valeur (ou la classe) qui
+appara\^it le plus souvent. Dans une distribution en classes, on parle de
+\textbf{classe modale}.
+\end{defn}
+
+\begin{defn}[Fr\'equences et fr\'equences cumul\'ees]
+La \textbf{fr\'equence} d'une valeur $x_i$ est $f_i = n_i / N$.
+La \textbf{fr\'equence cumul\'ee croissante} jusqu'\`a $x_k$ est
+$F_k = \displaystyle\sum_{i \leq k} f_i$.
+La m\'ediane est la valeur correspondant \`a une fr\'equence cumul\'ee de $50\%$.
+\end{defn}
+
+
+\section{S\'eries statistiques group\'ees}
+
+\begin{defn}[Tableau de distribution]
+\index{tableau de distribution}
+Pour $n$ valeurs $x_1,\ldots,x_p$ aux effectifs $n_1,\ldots,n_p$
+(avec $N=\sum n_i$), la \textbf{fr\'equence} de $x_i$ est $f_i=n_i/N$.
+\end{defn}
+
+\begin{defn}[Indicateurs de position]
+\index{moyenne}\index{médiane}\index{mode}
+\begin{itemize}
+  \item \textbf{Moyenne~:} $\bar{x} = \dfrac{1}{N}\sum_{i=1}^p n_i x_i$.
+  \item \textbf{M\'ediane~:} valeur $Q_2$ partageant la s\'erie en deux moiti\'es \'egales.
+  \item \textbf{Mode~:} valeur (ou classe) de plus grande fr\'equence.
+  \item \textbf{Quartiles~:} $Q_1$ (25\%), $Q_2$ (50\%), $Q_3$ (75\%).
+\end{itemize}
+\end{defn}
+
+\begin{defn}[Indicateurs de dispersion]
+\index{écart-type}\index{variance}
+\begin{itemize}
+  \item \textbf{\'Etendue~:} $e = x_{\max} - x_{\min}$.
+  \item \textbf{Variance~:}
+        $V = \dfrac{1}{N}\sum_{i=1}^p n_i(x_i-\bar{x})^2
+           = \overline{x^2} - \bar{x}^2$
+        (variance $=$ moyenne des carr\'es moins carr\'e de la moyenne).
+  \item \textbf{\'Ecart-type~:} $\sigma = \sqrt{V}$.
+\end{itemize}
+\end{defn}
+
+\begin{methode}[Calculer la m\'ediane sur donn\'ees group\'ees]
+\index{médiane!calcul}
+\begin{enumerate}
+  \item Trier les valeurs dans l'ordre croissant.
+  \item Calculer les effectifs cumul\'es.
+  \item La m\'ediane est~:
+    \begin{itemize}
+      \item si $N$ est impair~: la valeur de rang $(N+1)/2$.
+      \item si $N$ est pair~: la demi-somme des valeurs de rangs $N/2$ et $N/2+1$.
+    \end{itemize}
+\end{enumerate}
+\end{methode}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=0.55,yscale=1.2]
+  \draw[BN,-Stealth] (0,0)--(21.5,0) node[right,font=\small] {valeurs};
+  \draw[BN,very thick] (5,0.3)--(5,-0.3);
+  \draw[BN,very thick] (5,0)--(9,0);
+  \draw[BN,very thick,fill=TQ!20] (9,-0.6) rectangle (15,0.6);
+  \draw[OR,very thick] (12,-0.6)--(12,0.6);
+  \draw[BN,very thick] (15,0)--(20,0);
+  \draw[BN,very thick] (20,0.3)--(20,-0.3);
+  \node[BN,font=\small] at (5,-1) {Min};
+  \node[TQ,font=\small] at (9,-1) {$Q_1$};
+  \node[OR,font=\small] at (12,-1) {$Q_2$};
+  \node[TQ,font=\small] at (15,-1) {$Q_3$};
+  \node[BN,font=\small] at (20,-1) {Max};
+  \draw[TQ,<->,thick] (9,-1.6)--(15,-1.6)
+    node[midway,below,font=\small] {Interquartile $Q_3-Q_1$};
+\end{tikzpicture}
+\caption{Bo\^ite \`a moustaches : cinq indicateurs.}
+\end{figure}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Indicateurs de base}
+
+\begin{exo}[Indicateurs sur une s\'erie \corrige]{1}
+Notes d'une classe de 10 \'el\`eves~:
+$8, 12, 14, 7, 15, 9, 13, 11, 16, 10$.
+\begin{enumerate}
+  \item Calculer la moyenne $\bar{x}$.
+  \item Trier les donn\'ees et calculer la m\'ediane.
+  \item Calculer $Q_1$ et $Q_3$.
+  \item Calculer l'\'etendue et l'\'ecart-type $\sigma$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tableau de fr\'equences \corrige]{1}
+R\'esultats d'un sondage sur les heures de t\'el\'evision par semaine~:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+\rowcolor{BN!10}
+Heures & 0 & 1 & 2 & 3 & 4 \\
+\hline
+Effectif & 3 & 8 & 10 & 6 & 3 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer le nombre total d'\'el\`eves.
+  \item Calculer les fr\'equences (en \%).
+  \item Calculer la moyenne.
+  \item Quel est le mode~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Histogramme en classes \corrige]{1}
+Masses (kg) de colis~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Classe & $[0;2[$ & $[2;4[$ & $[4;6[$ & $[6;8]$ \\
+\hline
+Effectif & 3 & 8 & 6 & 3 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Construire l'histogramme.
+  \item Calculer la moyenne (centre de classe).
+  \item Quelle est la classe modale~?
+  \item \'Estimer la m\'ediane.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Diagramme circulaire \corrige]{1}
+Modes de transport vers le lyc\'ee~:
+bus $120$, pied $80$, v\'elo $45$, voiture $35$.
+\begin{enumerate}
+  \item Calculer les fr\'equences en \%.
+  \item Construire le diagramme circulaire (calculer les angles en degr\'es).
+  \item Quel mode repr\'esente $43{,}3\%$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Compl\'eter un tableau \corrige]{1}
+Pour une s\'erie de $20$ valeurs~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Valeur $x_i$ & Effectif $n_i$ & Fr\'equence $f_i$ & $n_i\cdot x_i$ \\
+\hline
+$2$ & $4$ & & \\
+$4$ & $7$ & & \\
+$6$ & $5$ & & \\
+$8$ & $?$ & & \\
+\hline
+Total & $20$ & $1$ & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Compl\'eter le tableau.
+  \item Calculer la moyenne.
+  \item Calculer la m\'ediane.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Bo\^ite \`a moustaches \corrige]{1}
+Pour les donn\'ees~: $2, 5, 7, 8, 10, 11, 14, 15, 18, 20$~:
+\begin{enumerate}
+  \item Calculer $Q_1$, $Q_2$, $Q_3$, Min, Max.
+  \item Construire la bo\^ite \`a moustaches.
+  \item Calculer l'\'ecart interquartile $Q_3-Q_1$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Moyenne pond\'er\'ee \corrige]{1}
+Notes d'un \'el\`eve~:
+Math. $14$ (coef. 4), Physique $12$ (coef. 3), Fran\c cais $11$ (coef. 2),
+Histoire $13$ (coef. 1).
+\begin{enumerate}
+  \item Calculer la moyenne pond\'er\'ee.
+  \item Calculer la moyenne simple (non pond\'er\'ee).
+  \item Comparer les deux moyennes~: laquelle favorise cet \'el\`eve~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lire un histogramme \corrige]{1}
+Un histogramme repr\'esente la r\'epartition des \'ages dans un village~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Classe d'\^age & $[0;20[$ & $[20;40[$ & $[40;60[$ & $[60;80[$ & $[80;100[$ \\
+\hline
+Fr\'equence & $18\%$ & $28\%$ & $30\%$ & $16\%$ & $8\%$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Le village compte $2500$ habitants. Calculer chaque effectif.
+  \item Construire l'histogramme.
+  \item Quelle est la classe modale~?
+  \item Dans quelle classe se trouve la m\'ediane~? \'Estimer sa valeur.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Effectifs cumul\'es \corrige]{1}
+\index{effectifs cumulés}
+Pour la s\'erie~: $3, 5, 5, 7, 8, 8, 8, 10, 12, 14$~:
+\begin{enumerate}
+  \item Construire le tableau des effectifs et fr\'equences cumul\'ees.
+  \item Tracer le polygone des fr\'equences cumul\'ees.
+  \item Lire graphiquement $Q_1$, $Q_2$, $Q_3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[S\'erie statistique~: analyse rapide \corrige]{1}
+On compare deux s\'eries A et B~:
+\begin{center}
+\begin{tabular}{|c|cccccccccc|}
+\hline
+\rowcolor{BN!10} S\'erie A & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 \\
+S\'erie B & 5 & 6 & 7 & 9 & 10 & 10 & 11 & 13 & 14 & 15 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer la moyenne et l'\'ecart-type de chaque s\'erie.
+  \item Laquelle est la plus r\'eguli\`ere~?
+  \item L'\'ecart-type mesure-t-il bien la dispersion~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Identifier un indicateur \corrige]{1}
+Pour chaque situation, quel indicateur statistique est le plus pertinent~?
+\begin{enumerate}
+  \item On veut savoir si la \og valeur typique\fg\ d'un logement
+        est repr\'esentative des prix du march\'e.
+  \item On cherche le niveau \og moyen\fg\ d'une classe.
+  \item On compare la r\'egularit\'e de deux machines de production.
+  \item On cherche la taille \og la plus fr\'equente\fg\ d'une population.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calculer la variance \corrige]{1}
+Pour la s\'erie $5, 7, 8, 10, 10, 12$~:
+\begin{enumerate}
+  \item Calculer la moyenne $\bar{x}$.
+  \item Calculer $\overline{x^2} = \frac{1}{n}\sum x_i^2$.
+  \item D\'eduire la variance $V = \overline{x^2} - \bar{x}^2$.
+  \item Calculer l'\'ecart-type $\sigma$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[R\`egle empirique \corrige]{1}
+Pour une distribution \og bien r\'epartie\fg, environ $68\%$ des valeurs
+sont dans $[\bar{x}-\sigma, \bar{x}+\sigma]$.
+Pour la s\'erie des notes~:
+$8, 9, 11, 12, 12, 13, 14, 15, 15, 16$~:
+\begin{enumerate}
+  \item Calculer $\bar{x}$ et $\sigma$.
+  \item Calculer l'intervalle $[\bar{x}-\sigma, \bar{x}+\sigma]$.
+  \item Compter combien de notes se trouvent dans cet intervalle.
+  \item Calculer le pourcentage.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Diagramme en b\^atons \corrige]{1}
+Les r\'esultats d'un lanceur de d\'e (20 essais)~:
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+\rowcolor{BN!10}
+Face & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+Nb de fois & 2 & 4 & 5 & 3 & 3 & 3 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Construire le diagramme en b\^atons.
+  \item Calculer la moyenne des r\'esultats.
+  \item Si le d\'e \'etait parfait, quelle serait la moyenne~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Indicateurs~: r\'esum\'e \corrige]{1}
+Pour chaque s\'erie, calculer TOUS les indicateurs (mode, m\'ediane,
+moyenne, \'etendue, \'ecart-type) et construire la bo\^ite \`a moustaches~:
+\begin{enumerate}
+  \item $S_1 = \{1, 3, 3, 5, 7, 7, 7, 9\}$
+  \item $S_2 = \{2, 4, 6, 8, 10, 12, 14, 16\}$
+\end{enumerate}
+Laquelle est la plus \og sym\'etrique\fg~? Laquelle est la plus dispers\'ee~?
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Analyse et comparaisons}
+
+\begin{exo}[Comparer deux s\'eries \corrige]{2}
+Deux \'el\`eves comparent leurs notes sur 10 devoirs~:
+\begin{center}
+\begin{tabular}{|c|cccccccccc|}
+\hline
+\rowcolor{BN!10} Rova & 8 & 12 & 15 & 9 & 14 & 7 & 16 & 11 & 13 & 10 \\
+\hline
+Lova & 11 & 11 & 10 & 12 & 9 & 13 & 11 & 10 & 12 & 11 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer la moyenne, la m\'ediane et l'\'ecart-type de chaque s\'erie.
+  \item Qui a les r\'esultats les plus r\'eguliers~? Justifier.
+  \item Construire la bo\^ite \`a moustaches de chaque s\'erie.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fr\'equences cumul\'ees et m\'ediane \corrige]{2}
+Salaires mensuels (en milliers d'ariary)~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Tranche & $[200;400[$ & $[400;600[$ & $[600;800[$ & $[800;1000[$ & $[1000;1200]$ \\
+\hline
+Effectif & 5 & 18 & 24 & 12 & 6 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer les fr\'equences et effectifs cumul\'es.
+  \item Construire le polygone des effectifs cumul\'es.
+  \item Estimer graphiquement la m\'ediane.
+  \item Calculer la moyenne.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Analyse critique de statistiques \corrige]{2}
+Un fabricant annonce~:
+\og La moyenne de satisfaction de nos clients est $7{,}2/10$.\fg
+\begin{enumerate}
+  \item Si $200$ clients ont r\'epondu, la somme des notes est de combien~?
+  \item Si l'\'ecart-type est $2{,}8$~: entre quelles valeurs se situent
+        la plupart des r\'eponses~?
+  \item Un deuxi\`eme fabricant a une moyenne de $6{,}8$ mais un \'ecart-type
+        de $0{,}4$. Lequel pr\'ef\'erer~? Justifier.
+  \item Pourquoi la m\'ediane serait-elle parfois plus pertinente
+        que la moyenne~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Variance~: propri\'et\'es \corrige]{2}
+Soit une s\'erie $x_1,\ldots,x_n$ de moyenne $\bar{x}$ et d'\'ecart-type $\sigma$.
+\begin{enumerate}
+  \item D\'emontrer que $V = \overline{x^2} - \bar{x}^2$.
+  \item Si on ajoute la constante $k$ \`a chaque valeur~: quelle est la
+        nouvelle moyenne~? Le nouvel \'ecart-type~?
+  \item Si on multiplie chaque valeur par $k$~: quelle est la nouvelle
+        moyenne~? Le nouvel \'ecart-type~?
+  \item Des notes sur $10$ ont $\bar{x}=6{,}5$ et $\sigma=1{,}8$.
+        On les ramène sur $20$. Nouvelle moyenne et \'ecart-type.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[S\'erie avec une inconnue \corrige]{2}
+Une s\'erie de $6$ valeurs est $3, 5, 7, x, 9, 11$.
+\begin{enumerate}
+  \item Calculer la moyenne en fonction de $x$.
+  \item Si la moyenne est $7$~: trouver $x$.
+  \item Pour cette valeur de $x$~: calculer l'\'ecart-type.
+  \item Si l'\'ecart-type est $\sqrt{6}$~: trouver les valeurs possibles de $x$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Position de la moyenne par rapport \`a la m\'ediane \corrige]{2}
+\begin{enumerate}
+  \item Pour $S=\{1, 2, 3, 4, 100\}$~: calculer moyenne et m\'ediane.
+        La moyenne repr\'esente-t-elle bien la s\'erie~?
+  \item Pour $S=\{1, 1, 2, 2, 3, 100\}$~: m\^eme question.
+  \item Dans quelles situations la m\'ediane est-elle plus repr\'esentative
+        que la moyenne~?
+  \item Construire une s\'erie de $7$ valeurs o\`u la m\'ediane est bien
+        plus petite que la moyenne.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Bo\^ite \`a moustaches~: comparaison \corrige]{2}
+Les bo\^ites \`a moustaches de deux groupes A et B ont les caract\'eristiques~:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+\rowcolor{BN!10} & Min & $Q_1$ & $Q_2$ & $Q_3$ & Max \\
+\hline
+Groupe A & 2 & 5 & 8 & 12 & 20 \\
+Groupe B & 4 & 7 & 9 & 11 & 15 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Construire les deux bo\^ites.
+  \item Quel groupe a la plus grande \'etendue~? Le plus grand \'ecart interquartile~?
+  \item Le groupe B est-il plus concentr\'e~? Justifier.
+  \item Quel groupe a le plus de valeurs sup\'erieures \`a $9$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Ind\'ependance de la moyenne et l'\'ecart-type \corrige]{2}
+\begin{enumerate}
+  \item Construire trois s\'eries de $5$ valeurs, chacune de moyenne $10$,
+        mais d'\'ecart-types $0$, $2$ et $5$.
+  \item Construire deux s\'eries de $5$ valeurs, l'une d'\'ecart-type $3$
+        et de moyenne $5$, l'autre d'\'ecart-type $3$ et de moyenne $15$.
+  \item La connaissance de la seule moyenne suffit-elle \`a d\'ecrire une s\'erie~?
+        Et la seule \'ecart-type~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[S\'erie en classes~: \'estimer les quartiles \corrige]{2}
+\index{quartiles!estimation}
+Pour une s\'erie group\'ee en classes, on estime les quartiles par interpolation~:
+si $Q_1$ se trouve dans la classe $[a;b[$ d'effectif $n_k$ avec un effectif
+cumul\'e $C_{k-1}$ avant, alors~:
+$Q_1 \approx a + \dfrac{N/4 - C_{k-1}}{n_k}\times(b-a)$.
+
+\noindent
+Appliquer \`a la distribution~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Classe & $[10;15[$ & $[15;20[$ & $[20;25[$ \\
+\hline
+Effectif & 6 & 14 & 10 \\
+\hline
+\end{tabular}
+\end{center}
+\end{exo}
+
+\begin{exo}[Graphique statistique~: choisir la repr\'esentation \corrige]{2}
+Pour chaque situation, choisir et justifier la repr\'esentation graphique
+la plus adapt\'ee (diagramme en b\^atons, circulaire, histogramme,
+bo\^ite \`a moustaches)~:
+\begin{enumerate}
+  \item R\'epartition des \'el\`eves par option (LV1, LV2, option sport).
+  \item Distribution des notes d'une classe (donn\'ees continues).
+  \item Comparaison des r\'esultats de deux classes.
+  \item \'Evolution du nombre de livres lus par mois sur un an.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Algorithme statistique \computer \corrige]{2}
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item Lit une liste de notes saisies par l'utilisateur.
+  \item Calcule et affiche la moyenne, le minimum, le maximum,
+        l'\'etendue et l'\'ecart-type.
+  \item Calcule et affiche la m\'ediane (apr\`es tri).
+  \item Indique si la moyenne est sup\'erieure ou inf\'erieure \`a $10$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: calculer m\'ediane et quartiles \corrige]{2}
+
+\begin{algorithm}[H]
+\caption{Calcul de la m\'ediane d'une s\'erie}
+\KwIn{une liste $L$ de $n$ valeurs}
+\KwOut{la m\'ediane}
+Trier $L$ dans l'ordre croissant\;
+\Si{$n \mod 2 = 1$}{
+  \Retourner $L[(n+1)/2]$\tcp*[r]{rang du milieu (liste index\'ee depuis 1)}
+}\Sinon{
+  \Retourner $(L[n/2] + L[n/2+1]) / 2$\;
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item La condition \og$n$ est impair\fg\ est-elle \'equivalente \`a
+        \og$n\mod2=1$\fg~? \'Enoncer la n\'egation de cette condition.
+  \item Appliquer \`a $L=\{3,7,7,9,11\}$ (impair) et
+        $L=\{2,5,7,8,10,12\}$ (pair).
+  \item Modifier pour calculer aussi $Q_1$ (m\'ediane de la premi\`ere moiti\'e)
+        et $Q_3$ (m\'ediane de la seconde moiti\'e).
+  \item Impl\'ementer en Python \computer\ et v\'erifier sur les deux exemples.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations et analyse}
+
+\begin{exo}[Variance et \'ecart-type~: propri\'et\'es formelles \corrige]{3}
+Soit $f(t) = \dfrac{1}{n}\displaystyle\sum_{i=1}^n (x_i-t)^2$.
+\begin{enumerate}
+  \item D\'evelopper $f(t)$ et montrer que
+        $f(t) = \overline{x^2} - 2t\bar{x} + t^2$.
+  \item Montrer que $f$ est un trin\^ome en $t$ de coefficient positif.
+  \item Montrer que $f$ est minimale pour $t=\bar{x}$.
+  \item Conclure~: la variance est la valeur minimale de $f$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Paradoxe de Simpson \corrige]{3}
+\index{paradoxe de Simpson}
+On compare les taux de r\'eussite de deux m\'ethodes A et B~:
+\begin{center}
+\begin{tabular}{|l|cc|cc|}
+\hline
+\rowcolor{BN!10} & \multicolumn{2}{c|}{Groupe 1} & \multicolumn{2}{c|}{Groupe 2} \\
+\rowcolor{BN!10} & R\'eussis & Total & R\'eussis & Total \\
+\hline
+M\'ethode A & 9 & 10 & 60 & 100 \\
+M\'ethode B & 80 & 100 & 5 & 10 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer le taux de r\'eussite de chaque m\'ethode dans chaque groupe.
+  \item Quelle m\'ethode semble meilleure dans le groupe 1~? Dans le groupe 2~?
+  \item Calculer le taux global de chaque m\'ethode (tous groupes confondus).
+  \item Le r\'esultat est-il surprenant~? Expliquer le paradoxe.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Sensibilit\'e aux valeurs extr\^emes \corrige]{3}
+\begin{enumerate}
+  \item Pour $S = \{5, 6, 7, 8, 9\}$~: calculer $\bar{x}$ et $\sigma$.
+  \item Remplacer la derni\`ere valeur par $90$~:
+        recalculer $\bar{x}$ et $\sigma$.
+  \item Remplacer \`a la place la m\'ediane par $90$~:
+        calculer l'impact sur la m\'ediane et l'\'ecart-type.
+  \item Conclure sur la robustesse relative de la m\'ediane et de la moyenne.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Corr\'elation \'el\'ementaire \corrige]{3}
+On observe les paires $(x_i, y_i)$~:
+$(1,2)$, $(2,4)$, $(3,5)$, $(4,4)$, $(5,6)$.
+\begin{enumerate}
+  \item Calculer $\bar{x}$, $\bar{y}$, $\sigma_x$, $\sigma_y$.
+  \item Calculer $\overline{xy} = \frac{1}{n}\sum x_i y_i$.
+  \item Le coefficient de corr\'elation lin\'eaire est
+        $r = \dfrac{\overline{xy}-\bar{x}\bar{y}}{\sigma_x\sigma_y}$.
+        Calculer $r$.
+  \item Que signifie $r$ proche de $1$~? Proche de $0$~? Proche de $-1$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Construire une s\'erie \`a partir d'indicateurs \corrige]{3}
+\begin{enumerate}
+  \item Construire une s\'erie de $6$ valeurs de moyenne $8$,
+        m\'ediane $8$, et \'ecart-type $\sqrt{6}$.
+  \item Construire une s\'erie de $5$ valeurs de moyenne $10$,
+        mode $10$, mais m\'ediane diff\'erente de $10$.
+  \item Est-il possible d'avoir une s\'erie avec $\bar{x}=5$,
+        $\sigma=0$, mais deux valeurs diff\'erentes~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Statistiques bidimensionnelles~: r\'egression \corrige]{3}
+\index{régression linéaire}
+Pour la s\'erie bivariate $(x,y)$~: $(1,3)$, $(2,5)$, $(3,4)$, $(4,7)$, $(5,6)$~:
+\begin{enumerate}
+  \item Calculer $\bar{x}$, $\bar{y}$.
+  \item La droite de r\'egression passe par $(\bar{x},\bar{y})$ et
+        a pour pente $a=\dfrac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}$.
+        Calculer $a$.
+  \item Trouver l'ordonnée \`a l'origine $b=\bar{y}-a\bar{x}$.
+  \item \'Ecrire l'\'equation de la droite et pr\'edire $y$ pour $x=6$.
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Analyse d'une classe \corrigeP]{1}
+Les notes finales de $25$ \'el\`eves en math\'ematiques sont~:
+$7, 8, 9, 9, 10, 10, 11, 11, 11, 12, 12, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 17, 17, 18, 19$.
+\begin{enumerate}
+  \item Construire le tableau de distribution (effectif et fr\'equence).
+  \item Calculer moyenne, m\'ediane, mode, \'ecart-type.
+  \item Construire la bo\^ite \`a moustaches.
+  \item Quel pourcentage d'\'el\`eves a obtenu une note sup\'erieure
+        \`a la moyenne~? Inf\'erieure~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Contr\^ole qualit\'e \corrigeP]{1}
+Une machine fabrique des vis de longueur nominale $20$~mm.
+On mesure $30$ vis~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Longueur (mm) & 19,5 & 19,8 & 20,0 & 20,2 & 20,5 \\
+\hline
+Effectif & 3 & 7 & 12 & 6 & 2 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer la moyenne et l'\'ecart-type.
+  \item Une vis est acceptable si $|l-20|\leq0{,}3$.
+        Combien de vis sont rejet\'ees~?
+  \item Calculer le pourcentage de rejet.
+  \item Proposer une interpr\'etation de l'\'ecart-type en termes de qualit\'e.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\'Evolution d'une classe \corrigeP]{2}
+En d\'ebut d'ann\'ee, une classe de $30$ \'el\`eves a une moyenne de $12$
+et un \'ecart-type de $3$. En fin d'ann\'ee, un \'el\`eve de $18$ quitte
+la classe et un \'el\`eve de $6$ arrive.
+\begin{enumerate}
+  \item Quelle est la somme des notes initiales~?
+  \item Calculer la nouvelle moyenne.
+  \item L'\'ecart-type peut-il augmenter ou diminuer~?
+        Illustrer par un calcul.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Statistiques comparatives~: genre \corrigeP]{2}
+Donn\'ees sur les salaires m\'edians en France (fictif, en milliers)~:
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+\rowcolor{BN!10}
+Secteur & Commerce & Industrie & Sant\'e & IT & Education & BTP \\
+\hline
+Femmes & 22 & 28 & 30 & 40 & 26 & 24 \\
+Hommes & 26 & 38 & 32 & 48 & 28 & 35 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer la moyenne des salaires f\'eminins et masculins.
+  \item Calculer l'\'ecart-type de chaque distribution.
+  \item Calculer le ratio F/H dans chaque secteur.
+  \item Construire les deux bo\^ites \`a moustaches et les comparer.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Donn\'ees en classes~: \'estimation \corrigeP]{2}
+La distribution des temps de trajet quotidiens (en minutes) d'un groupe~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Classe & $[0;10[$ & $[10;20[$ & $[20;40[$ & $[40;60[$ & $[60;120]$ \\
+\hline
+Effectif & 8 & 15 & 20 & 10 & 7 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer la moyenne (centre de classe).
+  \item Calculer l'\'ecart-type.
+  \item Construire le polygone des fr\'equences cumul\'ees.
+  \item Lire graphiquement $Q_1$, $Q_2$, $Q_3$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Algorithme et statistiques \computer \corrigeP]{2}
+\'Ecrire des programmes Python pour analyser une liste de donn\'ees~:
+\begin{enumerate}
+  \item Calculer la moyenne, le minimum, le maximum.
+  \item Calculer la m\'ediane (apr\`es tri).
+  \item Calculer l'\'ecart-type.
+  \item Afficher un diagramme en b\^atons avec \texttt{matplotlib}
+        (effectifs vs valeurs).
+\end{enumerate}
+Tester sur la s\'erie~: $4, 7, 7, 9, 11, 12, 14, 15, 15, 16$.
+\end{probleme}
+
+\begin{probleme}[Enquête r\'eelle~: concevoir et analyser \corrigeP]{1}
+R\'ealiser une enquête dans la classe sur le temps consacr\'e aux r\'evisions
+par semaine~:
+\begin{enumerate}
+  \item Proposer les modalit\'es de r\'eponse (classes d'heures).
+  \item Collecter les donn\'ees de $20$ \'el\`eves (simuler si n\'ecessaire).
+  \item Construire le tableau de distribution et l'histogramme.
+  \item Calculer tous les indicateurs et commenter.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Taille de la bo\^ite et variation \corrigeP]{2}
+Soit une s\'erie dont les $5$ indicateurs sont Min$=5$,
+$Q_1=10$, $Q_2=15$, $Q_3=22$, Max$=30$.
+\begin{enumerate}
+  \item Construire la bo\^ite \`a moustaches.
+  \item Si on ajoute $5$ \`a toutes les valeurs~:
+        quels indicateurs changent, et de combien~?
+  \item Si on multiplie toutes les valeurs par $2$~:
+        quels indicateurs changent~?
+  \item Calculer l'\'ecart interquartile dans chaque cas.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Comparaison internationale \corrigeP]{2}
+L'esp\'erance de vie (ann\'ees) dans $8$ pays~: $68, 72, 75, 76, 79, 80, 81, 83$.
+Pour les m\^emes pays, le revenu moyen (milliers de dollars)~:
+$5, 8, 15, 18, 35, 42, 50, 60$.
+\begin{enumerate}
+  \item Calculer la moyenne et l'\'ecart-type de l'esp\'erance de vie.
+  \item Calculer la moyenne et l'\'ecart-type du revenu.
+  \item Tracer un diagramme de dispersion (points $(x_i, y_i)$).
+  \item Semble-t-il y avoir une corr\'elation entre revenu et esp\'erance de vie~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Suites et statistiques \corrigeP]{2}
+On consid\`ere la suite $u_n = 2n+1$ pour $n = 1, 2, \ldots, 10$.
+\begin{enumerate}
+  \item Calculer les $10$ termes.
+  \item Calculer la moyenne, la m\'ediane et l'\'ecart-type.
+  \item Montrer que la moyenne est le terme du milieu.
+  \item Calculer l'\'ecart-type en fonction du nombre de termes~:
+        quel est le lien avec la raison de la suite~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Transformation affine et statistiques \corrigeP]{2}
+Si on applique la transformation $y_i = ax_i + b$ \`a chaque valeur~:
+\begin{enumerate}
+  \item Montrer que $\bar{y} = a\bar{x} + b$.
+  \item Montrer que $\sigma_y = |a|\sigma_x$.
+  \item Application~: des notes sur $10$ ont $\bar{x}=6$ et $\sigma=2$.
+        On les ramène sur $20$. Calculer $\bar{y}$ et $\sigma_y$.
+  \item Centrer-r\'eduire la s\'erie~: $z_i=(x_i-\bar{x})/\sigma$.
+        Quelle est la moyenne de $z$~? Son \'ecart-type~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Analyse de donn\'ees olympiques \corrigeP]{1}
+Les temps (en secondes) des finalistes du $100$~m des J.O. 2020~:
+$9{,}80$, $9{,}84$, $9{,}89$, $9{,}89$, $9{,}94$, $9{,}95$, $10{,}00$, $10{,}02$.
+\begin{enumerate}
+  \item Calculer la moyenne et l'\'ecart-type.
+  \item Construire la bo\^ite \`a moustaches.
+  \item Quelle est la diff\'erence entre le finaliste le plus rapide
+        et le moins rapide~?
+  \item Quelle est la diff\'erence entre la m\'ediane et la moyenne~?
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Paradoxe de Simpson]
+\index{paradoxe de Simpson}
+Dans un h\^opital, deux traitements $A$ et $B$~:
+\begin{center}
+\begin{tabular}{|l|cc|cc|}
+\hline
+\rowcolor{BN!10} & \multicolumn{2}{c|}{Femmes} & \multicolumn{2}{c|}{Hommes} \\
+\rowcolor{BN!10} & Gu\'eris & Total & Gu\'eris & Total \\
+\hline
+$A$ & 200 & 250 & 45 & 50 \\
+$B$ & 180 & 200 & 150 & 300 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer les taux de gu\'erison de $A$ et $B$ chez les femmes.
+  \item M\^eme question chez les hommes.
+  \item Calculer les taux globaux.
+  \item Ce ph\'enom\`ene s'appelle le paradoxe de Simpson~:
+        expliquer pourquoi les conclusions locales et globales divergent.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Variance minimale~: preuve]
+\begin{enumerate}
+  \item Montrer que parmi toutes les s\'eries de $n$ valeurs de m\^eme
+        somme $S$, la s\'erie constante $x_i=S/n$ minimise la variance.
+        \emph{(Utiliser la forme $V=\overline{x^2}-\bar{x}^2$ et
+        l'in\'egalit\'e $\overline{x^2}\geq\bar{x}^2$.)}
+  \item D\'emontrer l'in\'egalit\'e $\overline{x^2}\geq\bar{x}^2$.
+        \emph{(C'est l'in\'egalit\'e de la variance positive.)}
+  \item Quand a-t-on l'\'egalit\'e $V=0$~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[G\'en\'eration de distributions]
+\begin{enumerate}
+  \item Construire une s\'erie de $8$ valeurs avec $\bar{x}=10$,
+        $\sigma=3$, m\'ediane$=10$, et une bo\^ite \`a moustaches sym\'etrique.
+  \item Construire une s\'erie de $8$ valeurs avec $\bar{x}=10$
+        mais une bo\^ite \`a moustaches fortement asym\'etrique.
+  \item Peut-on construire une s\'erie avec $Q_1=Q_2=Q_3$~? Si oui, donner un exemple.
+  \item Peut-on avoir $\sigma > Q_3-Q_1$~? Donner un exemple ou d\'emontrer l'impossibilit\'e.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Encadrement de la moyenne]
+\begin{enumerate}
+  \item Pour une s\'erie de $n$ valeurs dans $[m,M]$~: montrer que
+        $m \leq \bar{x} \leq M$.
+  \item Si $50\%$ des valeurs sont sup\'erieures \`a $Q_2$, est-ce que
+        la moyenne est n\'ecessairement $\geq Q_2$~?
+        Donner un exemple ou un contre-exemple.
+  \item Pour une s\'erie sym\'etrique par rapport \`a sa moyenne
+        (i.e.\ $\bar{x}=$ m\'ediane), est-ce que cela implique
+        $Q_2-Q_1 = Q_3-Q_2$~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Algorithme~: tri et calcul de quantiles \computer]
+\begin{enumerate}
+  \item \'Ecrire un programme Python qui trie une liste et calcule
+        $Q_1$, $Q_2$, $Q_3$ automatiquement.
+  \item Impl\'ementer la d\'etection de valeurs aberrantes~:
+        une valeur est \og aberrante\fg\ si elle est \`a plus de $1{,}5\times(Q_3-Q_1)$
+        de $Q_1$ ou $Q_3$.
+  \item Tester sur une liste contenant une valeur aberrante.
+  \item Comparer la moyenne avec et sans la valeur aberrante.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Statistiques bidimensionnelles : droite de r\'egression]
+\index{droite de régression}
+Cinq \'el\`eves ont obtenu les notes~: ($x$ = maths, $y$ = sciences)~:
+$(8,10)$, $(12,13)$, $(15,14)$, $(10,11)$, $(18,17)$.
+\begin{enumerate}
+  \item Placer les points dans un rep\`ere.
+  \item Calculer $\bar{x}$, $\bar{y}$, $\sigma_x$, $\sigma_y$.
+  \item Calculer $\overline{xy}$ et la pente de la droite de r\'egression
+        $a = (\overline{xy}-\bar{x}\bar{y})/\sigma_x^2$.
+  \item \'Ecrire l'\'equation de la droite et l'utiliser pour pr\'edire
+        la note en sciences d'un \'el\`eve qui a $13$ en maths.
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=1.25,yscale=1.55]
+  % Histogram
+  \foreach \x/\h/\clr in {
+    0/3/BN!40, 1/7/BN!55, 2/10/BN!70, 3/12/BN, 4/8/BN!70, 5/5/BN!55, 6/2/BN!40
+  }{
+    \fill[\clr] (\x,0) rectangle (\x+1,\h/14);
+    \draw[BN!60,thin] (\x,0) rectangle (\x+1,\h/14);
+  }
+  % x-axis
+  \draw[BN!50,->] (-0.3,0)--(7.5,0) node[right,font=\small] {valeurs};
+  \draw[BN!50,->] (0,-0.05)--(0,1.05) node[above,font=\small] {};
+  \foreach \x/\lbl in {0.5/10, 1.5/12, 2.5/14, 3.5/16, 4.5/18, 5.5/20, 6.5/22}{
+    \node[below,font=\small,text=BN!70] at (\x,0) {\lbl};
+  }
+  \node[font=\large,text=BN] at (3.5,1.12) {Histogramme};
+  % mean line
+  \draw[OR,very thick,dashed] (3.5,0)--(3.5,0.88);
+  \node[OR,font=\small,above] at (3.5,0.88) {$\bar{x}$};
+
+  % Boxplot below
+  \begin{scope}[yshift=-2.25cm]
+    \draw[BN!40,->] (-0.3,0)--(7.5,0);
+    % whiskers
+    \draw[BN,very thick] (1,0)--(1.8,0);
+    \draw[BN,very thick] (5.5,0)--(6.2,0);
+    \draw[BN,very thick] (1,0.25)--(1,-0.25);
+    \draw[BN,very thick] (6.2,0.25)--(6.2,-0.25);
+    % box Q1..Q3
+    \draw[BN,very thick,fill=TQ!15] (1.8,-0.35) rectangle (5.5,0.35);
+    % median
+    \draw[OR,very thick] (3.2,-0.35)--(3.2,0.35);
+    % labels
+    \node[below,font=\scriptsize,text=BN] at (1,-0.3) {minimum};
+    \node[below,font=\scriptsize,text=TQ] at (1.8,-0.42) {$Q_1$};
+    \node[below,font=\scriptsize,text=OR] at (3.2,-0.42) {$Q_2$};
+    \node[below,font=\scriptsize,text=TQ] at (5.5,-0.42) {$Q_3$};
+    \node[below,font=\scriptsize,text=BN] at (6.2,-0.3) {maximum};
+    \node[font=\large,text=BN] at (3.5,0.78) {Bo\^ite \`a moustaches};
+  \end{scope}
+\end{tikzpicture}
+\caption{Lire une distribution~: l'histogramme montre la forme g\'en\'erale~;
+la bo\^ite \`a moustaches r\'esume les 5 indicateurs essentiels.
+Ici la distribution est l\'eg\`erement asym\'etrique : la m\'ediane $Q_2$ (orange)
+est \`a gauche de la moyenne $\bar{x}$ (orange, tiret\'e dans l'histogramme).}
+\end{figure}
+
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Indicateurs de position}~:
+        mode (plus fr\'equent)~;
+        m\'ediane $Q_2$ (50\% en dessous)~;
+        moyenne $\bar{x}=\frac{1}{N}\sum n_i x_i$.
+  \item \textbf{Quartiles}~: $Q_1$ (25\%), $Q_3$ (75\%).
+  \item \textbf{Indicateurs de dispersion}~:
+        \'etendue $= x_{\max}-x_{\min}$~;
+        variance $V=\overline{x^2}-\bar{x}^2$~;
+        \'ecart-type $\sigma=\sqrt{V}$.
+  \item \textbf{Bo\^ite \`a moustaches}~: cinq nombres~:
+        min, $Q_1$, $Q_2$, $Q_3$, max.
+  \item \textbf{Repr\'esentations}~: diagramme en b\^atons (discret),
+        circulaire (fr\'equences), histogramme (continu),
+        polygone des fr\'equences cumul\'ees (m\'ediane graphique).
+  \item \textbf{Transformation affine}~:
+        $y_i=ax_i+b \Rightarrow \bar{y}=a\bar{x}+b$,
+        $\sigma_y=|a|\sigma_x$.
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Propositions statistiques \corrige]{1}
+\'Enoncer la n\'egation et d\'eterminer si vraie~:
+\begin{enumerate}
+  \item $\forall$ s\'erie, la moyenne est \'egale \`a la m\'ediane.
+  \item $\exists$ s\'erie de $5$ valeurs de moyenne $10$ et d'\'ecart-type $0$.
+  \item $\forall$ s\'erie, $Q_1\leq Q_2\leq Q_3$.
+  \item L'\'ecart-type est toujours positif.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Implications entre indicateurs \corrige]{1}
+Pour chaque paire, indiquer $\Rightarrow$, $\Leftarrow$ ou ni l'un ni l'autre~:
+\begin{enumerate}
+  \item \og $\sigma=0$\fg\ et \og toutes les valeurs sont \'egales\fg.
+  \item \og La m\'ediane est plus grande que la moyenne\fg\ et
+        \og la distribution est asym\'etrique\fg.
+  \item \og L'\'etendue est nulle\fg\ et \og $\sigma=0$\fg.
+  \item \og Le mode est unique\fg\ et \og la distribution est unimodale\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Raisonnement par l'absurde en statistiques \corrige]{2}
+D\'emontrer par l'absurde~:
+\begin{enumerate}
+  \item Une s\'erie ne peut pas avoir \`a la fois $\sigma>0$ et toutes ses valeurs \'egales.
+  \item Si $\sigma=0$, alors $\bar{x}$ est la seule valeur de la s\'erie.
+  \item Il est impossible que $Q_1>Q_3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Conditions sur la variance \corrige]{2}
+\begin{enumerate}
+  \item Montrer que $V=\overline{x^2}-\bar{x}^2\geq0$ pour toute s\'erie.
+        Quel raisonnement~?
+  \item La condition $\overline{x^2}=\bar{x}^2$ est-elle CN, CS ou CNS
+        pour $\sigma=0$~?
+  \item \'Enoncer~: \og La variance est nulle ssi toutes les valeurs sont \'egales.\fg
+        D\'emontrer les deux sens.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Logique du paradoxe de Simpson \corrige]{3}
+(Voir d\'efi Paradoxe de Simpson.)
+\begin{enumerate}
+  \item \'Enoncer le paradoxe~: \og Il peut exister des populations $G_1$, $G_2$
+        et des traitements $A$, $B$ tels que $A$ soit meilleur que $B$ dans
+        chaque groupe, mais $B$ soit meilleur que $A$ globalement.\fg
+  \item Formuler cela comme une n\'egation d'une implication.
+  \item D\'emontrer par un exemple num\'erique.
+  \item Quelle en est la cause logique~? (pond\'erations diff\'erentes)
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Propositions sur la bo\^ite \`a moustaches \corrige]{2}
+\begin{enumerate}
+  \item La proposition~: \og $50\%$ des donn\'ees sont dans la bo\^ite $[Q_1,Q_3]$\fg.
+        Est-elle toujours vraie~? (Consid\'erer des donn\'ees \`a valeurs r\'ep\'et\'ees.)
+  \item \og Si la bo\^ite est sym\'etrique, alors la moyenne \'egale la m\'ediane.\fg
+        Vraie ou fausse~?
+  \item Construire une s\'erie v\'erifiant $Q_1=Q_2$ mais $Q_2\ne Q_3$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: calculer moyenne et \'ecart-type \computer \corrige]{1}
+(Voir exercice \'Etude de $f(x)=1/x$.)
+\'Ecrire un programme Python qui calcule $\bar{x}$ et $\sigma$
+\`a partir d'une liste en utilisant la formule $V=\overline{x^2}-\bar{x}^2$.
+Tester sur $\{5,7,8,10,10,12\}$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: tri par insertion \computer \corrige]{2}
+\'Ecrire un algorithme de tri par insertion~:
+
+\begin{algorithm}[H]
+\caption{Tri par insertion}
+\KwIn{liste $L$ de $n$ valeurs}
+\Pour{$i \leftarrow 2$ \KwTo $n$}{
+  $v \leftarrow L[i]$~;\quad $j \leftarrow i - 1$\;
+  \TantQue{$j \geq 1$ \textbf{et} $L[j] > v$}{
+    $L[j+1] \leftarrow L[j]$~;\quad $j \leftarrow j - 1$\;
+  }
+  $L[j+1] \leftarrow v$\;
+}
+\end{algorithm}
+
+Tracer pour $L=\{5,3,8,1,4\}$. Impl\'ementer \computer.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: calcul des quartiles apr\`es tri \computer \corrige]{2}
+(Voir exercice \logicoalgo\ dans ce chapitre.)
+\'Etendre l'algorithme pour calculer aussi l'\'ecart-type, l'\'etendue,
+et d\'etecter les valeurs aberrantes (plus de $1{,}5\times(Q_3-Q_1)$
+hors de la bo\^ite).
+Tester sur $\{2,5,7,8,9,10,11,14,50\}$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: histogramme en classes \computer \corrige]{2}
+\'Ecrire un programme Python qui, pour une liste de donn\'ees et
+une amplitude de classe $h$~:
+\begin{enumerate}
+  \item Construit le tableau de distribution.
+  \item Trace l'histogramme avec \texttt{matplotlib}.
+  \item Calcule la fr\'equence cumul\'ee et la trace.
+  \item Estime la m\'ediane graphiquement.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: droite de r\'egression lin\'eaire \computer \corrige]{3}
+(Voir d\'efi dans ce chapitre.)
+\'Ecrire un programme Python complet qui~:
+\begin{enumerate}
+  \item Calcule $\bar{x}$, $\bar{y}$, $\sigma_x$, $\sigma_y$, et le coefficient $a$.
+  \item Trace le nuage de points et la droite de r\'egression.
+  \item Calcule le coefficient de corr\'elation $r$.
+  \item Pr\'edit $y$ pour une valeur de $x$ hors de l'\'echantillon.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: simulation d'une loi uniforme et moyenne \computer \corrige]{2}
+\'Ecrire un programme Python qui simule $N$ tirages d'une variable al\'eatoire
+uniforme sur $[0,10]$, calcule la moyenne et l'\'ecart-type, et v\'erifie
+que la moyenne converge vers $5$ quand $N$ augmente.
+Tester pour $N=10, 100, 1000, 10000$.
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique du paradoxe de Simpson \corrigeP]{2}
+(Voir d\'efi Paradoxe de Simpson.)
+\begin{enumerate}
+  \item Construire un exemple complet o\`u la m\'ethode $A$ est meilleure
+        que $B$ dans chaque sous-groupe, mais pire globalement.
+  \item \'Enoncer logiquement la condition qui garantit l'absence de paradoxe.
+  \item La proposition~: \og Si $A$ est meilleure dans tous les sous-groupes,
+        alors $A$ est meilleure globalement\fg\ est-elle toujours vraie~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ Logique de la transformation affine \corrigeP]{2}
+Pour $y_i=ax_i+b$~:
+\begin{enumerate}
+  \item D\'emontrer que $\bar{y}=a\bar{x}+b$.
+        Quelle propri\'et\'e logique de la somme utilise-t-on~?
+  \item D\'emontrer que $\sigma_y=|a|\sigma_x$.
+  \item La r\'eciproque~: si $\sigma_y=|a|\sigma_x$ et $\bar{y}=a\bar{x}+b$,
+        peut-on conclure que $y_i=ax_i+b$~? Justifier.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: analyse statistique compl\`ete \computer \corrigeP]{2}
+\'Ecrire un programme Python complet qui, pour une s\'erie donn\'ee~:
+\begin{enumerate}
+  \item Calcule tous les indicateurs (mode, m\'ediane, moyenne, $\sigma$).
+  \item D\'etecte les valeurs aberrantes.
+  \item Trace l'histogramme et la bo\^ite \`a moustaches.
+  \item Affiche un rapport r\'esum\'e.
+\end{enumerate}
+Tester sur les $25$ notes du probl\`eme d'analyse de classe.
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: simulation et statistiques \computer \corrigeP]{2}
+\'Ecrire un programme Python qui simule $1000$ lancers de deux d\'es
+et calcule~:
+\begin{enumerate}
+  \item La distribution des sommes (de $2$ \`a $12$).
+  \item La moyenne et l'\'ecart-type de cette distribution.
+  \item L'histogramme des fr\'equences observ\'ees vs th\'eoriques.
+  \item Le test~: la fr\'equence observ\'ee de chaque somme est-elle
+        proche de la probabilit\'e th\'eorique~?
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Variance minimale et in\'egalit\'e]
+D\'emontrer que, pour toute s\'erie de $n$ valeurs~:
+\begin{enumerate}
+  \item $V\geq0$ (variance positive).
+  \item $V=0 \Leftrightarrow$ toutes les valeurs sont \'egales.
+  \item Parmi toutes les s\'eries de m\^eme somme $S=\sum x_i$, celle \`a variance
+        minimale est la s\'erie constante.
+  \item \'Enoncer tout cela sous forme d'implications et d'\'equivalences.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ Algorithme~: calculatrice statistique compl\`ete \computer]
+\'Ecrire un programme Python interactif qui~:
+\begin{enumerate}
+  \item Permet \`a l'utilisateur de saisir des donn\'ees.
+  \item Calcule et affiche tous les indicateurs.
+  \item Propose plusieurs repr\'esentations graphiques.
+  \item Permet de tester l'effet d'une transformation $y=ax+b$.
+  \item G\'en\`ere un rapport exportable.
+\end{enumerate}
+\end{challenge}
+
+\end{bilan}
+
+
+%% ════════════════════════════════════════════════════════════════
+\backmatter

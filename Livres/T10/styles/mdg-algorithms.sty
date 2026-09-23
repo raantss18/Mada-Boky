@@ -1,0 +1,39 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/mdg-algorithms}[2026/09/19 Lightweight pseudocode]
+\RequirePackage{xparse}
+
+% A self-contained replacement for algorithm2e. It intentionally implements
+% only the vocabulary used in this project, avoiding a non-portable dependency.
+\newcounter{mdgalgorithm}
+\NewDocumentEnvironment{algorithm}{O{}}{%
+  \refstepcounter{mdgalgorithm}%
+  \begin{tcolorbox}[enhanced,breakable,frame hidden,
+    borderline west={2pt}{0pt}{VI!70},colback=VI!3,sharp corners,
+    left=12pt,right=8pt,top=7pt,bottom=7pt]
+  \small\sffamily
+  \let\mdgoldsemicolon\;
+  \renewcommand{\;}{\unskip;\par}%
+  \renewcommand{\caption}[1]{\textbf{\color{VI}Algorithme
+    \themdgalgorithm\ -- ##1}\par\smallskip}%
+}{\end{tcolorbox}}
+
+\NewDocumentCommand{\KwIn}{m}{\textbf{Entrée :} #1\par}
+\NewDocumentCommand{\KwOut}{m}{\textbf{Sortie :} #1\par}
+\newcommand{\KwTo}{\textbf{à}}
+\newcommand{\KwStep}{\textbf{pas}}
+\newcommand{\Afficher}{\textbf{Afficher}}
+\newcommand{\Lire}{\textbf{Lire}}
+\newcommand{\Retourner}{\textbf{Retourner}}
+% A comment terminates the current instruction, so that the following
+% assignment cannot be absorbed on the same visual line.
+\NewDocumentCommand{\tcp}{s O{} m}{\hfill{\color{GM!70!black}\itshape// #3}\par}
+\NewDocumentCommand{\mdgblock}{m}{\par\begingroup\leftskip=1.35em #1\par\endgroup}
+\NewDocumentCommand{\Si}{m +m}{\par\textbf{Si} #1 \textbf{alors}\mdgblock{#2}\textbf{Fin si}\par}
+\NewDocumentCommand{\SiSinon}{m +m +m}{\par\textbf{Si} #1 \textbf{alors}\mdgblock{#2}%
+  \textbf{Sinon}\mdgblock{#3}\textbf{Fin si}\par}
+\NewDocumentCommand{\SinonSi}{m +m}{\par\textbf{Sinon si} #1 \textbf{alors}\mdgblock{#2}}
+\NewDocumentCommand{\Sinon}{+m}{\par\textbf{Sinon}\mdgblock{#1}}
+\NewDocumentCommand{\Pour}{m +m}{\par\textbf{Pour} #1 \textbf{faire}\mdgblock{#2}\textbf{Fin pour}\par}
+\NewDocumentCommand{\TantQue}{m +m}{\par\textbf{Tant que} #1 \textbf{faire}\mdgblock{#2}\textbf{Fin tant que}\par}
+\NewDocumentCommand{\Repeter}{m +m}{\par\textbf{Répéter}\mdgblock{#2}\textbf{Jusqu'à} #1\par}
+\endinput

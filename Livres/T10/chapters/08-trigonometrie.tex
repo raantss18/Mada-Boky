@@ -1,0 +1,1300 @@
+\part{Trigonom\'etrie et Statistiques}
+
+%% ════════════════════════════════════════════════════════════════
+\chapter{Trigonom\'etrie}
+\input{activities/08-trigonometrie}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[Hipparque et la mesure du monde]
+Hipparque de Nic\'ee (vers $190$--$120$ av.\ J.-C.) construisit la premi\`ere
+table de cordes (anc\^{e}tre des tables de sinus) pour naviguer et cartographier
+les \'etoiles. Il calcula la distance Terre-Lune avec une pr\'ecision remarquable.
+La trigonom\'etrie est n\'ee d'un besoin concret : mesurer ce qu'on ne peut atteindre.
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Convertir entre degr\'es et radians.
+  \item Utiliser le cercle trigonom\'etrique.
+  \item Conna\^itre les valeurs remarquables de sin, cos, tan.
+  \item Utiliser $\cos^2\theta + \sin^2\theta = 1$.
+  \item R\'esoudre graphiquement $\cos x = a$ et $\sin x = b$.
+\end{itemize}
+\end{objectifs}
+
+\section{Radians}
+
+\begin{defn}[Radian]
+Le \textbf{radian} est l'unit\'e d'angle SI. Un angle de $1$~rad correspond
+\`a un arc de longueur \'egale au rayon.
+$$\alpha_\circ \times \frac{\pi}{180} = \alpha_\text{rad},\qquad
+  \alpha_\text{rad} \times \frac{180}{\pi} = \alpha_\circ.$$
+\end{defn}
+
+\iffalse % replaced by the supplied-and-adapted construction below
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=3.0]
+  %% ── Fond quadrants (couleurs très pâles) ──────────────────
+  \fill[BN!5]  (0,0) -- (1,0) arc[start angle=0,   end angle=90,  radius=1] -- cycle;
+  \fill[TQ!6]  (0,0) -- (0,1) arc[start angle=90,  end angle=180, radius=1] -- cycle;
+  \fill[BO!5]  (0,0) --(-1,0) arc[start angle=180, end angle=270, radius=1] -- cycle;
+  \fill[OR!5]  (0,0) -- (0,-1)arc[start angle=270, end angle=360, radius=1] -- cycle;
+
+  %% ── Axes ──────────────────────────────────────────────────
+  \draw[-Stealth,BN!50,thick] (-1.38,0)--(1.42,0)
+    node[right,font=\small,text=BN] {$x$};
+  \draw[-Stealth,BN!50,thick] (0,-1.38)--(0,1.42)
+    node[above,font=\small,text=BN] {$y$};
+
+  %% ── Cercle ────────────────────────────────────────────────
+  \draw[BN,very thick] (0,0) circle (1);
+
+  %% ── Origine ───────────────────────────────────────────────
+  \fill[BN] (0,0) circle (0.8pt)
+    node[below left,font=\scriptsize,text=BN] {$O$};
+
+  %% ── Repères sur les axes ──────────────────────────────────
+  \foreach \x/\lbl in {1/{$1$}, -1/{$-1$}}{
+    \draw[BN!50,thin] (\x,-0.025)--(\x,0.025);
+    \node[below,font=\scriptsize,text=BN!70] at (\x,-0.04) {\lbl};
+  }
+  \foreach \y/\lbl in {1/{$1$}, -1/{$-1$}}{
+    \draw[BN!50,thin] (-0.025,\y)--(0.025,\y);
+    \node[left,font=\scriptsize,text=BN!70] at (-0.04,\y) {\lbl};
+  }
+
+  %% ── Labels des quadrants ─────────────────────────────────
+  \node[font=\tiny,text=BN!55,align=center] at ( 0.55, 0.52)
+    {\textbf{Q\,I}\\ $\cos>0$\\ $\sin>0$};
+  \node[font=\tiny,text=TQ!80,align=center] at (-0.55, 0.52)
+    {\textbf{Q\,II}\\ $\cos<0$\\ $\sin>0$};
+  \node[font=\tiny,text=BO!70,align=center] at (-0.55,-0.52)
+    {\textbf{Q\,III}\\ $\cos<0$\\ $\sin<0$};
+  \node[font=\tiny,text=OR!80,align=center] at ( 0.55,-0.52)
+    {\textbf{Q\,IV}\\ $\cos>0$\\ $\sin<0$};
+
+  %% ── Exemple visuel : θ = π/3 ─────────────────────────────
+  % rayon
+  \draw[OR,thick,->] (0,0) -- ({cos(60)},{sin(60)});
+  % M label placed outside circle, away from the circle labels
+  \node[above right,font=\scriptsize,text=OR,inner sep=1pt]
+    at ({1.12*cos(60)},{1.12*sin(60)}) {$M(\cos\theta,\!\sin\theta)$};
+  % arc de l'angle
+  \draw[OR!80,thick,->] (0.28,0) arc[start angle=0,end angle=60,radius=0.28];
+  \node[pos=0.55,right,font=\scriptsize,text=OR] at (0.38,0.14) {$\theta$};
+  % projection sur Ox (cosinus) — label below axis tick, not on the dashed line
+  \draw[VE,dashed,semithick] ({cos(60)},{sin(60)}) -- ({cos(60)},0);
+  \node[below,font=\scriptsize,text=VE] at ({cos(60)},-0.08) {$\cos\theta$};
+  % projection sur Oy (sinus) — label to the left, below the midpoint
+  \draw[TQ!90,dashed,semithick] ({cos(60)},{sin(60)}) -- (0,{sin(60)});
+  \node[left,font=\scriptsize,text=TQ] at (-0.06,{sin(60)/2}) {$\sin\theta$};
+  % point sur l'axe
+  \fill[VE] ({cos(60)},0) circle (0.7pt);
+  \fill[TQ!90] (0,{sin(60)}) circle (0.7pt);
+  % point M
+  \fill[OR] ({cos(60)},{sin(60)}) circle (1.1pt);
+
+  %% ── 16 angles remarquables ───────────────────────────────
+  % Format: angle en degrés / label radian / label degré
+  % On affiche : angle rad à l'extérieur, (cos, sin) en petit près du point
+  \foreach \adeg/\arad/\cval/\sval/\mult in {
+    0/{$0$}/{$1$}/{$0$}/1,
+    30/{$\frac{\pi}{6}$}/{$\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$}/1,
+    45/{$\frac{\pi}{4}$}/{$\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$}/1,
+    60/{$\frac{\pi}{3}$}/{$\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}/1,
+    90/{$\frac{\pi}{2}$}/{$0$}/{$1$}/1,
+    120/{$\frac{2\pi}{3}$}/{$-\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}/1,
+    135/{$\frac{3\pi}{4}$}/{$-\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$}/1,
+    150/{$\frac{5\pi}{6}$}/{$-\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$}/1,
+    180/{$\pi$}/{$-1$}/{$0$}/1,
+    210/{$\frac{7\pi}{6}$}/{$-\frac{\sqrt{3}}{2}$}/{$-\frac{1}{2}$}/1,
+    225/{$\frac{5\pi}{4}$}/{$-\frac{\sqrt{2}}{2}$}/{$-\frac{\sqrt{2}}{2}$}/1,
+    240/{$\frac{4\pi}{3}$}/{$-\frac{1}{2}$}/{$-\frac{\sqrt{3}}{2}$}/1,
+    270/{$\frac{3\pi}{2}$}/{$0$}/{$-1$}/1,
+    300/{$\frac{5\pi}{3}$}/{$\frac{1}{2}$}/{$-\frac{\sqrt{3}}{2}$}/1,
+    315/{$\frac{7\pi}{4}$}/{$\frac{\sqrt{2}}{2}$}/{$-\frac{\sqrt{2}}{2}$}/1,
+    330/{$\frac{11\pi}{6}$}/{$\frac{\sqrt{3}}{2}$}/{$-\frac{1}{2}$}/1%
+  }{
+    % tick sur le cercle
+    \draw[BN!60,thin]
+      ({0.96*cos(\adeg)},{0.96*sin(\adeg)}) --
+      ({1.04*cos(\adeg)},{1.04*sin(\adeg)});
+    % point orange sur le cercle
+    \fill[OR!80] ({cos(\adeg)},{sin(\adeg)}) circle (0.9pt);
+    % label de l'angle (radian) à l'extérieur
+    \node[font=\fontsize{4}{5}\selectfont,text=BN,
+          anchor=center,inner sep=1pt,
+          align=center]
+      at ({1.27*cos(\adeg)},{1.27*sin(\adeg)}) {\arad};
+  }
+
+  %% ── Valeurs remarquables (cos, sin) pour les angles axiaux
+  %%    placées légèrement À L'INTÉRIEUR du cercle ──────────
+  \foreach \adeg/\dx/\dy/\cval/\sval in {
+    0/  -0.18/ 0.00/{$1$}/{$0$},
+    90/  0.00/-0.18/{$0$}/{$1$},
+    180/ 0.18/ 0.00/{$-1$}/{$0$},
+    270/ 0.00/ 0.18/{$0$}/{$-1$}%
+  }{
+    \node[font=\fontsize{4}{5}\selectfont,text=BN!55,
+          anchor=center,align=center,inner sep=0.5pt]
+      at ({cos(\adeg)+\dx},{sin(\adeg)+\dy})
+      {\cval\\\sval};
+  }
+  %% ── Valeurs remarquables Q1 — placées à 75% du rayon ────
+  \foreach \adeg/\cval/\sval in {
+    30/{$\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$},
+    45/{$\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$},
+    60/{$\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}%
+  }{
+    \node[font=\fontsize{3.5}{4.5}\selectfont,text=VE!70,
+          anchor=center,align=center,inner sep=0.5pt]
+      at ({0.72*cos(\adeg)},{0.72*sin(\adeg)})
+      {\cval\\\sval};
+  }
+
+\end{tikzpicture}
+\caption{Cercle trigonom\'etrique~: les $16$ angles remarquables avec leurs valeurs exactes de $\cos$ et $\sin$.
+L'exemple (en orange) illustre la lecture de $\theta$~: la projection horizontale
+donne $\cos\theta$ (en vert), la projection verticale donne $\sin\theta$ (en bleu).}
+\end{figure}
+\fi
+
+\begin{figure}[H]
+\centering
+\input{figures/cercle-trigonometrique}
+\caption{Cercle trigonom\'etrique et angles remarquables. Les traits turquoise
+correspondent aux multiples de $\frac{\pi}{6}$, les traits orange aux
+multiples impairs de $\frac{\pi}{4}$. Les graduations donnent les valeurs
+exactes possibles de $\cos\theta$ et $\sin\theta$.}
+\end{figure}
+
+\section{Valeurs remarquables et relations}
+
+\begin{prop}[Valeurs remarquables]
+\centering\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|cccccc|}
+\hline
+\rowcolor{BN!12}
+$\theta$ & $0$ & $\dfrac{\pi}{6}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ &
+           $\dfrac{\pi}{2}$ & $\pi$ \\
+\hline
+$\cos\theta$ & $1$ & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ &
+              $\dfrac{1}{2}$ & $0$ & $-1$ \\[4pt]
+$\sin\theta$ & $0$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ &
+              $\dfrac{\sqrt{3}}{2}$ & $1$ & $0$ \\[4pt]
+\hline
+\end{tabular}
+\end{prop}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=13.5cm,height=5.5cm,axis lines=center,
+  xlabel={$\theta$},ylabel={$y$},
+  xmin=-0.2,xmax=6.5,ymin=-1.4,ymax=1.5,
+  xtick={0,0.5236,1.0472,1.5708,2.0944,2.6180,3.1416,
+         3.6652,4.1888,4.7124,5.2360,5.7596,6.2832},
+  xticklabels={$0$,$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,
+               $\frac{2\pi}{3}$,$\frac{5\pi}{6}$,$\pi$,
+               $\frac{7\pi}{6}$,$\frac{4\pi}{3}$,$\frac{3\pi}{2}$,
+               $\frac{5\pi}{3}$,$\frac{11\pi}{6}$,$2\pi$},
+  ytick={-1,0,1},
+  tick label style={font=\scriptsize},
+  grid=both,grid style={line width=0.2pt,draw=GM!25}]
+  \addplot[BN,very thick,domain=0:6.28,samples=200]{cos(deg(x))};
+  \addplot[OR,very thick,domain=0:6.28,samples=200]{sin(deg(x))};
+  % labels mid-curve to avoid right-edge clipping
+  \node[BN,font=\small,draw=BN!20,fill=white,inner sep=2pt]
+    at (axis cs:0.8,1.22) {$\cos$};
+  \node[OR,font=\small,draw=OR!20,fill=white,inner sep=2pt]
+    at (axis cs:2.0,1.22) {$\sin$};
+  % zero lines annotation
+  \addplot[BN!30,dashed,domain=0:6.28,samples=2]{1};
+  \addplot[BN!30,dashed,domain=0:6.28,samples=2]{-1};
+\end{axis}
+\end{tikzpicture}
+\caption{Courbes de $\cos\theta$ (bleu) et $\sin\theta$ (orange) sur $[0,2\pi]$.
+Les deux fonctions oscillent entre $-1$ et $1$, avec une p\'eriode $2\pi$.
+Les z\'eros de $\cos$ correspondent aux maxima/minima de $\sin$, et vice-versa.}
+\end{figure}
+
+\begin{thm}[Relation de Pythagore trigonom\'etrique]
+Pour tout angle $\theta$ :
+$$\cos^2\theta + \sin^2\theta = 1.$$
+\end{thm}
+
+
+\section{Le cercle trigonom\'etrique}
+
+\begin{defn}[Cosinus, sinus et tangente sur le cercle unit\'e]
+\index{cosinus}\index{sinus}\index{tangente}
+On place un angle $\theta$ (en radians) sur le cercle unit\'e, en partant
+du point $A(1,0)$ et en tournant dans le sens direct (sens anti-horaire).
+Le point $M$ ainsi obtenu a pour coordonn\'ees~:
+$$M(\cos\theta,\, \sin\theta).$$
+Pour $\cos\theta\ne0$, on d\'efinit aussi la \textbf{tangente}~:
+$$\tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+\end{defn}
+
+\begin{prop}[Sym\'etries du cercle trigonom\'etrique]
+\index{symétries trigonométriques}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{BN!10}
+Sym\'etrie & Cosinus & Sinus \\
+\hline
+Oppos\'e~: $-\theta$ & $\cos(-\theta)=\cos\theta$ & $\sin(-\theta)=-\sin\theta$ \\
+Suppl\'ement~: $\pi-\theta$ & $\cos(\pi-\theta)=-\cos\theta$ & $\sin(\pi-\theta)=\sin\theta$ \\
+Antipose~: $\pi+\theta$ & $\cos(\pi+\theta)=-\cos\theta$ & $\sin(\pi+\theta)=-\sin\theta$ \\
+P\'eriode~: $\theta+2k\pi$ & $\cos(\theta+2k\pi)=\cos\theta$ & $\sin(\theta+2k\pi)=\sin\theta$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{prop}
+
+\begin{methode}[Lire un angle sur le cercle]
+\begin{enumerate}
+  \item Rep\'erer le quadrant ($\cos$ et $\sin$ sont positifs ou n\'egatifs).
+  \item Identifier l'angle de r\'ef\'erence (angle avec l'axe des $x$).
+  \item Appliquer la sym\'etrie correspondante.
+\end{enumerate}
+\emph{Exemple~:} $\cos(\frac{5\pi}{6})$.
+$\frac{5\pi}{6} = \pi - \frac{\pi}{6}$~: second quadrant.
+$\cos(\frac{5\pi}{6}) = -\cos(\frac{\pi}{6}) = -\frac{\sqrt{3}}{2}$.
+\end{methode}
+
+% [second trig circle replaced by the main one above]
+
+\horsprogramme{Approfondissement consacré à la résolution systématique d'équations trigonométriques.}
+\section{R\'esolution d'\'equations trigonom\'etriques}
+
+\begin{methode}[R\'esoudre $\cos x = a$ sur {$[0, 2\pi]$}]
+\index{équations trigonométriques}
+\begin{enumerate}
+  \item Si $|a|>1$~: pas de solution.
+  \item Trouver l'angle de r\'ef\'erence $\alpha\in[0,\pi]$ tel que $\cos\alpha=a$.
+  \item Les solutions sur $[0,2\pi]$ sont~: $x=\alpha$ et $x=2\pi-\alpha$.
+        (Sym\'etrie par rapport \`a l'axe $Ox$.)
+\end{enumerate}
+\end{methode}
+
+\begin{methode}[R\'esoudre $\sin x = a$ sur {$[0, 2\pi]$}]
+\begin{enumerate}
+  \item Si $|a|>1$~: pas de solution.
+  \item Trouver l'angle de r\'ef\'erence $\alpha\in[-\frac{\pi}{2},\frac{\pi}{2}]$ tel que $\sin\alpha=a$.
+  \item Les solutions sur $[0,2\pi]$ sont~: $x=\alpha$ (adapt\'e \`a $[0,2\pi]$)
+        et $x=\pi-\alpha$ (adapt\'e \`a $[0,2\pi]$).
+        (Sym\'etrie par rapport \`a l'axe $Oy$.)
+\end{enumerate}
+\end{methode}
+
+\begin{ex}[R\'esoudre $\cos x = -\frac{1}{2}$ sur {$[0, 2\pi]$}]
+L'angle de r\'ef\'erence~: $\cos(\frac{\pi}{3})=\frac{1}{2}$, donc $\cos(\pi-\frac{\pi}{3})=-\frac{1}{2}$.
+$\alpha = \frac{2\pi}{3}$.
+Solutions~: $x = \frac{2\pi}{3}$ et $x = 2\pi - \frac{2\pi}{3} = \frac{4\pi}{3}$.
+\end{ex}
+
+\begin{ex}[R\'esoudre $\sin x = \frac{\sqrt{2}}{2}$ sur {$[0, 2\pi]$}]
+$\sin(\frac{\pi}{4})=\frac{\sqrt{2}}{2}$.
+Solutions~: $x = \frac{\pi}{4}$ et $x = \pi - \frac{\pi}{4} = \frac{3\pi}{4}$.
+\end{ex}
+
+\begin{defn}[Tangente~: valeurs et domaine]
+\index{tangente}
+$\tan\theta = \dfrac{\sin\theta}{\cos\theta}$ est d\'efinie pour $\cos\theta\ne0$,
+c'est-\`a-dire $\theta\ne\frac{\pi}{2}+k\pi$.
+
+\medskip\noindent
+Valeurs remarquables~:
+$\tan(0)=0$,\;
+$\tan(\frac{\pi}{6})=\dfrac{1}{\sqrt{3}}=\dfrac{\sqrt{3}}{3}$,\;
+$\tan(\frac{\pi}{4})=1$,\;
+$\tan(\frac{\pi}{3})=\sqrt{3}$.
+\end{defn}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Conversions et valeurs de base}
+
+\begin{exo}[Conversion degr\'es $\to$ radians \corrige]{1}
+Convertir en radians~:
+\begin{multicols}{4}
+\begin{enumerate}
+  \item $30^{\circ}$
+  \item $45^{\circ}$
+  \item $60^{\circ}$
+  \item $90^{\circ}$
+  \item $120^{\circ}$
+  \item $135^{\circ}$
+  \item $150^{\circ}$
+  \item $180^{\circ}$
+  \item $210^{\circ}$
+  \item $225^{\circ}$
+  \item $270^{\circ}$
+  \item $360^{\circ}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Conversion radians $\to$ degr\'es \corrige]{1}
+Convertir en degr\'es~:
+\begin{multicols}{4}
+\begin{enumerate}
+  \item $\frac{\pi}{3}$
+  \item $\frac{\pi}{4}$
+  \item $\frac{\pi}{6}$
+  \item $\frac{2\pi}{3}$
+  \item $\frac{3\pi}{4}$
+  \item $\frac{5\pi}{6}$
+  \item $\frac{7\pi}{6}$
+  \item $\frac{5\pi}{4}$
+  \item $\frac{4\pi}{3}$
+  \item $\frac{3\pi}{2}$
+  \item $\frac{7\pi}{4}$
+  \item $2\pi$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Valeurs exactes \corrige]{1}
+Sans calculatrice, donner les valeurs exactes~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $\cos(\frac{\pi}{3})$
+  \item $\sin(\frac{\pi}{6})$
+  \item $\tan(\frac{\pi}{4})$
+  \item $\cos(\frac{\pi}{2})$
+  \item $\sin(\frac{\pi}{2})$
+  \item $\cos(\pi)$
+  \item $\sin(\pi)$
+  \item $\cos(0)$
+  \item $\sin(0)$
+  \item $\tan(\frac{\pi}{6})$
+  \item $\tan(\frac{\pi}{3})$
+  \item $\cos(\frac{\pi}{4})$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Quadrant d'un angle \corrige]{1}
+Pour chaque angle, pr\'eciser dans quel quadrant se trouve le point
+$M(\cos\theta,\sin\theta)$ du cercle, et donner les signes de $\cos\theta$
+et $\sin\theta$~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $\theta = \frac{\pi}{4}$
+  \item $\theta = \frac{2\pi}{3}$
+  \item $\theta = \frac{4\pi}{3}$
+  \item $\theta = \frac{5\pi}{4}$
+  \item $\theta = \frac{7\pi}{6}$
+  \item $\theta = \frac{11\pi}{6}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Sym\'etries du cercle \corrige]{1}
+En utilisant les formules de sym\'etrie, calculer sans calculatrice~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\cos(\frac{5\pi}{6})$
+  \item $\sin(\frac{5\pi}{6})$
+  \item $\cos(\frac{7\pi}{6})$
+  \item $\sin(\frac{7\pi}{6})$
+  \item $\cos(-\frac{\pi}{3})$
+  \item $\sin(-\frac{\pi}{4})$
+  \item $\cos(\frac{5\pi}{4})$
+  \item $\sin(\frac{11\pi}{6})$
+  \item $\cos(\frac{2\pi}{3})$
+  \item $\sin(\frac{4\pi}{3})$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[P\'eriodicit\'e \corrige]{1}
+\index{périodicité}
+Simplifier en utilisant la p\'eriodicit\'e ($\cos(\theta+2k\pi)=\cos\theta$)~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\cos(7\frac{\pi}{3})$
+  \item $\sin(9\frac{\pi}{4})$
+  \item $\cos(-\frac{5\pi}{6})$
+  \item $\sin(5\pi)$
+  \item $\cos(13\frac{\pi}{6})$
+  \item $\sin(-\frac{3\pi}{4})$
+  \item $\tan(\frac{5\pi}{4})$
+  \item $\cos(100\pi)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Calculer $\cos$ ou $\sin$ \`a partir de l'autre \corrige]{1}
+Calculer l'inconnue en utilisant $\cos^2\theta+\sin^2\theta=1$~:
+\begin{enumerate}
+  \item $\sin\theta=3/5$, $\theta\in[0,\frac{\pi}{2}]$~: trouver $\cos\theta$.
+  \item $\cos\theta=-\frac{1}{2}$, $\theta\in[\frac{\pi}{2},\pi]$~: trouver $\sin\theta$.
+  \item $\sin\theta=\frac{\sqrt{3}}{2}$, $\theta\in[\frac{\pi}{2},\pi]$~: trouver $\cos\theta$.
+  \item $\cos\theta=\frac{\sqrt{2}}{2}$, $\theta\in[-\frac{\pi}{2},0]$~: trouver $\sin\theta$.
+  \item $\sin\theta=-1/3$, $\theta\in[\pi,\frac{3\pi}{2}]$~: trouver $\cos\theta$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lire le cercle~: reconstituer l'angle \corrige]{1}
+Pour chaque point $M$ donn\'e sur le cercle unit\'e, trouver les angles
+$\theta\in[0,2\pi]$ correspondants~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $M(-1,0)$
+  \item $M(0,-1)$
+  \item $M\!\left(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right)$
+  \item $M\!\left(\dfrac{1}{2},-\dfrac{\sqrt{3}}{2}\right)$
+  \item $M\!\left(-\dfrac{\sqrt{3}}{2},\dfrac{1}{2}\right)$
+  \item $M\!\left(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right)$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Valeurs de la tangente \corrige]{1}
+Calculer sans calculatrice~:
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $\tan(\frac{\pi}{3})$
+  \item $\tan(\frac{2\pi}{3})$
+  \item $\tan(\frac{5\pi}{6})$
+  \item $\tan(\frac{5\pi}{4})$
+  \item $\tan(\frac{7\pi}{6})$
+  \item $\tan(\frac{3\pi}{4})$
+\end{enumerate}
+\end{multicols}
+\emph{(Utiliser $\tan\theta=\sin\theta/\cos\theta$ et les valeurs de base.)}
+\end{exo}
+
+\begin{exo}[Longueur d'arc et angle \corrige]{1}
+\index{longueur d'arc}
+Dans un cercle de rayon $r$, un arc de longueur $\ell$ correspond
+\`a un angle au centre $\theta = \ell/r$ (en radians).
+\begin{enumerate}
+  \item Un cercle de rayon $5$~cm. Quelle longueur d'arc correspond
+        \`a un angle de $\frac{\pi}{3}$~?
+  \item Un arc de $6\pi$~cm dans un cercle de rayon $9$~cm~:
+        quel est l'angle correspondant en radians~? En degr\'es~?
+  \item La Terre a un rayon moyen de $6400$~km. Quelle est la longueur
+        de l'arc entre deux points distants d'un angle de $1^{\circ}$~?
+  \item Un disque de rayon $10$~cm tourne de $\frac{\pi}{6}$~rad.
+        Quelle distance un point de la p\'erim\`etre parcourt-il~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lire graphiquement \corrige]{1}
+\`A partir des graphes de $\cos$ et $\sin$ sur $[0,2\pi]$
+(que l'on trac era)~:
+\begin{enumerate}
+  \item Identifier graphiquement les solutions de $\cos x = 0{,}5$
+        sur $[0,2\pi]$. V\'erifier par le calcul exact.
+  \item Identifier graphiquement les solutions de $\sin x = -0{,}5$
+        sur $[0,2\pi]$.
+  \item Pour quels $x\in[0,2\pi]$ a-t-on $\sin x > 0$~?
+  \item Pour quels $x\in[0,2\pi]$ a-t-on $\cos x < 0$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe de cos et sin selon le quadrant \corrige]{1}
+Compl\'eter le tableau~:
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Quadrant & $\cos\theta$ & $\sin\theta$ & $\tan\theta$ \\
+\hline
+Q1~: $0<\theta<\frac{\pi}{2}$ & $+$ & $+$ & $+$ \\
+Q2~: $\frac{\pi}{2}<\theta<\pi$ & & & \\
+Q3~: $\pi<\theta<\frac{3\pi}{2}$ & & & \\
+Q4~: $\frac{3\pi}{2}<\theta<2\pi$ & & & \\
+\hline
+\end{tabular}
+\end{center}
+\end{exo}
+
+\begin{exo}[Cercle trigonom\'etrique et triangle \corrige]{1}
+Dans un triangle rectangle en $A$, on note $\theta = \widehat{ABC}$.
+\begin{enumerate}
+  \item Exprimer $\cos\theta$, $\sin\theta$, $\tan\theta$ en fonction des c\^ot\'es.
+  \item Pour un triangle de c\^ot\'es $3$, $4$, $5$~:
+        calculer $\cos\theta$, $\sin\theta$ et $\tan\theta$ o\`u $\theta$
+        est l'angle oppos\'e au c\^ot\'e $5$.
+  \item V\'erifier $\cos^2\theta+\sin^2\theta=1$.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ R\'esolution d'\'equations et identit\'es}
+
+\begin{exo}[R\'esoudre $\cos x=a$ sur {$[0,2\pi]$} \corrige]{2}
+R\'esoudre exactement dans $[0,2\pi]$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\cos x = \frac{1}{2}$
+  \item $\cos x = -\frac{\sqrt{3}}{2}$
+  \item $\cos x = 0$
+  \item $\cos x = -1$
+  \item $\cos x = \frac{\sqrt{2}}{2}$
+  \item $\cos x = -\frac{1}{2}$
+  \item $2\cos x - 1 = 0$
+  \item $2\cos x + \sqrt{3} = 0$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[R\'esoudre $\sin x=a$ sur {$[0,2\pi]$} \corrige]{2}
+R\'esoudre exactement dans $[0,2\pi]$~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\sin x = \frac{1}{2}$
+  \item $\sin x = -\frac{\sqrt{2}}{2}$
+  \item $\sin x = 1$
+  \item $\sin x = 0$
+  \item $\sin x = \frac{\sqrt{3}}{2}$
+  \item $\sin x = -1$
+  \item $2\sin x - \sqrt{3} = 0$
+  \item $\sin x + 1 = 0$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[R\'esoudre $\tan x=a$ sur {$[0,2\pi]$}]{2}
+R\'esoudre dans $[0,2\pi]$ (en excluant les valeurs o\`u $\cos x=0$)~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\tan x = 1$
+  \item $\tan x = -1$
+  \item $\tan x = \sqrt{3}$
+  \item $\tan x = 0$
+  \item $\tan x = -\sqrt{3}/3$
+  \item $\tan x = \sqrt{3}/3$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Identit\'es trigonom\'etriques \corrige]{2}
+D\'emontrer~:
+\begin{enumerate}
+  \item $\dfrac{1-\cos^2\theta}{\sin\theta} = \sin\theta$
+        pour $\sin\theta\ne0$.
+  \item $\cos^2\theta - \sin^2\theta + 2\sin^2\theta = 1$.
+  \item $(\cos\theta+\sin\theta)^2 = 1 + 2\sin\theta\cos\theta$.
+  \item $(1-\cos\theta)(1+\cos\theta) = \sin^2\theta$.
+  \item $\cos^4\theta - \sin^4\theta = \cos^2\theta - \sin^2\theta$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Equations compos\'ees \corrige]{2}
+R\'esoudre dans $[0,2\pi]$~:
+\begin{enumerate}
+  \item $\cos^2 x = 1$
+  \item $\sin^2 x = \frac{1}{2}$
+  \item $\sin x \cdot \cos x = 0$
+  \item $2\sin^2 x - \sin x = 0$
+  \item $\cos^2 x - \cos x = 0$
+  \item $(2\cos x - 1)(\sin x + 1) = 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Cercle trigonom\'etrique~: lire et placer \corrige]{2}
+\begin{enumerate}
+  \item Placer sur le cercle les points correspondant \`a~:
+        $0$, $\frac{\pi}{6}$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{\pi}{2}$, $\frac{2\pi}{3}$, $\frac{3\pi}{4}$,
+        $\frac{5\pi}{6}$, $\pi$, $\frac{5\pi}{4}$, $\frac{4\pi}{3}$, $\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{7\pi}{4}$,
+        $\frac{11\pi}{6}$, $2\pi$.
+  \item Pour chacun, lire les coordonn\'ees $(\cos\theta,\sin\theta)$.
+  \item V\'erifier $\cos^2\theta+\sin^2\theta=1$ pour trois angles.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Sym\'etries et valeurs exactes \corrige]{2}
+En utilisant uniquement les valeurs pour $\theta\in[0,\frac{\pi}{2}]$
+et les formules de sym\'etrie, calculer~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\cos(\frac{5\pi}{4})+\sin(\frac{7\pi}{6})$
+  \item $\cos(\frac{2\pi}{3})\times\sin(\frac{5\pi}{3})$
+  \item $\tan(\frac{4\pi}{3})+\tan(\frac{2\pi}{3})$
+  \item $\cos^2(\frac{3\pi}{4})+\sin^2(\frac{3\pi}{4})$
+  \item $\sin(\frac{7\pi}{4})-\cos(\frac{5\pi}{6})$
+  \item $\cos(\frac{11\pi}{6})\times\sin(\frac{11\pi}{6})$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Signe des fonctions et in\'egalit\'es \corrige]{2}
+D\'eterminer pour quels $x\in[0,2\pi]$~:
+\begin{enumerate}
+  \item $\sin x > 0$
+  \item $\cos x \leq 0$
+  \item $\tan x > 0$
+  \item $\sin x \geq \cos x$
+  \item $\sin x + \cos x > 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calcul de $\tan\theta$ depuis $\sin\theta$ et $\cos\theta$ \corrige]{2}
+\begin{enumerate}
+  \item Sachant $\sin\theta=4/5$ et $\theta\in]0,\frac{\pi}{2}[$~:
+        calculer $\cos\theta$ puis $\tan\theta$.
+  \item Sachant $\tan\theta=2$ et $\theta\in]0,\frac{\pi}{2}[$~:
+        calculer $\cos^2\theta$ en utilisant
+        $1+\tan^2\theta = 1/\cos^2\theta$ (admettre cette identit\'e).
+  \item Sachant $\cos\theta=-3/5$ et $\theta\in]\pi,\frac{3\pi}{2}[$~:
+        calculer $\sin\theta$ et $\tan\theta$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Applications physiques \corrige]{2}
+\begin{enumerate}
+  \item Le plan inclin\'e~: un objet de masse $m$ sur un plan inclin\'e
+        d'angle $\theta$ subit une force de pesanteur $mg$ et une composante
+        tangentielle $mg\sin\theta$. Pour $\theta=\frac{\pi}{6}$, calculer
+        la fraction $\sin(\frac{\pi}{6})$ de cette force.
+  \item D\'ecomposition d'une force~: une force $F=100$~N dirig\'ee
+        \`a $\theta=\frac{\pi}{3}$ de l'horizontale a des composantes
+        $F_x = F\cos\theta$ et $F_y = F\sin\theta$.
+        Calculer $F_x$ et $F_y$.
+  \item L'angle $\theta=\frac{\pi}{4}$ donne-t-il les composantes horizontale
+        et verticale \'egales~? Justifier.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tracer $\cos$ et $\sin$ \corrige]{2}
+\begin{enumerate}
+  \item Construire le tableau de valeurs de $\cos\theta$ et $\sin\theta$
+        pour les angles
+        \[
+        0,\ \frac{\pi}{6},\ \frac{\pi}{4},\ \frac{\pi}{3},\ \frac{\pi}{2},
+        \ \frac{2\pi}{3},\ \frac{3\pi}{4},\ \frac{5\pi}{6},\ \pi,
+        \ \frac{7\pi}{6},\ \frac{5\pi}{4},\ \frac{4\pi}{3},
+        \ \frac{3\pi}{2},\ \frac{5\pi}{3},\ \frac{7\pi}{4},\ 2\pi.
+        \]
+  \item Tracer les deux courbes sur $[0,2\pi]$.
+  \item Identifier graphiquement~: maximum, minimum, z\'eros de chacune.
+  \item Sur quel intervalle $[0,2\pi]$ a-t-on $\cos x\geq\sin x$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[R\'esoudre une \'equation par substitution \corrige]{2}
+R\'esoudre dans {$[0,2\pi]$} en posant $u=\cos x$ ou $u=\sin x$~:
+\begin{enumerate}
+  \item $2\sin^2 x + \sin x - 1 = 0$
+  \item $2\cos^2 x - \cos x = 0$
+  \item $4\sin^2 x - 3 = 0$
+  \item $\cos^2 x + 2\cos x + 1 = 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe et quadrant combin\'es \corrige]{2}
+D\'eterminer $\theta\in[0,2\pi]$ v\'erifiant les deux conditions~:
+\begin{enumerate}
+  \item $\cos\theta > 0$ et $\sin\theta < 0$
+  \item $\cos\theta < 0$ et $\sin\theta < 0$
+  \item $\tan\theta > 0$ et $\cos\theta < 0$
+  \item $\cos\theta = \frac{\sqrt{3}}{2}$ et $\sin\theta > 0$
+  \item $\sin\theta = -\frac{1}{2}$ et $\cos\theta < 0$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\'Equations m\^el\'ees \corrige]{2}
+R\'esoudre dans {$[0,2\pi]$}~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\sin x = \cos x$
+  \item $\sin x + \cos x = 0$
+  \item $\sin^2 x = \cos^2 x$
+  \item $2\sin x \cos x = 1$
+        \emph{($2\sin x\cos x = \sin(2x)$, adm.)}
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Valeurs num\'eriques exactes \corrige]{1}
+Calculer sans calculatrice en utilisant les formules de sym\'etrie~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\cos^2(\frac{\pi}{6})+\sin^2(\frac{\pi}{6})$
+  \item $\cos(\frac{2\pi}{3})+2\sin(\frac{\pi}{6})$
+  \item $\tan(\frac{\pi}{4})\cdot\cos(\frac{\pi}{4})$
+  \item $2\cos^2(\frac{\pi}{3})-1$
+  \item $\sin(\frac{\pi}{4})\cos(\frac{\pi}{4})$
+  \item $\tan(\frac{\pi}{3})\cdot\sin(\frac{\pi}{6})$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Trigonom\'etrie dans un triangle \corrige]{1}
+Dans un triangle $ABC$, $\widehat{A}=\frac{\pi}{3}$, $\widehat{B}=\frac{\pi}{4}$, $AB=6$.
+\begin{enumerate}
+  \item Calculer $\widehat{C}$.
+  \item En supposant le triangle rectangle en $C$~: v\'erifier si c'est
+        compatible. Sinon, quel type de triangle est-ce~?
+  \item Si le triangle est rectangle en $C$~: calculer $AC$ et $BC$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions trigonom\'etriques~: variations \corrige]{2}
+Sur {$[0,2\pi]$}, \'etudier les variations de~:
+\begin{enumerate}
+  \item $f(\theta)=\cos\theta$~: sur quels intervalles est-elle croissante~?
+  \item $g(\theta)=\sin\theta$~: sur quels intervalles est-elle d\'ecroissante~?
+  \item Identifier les maxima et minima de $f$ et $g$ sur {$[0,2\pi]$}.
+  \item Quel est l'ant\'ec\'edent de $\frac{1}{2}$ par $f$~? Par $g$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calculer une expression \corrige]{2}
+Simplifier les expressions suivantes~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\sin^2\theta+\cos^2\theta+\tan^2\theta\cos^2\theta$
+  \item $(\sin\theta-1)(\sin\theta+1)$
+  \item $\dfrac{\sin^2\theta-1}{\cos\theta}$ pour $\cos\theta\ne0$
+  \item $(\cos\theta+\sin\theta)^2+(\cos\theta-\sin\theta)^2$
+  \item $\dfrac{1}{\cos^2\theta}-\tan^2\theta$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[R\'esoudre avec les sym\'etries \corrige]{2}
+R\'esoudre dans {$[0,2\pi]$} en utilisant les sym\'etries~:
+\begin{enumerate}
+  \item $\cos(\pi-x) = -\frac{1}{2}$
+  \item $\sin(\pi-x) = \frac{\sqrt{3}}{2}$
+  \item $\cos(-x) = \frac{\sqrt{2}}{2}$
+  \item $\sin(\pi+x) = \frac{1}{2}$
+  \item $\cos(x+\pi) = -\frac{\sqrt{3}}{2}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: r\'esoudre $\cos x = a$ sur {$[0,2\pi]$}]{2}
+
+\begin{algorithm}[H]
+\caption{R\'esolution de $\cos x = a$ sur $[0,2\pi]$}
+\KwIn{un r\'eel $a$}
+\KwOut{les solutions dans $[0,2\pi]$}
+\Si{$|a| > 1$}{
+  \Afficher \og Pas de solution ($|a|>1$)\fg\;
+}\Sinon{
+  $\alpha \leftarrow \arccos(a)$\tcp*[r]{$\alpha\in[0,\pi]$}
+  \Si{$\alpha = 0$ \textbf{ou} $\alpha = \pi$}{
+    \Afficher \og Solution unique~: $x=$\fg, $\alpha$\;
+  }\Sinon{
+    \Afficher \og Deux solutions~: $x=$\fg, $\alpha$, \og\ et $x=$\fg, $2\pi-\alpha$\;
+  }
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item Pourquoi le cas $\alpha=0$ ou $\alpha=\pi$ donne-t-il une solution unique~?
+        Justifier logiquement.
+  \item Appliquer \`a $a=\frac{1}{2}$, $a=-1$, $a=\frac{\sqrt{2}}{2}$.
+  \item \'Ecrire un algorithme analogue pour $\sin x = a$.
+        En quoi diff\`ere-t-il (angles de r\'ef\'erence diff\'erents)~?
+  \item Impl\'ementer en Python \computer\ (utiliser \texttt{math.acos}).
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations et applications}
+
+\begin{exo}[Valeurs exactes par le cercle \corrige]{3}
+\begin{enumerate}
+  \item En utilisant les sym\'etries, exprimer en fonction des valeurs de base~:
+        $\cos(\frac{3\pi}{4})$, $\sin(\frac{5\pi}{6})$, $\cos(\frac{7\pi}{6})$, $\sin(\frac{11\pi}{6})$.
+  \item V\'erifier $\cos^2\theta+\sin^2\theta=1$ pour $\theta=\frac{5\pi}{4}$.
+  \item En utilisant $\cos^2\theta+\sin^2\theta=1$, calculer $\cos\theta$
+        sachant que $\sin\theta=\frac{\sqrt{3}}{2}$ et $\theta\in]\frac{\pi}{2},\pi[$.
+  \item Trouver tous les $\theta\in[0,2\pi]$ tels que $\cos\theta=\sin\theta$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Cercle trigonom\'etrique et g\'eom\'etrie \corrige]{3}
+\begin{enumerate}
+  \item $M(\cos\theta,\sin\theta)$ et $N(\cos\varphi,\sin\varphi)$ sont deux
+        points du cercle unit\'e.
+        Calculer $MN^2 = (\cos\theta-\cos\varphi)^2+(\sin\theta-\sin\varphi)^2$.
+        Simplifier en utilisant $\cos^2+\sin^2=1$.
+  \item Pour $\theta=\frac{\pi}{3}$ et $\varphi=0$~: calculer $MN$ exactement.
+  \item Pour $\theta=\frac{\pi}{2}$ et $\varphi=\frac{\pi}{6}$~: calculer $MN$.
+  \item Quel est le diam\`etre du cercle unit\'e~?
+        V\'erifier en calculant la distance entre $\theta=0$ et $\theta=\pi$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe et quadrant~: discussion \corrige]{3}
+Soit $\theta\in[0,2\pi]$ avec $\cos\theta<0$ et $\sin\theta>0$.
+\begin{enumerate}
+  \item Dans quel quadrant se trouve le point $M$~?
+  \item Quels angles satisfont cette condition~?
+  \item Si de plus $\tan\theta=-1$, trouver $\theta$.
+  \item Si $\cos\theta=-\frac{\sqrt{3}}{2}$, trouver toutes les valeurs de $\theta$
+        dans $[0,2\pi]$ satisfaisant $\cos\theta<0$ et $\sin\theta>0$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Identit\'es et factorisation \corrige]{3}
+\begin{enumerate}
+  \item Factoriser $\cos^2\theta-\sin^2\theta$ et montrer que c'est \'egal
+        \`a $2\cos^2\theta-1$.
+  \item Montrer que $\dfrac{\sin\theta}{\cos\theta}+\dfrac{\cos\theta}{\sin\theta}
+        = \dfrac{1}{\sin\theta\cos\theta}$.
+  \item D\'emontrer que $(\cos\theta-\sin\theta)^2+(\cos\theta+\sin\theta)^2=2$.
+  \item Montrer que $1-2\sin^2\theta = 2\cos^2\theta-1$.
+        (Ce r\'esultat s'appelle $\cos(2\theta)$ --- vu en Premi\`ere.)
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Trigonom\'etrie dans un triangle rectangle \corrigeP]{1}
+Dans le triangle $ABC$ rectangle en $A$, avec $BC=10$, $\widehat{ABC}=\frac{\pi}{6}$.
+\begin{enumerate}
+  \item Calculer $AB$ et $AC$ exactement.
+  \item V\'erifier le th\'eor\`eme de Pythagore~: $AB^2+AC^2=BC^2$.
+  \item Calculer $\tan(\widehat{ABC})$ et $\tan(\widehat{ACB})$.
+  \item V\'erifier que $\widehat{ACB} = \frac{\pi}{3}$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[R\'esolution syst\'ematique \corrigeP]{2}
+R\'esoudre dans $[0,2\pi]$ et repr\'esenter les solutions sur le cercle~:
+\begin{enumerate}
+  \item $2\sin^2 x - 3\sin x + 1 = 0$.
+        \emph{(Poser $u=\sin x$ et r\'esoudre le trin\^ome.)}
+  \item $\cos^2 x - \sin^2 x = 0$.
+  \item $\sin x = \cos x + 1$.
+        \emph{(Utiliser $\sin x - \cos x = 1$, puis $(\sin x-\cos x)^2=1$.)}
+  \item $2\cos^2 x + \cos x - 1 = 0$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Mesure d'une hauteur inaccessible \corrigeP]{1}
+Pour mesurer la hauteur $h$ d'un arbre, on mesure~:
+l'angle d'\'el\'evation $\alpha=\frac{\pi}{4}$ depuis un point \`a $20$~m,
+puis l'angle d'\'el\'evation $\beta=\frac{\pi}{3}$ depuis un point \`a $10$~m.
+\begin{enumerate}
+  \item En notant $h$ la hauteur et $d$ la distance horizontale au second point~:
+        \'ecrire $\tan\alpha$ et $\tan\beta$ en fonction de $h$ et des distances.
+  \item R\'esoudre pour trouver $h$ exactement.
+  \item Donner la valeur approch\'ee de $h$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Coordonn\'ees sur le cercle \corrigeP]{2}
+Soit $M(\cos\theta,\sin\theta)$ un point du cercle unit\'e.
+\begin{enumerate}
+  \item Exprimer la distance de $M$ au point $A(1,0)$ en fonction de $\theta$.
+        Simplifier.
+  \item Pour quelle valeur de $\theta\in[0,\pi]$ est-ce que $MA=1$~?
+  \item Exprimer la distance de $M$ au point $B(0,1)$ en fonction de $\theta$.
+  \item Pour quelle valeur de $\theta\in[0,\pi]$ est-ce que $MB=1$~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Applications des formules \corrigeP]{2}
+\begin{enumerate}
+  \item Sachant que $\sin\theta=0{,}6$ et $\theta\in[0,\frac{\pi}{2}]$~:
+        calculer $\cos\theta$, $\tan\theta$, $\sin(\pi-\theta)$,
+        $\cos(\pi+\theta)$.
+  \item Sachant que $\cos\theta=-0{,}8$ et $\theta\in[\pi,\frac{3\pi}{2}]$~:
+        calculer $\sin\theta$, $\tan\theta$, $\cos(-\theta)$,
+        $\sin(\pi-\theta)$.
+  \item V\'erifier les r\'esultats avec une calculatrice (mode radians).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Trigonom\'etrie et coordonn\'ees \corrigeP]{2}
+\begin{enumerate}
+  \item Un point $M$ est sur le cercle unit\'e, avec $\cos\theta=3/5$.
+        Trouver les deux valeurs possibles de $\sin\theta$.
+  \item Pour chaque valeur, calculer $\tan\theta$.
+  \item Repr\'esenter les deux points sur le cercle~:
+        dans quel quadrant se trouvent-ils~?
+  \item Pour quel angle $\theta\in[0,2\pi]$ a-t-on \`a la fois
+        $\cos\theta=3/5$ et $\sin\theta<0$~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Sch\'ema du cercle et arc \corrigeP]{1}
+Un ventilateur a des pales de longueur $30$~cm.
+Il tourne \`a $60$~tours par minute.
+\begin{enumerate}
+  \item Combien de tours fait-il en $1$~seconde~?
+  \item Quelle est la vitesse angulaire $\omega$ en rad/s~?
+        \emph{($\omega = 2\pi \times$ nombre de tours par seconde.)}
+  \item Quelle distance parcourt l'extr\'emit\'e d'une pale en $1$~s~?
+  \item En $2$~secondes, quel angle total est parcouru~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\'Equations biqu\-adratiques \corrigeP]{2}
+\begin{enumerate}
+  \item R\'esoudre $4\cos^2 x - 3 = 0$ dans $[0,2\pi]$.
+  \item R\'esoudre $2\sin^2 x + \sin x - 1 = 0$ dans $[0,2\pi]$.
+        \emph{(Poser $u=\sin x$.)}
+  \item R\'esoudre $\cos^2 x + 3\cos x + 2 = 0$ dans $[0,2\pi]$.
+  \item Pourquoi l'\'equation $\sin^2 x = 2$ n'a-t-elle pas de solution r\'eelle~?
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Applications g\'eom\'etriques du cercle]
+\begin{enumerate}
+  \item Sur le cercle trigonom\'etrique, les points $M(\cos\theta,\sin\theta)$
+        d\'ecrivent un cercle de rayon $1$.
+        V\'erifier les conditions de quadrant~:
+        Q1~: $\theta\in]0,\frac{\pi}{2}[$~; Q2~: $\theta\in]\frac{\pi}{2},\pi[$~;
+        donner les conditions pour Q3 et Q4.
+  \item Pour quels $\theta\in[0,2\pi]$ a-t-on $\sin\theta=\cos\theta$~?
+        Localiser ces points sur le cercle.
+  \item Pour quels $\theta\in[0,2\pi]$ a-t-on $\cos\theta>\sin\theta$~?
+  \item Si $\cos\theta=-\frac{\sqrt{3}}{2}$~: trouver les deux valeurs de $\theta$
+        dans $[0,2\pi]$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Preuve de la relation de Pythagore trigonom\'etrique]
+\begin{enumerate}
+  \item Dans un triangle rectangle en $A$, de c\^ot\'es $a$, $b$, $c$
+        ($c$ hypot\'enuse), poser $\theta=\widehat{BAC}$.
+        Exprimer $\cos\theta=b/c$ et $\sin\theta=a/c$.
+  \item Calculer $\cos^2\theta+\sin^2\theta$ et utiliser Pythagore pour conclure.
+  \item Pourquoi la formule est-elle vraie m\^eme pour $\theta\in[\frac{\pi}{2},2\pi]$~?
+        \emph{(Penser aux coordonn\'ees sur le cercle~:
+        $M(\cos\theta,\sin\theta)$ est \`a distance $1$ de $O$.)}
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Equation $a\cos x+b\sin x=c$]
+On cherche \`a r\'esoudre $\cos x+\sin x=1$ sur $[0,2\pi]$.
+\begin{enumerate}
+  \item \'Elever au carr\'e les deux membres~: $(\cos x+\sin x)^2=1$.
+        D\'evelopper et simplifier en utilisant $\cos^2x+\sin^2x=1$.
+  \item En d\'eduire que $2\sin x\cos x=0$, c'est-\`a-dire $\sin(2x)=0$.
+        (On admet que $\sin(2x)=2\sin x\cos x$, vu en Premi\`ere.)
+  \item Chercher les solutions de $\sin x\cos x=0$ dans $[0,2\pi]$.
+  \item V\'erifier chaque solution candidate dans l'\'equation originale.
+        (L'\'el\'evation au carr\'e peut introduire des solutions parasites~!)
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Trigonom\'etrie et g\'eom\'etrie~: hexagone r\'egulier]
+Un hexagone r\'egulier est inscrit dans le cercle unit\'e.
+Ses sommets sont aux angles $0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3}$.
+\begin{enumerate}
+  \item Calculer les coordonn\'ees exactes des $6$ sommets.
+  \item Montrer que le c\^ot\'e d'un hexagone r\'egulier inscrit dans
+        un cercle de rayon $r$ est \'egal \`a $r$.
+  \item Calculer le p\'erim\`etre et l'aire de l'hexagone.
+  \item Archim\`ede approchait $\pi$ par des polygones r\'eguliers.
+        Calculer le p\'erim\`etre de l'hexagone pour $r=1$~:
+        quel encadrement de $\pi$ cela donne-t-il~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Identit\'es et applications \`a la distance]
+\begin{enumerate}
+  \item Montrer que pour deux angles $\alpha$ et $\beta$~:
+        $(\cos\alpha-\cos\beta)^2+(\sin\alpha-\sin\beta)^2
+        = 2 - 2(\cos\alpha\cos\beta+\sin\alpha\sin\beta)$.
+  \item En posant $c=\cos\alpha\cos\beta+\sin\alpha\sin\beta$~:
+        exprimer la distance entre deux points du cercle unit\'e
+        en fonction de $c$.
+  \item Pour $\alpha=0$ et $\beta=\frac{\pi}{3}$~: calculer $c$ et la distance
+        entre les deux points du cercle. V\'erifier directement.
+  \item Montrer que $c$ est maximum $1$ lorsque $\alpha=\beta$~:
+        quelle est alors la distance entre les deux points~?
+\end{enumerate}
+\end{challenge}
+
+\begin{probleme}[Trigonom\'etrie et g\'eom\'etrie \corrigeP]{2}
+Soit le triangle $ABC$ avec $A(0,0)$, $B(4,0)$, $C(1,3)$.
+\begin{enumerate}
+  \item Calculer les longueurs $AB$, $BC$, $CA$.
+  \item Calculer les trois angles en utilisant le produit scalaire.
+  \item V\'erifier que la somme des angles vaut $\pi$.
+  \item V\'erifier la loi des cosinus~: $a^2=b^2+c^2-2bc\cos A$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\'Equation trigonom\'etrique appliqu\'ee \corrigeP]{2}
+Un objet oscille. Sa position est $x(t)=A\cos\theta+B\sin\theta$
+avec $A=3$ et $B=4$.
+\begin{enumerate}
+  \item Calculer $\sqrt{A^2+B^2}$.
+  \item La position maximale est $\sqrt{A^2+B^2}$. V\'erifier num\'eriquement
+        que $|x(t)|\leq5$ pour $\theta\in\{0,\frac{\pi}{6},\frac{\pi}{4},\frac{\pi}{3},\frac{\pi}{2}\}$.
+  \item Pour $\theta=\frac{\pi}{3}$~: calculer $x$ exactement.
+  \item R\'esoudre $3\cos\theta+4\sin\theta=0$ dans {$[0,2\pi]$}.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Trigonom\'etrie et repr\'esentation \corrigeP]{1}
+\begin{enumerate}
+  \item Construire le tableau de valeurs de $\cos\theta$ et $\sin\theta$
+        pour les $12$ angles $\theta_k = k\frac{\pi}{6}$, $k=0,1,\ldots,11$.
+  \item Tracer les courbes de $\cos$ et $\sin$ sur $[0,2\pi]$.
+  \item Pour chaque courbe, identifier~: p\'eriode, maximum, minimum,
+        z\'eros sur $[0,2\pi]$.
+  \item \'Ecrire un programme Python \computer\ r\'ealisant ce trac\'e
+        avec \texttt{matplotlib}.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Longueur d'arc et secteur angulaire \corrigeP]{1}
+Un secteur circulaire est d\'elimit\'e par deux rayons et un arc.
+Pour un cercle de rayon $r$ et un angle $\theta$ (en rad)~:
+l'aire du secteur est $A=\frac{1}{2}r^2\theta$.
+\begin{enumerate}
+  \item Calculer l'aire d'un secteur de rayon $8$~cm et d'angle $\frac{\pi}{3}$.
+  \item Un secteur a une aire de $12\pi$~cm$^2$ et un rayon de $6$~cm.
+        Trouver son angle en radians puis en degr\'es.
+  \item La longueur de l'arc est $\ell=r\theta$.
+        Calculer $\ell$ pour $r=5$ et $\theta=\frac{2\pi}{3}$.
+  \item Un secteur de rayon $10$~cm et d'arc $15\pi$~cm~:
+        quel est son angle~? Son aire~?
+\end{enumerate}
+\end{probleme}
+
+\begin{challenge}[Trigonom\'etrie et algorithme \computer]
+\begin{enumerate}
+  \item \'Ecrire un programme Python qui affiche le tableau des valeurs
+        de $\cos\theta$ et $\sin\theta$ pour $\theta\in\{0, \frac{\pi}{6}, \frac{\pi}{4},
+        \frac{\pi}{3}, \frac{\pi}{2}, \frac{2\pi}{3}, \frac{3\pi}{4}, \frac{5\pi}{6}, \pi\}$.
+        V\'erifier $\cos^2\theta+\sin^2\theta$ pour chaque valeur.
+  \item Modifier pour trouver num\'eriquement les solutions de
+        $\cos x = 0{,}5$ dans $[0, 2\pi]$ avec un pas de $0{,}01$.
+        Comparer avec les solutions exactes.
+  \item \'Ecrire un programme qui trac e le cercle trigonom\'etrique
+        et place les $12$ angles remarquables
+        (\`a l'aide de la biblioth\`eque \texttt{matplotlib}).
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Radian}~: $\pi\,\text{rad}=180^{\circ}$~;
+        $\theta^{\circ}\to\text{rad}~: \times\pi/180$~;
+        $\theta\,\text{rad}\to^{\circ}~: \times180/\pi$.
+  \item \textbf{Cercle unit\'e}~: $M(\cos\theta,\sin\theta)$,
+        distance $1$ de $O$ d'o\`u $\cos^2\theta+\sin^2\theta=1$.
+  \item \textbf{Valeurs remarquables}~: tableau \`a conna\^itre par c\oe ur
+        pour $0, \frac{\pi}{6}, \frac{\pi}{4}, \frac{\pi}{3}, \frac{\pi}{2}$.
+  \item \textbf{Sym\'etries}~:
+        $\cos(-\theta)=\cos\theta$~; $\sin(-\theta)=-\sin\theta$~;
+        $\cos(\pi-\theta)=-\cos\theta$~; $\sin(\pi-\theta)=\sin\theta$~;
+        $\cos(\pi+\theta)=-\cos\theta$~; $\sin(\pi+\theta)=-\sin\theta$.
+  \item \textbf{Tangente}~: $\tan\theta=\sin\theta/\cos\theta$~;
+        non d\'efinie si $\cos\theta=0$.
+  \item \textbf{R\'esolution}~: $\cos x=a$ donne $x=\alpha$ et $x=2\pi-\alpha$~;
+        $\sin x=a$ donne $x=\alpha$ et $x=\pi-\alpha$ (sur $[0,2\pi]$).
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Propositions sur $\cos$ et $\sin$ \corrige]{1}
+\'Enoncer la n\'egation et d\'eterminer si vraie~:
+\begin{enumerate}
+  \item $\forall\theta\in\R,\ \cos^2\theta+\sin^2\theta=1$.
+  \item $\exists\theta,\ \cos\theta>1$.
+  \item $\forall\theta,\ \sin\theta\geq-1$.
+  \item $\exists\theta\in[0,\pi],\ \cos\theta=2$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ \'Equivalences trigonom\'etriques \corrige]{1}
+Pour chaque paire, d\'eterminer $\Rightarrow$, $\Leftarrow$ ou $\Leftrightarrow$~:
+\begin{enumerate}
+  \item \og $\cos\theta=0$\fg\ et \og $\theta=\frac{\pi}{2}+k\pi$\fg.
+  \item \og $\sin\theta>0$\fg\ et \og $\theta\in]0,\pi[$\fg\ (sur $[0,2\pi]$).
+  \item \og $\cos\theta=\cos\varphi$\fg\ et \og $\theta=\pm\varphi+2k\pi$\fg.
+  \item \og $\cos\theta=1$\fg\ et \og $\theta=2k\pi$\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Conditions sur les solutions d'une \'equation trig. \corrige]{2}
+Pour $\cos x = a$~:
+\begin{enumerate}
+  \item \'Enoncer la condition exacte pour l'existence de solutions.
+  \item Formuler~: \og L'\'equation a exactement une solution dans $[0,2\pi]$\fg.
+        Quand cela arrive-t-il~?
+  \item \'Enoncer la n\'egation de~: \og L'\'equation a deux solutions sur $[0,2\pi]$\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Raisonnement sur les sym\'etries du cercle \corrige]{2}
+\begin{enumerate}
+  \item D\'emontrer par la d\'efinition que $\cos(-\theta)=\cos\theta$.
+        Quel raisonnement utilise-t-on~?
+  \item D\'emontrer $\sin(\pi-\theta)=\sin\theta$.
+  \item \'Enoncer~: \og $\cos(\pi+\theta)=-\cos\theta$\fg\ sous forme d'implication.
+        La r\'eciproque est-elle vraie~?
+  \item D\'emontrer l'identit\'e $(\cos\theta+\sin\theta)^2\leq2$ pour tout $\theta$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Propositions combinant quadrant et valeurs \corrige]{2}
+\begin{enumerate}
+  \item \'Enoncer~: \og Si $\theta\in]\frac{\pi}{2},\pi[$, alors $\cos\theta<0$ et $\sin\theta>0$.\fg
+        C'est une implication. La r\'eciproque est-elle vraie (sur $[0,2\pi]$)~?
+  \item Pour quels $\theta\in[0,2\pi]$ a-t-on $\cos\theta<0$ \textbf{et} $\sin\theta>0$~?
+        \'Enoncer sous forme logique.
+  \item D\'emontrer~: $\tan\theta>0 \Leftrightarrow (\cos\theta>0$ et $\sin\theta>0)$
+        ou ($\cos\theta<0$ et $\sin\theta<0)$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ N\'ecessaire et suffisant en trigonom\'etrie \corrige]{3}
+\begin{enumerate}
+  \item La condition $\sin\theta=0$ est-elle CN, CS ou CNS pour $\theta=0$~?
+        Pour $\theta\in\{0,\pi,2\pi\}$~? Pour $\theta=k\pi$~?
+  \item D\'eterminer~: est-ce que \og $\sin\theta=\frac{\sqrt{3}}{2}$\fg\ est CN ou CS
+        pour \og $\theta=\frac{\pi}{3}$\fg\ (sur $[0,2\pi]$)~?
+  \item Formuler la condition CNS pour $\tan\theta=1$ sur $[0,2\pi]$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: table de valeurs de $\cos$ et $\sin$ \computer \corrige]{1}
+\'Ecrire un programme Python qui affiche le tableau des valeurs exactes
+de $\cos\theta$ et $\sin\theta$ pour les $16$ angles remarquables,
+et v\'erifie $\cos^2\theta+\sin^2\theta=1$ pour chacun.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: r\'esoudre $\cos x=a$ sur {$[0,2\pi]$}]{2}
+(Voir exercice \logicoalgo\ dans ce chapitre.)
+Modifier l'algorithme pour~:
+\begin{enumerate}
+  \item Afficher aussi les solutions en degr\'es.
+  \item G\'erer le cas $a=-1$ ou $a=1$ (solution unique).
+  \item \'Etendre \`a la r\'esolution de $\sin x=a$.
+  \item Impl\'ementer \computer.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: tracer le cercle trigonom\'etrique \computer \corrige]{1}
+\'Ecrire un programme Python \computer\ avec \texttt{matplotlib} qui trace~:
+\begin{enumerate}
+  \item Le cercle unit\'e.
+  \item Les $16$ points remarquables avec leurs \'etiquettes.
+  \item Pour un angle $\theta$ saisi par l'utilisateur~:
+        le point $M(\cos\theta,\sin\theta)$ et ses projections sur les axes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: \'equations trigonom\'etriques par balayage \computer \corrige]{2}
+\'Ecrire un programme Python qui approche toutes les solutions
+de $2\sin^2x-3\sin x+1=0$ dans $[0,2\pi]$ avec un pas de $0{,}001$.
+Comparer avec les solutions exactes trouv\'ees alg\'ebriquement.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: longueur de la corde de l'angle $\theta$ \computer \corrige]{2}
+\'Ecrire un programme Python qui calcule la longueur de la corde
+entre les points du cercle unit\'e aux angles $0$ et $\theta$,
+puis v\'erifie que cette longueur tend vers $0$ quand $\theta\to0$
+en tabulant pour $\theta=\pi/n$, $n=2,4,6,8,12,100$.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: nombre $\pi$ par p\'erim\`etre de polygone \computer \corrige]{3}
+Un polygone r\'egulier \`a $n$ c\^ot\'es inscrit dans le cercle unit\'e a un
+p\'erim\`etre $P_n=2n\sin(\pi/n)$.
+\'Ecrire un programme qui calcule $P_n$ pour $n=4,6,8,12,24,96,1000$
+et observe la convergence vers $2\pi$.
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique et identit\'es trigonom\'etriques \corrigeP]{2}
+\begin{enumerate}
+  \item D\'emontrer rigoureusement $\cos^2\theta+\sin^2\theta=1$
+        \`a partir de la d\'efinition sur le cercle unit\'e.
+  \item En d\'eduire~: $|\cos\theta|\leq1$ et $|\sin\theta|\leq1$.
+        Formuler chaque \'etape comme une implication.
+  \item D\'emontrer~: $\cos^4\theta-\sin^4\theta=\cos^2\theta-\sin^2\theta$.
+        Quel raisonnement~: direct, par cas, ou par calcul alg\'ebrique~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ R\'esolution logique d'\'equations compos\'ees \corrigeP]{2}
+R\'esoudre dans $[0,2\pi]$ et justifier chaque \'etape logiquement~:
+\begin{enumerate}
+  \item $2\sin^2x-3\sin x+1=0$~: poser $u=\sin x$ et appliquer le discriminant.
+  \item $\cos^2x-\sin^2x=0$~: factoriser logiquement.
+  \item $(2\cos x-1)(\sin x+1)=0$~: appliquer la loi du produit nul.
+  \item Pour chaque \'equation, \'enoncer le raisonnement utilis\'e.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: approximation de $\pi$ par la m\'ethode d'Archim\`ede \computer \corrigeP]{2}
+Archim\`ede approchait $\pi$ en encadrant le cercle unit\'e entre deux polygones.
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item Calcule $P_n$ (p\'erim\`etre inscrit) $= 2n\sin(\pi/n)$.
+  \item Calcule $P_n'$ (p\'erim\`etre circonscrit) $= 2n\tan(\pi/n)$.
+  \item Affiche pour $n=6,12,24,48,96$~: l'encadrement de $\pi$.
+  \item Trace la convergence.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: d\'eterminer le quadrant \computer \corrigeP]{1}
+\'Ecrire un programme Python qui, pour un angle $\theta$ saisi~:
+\begin{enumerate}
+  \item R\'eduit $\theta$ \`a $[0,2\pi]$ (modulo $2\pi$).
+  \item D\'etermine le quadrant.
+  \item Calcule $\cos\theta$ et $\sin\theta$.
+  \item Affiche les sym\'etries applicables.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Propri\'et\'es logiques de la p\'eriodicit\'e]
+\begin{enumerate}
+  \item D\'emontrer rigoureusement que $\cos$ est p\'eriodique de p\'eriode $2\pi$~:
+        $\cos(\theta+2\pi)=\cos\theta$ pour tout $\theta$.
+        Utiliser la d\'efinition sur le cercle.
+  \item La p\'eriode est-elle unique~? Formuler~: \og $T$ est p\'eriode de $f$
+        si et seulement si $f(x+T)=f(x)$ pour tout $x$.\fg
+  \item D\'emontrer que si $T$ est une p\'eriode de $f$, alors $2T$ l'est aussi.
+  \item En g\'en\'eralisant~: montrer que $nT$ est une p\'eriode pour tout entier $n\geq1$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ Algorithme~: approcher $\cos$ par un polyn\^ome \computer]
+On peut approcher $\cos x$ par un polyn\^ome pour des petites valeurs de $x$.
+Sur $[0,\frac{\pi}{2}]$, on utilise l'approximation~:
+$\cos x \approx 1 - \dfrac{x^2}{2} + \dfrac{x^4}{24}$,
+o\`u les coefficients $1$, $-\frac{1}{2}$, $\frac{1}{24}$ sont admis.
+\begin{enumerate}
+  \item V\'erifier que l'approximation donne $1$ pour $x=0$. Est-ce coh\'erent~?
+  \item Calculer l'approximation pour $x=0$, $\frac{\pi}{6}$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{\pi}{2}$
+        et comparer avec les valeurs exactes.
+  \item \'Ecrire un programme Python \computer\ qui tabule l'erreur
+        $|\cos x - (1-x^2/2+x^4/24)|$ pour ces cinq valeurs.
+  \item En ajoutant le terme $-x^6/720$, l'approximation s'am\'eliore-t-elle~?
+        Tester et conclure.
+\end{enumerate}
+\end{challenge}
+
+\end{bilan}
+
+
+%% ════════════════════════════════════════════════════════════════

@@ -7,6 +7,16 @@ joints sont les six PDF des trois manuels, éditions élève et professeur.
 
 ---
 
+## T10 — ajout du manuel complet
+
+Le dossier `Livres/T10` contient le projet LaTeX complet pour la classe de
+Seconde : édition élève, édition professeur, chapitres, activités, solutions,
+automatismes, banque d'exercices et de problèmes, documentation de validation
+et scripts de contrôle. Les PDF validés comptent 295 pages pour l'édition élève
+et 469 pages pour l'édition professeur.
+
+---
+
 ## v1.1
 
 ### En un coup d'œil

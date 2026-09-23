@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.tex text diff=tex
+*.sty text diff=tex
+*.cls text diff=tex
+*.pdf binary
+*.zip binary
+

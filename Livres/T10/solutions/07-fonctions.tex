@@ -1,0 +1,992 @@
+\section*{Chapitre 7 \textemdash\ Fonctions num\'eriques}
+\addcontentsline{toc}{section}{Chapitre 7 \textemdash\ Fonctions num\'eriques}
+
+\subsection*{Exercices}
+\addcontentsline{toc}{subsection}{Exercices}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{1}{Domaine de d\'efinition}
+
+\begin{enumerate}
+  \item $2x-4\geq0\Rightarrow x\geq2$~: $D=[2,+\infty[$.
+  \item $x^2-1\ne0\Rightarrow x\ne\pm1$~: $D=\R\setminus\{-1,1\}$.
+  \item $x+3\geq0$ et $x\ne2$~: $D=[-3,+\infty[\setminus\{2\}$.
+  \item $9-x^2\geq0\Rightarrow x^2\leq9\Rightarrow x\in[-3,3]$~: $D=[-3,3]$.
+  \item $x-1>0$~: $D=]1,+\infty[$.
+  \item $x^2-4\geq0\Rightarrow|x|\geq2$~: $D=]-\infty,-2]\cup[2,+\infty[$.
+  \item $3-x>0\Rightarrow x<3$~: $D=]-\infty,3[$.
+  \item $x\geq0$ et $2-x\geq0\Rightarrow0\leq x\leq2$~: $D=[0,2]$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{2}{Lire une courbe}
+
+$f(x)=x^2-2x-3$.
+\begin{enumerate}
+  \item $f(-2)=4+4-3=5$~; $f(-1)=1+2-3=0$~; $f(0)=-3$~; $f(1)=-4$~; $f(2)=-3$~;
+        $f(3)=0$~; $f(4)=5$.
+  \item Parabole, sommet en $(1,-4)$~; z\'eros en $-1$ et $3$.
+  \item Minimum~: $-4$ en $x=1$~; z\'eros~: $x=-1$ et $x=3$~;
+        image de $x=3$~: $f(3)=0$~; ant\'ec\'edents de $y=5$~: $x=-2$ et $x=4$.
+  \item Z\'eros~: $\Delta=4+12=16$~; $x=\frac{2\pm4}{2}$~: $x=3$ et $x=-1$.\checkmark
+        Minimum~: $\alpha=-\dfrac{b}{2a}=1$, $f(1)=-4$.\checkmark
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{3}{Parit\'e}
+
+\begin{enumerate}
+  \item $f(-x)=x^4-3x^2=f(x)$~: \textbf{paire}.
+  \item $g(-x)=-x^3-x=-(x^3+x)=-g(x)$~: \textbf{impaire}.
+  \item $h(-x)=x^2-x\ne h(x)$ et $\ne-h(x)$~: \textbf{ni l'une ni l'autre}.
+  \item $p(-x)=x^4-x^2+1=p(x)$~: \textbf{paire}.
+  \item $q(-x)=-x^3+x=-(x^3-x)=-q(x)$~: \textbf{impaire}.
+  \item $r(-x)=|x|+1=r(x)$~: \textbf{paire}.
+  \item $s(-x)=x^2+2x\ne s(x)$ et $\ne-s(x)$~: \textbf{ni l'une ni l'autre}.
+  \item $t(-x)=\frac{x^2}{x^2+1}=t(x)$~: \textbf{paire}.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{4}{Tableau de variations --- lecture}
+
+\begin{enumerate}
+  \item Croissante sur $[-3,-1]$ et $[2,5]$~; d\'ecroissante sur $[-1,2]$.
+  \item Maximum~: $f(-1)=4$~; minimum~: $f(2)=-2$.
+  \item Non~: on ne peut rien affirmer sur les valeurs interm\'ediaires exactes.
+  \item Entre $0$ et $3$ ant\'ec\'edents~: le tableau montre que $f$ passe de $1$ \`a $4$
+        (croissant), donc $0$ est atteint 0 fois sur $[-3,-1]$~; sur $[-1,2]$ $f$ va de $4$ \`a $-2$,
+        donc $0$ peut \^etre atteint $1$ fois~; sur $[2,5]$ de $-2$ \`a $3$, encore $1$ fois.
+        Total~: $1$ ou $2$ ant\'ec\'edents.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{5}{Fonctions de r\'ef\'erence~: valeurs}
+
+\begin{enumerate}
+  \item $f(x)=x^2$~: $9,4,1,0,1,4,9$.
+  \item $g(x)=\sqrt{x}$~: $0,1,2,3,4$.
+  \item $h(x)=1/x$~: $-\frac{1}{2},-1,2,1,\frac{1}{2}$.
+  \item $k(x)=x^3$~: $-8,-1,0,1,8$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{6}{Asymptotes}
+
+\begin{enumerate}
+  \item $f(x)=1/x$~: asymptote verticale $x=0$~; horizontale $y=0$.
+  \item $g(x)=1/x+2$~: asymptote verticale $x=0$~; horizontale $y=2$ (ajout de $2$).
+  \item $h(x)=1/(x-1)$~: asymptote verticale $x=1$~; horizontale $y=0$.
+  \item $k(x)=1/(x+3)-1$~: asymptote verticale $x=-3$~; horizontale $y=-1$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{7}{Image et ant\'ec\'edent}
+
+$f(x)=x^2-4$.
+\begin{enumerate}
+  \item $f(0)=-4$~; $f(2)=0$~; $f(-3)=5$~; $f(\sqrt{5})=1$.
+  \item Ant\'ec\'edents de $0$~: $x=\pm2$~;
+        de $5$~: $x^2=9\Rightarrow x=\pm3$~;
+        de $-5$~: $x^2=-1$~: aucun.
+  \item Deux ant\'ec\'edents si $y>-4$~; un seul si $y=-4$~; aucun si $y<-4$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{8}{Comparaison de fonctions}
+
+\begin{enumerate}
+  \item $x^2-x=x(x-1)$~: $\leq0$ sur $[0,1]$ (donc $x^2\leq x$)~;
+        $\geq0$ sur $[1,2]$ (donc $x^2\geq x$).
+  \item $\sqrt{x}-x^2$~: pour $x\in[0,1]$, $\sqrt{x}\geq x\geq x^2$, donc $\sqrt{x}\geq x^2$.\checkmark
+        Pour $x\in[1,4]$, $\sqrt{x}\leq x\leq x^2$, donc $\sqrt{x}\leq x^2$.\checkmark
+  \item $x-1/x$~: sur $]0,1[$, $x<1<1/x$, donc $x<1/x$~;
+        sur $]1,+\infty[$, $x>1>1/x$, donc $x>1/x$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{9}{Tableau de variations de fonctions de r\'ef\'erence}
+
+\begin{enumerate}
+  \item $f(x)=x^2-4$~: d\'ecr. sur $]-\infty,0]$, croiss. sur $[0,+\infty[$~; minimum $-4$.
+  \item $g(x)=-x^2+2x=-(x-1)^2+1$~: croiss. sur $]-\infty,1]$, d\'ecr. sur $[1,+\infty[$~; maximum $1$.
+  \item $h(x)=x^2-6x+5=(x-3)^2-4$~: d\'ecr. sur $]-\infty,3]$, croiss. sur $[3,+\infty[$~; minimum $-4$.
+  \item $k(x)=-x^3$~: d\'ecroissante sur $\R$.
+  \item $p(x)=\sqrt{x+4}$~: croissante sur $[-4,+\infty[$~; $p(-4)=0$.
+  \item $q(x)=1/(x+2)$~: d\'ecroissante sur $]-\infty,-2[$ et sur $]-2,+\infty[$~; $A.V.$~: $x=-2$, $A.H.$~: $y=0$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{10}{Transformations~: lire la nouvelle courbe}
+
+\begin{enumerate}
+  \item $g=x^2+3$~: translation verticale $+3$, sommet $(0,3)$.
+  \item $h=x^2-2$~: translation verticale $-2$, sommet $(0,-2)$.
+  \item $k=(x-2)^2$~: translation horiz. $+2$, sommet $(2,0)$.
+  \item $p=(x+1)^2$~: translation horiz. $-1$, sommet $(-1,0)$.
+  \item $q=-x^2$~: sym\'etrie par rapport \`a $Ox$, sommet $(0,0)$, maximum $0$.
+  \item $r=-(x-1)^2+3$~: translation $+1$ et sym. $Ox$ et $+3$, sommet $(1,3)$, maximum $3$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{11}{Variations et sens de variation}
+
+\begin{enumerate}
+  \item $f(0)=1$, $f(1)=4$, $f(2)=7$~: valeurs croissantes. $f$ est croissante (pente $>0$).\checkmark
+  \item $g(0)=5$, $g(1)=3$, $g(2)=1$~: valeurs d\'ecroissantes. $g$ est d\'ecroissante.\checkmark
+  \item $h(-1)=3$, $h(0)=0$, $h(1)=-1$, $h(2)=0$, $h(3)=3$~:
+        croissante sur $]-\infty,1]$~? Non~: $h$ d\'ecroit de $-1$ \`a $1$, puis croit de $1$ \`a $3$.
+        Sommet en $x=1$ (forme canonique~: $(x-1)^2-1$).
+        D\'ecroissante sur $]-\infty,1]$, croissante sur $[1,+\infty[$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{12}{Extremum et minimum}
+
+\begin{enumerate}
+  \item $f(x)=(x-2)^2+3\geq3>0$~: toujours positive. Minimum $3$ en $x=2$.
+  \item $g(x)=-(x-3)^2+1$~: maximum $1$ en $x=3$.
+  \item $h(x)=2(x-2)^2-5$~: minimum $-5$ en $x=2$.
+        Z\'eros~: $2(x-2)^2=5\Rightarrow x=2\pm\sqrt{5/2}=2\pm\frac{\sqrt{10}}{2}$.
+  \item $k(x)=|x-3|\geq0$~: minimum $0$ en $x=3$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{13}{Fonctions affines}
+
+\begin{enumerate}
+  \item $f$~: $m=3$, $p=-1$~; $g$~: $m=-2$, $p=4$~; $h$~: $m=\frac{1}{2}$, $p=3$.
+  \item $m=\frac{8-2}{3-0}=2$~; $p=2$~: $f(x)=2x+2$.
+  \item $f(0)=6>0$ et z\'ero en $x=4$~: $m=-6/4=-3/2$~; $f(x)=-\frac{3}{2}x+6$.
+        Croissante~? $m=-3/2<0$~: non, c'est d\'ecroissante.
+        Pour $f$ croissante avec z\'ero en $4$ et $f(0)=6$~: impossible (si $m>0$ et $f(4)=0$ et $f(0)=6>0$,
+        alors $m<0$~: contradiction). L'\'enonc\'e a des conditions incompatibles~: on retient $f(x)=-\frac{3}{2}x+6$.
+  \item Z\'ero de $f=3x-1$~: $-p/m=1/3$.\checkmark\quad De $g=-2x+4$~: $4/2=2$.\checkmark\quad De $h=(x/2)+3$~: $-6$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{14}{Compos\'ee de transformations}
+
+\begin{enumerate}
+  \item $g(x)=\sqrt{x+4}$~: translation horizontale de $-4$ (vers la gauche de $4$).
+  \item $g(x)=1/x-3$~: translation verticale de $-3$.
+  \item $g(x)=-(x-1)^3$~: translation de $+1$ vers la droite, puis sym\'etrie par $Ox$.
+  \item $g(x)=|x^2-1|$~: calculer $x^2-1$, puis prendre la valeur absolue
+        (la partie n\'egative de $f(x)=x^2-1$, sur $[-1,1]$, est remont\'ee vers le haut).
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{15}{Valeur absolue~: tracer et r\'esoudre}
+
+\begin{enumerate}
+  \item $f(x)=|x-2|$~: d\'ecroissante sur $]-\infty,2]$, croissante sur $[2,+\infty[$, minimum $0$ en $x=2$.
+  \item $g(x)=|x+1|-2$~: minimum $-2$ en $x=-1$.
+  \item $|x-2|=3\Leftrightarrow x-2=3$ ou $x-2=-3\Rightarrow x=5$ ou $x=-1$.
+  \item $|x+1|-2=1\Rightarrow|x+1|=3\Rightarrow x+1=\pm3\Rightarrow x=2$ ou $x=-4$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{16}{\'Etude compl\`ete d'une fonction}
+
+$f(x)=\sqrt{x}$ sur $[0,9]$.
+\begin{enumerate}
+  \item Ant\'ec\'edents de $2$~: $x=4$~; de $3$~: $x=9$~; de $4$~: aucun (hors domaine).
+  \item Croissante sur $[0,9]$~; $f(0)=0$, $f(9)=3$.
+  \item $\sqrt{x}=x/3\Rightarrow x=x^2/9\Rightarrow x(x-9)=0\Rightarrow x=0$ ou $x=9$.
+        Sur $]0,9[$~: $\sqrt{x}>x/3$ (parabole sous la racine).
+  \item $\sqrt{x}\geq x/3$ sur $[0,9]$~; \'egalit\'e aux bornes.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{17}{Valeur absolue et \'etude}
+
+$f(x)=|2x-4|$.
+\begin{enumerate}
+  \item Si $x<2$~: $f(x)=4-2x$~; si $x\geq2$~: $f(x)=2x-4$.
+  \item D\'ecroissante sur $]-\infty,2]$, croissante sur $[2,+\infty[$~; minimum $0$ en $x=2$.
+  \item $f(x)=x$~: sur $x<2$~: $4-2x=x\Rightarrow x=4/3$.\checkmark\quad
+        Sur $x\geq2$~: $2x-4=x\Rightarrow x=4$.\checkmark
+  \item $f(x)-x$~: sur $x<4/3$~: $4-2x-x=4-3x>0$~;
+        sur $4/3<x<4$~: voir les deux branches~;
+        sur $x>4$~: $2x-4-x=x-4>0$.
+        $f(x)\geq x$ sur $]-\infty,4/3]$ et $[4,+\infty[$, $f(x)\leq x$ sur $[4/3,4]$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{18}{Variations d'une fonction du second degr\'e}
+
+\begin{enumerate}
+  \item $f(x)=(x-2)^2-3$~: sommet $(2,-3)$~; d\'ecr. sur $]-\infty,2]$, croiss. sur $[2,+\infty[$.
+  \item $g(x)=-2(x-2)^2+5$~: sommet $(2,5)$, maximum $5$.
+  \item Pour $x_1<x_2$, calculer $f(x_2)-f(x_1)=a(x_2^2-x_1^2)+b(x_2-x_1)=(x_2-x_1)[a(x_2+x_1)+b]$.
+        Avec $a>0$~: si $x_1<x_2<\alpha=-\dfrac{b}{2a}$, alors $x_2+x_1<2\alpha=-b/a$, donc $a(x_2+x_1)+b<0$,
+        donc $f(x_2)-f(x_1)<0$~: d\'ecroissante sur $]-\infty,\alpha]$.
+        Si $\alpha<x_1<x_2$, alors $x_1+x_2>2\alpha$, donc $a(x_1+x_2)+b>0$~: croissante.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{19}{Fonctions et in\'egalit\'es}
+
+\begin{enumerate}
+  \item $x^2-x=x(x-1)\geq0$ ssi $x\leq0$ ou $x\geq1$~; donc $x^2\geq x$ pour $x\geq1$.\checkmark
+        $x(x-1)\leq0$ pour $0\leq x\leq1$~: $x^2\leq x$.\checkmark
+  \item Pour $x\geq1$~: substituer $x\leftarrow\sqrt{x}$ (avec $\sqrt{x}\geq1$)~:
+        $(\sqrt{x})^2\geq\sqrt{x}\Rightarrow x\geq\sqrt{x}$.\checkmark
+        Pour $0\leq x\leq1$~: $\sqrt{x}\leq1$ donc $(\sqrt{x})^2\leq\sqrt{x}\Rightarrow x\leq\sqrt{x}$.\checkmark
+  \item $1/x\geq x$ (pour $x>0$)~: $x^2\leq1\Rightarrow x\in]0,1]$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{20}{Compos\'ee de fonctions de r\'ef\'erence}
+
+\begin{enumerate}
+  \item $f(g(x))=(x-1)^2$~; $D=\R$.
+  \item $f(g(x))=\sqrt{4-x}$~; $D=]-\infty,4]$.
+  \item $f(g(x))=\frac{1}{x^2}$~; $D=\R^*$.
+  \item $f(g(x))=|x^2-1|$~; $D=\R$.
+  \item $f(g(x))=\sqrt{x^2}=|x|$~; $D=\R$.
+  \item $f(g(x))=(\sqrt{x})^2=x$~; $D=[0,+\infty[$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{21}{Position relative de deux courbes}
+
+\begin{enumerate}
+  \item $x^2-1-(x+1)=(x-2)(x+1)$~: nul en $-1$ et $2$.
+        $f<g$ sur $]-1,2[$~; $f>g$ sur $]-\infty,-1[\cup]2,+\infty[$~; \'egalit\'e en $-1$ et $2$.
+  \item $\sqrt{x}-x/2-1=0$~: poser $u=\sqrt{x}$, $u\geq0$~: $u^2/2-u+1=(u-1)^2/2\geq0$.
+        \'Egalit\'e en $u=1$, i.e. $x=1$. Donc $g\geq f$ sur $[0,9]$, \'egalit\'e en $x=1$... 
+        \emph{V\'erif.~:} en $x=4$~: $\sqrt{4}=2$ et $x/2+1=3$~; $2<3$~: $f<g$. Sur $[0,9]$, $f\leq g$.
+  \item $1/x-(4-x)=\frac{1-4x+x^2}{x}=\frac{(x-2)^2-3}{x}$~: nul pour $x=2\pm\sqrt{3}$.
+        Position relative change en $x=2-\sqrt{3}$ et $x=2+\sqrt{3}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{22}{Monotonie et in\'egalit\'es}
+
+\begin{enumerate}
+  \item $f$ croissante, $f(3)=5$~: $f(5)\geq f(3)=5$~; $f(x)<f(3)=5$ pour $x<3$.
+  \item $g$ d\'ecroissante sur $[0,4]$, $g(0)=10$, $g(4)=2$~:
+        $g(1)\in[2,10]$~; $g(2)\in[2,10]$~; $g(3)\in[2,10]$.
+        Plus pr\'ecis\'ement~: $g(1)\in[g(4),g(0)]=[2,10]$, etc.
+  \item $f(x_2)-f(x_1)=x_2^3-x_1^3=(x_2-x_1)(x_2^2+x_1x_2+x_1^2)$.
+        $x_2-x_1>0$ (par hypoth\`ese)~;
+        $x_2^2+x_1x_2+x_1^2=(x_2+x_1/2)^2+3x_1^2/4\geq0$ (toujours $>0$ si $x_1\ne0$ ou $x_2\ne0$).
+        Donc $f(x_2)-f(x_1)>0$~: $f$ croissante sur $\R$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{23}{Application~: trajectoire}
+
+$h(t)=-5t^2+20t+1$.
+\begin{enumerate}
+  \item $h(0)=1$~; $h(1)=16$~; $h(2)=21$~; $h(3)=16$~; $h(4)=1$.
+  \item Sommet~: $\alpha=2$~s~; croissante sur $[0,2]$, d\'ecroissante sur $[2,4+...]$.
+  \item Hauteur max.~: $h(2)=21$~m en $t=2$~s.
+  \item $h(t)=16\Rightarrow-5t^2+20t-15=0\Rightarrow t^2-4t+3=0\Rightarrow t=1$ ou $t=3$.
+  \item $h(t)=0\Rightarrow5t^2-20t-1=0$~; $\Delta=400+20=420$~; $t=\frac{20+\sqrt{420}}{10}\approx4{,}05$~s.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{24}{Fonctions et racines}
+
+$f(x)=x^2-2$.
+\begin{enumerate}
+  \item $f(\sqrt{2})=2-2=0$.\checkmark\quad $f(-\sqrt{2})=2-2=0$.\checkmark
+  \item $f(x)\geq0$ sur $]-\infty,-\sqrt{2}]\cup[\sqrt{2},+\infty[$~; $<0$ sur $]-\sqrt{2},\sqrt{2}[$.
+  \item $g(x)=\sqrt{x^2-2}$~: d\'efinie si $x^2-2\geq0$~: $D=]-\infty,-\sqrt{2}]\cup[\sqrt{2},+\infty[$.
+  \item $h(x)=1/(x^2-2)$~: $D=\R\setminus\{-\sqrt{2},\sqrt{2}\}$~;
+        asymptotes verticales $x=\pm\sqrt{2}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{25}{Fonctions et algorithme \computer}
+
+\begin{enumerate}
+  \item Le programme suivant produit le tableau demand\'e.
+\begin{lstlisting}[language=Python]
+def f(x):
+    return x**2 - 3*x + 1
+
+for x in [-2, -1, 0, 1, 2, 3, 4]:
+    print(x, f(x))
+\end{lstlisting}
+  \item Un balayage de pas $0{,}1$ donne un minimum voisin de $-1{,}25$
+        pour $x\approx1{,}5$.
+\begin{lstlisting}[language=Python]
+x_min = -2
+for k in range(61):
+    x = -2 + 0.1*k
+    if f(x) < f(x_min):
+        x_min = x
+print(x_min, f(x_min))
+\end{lstlisting}
+  \item $f(x)=\left(x-\frac32\right)^2-\frac54$~: le minimum exact est
+        $-\frac54$ et il est atteint pour $x=\frac32$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{26}{Tableau de variations~: compl\'eter}
+
+\begin{enumerate}
+  \item $f(x)=(x-3)^2-4$ sur $[-1,5]$~:
+        d\'ecr. sur $[-1,3]$ ($f(-1)=12$, $f(3)=-4$)~;
+        croiss. sur $[3,5]$ ($f(5)=0$)~; minimum $-4$.
+  \item $g(x)=\sqrt{x-1}$ sur $[1,10]$~: croissante~; $g(1)=0$, $g(10)=3$.
+  \item $h(x)=|3x-6|$ sur $[-2,6]$~:
+        d\'ecr. sur $[-2,2]$ ($h(-2)=12$, $h(2)=0$)~;
+        croiss. sur $[2,6]$ ($h(6)=12$)~; minimum $0$.
+  \item $k(x)=1/(x-2)$ sur $]2,+\infty[$~: d\'ecroissante~;
+        $k\to+\infty$ en $x\to2^+$~; $k\to0^+$ en $x\to+\infty$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{27}{Encadrement par monotonie}
+
+$f$ croissante~; $f(2)=5$, $f(6)=9$.
+\begin{enumerate}
+  \item Oui~: $4\in[2,6]$ et $f$ croissante, donc $f(2)\leq f(4)\leq f(6)$~: $5\leq f(4)\leq9$.
+  \item Oui~: $\forall x\in[2,6]$, $f(x)\geq f(2)=5$.
+  \item $f=\sqrt{x}$~: $\sqrt{4}=2\leq\sqrt{5}\leq\sqrt{9}=3$~: $2\leq\sqrt{5}\leq3$.
+  \item $f(4)=2\leq\sqrt{5}\leq f(4{,}84)=\sqrt{4{,}84}=2{,}2$~:
+        $2\leq\sqrt{5}\leq2{,}2$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{28}{Fonctions et r\'esolution graphique}
+
+$f(x)=x^2-2x$, $g(x)=2x-3$.
+\begin{enumerate}
+  \item Courbes sur $[-1,4]$~: parabole et droite.
+  \item Intersections ~: graphiquement en $x\approx1$ et $x\approx3$.
+  \item $x^2-2x=2x-3\Rightarrow x^2-4x+3=(x-1)(x-3)=0$~: $x=1$ et $x=3$.
+  \item $f(x)\leq g(x)\Rightarrow(x-1)(x-3)\leq0$~: $x\in[1,3]$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{29}{Domaine de fonctions compos\'ees}
+
+\begin{enumerate}
+  \item $x^2-3x+2=(x-1)(x-2)\geq0$~: $D=]-\infty,1]\cup[2,+\infty[$.
+  \item $1-x^2>0\Rightarrow|x|<1$~: $D=]-1,1[$.
+  \item $\frac{x-1}{x+1}\geq0$~: $x\leq-1$ ou $x\geq1$~; et $x\ne-1$~:
+        $D=]-\infty,-1[\cup[1,+\infty[$.
+  \item $x\geq0$ et $\sqrt{x}\ne1$ (i.e. $x\ne1$)~: $D=[0,+\infty[\setminus\{1\}$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{30}{Lire un tableau de variations}
+
+Tableau~: $f(-2)=-1$, max $f(0)=4$, $f(3)=0$, $f(5)=2$.
+\begin{enumerate}
+  \item $f(x)=2$~: sur $[-2,0]$ (croissant, $f(-2)=-1$, $f(0)=4$)~: une solution~;
+        sur $[0,3]$ (d\'ecroissant, $f(0)=4$, $f(3)=0$)~: une solution~;
+        sur $[3,5]$ (croissant, $f(3)=0$, $f(5)=2$)~: une solution (en $x=5$).
+        Total~: \textbf{3} solutions.
+  \item $f(x)=1$~: sur $[-2,0]$ 1 fois, sur $[0,3]$ 1 fois, sur $[3,5]$ 0 fois (max $2$)~:
+        \textbf{2} solutions.
+        $f(x)=5$~: hors de l'image (max $4$)~: \textbf{0} solution.
+        $f(x)=-2$~: sous le minimum ($-1$)~: \textbf{0} solution.
+  \item $f(x)\geq0$~: tableau montre $f\geq0$ sur $[-2,0]$~? Non~: $f(-2)=-1<0$.
+        La racine sur $[-2,0]$ est quelque part~; $f\geq0$ sur $[x_0,5]$ o\`u $x_0\in[-2,0]$ et $f(x_0)=0$.
+  \item Maximum absolu~: $f(0)=4$~; minimum absolu~: $f(-2)=-1$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{31}{Fonctions et tableur}
+
+$f(x)=x^3-3x$.
+\begin{lstlisting}[language=Python]
+for x in [-3,-2,-1,0,1,2,3]:
+    print(f"f({x}) = {x**3 - 3*x}")
+# -18, -2, 2, 0, -2, 2, 18
+\end{lstlisting}
+Changements de monotonie observ\'es vers $x\approx-1$ (max local) et $x\approx1$ (min local).
+Z\'eros de $f=x(x^2-3)$~: $x=0$, $x=\pm\sqrt{3}\approx\pm1{,}73$.
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{32}{\logicoalgo\ Algorithme~: chercher les z\'eros de $f$}
+
+\begin{enumerate}
+  \item La condition $f(x)\cdot f(x+h)<0$ est une \textbf{condition suffisante} (pas n\'ecessaire)
+        pour l'existence d'une racine, si $f$ est continue sur l'intervalle.
+        Elle n'est pas n\'ecessaire~: $f(x)=(x-0{,}3)(x-0{,}7)$ sur $[0,1]$
+        a deux racines alors que $f(0)>0$ et $f(1)>0$.
+  \item $f(-3)=4>0$, $f(-2)=-1<0$~: une racine dans $[-3,-2]$~;
+        $f(2)=-1<0$, $f(3)=4>0$~: une racine dans $[2,3]$.
+  \item Nombre d'it\'erations~: $\lfloor(b-a)/h\rfloor$ lorsque $h>0$.
+  \item
+\begin{lstlisting}[language=Python]
+def cherche_zeros(f, a, b, h=0.01):
+    x = a
+    while x + h <= b:
+        if f(x) * f(x + h) < 0:
+            print(x, x + h)
+        x += h
+
+cherche_zeros(lambda x: x**3 - 3*x + 1, -2, 2)
+\end{lstlisting}
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{33}{Monotonie par d\'efinition}
+
+\begin{enumerate}
+  \item $\sqrt{x_2}-\sqrt{x_1}=\frac{x_2-x_1}{\sqrt{x_2}+\sqrt{x_1}}>0$
+        car $x_2>x_1\geq0$ et $\sqrt{x_2}+\sqrt{x_1}>0$.\hfill$\square$
+  \item $g(x_2)-g(x_1)=\frac{1}{x_2}-\frac{1}{x_1}=\frac{x_1-x_2}{x_1x_2}$.
+        Pour $0<x_1<x_2$~: num. $<0$, d\'enom. $>0$~: $g(x_2)-g(x_1)<0$~: d\'ecroissante.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{34}{Parit\'e et sym\'etries}
+
+\begin{enumerate}
+  \item Si $f$ paire~: $f(-x)=f(x)$. Le point $(x,f(x))$ et $(-x,f(-x))=(-x,f(x))$~:
+        sym\'etriques par rapport \`a $Oy$.\hfill$\square$
+  \item $(f+g)(-x)=f(-x)+g(-x)=f(x)+g(x)=(f+g)(x)$~: paire.\hfill$\square$
+  \item $f$ impaire~: $f(-0)=-f(0)\Rightarrow f(0)=-f(0)\Rightarrow2f(0)=0\Rightarrow f(0)=0$.\hfill$\square$
+  \item $h(-x)=f(-x)+g(-x)=f(x)-g(x)\ne h(x)$ en g\'en\'eral~:
+        $h$ n'est ni paire ni impaire (sauf cas triviaux).
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{35}{$f(x)=|x^2-4|$~: \'etude compl\`ete}
+
+\begin{enumerate}
+  \item $f(-x)=|(-x)^2-4|=|x^2-4|=f(x)$~: paire.\hfill$\square$
+  \item Sur $]-\infty,-2]$~: $x^2-4\geq0$~: $f(x)=x^2-4$.
+        Sur $[-2,2]$~: $x^2-4\leq0$~: $f(x)=4-x^2$.
+        Sur $[2,+\infty[$~: $f(x)=x^2-4$.
+  \item Sur $]-\infty,-2]$~: d\'ecr.~; sur $[-2,0]$~: croiss. ($4-x^2$, max en $0$)~;
+        sur $[0,2]$~: d\'ecr.~; sur $[2,+\infty[$~: croiss.
+        Extremums~: $f(\pm2)=0$ (minima locaux), $f(0)=4$ (maximum local).
+  \item Courbe en W sym\'etrique.
+  \item $f(x)=x$~: sur $[2,+\infty[$~: $x^2-4=x\Rightarrow x=\frac{1+\sqrt{17}}{2}\approx2{,}56$.\checkmark
+        Sur $[-2,2]$~: $4-x^2=x\Rightarrow x^2+x-4=0\Rightarrow x=\frac{-1+\sqrt{17}}{2}\approx1{,}56$.
+        Solutions positives~: deux valeurs.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{36}{Signe et variation combin\'es}
+
+$f(x)=\frac{x^2-1}{x}=x-\frac{1}{x}$ sur $\R^*$.
+\begin{enumerate}
+  \item $f(-x)=\frac{x^2-1}{-x}=-(x-1/x)=-f(x)$~: impaire.\hfill$\square$
+  \item Sur $]0,+\infty[$~: $f(x)=x-1/x$. Signe~: $f(x)>0\Leftrightarrow x>1$~; $<0$ sur $]0,1[$.
+        Sur $]-\infty,0[$~: $f$ impaire, signe oppos\'e.
+  \item $f(x_2)-f(x_1)=(x_2-x_1)+(1/x_1-1/x_2)=(x_2-x_1)\bigl(1+\frac{1}{x_1x_2}\bigr)$.
+        Pour $0<x_1<x_2$~: $x_2-x_1>0$ et $1+1/(x_1x_2)>0$~: $f$ croissante.\hfill$\square$
+  \item Sur $]-\infty,0[$~: $f$ impaire et croissante sur $]0,+\infty[$ $\Rightarrow$ croissante sur $]-\infty,0[$.
+  \item Croissante sur $]-\infty,0[$ et sur $]0,+\infty[$ (non monotone sur $\R^*$).
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{37}{Encadrement et approximation}
+
+$f(x)=x^2$, $g(x)=\sqrt{x}$ sur $[0,4]$.
+\begin{enumerate}
+  \item $f(g(x))=(\sqrt{x})^2=x$.\checkmark\quad $g(f(x))=\sqrt{x^2}=|x|=x$ pour $x\geq0$.\checkmark
+  \item Si $(x,y)$ est sur $\mathcal{C}_g$, alors $y=\sqrt{x}$ et $x=y^2$, donc $(y,x)$ est sur $\mathcal{C}_f$.
+        Les courbes sont sym\'etriques par rapport \`a $y=x$.\hfill$\square$
+  \item $f(1{,}7)=2{,}89<3<3{,}24=f(1{,}8)$.
+  \item $g$ croissante~: $g(2{,}89)<g(3)<g(3{,}24)\Rightarrow1{,}7<\sqrt{3}<1{,}8$.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{38}{\logiq\ Logique et domaine de d\'efinition}
+
+\begin{enumerate}
+  \item $D_f=\{x\in\R\mid x\geq2\}$~: $\forall x\in D_f,\;x\geq2$.
+  \item $g$ d\'efinie ssi $x^2-4\ne0$~:
+        $x\in D_g\Leftrightarrow x\ne2\wedge x\ne-2$.
+  \item \og Toute valeur de $f$ est positive\fg~:
+        $\forall x\in D_f,\;f(x)\geq0$.
+  \item N\'egation de \og $f$ admet un ant\'ec\'edent pour toute valeur\fg~:
+        \og $\exists y_0\in f(D_f),\;\nexists x\in D_f,\;f(x)=y_0$\fg~;
+        plus simplement~: $\exists y_0,\;\forall x,\;f(x)\ne y_0$.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{39}{\logiq\ Implication et croissance}
+
+\begin{enumerate}
+  \item Contrapos\'ee~: \og $f(x_1)\geq f(x_2)$\fg{} $\Rightarrow$
+        \og $x_1\geq x_2$\fg{}
+        (si $f$ ne croît pas, les indices ne sont pas ordonn\'es comme pr\'evu).
+  \item $f(3)=5>3=f(5)$~: les images ne sont pas dans l'ordre des ant\'ec\'edents~;
+        $f$ n'est pas croissante (et pas strictement d\'ecroissante non plus~: une seule information).
+        Raisonnement par \textbf{contre-exemple} \`a la croissance.
+  \item $f(-1)=1>0=f(0)$, mais $-1<0$~: $f(-1)>f(0)$ alors que $-1<0$~: $f$ n'est pas monotone.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{40}{\logiq\ Conditions sur les extremums}
+
+\begin{enumerate}
+  \item \og $f$ admet un minimum absolu $m$\fg~:
+        $\exists m\in f(D_f),\;\forall x\in D_f,\;f(x)\geq m$.
+  \item \textbf{Fausse.} Contre-exemple~: $f(0)=0$ pour $f(x)=x$~;
+        $0$ est un z\'ero mais pas un minimum (car $f(-1)=-1<0$).
+  \item \textbf{Inexact.} Une fonction peut \^etre born\'ee sans atteindre son infimum ou
+        son supremum (ex.~: $f(x)=1/x$ sur $]0,1[$~: born\'ee inf\'erieurement par $1$, mais
+        pas de maximum fini). \og Born\'ee\fg\ signifie $\exists M>0,\;\forall x,\;|f(x)|\leq M$,
+        pas forc\'ement que le maximum est atteint.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{41}{\logiq\ N\'egation de propositions fonctionnelles}
+
+\begin{enumerate}
+  \item $\forall x\in\R,\;x^2\geq0$~: \textbf{vraie}. N\'egation~: $\exists x,\;x^2<0$~: fausse.
+  \item $\exists x\in\R^*,\;1/x=x$~: $x^2=1\Rightarrow x=\pm1$~: \textbf{vraie}.
+        N\'egation~: $\forall x\in\R^*,\;1/x\ne x$~: fausse.
+  \item $\forall x>0,\;\sqrt{x}<x$~: fausse (ex.~: $\sqrt{0{,}25}=0{,}5>0{,}25$).
+        N\'egation~: $\exists x>0,\;\sqrt{x}\geq x$~: \textbf{vraie}.
+  \item $\forall x\in[-1,1],\;|x|\leq1$~: \textbf{vraie} (d\'efinition de $[-1,1]$).
+        N\'egation~: $\exists x\in[-1,1],\;|x|>1$~: fausse.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{42}{\logiq\ Parit\'e~: d\'emonstrations logiques}
+
+\begin{enumerate}
+  \item Oui~: $(f+g)(-x)=f(-x)+g(-x)=f(x)+g(x)$~: paire.\hfill$\square$
+  \item $(fg)(-x)=f(-x)g(-x)=f(x)\cdot(-g(x))=-(fg)(x)$~: \textbf{impaire}.\hfill$\square$
+  \item Oui~: la fonction nulle $f(x)=0$ est \`a la fois paire ($f(-x)=0=f(x)$)
+        et impaire ($f(-x)=0=-f(x)$).
+  \item \og $f$ paire et $g$ paire $\Rightarrow f+g$ paire\fg~; \og $f$ paire et $g$ impaire $\Rightarrow fg$ impaire\fg.
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{43}{\logiq\ Logique et transformations de courbes}
+
+\begin{enumerate}
+  \item $(-f)(x_2)-(-f)(x_1)=f(x_1)-f(x_2)<0$ si $f$ croissante~: $-f$ d\'ecroissante.\hfill$\square$
+  \item \textbf{Vraie}~: si $f$ paire, $f(-x)=f(x)$, donc $f(x)+f(-x)=2f(x)$.\hfill$\square$
+  \item $|f(x)|\leq M\Leftrightarrow-M\leq f(x)\leq M$. Implication~:
+        \og $f$ born\'ee par $M$\fg{} $\Rightarrow$
+        \og $\forall x,\;|f(x)|\leq M$\fg{}~: vraie par d\'efinition.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{44}{\algo\ Algorithme~: tableau de valeurs \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+f = lambda x: x**2 - 3*x + 1
+for x in [-2,-1,0,1,2,3,4]:
+    print(f"f({x}) = {f(x)}")
+# Zeros par discriminant: Delta=9-4=5; x=(3+-sqrt(5))/2
+print(f"Zeros: {(3-math.sqrt(5))/2:.4f} et {(3+math.sqrt(5))/2:.4f}")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{45}{\algo\ Algorithme~: trouver le minimum par balayage \computer}
+
+\begin{lstlisting}[language=Python]
+f = lambda x: x**2 - 4*x + 1
+x, step = -1.0, 0.01
+x_min, f_min = x, f(x)
+while x <= 5.0:
+    if f(x) < f_min:
+        x_min, f_min = x, f(x)
+    x += step
+print(f"Min approx: f({x_min:.2f}) = {f_min:.4f}")
+# Exact: f(x) = (x-2)^2 - 3, min = -3 en x = 2
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{46}{\algo\ Algorithme~: d\'etecter les z\'eros par changement de signe \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+def zeros(f, a, b, h=0.001):
+    x = a
+    while x + h <= b:
+        if f(x) * f(x+h) < 0:
+            print(f"Racine dans [{x:.3f}, {x+h:.3f}]")
+        x = round(x + h, 10)
+
+zeros(lambda x: x**3 - 3*x + 1, -2, 2, 0.001)
+# 3 racines: ~[-2,-1.5], [0,0.5], [1.5,2]
+zeros(lambda x: abs(x) - 1, -3, 3, 0.001)
+# Racines en x = +-1
+zeros(lambda x: math.sqrt(x) - x, 0, 2, 0.001)
+# Racine en x=0 et x=1
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{47}{\algo\ Algorithme~: v\'erifier la monotonie \computer}
+
+\begin{lstlisting}[language=Python]
+def est_croissante(f, a, b, h=0.01):
+    x = a
+    while x + h <= b:
+        if f(x + h) < f(x):
+            return False
+        x += h
+    return True
+
+f = lambda x: x**2
+print(est_croissante(f, 0, 3))   # True
+print(est_croissante(f, -3, 0))  # True (croissante?)
+# Non: f(-3)=9, f(-2)=4: f est decroissante sur [-3,0]
+
+g = lambda x: x**3 - x
+# Chercher sous-intervalles
+h = 0.1
+x = -2.0
+while x + h <= 2.0:
+    if g(x+h) < g(x):
+        print(f"Decroissant autour de x={x:.1f}")
+    x += h
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{48}{\algo\ Algorithme~: point fixe par it\'eration \computer}
+
+\begin{lstlisting}[language=Python]
+h = lambda x: (x + 3) / 2
+u = 0.0
+n = 0
+while True:
+    u_new = h(u)
+    n += 1
+    if abs(u_new - u) < 1e-6:
+        break
+    u = u_new
+print(f"Limite: {u_new:.6f} en {n} iterations")
+# Point fixe: h(c)=c => (c+3)/2=c => c=3
+\end{lstlisting}
+La suite converge vers $c=3$ (point fixe de $h$).\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\solutiontitle{7}{49}{\algo\ Algorithme~: maximum d'une liste de valeurs \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+n = 100
+xs = [2 * math.pi * i / n for i in range(n+1)]
+vals = [math.sin(x) for x in xs]
+
+i_max = vals.index(max(vals))
+i_min = vals.index(min(vals))
+print(f"Max: sin({xs[i_max]:.4f}) = {vals[i_max]:.6f}")
+print(f"Min: sin({xs[i_min]:.4f}) = {vals[i_min]:.6f}")
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+\addcontentsline{toc}{subsection}{Probl\`emes}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{1}{Optimisation~: cl\^oture}
+
+\textbf{(1)} Largeur $x$~; longueur $=100-2x$ (deux largeurs + une longueur $=100$).
+\textbf{(2)} $A(x)=x(100-2x)=-2x^2+100x$.
+\textbf{(3)} $x>0$ et $100-2x>0\Rightarrow0<x<50$~: $D=]0,50[$.
+\textbf{(4)} $A(x)=-2(x-25)^2+1250$~: maximum en $x=25$.
+\textbf{(5)} Aire maximale~: $A(25)=25\times50=1250$~m$^2$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{2}{Courbe et lecture graphique}
+
+$A(-1,3)$, $B(1,-1)$, $C(3,3)$~: parabole.
+\textbf{(1)} Sym\'etrie~: axe entre $x=-1$ et $x=3$~: $h=\frac{-1+3}{2}=1$. $f(x)=a(x-1)^2+k$.
+\textbf{(2)} $f(1)=k$~; $B(1,-1)$~: $k=-1$. $f(-1)=4a-1=3\Rightarrow a=1$.
+\textbf{(3)} $f(3)=(3-1)^2-1=3$.\checkmark
+\textbf{(4)} D\'ecr. sur $]-\infty,1]$, croiss. sur $[1,+\infty[$~; minimum $-1$.
+\textbf{(5)} $f(x)=0\Rightarrow(x-1)^2=1\Rightarrow x=0$ ou $x=2$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{3}{Optimisation~: bo\^ite}
+
+Feuille $12\times8$~cm, d\'ecoupes $x$.
+\textbf{(1)} $V(x)=x(12-2x)(8-2x)$.
+\textbf{(2)} $0<x<4$~: $D=]0,4[$.
+\textbf{(3)} $V(1)=1\cdot10\cdot6=60$~; $V(2)=2\cdot8\cdot4=64$~; $V(3)=3\cdot6\cdot2=36$~cm$^3$.
+\textbf{(4)} $V(1{,}5)=1{,}5\cdot9\cdot5=67{,}5$~; $V(1{,}57)\approx67{,}6$~; $V(2)=64$~:
+$V(1{,}5)<V(1{,}57)$ et $V(2)<V(1{,}57)$.\checkmark
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{4}{Fonctions et physique~: chute libre}
+
+$h(t)=100-5t^2$.
+\textbf{(1)} $h(t)\geq0\Rightarrow t\leq\sqrt{20}=2\sqrt{5}\approx4{,}47$~s~: $D=[0,2\sqrt{5}]$.
+\textbf{(2)} $h(t)=0\Rightarrow t=2\sqrt{5}\approx4{,}47$~s.
+\textbf{(3)} D\'ecroissante sur $[0,2\sqrt{5}]$~; $h(0)=100$, $h(2\sqrt{5})=0$.
+\textbf{(4)} $h(3)=100-45=55$~m. Taux~: $\frac{55-100}{3}=-15$~m/s~: vitesse moyenne de chute.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{5}{Comparaison de fonctions}
+
+$f(x)=x^2$, $g(x)=2x$.
+\textbf{(1)} $f(x)-g(x)=x^2-2x=x(x-2)$~: nul en $0$ et $2$~; $\leq0$ sur $[0,2]$~; $\geq0$ ailleurs.
+\textbf{(2)} $x^2\geq2x\Leftrightarrow x\leq0$ ou $x\geq2$.
+\textbf{(4)} $x^2\geq ax\Leftrightarrow x(x-a)\geq0$~: pour $x>0$, $x\geq a$.
+Donc pour $x>a>0$~: $x^2>ax$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{6}{Fonctions et \'economie}
+
+$B(n)=-n^2+10n-16$.
+\textbf{(1)} $n\geq0$ entier, $B$ polynomiale.
+\textbf{(2)} $B(2)=-4+20-16=0$~: seuil de rentabilit\'e. $B(8)=-64+80-16=0$~: idem.
+\textbf{(3)} $B(n)\geq0\Leftrightarrow n^2-10n+16\leq0\Leftrightarrow(n-2)(n-8)\leq0$~: $n\in[2,8]$.
+\textbf{(4)} Sommet~: $\alpha=5$~; $B(5)=-25+50-16=9$~: b\'en\'efice max $9$ (milliers) pour $n=5$.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{7}{Suites et fonctions}
+
+$u_n=n^2-4n+3$.
+\textbf{(1)} $u_0=3$, $u_1=0$, $u_2=-1$, $u_3=0$, $u_4=3$, $u_5=8$.
+\textbf{(2)} $f(x)=(x-2)^2-1$~: d\'ecr. sur $]-\infty,2]$, croiss. sur $[2,+\infty[$~; minimum $-1$ en $x=2$.
+\textbf{(3)} $u_n\leq0\Leftrightarrow n\in[1,3]$~: $n=1,2,3$.
+\textbf{(4)} Pour $n\geq3$~: $u_{n+1}-u_n=(n+1)^2-4(n+1)+3-(n^2-4n+3)=2n-3$.
+Pour $n\geq2$~: $2n-3\geq1>0$~: croissante pour $n\geq2$, donc aussi pour $n\geq3$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{8}{Algorithme et fonctions \computer}
+
+\begin{lstlisting}[language=Python]
+import math
+
+f = lambda x: math.sqrt(x**2 + 1)
+g = lambda x: x + 1
+
+# Tableau de valeurs
+for x in [0, 1, 2, 3, 4, 5]:
+    print(f"f({x}) = {f(x):.4f}")
+
+# Monotonie sur [0,5]
+h = 0.1
+print("Croissante:", all(f(x+h) > f(x) for x in [i*h for i in range(50)]))
+
+# Intersection f et g sur [0,3], pas 0.01
+for i in range(300):
+    x = i * 0.01
+    if abs(f(x) - g(x)) < 0.01:
+        print(f"Intersection ~ x={x:.2f}")
+# f(x)=sqrt(x^2+1), g(x)=x+1: x^2+1=(x+1)^2 => x^2+1=x^2+2x+1 => x=0
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{9}{\'Etude de $f(x)=1/x$}
+
+\textbf{(1)} $f(-x)=1/(-x)=-1/x=-f(x)$~: impaire.\hfill$\square$
+\textbf{(2)} $f(x_2)-f(x_1)=\frac{1}{x_2}-\frac{1}{x_1}=\frac{x_1-x_2}{x_1x_2}<0$ pour $0<x_1<x_2$~: d\'ecroissante.\hfill$\square$
+\textbf{(3)} Sur $]-\infty,0[$~: pour $x_1<x_2<0$, $x_1x_2>0$ et $x_1-x_2<0$~:
+$f(x_2)-f(x_1)<0$~: d\'ecroissante.\hfill$\square$
+\textbf{(4)} $f(-1)=-1$ et $f(1)=1$~; $-1<1$ mais $f(-1)<f(1)$ avec $-1<1$~: la valeur en $-1$ est plus petite
+qu'en $1$, ce qui semble indiquer la croissance ! En fait $f(-1)=-1<0<1=f(1)$, mais $1/x$ sur $\R^*$ n'est
+pas monotone globalement~: $f$ est d\'ecroissante sur chaque composante connexe s\'epar\'ement.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{10}{Fonctions et codes postaux}
+
+\textbf{(1)} $C(0{,}5)=2$~; $C(1)=2$~; $C(2)=3$~; $C(4)=5$~; $C(7)=8$.
+\textbf{(2)} Courbe en escalier~: constante par morceaux.
+\textbf{(3)} $C$ est croissante mais non strictement (paliers)~; monotone (non d\'ecroissante).
+\textbf{(4)} Changements de tranche~: $m=1$, $3$, $5$~kg.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{11}{Maximiser une aire}
+
+Rectangle inscrit dans le demi-cercle de rayon $5$~; base $2x$, hauteur $\sqrt{25-x^2}$.
+\textbf{(1)} $A(x)=2x\sqrt{25-x^2}$.
+\textbf{(2)} $A(1)=2\sqrt{24}\approx9{,}8$~; $A(2)=4\sqrt{21}\approx18{,}3$~;
+$A(3)=6\sqrt{16}=24$~; $A(4)=8\sqrt{9}=24$.
+\textbf{(3)} $x_{\max}=\frac{5\sqrt{2}}{2}\approx3{,}54$~; $A(3{,}54)\approx25$.
+$A(3{,}5)=7\sqrt{25-12{,}25}=7\sqrt{12{,}75}\approx24{,}98$.\checkmark
+\textbf{(4)} P\'erim\`etre~: $2(2x+\sqrt{25-x^2})$ en $x=5\sqrt{2}/2$~:
+$=2(5\sqrt{2}+\frac{5\sqrt{2}}{2})=2\cdot\frac{15\sqrt{2}}{2}=15\sqrt{2}\approx21{,}2$~cm.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{12}{Double transformation}
+
+$f(x)=x^2$.
+\textbf{(1)} Translation $+3$~: $(x-3)^2$~; sym. $Ox$~: $-(x-3)^2$~; $+2$~: $g(x)=-(x-3)^2+2$.
+\textbf{(2)} Sommet de $g$~: $(3,2)$.
+\textbf{(3)} Sym. $Ox$~: $-x^2$~; translation $+3$~: $-(x-3)^2$~; $+2$~: $-(x-3)^2+2$.
+M\^eme r\'esultat~: oui, l'ordre sym. $Ox$ puis translations ne change pas la fonction finale ici.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{13}{\logiq\ Logique et optimisation}
+
+\textbf{(1)} \og $f$ admet un maximum en $x_0$\fg{} $\Leftrightarrow$
+\og $\forall x\in D_f,\;f(x)\leq f(x_0)$\fg{}.
+\textbf{(2)} $f(x)=-x^2+4x-3=-(x-2)^2+1$.
+$f(x)\leq f(2)=1\Leftrightarrow-(x-2)^2\leq0$~: toujours vrai.\hfill$\square$
+\textbf{(3)} Pour $ax^2+bx+c$ admette un minimum~: $a>0$ est CNS (et le minimum est $-\dfrac{\Delta}{4a}$).
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{14}{\logiq\ Propri\'et\'es logiques de la composition}
+
+\textbf{(1)} $f$ et $g$ croissantes~: pour $x_1<x_2$, $g(x_1)<g(x_2)$, puis $f(g(x_1))<f(g(x_2))$~: $f\circ g$ croissante.\hfill$\square$
+\textbf{(2)} $(f\circ g)(-x)=f(g(-x))=f(-g(x))=-f(g(x))=-(f\circ g)(x)$~: \textbf{impaire}.\hfill$\square$
+\textbf{(3)} Contrapos\'ee~: \og Si $f\circ g$ n'est pas strictement croissante, alors $f$ n'est pas strictement croissante ou $g$ n'est pas strictement croissante.\fg
+Utile pour d\'eduire la non-monotonie d'une compos\'ee.
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{15}{\algo\ \'Etude compl\`ete d'une fonction \computer}
+
+\begin{lstlisting}[language=Python]
+import math, matplotlib.pyplot as plt
+import numpy as np
+
+def etude(f, a, b, h=0.01):
+    xs = np.arange(a, b+h, h)
+    ys = [f(x) for x in xs]
+    # Zeros
+    for i in range(len(ys)-1):
+        if ys[i] * ys[i+1] < 0:
+            print(f"Zero dans [{xs[i]:.2f}, {xs[i+1]:.2f}]")
+    print(f"Max: f({xs[np.argmax(ys)]:.2f}) = {max(ys):.4f}")
+    print(f"Min: f({xs[np.argmin(ys)]:.2f}) = {min(ys):.4f}")
+    plt.plot(xs, ys); plt.grid(True); plt.title("Courbe de f")
+    plt.axhline(0, color='k', linewidth=0.5); plt.show()
+
+etude(lambda x: x**3 - 3*x + 1, -2, 2)
+\end{lstlisting}
+
+%────────────────────────────────────────────────────────────────
+\psolutiontitle{7}{16}{\algo\ Optimisation de l'aire d'un rectangle \computer}
+
+\begin{lstlisting}[language=Python]
+import numpy as np, matplotlib.pyplot as plt
+
+xs = np.arange(0, 10, 0.001)
+A = xs * (10 - xs)
+i_max = np.argmax(A)
+print(f"x_opt = {xs[i_max]:.3f}, A_max = {A[i_max]:.4f}")
+# Solution exacte: x=5, A=25
+plt.plot(xs, A); plt.xlabel('x'); plt.ylabel('A(x)')
+plt.title('Aire du rectangle'); plt.grid(True); plt.show()
+\end{lstlisting}
+Solution exacte~: $A(x)=x(10-x)=-(x-5)^2+25$~; max en $x=5$, $A=25$.
+
+%────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+\addcontentsline{toc}{subsection}{D\'efis}
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~1~\textendash\ \textit{Vrai ou faux~: monotonie et image}}
+\par\smallskip
+
+\begin{enumerate}
+  \item \textbf{Vraie.} $f$ croissante et $f(3)>0$~: pour $x>3$, $f(x)>f(3)>0$.\hfill$\square$
+  \item \textbf{Vraie.} Si $f(a)=f(b)$ avec $a\ne b$, $f$ ne peut \^etre strictement monotone.
+  \item \textbf{Vraie.} $(f+g)(x_2)-(f+g)(x_1)=(f(x_2)-f(x_1))+(g(x_2)-g(x_1))>0$.\hfill$\square$
+  \item \textbf{Vraie.} $x_1<x_2\Rightarrow f(x_1)<f(x_2)\Rightarrow f(f(x_1))<f(f(x_2))$.\hfill$\square$
+  \item \textbf{Vraie.} $f$ paire~: $f(-x)=f(x)$. Si $f$ strictement croissante, pour $x>0$~:
+        $f(-x)=f(x)>f(0)$ mais aussi $-x<0<x$ et $f(-x)>f(0)$... cela contredit $f$ croissante
+        (car $-x<0$ devrait donner $f(-x)<f(0)$). Contradiction.\hfill$\square$
+\end{enumerate}
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~2~\textendash\ \textit{Minimum de $f(x)=x+1/x$}}
+\par\smallskip
+
+\textbf{(1)} $f(1/2)=5/2$~; $f(1)=2$~; $f(2)=5/2$~; $f(3)=10/3$.
+\textbf{(2)} $f(x)-2=\frac{(x-1)^2}{x}\geq0$ pour $x>0$~: $f(x)\geq2$.\hfill$\square$
+\textbf{(3)} \'Egalit\'e ssi $x=1$.
+\textbf{(4)} Pour $x<0$~: $f(x)=x+1/x$~; $f(x)+2=x+1/x+2=\frac{x^2+2x+1}{x}=\frac{(x+1)^2}{x}\leq0$
+(car $x<0$ et $(x+1)^2\geq0$)~: $f(x)\leq-2$.\hfill$\square$
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~3~\textendash\ \textit{Graphe et transformations enchaîn\'ees}}
+\par\smallskip
+
+\textbf{(1)} $g(x)=|x-2|+1$~: translation de $(2,1)$ appliqu\'ee \`a $f(x)=|x|$.
+\textbf{(2)} $h(x)=-|x+1|+3$~: sommet en $(-1,3)$, maximum $3$, ouverte vers le bas.
+\textbf{(3)} $a|x-h|+k$ passant par $(0,2)$ et $(4,2)$~: sym\'etrie $\Rightarrow h=2$~;
+$a|0-2|+k=2$, soit $2a+k=2$. Deux \'equations, une contrainte~:
+famille $k=2-2a$ pour tout $a\ne0$. Ex.~: $a=1,k=0$~: $|x-2|$~;
+$a=-1,k=4$~: $-|x-2|+4$.
+\textbf{(4)} $|x|=|x-2|$~: $x=-(x-2)\Rightarrow2x=2\Rightarrow x=1$. Point~: $(1,1)$.
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~4~\textendash\ \textit{Fonction constante par morceaux}}
+\par\smallskip
+
+\textbf{(1)} $\lfloor2{,}7\rfloor=2$~; $\lfloor-1{,}3\rfloor=-2$~; $\lfloor3\rfloor=3$~; $\lfloor-2\rfloor=-2$.
+\textbf{(2)} Graphe en escalier~: horizontal sur chaque $[n,n+1[$, saut en chaque entier.
+\textbf{(3)} $g(1{,}7)=0{,}7$~; $g(-0{,}3)=0{,}7$~; $g(5)=0$.
+\textbf{(4)} $g$ croissante sur chaque $[n,n+1[$ (de $0$ \`a $1^-$)~; non continue aux entiers (sauts).
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~5~\textendash\ \textit{Fonctions et suite de nombres}}
+\par\smallskip
+
+$f(x)=x^2-2$, $u_0=2$.
+\textbf{(1)} $u_1=2$, $u_2=2$, $u_3=2$, $u_4=2$~: suite constante~!
+(En effet $f(2)=4-2=2$~: $2$ est un point fixe de $f$.)
+\textbf{(2)} Constante.
+\textbf{(3)} Minor\'ee et major\'ee par $2$.
+\textbf{(4)} $v_0=1$~; $v_1=f(1)=-1$~; $v_2=f(-1)=-1$~; $v_3=-1$~\ldots~: converge vers $-1$ (autre point fixe).
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~6~\textendash\ \textit{Sch\'ema de point fixe}}
+\par\smallskip
+
+\textbf{(1)} $f(c)=c\Rightarrow c^2-c+1=c\Rightarrow c^2-2c+1=(c-1)^2=0\Rightarrow c=1$.
+\textbf{(2)} $\sqrt{c}=c\Rightarrow c^2=c\Rightarrow c=0$ ou $c=1$.
+\textbf{(3)} $h(c)=c\Rightarrow(c+3)/2=c\Rightarrow c+3=2c\Rightarrow c=3$.
+\textbf{(4)} $u_0=0$, $u_1=3/2$, $u_2=9/4$, $u_3=15/8$, $u_4=21/16$, $u_5=\ldots$
+La suite converge vers $c=3$.
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~7~\textendash\ \textit{\logiq\ Th\'eor\`eme des valeurs interm\'ediaires}}
+\par\smallskip
+
+\textbf{(1)} $\forall f$ continue sur $[a,b]$~:
+$(f(a)<0\wedge f(b)>0)\Rightarrow\exists c\in]a,b[,\;f(c)=0$.
+
+\textbf{(2)} Contrapos\'ee~: $\forall c\in]a,b[,\;f(c)\ne0\Rightarrow\neg(f(a)<0\wedge f(b)>0)$
+i.e. $f(a)\geq0$ ou $f(b)\leq0$.
+
+\textbf{(3)} $f(x)=x^3-2$~: $f(1)=-1<0$, $f(2)=6>0$. Par le TVI~:
+$\exists c\in]1,2[,\;f(c)=0$.\hfill$\square$
+
+\textbf{(4)} R\'eciproque~: \og si $f(c)=0$, alors $f(a)<0$ et $f(b)>0$\fg~: \textbf{fausse}.
+Contre-exemple~: $f(x)=x^2$ sur $[-1,1]$~; $f(0)=0$ mais $f(-1)=f(1)=1>0$.
+
+%────────────────────────────────────────────────────────────────
+\noindent\phantomsection
+{\color{BO}\bfseries\small D\'efi~8~\textendash\ \textit{\algo\ Algorithme de bissection g\'en\'eralis\'e \computer}}
+\par\smallskip
+
+\begin{lstlisting}[language=Python]
+import math
+
+def bissection(f, a, b, eps=1e-9):
+    assert f(a) * f(b) < 0, "Pas de changement de signe"
+    n = 0
+    while b - a > eps:
+        m = (a + b) / 2
+        if f(a) * f(m) < 0:
+            b = m
+        else:
+            a = m
+        n += 1
+    print(f"Racine: {(a+b)/2:.10f} en {n} iterations")
+    return (a + b) / 2
+
+# Test 1: x^3 - 2 = 0 (trouver cbrt(2))
+bissection(lambda x: x**3 - 2, 1, 2)
+
+# Test 2: cos(x) - x = 0 sur [0, pi/2]
+bissection(lambda x: math.cos(x) - x, 0, math.pi/2)
+\end{lstlisting}
+
+\needspace{3\baselineskip}
+\needspace{3\baselineskip}

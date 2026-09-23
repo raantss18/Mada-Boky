@@ -1,0 +1,1222 @@
+\part{Analyse}
+
+%% ════════════════════════════════════════════════════════════════
+\chapter{Fonctions num\'eriques}
+\input{activities/07-fonctions}
+%% ════════════════════════════════════════════════════════════════
+
+\begin{anecdote}[Euler et la notation $f(x)$]
+Leonhard Euler ($1707$--$1783$) est le math\'ematicien le plus prolifique
+de l'histoire : plus de $800$ publications. C'est lui qui introduisit la
+notation $f(x)$ en $1734$. Il publia jusqu'\`a sa mort, m\^{e}me apr\`es \^{e}tre
+devenu compl\`etement aveugle. Lorsqu'il perdit l'usage d'un \oe il, il aurait
+dit : \og J'aurai moins de distractions.\fg
+\end{anecdote}
+
+\begin{objectifs}
+\begin{itemize}
+  \item Lire et interpr\'eter une courbe repr\'esentative.
+  \item D\'eterminer domaine de d\'efinition, image, ant\'ec\'edent, extremums.
+  \item Dresser et lire un tableau de variation.
+  \item Conna\^itre les fonctions de r\'ef\'erence.
+  \item D\'eduire les courbes des fonctions associ\'ees par transformations.
+\end{itemize}
+\end{objectifs}
+
+\section{G\'en\'eralit\'es}
+
+\begin{defn}[Fonction num\'erique]
+Une \textbf{fonction num\'erique} $f$ est une application d'un ensemble $D_f \subset \R$
+(domaine de d\'efinition) vers $\R$. $f(x)$ est l'\textbf{image} de $x$,
+et $x$ est un \textbf{ant\'ec\'edent} de $f(x)$.
+\end{defn}
+
+\begin{defn}[Parit\'e]
+$f$ est \textbf{paire} si $f(-x)=f(x)$ (courbe sym\'etrique par rapport \`a $Oy$).\\
+$f$ est \textbf{impaire} si $f(-x)=-f(x)$ (courbe sym\'etrique par rapport \`a $O$).
+\end{defn}
+
+\section{Fonctions de r\'ef\'erence}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \begin{scope}
+    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
+      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=BN!18},
+      xmin=-2.2,xmax=2.2,ymin=-0.5,ymax=4.5,xtick distance=1,ytick distance=1,
+      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{BN}},
+      title={$f(x)=x^2$}]
+      \addplot[BN,very thick,domain=-2.1:2.1,samples=100]{x^2};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=7.4cm]
+    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
+      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=VE!18},
+      xmin=-0.2,xmax=4.2,ymin=-0.5,ymax=2.5,xtick distance=1,ytick distance=1,
+      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{VE}},
+      title={$f(x)=\sqrt{x}$}]
+      \addplot[VE,very thick,domain=0:4.1,samples=100]{sqrt(x)};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[yshift=-6.5cm]
+    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
+      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=OR!18},
+      xmin=-2.2,xmax=2.2,ymin=-0.5,ymax=2.5,xtick distance=1,ytick distance=1,
+      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{OR}},
+      title={$f(x)=|x|$}]
+      \addplot[OR,very thick,domain=-2.1:2.1,samples=100]{abs(x)};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=7.4cm,yshift=-6.5cm]
+    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
+      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=VI!18},
+      xmin=-1.7,xmax=1.7,ymin=-4.2,ymax=4.2,xtick distance=1,ytick distance=1,
+      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{VI}},
+      title={$f(x)=x^3$}]
+      \addplot[VI,very thick,domain=-1.6:1.6,samples=100]{x^3};
+    \end{axis}
+  \end{scope}
+\end{tikzpicture}
+\caption{Fonctions de référence au programme : graduations régulières et identiques sur chaque axe.}
+\end{figure}
+
+\horsprogramme{Approfondissement graphique sur les translations et les symétries de courbes.}
+\section{Transformations}
+
+\begin{prop}[Transformations \'el\'ementaires]
+\`A partir de la courbe $\mathcal{C}_f$ de $f$ :
+\begin{itemize}
+  \item $f(x)+a$ : translation verticale de vecteur $(0,a)$.
+  \item $f(x+a)$ : translation horizontale de vecteur $(-a,0)$.
+  \item $-f(x)$ : sym\'etrie par rapport \`a $Ox$.
+  \item $f(-x)$ : sym\'etrie par rapport \`a $Oy$.
+  \item $|f(x)|$ : replier la partie n\'egative vers le haut.
+\end{itemize}
+\end{prop}
+
+
+\section{Lecture de courbe et vocabulaire}
+
+\begin{defn}[Domaine de d\'efinition]
+\index{domaine de définition}
+Le \textbf{domaine de d\'efinition} $D_f$ est l'ensemble des r\'eels $x$
+pour lesquels $f(x)$ est d\'efini. Deux causes d'exclusion~:
+\begin{itemize}
+  \item Division par z\'ero~: exclure les $x$ qui annulent le d\'enominateur.
+  \item Racine carr\'ee d'un n\'egatif~: exclure les $x$ o\`u l'expression
+        sous le radical est $<0$.
+\end{itemize}
+\end{defn}
+
+\begin{defn}[Image et ant\'ec\'edent]
+\index{image}\index{antécédent}
+Pour $y = f(x)$~:
+\begin{itemize}
+  \item $y$ est l'\textbf{image} de $x$ par $f$.
+  \item $x$ est un \textbf{ant\'ec\'edent} de $y$~: il peut y en avoir
+        plusieurs, un seul, ou aucun.
+\end{itemize}
+\emph{Graphiquement~:} l'image de $x=a$ est l'ordonn\'ee de la courbe
+\`a l'abscisse $a$~; les ant\'ec\'edents de $y=b$ sont les abscisses
+des points d'intersection de la courbe avec la droite horizontale $y=b$.
+\end{defn}
+
+\begin{defn}[Monotonie et extremums]
+\index{monotonie}\index{extremum}
+\begin{itemize}
+  \item $f$ est \textbf{croissante} sur $I$ si~:
+        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)<f(x_2)$.
+  \item $f$ est \textbf{d\'ecroissante} sur $I$ si~:
+        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)>f(x_2)$.
+  \item Un \textbf{minimum} (resp.\ maximum) est une valeur de $f$ plus
+        petite (resp.\ grande) que toutes les valeurs voisines.
+\end{itemize}
+\end{defn}
+
+\begin{methode}[Dresser un tableau de variations]
+\index{tableau de variations}
+\begin{enumerate}
+  \item Identifier le domaine de d\'efinition.
+  \item D\'eterminer les intervalles de croissance et d\'ecroissance
+        (graphiquement, ou en utilisant le signe de $f(x_2)-f(x_1)$).
+  \item Indiquer les valeurs aux bornes et aux extremums.
+\end{enumerate}
+\end{methode}
+
+\begin{ex}[Tableau de variations de $f(x)=x^2-4$]
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|ccccc|}
+\hline
+$x$ & $-\infty$ & & $0$ & & $+\infty$ \\
+\hline
+$f(x)$ & $+\infty$ & \begin{tikzpicture}[baseline=-3pt]
+  \draw[-latex,BO,thick] (0,0.3)--(0.8,-0.3);
+\end{tikzpicture} & $-4$ & \begin{tikzpicture}[baseline=-3pt]
+  \draw[-latex,VE,thick] (0,-0.3)--(0.8,0.3);
+\end{tikzpicture} & $+\infty$ \\
+\hline
+\end{tabular}
+\end{center}
+$f$ est d\'ecroissante sur $]-\infty,0]$ et croissante sur $[0,+\infty[$~;
+minimum $f(0)=-4$.
+\end{ex}
+
+\section{Fonctions de r\'ef\'erence}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|l|}
+\hline
+\rowcolor{BN!10}
+Fonction & $D_f$ & Parit\'e & Variations \\
+\hline
+$f(x)=x^2$   & $\R$ & paire   & d\'ecr.\ sur $]-\infty,0]$, croiss.\ sur $[0,+\infty[$ \\
+$f(x)=x^3$   & $\R$ & impaire & croissante sur $\R$ \\
+$f(x)=\sqrt{x}$ & $[0,+\infty[$ & --- & croissante sur $[0,+\infty[$ \\
+$f(x)=|x|$   & $\R$ & paire   & d\'ecr.\ sur $]-\infty,0]$, croiss.\ sur $[0,+\infty[$ \\
+$f(x)=1/x$   & $\R^*$ & impaire & d\'ecroissante sur $]-\infty,0[$ et sur $]0,+\infty[$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  % 3 columns × 2 rows of small axes, side-by-side
+  % Each function gets its own clean axes
+  \begin{scope}[xshift=0cm]
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-2.2,xmax=2.2,ymin=-0.4,ymax=4.8,
+      xtick={-2,-1,0,1,2},ytick={0,2,4},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{BN}},
+      title={$f(x)=x^2$}]
+      \addplot[BN,very thick,domain=-2.1:2.1,samples=80]{x^2};
+      \node[BN,font=\tiny,anchor=west] at (axis cs:1.2,3.2) {$x^2$};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=4.5cm]
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-0.3,xmax=4.5,ymin=-0.3,ymax=2.4,
+      xtick={0,1,2,3,4},ytick={0,1,2},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{VE}},
+      title={$f(x)=\sqrt{x}$}]
+      \addplot[VE,very thick,domain=0:4.4,samples=80]{sqrt(x)};
+      \node[VE,font=\tiny,anchor=west] at (axis cs:2.5,1.65) {$\sqrt{x}$};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=9cm]
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-2.5,xmax=2.5,ymin=-0.3,ymax=2.8,
+      xtick={-2,-1,0,1,2},ytick={0,1,2},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{OR}},
+      title={$f(x)=|x|$}]
+      \addplot[OR,very thick,domain=-2.4:2.4,samples=80]{abs(x)};
+      \node[OR,font=\tiny,anchor=west] at (axis cs:0.5,1.2) {$|x|$};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=0cm,yshift=-4.8cm]
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-2.5,xmax=2.5,ymin=-4.5,ymax=4.5,
+      xtick={-2,-1,0,1,2},ytick={-4,-2,0,2,4},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{BO}},
+      title={$f(x)=1/x$}]
+      \addplot[BO,very thick,domain=0.22:2.4,samples=80]{1/x};
+      \addplot[BO,very thick,domain=-2.4:-0.22,samples=80]{1/x};
+      \node[BO,font=\tiny,anchor=west] at (axis cs:0.8,2.5) {$1/x$};
+    \end{axis}
+  \end{scope}
+  \begin{scope}[xshift=4.5cm,yshift=-4.8cm]
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-1.8,xmax=1.8,ymin=-4.5,ymax=4.5,
+      xtick={-1,0,1},ytick={-4,-2,0,2,4},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{VI}},
+      title={$f(x)=x^3$}]
+      \addplot[VI,very thick,domain=-1.65:1.65,samples=80]{x^3};
+      \node[VI,font=\tiny,anchor=west] at (axis cs:0.6,1.8) {$x^3$};
+    \end{axis}
+  \end{scope}
+  % 6th cell: summary table of key properties
+  \begin{scope}[xshift=9cm,yshift=-4.8cm]
+    \node[draw=BN!30,fill=GC,rounded corners=3pt,
+          inner sep=6pt,text width=3.6cm,font=\tiny,
+          align=left] at (1.8,1.4) {
+      \textbf{R\'ecap\'itulatif}\\[2pt]
+      $x^2$~: min en $x=0$, paire\\
+      $\sqrt{x}$~: croissante sur $[0,+\infty[$\\
+      $|x|$~: min en $x=0$, paire\\
+      $1/x$~: d\'ecr. sur $\R^*$, impaire\\
+      $x^3$~: croissante sur $\R$, impaire
+    };
+  \end{scope}
+\end{tikzpicture}
+\caption{Les cinq fonctions de r\'ef\'erence --- chacune avec son domaine et ses propri\'et\'es.}
+\end{figure}
+
+\section{Transformations de courbes}
+
+
+\begin{prop}[Transformations \'el\'ementaires]
+\index{transformations de courbes}
+\`A partir de la courbe $\mathcal{C}_f$ de $f$~:
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|l|l|X|}
+\hline
+\rowcolor{BN!10} Nouvelle fonction & Transformation & Description \\
+\hline
+$f(x)+k$ & Translation verticale & Monte de $k$ (ou descend si $k<0$) \\
+$f(x+k)$ & Translation horizontale & Glisse \`a gauche de $k$ (si $k>0$) \\
+$-f(x)$ & Sym\'etrie par rapport \`a $Ox$ & Retourne la courbe \\
+$f(-x)$ & Sym\'etrie par rapport \`a $Oy$ & Image miroir \\
+$|f(x)|$ & Valeur absolue & Remonte la partie n\'egative \\
+\hline
+\end{tabularx}
+\end{center}
+\end{prop}
+
+\begin{ex}[Transformations de $x^2$]
+\begin{itemize}
+  \item $x^2+3$~: parabole mont\'ee de $3$ (sommet en $(0,3)$).
+  \item $(x-2)^2$~: parabole d\'eplac\'ee \`a droite de $2$ (sommet en $(2,0)$).
+  \item $-(x+1)^2+2$~: parabole retourn\'ee, sommet en $(-1,2)$, maximum $2$.
+\end{itemize}
+\end{ex}
+
+\section{Exercices}
+
+\subsection*{\diff{1}\quad Niveau 1 \textemdash\ Vocabulaire et fonctions de r\'ef\'erence}
+
+\begin{exo}[Domaine de d\'efinition \corrige]{1}
+D\'eterminer le domaine de d\'efinition~:
+\begin{enumerate}
+  \item $f(x) = \sqrt{2x-4}$
+  \item $g(x) = \dfrac{1}{x^2-1}$
+  \item $h(x) = \dfrac{\sqrt{x+3}}{x-2}$
+  \item $k(x) = \sqrt{9-x^2}$
+  \item $p(x) = \dfrac{1}{\sqrt{x-1}}$
+  \item $q(x) = \sqrt{x^2-4}$
+  \item $r(x) = \dfrac{x+1}{\sqrt{3-x}}$
+  \item $s(x) = \sqrt{x} + \sqrt{2-x}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Lire une courbe \corrige]{1}
+\`A partir de la courbe repr\'esentative de $f(x)=x^2-2x-3$~:
+\begin{enumerate}
+  \item Dresser le tableau de valeurs pour $x \in \{-2,-1,0,1,2,3,4\}$.
+  \item Tracer la courbe.
+  \item Lire graphiquement~: le minimum de $f$, les z\'eros de $f$,
+        l'image de $x=3$, les ant\'ec\'edents de $y=5$.
+  \item V\'erifier les z\'eros et le minimum par le calcul.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Parit\'e \corrige]{1}
+\'Etudier la parit\'e (paire, impaire, ou ni l'une ni l'autre)~:
+\begin{multicols}{2}\small
+\begin{enumerate}
+  \item $f(x) = x^4 - 3x^2$
+  \item $g(x) = x^3 + x$
+  \item $h(x) = x^2 + x$
+  \item $p(x) = x^4 - x^2 + 1$
+  \item $q(x) = x^3 - x$
+  \item $r(x) = |x| + 1$
+  \item $s(x) = x^2 - 2x$
+  \item $t(x) = \dfrac{x^2}{x^2+1}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Tableau de variations --- lecture \corrige]{1}
+On donne le tableau de variations d'une fonction $f$~:
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|ccccccc|}
+\hline
+$x$ & $-3$ & & $-1$ & & $2$ & & $5$ \\
+\hline
+$f(x)$ & $1$ & $\nearrow$ & $4$ & $\searrow$ & $-2$ & $\nearrow$ & $3$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Sur quels intervalles $f$ est-elle croissante~? D\'ecroissante~?
+  \item Quel est le maximum de $f$~? Le minimum~?
+  \item Peut-on affirmer que $f(-2)=0$~? Que $f(0)=1$~?
+  \item Combien d'ant\'ec\'edents de $0$ peut-il y avoir~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions de r\'ef\'erence~: valeurs \corrige]{1}
+Sans calculatrice, calculer les valeurs suivantes et placer les points
+sur un graphe~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x)=x^2$ pour\\ $x\in\{-3,-2,-1,0,1,2,3\}$
+  \item $g(x)=\sqrt{x}$ pour $x\in\{0,1,4,9,16\}$
+  \item $h(x)=1/x$ pour $x\in\{-2,-1,\frac{1}{2},1,2\}$
+  \item $k(x)=x^3$ pour $x\in\{-2,-1,0,1,2\}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Asymptotes \corrige]{1}
+\index{asymptote}
+Pour chaque fonction, donner le domaine et indiquer les asymptotes~:
+\begin{enumerate}
+  \item $f(x) = \dfrac{1}{x}$~: tracer et indiquer les asymptotes $x=0$ et $y=0$.
+  \item $g(x) = \dfrac{1}{x} + 2$~: quelle est la nouvelle asymptote horizontale~?
+  \item $h(x) = \dfrac{1}{x-1}$~: identifier les asymptotes.
+  \item $k(x) = \dfrac{1}{x+3} - 1$~: identifier les asymptotes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Image et ant\'ec\'edent \corrige]{1}
+Pour $f(x) = x^2 - 4$~:
+\begin{enumerate}
+  \item Calculer $f(0)$, $f(2)$, $f(-3)$, $f(\sqrt{5})$.
+  \item Trouver les ant\'ec\'edents de $0$, de $5$, de $-5$.
+  \item $f$ a-t-elle toujours deux ant\'ec\'edents~? Un seul~? Aucun~?
+  \item Tracer la courbe et v\'erifier graphiquement.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Comparaison de fonctions \corrige]{1}
+Comparer $f$ et $g$ sur les intervalles indiqu\'es~:
+\begin{enumerate}
+  \item $f(x)=x^2$ et $g(x)=x$ sur $[0,1]$ puis sur $[1,2]$.
+        Tracer et d\'eterminer graphiquement o\`u $f(x)\geq g(x)$.
+  \item $f(x)=\sqrt{x}$ et $g(x)=x^2$ sur $[0,1]$ puis sur $[1,4]$.
+  \item $f(x)=x$ et $g(x)=1/x$ sur $]0,1[$ puis sur $]1,+\infty[$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tableau de variations de fonctions de r\'ef\'erence \corrige]{1}
+Dresser le tableau de variations complet~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x) = x^2 - 4$
+  \item $g(x) = -x^2 + 2x$
+  \item $h(x) = x^2 - 6x + 5$
+  \item $k(x) = -x^3$
+  \item $p(x) = \sqrt{x+4}$
+  \item $q(x) = \dfrac{1}{x+2}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Transformations~: lire la nouvelle courbe \corrige]{1}
+\`A partir de la courbe de $f(x)=x^2$, d\'ecrire et tracer~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $g(x) = x^2 + 3$
+  \item $h(x) = x^2 - 2$
+  \item $k(x) = (x-2)^2$
+  \item $p(x) = (x+1)^2$
+  \item $q(x) = -x^2$
+  \item $r(x) = -(x-1)^2 + 3$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Variations et sens de variation \corrige]{1}
+En utilisant les valeurs du tableau, d\'eterminer le sens de variation~:
+\begin{enumerate}
+  \item $f(x)=3x+1$~: calculer $f(0)$, $f(1)$, $f(2)$. $f$ est-elle croissante~?
+  \item $g(x)=-2x+5$~: calculer $g(0)$, $g(1)$, $g(2)$.
+        $g$ est-elle d\'ecroissante~?
+  \item $h(x)=x^2-2x$~: calculer $h(-1)$, $h(0)$, $h(1)$, $h(2)$, $h(3)$.
+        Sur quel(s) intervalle(s) $h$ semble-t-elle croissante~? D\'ecroissante~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Extremum et minimum \corrige]{1}
+\begin{enumerate}
+  \item La fonction $f(x)=x^2-4x+7$ est-elle toujours positive~?
+        Mettre sous forme canonique pour trouver le minimum.
+  \item La fonction $g(x)=-x^2+6x-8$~: trouver le maximum par
+        mise sous forme canonique.
+  \item Pour $h(x)=2x^2-8x+3$~: trouver le minimum et les z\'eros.
+  \item Pour $k(x)=|x-3|$~: trouver le minimum. En quel point est-il atteint~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions affines \corrige]{1}
+\index{fonction affine}
+Une \textbf{fonction affine} est de la forme $f(x)=mx+p$ ($m\ne0$)~;
+si $m=0$, c'est une \textbf{fonction constante}.
+\begin{enumerate}
+  \item Calculer la pente et l'ordonn\'ee \`a l'origine de~:
+        $f(x)=3x-1$~; $g(x)=-2x+4$~; $h(x)=\frac{x}{2}+3$.
+  \item Quelle fonction affine passe par $A(0,2)$ et $B(3,8)$~?
+  \item Quelle fonction affine est croissante, a un z\'ero en $x=4$
+        et $f(0)=6$~?
+  \item La droite $y=mx+p$ croise l'axe $Ox$ en $-p/m$ (si $m\ne0$).
+        V\'erifier pour les fonctions de la question~(1).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Compos\'ee de transformations \corrige]{1}
+D\'ecrire la transformation qui passe de $f$ \`a $g$~:
+\begin{enumerate}
+  \item $f(x)=\sqrt{x}$ et $g(x)=\sqrt{x+4}$
+  \item $f(x)=1/x$ et $g(x)=1/x-3$
+  \item $f(x)=x^3$ et $g(x)=-(x-1)^3$
+  \item $f(x)=x^2$ et $g(x)=|x^2-1|$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Valeur absolue : tracer et r\'esoudre \corrige]{1}
+\begin{enumerate}
+  \item Tracer $f(x)=|x-2|$~: identifier les intervalles de croissance.
+  \item Tracer $g(x)=|x+1|-2$.
+  \item R\'esoudre graphiquement puis alg\'ebriquement $|x-2|=3$.
+  \item R\'esoudre $|x+1|-2=1$.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{2}\quad Niveau 2 \textemdash\ Applications et \'etude de fonctions}
+
+\begin{exo}[\'Etude compl\`ete d'une fonction \corrige]{2}
+Pour $f(x)=\sqrt{x}$ sur $[0,9]$~:
+\begin{enumerate}
+  \item D\'eterminer le domaine et les ant\'ec\'edents de $2$, $3$ et $4$.
+  \item Dresser le tableau de variations.
+  \item \'Etudier la position relative des courbes $y=\sqrt{x}$ et $y=x/3$
+        en r\'esolvant $\sqrt{x}=x/3$.
+  \item Tracer les deux courbes sur $[0,9]$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Valeur absolue et \'etude \corrige]{2}
+Pour $f(x)=|2x-4|$~:
+\begin{enumerate}
+  \item \'Ecrire $f$ sans valeur absolue (par cas~: $x<2$ et $x\geq2$).
+  \item Dresser le tableau de variations.
+  \item R\'esoudre graphiquement puis alg\'ebriquement $f(x)=x$.
+  \item \'Etudier le signe de $f(x)-x$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Variations d'une fonction du second degr\'e \corrige]{2}
+\'Etudier les variations de $f(x)=ax^2+bx+c$ en utilisant la forme canonique~:
+\begin{enumerate}
+  \item $f(x)=x^2-4x+1$~: trouver le sommet, les intervalles de variation.
+  \item $g(x)=-2x^2+8x-3$~: trouver le sommet et le maximum.
+  \item D\'emontrer que si $a>0$, $f$ est d\'ecroissante sur $]-\infty,\alpha]$
+        et croissante sur $[\alpha,+\infty[$ o\`u $\alpha=-\dfrac{b}{2a}$.
+        \emph{(Comparer $f(x_2)-f(x_1)$ pour $x_1<x_2$, avec ou sans $\alpha$.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions et in\'egalit\'es \corrige]{2}
+\begin{enumerate}
+  \item Montrer que $x^2\geq x$ pour $x\geq1$ et $x^2\leq x$ pour $0\leq x\leq1$.
+        \emph{(\'Etudier le signe de $x^2-x=x(x-1)$.)}
+  \item Montrer que $\sqrt{x}\leq x$ pour $x\geq1$ et $\sqrt{x}\geq x$ pour $0\leq x\leq1$.
+        \emph{(\'Etudier $x^2\leq x$ en \'echangeant $x$ et $\sqrt{x}$.)}
+  \item Pour quelles valeurs de $x>0$ a-t-on $1/x\geq x$~?
+  \item Tracer les quatre fonctions sur un m\^eme graphe et v\'erifier visuellement.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Compos\'ee de fonctions de r\'ef\'erence \corrige]{2}
+Pour chaque paire de fonctions $f$ et $g$, calculer $f(g(x))$ et donner son domaine~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x)=x^2$, $g(x)=x-1$
+  \item $f(x)=\sqrt{x}$, $g(x)=4-x$
+  \item $f(x)=1/x$, $g(x)=x^2$
+  \item $f(x)=|x|$, $g(x)=x^2-1$
+  \item $f(x)=\sqrt{x}$, $g(x)=x^2$
+  \item $f(x)=x^2$, $g(x)=\sqrt{x}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Position relative de deux courbes \corrige]{2}
+\'Etudier la position relative des courbes de $f$ et $g$, puis tracer~:
+\begin{enumerate}
+  \item $f(x)=x^2-1$ et $g(x)=x+1$.
+  \item $f(x)=\sqrt{x}$ et $g(x)=x/2+1$ sur $[0,9]$.
+  \item $f(x)=1/x$ et $g(x)=4-x$ sur $]0,+\infty[$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Monotonie et in\'egalit\'es \corrige]{2}
+\begin{enumerate}
+  \item Soit $f$ croissante sur $\R$. Si $f(3)=5$ et $f(7)=9$, que peut-on
+        dire de $f(5)$~? De $f(x)$ pour $x<3$~?
+  \item Soit $g$ d\'ecroissante sur $[0,4]$, avec $g(0)=10$ et $g(4)=2$.
+        Encadrer $g(1)$, $g(2)$, $g(3)$.
+  \item D\'emontrer que $f(x)=x^3$ est croissante sur $\R$~:
+        pour $x_1<x_2$, calculer $f(x_2)-f(x_1)=x_2^3-x_1^3$
+        et montrer que c'est positif.
+        \emph{(Factoriser $a^3-b^3=(a-b)(a^2+ab+b^2)$ et \'etudier
+        le signe de chaque facteur.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Application~: trajectoire \corrige]{2}
+Un objet est lanc\'e verticalement. Sa hauteur (en m) \`a l'instant $t$ (en s)
+est $h(t) = -5t^2 + 20t + 1$.
+\begin{enumerate}
+  \item Calculer $h(0)$, $h(1)$, $h(2)$, $h(3)$, $h(4)$.
+  \item Dresser le tableau de variations de $h$.
+  \item Quelle est la hauteur maximale atteinte, et quand~?
+  \item \`A quel instant l'objet est-il \`a hauteur $16$~m~?
+  \item Quand retouche-t-il le sol ($h=0$)~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions et racines \corrige]{2}
+Pour $f(x)=x^2-2$~:
+\begin{enumerate}
+  \item Montrer que $f$ s'annule pour $x=\sqrt{2}$ et $x=-\sqrt{2}$.
+  \item Dresser le tableau de signe de $f(x)$.
+  \item La fonction $g(x)=\sqrt{x^2-2}$ est-elle d\'efinie sur $\R$~?
+        Donner son domaine.
+  \item Pour $h(x)=\dfrac{1}{x^2-2}$~: donner le domaine et les
+        \'equations des asymptotes verticales.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions et algorithme \computer \corrige]{2}
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item Calcule et affiche un tableau de valeurs de $f(x)=x^2-3x+1$ pour
+        \[x\in\{-2,-1,0,1,2,3,4\}.\]
+  \item Trouve num\'eriquement le minimum de $f$ sur $[-2,4]$ en testant
+        les valeurs avec un pas de $0{,}1$.
+  \item V\'erifier analytiquement en utilisant la forme canonique.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Tableau de variations~: compl\'eter \corrige]{2}
+Pour chaque fonction, compl\'eter le tableau de variations et indiquer
+le (ou les) extremums~:
+\begin{enumerate}
+  \item $f(x)=x^2-6x+5$ sur $[-1,5]$
+  \item $g(x)=\sqrt{x-1}$ sur $[1,10]$
+  \item $h(x)=|3x-6|$ sur $[-2,6]$
+  \item $k(x)=\dfrac{1}{x-2}$ sur $]2,+\infty[$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Encadrement par monotonie \corrige]{2}
+Soit $f$ croissante sur $[a,b]$. On sait que $f(2)=5$ et $f(6)=9$.
+\begin{enumerate}
+  \item Peut-on affirmer que $5 \leq f(4) \leq 9$~?
+  \item Peut-on affirmer que $f(x) \geq 5$ pour tout $x\in[2,6]$~?
+  \item Pour $f(x)=\sqrt{x}$, encadrer $\sqrt{5}$ entre $f(4)$ et $f(9)$.
+  \item Affiner~: encadrer $\sqrt{5}$ entre $f(4)$ et $f(4{,}84)$
+        sachant que $4{,}84=2{,}2^2$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions et r\'esolution graphique \corrige]{2}
+Pour $f(x)=x^2-2x$ et $g(x)=2x-3$~:
+\begin{enumerate}
+  \item Tracer les deux courbes sur $[-1,4]$.
+  \item Lire graphiquement le(s) point(s) d'intersection.
+  \item R\'esoudre alg\'ebriquement $f(x)=g(x)$.
+  \item R\'esoudre $f(x)\leq g(x)$ et repr\'esenter sur un axe.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Domaine de fonctions compos\'ees \corrige]{2}
+Donner le domaine de d\'efinition et simplifier si possible~:
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x)=\sqrt{x^2-3x+2}$
+  \item $g(x)=\dfrac{1}{\sqrt{1-x^2}}$
+  \item $h(x)=\sqrt{\dfrac{x-1}{x+1}}$
+  \item $k(x)=\dfrac{\sqrt{x}}{\sqrt{x}-1}$
+\end{enumerate}
+\end{multicols}
+\end{exo}
+
+\begin{exo}[Lire un tableau de variations \corrige]{1}
+Pour une fonction $f$ dont le tableau de variations est~:
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|ccccccc|}
+\hline
+$x$ & $-2$ & & $0$ & & $3$ & & $5$ \\
+\hline
+$f$ & $-1$ & $\nearrow$ & $4$ & $\searrow$ & $0$ & $\nearrow$ & $2$ \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Combien de solutions a l'\'equation $f(x)=2$~?
+  \item Combien de solutions a $f(x)=1$~? $f(x)=5$~? $f(x)=-2$~?
+  \item Sur quel intervalle $f(x)\geq0$~?
+  \item Quel est l'extremum absolu de $f$ sur $[-2,5]$~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Fonctions et tableur \computer \corrige]{2}
+\begin{enumerate}
+  \item \'Ecrire un programme Python qui calcule le tableau de valeurs
+        de $f(x)=x^3-3x$ pour $x\in\{-3,-2,-1,0,1,2,3\}$.
+  \item Identifier num\'eriquement les valeurs de $x$ o\`u $f$ semble changer
+        de monotonie.
+  \item D\'eterminer graphiquement les z\'eros de $f$.
+        Les v\'erifier alg\'ebriquement ($f(x)=x(x^2-3)$).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logicoalgo\ Algorithme~: chercher les z\'eros de $f$ \corrige]{2}
+
+\begin{algorithm}[H]
+\caption{Recherche de z\'ero par balayage}
+\KwIn{une fonction $f$, une borne inf. $a$, une borne sup. $b$, un pas $h$}
+\KwOut{les $x$ o\`u $f$ semble changer de signe}
+$x \leftarrow a$\;
+\TantQue{$x + h \leq b$}{
+  \Si{$f(x) \times f(x+h) < 0$}{
+    \Afficher \og Changement de signe dans $[$\fg, $x$, \og$;$\fg, $x+h$, \og$]$\fg\;
+  }
+  $x \leftarrow x + h$\;
+}
+\end{algorithm}
+
+\begin{enumerate}
+  \item La condition $f(x)\times f(x+h)<0$ est-elle une condition n\'ecessaire
+        ou suffisante pour qu'il y ait une racine dans $[x,x+h]$~?
+        Donner un contre-exemple si elle n'est que suffisante.
+  \item Appliquer (sur papier, avec $h=1$) \`a $f(x)=x^2-5$ sur $[-3,3]$~:
+        quel(s) intervalle(s) contiennent une racine~?
+  \item Combien d'it\'erations la boucle effectue-t-elle sur $[a,b]$ avec pas $h$~?
+  \item Impl\'ementer en Python \computer\ et tester sur $f(x)=x^3-3x+1$
+        avec $a=-2$, $b=2$, $h=0{,}01$.
+\end{enumerate}
+\end{exo}
+
+\subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations}
+
+\begin{exo}[Monotonie par d\'efinition \corrige]{3}
+D\'emontrer directement \`a partir de la d\'efinition ($x_1<x_2\Rightarrow f(x_1)<f(x_2)$)~:
+\begin{enumerate}
+  \item $f(x)=\sqrt{x}$ est croissante sur $[0,+\infty[$.
+        \emph{(\'Etudier $\sqrt{x_2}-\sqrt{x_1}$ en multipliant par
+        $(\sqrt{x_2}+\sqrt{x_1})/(\sqrt{x_2}+\sqrt{x_1})$.)}
+  \item $g(x)=1/x$ est d\'ecroissante sur $]0,+\infty[$.
+        \emph{(Calculer $g(x_2)-g(x_1)=(x_1-x_2)/(x_1 x_2)$ et \'etudier le signe.)}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Parit\'e et sym\'etries \corrige]{3}
+\begin{enumerate}
+  \item D\'emontrer que si $f$ est paire, sa courbe est sym\'etrique par
+        rapport \`a l'axe $Oy$.
+  \item D\'emontrer que la somme de deux fonctions paires est paire.
+  \item Si $f$ est impaire et $f(0)$ existe, montrer que $f(0)=0$.
+  \item La fonction $h(x)=f(x)+g(x)$ o\`u $f$ est paire et $g$ est impaire~:
+        est-ce que $h$ est paire, impaire, ou ni l'une ni l'autre~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[$f(x)=|x^2-4|$~: \'etude compl\`ete \corrige]{3}
+\begin{enumerate}
+  \item Montrer que $f$ est paire.
+  \item Donner l'expression de $f$ sans valeur absolue sur chaque intervalle~:
+        $]-\infty,-2]$, $[-2,2]$, $[2,+\infty[$.
+  \item Dresser le tableau de variations complet de $f$.
+  \item Tracer la courbe.
+  \item R\'esoudre $f(x)=x$ en distinguant les cas.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Signe et variation combin\'es \corrige]{3}
+Pour $f(x)=\dfrac{x^2-1}{x}$ (d\'efinie sur $\R^*$)~:
+\begin{enumerate}
+  \item Montrer que $f$ est impaire.
+  \item \'Etudier le signe de $f(x)$ sur $]-\infty,0[$ et $]0,+\infty[$.
+  \item D\'emontrer que $f$ est croissante sur $]0,+\infty[$~:
+        calculer $f(x_2)-f(x_1)$ pour $0<x_1<x_2$.
+  \item \'Etudier les variations sur $]-\infty,0[$.
+  \item Dresser le tableau de variations complet.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Encadrement et approximation \corrige]{3}
+Soit $f(x)=x^2$ et $g(x)=\sqrt{x}$ sur $[0,4]$.
+\begin{enumerate}
+  \item Montrer que $f$ et $g$ sont inverses l'une de l'autre~:
+        $f(g(x))=x$ et $g(f(x))=x$ pour $x\geq0$.
+  \item En d\'eduire que les courbes de $f$ et $g$ sont sym\'etriques
+        par rapport \`a la droite $y=x$.
+  \item Encadrer $\sqrt{3}$ entre deux valeurs de $f$ en utilisant~:
+        $f(1{,}7)=2{,}89 < 3 < f(1{,}8)=3{,}24$.
+  \item Montrer que $g$ est croissante, puis que $1{,}7<\sqrt{3}<1{,}8$.
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[Optimisation~: cloture \corrigeP]{1}
+Un agriculteur dispose de $100$~m de cl\^oture pour d\'elimiter un terrain
+rectangulaire longeant un mur (le mur constituant un c\^ot\'e, pas besoin
+de cl\^oture de ce c\^ot\'e).
+\begin{enumerate}
+  \item Si la largeur est $x$, exprimer la longueur en fonction de $x$.
+  \item Exprimer l'aire $A(x)$ en fonction de $x$.
+  \item Quel est le domaine de validit\'e de $x$~?
+  \item Mettre $A(x)$ sous forme canonique et trouver la valeur de $x$
+        qui maximise l'aire.
+  \item Quelle est l'aire maximale~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Courbe et lecture graphique \corrigeP]{1}
+La courbe d'une fonction $f$ (une parabole) passe par les points
+$A(-1, 3)$, $B(1,-1)$, $C(3, 3)$.
+\begin{enumerate}
+  \item Montrer que $f$ est de la forme $f(x)=a(x-h)^2+k$
+        et trouver $h$ par sym\'etrie.
+  \item Utiliser deux points pour trouver $a$ et $k$.
+  \item V\'erifier avec le troisi\`eme point.
+  \item Dresser le tableau de variations.
+  \item R\'esoudre $f(x)=0$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Optimisation~: boite \corrigeP]{2}
+On d\'ecoupe des petits carr\'es de c\^ot\'e $x$ aux quatre coins d'une
+feuille rectangulaire $12\times8$~cm, puis on replie pour former une bo\^ite.
+\begin{enumerate}
+  \item Exprimer le volume $V(x)$ en fonction de $x$.
+  \item Quel est le domaine de validit\'e de $x$~?
+  \item Calculer $V(1)$, $V(2)$, $V(3)$.
+  \item La valeur qui maximise le volume est $x\approx1{,}57$.
+        V\'erifier que $V(1{,}5)<V(1{,}57)$ et $V(2)<V(1{,}57)$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Fonctions et physique~: chute libre \corrigeP]{1}
+Un objet tombe depuis une hauteur de $100$~m.
+Sa hauteur est $h(t)=100-5t^2$ (en m, avec $t$ en secondes).
+\begin{enumerate}
+  \item Quel est le domaine physique de validit\'e de $t$~?
+  \item Quand l'objet touche-t-il le sol~?
+  \item Dresser le tableau de variations de $h$.
+  \item \`A quelle hauteur est l'objet apr\`es $3$~s~?
+        Quelle vitesse repr\'esente $\dfrac{h(3)-h(0)}{3}$~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Comparaison de fonctions \corrigeP]{2}
+On compare la croissance de $f(x)=x^2$ et $g(x)=2x$ sur $[0,+\infty[$.
+\begin{enumerate}
+  \item Calculer $f(x)-g(x)$ et \'etudier son signe.
+  \item Pour quelles valeurs de $x$ a-t-on $x^2\geq 2x$~?
+  \item Tracer les deux courbes sur $[0,4]$.
+  \item G\'en\'eraliser~: pour quelles valeurs de $a>0$ la courbe
+        $y=x^2$ est-elle au-dessus de $y=ax$~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Fonctions et \'economie \corrigeP]{1}
+Le b\'en\'efice (en milliers d'ariary) d'une entreprise selon le nombre
+$n$ de produits fabriqu\'es (en centaines) est~:
+$B(n) = -n^2 + 10n - 16$.
+\begin{enumerate}
+  \item Quel est le domaine de validit\'e de $n$ (entier positif)~?
+  \item L'entreprise fait-elle des pertes pour $n=2$~? Pour $n=8$~?
+  \item Trouver les valeurs de $n$ pour lesquelles $B(n)\geq0$.
+  \item Quel est le b\'en\'efice maximal et pour quel $n$~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Suites et fonctions \corrigeP]{2}
+On consid\`ere la suite $u_n = n^2 - 4n + 3$ pour $n\geq0$ entier.
+\begin{enumerate}
+  \item Calculer $u_0, u_1, u_2, u_3, u_4, u_5$.
+  \item La fonction $f(x)=x^2-4x+3$ prend les m\^emes valeurs aux entiers.
+        Dresser le tableau de variations de $f$ et localiser le minimum.
+  \item Pour quels entiers $n$ a-t-on $u_n\leq0$~?
+  \item Montrer que pour $n\geq3$, la suite est croissante.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Algorithme et fonctions \corrigeP]{2}
+\'Ecrire un algorithme \computer\ qui~:
+\begin{enumerate}
+  \item Pour une liste de valeurs de $x$ en entr\'ee, calcule et affiche
+        $f(x)=\sqrt{x^2+1}$.
+  \item D\'etermine si $f$ semble croissante sur $[0,5]$ en
+        v\'erifiant que $f(x+0{,}1)>f(x)$ pour chaque valeur.
+  \item Trouve le point d'intersection de $f(x)=\sqrt{x^2+1}$
+        et $g(x)=x+1$ en testant les valeurs de $x\in[0,3]$ avec un pas de $0{,}01$.
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\'Etude de $f(x)=1/x$ \corrigeP]{2}
+Pour $f(x)=1/x$, d\'efinie sur $\R^*$~:
+\begin{enumerate}
+  \item Montrer que $f$ est impaire.
+  \item D\'emontrer que $f$ est d\'ecroissante sur $]0,+\infty[$
+        en \'etudiant le signe de $f(x_2)-f(x_1)$ pour $0<x_1<x_2$.
+  \item D\'emontrer que $f$ est d\'ecroissante sur $]-\infty,0[$.
+  \item Pourquoi ne peut-on pas dire que $f$ est \og d\'ecroissante sur $\R^*$\fg~?
+        \emph{(Comparer $f(-1)$ et $f(1)$.)}
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Fonctions et codes postaux \corrigeP]{1}
+On mod\'elise le co\^ut d'envoi d'un colis (en milliers d'ariary)
+par la fonction par morceaux~:
+$$C(m) = \begin{cases}2 & \text{si }0<m\leq1 \\ 3 & \text{si }1<m\leq3 \\
+5 & \text{si }3<m\leq5 \\ 8 & \text{si }5<m\leq10\end{cases}$$
+o\`u $m$ est la masse en kg.
+\begin{enumerate}
+  \item Calculer $C(0{,}5)$, $C(1)$, $C(2)$, $C(4)$, $C(7)$.
+  \item Tracer la courbe de $C$ sur $[0,10]$.
+  \item $C$ est-elle croissante~? Monotone~?
+  \item Pour quel $m$ le co\^ut change-t-il de tranche~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Maximiser une aire \corrigeP]{2}
+Un rectangle est inscrit dans un demi-cercle de rayon $R=5$.
+Un sommet est sur le diam\`etre, les deux autres sur le demi-cercle.
+Si le sommet sur le diam\`etre est en $(-x,0)$ et $(x,0)$
+($0<x<5$), la hauteur du rectangle est $\sqrt{25-x^2}$.
+\begin{enumerate}
+  \item Exprimer l'aire $A(x)$ du rectangle en fonction de $x$.
+  \item Calculer $A(1)$, $A(2)$, $A(3)$, $A(4)$.
+  \item L'aire maximale semble-t-elle atteinte pour $x=\sqrt{2}\cdot5/2\approx3{,}54$~?
+        V\'erifier num\'eriquement.
+  \item Quel est le p\'erim\`etre du rectangle correspondant~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[Double transformation \corrigeP]{2}
+On part de $f(x)=x^2$.
+\begin{enumerate}
+  \item \'Ecrire la fonction obtenue par~:
+        translation de $3$ vers la droite, puis sym\'etrie par rapport \`a $Ox$,
+        puis translation de $2$ vers le haut.
+  \item Trouver le sommet de cette parabole.
+  \item La m\^eme parabole en changeant l'ordre~:
+        sym\'etrie par $Ox$, puis translation de $3$ \`a droite, puis $2$ vers le haut.
+        Obtient-on la m\^eme fonction~?
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[Vrai ou faux~: monotonie et image]
+Pour chaque affirmation, dire si elle est vraie ou fausse et justifier~:
+\begin{enumerate}
+  \item \og Si $f$ est croissante et $f(3)>0$, alors $f(x)>0$ pour tout $x>3$.\fg
+  \item \og Si $f(a)=f(b)$ avec $a\ne b$, alors $f$ n'est pas monotone.\fg
+  \item \og Si $f$ est croissante et $g$ est croissante, alors $f+g$ est croissante.\fg
+  \item \og Si $f$ est croissante, alors $f\circ f$ est croissante.\fg
+  \item \og Une fonction paire ne peut pas \^etre strictement croissante sur $\R$.\fg
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Minimum de $f(x)=x+1/x$]
+Pour $f(x)=x+\dfrac{1}{x}$ sur $]0,+\infty[$~:
+\begin{enumerate}
+  \item Calculer $f(1/2)$, $f(1)$, $f(2)$, $f(3)$.
+  \item Montrer que $f(x)\geq2$ pour tout $x>0$.
+        \emph{(Utiliser $f(x)-2=x+\frac{1}{x}-2=\frac{x^2-2x+1}{x}=\frac{(x-1)^2}{x}$.)}
+  \item Quand l'\'egalit\'e $f(x)=2$ est-elle atteinte~?
+  \item De m\^eme, montrer que pour $x<0$, $f(x)\leq-2$.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Graphe et transformations enchaîn\'ees]
+Soit $f(x)=|x|$. On applique les transformations successives~:
+\begin{enumerate}
+  \item \'Ecrire la courbe de $g(x)=|x-2|+1$ et identifier
+        la translation appliqu\'ee \`a $f$.
+  \item \'Ecrire $h(x)=-|x+1|+3$ et tracer sa courbe.
+  \item Trouver toutes les fonctions de la forme $a|x-h|+k$
+        ($a\ne0$) qui passent par les points $(0,2)$ et $(4,2)$.
+  \item Les courbes de $f(x)=|x|$ et $g(x)=|x-2|$ se coupent-elles~?
+        Trouver le(s) point(s) d'intersection.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Fonction constante par morceaux]
+La \textbf{partie enti\`ere} $\lfloor x\rfloor$ est le plus grand entier $\leq x$.
+\begin{enumerate}
+  \item Calculer $\lfloor 2{,}7\rfloor$, $\lfloor -1{,}3\rfloor$,
+        $\lfloor 3\rfloor$, $\lfloor -2\rfloor$.
+  \item Tracer le graphe de $f(x)=\lfloor x\rfloor$ sur $[-2,3]$.
+  \item Pour $g(x)=x-\lfloor x\rfloor$ (partie fractionnaire)~:
+        calculer $g(1{,}7)$, $g(-0{,}3)$, $g(5)$.
+        Tracer $g$ sur $[-1,3]$.
+  \item Sur quel intervalle $g(x)$ est-elle croissante~?
+        Est-elle continue~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Fonctions et suite de nombres]
+Soit $f(x)=x^2-2$ et la suite d\'efinie par $u_0=2$ et $u_{n+1}=f(u_n)$.
+\begin{enumerate}
+  \item Calculer $u_1$, $u_2$, $u_3$, $u_4$.
+  \item Cette suite est-elle croissante, d\'ecroissante, non monotone~?
+  \item La suite est-elle minor\'ee~? Major\'ee~?
+  \item Comparer avec la suite $v_n=f^n(1)$ (en partant de $1$).
+        Que semble-t-il se passer~?
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[Sch\'ema de point fixe]
+Un \textbf{point fixe} de $f$ est un r\'eel $c$ tel que $f(c)=c$,
+c'est-\`a-dire un point d'intersection de $y=f(x)$ et $y=x$.
+\begin{enumerate}
+  \item Trouver les points fixes de $f(x)=x^2-x+1$.
+        \emph{(R\'esoudre $x^2-x+1=x$.)}
+  \item Trouver les points fixes de $g(x)=\sqrt{x}$ ($x\geq0$).
+  \item Trouver les points fixes de $h(x)=\dfrac{x+3}{2}$.
+  \item La suite $u_{n+1}=h(u_n)$ avec $u_0=0$~: calculer $u_1,\ldots,u_6$.
+        Que semble-t-elle faire~?
+\end{enumerate}
+\end{challenge}
+
+%─────────────────────────────────────────────────────────────────
+\begin{bilan}
+\begin{itemize}
+  \item \textbf{Domaine}~: exclure les z\'eros du d\'enominateur
+        et les valeurs rendant un radical n\'egatif.
+  \item \textbf{Image~:} $f(x_0)$. \textbf{Ant\'ec\'edent~:} r\'esoudre $f(x)=y_0$.
+  \item \textbf{Tableau de variations~:} fl\`eches $\nearrow$ (croissant)
+        et $\searrow$ (d\'ecroissant)~; valeurs aux bornes et extremums.
+  \item \textbf{Fonctions de r\'ef\'erence~:}
+        $x^2$ (paire, min en 0)~; $x^3$ (impaire, croissante)~;
+        $\sqrt{x}$ (croissante sur $[0,+\infty[$)~;
+        $|x|$ (paire, min en 0)~; $1/x$ (impaire, d\'ecr. sur $\R^*$).
+  \item \textbf{Transformations~:} $f(x)+k$ (translation vert.)~;
+        $f(x+k)$ (translation horiz.)~; $-f(x)$ (sym.\ $Ox$)~;
+        $f(-x)$ (sym.\ $Oy$).
+\end{itemize}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{exo}[\logiq\ Logique et domaine de d\'efinition \corrige]{1}
+\'Enoncer sous forme logique (avec $\exists$ ou $\forall$)~:
+\begin{enumerate}
+  \item Le domaine de d\'efinition de $f(x)=\sqrt{x-2}$.
+  \item La condition pour que $g(x)=1/(x^2-4)$ soit d\'efinie.
+  \item La proposition~: \og toute valeur de $f$ est positive\fg.
+  \item La n\'egation de~: \og $f$ admet un ant\'ec\'edent pour toute valeur\fg.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Implication et croissance \corrige]{2}
+\begin{enumerate}
+  \item \og $f$ croissante sur $[a,b]$ et $x_1<x_2$ dans $[a,b]$
+        $\Rightarrow f(x_1)<f(x_2)$\fg~: c'est la d\'efinition.
+        \'Enoncer la contrapos\'ee.
+  \item Si $f(3)=5$ et $f(5)=3$, que peut-on conclure sur la monotonie de $f$~?
+        Quel raisonnement utilise-t-on~?
+  \item D\'emontrer que $f(x)=x^2$ n'est pas monotone sur $\R$.
+        Donner un contre-exemple.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Conditions sur les extremums \corrige]{1}
+Pour une fonction $f$ de tableau de variations donn\'e~:
+\begin{enumerate}
+  \item \'Enoncer~: \og $f$ admet un minimum absolu\fg\ avec des quantificateurs.
+  \item La proposition~: \og si $f(a)=0$, alors $a$ est un minimum\fg.
+        Vraie ou fausse~? Contre-exemple si fausse.
+  \item \og $f$ est born\'ee si et seulement si elle admet un minimum
+        et un maximum\fg~: est-ce exact~?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ N\'egation de propositions fonctionnelles \corrige]{2}
+\'Enoncer la n\'egation et d\'eterminer laquelle est vraie~:
+\begin{enumerate}
+  \item $\forall x\in\R,\ x^2\geq0$.
+  \item $\exists x\in\R^*,\ 1/x=x$.
+  \item $\forall x>0,\ \sqrt{x}<x$.
+  \item $\forall x\in[-1,1],\ |x|\leq1$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Parit\'e~: d\'emonstrations logiques \corrige]{2}
+\begin{enumerate}
+  \item La somme de deux fonctions paires est-elle toujours paire~?
+        D\'emontrer ou donner un contre-exemple.
+  \item Le produit d'une fonction paire et d'une fonction impaire~:
+        quelle est sa parit\'e~? D\'emontrer.
+  \item Une fonction peut-elle \^etre \`a la fois paire et impaire~?
+        Si oui, laquelle~?
+  \item Formuler les r\'esultats pr\'ec\'edents comme des implications.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\logiq\ Logique et transformations de courbes \corrige]{2}
+\begin{enumerate}
+  \item La proposition~: \og si $f$ est croissante, alors $-f$ est d\'ecroissante\fg~:
+        d\'emontrer.
+  \item \og Si $f$ est paire, alors $f(x)+f(-x)=2f(x)$ pour tout $x$\fg~:
+        vraie ou fausse~?
+  \item D\'emontrer~: si $f$ est born\'ee par $M$, alors $|f(x)|\leq M$.
+        Formuler comme implication.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: tableau de valeurs d'une fonction \computer \corrige]{1}
+\'Ecrire un programme Python qui calcule et affiche le tableau de valeurs
+de $f(x)=x^2-3x+1$ pour $x\in\{-2,-1,0,1,2,3,4\}$.
+Puis d\'eterminer graphiquement les z\'eros de $f$.
+V\'erifier avec la formule du discriminant.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: trouver le minimum par balayage \computer \corrige]{2}
+\'Ecrire un algorithme qui approche le minimum de $f(x)=x^2-4x+1$
+sur $[-1,5]$ en balayant avec un pas de $0{,}01$.
+Afficher la valeur approch\'ee et la comparer avec le minimum exact.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: d\'etecter les z\'eros par changement de signe \computer \corrige]{2}
+(Voir exercice \logicoalgo\ dans ce chapitre.)
+Tester sur~:
+\begin{enumerate}
+  \item $f(x)=x^3-3x+1$ sur $[-2,2]$ avec $h=0{,}001$.
+  \item $g(x)=|x|-1$ sur $[-3,3]$.
+  \item $h(x)=\sqrt{x}-x$ sur $[0,2]$.
+\end{enumerate}
+Comparer avec les racines exactes.
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: v\'erifier la monotonie \computer \corrige]{2}
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item V\'erifie si $f$ est croissante sur $[a,b]$ en testant
+        $f(x_i)\leq f(x_{i+1})$ pour un balayage avec pas $h$.
+  \item Teste $f(x)=x^2$ sur $[0,3]$ et $[-3,0]$.
+  \item Teste $g(x)=x^3-x$ sur $[-2,2]$~: trouver les sous-intervalles
+        de monotonie.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: point fixe par it\'eration \computer \corrige]{3}
+\'Ecrire un programme qui calcule la suite $u_{n+1}=h(u_n)$
+avec $h(x)=(x+3)/2$, $u_0=0$, jusqu'\`a ce que $|u_{n+1}-u_n|<10^{-6}$.
+\begin{enumerate}
+  \item Afficher chaque terme et le nombre d'it\'erations.
+  \item V\'erifier que la limite est le point fixe de $h$.
+  \item Tester avec d'autres valeurs de $u_0$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[\algo\ Algorithme~: maximum d'une liste de valeurs \computer \corrige]{1}
+\'Ecrire un programme qui~:
+\begin{enumerate}
+  \item Re\c coit une liste de valeurs de $f$ en $n$ points.
+  \item Retourne le maximum, le minimum et leur position.
+  \item Tester sur $f(x)=\sin(x)$ \'evalu\'e en $100$ points de $[0,2\pi]$.
+\end{enumerate}
+\end{exo}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{Probl\`emes Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{probleme}[\logiq\ Logique et optimisation \corrigeP]{2}
+\begin{enumerate}
+  \item Montrer~: \og $f$ admet un maximum en $x_0$\fg\ implique
+        \og $f(x_0)\geq f(x)$ pour tout $x$ dans son domaine\fg.
+        Formuler l'\'equivalence exacte.
+  \item Pour $f(x)=-x^2+4x-3$~: d\'emontrer logiquement que le maximum
+        est atteint en $x=2$ en montrant que $f(x)\leq f(2)$ pour tout $x$.
+  \item \'Enoncer la condition exacte pour qu'un trin\^ome $ax^2+bx+c$
+        admette un minimum~: condition sur $a$ (CN, CS, CNS~?).
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\logiq\ Propri\'et\'es logiques de la composition \corrigeP]{2}
+\begin{enumerate}
+  \item Montrer que la compos\'ee de deux fonctions croissantes est croissante.
+        Formuler l'implication et la d\'emontrer.
+  \item La compos\'ee de deux fonctions impaires est-elle paire ou impaire~?
+        D\'emontrer.
+  \item \'Enoncer la contrapos\'ee de~:
+        \og Si $f$ est strictement croissante et $g$ est strictement croissante,
+        alors $f\circ g$ est strictement croissante.\fg
+        La contrapos\'ee est-elle utile~?
+\end{enumerate}
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: \'etude compl\`ete d'une fonction \computer \corrigeP]{2}
+\'Ecrire un programme Python complet qui, pour une fonction $f$ donn\'ee~:
+\begin{enumerate}
+  \item Calcule le tableau de valeurs sur $[a,b]$.
+  \item D\'etermine (approximativement) les z\'eros, le maximum et le minimum.
+  \item Trace la courbe avec \texttt{matplotlib}.
+  \item Affiche un r\'esum\'e des propri\'et\'es.
+\end{enumerate}
+Tester sur $f(x)=x^3-3x+1$.
+\end{probleme}
+
+\begin{probleme}[\algo\ Algorithme~: optimisation de l'aire d'un rectangle \computer \corrigeP]{2}
+(Voir probl\`eme de cl\^oture.)
+Un rectangle de p\'erim\`etre $P=20$ a ses c\^ot\'es $x$ et $10-x$.
+\'Ecrire un programme Python qui~:
+\begin{enumerate}
+  \item Calcule $A(x)=(10-x)\times x$ pour $x\in[0,10]$ avec pas $0{,}001$.
+  \item Trouve le $x$ qui maximise $A$.
+  \item Compare avec la solution exacte.
+  \item Trace $A(x)$.
+\end{enumerate}
+\end{probleme}
+
+%─────────────────────────────────────────────────────────────────
+\subsection*{D\'efis Logique \& Algorithmes}
+%─────────────────────────────────────────────────────────────────
+
+\begin{challenge}[\logiq\ Th\'eor\`eme des valeurs interm\'ediaires]
+On admet que si $f$ est continue sur $[a,b]$ et $f(a)<0<f(b)$,
+alors $\exists c\in]a,b[$ tel que $f(c)=0$.
+\begin{enumerate}
+  \item Formuler ce th\'eor\`eme avec des quantificateurs.
+  \item \'Enoncer la contrapos\'ee.
+  \item Utiliser le TVI pour montrer que $x^3-2=0$ a une solution dans $]1,2[$.
+  \item \'Enoncer la r\'eciproque du TVI~: est-elle vraie~?
+        Donner un exemple ou contre-exemple.
+\end{enumerate}
+\end{challenge}
+
+\begin{challenge}[\algo\ Algorithme de bissection g\'en\'eralis\'e \computer]
+\'Ecrire un programme Python g\'en\'eral de bissection (dichotomie)
+qui trouve une racine de toute fonction continue $f$ sur $[a,b]$
+avec $f(a)f(b)<0$, \`a une pr\'ecision $\varepsilon$ donn\'ee.
+\begin{enumerate}
+  \item Impl\'ementer l'algorithme.
+  \item Afficher le nombre d'it\'erations n\'ecessaires.
+  \item Tester sur $f(x)=x^3-2$ (trouver $\sqrt[3]{2}$).
+  \item Tester sur $f(x)=\cos(x)-x$ sur $[0,\pi/2]$.
+\end{enumerate}
+\end{challenge}
+
+\end{bilan}

@@ -1,0 +1,30 @@
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[BN] (current page.south west) rectangle (current page.north east);
+  \fill[OR] ([yshift=-9.4cm]current page.north west)
+    rectangle ([yshift=-11.8cm]current page.north east);
+  \fill[BN!70!black] (current page.south west)
+    rectangle ([yshift=3.9cm]current page.south east);
+  \draw[OR,line width=2pt] ([yshift=4.1cm]current page.south west)--([yshift=4.1cm]current page.south east);
+  \begin{scope}[shift={([xshift=-4cm,yshift=-4.5cm]current page.north east)},opacity=.09]
+    \draw[white,line width=5pt] (0,0) circle (3.8cm);
+    \foreach \a in {0,45,...,315}{\draw[white,line width=2pt] (0,0)--(\a:3.8cm);}
+    \draw[white,line width=3pt] (0,0) circle (2.35cm);
+  \end{scope}
+  \node[text=white,font=\fontsize{44}{50}\bfseries,align=center]
+    at ([yshift=-5.0cm]current page.north) {MATHÉMATIQUES};
+  \node[text=OR,font=\fontsize{30}{34}\bfseries]
+    at ([yshift=-10.6cm]current page.north) {Seconde -- T10};
+  \node[text=white!75,font=\Large\itshape]
+    at ([yshift=-13.0cm]current page.north) {Comprendre, raisonner, résoudre};
+  \node[text=white!75,font=\large\bfseries,draw=white!30,rounded corners=3pt,
+    inner xsep=12pt,inner ysep=6pt]
+    at ([yshift=7.0cm]current page.south) {\MdgEditionLabel};
+  \node[text=white!55,font=\small,align=center,text width=16cm]
+    at ([yshift=2.0cm]current page.south)
+    {Cours $\cdot$ Méthodes $\cdot$ Exercices $\cdot$ Problèmes $\cdot$ Évaluations\\
+     Algèbre $\cdot$ Algorithmique $\cdot$ Analyse $\cdot$ Géométrie $\cdot$ Statistiques};
+\end{tikzpicture}
+\null
+\end{titlepage}
