@@ -1,5 +1,0 @@
-# Moteur : XeLaTeX (cohérent avec la chaîne déjà utilisée pour vos autres livres)
-$pdf_mode  = 5;
-$xelatex   = 'xelatex --shell-escape --interaction=nonstopmode %O %S';
-$out_dir   = 'build';
-$clean_ext = 'synctex.gz run.xml bbl fdb_latexmk fls';
