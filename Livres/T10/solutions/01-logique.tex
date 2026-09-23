@@ -55,7 +55,7 @@ $\lnot(P\land Q)$ & $\lnot P\land\lnot Q$ & $\lnot P\lor\lnot Q$ \\
 \hline
 \end{tabular}
 \end{center}
-Remarquer~: la formule~(4) $\lnot(P\land Q)$ est identique \`a~(8) $\lnot P\lor\lnot Q$~:
+Remarquer~: la formule~(4) $\lnot(P\land Q)$ est identique \`a~(6) $\lnot P\lor\lnot Q$~:
 c'est la premi\`ere loi de De~Morgan.
 De m\^eme,~(5) $\lnot P\land\lnot Q$ est la n\'egation de $P\lor Q$.
 
@@ -70,6 +70,7 @@ De m\^eme,~(5) $\lnot P\land\lnot Q$ est la n\'egation de $P\lor Q$.
         est fausse.
   \item \textbf{Vraie.}\enspace $P$~: \og$n$ divisible par~$4$\fg, $Q$~: \og$n$ divisible par~$2$\fg.
         Si $4\mid n$, alors $n=4k$, donc $n=2(2k)$~: $2\mid n$.
+  \item \textbf{Fausse.}\enspace $n=2$ est divisible par $2$, mais pas par $4$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -99,9 +100,8 @@ De m\^eme,~(5) $\lnot P\land\lnot Q$ est la n\'egation de $P\lor Q$.
         (Vrai~: $n=2$.)
   \item $\forall a,b\in\Z,\ (2\mid a\ \text{et}\ 2\mid b)\Rightarrow 2\mid(a+b)$.
   \item $\forall x\in\R,\ \exists y\in\R,\ x+y=0$. (On prend $y=-x$.)
-  \item $\lnot(\exists x\in\R,\ x^2<0)$, autrement dit $\forall x\in\R,\ x^2\geq0$.
-  \item $\forall\varepsilon>0,\ \exists N\in\N,\ \forall n\geq N,\
-        |1/n|<\varepsilon$.
+  \item $\lnot\bigl(\exists n\in\Z,\ 0<n<1\bigr)$, autrement dit
+        $\forall n\in\Z,\ n\leq0\ \text{ou}\ n\geq1$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -393,6 +393,9 @@ $P$~: \og$ABC$ isoc\`ele en $A$\fg~; $Q$~: \og$\hat B=\hat C$\fg.
         En symboles~: $\forall n\in\Z,\ n^2\geq n\ \lor\ n\geq n^3$.
   \item N\'egation~: \og Il existe un r\'eel $x>0$ tel que, pour tout $y>0$, $y\geq x$.\fg
         En symboles~: $\exists x>0,\ \forall y>0,\ y\geq x$.
+  \item N\'egation~: \og Il existe un nombre premier qui n'est ni impair ni
+        \`egal \`a $2$.\fg\ Cette proposition est fausse~: le seul nombre premier
+        pair est $2$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -433,11 +436,12 @@ Les deux sens \'etant d\'emontr\'es~: $n$ pair $\Leftrightarrow$ $n^2$ pair.
         R\'eciproque fausse~: $n=2$, $2\mid2$ mais $6\nmid2$.
   \item $x=0$ pour $xy=0$~: \textbf{condition suffisante.}
         $x=0\Rightarrow xy=0$. R\'eciproque fausse~: $y=0$ suffit aussi.
-  \item $n\geq0$ pour $n\in\N$~: \textbf{condition n\'ecessaire.}
-        Tout $n\in\N$ satisfait $n\geq0$, mais $n=0{,}5\geq0$ et $0{,}5\notin\N$.
-  \item $\Delta>0$ pour deux racines r\'eelles distinctes~:
-        \textbf{condition n\'ecessaire et suffisante (CNS).}
-        $ax^2+bx+c$ a deux racines r\'eelles distinctes $\Leftrightarrow\Delta>0$.
+  \item Un carr\'e pour un rectangle~: \textbf{condition suffisante},
+        mais pas n\'ecessaire~: un rectangle de c\^ot\'es in\'egaux n'est pas un carr\'e.
+  \item $\Delta=0$ pour une racine double~: \textbf{condition n\'ecessaire
+        et suffisante} pour un trin\^ome du second degr\'e ($a\ne0$).
+  \item $n$ impair pour $n^2$ impair~: \textbf{condition n\'ecessaire et suffisante}.
+        Le sens direct est imm\'ediat~; si $n$ est pair, son carr\'e l'est aussi.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -573,10 +577,11 @@ Contradiction.\hfill$\square$
         rectangle en $C$.
   \item \textbf{R\'eciproque~:} si $AB^2=AC^2+BC^2$, alors le triangle est rectangle en $C$.
         Cette r\'eciproque est \textbf{vraie} (c'est le th\'eor\`eme de Pythagore r\'eciproque).
-  \item \textbf{D\'emonstration.} Consid\'erons un triangle $A'B'C'$ rectangle en $C'$
-        avec $A'C'=AC$ et $B'C'=BC$. Alors $A'B'^2=AC^2+BC^2=AB^2$,
-        donc $A'B'=AB$. Par~SSS, le triangle $ABC$ est isom\'etrique \`a $A'B'C'$~:
-        il est donc rectangle en $C$.\hfill$\square$
+  \item $5^2+12^2=25+144=169=13^2$~: le triangle de c\^ot\'es $5$, $12$, $13$
+        est rectangle. De m\^eme, $6^2+8^2=36+64=100=10^2$~: celui de c\^ot\'es
+        $6$, $8$, $10$ est rectangle.
+  \item \textbf{Vraie.}\enspace Contrapos\'ee de la r\'eciproque~: si le triangle
+        n'est pas rectangle en $C$, alors $AB^2\ne AC^2+BC^2$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────

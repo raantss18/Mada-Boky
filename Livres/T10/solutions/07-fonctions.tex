@@ -89,6 +89,19 @@ $f(x)=x^2-4$.
         de $5$~: $x^2=9\Rightarrow x=\pm3$~;
         de $-5$~: $x^2=-1$~: aucun.
   \item Deux ant\'ec\'edents si $y>-4$~; un seul si $y=-4$~; aucun si $y<-4$.
+  \item La courbe est la parabole de sommet $(0,-4)$, sym\'etrique par rapport
+        \`a l'axe des ordonn\'ees. Les horizontales $y=0$ et $y=5$
+        la coupent respectivement aux abscisses $\pm2$ et $\pm3$;
+        $y=-5$ ne la coupe pas.
+        \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[width=8cm,height=6cm,axis lines=middle,
+          xmin=-3.5,xmax=3.5,ymin=-5,ymax=6,
+          xtick={-3,-2,0,2,3},ytick={-4,0,5},grid=both,clip=true]
+          \addplot[BN,thick,domain=-3.2:3.2,samples=100]{x^2-4};
+        \end{axis}
+        \end{tikzpicture}
+        \end{center}
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -233,6 +246,22 @@ $f(x)=|2x-4|$.
         $(\sqrt{x})^2\geq\sqrt{x}\Rightarrow x\geq\sqrt{x}$.\checkmark
         Pour $0\leq x\leq1$~: $\sqrt{x}\leq1$ donc $(\sqrt{x})^2\leq\sqrt{x}\Rightarrow x\leq\sqrt{x}$.\checkmark
   \item $1/x\geq x$ (pour $x>0$)~: $x^2\leq1\Rightarrow x\in]0,1]$.
+  \item Sur le domaine commun $x>0$, les quatre courbes passent par $(1,1)$.
+        Sur $]0,1[$, de bas en haut, on lit $x^2$, $x$, $\sqrt{x}$,
+        puis $1/x$; sur $]1,+\infty[$, l'ordre s'inverse.
+        \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[width=9cm,height=6cm,axis lines=middle,
+          xmin=0,xmax=2.2,ymin=0,ymax=4.2,
+          xtick={0,1,2},ytick={0,1,2,3,4},grid=both,
+          legend style={at={(1.02,1)},anchor=north west,font=\scriptsize},clip=true]
+          \addplot[BN,thick,domain=0:2.1,samples=80]{x^2};\addlegendentry{$x^2$}
+          \addplot[OR,thick,domain=0:2.1]{x};\addlegendentry{$x$}
+          \addplot[TQ,thick,domain=0:2.1,samples=80]{sqrt(x)};\addlegendentry{$\sqrt{x}$}
+          \addplot[VE,thick,domain=0.25:2.1,samples=80]{1/x};\addlegendentry{$1/x$}
+        \end{axis}
+        \end{tikzpicture}
+        \end{center}
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────

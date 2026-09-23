@@ -45,6 +45,7 @@
 \RequirePackage{colortbl}
 \RequirePackage{etoolbox}
 \RequirePackage[colorlinks,linkcolor=BN,urlcolor=OR,citecolor=TQ]{hyperref}
+\RequirePackage{bookmark}
 \hypersetup{
   pdftitle={Mathématiques - Classe de Seconde (T10)},
   pdfsubject={Manuel conforme au PE et au RAPE T10 Madagascar 2026},

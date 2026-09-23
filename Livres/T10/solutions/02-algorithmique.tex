@@ -553,8 +553,10 @@ qu'environ une décimale. La série de Machin converge beaucoup plus vite.
 \end{algorithm}
 
 \begin{enumerate}
-  \item Nombre de multiplications~: $n$ (une par \'etape)~;
-        m\'ethode na\"ive~: $\approx n^2/2$. H\"orner est donc optimal.
+  \item L'algorithme ci-dessus lit les coefficients de $a_n$ \`a $a_0$.
+  \item Il effectue $n$ multiplications (une par it\'eration), contre
+        $n(n+1)/2$ si chaque puissance $x_0^k$ est recalcul\'ee
+        s\'epar\'ement par multiplications successives.
   \item Pour $P(x)=2x^3-5x^2+3x-1$ en $x_0=2$~:
         H\"orner~: $((2\times2-5)\times2+3)\times2-1=(-1\times2+3)\times2-1=1\times2-1=1$.
         V\'erification~: $2(8)-5(4)+3(2)-1=16-20+6-1=1$.\checkmark
@@ -567,7 +569,7 @@ qu'environ une décimale. La série de Machin converge beaucoup plus vite.
 \caption{Fibonacci et nombre d'or}
 $u \leftarrow 0$~;\quad $v \leftarrow 1$\;
 \Pour{$n \leftarrow 1$ \KwTo $N$}{
-  \Afficher \og $F_n=$\fg, $v$, \og rapport~: \fg, $v/u$\;
+  \Afficher \og $F_n=$\fg, $v$, \og rapport $F_{n+1}/F_n$~: \fg, $(u+v)/v$\;
   $(u,v) \leftarrow (v, u+v)$\;
 }
 \end{algorithm}
@@ -577,9 +579,11 @@ $u \leftarrow 0$~;\quad $v \leftarrow 1$\;
         $1,1,2,3,5,8,13,21,34,55,89,144,\ldots$
   \item Rapports $F_{n+1}/F_n$~: $1, 2, 1{,}5, 1{,}667, 1{,}6, 1{,}625, 1{,}615,\ldots$
         Limite~: $\varphi = \dfrac{1+\sqrt{5}}{2} \approx 1{,}61803\ldots$ (nombre d'or).
-  \item D\'emonstration de la limite~: si $F_{n+1}/F_n\to L$, alors en divisant
-        $F_{n+2}=F_{n+1}+F_n$ par $F_{n+1}$~: $L=1+1/L$, soit $L^2-L-1=0$,
-        d'o\`u $L=\varphi$.\hfill$\square$
+  \item Pour s'arr\^eter d\`es que le rapport est assez proche de $\varphi$,
+        remplacer la limite $N$ par une boucle qui calcule $(u+v)/v$ et
+        s'arr\^ete quand $\bigl|(u+v)/v-\varphi\bigr|<10^{-6}$.
+        La mise \`a jour $(u,v)\leftarrow(v,u+v)$ n'est faite que si
+        le seuil n'est pas encore atteint.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -613,6 +617,15 @@ $a$ & $b$ & $r=a\bmod b$ \\ \midrule
 \end{tabular}
 \end{center}
 R\'esultat~: $\pgcd(48,18)=6$.
+Le pseudo-code est~:
+\begin{algorithm}[H]
+\caption{PGCD par l'algorithme d'Euclide}
+\Lire $a,b$\;
+\TantQue{$b\ne0$}{
+  $r\leftarrow a\bmod b$~;\quad $a\leftarrow b$~;\quad $b\leftarrow r$\;
+}
+\Afficher $a$\;
+\end{algorithm}
   \item \textbf{Correction~:} montrons que $\pgcd(a,b)=\pgcd(b,r)$ o\`u $r=a\bmod b$.
         Tout diviseur commun de $a$ et $b$ divise $r=a-qb$,
         donc divise $b$ et $r$. R\'eciproquement, tout diviseur commun de $b$
@@ -620,6 +633,10 @@ R\'esultat~: $\pgcd(48,18)=6$.
         $\pgcd(a,b)=\pgcd(b,r)$.\hfill$\square$
   \item À chaque étape, le second nombre diminue strictement; l'algorithme finit
         donc par atteindre un reste nul.
+  \item Pour $(a,b)=(F_{n+1},F_n)$, avec $F_1=F_2=1$ et $n\geq2$,
+        l'algorithme effectue $n-1$ divisions~: pour $n\geq3$,
+        les restes sont $F_{n-1},F_{n-2},\ldots,F_2,0$;
+        pour $n=2$, la seule division donne le reste $0$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -630,22 +647,23 @@ R\'esultat~: $\pgcd(48,18)=6$.
 \Lire $x, n$~;\quad $P \leftarrow 1$~;\quad $b \leftarrow x$\;
 \TantQue{$n > 0$}{
   \Si{$n \bmod 2 = 1$}{$P \leftarrow P \times b$\;}
-  $b \leftarrow b \times b$~;\quad $n \leftarrow \lfloor n/2\rfloor$\;
+  $n \leftarrow \lfloor n/2\rfloor$\;
+  \Si{$n>0$}{$b \leftarrow b \times b$\;}
 }
 \Afficher $P$\;
 \end{algorithm}
 
 \begin{enumerate}
   \item Version it\'erative~: voir ci-dessus.
-  \item Pour $n=13=1101_2$~: $13$ en binaire. Nombre de multiplications~:
-        $\lfloor\log_2 13\rfloor+\text{nb de 1 dans }1101 = 3+3 = 6$.
-        M\'ethode na\"ive~: $12$ multiplications.
-  \item La division répétée de l'exposant par $2$ explique la diminution rapide
-        du nombre de multiplications.
+  \item Pour $x=2$, $n=13$, les \`etats $(P,b,n)$ apr\`es chaque it\'eration sont
+        $(2,4,6)$, $(2,16,3)$, $(32,256,1)$, $(8192,256,0)$.
+        On trouve bien $2^{13}=8192$.
+  \item Pour $n\geq1$, le nombre de multiplications est
+        $\lfloor\log_2 n\rfloor$ mises au carr\'e plus le nombre de chiffres
+        $1$ dans l'\'ecriture binaire de $n$; pour $13=1101_2$, cela fait $3+3=6$.
+  \item Pour $n=1000=1111101000_2$, cela donne $9+6=15$
+        multiplications, contre $999$ par la m\'ethode na\"ive.
 \end{enumerate}
-
-Trace pour $x=2$, $n=10$~:
-$P=1,b=2,n=10$ $\to$ $b=4,n=5$ $\to$ $P=4,b=16,n=2$ $\to$ $b=256,n=1$ $\to$ $P=1024$.\checkmark
 
 %────────────────────────────────────────────────────────────────
 \solutiontitle{2}{34}{Tri \`a bulles}
@@ -664,11 +682,12 @@ $P=1,b=2,n=10$ $\to$ $b=4,n=5$ $\to$ $P=4,b=16,n=2$ $\to$ $b=256,n=1$ $\to$ $P=1
 
 \begin{enumerate}
   \item Pseudo-code~: voir ci-dessus.
-  \item Trace pour $T=[5,3,1,4,2]$~:
-        \textbf{Passe 1}~: $[3,1,4,2,5]$~;
-        \textbf{Passe 2}~: $[1,3,2,4,5]$~;
-        \textbf{Passe 3}~: $[1,2,3,4,5]$~;
-        \textbf{Passe 4}~: $[1,2,3,4,5]$.
+  \item Trace pour $T=[5,3,8,1,9,2]$~:
+        \textbf{Passe 1}~: $[3,5,1,8,2,9]$~;
+        \textbf{Passe 2}~: $[3,1,5,2,8,9]$~;
+        \textbf{Passe 3}~: $[1,3,2,5,8,9]$~;
+        \textbf{Passe 4}~: $[1,2,3,5,8,9]$~;
+        \textbf{Passe 5}~: aucun changement.
   \item Nombre de comparaisons~: $(n-1)+(n-2)+\cdots+1=\dfrac{n(n-1)}{2}$.
   \item Optimisation~: si aucun \'echange ne se produit lors d'une passe,
         le tableau est tri\'e~: arr\^eter.
@@ -692,11 +711,19 @@ $g \leftarrow 1$~;\quad $d \leftarrow n$\;
 
 \begin{enumerate}
   \item Pseudo-code~: voir ci-dessus.
-  \item Trace pour $T=[2,5,8,12,16,23,38,56]$, $v=23$~:
-        $g=1,d=8,m=4$, $T[4]=12<23$, $g=5$.
-        $g=5,d=8,m=6$, $T[6]=23=v$~: trouv\'e en position $6$.
-  \item Pour $n=10^6$, au plus $20$ partages successifs suffisent, contre
-        jusqu'à un million de tests dans une lecture élément par élément.
+  \item Pour $T=[2,5,8,12,17,23,38]$ et $v=17$~:
+        $g=1,d=7,m=4$, $T[4]=12<17$; puis $g=5,d=7,m=6$,
+        $T[6]=23>17$; enfin $g=5,d=5,m=5$, $T[5]=17$.
+  \item Dans le pire cas (y compris une valeur absente), on obtient~:
+        \begin{center}
+        \begin{tabular}{|c|c|c|}\hline
+        $n$ & Dichotomie & Lin\'eaire \\ \hline
+        $8$ & $4$ & $8$ \\ $16$ & $5$ & $16$ \\
+        $64$ & $7$ & $64$ \\ $1024$ & $11$ & $1024$ \\ \hline
+        \end{tabular}
+        \end{center}
+  \item Pour $n=10^6$, au plus $20$ tests suffisent par dichotomie,
+        contre jusqu'\`a un million par recherche lin\'eaire.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────

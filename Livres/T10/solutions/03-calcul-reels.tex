@@ -210,10 +210,8 @@
 \begin{enumerate}
   \item $\dfrac{x^3\cdot x^{-1}}{x^2}=\dfrac{x^2}{x^2}=1$ ($x\ne0$)
   \item $\left(\dfrac{a^2}{b}\right)^{-3}=\dfrac{b^3}{a^6}$ ($a,b\ne0$)
-  \item $x^{1/2}\cdot x^{3/2}=x^{1/2+3/2}=x^2$ ($x\geq0$)
-  \item $\dfrac{(2x)^3}{4x^2}=\dfrac{8x^3}{4x^2}=2x$ ($x\ne0$)
-  \item $\left(x^{1/3}\right)^6=x^2$
-  \item $a^{-1/2}=\dfrac{1}{\sqrt{a}}$ ($a>0$)
+  \item $\dfrac{2^{-3}}{4^{-1}}=\dfrac{1/8}{1/4}=\dfrac12$
+  \item $\dfrac{(xy)^4}{x^2y^6}=\dfrac{x^2}{y^2}$ ($x,y\ne0$)
 \end{enumerate}
 \end{multicols}
 
@@ -237,6 +235,10 @@
         $\Rightarrow8x^2+14x+3<0$
         $\Rightarrow(2x+3)(4x+1)<0$
         $\Rightarrow x\in]-3/2,-1/4[$.
+  \item $\abs{2x-1}\geq\abs{x+3}\Leftrightarrow
+        (2x-1)^2\geq(x+3)^2\Leftrightarrow
+        3x^2-10x-8\geq0\Leftrightarrow(3x+2)(x-4)\geq0$.
+        Solution~: $]-\infty,-2/3]\cup[4,+\infty[$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -348,8 +350,13 @@ $(x-2)(x+3)$ & & $+$ & $0$ & $-$ & $0$ & $+$ & \\\hline
 \begin{enumerate}
   \item $\dfrac{x^2-4}{x-2}=\dfrac{(x-2)(x+2)}{x-2}=x+2$ ($x\ne2$)
   \item $\dfrac{x^2-1}{x^2+2x+1}=\dfrac{(x-1)(x+1)}{(x+1)^2}=\dfrac{x-1}{x+1}$ ($x\ne-1$)
-  \item $\dfrac{x^2+3x+2}{x+2}=\dfrac{(x+1)(x+2)}{x+2}=x+1$ ($x\ne-2$)
-  \item $\dfrac{x^3-1}{x-1}=\dfrac{(x-1)(x^2+x+1)}{x-1}=x^2+x+1$ ($x\ne1$)
+  \item $\dfrac1x+\dfrac1{x+1}=\dfrac{2x+1}{x(x+1)}$
+        ($x\ne0,-1$)
+  \item $\dfrac{x}{x-1}-\dfrac1{x+1}
+        =\dfrac{x^2+1}{(x-1)(x+1)}$ ($x\ne-1,1$)
+  \item $\dfrac{x+2}{x-1}\times\dfrac{x-1}{x+3}
+        =\dfrac{x+2}{x+3}$ ($x\ne1,-3$)
+  \item $\dfrac{(x+1)^2}{x+1}=x+1$ ($x\ne-1$)
 \end{enumerate}
 \end{multicols}
 
@@ -372,14 +379,15 @@ $(x-2)(x+3)$ & & $+$ & $0$ & $-$ & $0$ & $+$ & \\\hline
 \solutiontitle{3}{26}{Valeur absolue et distance}
 
 \begin{enumerate}
-  \item $a\geq0$~: $|a|=a=|-a|$.\quad $a<0$~: $|a|=-a$ et $|-a|=|{-a}|=-(-a)=a=|a|$.
+  \item $a\geq0$~: $|a|=a=|-a|$.\quad $a<0$~: $|a|=-a$ et $|-a|=-a=|a|$.
         Dans les deux cas $|a|=|-a|$.\hfill$\square$
   \item In\'egalit\'e triangulaire~: $|a+b|\leq|a|+|b|$.
         Cas~1~: $a+b\geq0$~: $|a+b|=a+b\leq|a|+|b|$ car $a\leq|a|$ et $b\leq|b|$.
         Cas~2~: $a+b<0$~: $|a+b|=-(a+b)=(-a)+(-b)\leq|a|+|b|$.\hfill$\square$
-  \item $|a-b|$ est la distance entre $a$ et $b$ sur la droite.
-        $|a-b|\leq|a|+|b|$ car $|a-b|=|a+(-b)|\leq|a|+|-b|=|a|+|b|$.
-  \item \'Egalit\'e $|a+b|=|a|+|b|$ ssi $a$ et $b$ ont le m\^eme signe ou l'un est nul.
+  \item L'in\'egalit\'e triangulaire donne
+        $|a|=|(a-b)+b|\leq|a-b|+|b|$, donc $|a|-|b|\leq|a-b|$.
+        En \'echangeant $a$ et $b$, on obtient aussi
+        $|b|-|a|\leq|a-b|$. Ainsi $\bigl||a|-|b|\bigr|\leq|a-b|$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -388,12 +396,14 @@ $(x-2)(x+3)$ & & $+$ & $0$ & $-$ & $0$ & $+$ & \\\hline
 \begin{enumerate}
   \item $\begin{cases}x+1>0\\2x-3\leq5\end{cases}\Leftrightarrow\begin{cases}x>-1\\x\leq4\end{cases}$
         Solution~: $]-1,4]$.
-  \item $\begin{cases}3x-1>x+5\\x-2\leq3x+4\end{cases}\Leftrightarrow\begin{cases}x>3\\x\geq-3\end{cases}$
-        Solution~: $]3,+\infty[$.
-  \item $\begin{cases}x^2\geq1\\\abs{x}\leq3\end{cases}$~:
-        $x^2\geq1\Leftrightarrow x\leq-1$ ou $x\geq1$~;
-        $\abs{x}\leq3\Leftrightarrow-3\leq x\leq3$.
-        Solution~: $[-3,-1]\cup[1,3]$.
+  \item $\begin{cases}3x-2\geq1\\x+4<8\end{cases}
+        \Leftrightarrow\begin{cases}x\geq1\\x<4\end{cases}$.
+        Solution~: $[1,4[$.
+  \item $\begin{cases}\abs{x}\leq3\\x\geq1\end{cases}$~:
+        $-3\leq x\leq3$ et $x\geq1$. Solution~: $[1,3]$.
+  \item $\begin{cases}x^2\geq1\\x<3\end{cases}$~:
+        $x\leq-1$ ou $x\geq1$, avec $x<3$.
+        Solution~: $]-\infty,-1]\cup[1,3[$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -403,12 +413,8 @@ $(x-2)(x+3)$ & & $+$ & $0$ & $-$ & $0$ & $+$ & \\\hline
   \item $1^3=1<2$ et $2^3=8>2$~: $1<\sqrt[3]{2}<2$.\hfill$\square$
   \item $1{,}25^3=1{,}953125<2$ et $1{,}26^3=2{,}000376>2$~:
         $1{,}25<\sqrt[3]{2}<1{,}26$.\hfill$\square$
-  \item Dichotomie~: $m=1{,}255$, $1{,}255^3\approx1{,}977<2$,
-        donc $1{,}255<\sqrt[3]{2}<1{,}260$.
-        $m=1{,}259$~: $1{,}259^3\approx1{,}997<2$~; $m=1{,}2599$~: environ $2$.
-        $\sqrt[3]{2}\approx1{,}2599$.
-  \item En g\'en\'eral, la dichotomie donne $k$ d\'ecimales en $k$ it\'erations
-        (la pr\'ecision double environ tous les 3{,}32 it\'erations).
+  \item $1{,}4^3=2{,}744<3$ et $1{,}5^3=3{,}375>3$.
+        Donc $1{,}4<\sqrt[3]{3}<1{,}5$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -427,11 +433,12 @@ L'invariant de boucle est~: \og apr\`es l'it\'eration $k$, on sait que $k^2\leq 
 
 \begin{enumerate}
   \item $(a-b)^2\geq0 \Rightarrow a^2-2ab+b^2\geq0 \Rightarrow a^2+b^2\geq2ab$.\hfill$\square$
-  \item Pour $a,b>0$~: $a^2+b^2\geq2ab$ et $ab>0$,
-        donc $\dfrac{a^2+b^2}{2ab}\geq1$,
-        d'o\`u $\dfrac{a}{b}+\dfrac{b}{a}\geq2$
-        (in\'egalit\'e AM--GM appliqu\'ee \`a $a/b$ et $b/a$).
-  \item \'Egalit\'e ssi $a=b$.\hfill$\square$
+  \item Appliquons la premi\`ere in\'egalit\'e \`a $\sqrt a$ et $\sqrt b$~:
+        $a+b\geq2\sqrt{ab}$, soit $\sqrt{ab}\leq(a+b)/2$.
+  \item Pour $x>0$, appliquer le r\'esultat pr\'ec\'edent \`a
+        $a=x$ et $b=4/x$~: $(x+4/x)/2\geq\sqrt4=2$.
+        Donc $x+4/x\geq4$.
+  \item L'\'egalit\'e a lieu si $x=4/x$, soit $x=2$ puisque $x>0$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -452,7 +459,13 @@ Mais $3\mid\pgcd(p,q)$~: contradiction avec $\pgcd(p,q)=1$.\hfill$\square$
         $(1+x)^n\geq1+nx$ (in\'egalit\'e de Bernoulli).
         Pour $n=3$~: $(1+x)^3=1+3x+3x^2+x^3$.
         Si $x\geq0$~: tous les termes sont positifs, $(1+x)^3\geq1+3x$.\checkmark
-        Si $-1\leq x<0$~: \'etude plus d\'etaill\'ee.
+        Pour $-1\leq x<0$, on a
+        $(1+x)^3-(1+3x)=x^2(3+x)\geq0$.
+  \item Pour $x=0{,}1$, les valeurs pour $n=1,2,3,4,5$ sont
+        $1{,}1$~; $1{,}21$~; $1{,}331$~; $1{,}4641$~; $1{,}61051$.
+        Chacune est au moins \'egale \`a $1+0{,}1n$.
+  \item Avec l'in\'egalit\'e admise dans l'\'enonc\'e,
+        $(1{,}05)^{10}\geq1+10(0{,}05)=1{,}5$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -461,10 +474,10 @@ Mais $3\mid\pgcd(p,q)$~: contradiction avec $\pgcd(p,q)=1$.\hfill$\square$
 \begin{enumerate}
   \item Non~: $\sqrt{2}+(-\sqrt{2})=0\in\Q$. Contre-exemple donn\'e.
   \item Non~: $\sqrt{2}\times\sqrt{2}=2\in\Q$.
-  \item $(\sqrt{2}+1)(\sqrt{2}-1)=2-1=1\in\Q$~: produit de deux irrationnels rationnel.
-  \item La diff\'erence d'un rationnel et d'un irrationnel est irrationnelle~:
-        si $r\in\Q$ et $x\notin\Q$, alors $r-x\notin\Q$ (car si $r-x=s\in\Q$,
-        alors $x=r-s\in\Q$, contradiction).\hfill$\square$
+  \item Supposons $r=\sqrt2+\sqrt3\in\Q$.
+        Comme $r>0$, on a $1/r=(\sqrt3-\sqrt2)\in\Q$.
+        Alors $\sqrt2=(r-1/r)/2\in\Q$, contradiction.
+        Donc $\sqrt2+\sqrt3\notin\Q$.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -485,24 +498,25 @@ Mais $3\mid\pgcd(p,q)$~: contradiction avec $\pgcd(p,q)=1$.\hfill$\square$
 %────────────────────────────────────────────────────────────────
 \solutiontitle{3}{35}{Approximer un irrationnel par des rationnels}
 
-\renewcommand{\arraystretch}{1.4}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\rowcolor{BN!10}
-$p/q$ & valeur & $|p/q-\sqrt{2}|$ & $q^2|p/q-\sqrt{2}|$ \\
-\hline
-$1/1$ & $1{,}000$ & $0{,}414$ & $0{,}414$ \\
-$3/2$ & $1{,}500$ & $0{,}086$ & $0{,}344$ \\
-$7/5$ & $1{,}400$ & $0{,}014$ & $0{,}354$ \\
-$17/12$ & $1{,}4167$ & $0{,}003$ & $0{,}420$ \\
-$41/29$ & $1{,}4138$ & $0{,}0004$ & $0{,}334$ \\
-\hline
-\end{tabular}
-\end{center}
-
-Chaque fois, la s\'equence $(p_n/q_n)$ v\'erifie la r\'ecurrence $p_{n+1}=p_n+2q_n$,
-$q_{n+1}=p_n+q_n$ (algorithme des convergents).
+\begin{enumerate}
+  \item En utilisant $\sqrt2\approx1{,}41421356$, on compl\`ete~:
+        \begin{center}
+        \begin{tabular}{|c|c|c|}\hline
+        \rowcolor{BN!10} Fraction & Valeur d\'ecimale & Erreur absolue \\ \hline
+        $1$ & $1$ & $0{,}414214$ \\
+        $3/2$ & $1{,}5$ & $0{,}085786$ \\
+        $7/5$ & $1{,}4$ & $0{,}014214$ \\
+        $17/12$ & $1{,}416667$ & $0{,}002453$ \\
+        $41/29$ & $1{,}413793$ & $0{,}000420$ \\ \hline
+        \end{tabular}
+        \end{center}
+  \item $\sqrt2<10/7\approx1{,}428571<1{,}5$ et $7\leq10$.
+  \item Oui~: les troncatures d\'ecimales de $\sqrt2$ sont rationnelles
+        et leur distance \`a $\sqrt2$ peut devenir arbitrairement petite.
+  \item Si $a<b$, alors $a<(a+b)/2<b$. En prenant chaque fois le milieu
+        entre $a$ et le dernier milieu obtenu, on construit une infinit\'e
+        de r\'eels distincts dans $]a,b[$.
+\end{enumerate}
 
 %────────────────────────────────────────────────────────────────
 \solutiontitle{3}{36}{Propri\'et\'es de la valeur absolue}
@@ -514,27 +528,26 @@ $q_{n+1}=p_n+q_n$ (algorithme des convergents).
         (Les cas $a<0,b\geq0$ et $a,b<0$ sont sym\'etriques.)\hfill$\square$
   \item $\left|\dfrac{a}{b}\right|=\dfrac{|a|}{|b|}$ ($b\ne0$)~:
         $\left|\dfrac{a}{b}\right|=|a\cdot b^{-1}|=|a|\cdot|b^{-1}|=|a|/|b|$.\hfill$\square$
-  \item $|a|^2=a^2$~: si $a\geq0$~: $|a|^2=a^2$.\quad si $a<0$~: $|a|^2=(-a)^2=a^2$.\hfill$\square$
-  \item $||a|-|b||\leq|a-b|$~: in\'egalit\'e triangulaire appliqu\'ee \`a
-        $|a|=|(a-b)+b|\leq|a-b|+|b|$, d'o\`u $|a|-|b|\leq|a-b|$.
-        De m\^eme $|b|-|a|\leq|b-a|=|a-b|$. Donc $||a|-|b||\leq|a-b|$.\hfill$\square$
+  \item $|a^2|=a^2$, car $a^2\geq0$.\hfill$\square$
+  \item $|a|=\sqrt{a^2}$, car les deux membres sont positifs
+        et ont pour carr\'e $a^2$.\hfill$\square$
+  \item Si $|a|\leq M$ et $|b|\leq N$, alors $M,N\geq0$ et
+        $|ab|=|a||b|\leq MN$.\hfill$\square$
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
 \solutiontitle{3}{37}{Approximation de $\pi$}
 
-Archim\`ede obtint $3\frac{10}{71}<\pi<3\frac{1}{7}$, soit
-$3{,}1408\ldots<\pi<3{,}1428\ldots$
+Archim\`ede obtint $\dfrac{223}{71}<\pi<\dfrac{22}{7}$.
 
 \begin{enumerate}
-  \item Un polygone r\'egulier \`a $n$ c\^ot\'es inscrit dans le cercle unit\'e
-        a pour p\'erim\`etre $P_n=2n\sin(\pi/n)$.
-        Pour $n=96$~: $P_{96}=192\sin(\pi/96)\approx3{,}1410$.
-  \item Le polygone circonscrit a pour p\'erim\`etre $P_n'=2n\tan(\pi/n)$.
-        Pour $n=96$~: $P_{96}'\approx3{,}1427$.
-  \item Archim\`ede a obtenu ces valeurs par calcul g\'eom\'etrique, sans
-        calculatrice, en partant de $n=6$ et en doublant \`a chaque \'etape.
-  \item $P_n\to2\pi$ car $n\sin(\pi/n)=\pi\cdot\dfrac{\sin(\pi/n)}{\pi/n}\to\pi$.
+  \item $223/71\approx3{,}140845<\pi\approx3{,}141593$
+        et $22/7\approx3{,}142857>\pi$.
+  \item Les chiffres garantis apr\`es la virgule sont $1$ et $4$~:
+        $\pi=3{,}14\ldots$ d'apr\`es cet encadrement.
+  \item $|22/7-\pi|\approx0{,}001264$, tandis que
+        $|3{,}14-\pi|\approx0{,}001593$.
+        L'approximation $22/7$ est l\'eg\`erement meilleure.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -571,8 +584,8 @@ $3{,}1408\ldots<\pi<3{,}1428\ldots$
   \item $\forall x\in[-2,3], x^2\leq9$~: \textbf{Vraie}
         ($|x|\leq3$ sur $[-2,3]$ donc $x^2\leq9$).
         N\'egation~: $\exists x\in[-2,3], x^2>9$. Fausse.
-  \item $\exists x\in\R, \sqrt{x}<0$~: \textbf{Fausse} ($\sqrt{x}\geq0$ toujours).
-        N\'egation~: $\forall x\in\R, \sqrt{x}\geq0$. Vraie.
+  \item $\exists x\in[0,+\infty[, \sqrt{x}<0$~: \textbf{Fausse}.
+        N\'egation~: $\forall x\in[0,+\infty[, \sqrt{x}\geq0$. Vraie.
   \item $\forall x\in\R^*, 1/x>0$~: \textbf{Fausse} (contre-exemple~: $x=-1$).
         N\'egation~: $\exists x\in\R^*, 1/x\leq0$. Vraie.
   \item $\forall a,b\in\R, |a+b|=|a|+|b|$~: \textbf{Fausse} (contre-exemple~: $a=1, b=-1$).
@@ -587,7 +600,8 @@ $3{,}1408\ldots<\pi<3{,}1428\ldots$
         $\sqrt{0}$ existe aussi, et $x=0$ convient). Correction~: $x\geq0$ est CNS.
   \item $x=0$ pour que $x^2=0$~: \textbf{CNS}. $x=0\Rightarrow x^2=0$ et $x^2=0\Rightarrow x=0$.\hfill$\square$
   \item $|x|<3$ pour que $x^2<9$~: \textbf{CNS}. $|x|<3\Leftrightarrow x^2<9$.\hfill$\square$
-  \item $\Delta>0$ pour que $ax^2+bx+c=0$ ait deux racines~: \textbf{CNS} (d\'efinition).\hfill$\square$
+  \item Si $a\ne0$, $\Delta>0$ est une \textbf{CNS} pour que
+        $ax^2+bx+c=0$ ait deux racines r\'eelles distinctes.\hfill$\square$
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
@@ -609,10 +623,11 @@ $3{,}1408\ldots<\pi<3{,}1428\ldots$
 
 \begin{enumerate}
   \item \textbf{Fausse.} Contre-exemple~: $a=1>b=-2$, mais $a^2=1<4=b^2$.
-  \item $a>b\Rightarrow a^2>b^2$ ssi $a>|b|$, i.e., $a>0$ et $a>-b$.
-        Condition exacte~: $a>0$ et $b>-a$, i.e., $a>|b|$.
+  \item Sous l'hypoth\`ese $a>b$, on a
+        $a^2-b^2=(a-b)(a+b)>0$ si et seulement si $a+b>0$.
   \item $a^2>b^2\Rightarrow|a|>|b|$, pas forc\'ement $a>b$.
         Contre-exemple~: $a=-3, b=2$~: $9>4$ mais $-3<2$.
+  \item Le tableau de v\'erit\'e des quatre cas demand\'es est~:
 \begin{center}\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|c|c|c|c|c|}
 \hline

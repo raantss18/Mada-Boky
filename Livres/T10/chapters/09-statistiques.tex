@@ -35,6 +35,8 @@ Pour une s\'erie de valeurs $x_1, \ldots, x_n$ :
 \end{itemize}
 \end{defn}
 
+\horsprogramme{La bo\^ite \`a moustaches et les quartiles de la figure suivante
+ne font pas partie des indicateurs \`a ma\^itriser en T10.}
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[xscale=0.55,yscale=1.2]
@@ -892,6 +894,8 @@ $(8,10)$, $(12,13)$, $(15,14)$, $(10,11)$, $(18,17)$.
 \end{challenge}
 
 %─────────────────────────────────────────────────────────────────
+\horsprogramme{La figure suivante associe un histogramme aux quartiles
+d'une bo\^ite \`a moustaches~; seule la lecture de l'histogramme est exigible.}
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[xscale=1.25,yscale=1.55]
@@ -935,7 +939,7 @@ $(8,10)$, $(12,13)$, $(15,14)$, $(10,11)$, $(18,17)$.
   \end{scope}
 \end{tikzpicture}
 \caption{Lire une distribution~: l'histogramme montre la forme g\'en\'erale~;
-la bo\^ite \`a moustaches r\'esume les 5 indicateurs essentiels.
+la bo\^ite \`a moustaches r\'esume cinq valeurs (approfondissement facultatif).
 Ici la distribution est l\'eg\`erement asym\'etrique : la m\'ediane $Q_2$ (orange)
 est \`a gauche de la moyenne $\bar{x}$ (orange, tiret\'e dans l'histogramme).}
 \end{figure}
@@ -943,25 +947,20 @@ est \`a gauche de la moyenne $\bar{x}$ (orange, tiret\'e dans l'histogramme).}
 \begin{bilan}
 \begin{itemize}
   \item \textbf{Indicateurs de position}~:
-        mode (plus fr\'equent)~;
-        m\'ediane $Q_2$ (50\% en dessous)~;
+        m\'ediane (valeur centrale)~;
         moyenne $\bar{x}=\frac{1}{N}\sum n_i x_i$.
-  \item \textbf{Quartiles}~: $Q_1$ (25\%), $Q_3$ (75\%).
   \item \textbf{Indicateurs de dispersion}~:
         \'etendue $= x_{\max}-x_{\min}$~;
         variance $V=\overline{x^2}-\bar{x}^2$~;
         \'ecart-type $\sigma=\sqrt{V}$.
-  \item \textbf{Bo\^ite \`a moustaches}~: cinq nombres~:
-        min, $Q_1$, $Q_2$, $Q_3$, max.
   \item \textbf{Repr\'esentations}~: diagramme en b\^atons (discret),
-        circulaire (fr\'equences), histogramme (continu),
-        polygone des fr\'equences cumul\'ees (m\'ediane graphique).
-  \item \textbf{Transformation affine}~:
-        $y_i=ax_i+b \Rightarrow \bar{y}=a\bar{x}+b$,
-        $\sigma_y=|a|\sigma_x$.
+        circulaire (fr\'equences), histogramme (continu).
 \end{itemize}
 
 %─────────────────────────────────────────────────────────────────
+\horsprogramme{Les exercices de logique et d'algorithmique statistique
+ci-apr\`es peuvent mobiliser des quartiles, des simulations et des
+transformations de s\'eries~: ils ne sont pas exigibles en T10.}
 \subsection*{Logique \& Algorithmes}
 %─────────────────────────────────────────────────────────────────
 
