@@ -1,0 +1,128 @@
+From c593653d18e52d0de4c36f65aa47b1d5b6909c36 Mon Sep 17 00:00:00 2001
+From: Codex <codex@openai.com>
+Date: Wed, 23 Sep 2026 15:36:58 -0400
+Subject: [PATCH 1/2] Link T10 assessment solutions and document numbering
+ audit
+
+---
+ Livres/T10/assessments/corrections.tex | 24 ++++++++++++++++++++++++
+ Livres/T10/assessments/evaluations.tex |  4 ++--
+ Livres/T10/review/01-sol-audit.md      |  8 ++++++--
+ Livres/T10/scripts/qa.py               |  9 +++++++++
+ Livres/T10/styles/mdg-pedagogy.sty     |  4 ++--
+ 5 files changed, 43 insertions(+), 6 deletions(-)
+
+diff --git a/Livres/T10/assessments/corrections.tex b/Livres/T10/assessments/corrections.tex
+index 0d07e3a..09ac4b6 100644
+--- a/Livres/T10/assessments/corrections.tex
++++ b/Livres/T10/assessments/corrections.tex
+@@ -1,6 +1,30 @@
+ \chapter*{Corrigés de la banque d'exercices et de problèmes}
+ \addcontentsline{toc}{chapter}{Corrigés de la banque d'exercices et de problèmes}
+ 
++% The correction bank follows the 42 exercises and then the 8 problems in
++% evaluations.tex. The saved counters preserve the statement identifiers even
++% though the bank continues the chapter-9 exercise and problem sequences.
++\newcounter{nbanksolution}
++\newcounter{bankexercisebase}
++\setcounter{bankexercisebase}{\value{nexo}}
++\addtocounter{bankexercisebase}{-42}
++\newcounter{bankproblembase}
++\setcounter{bankproblembase}{\value{nprob}}
++\addtocounter{bankproblembase}{-8}
++\let\bankparagraph\paragraph
++\renewcommand{\paragraph}[1]{%
++  \stepcounter{nbanksolution}%
++  \ifnum\value{nbanksolution}<43
++    \bankparagraph{#1\enspace\hyperref[exo:\thechapter.\number\numexpr\value{bankexercisebase}+\value{nbanksolution}\relax]
++      {\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}}%
++    \label{sol:B\thechapter.\number\numexpr\value{bankexercisebase}+\value{nbanksolution}\relax}%
++  \else
++    \bankparagraph{#1\enspace\hyperref[prob:\thechapter.\number\numexpr\value{bankproblembase}+\value{nbanksolution}-42\relax]
++      {\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}}%
++    \label{sol:BP\thechapter.\number\numexpr\value{bankproblembase}+\value{nbanksolution}-42\relax}%
++  \fi
++}
++
+ \section*{Repère diagnostique}
+ 
+ \paragraph{Calculs et méthodes de base.}
+diff --git a/Livres/T10/assessments/evaluations.tex b/Livres/T10/assessments/evaluations.tex
+index fca38a3..5de6f22 100644
+--- a/Livres/T10/assessments/evaluations.tex
++++ b/Livres/T10/assessments/evaluations.tex
+@@ -2,8 +2,8 @@ \chapter{Banque d'exercices et de problèmes}
+ 
+ \newcommand{\calcoui}{\textcolor{VE!70!black}{\textbf{Calculatrice : autorisée}}}
+ \newcommand{\calcnon}{\textcolor{OR!80!black}{\textbf{Calculatrice : non nécessaire}}}
+-\renewcommand{\corrige}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
+-\renewcommand{\corrigeP}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
++\renewcommand{\corrige}{\TeacherOnly{\enspace\hyperref[sol:B\thenexo]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
++\renewcommand{\corrigeP}{\TeacherOnly{\enspace\hyperref[sol:BP\thenprob]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
+ 
+ \begin{tcolorbox}[enhanced,breakable,frame hidden,
+   borderline west={2pt}{0pt}{BN},colback=BN!3,sharp corners,
+diff --git a/Livres/T10/review/01-sol-audit.md b/Livres/T10/review/01-sol-audit.md
+index 6f4a35c..1482234 100644
+--- a/Livres/T10/review/01-sol-audit.md
++++ b/Livres/T10/review/01-sol-audit.md
+@@ -16,13 +16,17 @@
+ | S10 | Ch. 7, exercises 7, 19 | Major | Graph requests were absent from the solutions. | Added clipped, labelled plots and graphical interpretation. | FIXED | High |
+ | S11 | `seconde-mada.cls`, teacher compilation | Major | A later teacher pass read a truncated `hyperref` bookmark auxiliary file and aborted. | Loaded `bookmark`; a clean teacher build succeeded with bookmarks. | FIXED | High |
+ | S12 | Ch. 9, final figure and chapter summary | Major | Quartiles, box plots, cumulative frequencies and regression-like transformations appeared in the unqualified core summary although the T10 PE specifies mean, median, variance, standard deviation and basic diagrams. | Removed those advanced outcomes from the core summary and marked the optional figures and later exercises. | FIXED | High |
++| S13 | Assessment bank and its corrections | Major | The chapter corrections had bidirectional hyperlinks, but the 50 exercise/problem pairs in the assessment bank did not. | Added automatic links from every bank item to its correction and a backlink from every correction to its statement. Put the bank in a separate label namespace, deriving the continued exercise/problem sequence automatically; QA now checks the 42-exercise/8-problem contract. | FIXED | High |
++| S14 | `styles/mdg-pedagogy.sty`, problem headings | Minor | A problem starting on a fresh page could retain its hyperlink target on the previous page because its label preceded the breakable box. | Moved the anchor and label into the problem box, immediately before the visible heading. | FIXED | High |
+ | U01 | Ch. 3, exercise 47 and solution | Major | The proposed algorithm for classifying an arbitrary real uses decimal repetition as an approximate test, whereas the exercise specifies a supplied rational representation. A finite approximation cannot certify irrationality. | Left unchanged pending a precise input model and revised exercise/solution. | NEEDS REVIEW | High |
+ | U02 | `chapters/`, advanced exercises | Major | Further advanced examples are spread through multiple chapters; the current programme audit documents optional topics but has not established item-by-item that every such exercise is clearly marked and excluded from common assessments. | Retain optional status; audit each advanced item against the repository PE before reuse. | NEEDS REVIEW | Medium |
+ | U03 | `PSE/` references and `docs/audit-programme-evaluations.md` | Minor | The repository holds the 2026 PE but its named annual RAPE file is for 2025–26; the documentation names a 2026 RAPE under different filenames. The exact current annual reference should be reconciled in GitHub. | No programme document replaced during proofreading. | NEEDS REVIEW | High |
+ | U04 | `build/*.pdf` in GitHub | Minor | The tracked PDFs predate these source corrections; they will not show the corrected pages until regenerated by CI or replaced in a later publication commit. | Compiled current source locally; left the published binary files untouched. | NEEDS REVIEW | High |
++| U05 | `solutions/*.tex` | Minor | Core exercise and problem numbers are generated by counters, but every correction heading repeats its chapter and item number in `\\solutiontitle` or `\\psolutiontitle`. The links resolve and QA compares the identifier sets, but inserting or reordering a correction requires a manual update. | Left the established correction format unchanged in this first pass; replace these numeric arguments with generated identifiers only after designing a migration that preserves the independent correction ordering. | NEEDS REVIEW | High |
++| U06 | `solutions/*.tex`; `teacher/guide-professeur.tex` | Minor | The unnumbered correction sections spell out their chapter numbers (`Chapitre 1`, etc.), and the teacher guide uses manually numbered unnumbered section headings (`1.`–`7.`). LaTeX does not update these numbers if their order changes. Ordinary textbook chapters and sections, exercises, problems, examples, definitions, properties and theorems already use counters. | Left these headings unchanged pending a consistent automatic-numbering scheme for unnumbered front/back matter. | NEEDS REVIEW | High |
+ 
+ **Coverage:** Read the nine chapter and solution structures, checked exercise titles and numbering across chapters 1–9 and the 50-item assessment bank, compared subquestion counts, checked selected calculations and all mismatches listed above, read the repository's curriculum audit, and visually sampled pages across all nine chapters from a fresh build. The static count check does not prove every individual answer correct; subsequent passes should verify the remaining examples, problems, and assessment calculations one by one, prioritising chapters 4–9 and their diagrams.
+ 
+-**Files modified:** `chapters/01-logique.tex`, `chapters/02-algorithmique.tex`, `chapters/03-calcul-reels.tex`, `chapters/09-statistiques.tex`, `seconde-mada.cls`, `solutions/01-logique.tex`, `solutions/02-algorithmique.tex`, `solutions/03-calcul-reels.tex`, `solutions/07-fonctions.tex`, this report. No generated PDF is part of this commit.
++**Files modified:** `assessments/evaluations.tex`, `assessments/corrections.tex`, `styles/mdg-pedagogy.sty`, `scripts/qa.py`, `chapters/01-logique.tex`, `chapters/02-algorithmique.tex`, `chapters/03-calcul-reels.tex`, `chapters/09-statistiques.tex`, `seconde-mada.cls`, `solutions/01-logique.tex`, `solutions/02-algorithmique.tex`, `solutions/03-calcul-reels.tex`, `solutions/07-fonctions.tex`, this report. No generated PDF is part of this commit.
+ 
+-**Compilation:** `python3 scripts/qa.py` passed (42 TeX modules); `make clean && make all`, then `make all` after the final statistics edit, passed. Fresh PDFs: 295 student pages and 471 teacher pages. No fatal errors, undefined references or duplicate labels in the final logs. Rendered pages in logic, algorithmics, geometry, functions, trigonometry, statistics and the corrected solution sections were inspected; the new graphs and optional statistics summary are legible and clipped.
++**Compilation:** `python3 scripts/qa.py` passed (42 TeX modules); `make clean && make all`, then `make all` after the final statistics edit, passed. The assessment-bank links and problem anchors were compiled again in both editions. Fresh PDFs: 295 student pages and 471 teacher pages. All 50 bank pairs have unique correction targets and reciprocal PDF links on the matching statement and correction pages. No fatal errors, undefined references or duplicate labels in the final logs. Rendered pages in logic, algorithmics, geometry, functions, trigonometry, statistics and the corrected solution sections were inspected; the new graphs, bank problem/correction pages and optional statistics summary are legible and clipped.
+diff --git a/Livres/T10/scripts/qa.py b/Livres/T10/scripts/qa.py
+index f2c8be0..35a28fa 100644
+--- a/Livres/T10/scripts/qa.py
++++ b/Livres/T10/scripts/qa.py
+@@ -107,6 +107,15 @@ if len(re.findall(r"^\\begin\{probleme\}", evaluations, re.M)) < 8:
+     errors.append("expected at least eight selectable problems")
+ if evaluations.count(r"\calcoui") + evaluations.count(r"\calcnon") < 50:
+     errors.append("each bank item must state calculator policy")
++bank_corrections = (ROOT / "assessments" / "corrections.tex").read_text(encoding="utf-8")
++if evaluations.count(r"\begin{exo}") != 42 or evaluations.count(r"\begin{probleme}") != 8:
++    errors.append("assessment-bank item counts no longer match the correction-link contract")
++if len(re.findall(r"^\\paragraph\{", bank_corrections, re.M)) != 50:
++    errors.append("expected one correction heading for each of the 50 assessment-bank items")
++if r"\hyperref[sol:B\thenexo]" not in evaluations or r"\hyperref[sol:BP\thenprob]" not in evaluations:
++    errors.append("assessment items must link to their corrections")
++if r"\hyperref[exo:\thechapter.\number\numexpr\value{bankexercisebase}+\value{nbanksolution}\relax]" not in bank_corrections or r"\hyperref[prob:\thechapter.\number\numexpr\value{bankproblembase}+\value{nbanksolution}-42\relax]" not in bank_corrections:
++    errors.append("assessment corrections must link back to their statements")
+ if any(marker in evaluations for marker in (
+     "10 à 25 minutes", "25 à 45 minutes", "35 à 70 minutes",
+     "40--50 min", "1 h à 1 h 30"
+diff --git a/Livres/T10/styles/mdg-pedagogy.sty b/Livres/T10/styles/mdg-pedagogy.sty
+index e3ffefb..9ab190b 100644
+--- a/Livres/T10/styles/mdg-pedagogy.sty
++++ b/Livres/T10/styles/mdg-pedagogy.sty
+@@ -141,10 +141,10 @@
+ \newcounter{nprob}[chapter]
+ \renewcommand{\thenprob}{\thechapter.\arabic{nprob}}
+ \newcommand{\corrigeP}{\TeacherOnly{\enspace\hyperref[sol:P\thenprob]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
+-\newenvironment{probleme}[2][]{\stepcounter{nprob}\par\addvspace{8pt}\phantomsection\label{prob:\thenprob}
++\newenvironment{probleme}[2][]{\stepcounter{nprob}\par\addvspace{8pt}
+   \begin{tcolorbox}[enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{OD!80},
+   colback=OD!5,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
+-  before upper={{\color{OD!80!black}\small\scshape\bfseries Problème~\thenprob
++  before upper={\phantomsection\label{prob:\thenprob}{\color{OD!80!black}\small\scshape\bfseries Problème~\thenprob
+   \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}
+   \hfill\diff{#2}\tcbrule{OD}}]}{\end{tcolorbox}\par\addvspace{6pt}}
+ \newenvironment{challenge}[1][]{\par\addvspace{8pt}\begin{tcolorbox}[enhanced,breakable,frame hidden,
+-- 
+2.51.1
+

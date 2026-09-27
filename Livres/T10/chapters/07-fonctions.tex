@@ -32,6 +32,8 @@ et $x$ est un \textbf{ant\'ec\'edent} de $f(x)$.
 \end{defn}
 
 \begin{defn}[Parit\'e]
+Le domaine $D_f$ doit \^etre sym\'etrique par rapport \`a $0$ :
+$x\in D_f\Rightarrow -x\in D_f$. Les \'egalit\'es suivantes valent pour tout $x\in D_f$.
 $f$ est \textbf{paire} si $f(-x)=f(x)$ (courbe sym\'etrique par rapport \`a $Oy$).\\
 $f$ est \textbf{impaire} si $f(-x)=-f(x)$ (courbe sym\'etrique par rapport \`a $O$).
 \end{defn}
@@ -126,11 +128,14 @@ des points d'intersection de la courbe avec la droite horizontale $y=b$.
 \index{monotonie}\index{extremum}
 \begin{itemize}
   \item $f$ est \textbf{croissante} sur $I$ si~:
-        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)<f(x_2)$.
+        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)\leq f(x_2)$.
   \item $f$ est \textbf{d\'ecroissante} sur $I$ si~:
-        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)>f(x_2)$.
-  \item Un \textbf{minimum} (resp.\ maximum) est une valeur de $f$ plus
-        petite (resp.\ grande) que toutes les valeurs voisines.
+        $\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)\geq f(x_2)$.
+  \item On dit \textbf{strictement} croissante ou d\'ecroissante si les
+        in\'egalit\'es entre les images sont strictes.
+  \item $f(a)$ est un \textbf{minimum sur $I$} si $a\in I$ et
+        $f(a)\leq f(x)$ pour tout $x\in I$; pour un maximum, $f(a)\geq f(x)$.
+        Un extremum seulement compar\'e aux valeurs voisines est dit \textbf{local}.
 \end{itemize}
 \end{defn}
 
@@ -256,7 +261,7 @@ $f(x)=1/x$   & $\R^*$ & impaire & d\'ecroissante sur $]-\infty,0[$ et sur $]0,+\
       $x^2$~: min en $x=0$, paire\\
       $\sqrt{x}$~: croissante sur $[0,+\infty[$\\
       $|x|$~: min en $x=0$, paire\\
-      $1/x$~: d\'ecr. sur $\R^*$, impaire\\
+      $1/x$~: impaire; d\'ecroissante sur chacun des deux intervalles de son domaine\\
       $x^3$~: croissante sur $\R$, impaire
     };
   \end{scope}
@@ -617,13 +622,13 @@ le (ou les) extremums~:
 \end{exo}
 
 \begin{exo}[Encadrement par monotonie \corrige]{2}
-Soit $f$ croissante sur $[a,b]$. On sait que $f(2)=5$ et $f(6)=9$.
+Soit $f$ croissante sur $[a,b]$, avec $[2,6]\subset[a,b]$. On sait que $f(2)=5$ et $f(6)=9$.
 \begin{enumerate}
   \item Peut-on affirmer que $5 \leq f(4) \leq 9$~?
   \item Peut-on affirmer que $f(x) \geq 5$ pour tout $x\in[2,6]$~?
   \item Pour $f(x)=\sqrt{x}$, encadrer $\sqrt{5}$ entre $f(4)$ et $f(9)$.
-  \item Affiner~: encadrer $\sqrt{5}$ entre $f(4)$ et $f(4{,}84)$
-        sachant que $4{,}84=2{,}2^2$.
+  \item Affiner : encadrer $\sqrt5$ entre $f(4{,}84)$ et $f(5{,}29)$,
+        sachant que $4{,}84=2{,}2^2$ et $5{,}29=2{,}3^2$.
 \end{enumerate}
 \end{exo}
 
@@ -649,8 +654,9 @@ Donner le domaine de d\'efinition et simplifier si possible~:
 \end{multicols}
 \end{exo}
 
-\begin{exo}[Lire un tableau de variations \corrige]{1}
-Pour une fonction $f$ dont le tableau de variations est~:
+\begin{exo}[Lire un tableau de variations \ExtensionTTen \corrige]{1}
+Pour une fonction $f$ continue sur $[-2,5]$, strictement monotone sur
+chacun des trois intervalles indiqu\'es, dont le tableau de variations est~:
 \begin{center}
 \renewcommand{\arraystretch}{1.8}
 \begin{tabular}{|c|ccccccc|}
@@ -680,11 +686,11 @@ $f$ & $-1$ & $\nearrow$ & $4$ & $\searrow$ & $0$ & $\nearrow$ & $2$ \\
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[\logicoalgo\ Algorithme~: chercher les z\'eros de $f$ \corrige]{2}
+\begin{exo}[\logicoalgo\ Algorithme~: chercher les z\'eros de $f$ \ExtensionTTen \corrige]{2}
 
 \begin{algorithm}[H]
 \caption{Recherche de z\'ero par balayage}
-\KwIn{une fonction $f$, une borne inf. $a$, une borne sup. $b$, un pas $h$}
+\KwIn{une fonction continue $f$ sur $[a,b]$, $a<b$, un pas $h>0$}
 \KwOut{les $x$ o\`u $f$ semble changer de signe}
 $x \leftarrow a$\;
 \TantQue{$x + h \leq b$}{
@@ -710,12 +716,12 @@ $x \leftarrow a$\;
 \subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations}
 
 \begin{exo}[Monotonie par d\'efinition \corrige]{3}
-D\'emontrer directement \`a partir de la d\'efinition ($x_1<x_2\Rightarrow f(x_1)<f(x_2)$)~:
+D\'emontrer directement les monotonies strictes suivantes :
 \begin{enumerate}
-  \item $f(x)=\sqrt{x}$ est croissante sur $[0,+\infty[$.
+  \item $f(x)=\sqrt{x}$ est strictement croissante sur $[0,+\infty[$.
         \emph{(\'Etudier $\sqrt{x_2}-\sqrt{x_1}$ en multipliant par
         $(\sqrt{x_2}+\sqrt{x_1})/(\sqrt{x_2}+\sqrt{x_1})$.)}
-  \item $g(x)=1/x$ est d\'ecroissante sur $]0,+\infty[$.
+  \item $g(x)=1/x$ est strictement d\'ecroissante sur $]0,+\infty[$.
         \emph{(Calculer $g(x_2)-g(x_1)=(x_1-x_2)/(x_1 x_2)$ et \'etudier le signe.)}
 \end{enumerate}
 \end{exo}
@@ -754,14 +760,15 @@ Pour $f(x)=\dfrac{x^2-1}{x}$ (d\'efinie sur $\R^*$)~:
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[Encadrement et approximation \corrige]{3}
-Soit $f(x)=x^2$ et $g(x)=\sqrt{x}$ sur $[0,4]$.
+\begin{exo}[Encadrement et approximation \ExtensionTTen \corrige]{3}
+Soient $f:[0,2]\to[0,4]$, $f(x)=x^2$, et
+$g:[0,4]\to[0,2]$, $g(x)=\sqrt{x}$.
 \begin{enumerate}
   \item Montrer que $f$ et $g$ sont inverses l'une de l'autre~:
-        $f(g(x))=x$ et $g(f(x))=x$ pour $x\geq0$.
+        $f(g(x))=x$ pour $x\in[0,4]$ et $g(f(x))=x$ pour $x\in[0,2]$.
   \item En d\'eduire que les courbes de $f$ et $g$ sont sym\'etriques
         par rapport \`a la droite $y=x$.
-  \item Encadrer $\sqrt{3}$ entre deux valeurs de $f$ en utilisant~:
+  \item Encadrer $\sqrt3$ entre deux ant\'ec\'edents par $f$ en utilisant :
         $f(1{,}7)=2{,}89 < 3 < f(1{,}8)=3{,}24$.
   \item Montrer que $g$ est croissante, puis que $1{,}7<\sqrt{3}<1{,}8$.
 \end{enumerate}
@@ -1009,7 +1016,7 @@ c'est-\`a-dire un point d'intersection de $y=f(x)$ et $y=x$.
   \item \textbf{Fonctions de r\'ef\'erence~:}
         $x^2$ (paire, min en 0)~; $x^3$ (impaire, croissante)~;
         $\sqrt{x}$ (croissante sur $[0,+\infty[$)~;
-        $|x|$ (paire, min en 0)~; $1/x$ (impaire, d\'ecr. sur $\R^*$).
+        $|x|$ (paire, min en 0)~; $1/x$ (impaire, d\'ecroissante sur $]-\infty,0[$ et sur $]0,+\infty[$).
   \item \textbf{Transformations~:} $f(x)+k$ (translation vert.)~;
         $f(x+k)$ (translation horiz.)~; $-f(x)$ (sym.\ $Ox$)~;
         $f(-x)$ (sym.\ $Oy$).
@@ -1025,15 +1032,15 @@ c'est-\`a-dire un point d'intersection de $y=f(x)$ et $y=x$.
   \item Le domaine de d\'efinition de $f(x)=\sqrt{x-2}$.
   \item La condition pour que $g(x)=1/(x^2-4)$ soit d\'efinie.
   \item La proposition~: \og toute valeur de $f$ est positive\fg.
-  \item La n\'egation de~: \og $f$ admet un ant\'ec\'edent pour toute valeur\fg.
+  \item La n\'egation de~: \og Tout r\'eel $y$ admet un ant\'ec\'edent par $f$ dans $D_f$\fg.
 \end{enumerate}
 \end{exo}
 
 \begin{exo}[\logiq\ Implication et croissance \corrige]{2}
 \begin{enumerate}
-  \item \og $f$ croissante sur $[a,b]$ et $x_1<x_2$ dans $[a,b]$
-        $\Rightarrow f(x_1)<f(x_2)$\fg~: c'est la d\'efinition.
-        \'Enoncer la contrapos\'ee.
+  \item On suppose $f$ strictement croissante sur $[a,b]$.
+        Pour $x_1,x_2\in[a,b]$, \'enoncer la contrapos\'ee de
+        $x_1<x_2\Rightarrow f(x_1)<f(x_2)$.
   \item Si $f(3)=5$ et $f(5)=3$, que peut-on conclure sur la monotonie de $f$~?
         Quel raisonnement utilise-t-on~?
   \item D\'emontrer que $f(x)=x^2$ n'est pas monotone sur $\R$.
@@ -1042,7 +1049,7 @@ c'est-\`a-dire un point d'intersection de $y=f(x)$ et $y=x$.
 \end{exo}
 
 \begin{exo}[\logiq\ Conditions sur les extremums \corrige]{1}
-Pour une fonction $f$ de tableau de variations donn\'e~:
+Pour une fonction $f$ d\'efinie sur un domaine non vide $D_f$ :
 \begin{enumerate}
   \item \'Enoncer~: \og $f$ admet un minimum absolu\fg\ avec des quantificateurs.
   \item La proposition~: \og si $f(a)=0$, alors $a$ est un minimum\fg.
@@ -1098,7 +1105,7 @@ sur $[-1,5]$ en balayant avec un pas de $0{,}01$.
 Afficher la valeur approch\'ee et la comparer avec le minimum exact.
 \end{exo}
 
-\begin{exo}[\algo\ Algorithme~: d\'etecter les z\'eros par changement de signe \computer \corrige]{2}
+\begin{exo}[\algo\ Algorithme~: d\'etecter les z\'eros par changement de signe \ExtensionTTen \computer \corrige]{2}
 (Voir exercice \logicoalgo\ dans ce chapitre.)
 Tester sur~:
 \begin{enumerate}

@@ -22,11 +22,14 @@ sont au c\oe ur de la physique, de l'infographie et de l'intelligence artificiel
 \end{objectifs}
 
 \section{G\'en\'eralit\'es}
+Dans ce chapitre, les calculs de normes, d'angles et de produits scalaires
+par coordonn\'ees se font dans un rep\`ere orthonorm\'e.
 
 \begin{defn}[Vecteur]
-Un \textbf{vecteur} $\vv{AB}$ est d\'efini par sa \textbf{direction},
+Un \textbf{vecteur non nul} $\vv{AB}$ est d\'efini par sa \textbf{direction},
 son \textbf{sens} et sa \textbf{norme} $\norme{\vv{AB}} = AB$.
-Deux vecteurs sont \textbf{\'egaux} s'ils ont m\^{e}me direction, sens et norme.
+Si $A=B$, $\vv{AB}=\vec0$ : sa norme est nulle et il n'a ni direction ni sens.
+Deux vecteurs non nuls sont \textbf{\'egaux} s'ils ont m\^{e}me direction, sens et norme.
 \end{defn}
 
 \begin{prop}[Milieu]
@@ -39,8 +42,10 @@ $\vv{IA} + \vv{IB} = \vv{0}$.
 \begin{defn}[Produit scalaire]
 Soient $\vec{u}=(x_1,y_1)$ et $\vec{v}=(x_2,y_2)$ :
 $$\vec{u} \cdot \vec{v} = x_1 x_2 + y_1 y_2
-  = \norme{\vec{u}}\,\norme{\vec{v}}\cos\theta,$$
-o\`u $\theta$ est l'angle entre $\vec{u}$ et $\vec{v}$.
+  .$$
+Si les deux vecteurs sont non nuls, on a aussi
+$\vec u\cdot\vec v=\norme{\vec u}\,\norme{\vec v}\cos\theta$,
+o\`u $\theta$ est leur angle. Si l'un est nul, le produit scalaire vaut $0$.
 \end{defn}
 
 \begin{prop}[Orthogonalit\'e et colin\'earit\'e]
@@ -96,8 +101,10 @@ $$\vv{AB} = (x_B-x_A,\; y_B-y_A),\qquad
 \begin{defn}[Vecteurs colin\'eaires]
 \index{colinéarité}
 $\vec{u}=(x_1,y_1)$ et $\vec{v}=(x_2,y_2)$ sont \textbf{colin\'eaires}
-(m\^eme direction) si et seulement si~:
+si et seulement si~:
 $$x_1 y_2 - x_2 y_1 = 0.$$
+Deux vecteurs non nuls colin\'eaires ont la m\^eme direction.
+Le vecteur nul est colin\'eaire \`a tout vecteur.
 Cette expression s'appelle le \textbf{d\'eterminant} du couple $(\vec{u},\vec{v})$.
 \end{defn}
 

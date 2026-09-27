@@ -1,9 +1,15 @@
 \chapter{Banque d'exercices et de problèmes}
+\newcounter{bankchapter}
+\setcounter{bankchapter}{\value{chapter}}
+\newcounter{bankexercisebase}
+\setcounter{bankexercisebase}{\value{nexo}}
+\newcounter{bankproblembase}
+\setcounter{bankproblembase}{\value{nprob}}
 
 \newcommand{\calcoui}{\textcolor{VE!70!black}{\textbf{Calculatrice : autorisée}}}
 \newcommand{\calcnon}{\textcolor{OR!80!black}{\textbf{Calculatrice : non nécessaire}}}
-\renewcommand{\corrige}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
-\renewcommand{\corrigeP}{\TeacherOnly{\enspace\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}
+\renewcommand{\corrige}{\TeacherOnly{\enspace\hyperref[sol:B\thenexo]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
+\renewcommand{\corrigeP}{\TeacherOnly{\enspace\hyperref[sol:BP\thenprob]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
 
 \begin{tcolorbox}[enhanced,breakable,frame hidden,
   borderline west={2pt}{0pt}{BN},colback=BN!3,sharp corners,

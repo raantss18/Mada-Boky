@@ -128,6 +128,9 @@ Pour tous r\'eels $a$ et $b$ : $\abs{a + b} \leq \abs{a} + \abs{b}$.
 \end{thm}
 
 \begin{methode}[R\'esoudre $\abs{f(x)} \leq k$]
+On travaille sur le domaine de $f$ et on suppose $k\geq0$.
+Si $k<0$, les conditions $|f(x)|\leq k$ et $|f(x)|=k$ sont impossibles,
+et $|f(x)|\geq k$ est vraie sur tout le domaine.
 \begin{enumerate}
   \item $\abs{f(x)} \leq k \Leftrightarrow -k \leq f(x) \leq k$.
   \item $\abs{f(x)} \geq k \Leftrightarrow f(x) \leq -k \text{ ou } f(x) \geq k$.
@@ -225,7 +228,7 @@ Pour encadrer $\sqrt{n}$ entre deux entiers cons\'ecutifs~:
 \index{fractions}
 
 \begin{prop}[Op\'erations sur les fractions]
-Pour $b, d \ne 0$~:
+Pour $a,c\in\R$ et $b,d\in\R^*$ (avec aussi $c\ne0$ pour le quotient)~:
 $$\frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd},\qquad
   \frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd},\qquad
   \frac{a/b}{c/d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}.$$
@@ -234,9 +237,12 @@ $$\frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd},\qquad
 \begin{methode}[Rationaliser un d\'enominateur]
 \index{rationalisation}
 Pour \'eliminer une racine carr\'ee au d\'enominateur, multiplier num\'erateur
-et d\'enominateur par l'\emph{expression conjugu\'ee}~:
+et d\'enominateur par l'\emph{expression conjugu\'ee} non nulle.
+Pour $a,b\geq0$ et $a\ne b$~:
 $$\frac{1}{\sqrt{a}+\sqrt{b}} \times \frac{\sqrt{a}-\sqrt{b}}{\sqrt{a}-\sqrt{b}}
   = \frac{\sqrt{a}-\sqrt{b}}{a-b}.$$
+Si $a=b>0$, on utilise directement $1/(2\sqrt a)=\sqrt a/(2a)$.
+Si $a=b=0$, le quotient initial n'est pas d\'efini.
 \end{methode}
 
 \begin{ex}[Rationalisations]
@@ -656,7 +662,7 @@ $k \leftarrow 0$\;
 
 \begin{exo}[Irrationnalit\'e de $\sqrt{3}$ \corrige]{3}
 D\'emontrer que $\sqrt{3}\notin\Q$ par l'absurde.
-\emph{(D\'ej\`a vu en chapitre~1~; refaire ici en contexte alg\'ebrique.)}
+\emph{(D\'ej\`a vu en chapitre~\ref{chap:logique}~; refaire ici en contexte alg\'ebrique.)}
 \end{exo}
 
 \begin{exo}[Puissances de $(1+x)$ et encadrements \corrige]{3}
@@ -1158,13 +1164,14 @@ $d \leftarrow \pgcd(p,q)$\tcp*[r]{algorithme d'Euclide}
 \end{exo}
 
 \begin{exo}[\algo\ Algorithme~: d\'eterminer le type d'un r\'eel \corrige]{2}
-\'Ecrire un algorithme qui, \'etant donn\'e un r\'eel $x$, \'ecrit \og entier\fg,
-\og rationnel non entier\fg\ ou \og possiblement irrationnel\fg\ selon les tests~:
+L'entr\'ee est soit une fraction exacte $p/q$, avec $p\in\Z$ et
+$q\in\Z\setminus\{0\}$, soit une approximation d'un r\'eel inconnu.
 \begin{enumerate}
-  \item $x = \lfloor x\rfloor$~? (entier)
-  \item Sinon, peut-on \'ecrire $x = p/q$ avec $p,q$ entiers saisis~?
-  \item \'Ecrire l'algorithme.
-  \item Tester pour $x=0{,}5$, $x=\sqrt{2}$ (approxim.), $x=3$.
+  \item Pour une fraction exacte, justifier que $p/q$ est entier si et seulement si $q$ divise $p$.
+  \item Dans le cas contraire, quelle classification exacte peut-on donner ?
+  \item \'Ecrire un algorithme qui affiche \og entier\fg, \og rationnel non entier\fg,
+        ou \og ind\'etermin\'e \`a partir d'une approximation\fg.
+  \item Tester sur $1/2$, une approximation de $\sqrt2$ et $3/1$.
 \end{enumerate}
 \end{exo}
 

@@ -1,12 +1,11 @@
-\section*{Chapitre 2 \textemdash\ Algorithmique}
-\addcontentsline{toc}{section}{Chapitre 2 \textemdash\ Algorithmique}
+\solutionchapter{Algorithmique}
 
 %────────────────────────────────────────────────────────────────
 
 \subsection*{Exercices}
 \addcontentsline{toc}{subsection}{Exercices}
 
-\solutiontitle{2}{1}{Trace simple}
+\solutiontitle{Trace simple}
 
 \renewcommand{\arraystretch}{1.3}
 \begin{center}
@@ -25,7 +24,7 @@ $B\leftarrow C-A$ & 15 & $-7$ & 8 \\
 Valeurs finales~: $A=15$, $B=-7$, $C=8$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{2}{Trace avec variables suppl\'ementaires}
+\solutiontitle{Trace avec variables suppl\'ementaires}
 
 $X\leftarrow10$, $Y\leftarrow3$~: division enti\`ere $Z\leftarrow X\div Y = \lfloor10/3\rfloor=3$.
 Reste~: $R\leftarrow X-Z\times Y=10-9=1$.
@@ -35,7 +34,7 @@ Valeurs finales~: $X=3$, $Y=3$, $Z=3$, $R=1$.
 $R$ est le reste de la division euclidienne de $10$ par $3$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{3}{\'Echange de deux variables}
+\solutiontitle{\'Echange de deux variables}
 
 \begin{enumerate}
   \item Code incorrect~: $A\leftarrow B$ \'ecrase la valeur de $A$ avant qu'elle
@@ -52,7 +51,7 @@ $B \leftarrow T$\;
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{4}{Calcul de moyenne}
+\solutiontitle{Calcul de moyenne}
 
 \begin{algorithm}[H]
 \caption{Moyenne et r\'esultat}
@@ -72,7 +71,7 @@ print("Recu" if m >= 10 else "Recale")
 \end{lstlisting}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{5}{\'Equation du premier degr\'e}
+\solutiontitle{\'Equation du premier degr\'e}
 
 \begin{algorithm}[H]
 \caption{R\'esolution de $ax+b=0$}
@@ -91,7 +90,7 @@ Exemples~: $a=2, b=-6\Rightarrow x=3$~;
 $a=0, b=0\Rightarrow$ infinit\'e~; $a=0, b=5\Rightarrow$ aucune.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{6}{Organigramme pair/impair}
+\solutiontitle{Organigramme pair/impair}
 
 \begin{enumerate}
   \item Organigramme~:
@@ -128,7 +127,7 @@ $a=0, b=0\Rightarrow$ infinit\'e~; $a=0, b=5\Rightarrow$ aucune.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{7}{Valeur absolue}
+\solutiontitle{Valeur absolue}
 
 \begin{algorithm}[H]
 \caption{Valeur absolue}
@@ -140,7 +139,7 @@ $a=0, b=0\Rightarrow$ infinit\'e~; $a=0, b=5\Rightarrow$ aucune.
 Tests~: $x=-5\Rightarrow5$~; $x=0\Rightarrow0$~; $x=3{,}14\Rightarrow3{,}14$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{8}{Maximum de trois nombres}
+\solutiontitle{Maximum de trois nombres}
 
 \textbf{(1) Si imbriqu\'es~:}
 \begin{algorithm}[H]
@@ -169,7 +168,7 @@ La deuxi\`eme version est plus g\'en\'eralisable~: remplacer les deux \texttt{Si
 par une boucle sur $n$ \'el\'ements.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{9}{Table de multiplication}
+\solutiontitle{Table de multiplication}
 
 Trace pour $n=3$~: affiche $3, 6, 9, 12, 15, 18, 21, 24, 27, 30$.
 
@@ -188,7 +187,7 @@ for k in range(1, 11):
 \end{lstlisting}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{10}{Lecture d'algorithme}
+\solutiontitle{Lecture d'algorithme}
 
 L'algorithme calcule $S = 1 + 2 + \cdots + N = \dfrac{N(N+1)}{2}$.
 
@@ -197,7 +196,7 @@ V\'erification pour $N=5$~: $S=15=5\times6/2$.\checkmark
 L'invariant de boucle est \og apr\`es $i$ it\'erations, $S=1+2+\cdots+i$\fg.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{11}{Compter les multiples}
+\solutiontitle{Compter les multiples}
 
 \begin{algorithm}[H]
 \caption{Multiples de 3 $< 100$}
@@ -212,7 +211,7 @@ $\mathit{compte} \leftarrow 0$\;
 Il y en a $\lfloor 99/3\rfloor = 33$ (de $3$ \`a $99$).
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{12}{Conversion Celsius/Fahrenheit}
+\solutiontitle{Conversion Celsius/Fahrenheit}
 
 \begin{algorithm}[H]
 \caption{Tableau Celsius/Fahrenheit}
@@ -226,7 +225,7 @@ Premi\`eres lignes~: $0^{\circ}\text{C}=32^{\circ}\text{F}$~;
 $10^{\circ}\text{C}=50^{\circ}\text{F}$~; $100^{\circ}\text{C}=212^{\circ}\text{F}$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{13}{Puissance enti\`ere}
+\solutiontitle{Puissance enti\`ere}
 
 \begin{algorithm}[H]
 \caption{$x^n$ par multiplications}
@@ -240,7 +239,7 @@ Trace pour $x=2$, $n=8$~: $P$ prend les valeurs $2,4,8,16,32,64,128,256$.
 Valeur finale~: $P=256=2^8$.\checkmark
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{14}{Somme des chiffres d'un entier}
+\solutiontitle{Somme des chiffres d'un entier}
 
 \begin{algorithm}[H]
 \caption{Somme des chiffres}
@@ -261,7 +260,7 @@ $S=9+1=10$, $n=0$~;
 Fin~: $S=10=1+2+3+4$.\checkmark
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{15}{Lecture de trace~: algorithme d'Euclide}
+\solutiontitle{Lecture de trace~: algorithme d'Euclide}
 
 Trace pour $A=48$, $B=18$~:
 \begin{center}
@@ -280,7 +279,7 @@ $A$ & $B$ & $R = A\bmod B$ \\
 L'algorithme calcule le \textbf{PGCD}. Valeur finale de $A=6=\pgcd(48,18)$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{16}{Suite arithm\'etique}
+\solutiontitle{Suite arithm\'etique}
 
 \begin{algorithm}[H]
 \caption{Suite arithm\'etique et somme}
@@ -299,7 +298,7 @@ Par exemple pour $u_0=1$, $r=2$~: $S=20+190\times2=400$.
 Formule~: $20\times1+190\times2=20+380=400$.\checkmark
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{17}{Suite g\'eom\'etrique et seuil}
+\solutiontitle{Suite g\'eom\'etrique et seuil}
 
 \begin{algorithm}[H]
 \caption{Suite g\'eom\'etrique $u_n=3\times2^n$}
@@ -314,7 +313,7 @@ V\'erification alg\'ebrique~: $3\times2^n>1000\Rightarrow2^n>333{,}3\Rightarrow 
 Donc $n=9$~: $u_9=3\times512=1536>1000$.\checkmark
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{18}{Factorielle}
+\solutiontitle{Factorielle}
 
 \begin{algorithm}[H]
 \caption{Factorielle}
@@ -334,7 +333,7 @@ $F \leftarrow 1$\;
 Exemples~: $5!=120$~; $0!=1$~; $10!=3628800$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{19}{Maximum et position}
+\solutiontitle{Maximum et position}
 
 \begin{algorithm}[H]
 \caption{Maximum et sa position}
@@ -350,7 +349,7 @@ Exemples~: $5!=120$~; $0!=1$~; $10!=3628800$.
 Nombre de comparaisons~: exactement $n-1$ (une par \'el\'ement apr\`es le premier).
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{20}{Recherche lin\'eaire}
+\solutiontitle{Recherche lin\'eaire}
 
 \begin{algorithm}[H]
 \caption{Recherche lin\'eaire}
@@ -370,7 +369,7 @@ Nombre de comparaisons~: exactement $n-1$ (une par \'el\'ement apr\`es le premie
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{21}{Palindrome}
+\solutiontitle{Palindrome}
 
 \begin{algorithm}[H]
 \caption{Test palindrome}
@@ -386,7 +385,7 @@ Tests~: \texttt{radar}~: $r=r$, $a=a$, $d=d$~$\Rightarrow$ palindrome.
 \texttt{bonjour}~: $b\ne r$~$\Rightarrow$ non palindrome.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{22}{Suite de Syracuse}
+\solutiontitle{Suite de Syracuse}
 
 \begin{algorithm}[H]
 \caption{Suite de Syracuse}
@@ -405,7 +404,7 @@ Pour $n=6$~: $6\to3\to10\to5\to16\to8\to4\to2\to1$~: temps de vol~$8$, altitude 
 La conjecture de Collatz (non d\'emontr\'ee) affirme que toute suite atteint $1$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{23}{Diviseurs d'un entier}
+\solutiontitle{Diviseurs d'un entier}
 
 \textbf{Version 1~:}
 \begin{algorithm}[H]
@@ -433,7 +432,7 @@ $\lfloor\sqrt{n}\rfloor$ op\'erations~: beaucoup moins pour les grands $n$.
 Pour $n=36$~: diviseurs $1,2,3,4,6,9,12,18,36$.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{24}{Nombre premier}
+\solutiontitle{Nombre premier}
 
 \begin{enumerate}
   \item Si $n$ admet un diviseur $d > \sqrt{n}$, alors $n/d < \sqrt{n}$
@@ -457,7 +456,7 @@ $k \leftarrow 2$\;
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{25}{Z\'ero d'une fonction par dichotomie}
+\solutiontitle{Z\'ero d'une fonction par dichotomie}
 
 \begin{enumerate}
   \item $f(1)=1-2=-1<0$ et $f(2)=8-2=6>0$.\checkmark\ (TVI garantit une racine dans $]1,2[$.)
@@ -477,7 +476,7 @@ $a \leftarrow 1$~;\quad $b \leftarrow 2$~;\quad $\varepsilon \leftarrow 10^{-6}$
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{26}{Codage de C\'esar}
+\solutiontitle{Codage de C\'esar}
 
 \begin{algorithm}[H]
 \caption{Chiffrement de C\'esar}
@@ -495,7 +494,7 @@ La cl\'e $k=13$ donne ROT13~: son propre inverse car $13+13=26\equiv0$.
 Le nombre de cl\'es possibles est $26$~: force brute triviale (essayer toutes).
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{27}{Alignement de points}
+\solutiontitle{Alignement de points}
 
 \begin{algorithm}[H]
 \caption{Test d'alignement}
@@ -512,7 +511,7 @@ Test $A(0,0)$, $B(1,2)$, $C(3,5)$~:
 $d=(1)(5)-(3)(2)=5-6=-1\ne0$~: non align\'es.\checkmark
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{28}{Calcul de $\pi$ par s\'erie de Leibniz}
+\solutiontitle{Calcul de $\pi$ par s\'erie de Leibniz}
 
 \begin{algorithm}[H]
 \caption{$\pi$ par Leibniz}
@@ -541,7 +540,7 @@ La convergence est lente : multiplier le nombre de termes par $10$ ne gagne
 qu'environ une décimale. La série de Machin converge beaucoup plus vite.
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{29}{Sch\'ema de H\"orner}
+\solutiontitle{Sch\'ema de H\"orner}
 
 \begin{algorithm}[H]
 \caption{Sch\'ema de H\"orner}
@@ -563,7 +562,7 @@ qu'environ une décimale. La série de Machin converge beaucoup plus vite.
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{30}{Suite de Fibonacci et nombre d'or}
+\solutiontitle{Suite de Fibonacci et nombre d'or}
 
 \begin{algorithm}[H]
 \caption{Fibonacci et nombre d'or}
@@ -587,7 +586,7 @@ $u \leftarrow 0$~;\quad $v \leftarrow 1$\;
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{31}{Preuve de correction~: invariant}
+\solutiontitle{Preuve de correction~: invariant}
 
 \textbf{Invariant~:} au d\'ebut de chaque it\'eration avec valeur $k$,
 $F = (k-1)!$.
@@ -601,7 +600,7 @@ alors apr\`es $F\leftarrow F\times k$, on a $F=k!=(k+1-1)!$. \checkmark
 \`A ce moment, l'invariant donne $F=(n+1-1)!=n!$.\hfill$\square$
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{32}{Algorithme d'Euclide}
+\solutiontitle{Algorithme d'Euclide}
 
 \begin{enumerate}
   \item Pseudo-code et trace~:
@@ -640,7 +639,7 @@ Le pseudo-code est~:
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{33}{Exponentiation rapide}
+\solutiontitle{Exponentiation rapide}
 
 \begin{algorithm}[H]
 \caption{Exponentiation rapide (it\'erative)}
@@ -666,7 +665,7 @@ Le pseudo-code est~:
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{34}{Tri \`a bulles}
+\solutiontitle{Tri \`a bulles}
 
 \begin{algorithm}[H]
 \caption{Tri \`a bulles}
@@ -694,7 +693,7 @@ Le pseudo-code est~:
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{35}{Recherche dichotomique}
+\solutiontitle{Recherche dichotomique}
 
 \begin{algorithm}[H]
 \caption{Recherche dichotomique}
@@ -727,7 +726,7 @@ $g \leftarrow 1$~;\quad $d \leftarrow n$\;
 \end{enumerate}
 
 %────────────────────────────────────────────────────────────────
-\solutiontitle{2}{36}{Codage et d\'ecodage binaire}
+\solutiontitle{Codage et d\'ecodage binaire}
 
 \begin{algorithm}[H]
 \caption{D\'ecimal vers binaire}
@@ -758,38 +757,33 @@ V\'erification~: $1\cdot32+0\cdot16+1\cdot8+0\cdot4+1\cdot2+0\cdot1=42$.\checkma
 \addcontentsline{toc}{subsection}{Probl\`emes}
 %────────────────────────────────────────────────────────────────
 
-\psolutiontitle{2}{1}{Simulation d'un jeu de d\'es}
+\psolutiontitle{Simulation d'un jeu de d\'es}
 
-\begin{enumerate}
-  \item Pseudo-code~:
-\begin{algorithm}[H]
-\caption{Simulation de $N$ lancers de d\'es}
-\Lire $N$~;\quad $\mathit{compte\_double} \leftarrow 0$\;
-\Pour{$i \leftarrow 1$ \KwTo $N$}{
-  $d_1 \leftarrow$ entier al\'eatoire dans $\{1,\ldots,6\}$\;
-  $d_2 \leftarrow$ entier al\'eatoire dans $\{1,\ldots,6\}$\;
-  $S \leftarrow d_1 + d_2$\;
-  \Si{$d_1 = d_2$}{$\mathit{compte\_double} \leftarrow \mathit{compte\_double}+1$\;}
-  \Afficher $d_1$, $d_2$, $S$\;
-}
-\Afficher \og Fr\'equence doubles~: \fg, $\mathit{compte\_double}/N$\;
-\end{algorithm}
-  \item Probabilit\'e th\'eorique d'un double~: $6/36=1/6\approx16{,}7\%$.
-  \item Pour $N=1000$, la fr\'equence converge vers $1/6$ (loi des grands nombres).
-  \item Impl\'ementation Python~:
-\begin{lstlisting}[style=python]
+\textbf{(1--2)} L'algorithme de l'\'enonc\'e compte les sommes \'egales \`a $7$.
+Pour deux d\'es \'equilibr\'es lanc\'es ind\'ependamment, les $36$ couples ordonn\'es
+sont \'equiprobables. Les six couples favorables sont
+$(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$ : la probabilit\'e vaut $6/36=1/6$.
+Pour $N=1000$, la fr\'equence simul\'ee est souvent proche de $1/6$,
+mais sa valeur exacte varie d'une simulation \`a l'autre.
+
+\textbf{(3)} Pour obtenir toutes les sommes, on conserve onze compteurs :
+\begin{lstlisting}[language=Python]
 import random
-N = int(input("N = "))
-doubles = 0
+N = 1000
+comptes = {s: 0 for s in range(2, 13)}
 for _ in range(N):
-    d1, d2 = random.randint(1,6), random.randint(1,6)
-    if d1 == d2:
-        doubles += 1
-print(f"Frequence doubles : {doubles/N:.3f}")
+    d1 = random.randint(1, 6)
+    d2 = random.randint(1, 6)
+    comptes[d1+d2] += 1
+print("Somme 7:", comptes[7], "frequence:", comptes[7]/N)
+for s in range(2, 13):
+    print(s, comptes[s], comptes[s]/N)
 \end{lstlisting}
-\end{enumerate}
+Les effectifs th\'eoriques parmi les $36$ couples sont
+$1,2,3,4,5,6,5,4,3,2,1$ pour les sommes de $2$ \`a $12$.
 
-\psolutiontitle{2}{2}{Suite de Collatz et conjecture}
+
+\psolutiontitle{Suite de Collatz et conjecture}
 
 \begin{enumerate}
   \item Algorithme~:
@@ -810,7 +804,7 @@ print(f"Frequence doubles : {doubles/N:.3f}")
         atteignent $1$ en temps fini.
 \end{enumerate}
 
-\psolutiontitle{2}{3}{M\'ethode de H\'eron~: racine carr\'ee}
+\psolutiontitle{M\'ethode de H\'eron~: racine carr\'ee}
 
 \begin{enumerate}
   \item Pseudo-code~:
@@ -828,7 +822,7 @@ print(f"Frequence doubles : {doubles/N:.3f}")
         double \`a chaque it\'eration. C'est bien plus rapide que la dichotomie.
 \end{enumerate}
 
-\psolutiontitle{2}{4}{Algorithme de H\"orner et \'evaluation de polyn\^omes}
+\psolutiontitle{Algorithme de H\"orner et \'evaluation de polyn\^omes}
 
 $P(x)=3x^4-7x^3+2x^2+x-5$.
 
@@ -843,7 +837,7 @@ $P(x)=3x^4-7x^3+2x^2+x-5$.
         séparément toutes les puissances de $x$.
 \end{enumerate}
 
-\psolutiontitle{2}{5}{Cryptographie par d\'ecalage~: attaque}
+\psolutiontitle{Cryptographie par d\'ecalage~: attaque}
 
 \begin{enumerate}
   \item Force brute (essayer les $26$ cl\'es)~:
@@ -862,7 +856,7 @@ $P(x)=3x^4-7x^3+2x^2+x-5$.
         les $26$ possibilit\'es en microsecondes.
 \end{enumerate}
 
-\psolutiontitle{2}{6}{Jeu du plus/moins}
+\psolutiontitle{Jeu du plus/moins}
 
 \begin{algorithm}[H]
 \caption{Jeu du plus/moins}
@@ -879,7 +873,7 @@ La strat\'egie optimale est la \textbf{dichotomie}~: toujours proposer le milieu
 de l'intervalle possible. Avec $100$ nombres, on trouve en $\leq7$ essais
 car $\lceil\log_2 100\rceil=7$.
 
-\psolutiontitle{2}{7}{Crible d'\'Eratosth\`ene}
+\psolutiontitle{Crible d'\'Eratosth\`ene}
 
 \begin{algorithm}[H]
 \caption{Crible d'\'Eratosth\`ene}
@@ -908,7 +902,7 @@ Afficher tous les $i$ tels que $\mathit{est\_premier}[i]$\;
   \item Nombre de premiers $\leq 100$~: $25$.
 \end{enumerate}
 
-\psolutiontitle{2}{8}{Tri fusion~: principe}
+\psolutiontitle{Tri fusion~: principe}
 
 \textbf{Fusion de deux tableaux tri\'es~:}
 \begin{algorithm}[H]
@@ -936,7 +930,7 @@ Copier les \'el\'ements restants de $A$ ou $B$ dans $C$\;
 
 Le tri fusion partage d'abord la liste, puis fusionne les sous-listes déjà triées.
 
-\psolutiontitle{2}{9}{Chiffrement de Vigen\`ere}
+\psolutiontitle{Chiffrement de Vigen\`ere}
 
 \begin{algorithm}[H]
 \caption{Chiffrement de Vigen\`ere}
@@ -955,7 +949,7 @@ $B(1)+C(2)=D(3)$~; $O(14)+L(11)=Z(25)$~; $N(13)+E(4)=R(17)$~; etc.
 Le chiffrement de Vigen\`ere est plus s\^ur que C\'esar car il d\'epend d'une cl\'e~:
 $26^L$ cl\'es possibles pour une cl\'e de longueur $L$.
 
-\psolutiontitle{2}{10}{Compression RLE}
+\psolutiontitle{Compression RLE}
 
 \begin{algorithm}[H]
 \caption{Compression RLE}
@@ -978,7 +972,7 @@ La d\'ecompression lit un chiffre $n$ suivi d'un caract\`ere $c$ et \'ecrit $c$ 
 Le RLE est efficace pour les s\'equences avec beaucoup de r\'ep\'etitions (images, texte simple)
 mais peut \emph{augmenter} la taille pour des s\'equences vari\'ees.
 
-\psolutiontitle{2}{11}{Correction logique d'un algorithme}
+\psolutiontitle{Correction logique d'un algorithme}
 
 \begin{enumerate}
   \item $L=\{3,7,2,9,5\}$~: max $=9$. L'algorithme donne $9$~: correct ici.
@@ -993,7 +987,7 @@ mais peut \emph{augmenter} la taille pour des s\'equences vari\'ees.
         est le maximum de $L[1..i]$\fg.
 \end{enumerate}
 
-\psolutiontitle{2}{12}{Calcul de $\pi$ par m\'ethode de Monte-Carlo}
+\psolutiontitle{Calcul de $\pi$ par m\'ethode de Monte-Carlo}
 
 \begin{algorithm}[H]
 \caption{Monte-Carlo pour $\pi$}
@@ -1022,7 +1016,7 @@ $N$ & Approximation typique & Erreur \\
 La convergence est lente, mais la méthode est facile à implémenter et peut être
 adaptée à d'autres simulations.
 
-\psolutiontitle{2}{13}{Statistiques par algorithme}
+\psolutiontitle{Statistiques par algorithme}
 
 \begin{lstlisting}[style=python]
 def statistiques():

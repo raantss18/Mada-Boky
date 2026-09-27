@@ -20,15 +20,17 @@ n'est pas strictement euclidien.
 \end{objectifs}
 
 \section{\'Equations d'une droite}
+Dans tout ce chapitre, le rep\`ere est orthonorm\'e.
+Les rayons des cercles sont strictement positifs.
 
 \begin{defn}[Formes d'une droite]
 Dans un rep\`ere :
 \begin{itemize}
-  \item \textbf{Cart\'esienne} : $ax + by + c = 0$.
+  \item \textbf{Cart\'esienne} : $ax + by + c = 0$, avec $(a,b)\ne(0,0)$.
   \item \textbf{R\'eduite} : $y = mx + p$ ($m$ = coefficient directeur).
   \item \textbf{Param\'etrique} :
         $\begin{cases}x = x_0 + t\,d_x\\ y = y_0 + t\,d_y\end{cases}$,
-        $(d_x,d_y)$ vecteur directeur.
+        $t\in\R$, $(d_x,d_y)\ne(0,0)$ vecteur directeur.
 \end{itemize}
 \end{defn}
 
@@ -92,7 +94,8 @@ Pour une droite $y=mx+p$~:
         $y - y_A = m(x-x_A)$.
   \item \textbf{Parall\`ele \`a $y=mx+p$~:} m\^eme pente $m$, chercher $p'$
         via le point donn\'e.
-  \item \textbf{Perpendiculaire \`a $y=mx+p$~:} pente $m' = -1/m$.
+  \item \textbf{Perpendiculaire \`a $y=mx+p$~:} si $m\ne0$, pente $m'=-1/m$.
+        Si $m=0$, la perpendiculaire passant par $A$ est la verticale $x=x_A$.
 \end{enumerate}
 \end{methode}
 
@@ -143,8 +146,8 @@ rayon~: $r=\dfrac{\sqrt{D^2+E^2-4F}}{2}$.
   % right angle mark
   \pgfmathsetmacro{\ds}{0.12}
   \draw[BN,thin]
-    ({1.5*cos(40)+\ds*\tx-\ds*cos(40)},{1.5*sin(40)+\ds*\ty-\ds*sin(40)}) --
     ({1.5*cos(40)+\ds*\tx},{1.5*sin(40)+\ds*\ty}) --
+    ({1.5*cos(40)+\ds*\tx-\ds*cos(40)},{1.5*sin(40)+\ds*\ty-\ds*sin(40)}) --
     ({1.5*cos(40)-\ds*cos(40)},{1.5*sin(40)-\ds*sin(40)});
   % labels
   \fill[BN] (O) circle (2pt) node[below left,font=\small] {$\Omega$};
@@ -178,7 +181,8 @@ avec $d = \Omega_1\Omega_2$~:
   \item $d > r_1+r_2$~: ext\'erieurs l'un \`a l'autre (0 point commun).
   \item $d = r_1+r_2$~: tangents ext\'erieurement (1 point commun).
   \item $|r_1-r_2| < d < r_1+r_2$~: s\'ecants (2 points communs).
-  \item $d = |r_1-r_2|$~: tangents int\'erieurement (1 point commun).
+  \item $d = |r_1-r_2|>0$~: tangents int\'erieurement (1 point commun).
+  \item $d=0$ et $r_1=r_2$~: cercles confondus (une infinit\'e de points communs).
   \item $d < |r_1-r_2|$~: l'un \`a l'int\'erieur de l'autre (0 point commun).
 \end{itemize}
 \end{prop}
@@ -219,7 +223,7 @@ avec $d = \Omega_1\Omega_2$~:
     \node[font=\small] at (0,-1.9) {int\'erieurs};
   \end{scope}
 \end{tikzpicture}
-\caption{Cinq positions relatives de deux cercles.}
+\caption{Cinq positions relatives de deux cercles distincts.}
 \end{figure}
 
 \section{Exercices}
@@ -475,7 +479,7 @@ ext\'erieur au cercle.
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[\'Equation cart\'esienne d'une parabole \corrige]{2}
+\begin{exo}[\'Equation cart\'esienne d'une parabole \ExtensionTTen \corrige]{2}
 \index{parabole}
 Le \emph{lieu des points \'equidistants} du point $F(0,1)$ et de la droite
 $y=-1$ est une courbe appel\'ee parabole.
@@ -681,7 +685,7 @@ Soit $\mathcal{C}$~: $x^2+y^2=25$ et $(\Delta)$~: $3x+4y-25=0$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[M\'ediane, hauteur, m\'ediatrice~: r\'ecap \corrigeP]{2}
+\begin{probleme}[M\'ediane, hauteur, m\'ediatrice~: r\'ecap \ExtensionTTen \corrigeP]{2}
 Pour le triangle $A(2,6)$, $B(-4,0)$, $C(4,0)$~:
 \begin{enumerate}
   \item Calculer les coordonn\'ees du centre de gravité $G$, du circocentre $O'$
@@ -712,7 +716,7 @@ Soit $A(0,0)$, $B(6,0)$, $C(0,4)$ et $M$ le point de $[AB]$ tel que $AM=4$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Droites et syst\`emes~: triangle \corrigeP]{2}
+\begin{probleme}[Droites et syst\`emes~: triangle \ExtensionTTen \corrigeP]{2}
 Trois droites $d_1$~: $y=2x$~; $d_2$~: $y=-x+6$~; $d_3$~: $y=1$
 forment un triangle.
 \begin{enumerate}
@@ -750,8 +754,9 @@ Les distances mesur\'ees sont~: $d_A=5$, $d_B=5$, $d_C=8$.
   \item \'Ecrire l'\'equation du cercle de centre $A$, rayon $5$.
   \item M\^eme chose pour $B$ et $C$.
   \item Trouver le point $M$ commun aux trois cercles.
-  \item En g\'en\'eral, deux cercles donnent $\leq 2$ solutions.
-        Pourquoi le troisi\`eme cercle permet-il d'en s\'electionner une seule~?
+  \item Deux cercles distincts ont au plus deux points communs.
+        Avec trois centres non align\'es, expliquer pourquoi il y a au plus
+        une solution commune. Son existence est-elle toujours garantie ?
 \end{enumerate}
 \end{probleme}
 
@@ -808,7 +813,7 @@ D\'eterminer l'\'equation du cercle passant par $A(0,0)$, $B(4,0)$, $C(1,3)$.
 
 \begin{challenge}[Th\'eor\`eme de Ptolom\'ee]
 \index{théorème de Ptolémée}
-Pour un quadrilat\`ere $ABCD$ inscrit dans un cercle~:
+Pour un quadrilat\`ere convexe $ABCD$, dont les sommets sont dans cet ordre sur un cercle~:
 $AC\cdot BD = AB\cdot CD + AD\cdot BC.$
 V\'erifier num\'eriquement sur le carr\'e $A(1,0)$, $B(0,1)$, $C(-1,0)$, $D(0,-1)$.
 \begin{enumerate}
@@ -819,7 +824,7 @@ V\'erifier num\'eriquement sur le carr\'e $A(1,0)$, $B(0,1)$, $C(-1,0)$, $D(0,-1
 \end{challenge}
 
 \begin{challenge}[Positions relatives~: discussion selon un param\`etre]
-Soit $\mathcal{C}$~: $x^2+y^2=r^2$ et $(\Delta_k)$~: $x+y=k$.
+Soit $r>0$, $\mathcal{C}$ : $x^2+y^2=r^2$ et $(\Delta_k)$ : $x+y=k$.
 \begin{enumerate}
   \item Calculer la distance du centre $O(0,0)$ \`a $(\Delta_k)$.
   \item Selon les valeurs de $k$ (en fonction de $r$), d\'eterminer

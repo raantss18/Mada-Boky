@@ -37,9 +37,8 @@ for label, count in Counter(labels).items():
     if count > 1 and not label.startswith(("exo:", "prob:", "sol:")):
         errors.append(f"duplicate label {label!r}: {count}")
 
-# Each exercise and problem advertised with a correction link must have one
-# correction with the same number.  This catches numbering drift when content
-# is inserted into a chapter but not into its answer key.
+# Correction numbers are generated in the order of their chapter's statements.
+# Check the count and chapter heading so insertions cannot silently drift.
 for chapter_file in sorted((ROOT / "chapters").glob("[0-9][0-9]-*.tex")):
     chapter_number = int(chapter_file.name[:2])
     solution_file = next((ROOT / "solutions").glob(f"{chapter_number:02d}-*.tex"), None)
@@ -50,32 +49,21 @@ for chapter_file in sorted((ROOT / "chapters").glob("[0-9][0-9]-*.tex")):
     solution_text = solution_file.read_text(encoding="utf-8")
     exercise_count = len(re.findall(r"\\begin\{exo\}", chapter_text))
     problem_count = len(re.findall(r"\\begin\{probleme\}", chapter_text))
-    exercise_solutions = {
-        int(number)
-        for chapter, number in re.findall(
-            r"\\solutiontitle\{(\d+)\}\{(\d+)\}", solution_text
-        )
-        if int(chapter) == chapter_number
-    }
-    problem_solutions = {
-        int(number)
-        for chapter, number in re.findall(
-            r"\\psolutiontitle\{(\d+)\}\{(\d+)\}", solution_text
-        )
-        if int(chapter) == chapter_number
-    }
-    expected_exercises = set(range(1, exercise_count + 1))
-    expected_problems = set(range(1, problem_count + 1))
-    if exercise_solutions != expected_exercises:
-        errors.append(
-            f"chapter {chapter_number}: exercise solutions "
-            f"{sorted(exercise_solutions)} != {sorted(expected_exercises)}"
-        )
-    if problem_solutions != expected_problems:
-        errors.append(
-            f"chapter {chapter_number}: problem solutions "
-            f"{sorted(problem_solutions)} != {sorted(expected_problems)}"
-        )
+    for line_no, line in enumerate(chapter_text.splitlines(), 1):
+        if line.startswith(r"\begin{exo}") and r"\corrige" not in line:
+            errors.append(f"chapter {chapter_number}:{line_no}: exercise has no correction link")
+        if line.startswith(r"\begin{probleme}") and r"\corrigeP" not in line:
+            errors.append(f"chapter {chapter_number}:{line_no}: problem has no correction link")
+    if len(re.findall(r"^\\solutionchapter\{", solution_text, re.M)) != 1:
+        errors.append(f"chapter {chapter_number}: expected one generated solution heading")
+    exercise_solutions = len(re.findall(r"^\\solutiontitle\{", solution_text, re.M))
+    problem_solutions = len(re.findall(r"^\\psolutiontitle\{", solution_text, re.M))
+    if exercise_solutions != exercise_count:
+        errors.append(f"chapter {chapter_number}: {exercise_solutions} exercise solutions for {exercise_count} exercises")
+    if problem_solutions != problem_count:
+        errors.append(f"chapter {chapter_number}: {problem_solutions} problem solutions for {problem_count} problems")
+    if re.search(r"\\(?:p)?solutiontitle\{\d+\}\{\d+\}", solution_text):
+        errors.append(f"chapter {chapter_number}: manually numbered correction title remains")
 
 if "°" in all_text:
     errors.append("raw Unicode degree sign found; use $^{\\circ}$ for portable builds")
@@ -107,6 +95,15 @@ if len(re.findall(r"^\\begin\{probleme\}", evaluations, re.M)) < 8:
     errors.append("expected at least eight selectable problems")
 if evaluations.count(r"\calcoui") + evaluations.count(r"\calcnon") < 50:
     errors.append("each bank item must state calculator policy")
+bank_corrections = (ROOT / "assessments" / "corrections.tex").read_text(encoding="utf-8")
+if len(re.findall(r"^\\bankexerciseanswer\{", bank_corrections, re.M)) != evaluations.count(r"\begin{exo}"):
+    errors.append("assessment-bank exercise correction count differs from the statement count")
+if len(re.findall(r"^\\bankproblemanswer\{", bank_corrections, re.M)) != evaluations.count(r"\begin{probleme}"):
+    errors.append("assessment-bank problem correction count differs from the statement count")
+if r"\hyperref[sol:B\thenexo]" not in evaluations or r"\hyperref[sol:BP\thenprob]" not in evaluations:
+    errors.append("assessment items must link to their corrections")
+if r"\hyperref[exo:\thenbankexocorr]" not in bank_corrections or r"\hyperref[prob:\thenbankprobcorr]" not in bank_corrections:
+    errors.append("assessment corrections must link back to their statements")
 if any(marker in evaluations for marker in (
     "10 à 25 minutes", "25 à 45 minutes", "35 à 70 minutes",
     "40--50 min", "1 h à 1 h 30"

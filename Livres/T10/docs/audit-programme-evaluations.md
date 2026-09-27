@@ -16,7 +16,14 @@ La préface explique sans ambiguïté que ces approfondissements sont destinés 
 très en avance ou visant des études, concours ou olympiades plus ambitieux; ils ne sont
 ni prérequis ni évaluables. Le guide du professeur donne la même règle.
 
-## Référentiel contrôlé
+## Références vérifiées lors du deuxième passage (24 septembre 2026)
+
+- [PE LYCEE T10 .pdf](https://drive.google.com/file/d/1AMsFgBXwIWlrHgLEqnesEisoZkdEofQ2/view), programme du MEN, mathématiques pp. 119-130 : référence des contenus et capacités.
+- [RAPE_T10_GENERALISATION.pdf](https://drive.google.com/file/d/1UbJWcsTjDp2kNnhypFgWFV3Gda6RlR_A/view), MEN, édition **août 2026** : référence annuelle identifiée directement sur sa couverture.
+
+Ces références officielles ont été lues pour le passage 2. Le dossier courant ne contient pas de sous-dossier `PSE/`; les anciennes références GitHub ci-dessous sont historiques. La conformité item par item de tous les approfondissements reste à terminer (U02).
+
+## Référentiel du contrôle initial
 
 - `09-Programme-Scolaire-2de.pdf` : programme général de Seconde utilisé comme
   référence historique et de cohérence verticale ;

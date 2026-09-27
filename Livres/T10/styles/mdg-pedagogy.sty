@@ -133,18 +133,18 @@
 \newcounter{nexo}[chapter]
 \renewcommand{\thenexo}{\thechapter.\arabic{nexo}}
 \newcommand{\corrige}{\TeacherOnly{\enspace\hyperref[sol:\thenexo]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
-\newenvironment{exo}[2][]{\stepcounter{nexo}\par\addvspace{7pt}
+\newenvironment{exo}[2][]{\refstepcounter{nexo}\par\addvspace{7pt}
   {\color{BN!18}\rule{\textwidth}{0.25pt}}\par\nopagebreak\addvspace{4pt}
-  \phantomsection\label{exo:\thenexo}\noindent{\color{BN}\bfseries\small Exercice~\thenexo}
+  \noindent\phantomsection\label{exo:\thenexo}{\color{BN}\bfseries\small Exercice~\thenexo}
   \if\relax\detokenize{#1}\relax\else\enspace{\color{GM!65!black}\small\textit{#1}}\fi
   \hfill\diff{#2}\par\smallskip\noindent\ignorespaces}{\par\addvspace{5pt}}
 \newcounter{nprob}[chapter]
 \renewcommand{\thenprob}{\thechapter.\arabic{nprob}}
 \newcommand{\corrigeP}{\TeacherOnly{\enspace\hyperref[sol:P\thenprob]{\textcolor{OR!75}{\small$\triangleright$\,\textit{corrigé}}}}}
-\newenvironment{probleme}[2][]{\stepcounter{nprob}\par\addvspace{8pt}\phantomsection\label{prob:\thenprob}
+\newenvironment{probleme}[2][]{\refstepcounter{nprob}\par\addvspace{8pt}
   \begin{tcolorbox}[enhanced,breakable,frame hidden,borderline west={2pt}{0pt}{OD!80},
   colback=OD!5,sharp corners,left=14pt,right=8pt,top=6pt,bottom=8pt,
-  before upper={{\color{OD!80!black}\small\scshape\bfseries Problème~\thenprob
+  before upper={\phantomsection\label{prob:\thenprob}{\color{OD!80!black}\small\scshape\bfseries Problème~\thenprob
   \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}
   \hfill\diff{#2}\tcbrule{OD}}]}{\end{tcolorbox}\par\addvspace{6pt}}
 \newenvironment{challenge}[1][]{\par\addvspace{8pt}\begin{tcolorbox}[enhanced,breakable,frame hidden,
@@ -153,12 +153,23 @@
   \if\relax\detokenize{#1}\relax\else\ {\upshape\normalsize-- \textit{#1}}\fi}\tcbrule{HPred}}]}
   {\end{tcolorbox}\par\addvspace{6pt}}
 
-\newcommand{\solutiontitle}[3]{\needspace{5\baselineskip}\par\addvspace{10pt}
-  \noindent\phantomsection\label{sol:#1.#2}{\color{BN}\bfseries\small Exercice~#1.#2
-  \if\relax\detokenize{#3}\relax\else\ -- \textit{#3}\fi}\enspace
-  \hyperref[exo:#1.#2]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
-\newcommand{\psolutiontitle}[3]{\needspace{5\baselineskip}\par\addvspace{10pt}
-  \noindent\phantomsection\label{sol:P#1.#2}{\color{OD!80!black}\bfseries\small Problème~#1.#2
-  \if\relax\detokenize{#3}\relax\else\ -- \textit{#3}\fi}\enspace
-  \hyperref[prob:#1.#2]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
+\newcounter{nsolchapter}
+\newcounter{nsol}[nsolchapter]
+\newcounter{npsol}[nsolchapter]
+\renewcommand{\thensol}{\arabic{nsolchapter}.\arabic{nsol}}
+\renewcommand{\thenpsol}{\arabic{nsolchapter}.\arabic{npsol}}
+\newcommand{\solutionchapter}[1]{%
+  \stepcounter{nsolchapter}%
+  \section*{Chapitre~\arabic{nsolchapter} \textemdash\ #1}%
+  \addcontentsline{toc}{section}{Chapitre~\arabic{nsolchapter} \textemdash\ #1}}
+\newcommand{\solutiontitle}[1]{\refstepcounter{nsol}\needspace{5\baselineskip}\par\addvspace{10pt}
+  \noindent\phantomsection\label{sol:\thensol}%
+  {\color{BN}\bfseries\small Exercice~\ref*{exo:\thensol}%
+  \if\relax\detokenize{#1}\relax\else\ -- \textit{#1}\fi}\enspace
+  \hyperref[exo:\thensol]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
+\newcommand{\psolutiontitle}[1]{\refstepcounter{npsol}\needspace{5\baselineskip}\par\addvspace{10pt}
+  \noindent\phantomsection\label{sol:P\thenpsol}%
+  {\color{OD!80!black}\bfseries\small Problème~\ref*{prob:\thenpsol}%
+  \if\relax\detokenize{#1}\relax\else\ -- \textit{#1}\fi}\enspace
+  \hyperref[prob:\thenpsol]{\textcolor{OR!75}{\small$\uparrow$\,\textit{énoncé}}}\par\smallskip\noindent}
 \endinput

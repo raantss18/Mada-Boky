@@ -27,8 +27,13 @@
 % A comment terminates the current instruction, so that the following
 % assignment cannot be absorbed on the same visual line.
 \NewDocumentCommand{\tcp}{s O{} m}{\hfill{\color{GM!70!black}\itshape// #3}\par}
-\NewDocumentCommand{\mdgblock}{m}{\par\begingroup\leftskip=1.35em #1\par\endgroup}
-\NewDocumentCommand{\Si}{m +m}{\par\textbf{Si} #1 \textbf{alors}\mdgblock{#2}\textbf{Fin si}\par}
+\NewDocumentCommand{\mdgblock}{m}{\par\begingroup\advance\leftskip by 1.35em\relax #1\par\endgroup}
+\NewDocumentCommand{\Si}{m +m}{\par\textbf{Si} #1 \textbf{alors}\mdgblock{#2}\mdgendif}
+\newcommand{\mdgendif}{\@ifnextchar\SinonSi{\mdgelseif}{%
+  \@ifnextchar\Sinon{\mdgelse}{\textbf{Fin si}\par}}}
+\long\def\mdgelseif\SinonSi#1#2{\par\textbf{Sinon si} #1 \textbf{alors}%
+  \mdgblock{#2}\mdgendif}
+\long\def\mdgelse\Sinon#1{\par\textbf{Sinon}\mdgblock{#1}\textbf{Fin si}\par}
 \NewDocumentCommand{\SiSinon}{m +m +m}{\par\textbf{Si} #1 \textbf{alors}\mdgblock{#2}%
   \textbf{Sinon}\mdgblock{#3}\textbf{Fin si}\par}
 \NewDocumentCommand{\SinonSi}{m +m}{\par\textbf{Sinon si} #1 \textbf{alors}\mdgblock{#2}}

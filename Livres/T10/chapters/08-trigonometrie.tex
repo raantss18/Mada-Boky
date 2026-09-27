@@ -564,7 +564,7 @@ R\'esoudre exactement dans $[0,2\pi]$~:
 \end{multicols}
 \end{exo}
 
-\begin{exo}[R\'esoudre $\tan x=a$ sur {$[0,2\pi]$}]{2}
+\begin{exo}[R\'esoudre $\tan x=a$ sur {$[0,2\pi]$} \corrige]{2}
 R\'esoudre dans $[0,2\pi]$ (en excluant les valeurs o\`u $\cos x=0$)~:
 \begin{multicols}{2}
 \begin{enumerate}
@@ -774,7 +774,7 @@ R\'esoudre dans {$[0,2\pi]$} en utilisant les sym\'etries~:
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[\logicoalgo\ Algorithme~: r\'esoudre $\cos x = a$ sur {$[0,2\pi]$}]{2}
+\begin{exo}[\logicoalgo\ Algorithme~: r\'esoudre $\cos x = a$ sur {$[0,2\pi]$} \corrige]{2}
 
 \begin{algorithm}[H]
 \caption{R\'esolution de $\cos x = a$ sur $[0,2\pi]$}
@@ -784,7 +784,7 @@ R\'esoudre dans {$[0,2\pi]$} en utilisant les sym\'etries~:
   \Afficher \og Pas de solution ($|a|>1$)\fg\;
 }\Sinon{
   $\alpha \leftarrow \arccos(a)$\tcp*[r]{$\alpha\in[0,\pi]$}
-  \Si{$\alpha = 0$ \textbf{ou} $\alpha = \pi$}{
+  \Si{$\alpha = \pi$}{
     \Afficher \og Solution unique~: $x=$\fg, $\alpha$\;
   }\Sinon{
     \Afficher \og Deux solutions~: $x=$\fg, $\alpha$, \og\ et $x=$\fg, $2\pi-\alpha$\;
@@ -793,8 +793,8 @@ R\'esoudre dans {$[0,2\pi]$} en utilisant les sym\'etries~:
 \end{algorithm}
 
 \begin{enumerate}
-  \item Pourquoi le cas $\alpha=0$ ou $\alpha=\pi$ donne-t-il une solution unique~?
-        Justifier logiquement.
+  \item Pourquoi $\alpha=\pi$ donne-t-il une solution unique ?
+        Pour $\alpha=0$, distinguer les deux r\'eels $0$ et $2\pi$.
   \item Appliquer \`a $a=\frac{1}{2}$, $a=-1$, $a=\frac{\sqrt{2}}{2}$.
   \item \'Ecrire un algorithme analogue pour $\sin x = a$.
         En quoi diff\`ere-t-il (angles de r\'ef\'erence diff\'erents)~?
@@ -878,9 +878,11 @@ R\'esoudre dans $[0,2\pi]$ et repr\'esenter les solutions sur le cercle~:
 \end{probleme}
 
 \begin{probleme}[Mesure d'une hauteur inaccessible \corrigeP]{1}
-Pour mesurer la hauteur $h$ d'un arbre, on mesure~:
-l'angle d'\'el\'evation $\alpha=\frac{\pi}{4}$ depuis un point \`a $20$~m,
-puis l'angle d'\'el\'evation $\beta=\frac{\pi}{3}$ depuis un point \`a $10$~m.
+Sur un terrain horizontal, on observe le sommet d'un arbre vertical depuis
+un point $A$, puis depuis $B$, situ\'e $10$~m plus pr\`es du pied de l'arbre.
+Les points $A$, $B$ et le pied sont align\'es dans cet ordre.
+Les angles d'\'el\'evation sont $\alpha=\pi/4$ en $A$ et $\beta=\pi/3$ en $B$.
+On n\'eglige la hauteur de l'appareil de mesure.
 \begin{enumerate}
   \item En notant $h$ la hauteur et $d$ la distance horizontale au second point~:
         \'ecrire $\tan\alpha$ et $\tan\beta$ en fonction de $h$ et des distances.
@@ -896,7 +898,7 @@ Soit $M(\cos\theta,\sin\theta)$ un point du cercle unit\'e.
         Simplifier.
   \item Pour quelle valeur de $\theta\in[0,\pi]$ est-ce que $MA=1$~?
   \item Exprimer la distance de $M$ au point $B(0,1)$ en fonction de $\theta$.
-  \item Pour quelle valeur de $\theta\in[0,\pi]$ est-ce que $MB=1$~?
+  \item Pour quelles valeurs de $\theta\in[0,\pi]$ a-t-on $MB=1$ ?
 \end{enumerate}
 \end{probleme}
 
@@ -1175,12 +1177,12 @@ de $\cos\theta$ et $\sin\theta$ pour les $16$ angles remarquables,
 et v\'erifie $\cos^2\theta+\sin^2\theta=1$ pour chacun.
 \end{exo}
 
-\begin{exo}[\algo\ Algorithme~: r\'esoudre $\cos x=a$ sur {$[0,2\pi]$}]{2}
+\begin{exo}[\algo\ Algorithme~: r\'esoudre $\cos x=a$ sur {$[0,2\pi]$} \corrige]{2}
 (Voir exercice \logicoalgo\ dans ce chapitre.)
 Modifier l'algorithme pour~:
 \begin{enumerate}
   \item Afficher aussi les solutions en degr\'es.
-  \item G\'erer le cas $a=-1$ ou $a=1$ (solution unique).
+  \item G\'erer $a=-1$ (une solution) et $a=1$ (deux solutions, $0$ et $2\pi$).
   \item \'Etendre \`a la r\'esolution de $\sin x=a$.
   \item Impl\'ementer \computer.
 \end{enumerate}

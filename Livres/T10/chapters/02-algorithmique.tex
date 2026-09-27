@@ -1,4 +1,5 @@
 \chapter{Algorithmique}
+\label{chap:algorithmique}
 \input{activities/02-algorithmique}
 %% ════════════════════════════════════════════════════════════════
 
@@ -86,18 +87,22 @@ $A \leftarrow 3,\quad B \leftarrow A + 7,\quad A \leftarrow A \times 2$
              align=center,font=\small},
   arr/.style={-Stealth,BN,thick}]
 
-  \node[box,fill=BN,text=white] (debut) {D\'ebut};
-  \node[io,below=of debut] (acq) {Saisir $a$, $b$};
-  \node[diam,below=of acq] (test) {$a = 0$ ?};
-  \node[box,below left=1.1cm and 1.8cm of test] (sinf) {Afficher \og pas de solution\fg};
-  \node[box,below right=1.1cm and 1.2cm of test] (sreal) {Afficher $x = -\dfrac{b}{a}$};
-  \node[box,fill=BN,text=white,below=3.2cm of test] (fin) {Fin};
-
+  \node[box,fill=BN,text=white] (debut) at (0,0) {D\'ebut};
+  \node[io] (acq) at (0,-1.1) {Saisir $a$, $b$};
+  \node[diam] (test) at (0,-2.3) {$a=0$ ?};
+  \node[diam] (testb) at (-2.7,-3.8) {$b=0$ ?};
+  \node[box] (sreal) at (3,-3.8) {$x=-\dfrac ba$};
+  \node[box,minimum width=3cm] (tous) at (-4.3,-5.4) {Tout r\'eel est solution};
+  \node[box,minimum width=3cm] (aucun) at (-0.7,-5.4) {Pas de solution};
+  \node[box,fill=BN,text=white] (fin) at (0,-7) {Fin};
   \draw[arr] (debut)--(acq);
   \draw[arr] (acq)--(test);
-  \draw[arr] (test)--node[left,font=\scriptsize]{Oui}(sinf);
-  \draw[arr] (test)--node[right,font=\scriptsize]{Non}(sreal);
-  \draw[arr] (sinf)|-(fin);
+  \draw[arr] (test)--node[above left,font=\scriptsize]{Oui}(testb);
+  \draw[arr] (test)--node[above right,font=\scriptsize]{Non}(sreal);
+  \draw[arr] (testb)--node[left,font=\scriptsize]{Oui}(tous);
+  \draw[arr] (testb)--node[right,font=\scriptsize]{Non}(aucun);
+  \draw[arr] (tous)|-(fin);
+  \draw[arr] (aucun)--(fin);
   \draw[arr] (sreal)|-(fin);
 \end{tikzpicture}
 \caption{Organigramme : r\'esolution de $ax + b = 0$.}
@@ -834,7 +839,7 @@ et le place au d\'ebut.
   \item Compter les comparaisons et les \'echanges.
   \item Compter le nombre de comparaisons lorsque la liste contient $n$
         valeurs, puis lorsque la liste est déjà triée.
-  \item Comparer avec le tri \`a bulles (exercice~\hyperref[exo:2.31]{2.31}).
+  \item Comparer avec le tri \`a bulles (exercice~\ref{exo:2.31}).
 \end{enumerate}
 \index{tri par sélection}
 \end{challenge}
