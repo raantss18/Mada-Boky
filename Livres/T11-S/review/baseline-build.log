@@ -1,0 +1,33 @@
+Command: bash compiler.sh les-deux
+Exit code: 12
+Full log was 1 MB+ of repeated missing-font errors; retained diagnostic excerpt.
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bold" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bold" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-italic" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-italic" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bolditalic" cannot be
+! Package fontspec Error: The font "texgyrepagella-bolditalic" cannot be
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-regular" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bold" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bold" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-italic" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-italic" cannot be found.
+! Package fontspec Error: The font "texgyrepagella-bolditalic" cannot be
+! Package fontspec Error: The font "texgyrepagella-bolditalic" cannot be
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
+! Package fontspec Error: The font "texgyreheros-bold" cannot be found.
+! Package fontspec Error: The font "texgyreheros-bold" cannot be found.
+! Package fontspec Error: The font "texgyreheros-italic" cannot be found.
+! Package fontspec Error: The font "texgyreheros-italic" cannot be found.
+! Package fontspec Error: The font "texgyreheros-bolditalic" cannot be found.
+! Package fontspec Error: The font "texgyreheros-bolditalic" cannot be found.
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
+! Package fontspec Error: The font "texgyreheros-regular" cannot be found.
