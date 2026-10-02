@@ -125,8 +125,32 @@ Nothing in this audit was changed in the book sources; only `README-DRIVE-SNAPSH
 | D01 | Fixed | `docs/audit-programme-evaluations.md` rewritten from the repository's PE/RAPE, with section-level matrix and open points. |
 | D02–D03 | Fixed | README and `docs/validation.md` page counts refreshed (313 / 493); défis count corrected (67, not 68); non-existent `sources/` reference removed. |
 | D04 | Fixed | Dead `\iffalse` block removed. |
-| D05 | Partly | Bernoulli anecdote replaced by a William Playfair one (bar chart 1786, pie chart 1801); al-Khwārizmī date now "vers 820–830". EEF claim still unverified. |
+| D05 | Fixed | Bernoulli anecdote replaced by a William Playfair one (bar chart 1786, pie chart 1801); al-Khwārizmī date now "vers 820–830". EEF "plus de 3 000 études" removed (see §9); title corrected. |
 | D06 | Fixed | "Irrationalité" spelling; "Antipose" replaced by explicit symmetries. |
 | QA | Added | `make qa` now checks that each chapter's course text contains the programme notions (fails on the pre-fix sources with 31 errors, passes now). |
 
 New mathematics written in this commit was checked by hand (all numerical examples recomputed; sign tables re-derived). The exercises and their corrections were not modified, except for optional tags in titles.
+
+## 9. Follow-up (2 October 2026): Viète, EEF reference, ministry website
+
+- **Viète's relations** appear in neither the PE nor the RAPE, so they are now flagged
+  `[HORS PROGRAMME T10]`: the Ch. 4 proposition, the exercises "Relations de Viète" and
+  "Viète appliqué", the question "les deux racines sont positives" (exercise "Paramètre
+  dans le discriminant", item 4), item 3 of the problem "Logique et équations
+  paramétriques", and the summary line in the chapter review. Three in-programme
+  corrections that invoked Viète now use factorisation instead:
+  $(x-1)(x-m)$, $(x-2)(x-m)$, and $(x-x_1)(x-x_2)$ for "Construire une équation".
+- **EEF reference.** The claim "plus de 3 000 études" could not be checked against
+  the source. The EEF site, ERIC, UCL Discovery, the Brighton repository and the
+  CloudFront copy of the PDF are all blocked by this environment's network proxy.
+  A web-search summary attributes "66 meta-analyses ... more than 3000 original
+  studies" to the review, but no verbatim source text could be read, so the number
+  was removed. The title now reads *Improving Mathematics in Key Stages Two and
+  Three: Evidence Review* (March 2018), the title under which ERIC indexes it
+  (record ED612295). The other four references in the guide were not re-checked.
+- **Ministry website.** `www.education.gov.mg`, `plateforme.education.mg`,
+  `hay.education.mg` and `lexpress.mg` are all blocked here, so no newer RAPE or PE
+  could be obtained. Web search shows the ministry hosts RAPE/RAPS PDFs under
+  `www.education.gov.mg/wp-content/uploads/...` and a page "Répartition annuelle du
+  programme d'études". A 2026-2027 T10 document did not appear in the search results.
+  The comparison therefore still rests on `PSE/`.

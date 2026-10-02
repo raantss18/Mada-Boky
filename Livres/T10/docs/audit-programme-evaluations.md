@@ -76,7 +76,11 @@ exercices portant le repère `[HORS PROGRAMME T10]` :
 - quartiles, boîte à moustaches, régression, statistique bidimensionnelle et
   paradoxe de Simpson;
 - contraposée et raisonnement par l'absurde; méthodes de Cardano, règle de
-  Descartes.
+  Descartes;
+- relations de Viète (somme et produit des racines) et toute question qui en
+  dépend (signe des racines d'un trinôme à paramètre) : absentes du PE et du RAPE.
+  Les corrigés des questions au programme qui les utilisaient passent désormais
+  par la factorisation.
 
 Règle d'usage : proposés à un élève volontaire ou en approfondissement, jamais
 prérequis ni évalués dans une épreuve commune.
@@ -96,6 +100,9 @@ et ne mobilise que des notions du parcours prescrit (contrôle par mots-clés du
 2. Le classement des énoncés d'exercices hors programme a été fait sur leurs
    titres et leurs thèmes; une relecture item par item des quelque 1 100
    exercices reste souhaitable avant d'en utiliser de nouveaux en évaluation commune.
-3. Les relations de Viète (chapitre 4) ne figurent ni au PE ni au RAPE; elles
-   sont conservées sans repère, car elles servent d'outil de contrôle. Décision
-   éditoriale à confirmer.
+3. Le site officiel du ministère (`www.education.gov.mg`, page « Répartition
+   annuelle du programme d'études ») n'a pas pu être consulté depuis
+   l'environnement de travail du 2 octobre 2026 (accès réseau bloqué). Les
+   documents de référence restent donc ceux de `PSE/`. À faire depuis un poste
+   connecté : télécharger le RAPE T10 le plus récent et le PE T10 en vigueur,
+   les déposer dans `PSE/`, puis relancer la comparaison.
