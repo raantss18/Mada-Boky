@@ -17,7 +17,9 @@ math\'ematique.
 \begin{objectifs}
 \begin{itemize}
   \item Distinguer \'enonc\'e, proposition et pr\'edicat.
-  \item Ma\^itriser les connecteurs logiques et leurs tables de v\'erit\'e.
+  \item Ma\^itriser les connecteurs logiques (« ou » inclusif et exclusif) et leurs tables de v\'erit\'e.
+  \item Nier une conjonction, une disjonction (lois de De Morgan) et une implication.
+  \item Traduire une phrase par une formule quantifi\'ee, et inversement.
   \item Utiliser les quantificateurs $\forall$ et $\exists$.
   \item Former la n\'egation et la r\'eciproque d'une implication.
   \item D\'ecouvrir, en approfondissement, la contrapos\'ee et le raisonnement par l'absurde.
@@ -68,6 +70,78 @@ $Q$~est fausse. Le \og ou\fg\ math\'ematique est \textbf{inclusif}.
 $P \Leftrightarrow Q$ est vraie si $P$ et $Q$ ont la m\^eme valeur de v\'erit\'e :
 $$P \Leftrightarrow Q \;\equiv\; (P \Rightarrow Q) \land (Q \Rightarrow P).$$
 \end{defn}
+
+\begin{defn}[Ou exclusif]
+\index{ou exclusif}
+Le \textbf{ou exclusif} $P \oplus Q$ (« soit $P$, soit $Q$ ») est vrai lorsque
+\emph{exactement une} des deux propositions est vraie.
+
+\medskip\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  \rowcolor{BN!15}
+  $P$ & $Q$ & $P \lor Q$ (inclusif) & $P \oplus Q$ (exclusif) \\
+  \hline
+  \vrai & \vrai & \vrai & \faux \\
+  \vrai & \faux & \vrai & \vrai \\
+  \faux & \vrai & \vrai & \vrai \\
+  \faux & \faux & \faux & \faux \\
+  \hline
+\end{tabular}
+
+\medskip\flushleft
+Dans « fromage ou dessert » au restaurant, le « ou » est exclusif. En
+mathématiques, sauf mention contraire, « ou » est \textbf{inclusif}.
+\end{defn}
+
+\begin{defn}[Réciproque d'une implication]
+\index{réciproque}
+La \textbf{réciproque} de l'implication $P \Rightarrow Q$ est l'implication
+$Q \Rightarrow P$. Une implication et sa réciproque n'ont pas forcément la même
+valeur de vérité.
+\end{defn}
+
+\begin{prop}[Négations usuelles]
+\index{lois de De Morgan}\index{négation!d'une implication}
+Pour toutes propositions $P$ et $Q$~:
+\begin{itemize}
+  \item $\lnot(\lnot P) \equiv P$~;
+  \item \textbf{lois de De Morgan}~:
+        $\lnot(P \land Q) \equiv \lnot P \lor \lnot Q$
+        \quad et \quad
+        $\lnot(P \lor Q) \equiv \lnot P \land \lnot Q$~;
+  \item \textbf{négation d'une implication}~:
+        $\lnot(P \Rightarrow Q) \equiv P \land \lnot Q$.
+\end{itemize}
+\end{prop}
+
+\begin{methode}[Démontrer une équivalence logique par une table de vérité]
+\index{table de vérité}
+Avec $n$ propositions élémentaires, la table comporte $2^n$ lignes. On calcule
+colonne par colonne les deux formules; elles sont \textbf{équivalentes} si
+leurs colonnes sont identiques sur \emph{toutes} les lignes.
+\end{methode}
+
+\begin{ex}[Négation d'une implication]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  \rowcolor{BN!15}
+  $P$ & $Q$ & $P\Rightarrow Q$ & $\lnot(P\Rightarrow Q)$ & $\lnot Q$ & $P\land\lnot Q$ \\
+  \hline
+  \vrai & \vrai & \vrai & \faux & \faux & \faux \\
+  \vrai & \faux & \faux & \vrai & \vrai & \vrai \\
+  \faux & \vrai & \vrai & \faux & \faux & \faux \\
+  \faux & \faux & \vrai & \faux & \vrai & \faux \\
+  \hline
+\end{tabular}
+\end{center}
+Les colonnes $\lnot(P\Rightarrow Q)$ et $P\land\lnot Q$ coïncident : les deux
+formules sont équivalentes. Ainsi, la négation de « s'il pleut, je prends mon
+parapluie » est « il pleut et je ne prends pas mon parapluie ».
+\end{ex}
 
 \horsprogramme{La contrapos\'ee et le raisonnement par l'absurde sont propos\'es ici comme enrichissement. Ils ne doivent pas masquer les raisonnements directs attendus en T10.}
 
@@ -134,6 +208,25 @@ $$\lnot\bigl(\forall x \in E,\ P(x)\bigr) \;\equiv\; \exists x \in E,\ \lnot P(x
 $$\lnot\bigl(\exists x \in E,\ P(x)\bigr) \;\equiv\; \forall x \in E,\ \lnot P(x)$$
 \end{prop}
 
+\begin{methode}[Traduire une phrase par une formule quantifiée]
+\index{quantificateurs!traduction}
+\begin{enumerate}
+  \item Repérer l'ensemble $E$ parcouru et la propriété $P(x)$.
+  \item « tout, chaque, quel que soit » $\to$ $\forall$~; « il existe, au moins un, un certain » $\to$ $\exists$.
+  \item Écrire les quantificateurs \emph{avant} la propriété, dans l'ordre de la phrase.
+\end{enumerate}
+\emph{Exemples~:} « tout réel a un carré positif ou nul » s'écrit
+$\forall x\in\R,\ x^2\geq0$~; « il existe un entier pair supérieur à $100$ »
+s'écrit $\exists n\in\N,\ (n \text{ pair}) \land (n>100)$.
+\end{methode}
+
+\begin{attention}
+L'ordre des quantificateurs compte.
+$\forall x\in\R,\ \exists y\in\R,\ x+y=0$ est \textbf{vraie} (prendre $y=-x$),
+alors que $\exists y\in\R,\ \forall x\in\R,\ x+y=0$ est \textbf{fausse}
+(un même $y$ ne convient pas à la fois pour $x=0$ et pour $x=1$).
+\end{attention}
+
 % Diagramme de Venn
 \begin{figure}[H]
 \centering
@@ -158,42 +251,6 @@ $$\lnot\bigl(\exists x \in E,\ P(x)\bigr) \;\equiv\; \forall x \in E,\ \lnot P(x
 \caption{Diagramme de Venn : conjonction et disjonction.}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|>{\columncolor{BN!8}}c|>{\columncolor{BN!8}}c||c|c|c|c|}
-\hline
-\rowcolor{BN!18}
-$P$ & $Q$ & $\lnot P$ & $P\land Q$ & $P\lor Q$ & $P\Rightarrow Q$ \\
-\hline
-\textcolor{VE!80!black}{\textbf{V}} & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{VE!80!black}{\textbf{V}} \\
-\textcolor{VE!80!black}{\textbf{V}} & \textcolor{BO}{\textbf{F}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{BO}{\textbf{F}} \\
-\rowcolor{BN!4}
-\textcolor{BO}{\textbf{F}} & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{VE!80!black}{\textbf{V}} \\
-\rowcolor{BN!4}
-\textcolor{BO}{\textbf{F}} & \textcolor{BO}{\textbf{F}}
-  & \textcolor{VE!80!black}{\textbf{V}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{BO}{\textbf{F}}
-  & \textcolor{VE!80!black}{\textbf{V}} \\
-\hline
-\end{tabular}
-\caption{Tables de v\'erit\'e des connecteurs principaux.
-\textcolor{VE!80!black}{\textbf{V}} = vrai~; \textcolor{BO}{\textbf{F}} = faux.
-$P\Rightarrow Q$ est fausse \emph{uniquement} quand $P$ est vraie et $Q$ est fausse.}
-\end{figure}
 
 %─────────────────────────────────────────────────────────────────
 \horsprogramme{Ces schémas de preuve permettent de consolider le raisonnement direct et de découvrir d'autres démarches de démonstration.}
@@ -573,7 +630,7 @@ La trouver, l'expliquer et corriger la preuve.
 
 \subsection*{\diff{3}\quad Niveau 3 \textemdash\ D\'emonstrations et profondeur}
 
-\begin{exo}[\logiq\ Irrationnalit\'e de $\sqrt{2}$ \corrige]{3}
+\begin{exo}[\logiq\ Irrationalit\'e de $\sqrt{2}$ \corrige]{3}
 D\'emontrer par l'absurde\index{raisonnement par l'absurde} que $\sqrt{2}$
 est irrationnel.
 \emph{On supposera $\sqrt{2} = p/q$ avec $\pgcd(p,q)=1$.}
@@ -582,7 +639,7 @@ Montrer ensuite que pour tout entier $k\geq 2$, si $k$ n'est pas un
 carr\'e parfait, alors $\sqrt{k}$ est irrationnel.
 \end{exo}
 
-\begin{exo}[\logiq\ Irrationnalit\'e de $\sqrt{3}$ \corrige]{3}
+\begin{exo}[\logiq\ Irrationalit\'e de $\sqrt{3}$ \corrige]{3}
 D\'emontrer par l'absurde que $\sqrt{3}$ est irrationnel.
 \emph{Indication : montrer d'abord que si $3 \mid n^2$, alors $3 \mid n$.}
 \end{exo}

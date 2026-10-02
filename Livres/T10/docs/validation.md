@@ -1,16 +1,16 @@
 # Validation de l'édition 2026
 
-Date du contrôle : 20 septembre 2026.
+Date du contrôle : 20 septembre 2026; mise à jour le 2 octobre 2026 (compléments de cours, voir `review/03-full-quality-audit.md`).
 
 ## Périmètre livré
 
 - 9 chapitres et 9 activités d'entrée;
-- 411 exercices, 139 problèmes et 68 défis;
+- 411 exercices, 139 problèmes et 67 défis;
 - 66 séries d'automatismes, soit une par séance sur 33 semaines;
 - 1 repère diagnostique, 42 exercices structurés et 8 problèmes de synthèse;
   chaque bloc précise son usage de la calculatrice;
-- édition élève : 303 pages A4;
-- édition professeur : 475 pages A4, guide, progression, liens et corrigés.
+- édition élève : 313 pages A4;
+- édition professeur : 493 pages A4, guide, progression, liens et corrigés.
 
 ## Contrôles réalisés
 
@@ -23,8 +23,9 @@ Date du contrôle : 20 septembre 2026.
   pseudo-codes, évaluations, corrigés et annexes, plus une planche-contact de
   toutes les pages;
 - polices incorporées dans les PDF.
-- absence de débordement horizontal ou vertical signalé par LaTeX dans les
-  deux éditions finales.
+- aucun débordement horizontal; dans l'édition professeur, deux débordements
+  verticaux de 1,34 pt (sans effet visible);
+- présence dans le cours de chaque notion du PE/RAPE T10 (`make qa`).
 - conformité de chaque question d'évaluation au PE/RAPE T10 et présence d'un
   audit séparant le parcours prescrit des enrichissements non exigibles.
 - signalisation visuelle continue en rouge des défis et blocs explicitement

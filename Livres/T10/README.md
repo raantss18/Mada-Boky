@@ -43,16 +43,16 @@ docs/          validation technique et décisions éditoriales
 frontmatter/   couverture, préface et mode d'emploi
 scripts/       contrôles qualité reproductibles
 solutions/     corrigés détaillés de l'édition professeur
-sources/       provenance et archive du manuscrit hérité
+review/        rapports de relecture et d'audit successifs
 styles/        environnements, typographie et pseudo-code
 teacher/       guide du professeur et progression annuelle
 ```
 
 ## Livrables validés
 
-- `build/manuel-mathematiques-t10-eleve.pdf` : édition élève, 289 pages A4;
+- `build/manuel-mathematiques-t10-eleve.pdf` : édition élève, 313 pages A4;
 - `build/manuel-mathematiques-t10-professeur.pdf` : édition professeur,
-  459 pages A4.
+  493 pages A4.
 
 Les archives ZIP et les fichiers auxiliaires de compilation ne sont pas suivis
 par Git : ils peuvent être recréés à partir des sources.
@@ -78,9 +78,16 @@ par Git : ils peuvent être recréés à partir des sources.
 
 L'audit détaillé se trouve dans `docs/audit-programme-evaluations.md`.
 
+## Référentiels officiels
+
+Programme d'études T10 : `PSE/PE-2026/PE_T10.pdf` (mathématiques pp. 118-129);
+répartition annuelle : `PSE/Répartitions 2025 2026/RAPE_T10_2025_2026.pdf`.
+La conformité du cours est décrite dans `docs/audit-programme-evaluations.md` et
+contrôlée par `make qa`. Le dépôt GitHub est la source faisant autorité
+(voir `README-DRIVE-SNAPSHOT.md`).
+
 ## Provenance du corpus hérité
 
-`sources/manuel_seconde_predecesseur.tex` est conservé sans modification.
-La séparation initiale a été mécanique, puis chaque module a été relu et
-corrigé. Les fichiers de travail modulaires sont désormais les seules sources
-faisant autorité : il ne faut pas les régénérer depuis l'archive héritée.
+Le manuscrit hérité d'origine a servi de base à une séparation mécanique en
+modules, ensuite relus et corrigés; il n'est pas conservé dans ce dépôt. Les
+fichiers modulaires sont les seules sources faisant autorité.

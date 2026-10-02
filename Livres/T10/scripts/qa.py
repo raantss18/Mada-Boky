@@ -136,6 +136,36 @@ for term in required:
     if term.lower() not in plain.lower():
         errors.append(f"core textbook keyword not found: {term}")
 
+# Programme coverage of the *course* part of each chapter (text before
+# "\section{Exercices}"). Each entry is a notion of the PE/RAPE T10 that must be
+# taught in the course itself, not only practised in exercises. Patterns are
+# matched on source with TeX accent escapes removed.
+course_requirements = {
+    1: [r"ou exclusif", r"r.ciproque", r"De Morgan", r"lnot\(P \\Rightarrow Q\)", r"\\forall", r"\\exists"],
+    2: [r"\\Pour\{", r"\\TantQue\{", r"organigramme|Organigramme", r"valide", r"complexit"],
+    3: [r"\\D \\subset \\Q", r"scientifique", r"arrondi", r"par d.faut", r"Distance entre deux r.els",
+        r"Op.rations sur les encadrements"],
+    4: [r"forme canonique", r"signe de \$-a\$|signe de } \{-a\}", r"racine .{0,6}vidente",
+        r"quation rationnelle", r"in.quation rationnelle", r"demi-plan"],
+    5: [r"Produit d'un vecteur par un r.el", r"colin.aires", r"parall.lisme de droites",
+        r"Produit scalaire", r"orthogon"],
+    6: [r"Param.trique", r"vecteur directeur", r"diam.tre \{\$\[AB\]\$\}", r"param.trique d'un cercle",
+        r"r.solution analytique", r"Hauteur"],
+    7: [r"Fonction affine", r"x\)=1/x|1/x", r"\\sqrt\{x\}", r"x\^3", r"Parit.", r"R.soudre graphiquement"],
+    8: [r"Radian", r"cos\^2\\theta \+ \\sin\^2\\theta = 1", r"p.riodique", r"impaire",
+        r"Angles de cosinus ou de sinus"],
+    9: [r"discr.te", r"continue", r"M.diane|m.diane", r"Variance", r"cart-type",
+        r"Diagramme en b.tons", r"Diagramme circulaire", r"Histogramme"],
+}
+for chapter_file in sorted((ROOT / "chapters").glob("[0-9][0-9]-*.tex")):
+    chapter_number = int(chapter_file.name[:2])
+    text = chapter_file.read_text(encoding="utf-8")
+    course = text.split(r"\section{Exercices}", 1)[0]
+    course = re.sub(r"\\['`^]\{?([a-zA-Z])\}?", r"\1", course)
+    for pattern in course_requirements.get(chapter_number, []):
+        if not re.search(pattern, course):
+            errors.append(f"chapter {chapter_number}: programme notion missing from course text: {pattern}")
+
 if errors:
     print("QA FAILED")
     for error in errors:

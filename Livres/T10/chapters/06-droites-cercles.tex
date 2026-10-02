@@ -14,7 +14,8 @@ n'est pas strictement euclidien.
 \begin{itemize}
   \item \'Ecrire les \'equations d'une droite sous toutes ses formes.
   \item \'Ecrire et reconna\^itre l'\'equation d'un cercle.
-  \item Calculer la distance d'un point \`a une droite.
+  \item Passer d'une forme d'\'equation de droite \`a une autre.
+  \item \'Ecrire les \'equations cart\'esienne et param\'etrique d'un cercle.
   \item \'Etudier la position relative d'une droite et d'un cercle.
 \end{itemize}
 \end{objectifs}
@@ -34,6 +35,42 @@ Dans un rep\`ere :
 \end{itemize}
 \end{defn}
 
+\begin{prop}[Vecteur directeur et \'equation cart\'esienne]
+\index{vecteur directeur}
+\begin{itemize}
+  \item La droite passant par $A$ et de vecteur directeur $\vec u\ne\vec0$ est
+        l'ensemble des points $M$ tels que $\vv{AM}$ et $\vec u$ sont colin\'eaires~:
+        $M\in D \Leftrightarrow \det(\vv{AM},\vec u)=0$.
+  \item La droite d'\'equation $ax+by+c=0$ admet $\vec u(-b\,;a)$ pour vecteur directeur.
+  \item La droite $y=mx+p$ admet $\vec u(1\,;m)$ pour vecteur directeur.
+\end{itemize}
+\end{prop}
+
+\begin{methode}[Passer d'une forme \`a l'autre]
+\begin{itemize}
+  \item \textbf{Point et vecteur directeur $\to$ cart\'esienne~:} \'ecrire $\det(\vv{AM},\vec u)=0$.
+  \item \textbf{Cart\'esienne $\to$ r\'eduite~:} si $b\ne0$, isoler $y$~:
+        $y=-\dfrac{a}{b}x-\dfrac{c}{b}$~; si $b=0$, la droite est verticale ($x=-\frac ca$).
+  \item \textbf{Param\'etrique $\to$ cart\'esienne~:} tirer $t$ d'une \'equation et
+        le reporter dans l'autre.
+  \item \textbf{Cart\'esienne $\to$ param\'etrique~:} choisir un point $A$ de la droite
+        et le vecteur directeur $(-b\,;a)$.
+\end{itemize}
+\end{methode}
+
+\begin{ex}[Une droite sous ses trois formes]
+$D$ passe par $A(1\,;2)$ et a pour vecteur directeur $\vec u(3\,;-1)$.
+\begin{itemize}
+  \item Param\'etrique~: $\begin{cases}x=1+3t\\y=2-t\end{cases}$, $t\in\R$.
+  \item Cart\'esienne~: $\det(\vv{AM},\vec u)=(x-1)(-1)-3(y-2)=0$, soit $x+3y-7=0$.
+  \item R\'eduite~: $y=-\dfrac13x+\dfrac73$.
+\end{itemize}
+Contr\^ole~: $A$ v\'erifie $1+6-7=0$, et le vecteur $(-b\,;a)=(-3\,;1)=-\vec u$
+est bien colin\'eaire \`a $\vec u$.
+Interpr\'etation~: un mobile qui part de $A$ et se d\'eplace de $\vec u$ par seconde
+est au point de param\`etre $t$ \`a l'instant $t$.
+\end{ex}
+
 \section{Cercles et distance}
 
 \begin{defn}[\'Equation d'un cercle]
@@ -41,13 +78,14 @@ Cercle de centre $\Omega(a,b)$ et rayon $r>0$ :
 $$(x-a)^2 + (y-b)^2 = r^2.$$
 \end{defn}
 
-\begin{thm}[Distance d'un point \`a une droite]
+\begin{thm}[Distance d'un point \`a une droite \ExtensionTTen]
 Distance du point $A(x_0,y_0)$ \`a la droite $ax+by+c=0$ :
 $$d\bigl(A,(\Delta)\bigr) = \frac{\abs{ax_0+by_0+c}}{\sqrt{a^2+b^2}}.$$
 \end{thm}
 
 \begin{thm}[Position droite/cercle]
-Pour le cercle de centre $\Omega$, rayon $r$, et la droite $(\Delta)$ :
+Pour le cercle de centre $\Omega$, rayon $r$, et la droite $(\Delta)$
+(o\`u $d(\Omega,\Delta)$ est la distance de $\Omega$ \`a son projet\'e orthogonal sur $(\Delta)$)~:
 \begin{itemize}
   \item $d(\Omega,\Delta) > r$ : ext\'erieure (0 point commun).
   \item $d(\Omega,\Delta) = r$ : tangente (1 point commun).
@@ -101,10 +139,14 @@ Pour une droite $y=mx+p$~:
 
 \begin{prop}[Parall\'elisme et perpendicularit\'e]
 \index{droites parallèles}\index{droites perpendiculaires}
-Deux droites $d_1$~: $y=m_1x+p_1$ et $d_2$~: $y=m_2x+p_2$~:
+Soient $d_1$ et $d_2$ de vecteurs directeurs $\vec u_1$ et $\vec u_2$.
 \begin{itemize}
-  \item $d_1 \parallel d_2 \Leftrightarrow m_1=m_2$.
-  \item $d_1 \perp d_2 \Leftrightarrow m_1\times m_2 = -1$.
+  \item $d_1 \parallel d_2 \Leftrightarrow \det(\vec u_1,\vec u_2)=0$~;
+        $d_1 \perp d_2 \Leftrightarrow \vec u_1\cdot\vec u_2=0$.
+  \item Pour $d_1$~: $y=m_1x+p_1$ et $d_2$~: $y=m_2x+p_2$~:
+        $d_1 \parallel d_2 \Leftrightarrow m_1=m_2$ et
+        $d_1 \perp d_2 \Leftrightarrow m_1\times m_2 = -1$
+        (avec $\vec u_i(1\,;m_i)$, $\vec u_1\cdot\vec u_2=1+m_1m_2$).
 \end{itemize}
 \end{prop}
 
@@ -115,7 +157,88 @@ donc son coefficient directeur est $m=2$.
 \'Equation~: $y-2 = 2(x-3)$, soit $y=2x-4$.
 \end{ex}
 
+\begin{methode}[Hauteur, m\'ediane et m\'ediatrice dans un triangle $ABC$]
+\index{hauteur d'un triangle}\index{médiane d'un triangle}
+\begin{itemize}
+  \item \textbf{M\'ediane issue de $A$~:} droite passant par $A$ et par le milieu $I$ de $[BC]$.
+  \item \textbf{Hauteur issue de $A$~:} ensemble des $M$ tels que $\vv{AM}\cdot\vv{BC}=0$.
+  \item \textbf{M\'ediatrice de $[BC]$~:} ensemble des $M$ tels que $\vv{IM}\cdot\vv{BC}=0$.
+\end{itemize}
+\end{methode}
+
+\begin{ex}[Triangle $A(1\,;3)$, $B(-1\,;-1)$, $C(3\,;1)$]
+$\vv{BC}=(4\,;2)$ et le milieu de $[BC]$ est $I(1\,;0)$.
+\begin{itemize}
+  \item Hauteur issue de $A$~: $4(x-1)+2(y-3)=0$, soit $2x+y-5=0$.
+  \item M\'ediane issue de $A$~: $A$ et $I$ ont la m\^eme abscisse, c'est la droite verticale $x=1$.
+  \item M\'ediatrice de $[BC]$~: $4(x-1)+2y=0$, soit $2x+y-2=0$ (parall\`ele \`a la hauteur).
+\end{itemize}
+\end{ex}
+
 \section{Cercles~: propri\'et\'es et m\'ethodes}
+
+\begin{prop}[Cercle de diam\`etre {$[AB]$}]
+\index{cercle!de diamètre donné}
+Le cercle de diam\`etre $[AB]$ est l'ensemble des points $M$ tels que
+$\vv{MA}\cdot\vv{MB}=0$. Son \'equation est
+$(x-x_A)(x-x_B)+(y-y_A)(y-y_B)=0$.
+\end{prop}
+
+\noindent\textit{D\'emonstration.} Soit $I$ le milieu de $[AB]$, donc $\vv{IB}=-\vv{IA}$.
+Alors $\vv{MA}\cdot\vv{MB}=(\vv{MI}+\vv{IA})\cdot(\vv{MI}-\vv{IA})=MI^2-IA^2$.
+Ce produit est nul si et seulement si $MI=IA=\dfrac{AB}{2}$. \hfill$\square$
+
+\begin{prop}[Repr\'esentation param\'etrique d'un cercle]
+\index{cercle!équation paramétrique}
+Le cercle de centre $\Omega(a\,;b)$ et de rayon $r$ est l'ensemble des points
+$M(x\,;y)$ tels que
+$$\begin{cases}x=a+r\cos\theta\\ y=b+r\sin\theta\end{cases}\qquad\theta\in[0\,;2\pi[.$$
+\end{prop}
+
+\noindent\textit{Justification.} Ces points v\'erifient
+$(x-a)^2+(y-b)^2=r^2(\cos^2\theta+\sin^2\theta)=r^2$. R\'eciproquement, si $M$ est
+sur le cercle, le point $\left(\frac{x-a}{r}\,;\frac{y-b}{r}\right)$ est sur le
+cercle trigonom\'etrique, donc de la forme $(\cos\theta\,;\sin\theta)$
+(voir le chapitre~\ref{chap:trigonometrie}).
+
+\begin{ex}[Mouvement circulaire]
+Une valve de roue de v\'elo d\'ecrit le cercle de centre $\Omega(1\,;-1)$ et de
+rayon $2$~: $x=1+2\cos\theta$, $y=-1+2\sin\theta$.
+Pour $\theta=0$, elle est en $(3\,;-1)$~; pour $\theta=\frac{\pi}{2}$, en $(1\,;1)$~;
+pour $\theta=\pi$, en $(-1\,;-1)$. Le param\`etre $\theta$ mesure l'angle de rotation.
+\end{ex}
+
+\begin{methode}[Intersection d'une droite et d'un cercle~: r\'esolution analytique]
+\index{intersection droite-cercle}
+\begin{enumerate}
+  \item \'Ecrire le syst\`eme form\'e par l'\'equation du cercle et celle de la droite.
+  \item Exprimer une inconnue \`a l'aide de l'autre gr\^ace \`a l'\'equation de la
+        droite et substituer~: on obtient une \'equation du second degr\'e.
+  \item Son discriminant donne le nombre de points communs~:
+        $\Delta<0$~: aucun~; $\Delta=0$~: un (droite tangente)~; $\Delta>0$~: deux.
+  \item Calculer les coordonn\'ees de chaque point et les v\'erifier dans les deux \'equations.
+\end{enumerate}
+\textbf{R\'esolution graphique~:} tracer le cercle et la droite, lire les
+coordonn\'ees approch\'ees des points communs, puis les contr\^oler par le calcul.
+\end{methode}
+
+\begin{ex}[$\mathcal C$~: $x^2+y^2=5$ et $D$~: $y=x+1$]
+En substituant~: $x^2+(x+1)^2=5\Leftrightarrow2x^2+2x-4=0\Leftrightarrow x^2+x-2=0$.
+$\Delta=9>0$~: deux points communs, d'abscisses $1$ et $-2$, donc
+$E(1\,;2)$ et $F(-2\,;-1)$. Contr\^ole~: $1+4=5$ et $4+1=5$.
+\begin{center}
+\begin{tikzpicture}[scale=0.62]
+  \draw[GM!35,very thin] (-3,-3) grid (3,3);
+  \draw[-Stealth,BN] (-3.2,0) -- (3.4,0) node[right] {$x$};
+  \draw[-Stealth,BN] (0,-3.2) -- (0,3.4) node[above] {$y$};
+  \draw[TQ,very thick] (0,0) circle ({sqrt(5)});
+  \draw[OR,very thick] (-3,-2) -- (2.2,3.2) node[right,font=\small] {$D$};
+  \fill[BO] (1,2) circle (3pt) node[right=2pt,font=\small] {$E$};
+  \fill[BO] (-2,-1) circle (3pt) node[left=2pt,font=\small] {$F$};
+  \node[TQ,font=\small] at (2.45,-1.9) {$\mathcal C$};
+\end{tikzpicture}
+\end{center}
+\end{ex}
 
 \begin{methode}[Identifier l'\'equation d'un cercle]
 \index{cercle!équation}
@@ -173,7 +296,7 @@ Pour $\mathcal{C}$~: $x^2+y^2=r^2$ et $A(x_0,y_0)\in\mathcal{C}$~:
 \'equation de la tangente~: $x_0 x + y_0 y = r^2$.
 \end{prop}
 
-\begin{prop}[Position relative de deux cercles]
+\begin{prop}[Position relative de deux cercles \ExtensionTTen]
 \index{cercles!position relative}
 Deux cercles de centres $\Omega_1$, $\Omega_2$ et de rayons $r_1$, $r_2$
 avec $d = \Omega_1\Omega_2$~:
@@ -398,7 +521,7 @@ et de la droite $(\Delta)$~: $y=x+1$.
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[Axe radical de deux cercles \corrige]{2}
+\begin{exo}[Axe radical de deux cercles \ExtensionTTen \corrige]{2}
 \index{axe radical}
 L'\textbf{axe radical} de deux cercles est l'ensemble des points ayant
 la m\^eme \emph{puissance} par rapport aux deux cercles.
@@ -641,7 +764,7 @@ est $d = \dfrac{|c_1-c_2|}{\sqrt{a^2+b^2}}$.
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[Bipoint et axe radical \corrige]{3}
+\begin{exo}[Bipoint et axe radical \ExtensionTTen \corrige]{3}
 Soit deux cercles s\'ecants $\mathcal{C}_1$ et $\mathcal{C}_2$ se coupant
 en $A$ et $B$.
 \begin{enumerate}
@@ -737,7 +860,7 @@ On donne la droite $(\Delta)$~: $2x-3y+6=0$ et le point $A(4,5)$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Syst\`eme de cercles coaxiaux \corrigeP]{3}
+\begin{probleme}[Syst\`eme de cercles coaxiaux \ExtensionTTen \corrigeP]{3}
 Soit $\mathcal{C}_1$~: $x^2+y^2-4x=0$ et $\mathcal{C}_2$~: $x^2+y^2+2x-6=0$.
 \begin{enumerate}
   \item Trouver les centres et rayons.
@@ -1031,7 +1154,7 @@ et affiche ceux \`a distance inf\'erieure \`a $1$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[\logiq\ Logique et lieux g\'eom\'etriques \corrigeP]{2}
+\begin{probleme}[\logiq\ Logique et lieux g\'eom\'etriques \ExtensionTTen \corrigeP]{2}
 \begin{enumerate}
   \item D\'emontrer rigoureusement (en utilisant les vecteurs)~:
         $M$ est sur le cercle de diam\`etre $[AB]$ si et seulement si $\vv{MA}\cdot\vv{MB}=0$.

@@ -128,7 +128,70 @@ $A \leftarrow 3,\quad B \leftarrow A + 7,\quad A \leftarrow A \times 2$
 \end{algorithm}
 
 
-\horsprogramme{Cette partie propose des algorithmes plus longs qui combinent variables, conditions et boucles.}
+\section{Boucles}
+\index{boucle}
+
+\begin{defn}[Boucle bornée et boucle non bornée]
+\begin{itemize}
+  \item Une \textbf{boucle bornée} (\texttt{Pour} $i$ \texttt{de} $a$ \texttt{à} $b$)
+        répète un bloc d'instructions un nombre de fois connu à l'avance~:
+        $b-a+1$ fois si $a\leq b$.
+  \item Une \textbf{boucle non bornée} (\texttt{Tant que} \emph{condition})
+        répète le bloc tant que la condition est vraie. La condition est testée
+        \emph{avant} chaque passage~; il faut s'assurer qu'elle finit par devenir
+        fausse, sinon l'algorithme ne s'arrête pas.
+\end{itemize}
+\end{defn}
+
+\begin{ex}[Boucle bornée~: calculer $2^n$]
+\begin{algorithm}[H]
+\caption{Puissance de $2$}
+\KwIn{un entier naturel $n$}
+\KwOut{la valeur de $2^n$}
+\Lire $n$\;
+$P \leftarrow 1$\;
+\Pour{$i \leftarrow 1$ \KwTo $n$}{
+  $P \leftarrow 2 \times P$\;
+}
+\Afficher $P$\;
+\end{algorithm}
+Trace pour $n=4$~:
+
+\medskip\centering
+\begin{tabular}{ccccc}
+\toprule
+$i$ & $1$ & $2$ & $3$ & $4$ \\
+\midrule
+$P$ après le passage & $2$ & $4$ & $8$ & $16$ \\
+\bottomrule
+\end{tabular}
+
+\medskip\flushleft
+L'algorithme affiche $16=2^4$. Pour $n=0$, la boucle ne s'exécute pas et
+l'algorithme affiche $1=2^0$.
+\end{ex}
+
+\begin{ex}[Boucle non bornée~: un seuil]
+Une feuille de papier a une épaisseur de $0{,}1$~mm. On la plie en deux
+plusieurs fois~: chaque pliage double l'épaisseur. Au bout de combien de
+pliages l'épaisseur dépasse-t-elle $1$~m, c'est-à-dire $1000$~mm~?
+
+\begin{algorithm}[H]
+\caption{Recherche d'un seuil}
+$e \leftarrow 0{,}1$\;
+$n \leftarrow 0$\;
+\TantQue{$e \leq 1000$}{
+  $e \leftarrow 2 \times e$\;
+  $n \leftarrow n + 1$\;
+}
+\Afficher $n$\;
+\end{algorithm}
+On ne connaît pas à l'avance le nombre de passages~: une boucle \texttt{Tant que}
+s'impose. Après $n$ pliages, $e=0{,}1\times2^n$. Comme
+$0{,}1\times2^{13}=819{,}2\leq1000$ et $0{,}1\times2^{14}=1638{,}4>1000$,
+la boucle s'arrête avec $n=14$~: l'algorithme affiche $14$.
+\end{ex}
+
 \section{M\'ethodes et compl\'ements de cours}
 
 \begin{methode}[Construire la trace d'ex\'ecution]
@@ -165,19 +228,22 @@ Dans ce manuel, on utilise les conventions suivantes~:
 \end{itemize}
 \end{methode}
 
-\begin{defn}[Invariant de boucle]
-\index{invariant de boucle}
-Un \textbf{invariant de boucle} est une propri\'et\'e vraie avant
-la boucle, conserv\'ee \`a chaque it\'eration, et qui permet de
-prouver la correction de l'algorithme \`a la sortie.
+\begin{defn}[Qualités d'un algorithme]
+\index{validité}\index{complexité}
+\begin{itemize}
+  \item Un algorithme est \textbf{valide} s'il donne le résultat attendu pour
+        toutes les entrées autorisées~; il doit aussi \textbf{se terminer}.
+  \item Sa \textbf{complexité} est le nombre d'opérations élémentaires qu'il
+        effectue, en fonction de la taille des données.
+  \item Entre deux algorithmes valides, le plus \textbf{efficace} est celui
+        qui effectue le moins d'opérations.
+\end{itemize}
 \end{defn}
 
 \begin{remarque}
-Le \textbf{co\^ut} d'un algorithme se mesure en comptant le nombre
-d'op\'erations \'el\'ementaires effectu\'ees en fonction de la taille $n$
-de l'entr\'ee. Plus ce nombre cro\^it lentement avec $n$, plus l'algorithme
-est efficace. On parle d'algorithme \emph{rapide} (peu d'op\'erations) ou
-\emph{lent} (beaucoup d'op\'erations).
+L'algorithme « Puissance de $2$ » effectue $n$ multiplications~: sa complexité
+croît comme $n$. Un algorithme qui ferait $n^2$ opérations pour le même résultat
+serait valide mais moins efficace.
 \end{remarque}
 
 \begin{anecdote}[Ada Lovelace, premi\`ere programmeuse]
@@ -188,6 +254,16 @@ un programme pour calculer les nombres de Bernoulli sur la
 Elle imagina aussi que la machine pourrait composer de la musique,
 un si\`ecle avant l'ordinateur.
 \end{anecdote}
+
+\horsprogramme{La notion d'invariant de boucle permet de prouver qu'un algorithme est valide.}
+\begin{defn}[Invariant de boucle]
+\index{invariant de boucle}
+Un \textbf{invariant de boucle} est une propri\'et\'e vraie avant
+la boucle, conserv\'ee \`a chaque it\'eration, et qui permet de
+prouver la correction de l'algorithme \`a la sortie.
+\end{defn}
+
+
 
 \section{Exercices}
 
@@ -588,7 +664,7 @@ domaine de recherche de moiti\'e \`a chaque \'etape.
 \subsection*{Probl\`emes}
 %─────────────────────────────────────────────────────────────────
 
-\begin{probleme}[Simulation d'un jeu de d\'es \corrigeP]{1}
+\begin{probleme}[Simulation d'un jeu de d\'es \ExtensionTTen \corrigeP]{1}
 On simule le lancer de deux d\'es \`a 6 faces.
 Le score est la somme des deux r\'esultats.
 \begin{enumerate}
@@ -617,7 +693,7 @@ $\mathit{compte} \leftarrow 0$\;
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Suite de Collatz et conjecture \corrigeP]{2}
+\begin{probleme}[Suite de Collatz et conjecture \ExtensionTTen \corrigeP]{2}
 La suite de Collatz est $u_{n+1} = \frac{u_n}{2}$ si $u_n$ pair,
 $3u_n + 1$ sinon. La conjecture (non prouv\'ee~!) affirme qu'elle
 atteint toujours $1$.
@@ -659,7 +735,7 @@ $u \leftarrow a$\;
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Algorithme de Horner et \'evaluation de polyn\^omes \corrigeP]{2}
+\begin{probleme}[Algorithme de Horner et \'evaluation de polyn\^omes \ExtensionTTen \corrigeP]{2}
 On consid\`ere $P(x) = 3x^4 - 7x^3 + 2x^2 + x - 5$.
 \begin{enumerate}
   \item Calculer $P(2)$ en d\'eveloppant directement.
@@ -728,7 +804,7 @@ $p^2, p^2+p, p^2+2p, \ldots$
 \index{crible d'Ératosthène}
 \end{probleme}
 
-\begin{probleme}[Tri fusion : principe \corrigeP]{3}
+\begin{probleme}[Tri fusion : principe \ExtensionTTen \corrigeP]{3}
 Le \emph{tri fusion} divise le tableau en deux moiti\'es,
 les trie r\'ecursivement, puis les fusionne.
 \begin{enumerate}
@@ -757,7 +833,7 @@ du message par le $i$-\`eme rang de la cl\'e (cycliquement).
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Algorithme de compression RLE \corrigeP]{2}
+\begin{probleme}[Algorithme de compression RLE \ExtensionTTen \corrigeP]{2}
 Le \emph{Run-Length Encoding} (RLE) compresse une s\'equence en
 remplaçant les suites de caract\`eres identiques par le caract\`ere
 et son nombre de r\'ep\'etitions (ex.~: \texttt{AAABBBBA} $\to$

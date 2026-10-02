@@ -1,110 +1,101 @@
 # Audit du programme T10 et des évaluations
 
-Date du contrôle : 20 septembre 2026.
+Mise à jour : 2 octobre 2026. Ce document remplace la version du 20 septembre 2026,
+dont la matrice déclarait « Conforme » des domaines dont le cours ne traitait pas
+certaines notions (voir `review/03-full-quality-audit.md`).
 
-## Conclusion opérationnelle
+## Référentiels
 
-Le parcours principal et toutes les évaluations révisées couvrent le PE/RAPE T10.
-La Banque d'exercices et de problèmes ne demande aucune notion extérieure au programme. En revanche,
-le corpus complet du manuel n'est pas un corpus « programme strict » : il contient un
-volume important d'enrichissements. Ces contenus restent utiles, mais ils sont non
-exigibles et ne doivent ni retarder la progression principale ni entrer dans un devoir.
+| Document | Emplacement dans le dépôt | Rôle |
+|---|---|---|
+| Programme d'études T10 (PE), MEN | `PSE/PE-2026/PE_T10.pdf`, mathématiques pp. 118-129 | Contenus, résultats d'apprentissage, critères d'évaluation |
+| Répartition annuelle 2nde 2025-2026 (RAPE), MEN | `PSE/Répartitions 2025 2026/RAPE_T10_2025_2026.pdf`, mathématiques pp. 26-29 | Contenus par période; obligatoire dans les établissements concernés; base des sujets officiels |
+| RAPE T10 « généralisation », édition août 2026 | **absent du dépôt** | Cité lors du passage 2 (lien Drive). À ajouter dans `PSE/` pour vérification |
 
-Les environnements « Défi » et « Hors programme » portent désormais une ligne rouge
-continue, un fond rouge très pâle et la mention « Hors programme T10 -- non exigible ».
-La préface explique sans ambiguïté que ces approfondissements sont destinés aux élèves
-très en avance ou visant des études, concours ou olympiades plus ambitieux; ils ne sont
-ni prérequis ni évaluables. Le guide du professeur donne la même règle.
+Volume horaire : la page mathématiques du PE et le RAPE indiquent **4 heures** par
+semaine; le tableau général du PE (p. 9) indique 5 heures. Le manuel retient
+4 heures (128 h = 32 semaines; progression sur 33 semaines). Si l'établissement
+dispose de 5 heures, la cinquième sert à la remédiation et à la pratique.
 
-## Références vérifiées lors du deuxième passage (24 septembre 2026)
+Répartition horaire du PE : analyse 62 h, algèbre 16 h, géométrie 40 h,
+traitement des données 10 h.
 
-- [PE LYCEE T10 .pdf](https://drive.google.com/file/d/1AMsFgBXwIWlrHgLEqnesEisoZkdEofQ2/view), programme du MEN, mathématiques pp. 119-130 : référence des contenus et capacités.
-- [RAPE_T10_GENERALISATION.pdf](https://drive.google.com/file/d/1UbJWcsTjDp2kNnhypFgWFV3Gda6RlR_A/view), MEN, édition **août 2026** : référence annuelle identifiée directement sur sa couverture.
+## Matrice de conformité du cours
 
-Ces références officielles ont été lues pour le passage 2. Le dossier courant ne contient pas de sous-dossier `PSE/`; les anciennes références GitHub ci-dessous sont historiques. La conformité item par item de tous les approfondissements reste à terminer (U02).
+« Cours » désigne la partie de chaque chapitre qui précède la section Exercices.
+Depuis le 2 octobre 2026, `make qa` vérifie automatiquement la présence de ces
+notions dans le cours (`course_requirements` dans `scripts/qa.py`).
 
-## Référentiel du contrôle initial
+| Notion prescrite (PE / RAPE) | Où dans le cours | Statut |
+|---|---|---|
+| Énoncé, proposition; « et », « ou » inclusif et exclusif; implication, réciproque, équivalence; négations (De Morgan, implication); quantificateurs et traduction | Ch. 1, §1–3 | Conforme |
+| Vocabulaire, variables, affectation, séquence, conditions, boucles bornées et non bornées, pseudo-code, organigramme; validité, complexité, efficacité | Ch. 2, §1–5 | Conforme |
+| ℕ ⊂ ℤ ⊂ 𝔻 ⊂ ℚ ⊂ ℝ; fractions, puissances, racines | Ch. 3, §1, §2 et §6 | Conforme |
+| Écritures décimale, fractionnaire, scientifique; valeurs approchées par défaut, par excès, arrondi d'ordre n | Ch. 3, §3 | Conforme |
+| Encadrements d'ordre quelconque; somme, différence, produit, quotient | Ch. 3, §4 | Conforme |
+| Intervalles, valeur absolue, distance; lien intervalle–distance–valeur absolue | Ch. 3, §4–5 | Conforme |
+| Forme canonique, discriminant, racines, factorisation, signe du trinôme, inéquations du second degré | Ch. 4, §1–2 | Conforme |
+| Degré 3 : égalité de polynômes, racine évidente, factorisation (identification, division), équations, signe, inéquations | Ch. 4, §3 | Conforme |
+| Fractions rationnelles : valeurs interdites, équations, signe, inéquations | Ch. 4, §4 | Conforme |
+| Systèmes de deux équations (algébrique et graphique), de deux inéquations (graphique) | Ch. 4, §5 | Conforme (RAPE) |
+| Vecteurs : caractéristiques, égalité, opérations géométriques et analytiques, milieu | Ch. 5, §1–3 | Conforme |
+| Colinéarité, alignement, parallélisme | Ch. 5, §4 | Conforme |
+| Produit scalaire (définition géométrique et analytique), orthogonalité | Ch. 5, §5 | Conforme |
+| Droites : équations cartésienne, réduite, paramétrique; vecteur directeur; passages entre formes; parallélisme, orthogonalité; hauteur, médiane, médiatrice | Ch. 6, §1 et §3 | Conforme |
+| Cercles : équation cartésienne, cercle de diamètre [AB], équations paramétriques | Ch. 6, §2 et §4 | Conforme |
+| Intersection droite–cercle : résolution analytique et graphique | Ch. 6, §4 | Conforme |
+| Fonctions : ensemble de définition, image, antécédent, variations, extremums, parité | Ch. 7, §1–2 | Conforme |
+| Fonctions de référence ax+b, x², 1/x, √x, \|x\|, x³ : variations démontrées, tableaux, courbes | Ch. 7, §3 | Conforme |
+| Interprétation d'une courbe, résolution graphique | Ch. 7, §4 | Conforme |
+| Triangle rectangle (rappel), radian, cercle trigonométrique, lignes des angles remarquables, propriété fondamentale | Ch. 8, §1–3 | Conforme |
+| Fonctions trigonométriques : parité, périodicité; angles de cosinus ou sinus donné | Ch. 8, §4–5 | Conforme |
+| Variable discrète/continue, effectifs, fréquences, classes | Ch. 9, §1 | Conforme |
+| Mode, moyenne, médiane; étendue, variance, écart-type (exemple complet résolu) | Ch. 9, §2–4 | Conforme |
+| Diagrammes en bâtons, circulaire, histogramme | Ch. 9, §5 | Conforme |
 
-- `09-Programme-Scolaire-2de.pdf` : programme général de Seconde utilisé comme
-  référence historique et de cohérence verticale ;
-- `10-RAPE_T10_GENERALISATION.pdf` : RAPE T10, référentiel principal de contenus et
-  de répartition annuelle ;
-- `11-PE-LYCEE-T10-.pdf` : programme d'études T10, référentiel principal de capacités.
+## Ordre d'enseignement
 
-Le RAPE indique 4 heures hebdomadaires tandis que le PE en indique 5. La progression
-du manuel conserve 4 heures sur 33 semaines, car c'est la répartition annuelle détaillée
-du RAPE et celle déjà structurée dans l'ouvrage. Si l'établissement dispose de 5 heures,
-la cinquième heure doit servir à la remédiation, à la pratique et aux évaluations longues,
-pas à rendre les extensions obligatoires.
+Les chapitres sont thématiques. La progression du guide du professeur (et les
+66 séries d'automatismes, générées par `scripts/generate_automatismes.py`)
+suivent l'ordre des cinq périodes du RAPE.
 
-## Matrice de conformité
+## Frontière : contenus non exigibles
 
-| Domaine prescrit | Traitement dans le manuel | Évaluations concernées | Statut |
-|---|---|---|---|
-| Propositions, connecteurs, implication, équivalence, quantificateurs | Chapitre 1 | Exercices et problèmes correspondants de la banque | Conforme |
-| Variables, affectation, séquence, conditions, boucles, pseudo-code, organigrammes | Chapitre 2 | Exercices et problèmes correspondants de la banque | Conforme |
-| Ensembles de nombres, fractions, puissances, racines, intervalles, valeur absolue, encadrements | Chapitre 3 | Exercices et problèmes correspondants de la banque | Conforme |
-| Trinôme, cubique avec racine connue, signes, équations rationnelles | Chapitre 4 | Exercices et problèmes correspondants de la banque | Conforme |
-| Vecteurs, coordonnées, colinéarité, alignement, parallélisme, produit scalaire, orthogonalité | Chapitre 5 | Exercices et problèmes correspondants de la banque | Conforme |
-| Droites cartésiennes/réduites/paramétriques, cercles, positions et intersections | Chapitre 6 | Exercices et problèmes correspondants de la banque | Conforme |
-| Domaine, image, variations, parité, carré, cube, valeur absolue, racine carrée, graphes | Chapitre 7 | Exercices et problèmes correspondants de la banque | Conforme |
-| Degrés/radians, cercle trigonométrique, valeurs remarquables, relation fondamentale, parité et périodicité | Chapitre 8 | Exercices et problèmes correspondants de la banque | Conforme |
-| Variables discrètes/continues, effectifs, fréquences, moyenne, médiane, variance, écart-type, diagrammes et histogrammes | Chapitre 9 | Exercices et problèmes correspondants de la banque | Conforme |
+Ces thèmes figurent dans des défis, des blocs « Hors programme T10 » ou des
+exercices portant le repère `[HORS PROGRAMME T10]` :
 
-## Frontière à respecter dans le corpus enrichi
-
-Les thèmes suivants apparaissent dans des activités, exercices ou défis, mais ne font
-pas partie des exigences T10 contrôlées :
-
-- suites, récurrence, convergence et limites ;
-- probabilités et simulations probabilistes ;
-- complexité, récursivité, tris, codage binaire, compression RLE, Collatz, Fibonacci,
-  Horner, Newton et autres algorithmes spécialisés ;
-- systèmes linéaires comme chapitre autonome ;
+- suites, récurrence, convergence et limites;
+- probabilités et simulations probabilistes;
+- récursivité, tris, codage binaire, compression RLE, Collatz, Horner et autres
+  algorithmes spécialisés; invariant de boucle;
 - barycentres, homothéties, rotations, droite d'Euler, puissance d'un point et axe
-  radical ;
-- fonction inverse, asymptotes, point fixe et théorème des valeurs intermédiaires ;
-- résolution générale d'équations trigonométriques et identités avancées ;
-- quartiles, boîte à moustaches, régression, statistique bidimensionnelle et paradoxe
-  de Simpson ;
-- méthodes de Cardano, règle de Descartes et autres approfondissements algébriques.
+  radical; distance d'un point à une droite; position relative de deux cercles;
+- asymptotes, point fixe, théorème des valeurs intermédiaires; transformations de
+  courbes;
+- résolution d'équations trigonométriques sur ℝ et identités avancées;
+- quartiles, boîte à moustaches, régression, statistique bidimensionnelle et
+  paradoxe de Simpson;
+- contraposée et raisonnement par l'absurde; méthodes de Cardano, règle de
+  Descartes.
 
-Règle d'usage : ces contenus peuvent être proposés à un élève volontaire ou dans une
-séance d'approfondissement, mais ils ne doivent pas être considérés comme prérequis,
-enseignés au détriment d'une capacité T10, ni évalués dans une épreuve commune.
+Règle d'usage : proposés à un élève volontaire ou en approfondissement, jamais
+prérequis ni évalués dans une épreuve commune.
+
+Ne sont **plus** classés hors programme, car le RAPE les prescrit : systèmes
+linéaires (chapitre 4) et fonction inverse (chapitre 7).
 
 ## Banque d'exercices et de problèmes
 
-Chaque exercice ou problème est indépendant, conforme au programme T10 et porte
-une indication explicite : **calculatrice autorisée** ou
-**calculatrice non nécessaire**.
+Chaque exercice ou problème est indépendant, porte une indication de calculatrice
+et ne mobilise que des notions du parcours prescrit (contrôle par mots-clés du
+2 octobre 2026). Usages : diagnostic, formatif, sommatif (voir le guide).
 
-| Usage | Composition suggérée |
-|---|---|
-| Diagnostic | Exercices de domaines différents portant sur les prérequis |
-| Formative | Exercices ciblés et indépendants |
-| Sommative | Exercices de plusieurs domaines et problème de synthèse |
+## Points restant à vérifier
 
-Les repères BEPC, Bac et internationaux concernent uniquement l'architecture :
-questions brèves, exercices progressifs et problème de synthèse.
-
-## Principes internationaux retenus
-
-- exercices indépendants pour éviter qu'une erreur initiale bloque tout le sujet ;
-- points visibles et consignes formulées avec des verbes d'action stables ;
-- progression de réponses courtes vers des raisonnements plus étendus ;
-- indication de calculatrice pour chaque bloc ;
-- valorisation explicite de la justification, de la modélisation et de la communication.
-
-Ces principes sont inspirés de formats Cambridge IGCSE, IB et du baccalauréat français ;
-ils servent l'organisation des sujets et ne créent aucun contenu supplémentaire.
-
-## Décisions prises
-
-1. Constitution d'une Banque d'exercices et de problèmes structurés,
-   utilisable pour les évaluations formatives et sommatives.
-2. Indication explicite de la calculatrice pour chaque item et corrigé associé.
-3. Vérification que chaque exercice et problème correspond à une capacité T10.
-4. Mention explicite du caractère non exigible des défis et extensions, avec
-   ligne rouge continue et repère textuel dans la préface, les titres et les blocs.
-5. Ajout des références structurelles dans le guide.
+1. Lire le RAPE « août 2026 » et vérifier qu'il ne modifie pas la liste ci-dessus.
+2. Le classement des énoncés d'exercices hors programme a été fait sur leurs
+   titres et leurs thèmes; une relecture item par item des quelque 1 100
+   exercices reste souhaitable avant d'en utiliser de nouveaux en évaluation commune.
+3. Les relations de Viète (chapitre 4) ne figurent ni au PE ni au RAPE; elles
+   sont conservées sans repère, car elles servent d'outil de contrôle. Décision
+   éditoriale à confirmer.

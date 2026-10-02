@@ -14,10 +14,12 @@ bateau. La d\'ecouverte des irrationnels fut une r\'evolution qui ouvrit la voie
 
 \begin{objectifs}
 \begin{itemize}
-  \item Ma\^itriser la hi\'erarchie $\N \subset \Z \subset \Q \subset \R$.
+  \item Ma\^itriser la hi\'erarchie $\N \subset \Z \subset \D \subset \Q \subset \R$.
   \item Calculer avec les fractions, puissances et racines carr\'ees.
   \item Utiliser la valeur absolue et r\'esoudre des \'equations/in\'equations.
-  \item Utiliser les notations d'intervalles et d'encadrements.
+  \item \'Ecrire un r\'eel sous diff\'erentes formes et en donner des valeurs approch\'ees.
+  \item Relier intervalle, distance et valeur absolue.
+  \item Encadrer une somme, une diff\'erence, un produit et un quotient.
 \end{itemize}
 \end{objectifs}
 
@@ -26,36 +28,53 @@ bateau. La d\'ecouverte des irrationnels fut une r\'evolution qui ouvrit la voie
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=0.9]
-  % Nested sets diagram
-  \draw[BN,thick,fill=BN!5,rounded corners=12pt] (-6,-2.0) rectangle (6,2.0);
-  \node[BN,font=\bfseries] at (5.45,1.62) {$\R$};
-  \draw[TQ,thick,fill=TQ!6,rounded corners=9pt] (-4.8,-1.45) rectangle (4.8,1.45);
-  \node[TQ,font=\bfseries] at (4.25,1.10) {$\Q$};
-  \draw[OR,thick,fill=OR!6,rounded corners=7pt] (-3.5,-0.95) rectangle (3.5,0.95);
-  \node[OR,font=\bfseries] at (2.95,0.61) {$\Z$};
-  \draw[VE,thick,fill=VE!8,rounded corners=5pt] (-1.7,-0.48) rectangle (1.7,0.48);
-  \node[VE,font=\bfseries] at (1.38,0.30) {$\N$};
+  % Nested sets diagram: N in Z in D in Q in R
+  \draw[BN,thick,fill=BN!5,rounded corners=12pt] (-7,-2.3) rectangle (7,2.3);
+  \node[BN,font=\bfseries] at (6.5,1.92) {$\R$};
+  \draw[TQ,thick,fill=TQ!6,rounded corners=10pt] (-5.8,-1.85) rectangle (5.8,1.85);
+  \node[TQ,font=\bfseries] at (5.3,1.48) {$\Q$};
+  \draw[VI,thick,fill=VI!5,rounded corners=8pt] (-4.5,-1.4) rectangle (4.5,1.4);
+  \node[VI,font=\bfseries] at (4.05,1.05) {$\D$};
+  \draw[OR,thick,fill=OR!6,rounded corners=7pt] (-3.1,-0.95) rectangle (3.1,0.95);
+  \node[OR,font=\bfseries] at (2.65,0.62) {$\Z$};
+  \draw[VE,thick,fill=VE!8,rounded corners=5pt] (-1.6,-0.48) rectangle (1.6,0.48);
+  \node[VE,font=\bfseries] at (1.3,0.28) {$\N$};
   % Examples in each region
-  \node[VE,font=\small] at (-0.12,-0.08) {$0,1,2,3\ldots$};
-  \node[OR,font=\small] at (-2.55,0) {$-3,\,-1$};
-  \node[TQ,font=\small] at (-4.12,0) {$\frac{1}{2},\,-\frac{3}{4}$};
-  \node[BN,font=\small] at (-5.42,0.45) {$\sqrt{2}$};
-  \node[BN,font=\small] at (5.40,0.20) {$\pi$};
-  \node[BN,font=\small] at (5.35,-0.65) {$e$};
+  \node[VE,font=\small] at (-0.15,-0.08) {$0,1,2,3\ldots$};
+  \node[OR,font=\small] at (-2.35,0) {$-3,\,-1$};
+  \node[VI,font=\small] at (-3.8,0.32) {$0{,}5$};
+  \node[VI,font=\small] at (-3.8,-0.38) {$-2{,}75$};
+  \node[TQ,font=\small] at (-5.15,0.35) {$\frac{1}{3}$};
+  \node[TQ,font=\small] at (-5.15,-0.45) {$-\frac{2}{7}$};
+  \node[BN,font=\small] at (-6.4,0.35) {$\sqrt{2}$};
+  \node[BN,font=\small] at (6.4,0.25) {$\pi$};
+  \node[BN,font=\small] at (6.4,-0.6) {$-\sqrt{3}$};
 \end{tikzpicture}
-\caption{Hi\'erarchie des ensembles de nombres~: $\N\subset\Z\subset\Q\subset\R$.
+\caption{Hi\'erarchie des ensembles de nombres~: $\N\subset\Z\subset\D\subset\Q\subset\R$.
 Chaque ensemble contient le pr\'ec\'edent, plus de nouveaux nombres.}
 \end{figure}
 
 \begin{defn}[Hi\'erarchie des ensembles]
-$$\N \subset \Z \subset \Q \subset \R$$
+\index{nombres décimaux}
+$$\N \subset \Z \subset \D \subset \Q \subset \R$$
 \begin{itemize}
   \item $\N = \{0, 1, 2, 3, \ldots\}$ (entiers naturels)
   \item $\Z = \{\ldots, -2, -1, 0, 1, 2, \ldots\}$ (entiers relatifs)
+  \item $\D = \bigl\{\frac{a}{10^n} \mid a \in \Z,\ n \in \N\bigr\}$ (nombres
+        \textbf{décimaux}~: ceux qui s'écrivent avec un nombre \emph{fini} de
+        chiffres après la virgule)
   \item $\Q = \bigl\{\frac{p}{q} \mid p \in \Z,\ q \in \N^*\bigr\}$ (rationnels)
-  \item $\R$ : tous les r\'eels, incluant les irrationnels ($\sqrt{2}$, $\pi$, $e$, \ldots)
+  \item $\R$ : tous les r\'eels, incluant les irrationnels ($\sqrt{2}$, $\pi$, \ldots)
 \end{itemize}
 \end{defn}
+
+\begin{ex}[Classer des nombres]
+$-2{,}75=\dfrac{-275}{100}\in\D$ et $\dfrac38=\dfrac{375}{1000}\in\D$.
+En revanche $\dfrac13\in\Q$ mais $\dfrac13\notin\D$~: si l'on avait
+$\dfrac13=\dfrac{a}{10^n}$, alors $10^n=3a$ serait divisible par $3$, ce qui est
+faux car la somme des chiffres de $10^n$ vaut $1$.
+Enfin $\sqrt2\notin\Q$ (démontré au chapitre~\ref{chap:logique}).
+\end{ex}
 
 \begin{methode}[Poser une division euclidienne]
 Pour diviser $157$ par $12$, on cherche le plus grand multiple de $12$ qui ne
@@ -101,6 +120,11 @@ Toujours v\'erifier que $0\leq r<12$.
 
 \section{Puissances et racines}
 
+\begin{defn}[Puissances d'exposant entier]
+Pour $a\in\R$ et $n\in\N^*$, $a^n=a\times a\times\cdots\times a$ ($n$ facteurs).
+Pour $a\ne0$, on pose $a^0=1$ et $a^{-n}=\dfrac{1}{a^n}$.
+\end{defn}
+
 \begin{prop}[R\`egles des puissances]
 Pour $a, b \in \R^*$ et $m, n \in \Z$ :
 $$a^m \times a^n = a^{m+n},\quad \frac{a^m}{a^n} = a^{m-n},\quad
@@ -112,32 +136,56 @@ Pour $a \geq 0$, $b > 0$ :
 $$\sqrt{ab} = \sqrt{a}\,\sqrt{b},\qquad
   \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}},\qquad
   \bigl(\sqrt{a}\bigr)^2 = a.$$
+Pour tout r\'eel $x$~: $\sqrt{x^2}=\abs{x}$ (et non $x$~: $\sqrt{(-3)^2}=3$).
 \end{prop}
 
-\section{Valeur absolue}
+\section{\'Ecritures d'un r\'eel et valeurs approch\'ees}
+\index{écriture scientifique}\index{valeur approchée}\index{arrondi}
 
-\begin{defn}[Valeur absolue]
-Pour tout r\'eel $x$ :
-$$\abs{x} = \begin{cases} x & \text{si } x \geq 0, \\ -x & \text{si } x < 0. \end{cases}$$
-G\'eom\'etriquement, $\abs{x}$ est la \emph{distance} de $x$ \`a l'origine.
-$\abs{x - a}$ est la distance de $x$ au point $a$.
+\begin{defn}[Diff\'erentes \'ecritures d'un nombre r\'eel]
+Un m\^eme r\'eel peut avoir plusieurs \'ecritures~:
+\begin{itemize}
+  \item \textbf{fractionnaire}~: $\dfrac{p}{q}$ (possible exactement si et seulement si le r\'eel est rationnel)~;
+  \item \textbf{d\'ecimale}~: $0{,}375$, ou d\'ecimale illimit\'ee $0{,}333\ldots$~;
+  \item \textbf{scientifique}~: $a\times10^{n}$ avec $1\leq\abs{a}<10$ et $n\in\Z$.
+\end{itemize}
+\emph{Exemples~:} $\dfrac38=0{,}375=3{,}75\times10^{-1}$~;
+$0{,}00052=5{,}2\times10^{-4}$~; $-43\,000=-4{,}3\times10^{4}$.
 \end{defn}
 
-\begin{thm}[In\'egalit\'e triangulaire]
-Pour tous r\'eels $a$ et $b$ : $\abs{a + b} \leq \abs{a} + \abs{b}$.
-\end{thm}
+\begin{defn}[Valeurs approch\'ees d'ordre $n$]
+Soit $x$ un r\'eel et $n\in\N$. Il existe un unique d\'ecimal
+$d=\dfrac{k}{10^n}$ ($k\in\Z$) tel que $d\leq x<d+10^{-n}$.
+\begin{itemize}
+  \item $d$ est la \textbf{valeur approch\'ee par d\'efaut} de $x$ \`a $10^{-n}$
+        pr\`es (ou \textbf{\'ecriture d\'ecimale d'ordre $n$} de $x$, obtenue en
+        tronquant apr\`es le $n$-i\`eme chiffre lorsque $x\geq0$)~;
+  \item $d+10^{-n}$ est la \textbf{valeur approch\'ee par exc\`es} \`a $10^{-n}$ pr\`es~;
+  \item la \textbf{valeur arrondie d'ordre $n$} est celle des deux qui est la plus
+        proche de $x$ (par convention, celle par exc\`es en cas d'\'egalit\'e).
+\end{itemize}
+\end{defn}
 
-\begin{methode}[R\'esoudre $\abs{f(x)} \leq k$]
-On travaille sur le domaine de $f$ et on suppose $k\geq0$.
-Si $k<0$, les conditions $|f(x)|\leq k$ et $|f(x)|=k$ sont impossibles,
-et $|f(x)|\geq k$ est vraie sur tout le domaine.
-\begin{enumerate}
-  \item $\abs{f(x)} \leq k \Leftrightarrow -k \leq f(x) \leq k$.
-  \item $\abs{f(x)} \geq k \Leftrightarrow f(x) \leq -k \text{ ou } f(x) \geq k$.
-  \item $\abs{f(x)} = k \Leftrightarrow f(x) = k \text{ ou } f(x) = -k$.
-\end{enumerate}
-\end{methode}
+\begin{ex}[Valeurs approch\'ees]
+$\sqrt2=1{,}41421\ldots$ et $\pi=3{,}14159\ldots$
 
+\medskip\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+ & Par d\'efaut & Par exc\`es & Arrondi \\
+\hline
+$\sqrt2$ \`a $10^{-2}$ pr\`es & $1{,}41$ & $1{,}42$ & $1{,}41$ \\
+$\pi$ \`a $10^{-3}$ pr\`es & $3{,}141$ & $3{,}142$ & $3{,}142$ \\
+$-\dfrac23=-0{,}666\ldots$ \`a $10^{-1}$ pr\`es & $-0{,}7$ & $-0{,}6$ & $-0{,}7$ \\
+\hline
+\end{tabular}
+
+\medskip\flushleft
+L'\textbf{ordre de grandeur} d'un nombre est une valeur simple proche de lui~:
+$3{,}8\times10^{5}$~km est de l'ordre de $4\times10^5$~km.
+\end{ex}
 
 \section{Intervalles et encadrements}
 \index{intervalle}
@@ -223,6 +271,97 @@ Pour encadrer $\sqrt{n}$ entre deux entiers cons\'ecutifs~:
 \end{enumerate}
 \emph{Exemple~:} $4^2=16 < 17 < 25=5^2$, donc $4 < \sqrt{17} < 5$.
 \end{methode}
+
+\begin{defn}[Encadrement]
+Encadrer un r\'eel $x$, c'est trouver deux r\'eels $a$ et $b$ tels que
+$a\leq x\leq b$. Le nombre $b-a$ est l'\textbf{amplitude} de l'encadrement.
+Un encadrement d'amplitude $10^{-n}$ par deux d\'ecimaux est un
+encadrement \textbf{\`a $10^{-n}$ pr\`es}.
+\end{defn}
+
+\begin{prop}[Op\'erations sur les encadrements]
+\index{encadrement!opérations}
+On suppose $a\leq x\leq b$ et $c\leq y\leq d$.
+\begin{itemize}
+  \item \textbf{Somme~:} $a+c\leq x+y\leq b+d$.
+  \item \textbf{Diff\'erence~:} $a-d\leq x-y\leq b-c$
+        (car $-d\leq -y\leq -c$).
+  \item \textbf{Produit~:} si $a>0$ et $c>0$, alors $ac\leq xy\leq bd$.
+  \item \textbf{Quotient~:} si $a>0$ et $c>0$, alors
+        $\dfrac{a}{d}\leq\dfrac{x}{y}\leq\dfrac{b}{c}$
+        (car $\dfrac1d\leq\dfrac1y\leq\dfrac1c$).
+\end{itemize}
+\end{prop}
+
+\begin{attention}
+On ne soustrait pas et on ne divise pas les encadrements \og membre \`a membre\fg{}~:
+on ajoute l'oppos\'e, on multiplie par l'inverse. Pour le produit et le quotient,
+les hypoth\`eses de signe sont indispensables.
+\end{attention}
+
+\begin{ex}[Encadrer \`a partir de valeurs approch\'ees]
+On part de $1{,}41\leq\sqrt2\leq1{,}42$ et $1{,}73\leq\sqrt3\leq1{,}74$.
+\begin{itemize}
+  \item $3{,}14\leq\sqrt2+\sqrt3\leq3{,}16$~;
+  \item $1{,}73-1{,}42\leq\sqrt3-\sqrt2\leq1{,}74-1{,}41$, soit $0{,}31\leq\sqrt3-\sqrt2\leq0{,}33$~;
+  \item $1{,}41\times1{,}73\leq\sqrt6\leq1{,}42\times1{,}74$, soit $2{,}4393\leq\sqrt6\leq2{,}4708$~;
+  \item $\dfrac{1{,}73}{1{,}42}\leq\dfrac{\sqrt3}{\sqrt2}\leq\dfrac{1{,}74}{1{,}41}$, soit
+        $1{,}218\leq\dfrac{\sqrt3}{\sqrt2}\leq1{,}235$ (bornes arrondies vers l'ext\'erieur).
+\end{itemize}
+L'amplitude augmente au fil des op\'erations~: le r\'esultat est moins pr\'ecis que les donn\'ees.
+\end{ex}
+
+\section{Valeur absolue}
+
+\begin{defn}[Valeur absolue]
+Pour tout r\'eel $x$ :
+$$\abs{x} = \begin{cases} x & \text{si } x \geq 0, \\ -x & \text{si } x < 0. \end{cases}$$
+Autrement dit, $\abs{x}$ est le plus grand des deux nombres $x$ et $-x$.
+G\'eom\'etriquement, $\abs{x}$ est la \emph{distance} de $x$ \`a l'origine.
+\end{defn}
+
+\begin{defn}[Distance entre deux r\'eels]
+\index{distance}
+La \textbf{distance} entre les r\'eels $a$ et $b$ est $d(a,b)=\abs{a-b}=\abs{b-a}$~:
+c'est la longueur du segment qui joint les points d'abscisses $a$ et $b$ sur la
+droite gradu\'ee.
+\end{defn}
+
+\begin{prop}[Distance, valeur absolue et intervalle]
+Soit $a\in\R$ et $r>0$.
+\begin{itemize}
+  \item $\abs{x-a}\leq r \Leftrightarrow a-r\leq x\leq a+r \Leftrightarrow x\in[a-r\,;a+r]$~;
+  \item $\abs{x-a}< r \Leftrightarrow x\in\,]a-r\,;a+r[$~;
+  \item $\abs{x-a}\geq r \Leftrightarrow x\leq a-r \text{ ou } x\geq a+r$.
+\end{itemize}
+L'intervalle $[a-r\,;a+r]$ a pour \textbf{centre} $a$ et pour \textbf{rayon} $r$.
+R\'eciproquement, $[\alpha\,;\beta]$ ($\alpha<\beta$) est l'ensemble des $x$ tels que
+$\abs{x-c}\leq r$ avec $c=\dfrac{\alpha+\beta}{2}$ et $r=\dfrac{\beta-\alpha}{2}$.
+\end{prop}
+
+\begin{ex}[Traduire dans les deux sens]
+\begin{itemize}
+  \item $\abs{x-3}\leq2$~: les r\'eels \`a distance au plus $2$ de $3$, soit $x\in[1\,;5]$.
+  \item $[2\,;8]$ a pour centre $5$ et pour rayon $3$~: $x\in[2\,;8]\Leftrightarrow\abs{x-5}\leq3$.
+  \item $\abs{x+1}>4$ s'\'ecrit $\abs{x-(-1)}>4$~: $x<-5$ ou $x>3$.
+\end{itemize}
+\end{ex}
+
+\begin{thm}[In\'egalit\'e triangulaire]
+Pour tous r\'eels $a$ et $b$ : $\abs{a + b} \leq \abs{a} + \abs{b}$.
+\end{thm}
+
+\begin{methode}[R\'esoudre $\abs{f(x)} \leq k$]
+On travaille sur le domaine de $f$ et on suppose $k\geq0$.
+Si $k<0$, les conditions $|f(x)|\leq k$ et $|f(x)|=k$ sont impossibles,
+et $|f(x)|\geq k$ est vraie sur tout le domaine.
+\begin{enumerate}
+  \item $\abs{f(x)} \leq k \Leftrightarrow -k \leq f(x) \leq k$.
+  \item $\abs{f(x)} \geq k \Leftrightarrow f(x) \leq -k \text{ ou } f(x) \geq k$.
+  \item $\abs{f(x)} = k \Leftrightarrow f(x) = k \text{ ou } f(x) = -k$.
+\end{enumerate}
+\end{methode}
+
 
 \section{Fractions et calcul alg\'ebrique}
 \index{fractions}
@@ -660,7 +799,7 @@ $k \leftarrow 0$\;
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[Irrationnalit\'e de $\sqrt{3}$ \corrige]{3}
+\begin{exo}[Irrationalit\'e de $\sqrt{3}$ \corrige]{3}
 D\'emontrer que $\sqrt{3}\notin\Q$ par l'absurde.
 \emph{(D\'ej\`a vu en chapitre~\ref{chap:logique}~; refaire ici en contexte alg\'ebrique.)}
 \end{exo}

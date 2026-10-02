@@ -21,9 +21,9 @@
 \NewDocumentCommand{\KwOut}{m}{\textbf{Sortie :} #1\par}
 \newcommand{\KwTo}{\textbf{à}}
 \newcommand{\KwStep}{\textbf{pas}}
-\newcommand{\Afficher}{\textbf{Afficher}}
-\newcommand{\Lire}{\textbf{Lire}}
-\newcommand{\Retourner}{\textbf{Retourner}}
+\newcommand{\Afficher}{\textbf{Afficher}\ }% keyword followed by a space
+\newcommand{\Lire}{\textbf{Lire}\ }
+\newcommand{\Retourner}{\textbf{Retourner}\ }
 % A comment terminates the current instruction, so that the following
 % assignment cannot be absorbed on the same visual line.
 \NewDocumentCommand{\tcp}{s O{} m}{\hfill{\color{GM!70!black}\itshape// #3}\par}

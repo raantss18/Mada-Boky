@@ -96,3 +96,37 @@ Severity: **Major** = a required item is missing from the course or wrongly labe
 7. Add the RAPE août 2026 to `PSE/` if available.
 
 Nothing in this audit was changed in the book sources; only `README-DRIVE-SNAPSHOT.md` and this report.
+
+## 8. Resolution (2 October 2026, follow-up commit)
+
+| ID | Status | What was done |
+|---|---|---|
+| C01 | Fixed | 𝔻 defined, chain ℕ⊂ℤ⊂𝔻⊂ℚ⊂ℝ, figure redrawn, worked classification with proof that 1/3 ∉ 𝔻. |
+| C02 | Fixed | New Ch. 3 section: decimal/fraction/scientific writings; values by default/excess, rounding of order n (table with √2, π, −2/3); order of magnitude. Also a⁰, a⁻ⁿ and √(x²)=\|x\|. |
+| C03 | Fixed | Definition of encadrement and amplitude; property for sum, difference, product, quotient with sign hypotheses; warning; worked example (√2, √3). |
+| C04 | Fixed | Systems no longer marked optional; determinant/graphical interpretation; graphical method for two inequalities (half-planes) with figure. |
+| C05 | Fixed | Evident roots (incl. divisor test), cubic equation/inequality method with full worked example, polynomial equality, rational equations (forbidden-value trap) and rational inequalities, full sign theorem for any *a*, second-degree inequality method with two examples. |
+| C06 | Fixed | Canonical form now precedes the discriminant; proofs of discriminant and sign theorems. |
+| C07 | Fixed | Ch. 7 rebuilt: Généralités → variations/parity → six reference functions → graphical interpretation → transformations (once, marked optional). Duplicate figure and sections removed. |
+| C08 | Fixed | ax+b and 1/x are core (table, figure panel, proofs of variations for all six functions). Guide updated. [VERIFY against RAPE août 2026.] |
+| C09 | Fixed | Parametric circle (with justification and circular-motion example); circle of diameter [AB] with vector proof. |
+| C10 | Fixed | Direction vector from equation, conversions between the three forms (worked example), vector criteria for parallel/perpendicular lines, altitude/median/perpendicular bisector method and example, analytic + graphical line–circle intersection with figure. Distance point–line and two-circle positions marked optional. |
+| C11 | Fixed | New section: cos/sin as functions, period, parity, tan odd and π-periodic, with justification. |
+| C12 | Fixed | Section renamed "Angles de cosinus ou de sinus donné" and treated as core; only resolution over ℝ is marked optional. sin x = a method wording fixed. |
+| C13 | Fixed | Ch. 8 reordered: right-triangle reminder, radian (+ arc length), unit circle, fundamental property with proof and a cos-from-sin example, then remarkable values. |
+| C14 | Fixed | New Ch. 9 section on population/variable (qualitative, discrete, continuous), counts, frequencies, classes; complete worked series (mean 1.6, median 1, mode 1, variance 1.44, σ = 1.2); construction method and figures for bar chart, pie chart, histogram. Quartile bullet and second box plot marked optional; the optional marker wrongly placed on mode/cumulative frequencies removed. |
+| C15 | Fixed | Exclusive or (table), converse, De Morgan and negation of an implication (table proof), translation method and order of quantifiers; duplicate truth table removed. |
+| C16 | Fixed | New "Boucles" section with a bounded loop (2ⁿ, traced) and an unbounded loop (paper-folding threshold); "qualités d'un algorithme" (validity, complexity, efficiency). Trace and pseudo-code conventions are no longer under the optional marker; only the loop invariant is. |
+| C17 | Fixed | Ch. 5 reordered (operations → frame → collinearity/alignment/parallelism → scalar product); geometric definitions of sum and k·u; collinearity as u = kv with determinant criterion; parallel-lines property; scalar-product rules and worked angle (45°) and orthogonality examples. |
+| S01–S02 | Fixed | Guide progression and the 66 automatism series (regenerated from `scripts/generate_automatismes.py`) now follow the five RAPE periods; vectors precede parametric lines. |
+| S03 | Mostly fixed | 20 further exercises/problems tagged `[HORS PROGRAMME T10]` (Ch. 2, 5, 6, 7, 9). Item-by-item review of all ~1 100 exercises still open (P2-U02). |
+| S04 | Fixed | Contrapositive and quartile questions replaced in the automatism bank. |
+| S05 | Partly | Course text substantially extended; exercise volume unchanged. |
+| D01 | Fixed | `docs/audit-programme-evaluations.md` rewritten from the repository's PE/RAPE, with section-level matrix and open points. |
+| D02–D03 | Fixed | README and `docs/validation.md` page counts refreshed (313 / 493); défis count corrected (67, not 68); non-existent `sources/` reference removed. |
+| D04 | Fixed | Dead `\iffalse` block removed. |
+| D05 | Partly | Bernoulli anecdote replaced by a William Playfair one (bar chart 1786, pie chart 1801); al-Khwārizmī date now "vers 820–830". EEF claim still unverified. |
+| D06 | Fixed | "Irrationalité" spelling; "Antipose" replaced by explicit symmetries. |
+| QA | Added | `make qa` now checks that each chapter's course text contains the programme notions (fails on the pre-fix sources with 31 errors, passes now). |
+
+New mathematics written in this commit was checked by hand (all numerical examples recomputed; sign tables re-derived). The exercises and their corrections were not modified, except for optional tags in titles.

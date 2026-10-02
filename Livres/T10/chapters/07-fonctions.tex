@@ -18,8 +18,9 @@ dit : \og J'aurai moins de distractions.\fg
   \item Lire et interpr\'eter une courbe repr\'esentative.
   \item D\'eterminer domaine de d\'efinition, image, ant\'ec\'edent, extremums.
   \item Dresser et lire un tableau de variation.
-  \item Conna\^itre les fonctions de r\'ef\'erence.
-  \item D\'eduire les courbes des fonctions associ\'ees par transformations.
+  \item Conna\^itre les fonctions de r\'ef\'erence~: affine, carr\'e, inverse, racine carr\'ee, valeur absolue, cube.
+  \item D\'emontrer le sens de variation des fonctions de r\'ef\'erence.
+  \item R\'esoudre graphiquement une \'equation ou une in\'equation.
 \end{itemize}
 \end{objectifs}
 
@@ -30,75 +31,6 @@ Une \textbf{fonction num\'erique} $f$ est une application d'un ensemble $D_f \su
 (domaine de d\'efinition) vers $\R$. $f(x)$ est l'\textbf{image} de $x$,
 et $x$ est un \textbf{ant\'ec\'edent} de $f(x)$.
 \end{defn}
-
-\begin{defn}[Parit\'e]
-Le domaine $D_f$ doit \^etre sym\'etrique par rapport \`a $0$ :
-$x\in D_f\Rightarrow -x\in D_f$. Les \'egalit\'es suivantes valent pour tout $x\in D_f$.
-$f$ est \textbf{paire} si $f(-x)=f(x)$ (courbe sym\'etrique par rapport \`a $Oy$).\\
-$f$ est \textbf{impaire} si $f(-x)=-f(x)$ (courbe sym\'etrique par rapport \`a $O$).
-\end{defn}
-
-\section{Fonctions de r\'ef\'erence}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \begin{scope}
-    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
-      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=BN!18},
-      xmin=-2.2,xmax=2.2,ymin=-0.5,ymax=4.5,xtick distance=1,ytick distance=1,
-      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{BN}},
-      title={$f(x)=x^2$}]
-      \addplot[BN,very thick,domain=-2.1:2.1,samples=100]{x^2};
-    \end{axis}
-  \end{scope}
-  \begin{scope}[xshift=7.4cm]
-    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
-      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=VE!18},
-      xmin=-0.2,xmax=4.2,ymin=-0.5,ymax=2.5,xtick distance=1,ytick distance=1,
-      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{VE}},
-      title={$f(x)=\sqrt{x}$}]
-      \addplot[VE,very thick,domain=0:4.1,samples=100]{sqrt(x)};
-    \end{axis}
-  \end{scope}
-  \begin{scope}[yshift=-6.5cm]
-    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
-      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=OR!18},
-      xmin=-2.2,xmax=2.2,ymin=-0.5,ymax=2.5,xtick distance=1,ytick distance=1,
-      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{OR}},
-      title={$f(x)=|x|$}]
-      \addplot[OR,very thick,domain=-2.1:2.1,samples=100]{abs(x)};
-    \end{axis}
-  \end{scope}
-  \begin{scope}[xshift=7.4cm,yshift=-6.5cm]
-    \begin{axis}[width=6.3cm,height=5.2cm,axis equal image,axis lines=center,
-      xlabel={$x$},ylabel={$y$},grid=both,major grid style={draw=VI!18},
-      xmin=-1.7,xmax=1.7,ymin=-4.2,ymax=4.2,xtick distance=1,ytick distance=1,
-      tick label style={font=\scriptsize},title style={font=\small\bfseries\color{VI}},
-      title={$f(x)=x^3$}]
-      \addplot[VI,very thick,domain=-1.6:1.6,samples=100]{x^3};
-    \end{axis}
-  \end{scope}
-\end{tikzpicture}
-\caption{Fonctions de référence au programme : graduations régulières et identiques sur chaque axe.}
-\end{figure}
-
-\horsprogramme{Approfondissement graphique sur les translations et les symétries de courbes.}
-\section{Transformations}
-
-\begin{prop}[Transformations \'el\'ementaires]
-\`A partir de la courbe $\mathcal{C}_f$ de $f$ :
-\begin{itemize}
-  \item $f(x)+a$ : translation verticale de vecteur $(0,a)$.
-  \item $f(x+a)$ : translation horizontale de vecteur $(-a,0)$.
-  \item $-f(x)$ : sym\'etrie par rapport \`a $Ox$.
-  \item $f(-x)$ : sym\'etrie par rapport \`a $Oy$.
-  \item $|f(x)|$ : replier la partie n\'egative vers le haut.
-\end{itemize}
-\end{prop}
-
-
-\section{Lecture de courbe et vocabulaire}
 
 \begin{defn}[Domaine de d\'efinition]
 \index{domaine de définition}
@@ -123,6 +55,8 @@ Pour $y = f(x)$~:
 \`a l'abscisse $a$~; les ant\'ec\'edents de $y=b$ sont les abscisses
 des points d'intersection de la courbe avec la droite horizontale $y=b$.
 \end{defn}
+
+\section{Sens de variation, extremums et parit\'e}
 
 \begin{defn}[Monotonie et extremums]
 \index{monotonie}\index{extremum}
@@ -168,7 +102,32 @@ $f$ est d\'ecroissante sur $]-\infty,0]$ et croissante sur $[0,+\infty[$~;
 minimum $f(0)=-4$.
 \end{ex}
 
+\begin{defn}[Parit\'e]
+Le domaine $D_f$ doit \^etre sym\'etrique par rapport \`a $0$ :
+$x\in D_f\Rightarrow -x\in D_f$. Les \'egalit\'es suivantes valent pour tout $x\in D_f$.
+$f$ est \textbf{paire} si $f(-x)=f(x)$ (courbe sym\'etrique par rapport \`a $Oy$).\\
+$f$ est \textbf{impaire} si $f(-x)=-f(x)$ (courbe sym\'etrique par rapport \`a $O$).
+\end{defn}
+
+\begin{methode}[\'Etudier la parit\'e d'une fonction]
+\index{parité}
+\begin{enumerate}
+  \item V\'erifier que $D_f$ est sym\'etrique par rapport \`a $0$ (sinon $f$ n'est ni paire ni impaire).
+  \item Calculer $f(-x)$ et comparer avec $f(x)$ et $-f(x)$.
+\end{enumerate}
+\emph{Exemples~:} $f(x)=x^4-3x^2$ est paire~; $g(x)=x^3+x$ est impaire~;
+$h(x)=x^2+x$ n'est ni paire ni impaire, car $h(-1)=0$ alors que $h(1)=2$.
+\end{methode}
+
 \section{Fonctions de r\'ef\'erence}
+\index{fonction de référence}
+
+\begin{defn}[Fonction affine]
+\index{fonction affine}
+Une fonction \textbf{affine} est d\'efinie sur $\R$ par $f(x)=ax+b$ ($a,b$ r\'eels).
+Sa courbe est une droite de coefficient directeur $a$ et d'ordonn\'ee \`a
+l'origine $b$. Si $b=0$, la fonction est \textbf{lin\'eaire}.
+\end{defn}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
@@ -177,6 +136,7 @@ minimum $f(0)=-4$.
 \rowcolor{BN!10}
 Fonction & $D_f$ & Parit\'e & Variations \\
 \hline
+$f(x)=ax+b$  & $\R$ & --- & croiss.\ si $a>0$, d\'ecr.\ si $a<0$, constante si $a=0$ \\
 $f(x)=x^2$   & $\R$ & paire   & d\'ecr.\ sur $]-\infty,0]$, croiss.\ sur $[0,+\infty[$ \\
 $f(x)=x^3$   & $\R$ & impaire & croissante sur $\R$ \\
 $f(x)=\sqrt{x}$ & $[0,+\infty[$ & --- & croissante sur $[0,+\infty[$ \\
@@ -252,23 +212,76 @@ $f(x)=1/x$   & $\R^*$ & impaire & d\'ecroissante sur $]-\infty,0[$ et sur $]0,+\
       \node[VI,font=\tiny,anchor=west] at (axis cs:0.6,1.8) {$x^3$};
     \end{axis}
   \end{scope}
-  % 6th cell: summary table of key properties
+  % 6th cell: affine functions
   \begin{scope}[xshift=9cm,yshift=-4.8cm]
-    \node[draw=BN!30,fill=GC,rounded corners=3pt,
-          inner sep=6pt,text width=3.6cm,font=\tiny,
-          align=left] at (1.8,1.4) {
-      \textbf{R\'ecap\'itulatif}\\[2pt]
-      $x^2$~: min en $x=0$, paire\\
-      $\sqrt{x}$~: croissante sur $[0,+\infty[$\\
-      $|x|$~: min en $x=0$, paire\\
-      $1/x$~: impaire; d\'ecroissante sur chacun des deux intervalles de son domaine\\
-      $x^3$~: croissante sur $\R$, impaire
-    };
+    \begin{axis}[width=4.2cm,height=4.2cm,axis lines=center,
+      xlabel={$x$},ylabel={$y$},
+      xmin=-2.2,xmax=2.2,ymin=-3.5,ymax=3.5,
+      xtick={-2,-1,0,1,2},ytick={-2,0,2},
+      tick label style={font=\tiny},
+      title style={font=\small\bfseries\color{OD}},
+      title={$f(x)=ax+b$}]
+      \addplot[OD,very thick,domain=-1.1:2.1,samples=2]{2*x-1};
+      \addplot[TQ,very thick,domain=-2.1:2.1,samples=2]{-0.5*x+1};
+      \node[OD,font=\tiny,anchor=west] at (axis cs:1.1,2.6) {$2x-1$};
+      \node[TQ,font=\tiny,anchor=west] at (axis cs:-2,2.5) {$-\tfrac12x+1$};
+    \end{axis}
   \end{scope}
 \end{tikzpicture}
-\caption{Les cinq fonctions de r\'ef\'erence --- chacune avec son domaine et ses propri\'et\'es.}
+\caption{Les six fonctions de r\'ef\'erence.}
 \end{figure}
 
+\begin{prop}[Variations des fonctions de r\'ef\'erence]
+Les sens de variation donn\'es dans le tableau sont stricts (sauf $a=0$ pour une
+fonction affine). Ils se d\'emontrent en \'etudiant le signe de
+$f(x_2)-f(x_1)$ pour $x_1<x_2$ dans l'intervalle consid\'er\'e.
+\end{prop}
+
+\noindent\textit{D\'emonstrations.} Soit $x_1<x_2$.
+\begin{itemize}
+  \item \textbf{Affine~:} $f(x_2)-f(x_1)=a(x_2-x_1)$ a le signe de $a$.
+  \item \textbf{Carr\'e~:} $x_2^2-x_1^2=(x_2-x_1)(x_2+x_1)$. Sur $[0\,;+\infty[$,
+        $x_2+x_1>0$, donc la diff\'erence est positive~: $f$ est croissante.
+        Sur $]-\infty\,;0]$, $x_2+x_1<0$~: $f$ est d\'ecroissante.
+  \item \textbf{Inverse~:} $\dfrac1{x_2}-\dfrac1{x_1}=\dfrac{x_1-x_2}{x_1x_2}$.
+        Sur $]0\,;+\infty[$ comme sur $]-\infty\,;0[$, $x_1x_2>0$ et $x_1-x_2<0$~:
+        $f$ est d\'ecroissante sur chacun de ces intervalles. Elle n'est pas
+        d\'ecroissante sur $\R^*$~: $-1<1$ mais $f(-1)=-1<1=f(1)$.
+  \item \textbf{Racine carr\'ee~:} pour $0\leq x_1<x_2$,
+        $\sqrt{x_2}-\sqrt{x_1}=\dfrac{x_2-x_1}{\sqrt{x_2}+\sqrt{x_1}}>0$.
+  \item \textbf{Cube~:} $x_2^3-x_1^3=(x_2-x_1)(x_2^2+x_1x_2+x_1^2)$ et
+        $x_2^2+x_1x_2+x_1^2=\left(x_1+\dfrac{x_2}{2}\right)^2+\dfrac34x_2^2>0$
+        (les deux r\'eels ne sont pas tous deux nuls)~: $f$ est croissante sur $\R$.
+  \item \textbf{Valeur absolue~:} $\abs{x}=x$ sur $[0\,;+\infty[$ et $\abs{x}=-x$
+        sur $]-\infty\,;0]$.
+\end{itemize}
+
+\section{Interpr\'eter une courbe}
+
+\begin{methode}[R\'esoudre graphiquement]
+\index{résolution graphique}
+Soit $\mathcal C_f$ la courbe de $f$.
+\begin{itemize}
+  \item $f(x)=k$~: abscisses des points de $\mathcal C_f$ situ\'es sur la droite $y=k$.
+  \item $f(x)<k$~: abscisses des points de $\mathcal C_f$ situ\'es \emph{strictement sous} cette droite.
+  \item $f(x)=g(x)$~: abscisses des points d'intersection de $\mathcal C_f$ et $\mathcal C_g$.
+  \item Signe de $f$~: $f(x)>0$ l\`a o\`u $\mathcal C_f$ est au-dessus de l'axe des abscisses.
+  \item Extremums~: ordonn\'ees du point le plus haut (maximum) ou le plus bas (minimum).
+\end{itemize}
+Une lecture graphique donne en g\'en\'eral des valeurs \emph{approch\'ees}~:
+on les confirme par le calcul lorsque c'est possible.
+\end{methode}
+
+\begin{ex}[Avec les fonctions de r\'ef\'erence]
+\begin{itemize}
+  \item $x^2\leq4$~: la parabole est sous la droite $y=4$ entre les abscisses $-2$ et $2$~: $S=[-2\,;2]$.
+  \item $\dfrac1x>2$~: l'hyperbole est au-dessus de $y=2$ pour $0<x<\dfrac12$~: $S=\left]0\,;\dfrac12\right[$.
+  \item $\sqrt x=x$~: les courbes se coupent en $(0\,;0)$ et $(1\,;1)$~: $S=\{0\,;1\}$
+        (contr\^ole~: $\sqrt x=x\Leftrightarrow x\geq0$ et $x=x^2$).
+\end{itemize}
+\end{ex}
+
+\horsprogramme{Approfondissement graphique sur les translations et les sym\'etries de courbes.}
 \section{Transformations de courbes}
 
 
@@ -378,7 +391,7 @@ sur un graphe~:
 \end{multicols}
 \end{exo}
 
-\begin{exo}[Asymptotes \corrige]{1}
+\begin{exo}[Asymptotes \ExtensionTTen \corrige]{1}
 \index{asymptote}
 Pour chaque fonction, donner le domaine et indiquer les asymptotes~:
 \begin{enumerate}
@@ -852,7 +865,7 @@ $B(n) = -n^2 + 10n - 16$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Suites et fonctions \corrigeP]{2}
+\begin{probleme}[Suites et fonctions \ExtensionTTen \corrigeP]{2}
 On consid\`ere la suite $u_n = n^2 - 4n + 3$ pour $n\geq0$ entier.
 \begin{enumerate}
   \item Calculer $u_0, u_1, u_2, u_3, u_4, u_5$.

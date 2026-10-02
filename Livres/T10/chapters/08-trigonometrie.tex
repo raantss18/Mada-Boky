@@ -2,6 +2,7 @@
 
 %% ════════════════════════════════════════════════════════════════
 \chapter{Trigonom\'etrie}
+\label{chap:trigonometrie}
 \input{activities/08-trigonometrie}
 %% ════════════════════════════════════════════════════════════════
 
@@ -18,11 +19,19 @@ La trigonom\'etrie est n\'ee d'un besoin concret : mesurer ce qu'on ne peut atte
   \item Utiliser le cercle trigonom\'etrique.
   \item Conna\^itre les valeurs remarquables de sin, cos, tan.
   \item Utiliser $\cos^2\theta + \sin^2\theta = 1$.
-  \item R\'esoudre graphiquement $\cos x = a$ et $\sin x = b$.
+  \item Justifier la parit\'e et la p\'eriodicit\'e des fonctions trigonom\'etriques.
+  \item D\'eterminer les angles de $[0\,;2\pi]$ dont le cosinus ou le sinus est donn\'e.
 \end{itemize}
 \end{objectifs}
 
 \section{Radians}
+
+\begin{prop}[Rappel~: triangle rectangle]
+Dans un triangle $ABC$ rectangle en $A$, pour l'angle aigu $\widehat{B}$~:
+$$\cos\widehat B=\frac{AB}{BC}=\frac{\text{c\^ot\'e adjacent}}{\text{hypot\'enuse}},\qquad
+  \sin\widehat B=\frac{AC}{BC}=\frac{\text{c\^ot\'e oppos\'e}}{\text{hypot\'enuse}},$$
+$$\tan\widehat B=\frac{AC}{AB}=\frac{\text{c\^ot\'e oppos\'e}}{\text{c\^ot\'e adjacent}}.$$
+\end{prop}
 
 \begin{defn}[Radian]
 Le \textbf{radian} est l'unit\'e d'angle SI. Un angle de $1$~rad correspond
@@ -31,135 +40,22 @@ $$\alpha_\circ \times \frac{\pi}{180} = \alpha_\text{rad},\qquad
   \alpha_\text{rad} \times \frac{180}{\pi} = \alpha_\circ.$$
 \end{defn}
 
-\iffalse % replaced by the supplied-and-adapted construction below
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[scale=3.0]
-  %% ── Fond quadrants (couleurs très pâles) ──────────────────
-  \fill[BN!5]  (0,0) -- (1,0) arc[start angle=0,   end angle=90,  radius=1] -- cycle;
-  \fill[TQ!6]  (0,0) -- (0,1) arc[start angle=90,  end angle=180, radius=1] -- cycle;
-  \fill[BO!5]  (0,0) --(-1,0) arc[start angle=180, end angle=270, radius=1] -- cycle;
-  \fill[OR!5]  (0,0) -- (0,-1)arc[start angle=270, end angle=360, radius=1] -- cycle;
+\begin{remarque}
+Sur un cercle de rayon $r$, un angle au centre de $\theta$~radians intercepte un
+arc de longueur $\ell=r\theta$. Le cercle complet mesure $2\pi$~rad, soit $360^{\circ}$.
+\end{remarque}
 
-  %% ── Axes ──────────────────────────────────────────────────
-  \draw[-Stealth,BN!50,thick] (-1.38,0)--(1.42,0)
-    node[right,font=\small,text=BN] {$x$};
-  \draw[-Stealth,BN!50,thick] (0,-1.38)--(0,1.42)
-    node[above,font=\small,text=BN] {$y$};
+\section{Le cercle trigonom\'etrique}
 
-  %% ── Cercle ────────────────────────────────────────────────
-  \draw[BN,very thick] (0,0) circle (1);
-
-  %% ── Origine ───────────────────────────────────────────────
-  \fill[BN] (0,0) circle (0.8pt)
-    node[below left,font=\scriptsize,text=BN] {$O$};
-
-  %% ── Repères sur les axes ──────────────────────────────────
-  \foreach \x/\lbl in {1/{$1$}, -1/{$-1$}}{
-    \draw[BN!50,thin] (\x,-0.025)--(\x,0.025);
-    \node[below,font=\scriptsize,text=BN!70] at (\x,-0.04) {\lbl};
-  }
-  \foreach \y/\lbl in {1/{$1$}, -1/{$-1$}}{
-    \draw[BN!50,thin] (-0.025,\y)--(0.025,\y);
-    \node[left,font=\scriptsize,text=BN!70] at (-0.04,\y) {\lbl};
-  }
-
-  %% ── Labels des quadrants ─────────────────────────────────
-  \node[font=\tiny,text=BN!55,align=center] at ( 0.55, 0.52)
-    {\textbf{Q\,I}\\ $\cos>0$\\ $\sin>0$};
-  \node[font=\tiny,text=TQ!80,align=center] at (-0.55, 0.52)
-    {\textbf{Q\,II}\\ $\cos<0$\\ $\sin>0$};
-  \node[font=\tiny,text=BO!70,align=center] at (-0.55,-0.52)
-    {\textbf{Q\,III}\\ $\cos<0$\\ $\sin<0$};
-  \node[font=\tiny,text=OR!80,align=center] at ( 0.55,-0.52)
-    {\textbf{Q\,IV}\\ $\cos>0$\\ $\sin<0$};
-
-  %% ── Exemple visuel : θ = π/3 ─────────────────────────────
-  % rayon
-  \draw[OR,thick,->] (0,0) -- ({cos(60)},{sin(60)});
-  % M label placed outside circle, away from the circle labels
-  \node[above right,font=\scriptsize,text=OR,inner sep=1pt]
-    at ({1.12*cos(60)},{1.12*sin(60)}) {$M(\cos\theta,\!\sin\theta)$};
-  % arc de l'angle
-  \draw[OR!80,thick,->] (0.28,0) arc[start angle=0,end angle=60,radius=0.28];
-  \node[pos=0.55,right,font=\scriptsize,text=OR] at (0.38,0.14) {$\theta$};
-  % projection sur Ox (cosinus) — label below axis tick, not on the dashed line
-  \draw[VE,dashed,semithick] ({cos(60)},{sin(60)}) -- ({cos(60)},0);
-  \node[below,font=\scriptsize,text=VE] at ({cos(60)},-0.08) {$\cos\theta$};
-  % projection sur Oy (sinus) — label to the left, below the midpoint
-  \draw[TQ!90,dashed,semithick] ({cos(60)},{sin(60)}) -- (0,{sin(60)});
-  \node[left,font=\scriptsize,text=TQ] at (-0.06,{sin(60)/2}) {$\sin\theta$};
-  % point sur l'axe
-  \fill[VE] ({cos(60)},0) circle (0.7pt);
-  \fill[TQ!90] (0,{sin(60)}) circle (0.7pt);
-  % point M
-  \fill[OR] ({cos(60)},{sin(60)}) circle (1.1pt);
-
-  %% ── 16 angles remarquables ───────────────────────────────
-  % Format: angle en degrés / label radian / label degré
-  % On affiche : angle rad à l'extérieur, (cos, sin) en petit près du point
-  \foreach \adeg/\arad/\cval/\sval/\mult in {
-    0/{$0$}/{$1$}/{$0$}/1,
-    30/{$\frac{\pi}{6}$}/{$\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$}/1,
-    45/{$\frac{\pi}{4}$}/{$\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$}/1,
-    60/{$\frac{\pi}{3}$}/{$\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}/1,
-    90/{$\frac{\pi}{2}$}/{$0$}/{$1$}/1,
-    120/{$\frac{2\pi}{3}$}/{$-\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}/1,
-    135/{$\frac{3\pi}{4}$}/{$-\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$}/1,
-    150/{$\frac{5\pi}{6}$}/{$-\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$}/1,
-    180/{$\pi$}/{$-1$}/{$0$}/1,
-    210/{$\frac{7\pi}{6}$}/{$-\frac{\sqrt{3}}{2}$}/{$-\frac{1}{2}$}/1,
-    225/{$\frac{5\pi}{4}$}/{$-\frac{\sqrt{2}}{2}$}/{$-\frac{\sqrt{2}}{2}$}/1,
-    240/{$\frac{4\pi}{3}$}/{$-\frac{1}{2}$}/{$-\frac{\sqrt{3}}{2}$}/1,
-    270/{$\frac{3\pi}{2}$}/{$0$}/{$-1$}/1,
-    300/{$\frac{5\pi}{3}$}/{$\frac{1}{2}$}/{$-\frac{\sqrt{3}}{2}$}/1,
-    315/{$\frac{7\pi}{4}$}/{$\frac{\sqrt{2}}{2}$}/{$-\frac{\sqrt{2}}{2}$}/1,
-    330/{$\frac{11\pi}{6}$}/{$\frac{\sqrt{3}}{2}$}/{$-\frac{1}{2}$}/1%
-  }{
-    % tick sur le cercle
-    \draw[BN!60,thin]
-      ({0.96*cos(\adeg)},{0.96*sin(\adeg)}) --
-      ({1.04*cos(\adeg)},{1.04*sin(\adeg)});
-    % point orange sur le cercle
-    \fill[OR!80] ({cos(\adeg)},{sin(\adeg)}) circle (0.9pt);
-    % label de l'angle (radian) à l'extérieur
-    \node[font=\fontsize{4}{5}\selectfont,text=BN,
-          anchor=center,inner sep=1pt,
-          align=center]
-      at ({1.27*cos(\adeg)},{1.27*sin(\adeg)}) {\arad};
-  }
-
-  %% ── Valeurs remarquables (cos, sin) pour les angles axiaux
-  %%    placées légèrement À L'INTÉRIEUR du cercle ──────────
-  \foreach \adeg/\dx/\dy/\cval/\sval in {
-    0/  -0.18/ 0.00/{$1$}/{$0$},
-    90/  0.00/-0.18/{$0$}/{$1$},
-    180/ 0.18/ 0.00/{$-1$}/{$0$},
-    270/ 0.00/ 0.18/{$0$}/{$-1$}%
-  }{
-    \node[font=\fontsize{4}{5}\selectfont,text=BN!55,
-          anchor=center,align=center,inner sep=0.5pt]
-      at ({cos(\adeg)+\dx},{sin(\adeg)+\dy})
-      {\cval\\\sval};
-  }
-  %% ── Valeurs remarquables Q1 — placées à 75% du rayon ────
-  \foreach \adeg/\cval/\sval in {
-    30/{$\frac{\sqrt{3}}{2}$}/{$\frac{1}{2}$},
-    45/{$\frac{\sqrt{2}}{2}$}/{$\frac{\sqrt{2}}{2}$},
-    60/{$\frac{1}{2}$}/{$\frac{\sqrt{3}}{2}$}%
-  }{
-    \node[font=\fontsize{3.5}{4.5}\selectfont,text=VE!70,
-          anchor=center,align=center,inner sep=0.5pt]
-      at ({0.72*cos(\adeg)},{0.72*sin(\adeg)})
-      {\cval\\\sval};
-  }
-
-\end{tikzpicture}
-\caption{Cercle trigonom\'etrique~: les $16$ angles remarquables avec leurs valeurs exactes de $\cos$ et $\sin$.
-L'exemple (en orange) illustre la lecture de $\theta$~: la projection horizontale
-donne $\cos\theta$ (en vert), la projection verticale donne $\sin\theta$ (en bleu).}
-\end{figure}
-\fi
+\begin{defn}[Cosinus, sinus et tangente sur le cercle unit\'e]
+\index{cosinus}\index{sinus}\index{tangente}
+On place un angle $\theta$ (en radians) sur le cercle unit\'e, en partant
+du point $A(1,0)$ et en tournant dans le sens direct (sens anti-horaire).
+Le point $M$ ainsi obtenu a pour coordonn\'ees~:
+$$M(\cos\theta,\, \sin\theta).$$
+Pour $\cos\theta\ne0$, on d\'efinit aussi la \textbf{tangente}~:
+$$\tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+\end{defn}
 
 \begin{figure}[H]
 \centering
@@ -170,7 +66,51 @@ multiples impairs de $\frac{\pi}{4}$. Les graduations donnent les valeurs
 exactes possibles de $\cos\theta$ et $\sin\theta$.}
 \end{figure}
 
-\section{Valeurs remarquables et relations}
+\begin{thm}[Propri\'et\'e fondamentale]
+Pour tout r\'eel $\theta$ :
+$$\cos^2\theta + \sin^2\theta = 1,\qquad -1\leq\cos\theta\leq1,\qquad -1\leq\sin\theta\leq1.$$
+\end{thm}
+
+\noindent\textit{D\'emonstration.} Le point $M(\cos\theta\,;\sin\theta)$ est sur le
+cercle de centre $O$ et de rayon $1$, donc $OM^2=\cos^2\theta+\sin^2\theta=1$.
+Chaque carr\'e est alors compris entre $0$ et $1$. \hfill$\square$
+
+\begin{ex}[Calculer un cosinus connaissant le sinus]
+On sait que $\sin x=\dfrac35$ et $x\in\left[\dfrac\pi2\,;\pi\right]$.
+Alors $\cos^2x=1-\dfrac{9}{25}=\dfrac{16}{25}$, donc $\cos x=\dfrac45$ ou $\cos x=-\dfrac45$.
+Comme $M$ est dans le deuxi\`eme quadrant, $\cos x\leq0$~: $\cos x=-\dfrac45$.
+\end{ex}
+
+\begin{prop}[Sym\'etries du cercle trigonom\'etrique]
+\index{symétries trigonométriques}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{BN!10}
+Angle associ\'e & Cosinus & Sinus \\
+\hline
+$-\theta$ (sym\'etrie d'axe $(Ox)$) & $\cos(-\theta)=\cos\theta$ & $\sin(-\theta)=-\sin\theta$ \\
+$\pi-\theta$ (sym\'etrie d'axe $(Oy)$) & $\cos(\pi-\theta)=-\cos\theta$ & $\sin(\pi-\theta)=\sin\theta$ \\
+$\pi+\theta$ (sym\'etrie de centre $O$) & $\cos(\pi+\theta)=-\cos\theta$ & $\sin(\pi+\theta)=-\sin\theta$ \\
+$\theta+2k\pi$, $k\in\Z$ (m\^eme point) & $\cos(\theta+2k\pi)=\cos\theta$ & $\sin(\theta+2k\pi)=\sin\theta$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{prop}
+
+\begin{methode}[Lire un angle sur le cercle]
+\begin{enumerate}
+  \item Rep\'erer le quadrant ($\cos$ et $\sin$ sont positifs ou n\'egatifs).
+  \item Identifier l'angle de r\'ef\'erence (angle avec l'axe des $x$).
+  \item Appliquer la sym\'etrie correspondante.
+\end{enumerate}
+\emph{Exemple~:} $\cos(\frac{5\pi}{6})$.
+$\frac{5\pi}{6} = \pi - \frac{\pi}{6}$~: second quadrant.
+$\cos(\frac{5\pi}{6}) = -\cos(\frac{\pi}{6}) = -\frac{\sqrt{3}}{2}$.
+\end{methode}
+
+\section{Valeurs remarquables}
 
 \begin{prop}[Valeurs remarquables]
 \centering\renewcommand{\arraystretch}{1.8}
@@ -186,6 +126,19 @@ $\sin\theta$ & $0$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ &
               $\dfrac{\sqrt{3}}{2}$ & $1$ & $0$ \\[4pt]
 \hline
 \end{tabular}
+\end{prop}
+
+\begin{prop}[Tangente~: domaine et valeurs remarquables]
+\index{tangente}
+$\tan\theta = \dfrac{\sin\theta}{\cos\theta}$ est d\'efinie pour $\cos\theta\ne0$,
+c'est-\`a-dire $\theta\ne\frac{\pi}{2}+k\pi$.
+
+\medskip\noindent
+Valeurs remarquables~:
+$\tan(0)=0$,\;
+$\tan(\frac{\pi}{6})=\dfrac{1}{\sqrt{3}}=\dfrac{\sqrt{3}}{3}$,\;
+$\tan(\frac{\pi}{4})=1$,\;
+$\tan(\frac{\pi}{3})=\sqrt{3}$.
 \end{prop}
 
 \begin{figure}[H]
@@ -220,57 +173,38 @@ Les deux fonctions oscillent entre $-1$ et $1$, avec une p\'eriode $2\pi$.
 Les z\'eros de $\cos$ correspondent aux maxima/minima de $\sin$, et vice-versa.}
 \end{figure}
 
-\begin{thm}[Relation de Pythagore trigonom\'etrique]
-Pour tout angle $\theta$ :
-$$\cos^2\theta + \sin^2\theta = 1.$$
-\end{thm}
+\section{Fonctions trigonom\'etriques~: parit\'e et p\'eriodicit\'e}
+\index{fonction cosinus}\index{fonction sinus}\index{périodicité}
 
-
-\section{Le cercle trigonom\'etrique}
-
-\begin{defn}[Cosinus, sinus et tangente sur le cercle unit\'e]
-\index{cosinus}\index{sinus}\index{tangente}
-On place un angle $\theta$ (en radians) sur le cercle unit\'e, en partant
-du point $A(1,0)$ et en tournant dans le sens direct (sens anti-horaire).
-Le point $M$ ainsi obtenu a pour coordonn\'ees~:
-$$M(\cos\theta,\, \sin\theta).$$
-Pour $\cos\theta\ne0$, on d\'efinit aussi la \textbf{tangente}~:
-$$\tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+\begin{defn}[Fonctions cosinus et sinus~; p\'eriode]
+Les fonctions \textbf{cosinus} et \textbf{sinus} sont d\'efinies sur $\R$ par
+$x\mapsto\cos x$ et $x\mapsto\sin x$.
+Une fonction $f$ est \textbf{p\'eriodique de p\'eriode $T>0$} si, pour tout $x$
+de son domaine, $x+T$ est dans le domaine et $f(x+T)=f(x)$.
 \end{defn}
 
-\begin{prop}[Sym\'etries du cercle trigonom\'etrique]
-\index{symétries trigonométriques}
-\begin{center}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|l|l|l|}
-\hline
-\rowcolor{BN!10}
-Sym\'etrie & Cosinus & Sinus \\
-\hline
-Oppos\'e~: $-\theta$ & $\cos(-\theta)=\cos\theta$ & $\sin(-\theta)=-\sin\theta$ \\
-Suppl\'ement~: $\pi-\theta$ & $\cos(\pi-\theta)=-\cos\theta$ & $\sin(\pi-\theta)=\sin\theta$ \\
-Antipose~: $\pi+\theta$ & $\cos(\pi+\theta)=-\cos\theta$ & $\sin(\pi+\theta)=-\sin\theta$ \\
-P\'eriode~: $\theta+2k\pi$ & $\cos(\theta+2k\pi)=\cos\theta$ & $\sin(\theta+2k\pi)=\sin\theta$ \\
-\hline
-\end{tabular}
-\end{center}
+\begin{prop}[Parit\'e et p\'eriodicit\'e]
+\begin{itemize}
+  \item $\cos$ est \textbf{paire} et $\sin$ est \textbf{impaire}~:
+        $\cos(-x)=\cos x$ et $\sin(-x)=-\sin x$.
+  \item $\cos$ et $\sin$ sont \textbf{p\'eriodiques de p\'eriode $2\pi$}.
+  \item $\tan$ est \textbf{impaire} et \textbf{p\'eriodique de p\'eriode $\pi$}.
+\end{itemize}
 \end{prop}
 
-\begin{methode}[Lire un angle sur le cercle]
-\begin{enumerate}
-  \item Rep\'erer le quadrant ($\cos$ et $\sin$ sont positifs ou n\'egatifs).
-  \item Identifier l'angle de r\'ef\'erence (angle avec l'axe des $x$).
-  \item Appliquer la sym\'etrie correspondante.
-\end{enumerate}
-\emph{Exemple~:} $\cos(\frac{5\pi}{6})$.
-$\frac{5\pi}{6} = \pi - \frac{\pi}{6}$~: second quadrant.
-$\cos(\frac{5\pi}{6}) = -\cos(\frac{\pi}{6}) = -\frac{\sqrt{3}}{2}$.
-\end{methode}
+\noindent\textit{Justification.} Les points associ\'es \`a $x$ et $-x$ sont
+sym\'etriques par rapport \`a $(Ox)$~: m\^eme abscisse, ordonn\'ees oppos\'ees.
+Ajouter $2\pi$ revient \`a faire un tour complet~: on retrouve le m\^eme point.
+Enfin $\tan(x+\pi)=\dfrac{\sin(x+\pi)}{\cos(x+\pi)}=\dfrac{-\sin x}{-\cos x}=\tan x$
+et $\tan(-x)=\dfrac{-\sin x}{\cos x}=-\tan x$.
 
-% [second trig circle replaced by the main one above]
+\begin{remarque}
+Cons\'equences graphiques~: la courbe de $\cos$ est sym\'etrique par rapport \`a
+l'axe des ordonn\'ees, celle de $\sin$ par rapport \`a l'origine~; il suffit de
+les tracer sur un intervalle de longueur $2\pi$ puis de reproduire le motif.
+\end{remarque}
 
-\horsprogramme{Approfondissement consacré à la résolution systématique d'équations trigonométriques.}
-\section{R\'esolution d'\'equations trigonom\'etriques}
+\section{Angles de cosinus ou de sinus donn\'e}
 
 \begin{methode}[R\'esoudre $\cos x = a$ sur {$[0, 2\pi]$}]
 \index{équations trigonométriques}
@@ -286,8 +220,8 @@ $\cos(\frac{5\pi}{6}) = -\cos(\frac{\pi}{6}) = -\frac{\sqrt{3}}{2}$.
 \begin{enumerate}
   \item Si $|a|>1$~: pas de solution.
   \item Trouver l'angle de r\'ef\'erence $\alpha\in[-\frac{\pi}{2},\frac{\pi}{2}]$ tel que $\sin\alpha=a$.
-  \item Les solutions sur $[0,2\pi]$ sont~: $x=\alpha$ (adapt\'e \`a $[0,2\pi]$)
-        et $x=\pi-\alpha$ (adapt\'e \`a $[0,2\pi]$).
+  \item Les solutions sur $[0,2\pi]$ sont $x=\pi-\alpha$ et $x=\alpha$,
+        en rempla\c{c}ant $\alpha$ par $\alpha+2\pi$ si $\alpha<0$.
         (Sym\'etrie par rapport \`a l'axe $Oy$.)
 \end{enumerate}
 \end{methode}
@@ -303,18 +237,12 @@ $\sin(\frac{\pi}{4})=\frac{\sqrt{2}}{2}$.
 Solutions~: $x = \frac{\pi}{4}$ et $x = \pi - \frac{\pi}{4} = \frac{3\pi}{4}$.
 \end{ex}
 
-\begin{defn}[Tangente~: valeurs et domaine]
-\index{tangente}
-$\tan\theta = \dfrac{\sin\theta}{\cos\theta}$ est d\'efinie pour $\cos\theta\ne0$,
-c'est-\`a-dire $\theta\ne\frac{\pi}{2}+k\pi$.
+\begin{remarque}
+\ExtensionTTen{} Sur $\R$, on ajoute un multiple de $2\pi$~: par exemple
+$\cos x=-\frac12 \Leftrightarrow x=\frac{2\pi}{3}+2k\pi$ ou
+$x=-\frac{2\pi}{3}+2k\pi$, $k\in\Z$.
+\end{remarque}
 
-\medskip\noindent
-Valeurs remarquables~:
-$\tan(0)=0$,\;
-$\tan(\frac{\pi}{6})=\dfrac{1}{\sqrt{3}}=\dfrac{\sqrt{3}}{3}$,\;
-$\tan(\frac{\pi}{4})=1$,\;
-$\tan(\frac{\pi}{3})=\sqrt{3}$.
-\end{defn}
 
 \section{Exercices}
 

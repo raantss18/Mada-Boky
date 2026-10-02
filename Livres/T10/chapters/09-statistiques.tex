@@ -2,12 +2,12 @@
 \input{activities/09-statistiques}
 %% ════════════════════════════════════════════════════════════════
 
-\begin{anecdote}[La loi des grands nombres]
-Jacob Bernoulli ($1654$--$1705$) d\'emontra la loi des grands nombres :
-plus on r\'ep\`ete une exp\'erience al\'eatoire, plus la fr\'equence d'un
-\'ev\'enement s'approche de sa probabilit\'e. Il mit $20$ ans \`a trouver la
-preuve. Son neveu Nicolas dit : \og Cela n'\'etait d\'ej\`a pas inconnu aux
-sots.\fg --- ce qui, peut-\^{e}tre, \'etait une exag\'eration.
+\begin{anecdote}[William Playfair, inventeur des diagrammes]
+L'\'ecossais William Playfair ($1759$--$1823$) publia en $1786$, dans son
+\textit{Commercial and Political Atlas}, les premiers diagrammes en barres pour
+repr\'esenter le commerce de l'\'Ecosse, puis en $1801$, dans son
+\textit{Statistical Breviary}, l'un des premiers diagrammes circulaires.
+Il voulait que l'\oe il saisisse d'un coup ce que de longs tableaux de nombres cachent.
 \end{anecdote}
 
 \begin{objectifs}
@@ -21,6 +21,35 @@ sots.\fg --- ce qui, peut-\^{e}tre, \'etait une exag\'eration.
         diagramme en b\^atons, diagramme circulaire, histogramme.
 \end{itemize}
 \end{objectifs}
+
+\section{Vocabulaire et organisation des donn\'ees}
+\index{caractère statistique}\index{variable discrète}\index{variable continue}
+
+\begin{defn}[Population, caract\`ere, variable]
+On \'etudie une \textbf{population} form\'ee d'\textbf{individus}, selon un
+\textbf{caract\`ere} (ou variable).
+\begin{itemize}
+  \item Le caract\`ere est \textbf{qualitatif} s'il n'est pas mesurable
+        (couleur, r\'egion d'origine)~; \textbf{quantitatif} s'il est un nombre.
+  \item Une variable quantitative est \textbf{discr\`ete} si elle ne prend que des
+        valeurs isol\'ees (nombre de fr\`eres et s\oe urs, note enti\`ere)~;
+        elle est \textbf{continue} si elle peut prendre toute valeur d'un
+        intervalle (taille, masse, temps).
+\end{itemize}
+\end{defn}
+
+\begin{defn}[Effectifs, fr\'equences, classes]
+\index{effectif}\index{fréquence}\index{classe}
+\begin{itemize}
+  \item L'\textbf{effectif} $n_i$ d'une valeur $x_i$ est le nombre d'individus
+        qui prennent cette valeur~; l'\textbf{effectif total} est $N=\sum n_i$.
+  \item La \textbf{fr\'equence} de $x_i$ est $f_i=\dfrac{n_i}{N}$~; on a
+        $0\leq f_i\leq1$ et $\sum f_i=1$ (ou $100\,\%$).
+  \item Pour une variable continue (ou tr\`es dispers\'ee), on \textbf{regroupe}
+        les donn\'ees en \textbf{classes} $[a\,;b[$~: $b-a$ est l'\textbf{amplitude}
+        de la classe et $\dfrac{a+b}{2}$ son \textbf{centre}.
+\end{itemize}
+\end{defn}
 
 \section{Statistiques descriptives}
 
@@ -58,7 +87,6 @@ ne font pas partie des indicateurs \`a ma\^itriser en T10.}
 \caption{Structure d'une bo\^ite \`a moustaches.}
 \end{figure}
 
-\horsprogramme{Approfondissement sur les quartiles, les fréquences cumulées et d'autres résumés d'une série.}
 \section{Caract\'eristiques compl\'ementaires}
 
 \begin{defn}[Mode et classe modale]
@@ -90,7 +118,7 @@ Pour $n$ valeurs $x_1,\ldots,x_p$ aux effectifs $n_1,\ldots,n_p$
   \item \textbf{Moyenne~:} $\bar{x} = \dfrac{1}{N}\sum_{i=1}^p n_i x_i$.
   \item \textbf{M\'ediane~:} valeur $Q_2$ partageant la s\'erie en deux moiti\'es \'egales.
   \item \textbf{Mode~:} valeur (ou classe) de plus grande fr\'equence.
-  \item \textbf{Quartiles~:} $Q_1$ (25\%), $Q_2$ (50\%), $Q_3$ (75\%).
+  \item \textbf{Quartiles~:} \ExtensionTTen{} $Q_1$ (25\%), $Q_2$ (50\%), $Q_3$ (75\%).
 \end{itemize}
 \end{defn}
 
@@ -137,7 +165,7 @@ Pour $n$ valeurs $x_1,\ldots,x_p$ aux effectifs $n_1,\ldots,n_p$
   \draw[TQ,<->,thick] (9,-1.6)--(15,-1.6)
     node[midway,below,font=\small] {Interquartile $Q_3-Q_1$};
 \end{tikzpicture}
-\caption{Bo\^ite \`a moustaches : cinq indicateurs.}
+\caption{\ExtensionTTen{} Bo\^ite \`a moustaches : cinq indicateurs.}
 \end{figure}
 
 \begin{remarque}
@@ -149,6 +177,91 @@ chaque classe. Dans un histogramme, ce sont les \textbf{aires} des rectangles
 qui sont proportionnelles aux effectifs; pour des amplitudes in\'egales,
 les hauteurs sont proportionnelles \`a effectif/amplitude.
 \end{remarque}
+
+\begin{ex}[Une s\'erie compl\`ete]
+On a demand\'e \`a $25$ \'el\`eves leur nombre de fr\`eres et s\oe urs
+(variable quantitative discr\`ete).
+
+\medskip\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\rowcolor{BN!10}
+Valeur $x_i$ & $0$ & $1$ & $2$ & $3$ & $4$ & Total \\
+\hline
+Effectif $n_i$ & $5$ & $8$ & $6$ & $4$ & $2$ & $25$ \\
+Effectif cumul\'e & $5$ & $13$ & $19$ & $23$ & $25$ & \\
+Fr\'equence $f_i$ & $0{,}20$ & $0{,}32$ & $0{,}24$ & $0{,}16$ & $0{,}08$ & $1$ \\
+$n_ix_i$ & $0$ & $8$ & $12$ & $12$ & $8$ & $40$ \\
+$n_ix_i^2$ & $0$ & $8$ & $24$ & $36$ & $32$ & $100$ \\
+\hline
+\end{tabular}
+
+\medskip\flushleft
+\begin{itemize}
+  \item \textbf{Moyenne~:} $\bar x=\dfrac{40}{25}=1{,}6$.
+  \item \textbf{M\'ediane~:} $N=25$ est impair~; la m\'ediane est la $13^{\text{e}}$
+        valeur. L'effectif cumul\'e atteint $13$ pour $x=1$~: $\text{M\'e}=1$.
+  \item \textbf{Mode~:} $1$ (plus grand effectif)~; \textbf{\'etendue~:} $4-0=4$.
+  \item \textbf{Variance~:} $V=\dfrac{100}{25}-1{,}6^2=4-2{,}56=1{,}44$~;
+        \textbf{\'ecart-type~:} $\sigma=\sqrt{1{,}44}=1{,}2$.
+\end{itemize}
+\end{ex}
+
+\section{Repr\'esentations graphiques}
+\index{diagramme en bâtons}\index{diagramme circulaire}\index{histogramme}
+
+\begin{methode}[Choisir et construire une repr\'esentation]
+\begin{itemize}
+  \item \textbf{Diagramme en b\^atons} (variable discr\`ete)~: \`a chaque valeur
+        $x_i$, un trait vertical de hauteur proportionnelle \`a $n_i$ (ou \`a $f_i$).
+  \item \textbf{Diagramme circulaire} (r\'epartition d'un tout)~: chaque valeur
+        ou modalit\'e re\c{c}oit un secteur d'angle $f_i\times360^{\circ}$.
+  \item \textbf{Histogramme} (donn\'ees regroup\'ees en classes)~: rectangles
+        juxtapos\'es, dont l'\textbf{aire} est proportionnelle \`a l'effectif.
+        Si toutes les classes ont la m\^eme amplitude, la hauteur est
+        proportionnelle \`a l'effectif.
+\end{itemize}
+Toujours indiquer un titre, les axes, l'unit\'e et l'\'echelle.
+\end{methode}
+
+\begin{ex}[B\^atons et secteurs pour la s\'erie pr\'ec\'edente]
+Angles~: $0{,}20\times360^{\circ}=72^{\circ}$, puis $115{,}2^{\circ}$,
+$86{,}4^{\circ}$, $57{,}6^{\circ}$ et $28{,}8^{\circ}$ (total $360^{\circ}$).
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+  \draw[-Stealth,BN] (-0.3,0) -- (5.6,0) node[right,font=\small] {$x_i$};
+  \draw[-Stealth,BN] (0,-0.2) -- (0,4.6) node[above,font=\small] {$n_i$};
+  \foreach \y in {2,4,6,8} \draw[GM!40] (-0.1,\y/2) -- (5.2,\y/2) node[left,font=\scriptsize,text=BN] at (-0.1,\y/2) {$\y$};
+  \foreach \x/\n in {0/5,1/8,2/6,3/4,4/2} {
+    \draw[TQ,line width=4pt] (\x+0.8,0) -- (\x+0.8,\n/2);
+    \node[below,font=\scriptsize] at (\x+0.8,0) {$\x$};
+  }
+  \begin{scope}[xshift=9.2cm,yshift=2cm]
+    \def\r{1.9}
+    \foreach \a/\b/\c/\lab in {0/72/TQ/0,72/187.2/OR/1,187.2/273.6/VE/2,273.6/331.2/VI/3,331.2/360/BO/4} {
+      \fill[\c!55,draw=white,thick] (0,0) -- (\a:\r) arc[start angle=\a,end angle=\b,radius=\r] -- cycle;
+      \node[font=\scriptsize] at ({(\a+\b)/2}:{1.25}) {$\lab$};
+    }
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{ex}
+
+\begin{ex}[Histogramme \`a classes de m\^eme amplitude]
+Tailles de $20$ plantes (en cm)~: $[10\,;20[$~: $4$~; $[20\,;30[$~: $10$~; $[30\,;40[$~: $6$.
+\begin{center}
+\begin{tikzpicture}[x=0.18cm,y=0.32cm]
+  \draw[-Stealth,BN] (8,0) -- (45,0) node[right,font=\small] {cm};
+  \draw[-Stealth,BN] (8,0) -- (8,11.5) node[above,font=\small] {effectif};
+  \foreach \a/\n in {10/4,20/10,30/6} \draw[TQ,fill=TQ!25] (\a,0) rectangle (\a+10,\n);
+  \foreach \x in {10,20,30,40} \node[below,font=\scriptsize] at (\x,0) {$\x$};
+  \foreach \y in {2,4,6,8,10} \node[left,font=\scriptsize] at (8,\y) {$\y$};
+\end{tikzpicture}
+\end{center}
+Valeur moyenne estim\'ee avec les centres~:
+$\dfrac{4\times15+10\times25+6\times35}{20}=\dfrac{520}{20}=26$~cm.
+\end{ex}
 \section{Exercices}
 
 \subsection*{\diff{1}\quad Niveau 1 \textemdash\ Indicateurs de base}
@@ -535,7 +648,7 @@ bo\^ite \`a moustaches)~:
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[\logicoalgo\ Algorithme~: calculer m\'ediane et quartiles \corrige]{2}
+\begin{exo}[\logicoalgo\ Algorithme~: calculer m\'ediane et quartiles \ExtensionTTen \corrige]{2}
 
 \begin{algorithm}[H]
 \caption{Calcul de la m\'ediane d'une s\'erie}
@@ -573,7 +686,7 @@ Soit $f(t) = \dfrac{1}{n}\displaystyle\sum_{i=1}^n (x_i-t)^2$.
 \end{enumerate}
 \end{exo}
 
-\begin{exo}[Paradoxe de Simpson \corrige]{3}
+\begin{exo}[Paradoxe de Simpson \ExtensionTTen \corrige]{3}
 \index{paradoxe de Simpson}
 On compare les taux de r\'eussite de deux m\'ethodes A et B~:
 \begin{center}
@@ -757,7 +870,7 @@ par semaine~:
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Taille de la bo\^ite et variation \corrigeP]{2}
+\begin{probleme}[Taille de la bo\^ite et variation \ExtensionTTen \corrigeP]{2}
 Soit une s\'erie dont les $5$ indicateurs sont Min$=5$,
 $Q_1=10$, $Q_2=15$, $Q_3=22$, Max$=30$.
 \begin{enumerate}
@@ -782,7 +895,7 @@ $5, 8, 15, 18, 35, 42, 50, 60$.
 \end{enumerate}
 \end{probleme}
 
-\begin{probleme}[Suites et statistiques \corrigeP]{2}
+\begin{probleme}[Suites et statistiques \ExtensionTTen \corrigeP]{2}
 On consid\`ere la suite $u_n = 2n+1$ pour $n = 1, 2, \ldots, 10$.
 \begin{enumerate}
   \item Calculer les $10$ termes.
