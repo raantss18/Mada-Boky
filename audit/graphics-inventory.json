@@ -1,0 +1,398 @@
+[
+  {
+    "id": 1,
+    "file": "chapitres/p1-analyse/ch01-limites-continuite.tex",
+    "figure": 1,
+    "title": "deux gendarmes qui se rejoignent",
+    "student_pdf_pages": [
+      18
+    ],
+    "teacher_pdf_pages": [
+      18
+    ]
+  },
+  {
+    "id": 2,
+    "file": "chapitres/p1-analyse/ch01-limites-continuite.tex",
+    "figure": 2,
+    "title": "là où la courbe se casse",
+    "student_pdf_pages": [
+      19
+    ],
+    "teacher_pdf_pages": [
+      19
+    ]
+  },
+  {
+    "id": 3,
+    "file": "chapitres/p1-analyse/ch01-limites-continuite.tex",
+    "figure": 3,
+    "title": "toute valeur intermédiaire est atteinte",
+    "student_pdf_pages": [
+      21
+    ],
+    "teacher_pdf_pages": [
+      21
+    ]
+  },
+  {
+    "id": 4,
+    "file": "chapitres/p1-analyse/ch02-derivabilite.tex",
+    "figure": 1,
+    "title": "l'angle que fait la courbe",
+    "student_pdf_pages": [
+      29
+    ],
+    "teacher_pdf_pages": [
+      33
+    ]
+  },
+  {
+    "id": 5,
+    "file": "chapitres/p1-analyse/ch02-derivabilite.tex",
+    "figure": 2,
+    "title": "la tangente au-dessus, puis au-dessous",
+    "student_pdf_pages": [
+      31
+    ],
+    "teacher_pdf_pages": [
+      36
+    ]
+  },
+  {
+    "id": 6,
+    "file": "chapitres/p1-analyse/ch02-derivabilite.tex",
+    "figure": 3,
+    "title": "une tangente parallèle à la corde",
+    "student_pdf_pages": [
+      33
+    ],
+    "teacher_pdf_pages": [
+      38
+    ]
+  },
+  {
+    "id": 7,
+    "file": "chapitres/p1-analyse/ch03-etude-graphique.tex",
+    "figure": 1,
+    "title": "la courbe rejoint sa droite",
+    "student_pdf_pages": [
+      41
+    ],
+    "teacher_pdf_pages": [
+      49
+    ]
+  },
+  {
+    "id": 8,
+    "file": "chapitres/p1-analyse/ch03-etude-graphique.tex",
+    "figure": 2,
+    "title": "l'étude précédente, achevée",
+    "student_pdf_pages": [
+      43
+    ],
+    "teacher_pdf_pages": [
+      52
+    ]
+  },
+  {
+    "id": 9,
+    "file": "chapitres/p1-analyse/ch03-etude-graphique.tex",
+    "figure": 3,
+    "title": "compter les solutions sans calculer",
+    "student_pdf_pages": [
+      44
+    ],
+    "teacher_pdf_pages": [
+      53
+    ]
+  },
+  {
+    "id": 10,
+    "file": "chapitres/p1-analyse/ch04-primitives-integrales.tex",
+    "figure": 1,
+    "title": "l'aire sous la courbe",
+    "student_pdf_pages": [
+      57
+    ],
+    "teacher_pdf_pages": [
+      69
+    ]
+  },
+  {
+    "id": 11,
+    "file": "chapitres/p1-analyse/ch05-logarithmes.tex",
+    "figure": 1,
+    "title": "une croissance qui ne s'arrête jamais mais ralentit toujours",
+    "student_pdf_pages": [
+      65
+    ],
+    "teacher_pdf_pages": [
+      81
+    ]
+  },
+  {
+    "id": 12,
+    "file": "chapitres/p1-analyse/ch06-exponentielle-puissance.tex",
+    "figure": 1,
+    "title": "deux courbes symétriques",
+    "student_pdf_pages": [
+      75
+    ],
+    "teacher_pdf_pages": [
+      95
+    ]
+  },
+  {
+    "id": 13,
+    "file": "chapitres/p1-analyse/ch07-equations-differentielles.tex",
+    "figure": 1,
+    "title": "deux signes, deux mondes",
+    "student_pdf_pages": [
+      89
+    ],
+    "teacher_pdf_pages": [
+      113
+    ]
+  },
+  {
+    "id": 14,
+    "file": "chapitres/p2-algebre/ch08-suites.tex",
+    "figure": 1,
+    "title": "la construction en escalier",
+    "student_pdf_pages": [
+      98
+    ],
+    "teacher_pdf_pages": [
+      124
+    ]
+  },
+  {
+    "id": 15,
+    "file": "chapitres/p2-algebre/ch09-arithmetique.tex",
+    "figure": 1,
+    "title": "le reste, lu sur une règle graduée",
+    "student_pdf_pages": [
+      111
+    ],
+    "teacher_pdf_pages": [
+      140
+    ]
+  },
+  {
+    "id": 16,
+    "file": "chapitres/p2-algebre/ch10-numeration.tex",
+    "figure": 1,
+    "title": "les divisions successives, lues de bas en haut",
+    "student_pdf_pages": [
+      122
+    ],
+    "teacher_pdf_pages": [
+      154
+    ]
+  },
+  {
+    "id": 17,
+    "file": "chapitres/p2-algebre/ch11-calcul-matriciel.tex",
+    "figure": 1,
+    "title": "ligne contre colonne",
+    "student_pdf_pages": [
+      131
+    ],
+    "teacher_pdf_pages": [
+      165
+    ]
+  },
+  {
+    "id": 18,
+    "file": "chapitres/p3-geometrie/ch12-nombres-complexes.tex",
+    "figure": 1,
+    "title": "le plan complexe",
+    "student_pdf_pages": [
+      145
+    ],
+    "teacher_pdf_pages": [
+      183
+    ]
+  },
+  {
+    "id": 19,
+    "file": "chapitres/p3-geometrie/ch12-nombres-complexes.tex",
+    "figure": 2,
+    "title": "multiplier, c'est tourner et dilater",
+    "student_pdf_pages": [
+      146
+    ],
+    "teacher_pdf_pages": [
+      184
+    ]
+  },
+  {
+    "id": 20,
+    "file": "chapitres/p3-geometrie/ch12-nombres-complexes.tex",
+    "figure": 3,
+    "title": "les racines de l'unité sur un cercle",
+    "student_pdf_pages": [
+      149
+    ],
+    "teacher_pdf_pages": [
+      189
+    ]
+  },
+  {
+    "id": 21,
+    "file": "chapitres/p3-geometrie/ch13-barycentre.tex",
+    "figure": 1,
+    "title": "le point d'équilibre",
+    "student_pdf_pages": [
+      156
+    ],
+    "teacher_pdf_pages": [
+      196
+    ]
+  },
+  {
+    "id": 22,
+    "file": "chapitres/p3-geometrie/ch13-barycentre.tex",
+    "figure": 2,
+    "title": "regrouper les points pondérés",
+    "student_pdf_pages": [
+      157
+    ],
+    "teacher_pdf_pages": [
+      198
+    ]
+  },
+  {
+    "id": 23,
+    "file": "chapitres/p3-geometrie/ch13-barycentre.tex",
+    "figure": 3,
+    "title": "les trois lignes de niveau, côte à côte",
+    "student_pdf_pages": [
+      160
+    ],
+    "teacher_pdf_pages": [
+      200
+    ]
+  },
+  {
+    "id": 24,
+    "file": "chapitres/p3-geometrie/ch14-transformations-isometries.tex",
+    "figure": 1,
+    "title": "trois gestes géométriques à reconnaître",
+    "student_pdf_pages": [
+      166
+    ],
+    "teacher_pdf_pages": [
+      208
+    ]
+  },
+  {
+    "id": 25,
+    "file": "chapitres/p3-geometrie/ch14-transformations-isometries.tex",
+    "figure": 2,
+    "title": "deux axes parallèles donnent une translation",
+    "student_pdf_pages": [
+      168
+    ],
+    "teacher_pdf_pages": [
+      210
+    ]
+  },
+  {
+    "id": 26,
+    "file": "chapitres/p3-geometrie/ch14-transformations-isometries.tex",
+    "figure": 3,
+    "title": "deux miroirs, une rotation",
+    "student_pdf_pages": [
+      168
+    ],
+    "teacher_pdf_pages": [
+      210
+    ]
+  },
+  {
+    "id": 27,
+    "file": "chapitres/p3-geometrie/ch15-similitudes.tex",
+    "figure": 1,
+    "title": "tourner et agrandir",
+    "student_pdf_pages": [
+      176
+    ],
+    "teacher_pdf_pages": [
+      222
+    ]
+  },
+  {
+    "id": 28,
+    "file": "chapitres/p3-geometrie/ch15-similitudes.tex",
+    "figure": 2,
+    "title": "directe ou indirecte : suivre l'orientation",
+    "student_pdf_pages": [
+      177
+    ],
+    "teacher_pdf_pages": [
+      223
+    ]
+  },
+  {
+    "id": 29,
+    "file": "chapitres/p3-geometrie/ch16-geometrie-espace.tex",
+    "figure": 1,
+    "title": "le vecteur qui sort du plan",
+    "student_pdf_pages": [
+      185
+    ],
+    "teacher_pdf_pages": [
+      235
+    ]
+  },
+  {
+    "id": 30,
+    "file": "chapitres/p3-geometrie/ch16-geometrie-espace.tex",
+    "figure": 2,
+    "title": "la distance suit la perpendiculaire",
+    "student_pdf_pages": [
+      186
+    ],
+    "teacher_pdf_pages": [
+      237
+    ]
+  },
+  {
+    "id": 31,
+    "file": "chapitres/p3-geometrie/ch16-geometrie-espace.tex",
+    "figure": 3,
+    "title": "une droite face à un plan",
+    "student_pdf_pages": [
+      187
+    ],
+    "teacher_pdf_pages": [
+      238
+    ]
+  },
+  {
+    "id": 32,
+    "file": "chapitres/p4-donnees/ch17-probabilites.tex",
+    "figure": 1,
+    "title": "un arbre à deux niveaux",
+    "student_pdf_pages": [
+      198
+    ],
+    "teacher_pdf_pages": [
+      250
+    ]
+  },
+  {
+    "id": 33,
+    "file": "chapitres/p4-donnees/ch18-variables-aleatoires.tex",
+    "figure": 1,
+    "title": "la loi et sa fonction de répartition",
+    "student_pdf_pages": [
+      206
+    ],
+    "teacher_pdf_pages": [
+      260
+    ]
+  }
+]

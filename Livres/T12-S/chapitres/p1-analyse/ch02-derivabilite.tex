@@ -133,8 +133,8 @@ $f'_{g}(a)$ et $f'_{d}(a)$. On dit que le point est un \textbf{point angulé}.
   \addplot[bmtLaterite, dashed, line width=0.8pt, domain=-1.4:1.2, samples=2] {-0.9*x};
   \addplot[bmtVetiver, dashed, line width=0.8pt, domain=-1.2:2.2, samples=2] {0.55*x};
   \filldraw[bmtIndigo] (axis cs:0,0) circle (2pt);
-  \node[bmtLaterite, font=\footnotesize, anchor=east] at (axis cs:-1.5,1.4) {pente $f'_{g}(a)$};
-  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:2.25,1.25) {pente $f'_{d}(a)$};
+  \node[bmtLaterite, font=\footnotesize, anchor=south] at (axis cs:-.9,2.25) {pente $f'_{g}(a)$};
+  \node[bmtVetiver, font=\footnotesize, anchor=east] at (axis cs:2.6,1.65) {pente $f'_{d}(a)$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -355,16 +355,16 @@ courbe.
   axis line style = {bmtGris},
   tick label style = {font=\footnotesize, color=bmtGris}, clip = false,
 ]
-  \addplot[bmtIndigo, line width=1.3pt, domain=-2.1:2.1, samples=120] {0.55*x^3};
-  \addplot[bmtVetiver, dashed, line width=0.85pt, domain=-2.2:-0.3, samples=2]
+  \addplot[bmtIndigo, line width=1.3pt, domain=-1.65:1.65, samples=120] {0.55*x^3};
+  \addplot[bmtVetiver, dashed, line width=0.85pt, domain=-1.85:-0.3, samples=2]
     {0.55*3*1.44*(x+1.2) - 0.55*1.728};
-  \addplot[bmtLaterite, dashed, line width=0.85pt, domain=0.3:2.2, samples=2]
+  \addplot[bmtLaterite, dashed, line width=0.85pt, domain=0.3:1.85, samples=2]
     {0.55*3*1.44*(x-1.2) + 0.55*1.728};
   \filldraw[bmtIndigo] (axis cs:0,0) circle (1.9pt);
-  \node[bmtEncre, font=\footnotesize, anchor=south west] at (axis cs:0.08,0.12)
+  \node[bmtEncre, font=\footnotesize, anchor=south east] at (axis cs:-.1,0.5)
     {point d'inflexion};
-  \node[bmtVetiver, font=\footnotesize, anchor=north] at (axis cs:-1.35,-1.5) {concave};
-  \node[bmtLaterite, font=\footnotesize, anchor=south] at (axis cs:1.35,1.4) {convexe};
+  \node[bmtVetiver, font=\footnotesize, anchor=west] at (axis cs:-1.1,-2.1) {concave};
+  \node[bmtLaterite, font=\footnotesize, anchor=east] at (axis cs:1.0,2.0) {convexe};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -687,9 +687,11 @@ celles de $\frac{x^{3}}{3}$, soit $-\infty$ et $+\infty$.
 
 \textbf{7.} En dérivant le quotient,
 \[
-  f'(x) = \frac{(4x-6)(2x-3)-2\left(2x^{2}-6x+3\right)}{(2x-3)^{2}}
-  = \frac{8x^{2}-24x+18-4x^{2}+12x-6}{(2x-3)^{2}}
-  = \frac{4\left(x^{2}-3x+3\right)}{(2x-3)^{2}} .
+\begin{aligned}
+  f'(x) &= \frac{(4x-6)(2x-3)-2\left(2x^{2}-6x+3\right)}{(2x-3)^{2}}\\
+  &= \frac{8x^{2}-24x+18-4x^{2}+12x-6}{(2x-3)^{2}}\\
+  &= \frac{4\left(x^{2}-3x+3\right)}{(2x-3)^{2}} .
+\end{aligned}
 \]
 Le trinôme $x^{2}-3x+3$ a pour discriminant $9-12 = -3<0$ : il est toujours
 strictement positif. Donc $f'>0$ et $f$ croît strictement sur
@@ -713,11 +715,11 @@ ailleurs.
 
 \textbf{9.} On teste la symétrie par le calcul de $f(\Omega_{x}+h)+f(\Omega_{x}-h)$.
 Pour $h \neq 0$ tel que $\frac32 \pm h$ soit dans l'ensemble de définition,
-\[
-  f\!\left(\tfrac32+h\right)+f\!\left(\tfrac32-h\right)
-  = \left(4+2h+\frac{1}{2h}\right)+\left(4-2h-\frac{1}{2h}\right)
-  = 8 = 2\times4 .
-\]
+\[\begin{aligned}
+&f\!\left(\tfrac32+h\right)+f\!\left(\tfrac32-h\right)\\
+  &\quad = \left(4+2h+\frac{1}{2h}\right)+\left(4-2h-\frac{1}{2h}\right)
+  \\ &\quad = 8 = 2\times4 .
+\end{aligned}\]
 La moyenne des deux ordonnées vaut donc toujours $4$, ordonnée de $\Omega$ :
 le point $\Omega\left(\frac32\,;4\right)$ est centre de symétrie de la courbe.
 \end{corrige}

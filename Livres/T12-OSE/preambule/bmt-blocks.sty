@@ -137,6 +137,13 @@
         \draw[bmtGris, line width=0.35pt] (\i*0.22,0) circle (0.062);
       \fi}}}
 
+% Les longues provenances restent lisibles au début du contenu du bloc au
+% lieu d'être comprimées dans le bandeau de titre.
+\newcommand{\bmtsoustitrebloc}[1]{%
+  \if\relax\detokenize{#1}\relax\else
+    {\sffamily\footnotesize\color{bmtGris}\raggedright #1\par\smallskip}%
+  \fi}
+
 \newtcolorbox{entrainement}[1][]{%
   bmtbase, colback = bmtPapier, colframe = bmtAccent,
   title = {JE M'ENTRAÎNE\ifx\relax#1\relax\else\ \textbullet\ #1\fi}}
@@ -154,7 +161,8 @@
 \newtcolorbox{commeaubac}[1][]{%
   bmtbase, colframe = bmtLaterite, colback = bmtPapier, leftrule = 3.5pt,
   coltitle = bmtLaterite,
-  title = {JE M'ENTRAÎNE COMME AU BACCALAURÉAT\ifx\relax#1\relax\else\ \textbullet\ #1\fi}}
+  title = {JE M'ENTRAÎNE COMME AU BACCALAURÉAT},
+  before upper = {\bmtsoustitrebloc{#1}}}
 
 % Réservé aux chapitres qui en disposent réellement : aucun sujet de concours
 % (ENI, ESPA) ne convient à la série OSE, ce bloc n'est donc pas mobilisé
@@ -167,7 +175,8 @@
 % Les exercices d'annales de fin de chapitre : chacun porte sa provenance.
 \newtcolorbox{annales}[1][]{%
   bmtbase, colback = bmtPapier, colframe = bmtAccent, leftrule = 2.2pt,
-  title = {JE M'ENTRAÎNE SUR ANNALES\ifx\relax#1\relax\else\ \textbullet\ #1\fi}}
+  title = {JE M'ENTRAÎNE SUR ANNALES},
+  before upper = {\bmtsoustitrebloc{#1}}}
 
 % Un exercice d'annales : numéro, puis provenance en petites capitales grises.
 % L'argument optionnel indique la notion d'un chapitre anterieur que

@@ -87,7 +87,7 @@ auxiliaire.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-  width = 9.6cm, height = 6.4cm,
+  width = 10.8cm, height = 9cm, axis equal image,
   axis lines = middle, xlabel = {$x$},
   xmin = -0.3, xmax = 5.4, ymin = -0.3, ymax = 4.3,
   xtick = {1, 1.75, 2.125}, xticklabels = {$u_{0}$, $u_{1}$, $u_{2}$},
@@ -196,9 +196,11 @@ la formule au rang $n+1$.
 \textbf{2.} Au rang $1$ : $1 = \frac{1\times2\times3}{6}$. Si la formule vaut
 au rang $n$,
 \[
-  \sum_{k=1}^{n+1}k^{2} = \frac{n(n+1)(2n+1)}{6}+(n+1)^{2}
-  = \frac{(n+1)\left[n(2n+1)+6(n+1)\right]}{6}
-  = \frac{(n+1)(n+2)(2n+3)}{6},
+  \begin{aligned}
+  \sum_{k=1}^{n+1}k^{2} &= \frac{n(n+1)(2n+1)}{6}+(n+1)^{2}
+  \\ &= \frac{(n+1)\left[n(2n+1)+6(n+1)\right]}{6}
+  \\ &= \frac{(n+1)(n+2)(2n+3)}{6},
+  \end{aligned}
 \]
 puisque $2n^{2}+7n+6 = (n+2)(2n+3)$.
 

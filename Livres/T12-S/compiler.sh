@@ -15,7 +15,7 @@ BUILD=build
 # L'arborescence de build doit refléter celle des sources (fichiers .aux)
 mkdir -p "$BUILD"/{front,annexes,chapitres/{p1-analyse,p2-algebre,p3-geometrie,p4-donnees}}
 
-LMK=(latexmk -xelatex -shell-escape -interaction=nonstopmode -outdir="$BUILD")
+LMK=(latexmk -xelatex -shell-escape -halt-on-error -interaction=nonstopmode -outdir="$BUILD")
 
 eleve() {
   "${LMK[@]}" "$MAIN.tex"
