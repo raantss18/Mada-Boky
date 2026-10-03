@@ -3,37 +3,69 @@
 \renewcommand{\thebmtexo}{DS2.\arabic{bmtexo}}
 \renewcommand{\theHbmtexo}{DS2.\arabic{bmtexo}}
 \setcounter{bmtexo}{0}
-\begin{devoir}[2 h — 20 points]
-Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\begin{devoir}[durée indicative : 2 h — 20 points]
+Calculatrice autorisée. Rédiger les justifications et indiquer les domaines de validité. Les exercices sont indépendants; à l’intérieur d’un exercice, on peut utiliser les résultats des questions précédentes. Les figures demandées doivent comporter les noms des objets et les points calculés.
 \end{devoir}
-\exo[Logique et équations]\label{t11s-ds2-e01}\bareme{6 points}
-\begin{enumerate}\item Nier $\forall x\in\R,\exists y\in\R,y>x$ (1 point).
-\item Résoudre $(m-1)x^2-(m+1)x+2=0$ selon $m$ (3 points).
-\item Résoudre $\sqrt{x+6}=x$ (2 points).\end{enumerate}
+
+\exo[Logique et équations avec conditions]\label{t11s-ds2-e01}\bareme{6 points}\par
+Les inconnues et les paramètres de cet exercice sont réels.
+\begin{enumerate}
+\item Écrire la négation de $\forall x\in\R,\exists y\in\R,y>x$. Dire laquelle des deux propositions est vraie et justifier votre réponse (1 point).
+\item On considère $(m-1)x^2-(m+1)x+2=0$, d’inconnue $x$ et de paramètre $m\in\R$.
+\begin{enumerate}
+\item Traiter $m=1$, puis démontrer la factorisation $(x-1)((m-1)x-2)$ (1 point).
+\item Donner l’ensemble des solutions dans chaque cas et déterminer la valeur de $m$ pour laquelle les deux racines coïncident (2 points).
+\end{enumerate}
+\item Résoudre $\sqrt{x+6}=x$ dans $\R$. Indiquer les conditions avant de mettre au carré, puis vérifier toutes les solutions conservées (2 points).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds2-e01}]\label{sol-t11s-ds2-e01}
-1. $\exists x\in\R,\forall y\in\R,y\le x$.
-2. Factorisation $(x-1)((m-1)x-2)$ (1). Si $m=1$, seule racine $1$ (1). Sinon $1$ et $2/(m-1)$, coïncidant pour $m=3$ (1).
-3. $x\ge0$; $x^2-x-6=0$ donne $3,-2$, seule $3$ convient (conditions 1, résolution 1).
+\begin{enumerate}
+\item La négation est $\exists x\in\R,\forall y\in\R,y\le x$. La proposition initiale est vraie : pour chaque $x$, prendre $y=x+1$. Il n’existe donc pas de réel supérieur ou égal à tous les réels.
+\item Pour $m=1$, $-2x+2=0$, donc $S=\{1\}$. Développer le produit annoncé donne bien $(m-1)x^2-(m+1)x+2$. Si $m\ne1$, le produit nul donne $x=1$ ou $x=2/(m-1)$. Elles coïncident si $2/(m-1)=1$, soit $m=3$. Ainsi $S=\{1\}$ pour $m=1$ ou $m=3$, et $S=\{1;2/(m-1)\}$ sinon. Pour $m=3$, il s’agit d’une racine double; pour $m=1$, l’équation est du premier degré.
+\item La racine exige $x\ge-6$ et son égalité à $x$ exige $x\ge0$. Sur $[0;+\infty[$, le carré est une transformation équivalente : $x+6=x^2$, soit $(x-3)(x+2)=0$. Seul $3$ satisfait $x\ge0$, et $\sqrt{3+6}=3$. Donc $S=\{3\}$; $-2$ n’est pas une solution de l’équation initiale.
+\end{enumerate}
+Le barème récompense la distinction perte de degré/racine double, pas seulement la liste des nombres.
 \end{corrige}
-\exo[Système et arithmétique]\label{t11s-ds2-e02}\bareme{6 points}
-\begin{enumerate}\item Résoudre $x+y+z+t=10$, $x-y+z+t=6$, $x+y-z+t=4$, $x+y+z-t=2$ (3 points).
-\item Calculer par Euclide le PGCD de $840$ et $360$, puis leur PPCM (2 points).
-\item Convertir $45$ en binaire en montrant une vérification (1 point).\end{enumerate}
+\exo[Système, divisibilité et numération]\label{t11s-ds2-e02}\bareme{6 points}\par
+Les trois parties sont indépendantes.
+\begin{enumerate}
+\item Résoudre dans $\R^4$ le système
+\[
+\begin{cases}x+y+z+t=10,\\x-y+z+t=6,\\x+y-z+t=4,\\x+y+z-t=2.\end{cases}
+\]
+Écrire les opérations d’élimination, donner le quadruplet et le vérifier dans les quatre équations (3 points).
+\item Une association dispose de $840$ cahiers et $360$ stylos. Elle souhaite former le plus grand nombre de lots identiques, sans reste et avec chaque sorte d’objet dans chaque lot. Utiliser l’algorithme d’Euclide pour déterminer ce nombre et la composition d’un lot. Calculer aussi le PPCM de $840$ et $360$ (2 points).
+\item Convertir l’entier décimal $45$ en base $2$ par divisions successives. Vérifier le résultat en développant les puissances de $2$ (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds2-e02}]\label{sol-t11s-ds2-e02}
-1. Différences à la première : $y=2,z=3,t=4$, puis $x=1$; vérifier les quatre égalités (opérations 1, tuple 1, vérification 1).
-2. $840=2\times360+120$, $360=3\times120$, PGCD $120$; PPCM $840\times360/120=2520$ (1+1).
-3. $45=(101101)_2=32+8+4+1$.
+\begin{enumerate}
+\item Avec $L_i\leftarrow L_i-L_1$ pour $i=2,3,4$, on obtient $-2y=-4$, $-2z=-6$, $-2t=-8$. Donc $y=2$, $z=3$, $t=4$, puis $x=10-2-3-4=1$. Le quadruplet $(1;2;3;4)$ donne $10,6,4,2$ dans les membres gauches. L’élimination réversible et les valeurs successivement imposées prouvent aussi l’unicité. Un point pour les opérations, un pour le tuple, un pour la vérification.
+\item $840=2\times360+120$ et $360=3\times120+0$ : PGCD $120$. Tout nombre admissible de lots divise les deux effectifs; le maximum est donc $120$, avec $7$ cahiers et $3$ stylos par lot. Le PPCM vaut $840\times360/120=2520$. Un point pour Euclide et son interprétation, un pour composition/PPCM.
+\item Les quotients successifs sont $22,11,5,2,1,0$; les restes sont $1,0,1,1,0,1$. Les lire en sens inverse donne $(101101)_2$. Vérification : $2^5+2^3+2^2+1=32+8+4+1=45$.
+\end{enumerate}
 \end{corrige}
-\exo[Suite et algorithme]\label{t11s-ds2-e03}\bareme{8 points}
-$u_0=10$, $u_{n+1}=0{,}5u_n+3$.
-\begin{enumerate}\item Calculer $u_1,u_2$ et expliquer pourquoi la suite n’est pas arithmétique (2 points).
-\item Poser $v_n=u_n-6$; établir une formule pour $u_n$ (2 points).
-\item Étudier variations et limite (2 points).
-\item Écrire un algorithme de calcul du premier rang $n$ tel que $u_n<6{,}1$; calculer ce rang (2 points).\end{enumerate}
+\exo[Suite, seuil et algorithme]\label{t11s-ds2-e03}\bareme{8 points}\par
+La suite réelle $(u_n)$ est définie pour $n\in\N$ par $u_0=10$ et $u_{n+1}=\frac12u_n+3$.
+\begin{enumerate}
+\item Calculer $u_1,u_2,u_3$. Comparer deux différences consécutives pour montrer que la suite n’est pas arithmétique (2 points).
+\item Poser $v_n=u_n-6$. Démontrer que $(v_n)$ est géométrique, préciser son premier terme et sa raison, puis en déduire $u_n=6+4(1/2)^n$ (2 points).
+\item À l’aide de cette formule, démontrer que $u_n>6$, étudier le signe de $u_{n+1}-u_n$ et déterminer la limite de la suite (2 points).
+\item Écrire en pseudo-code un algorithme qui affiche le plus petit rang $n\in\N$ tel que $u_n<6{,}1$. Justifier son arrêt, calculer le rang affiché et vérifier que le rang précédent ne convient pas (2 points).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds2-e03}]\label{sol-t11s-ds2-e03}
-1. $8,7$; différences $-2,-1$, non arithmétique (1+1).
-2. $v_{n+1}=0{,}5v_n$, $v_0=4$, donc $u_n=6+4(0{,}5)^n$ (1+1).
-3. Différence $-2(0{,}5)^n<0$, limite $6$ (1+1).
-4. Initialiser $u=10,n=0$; tant que $u\ge6{,}1$, mettre à jour $u\leftarrow0{,}5u+3,n\leftarrow n+1$. Terminaison par convergence vers $6$. $4/2^n<0{,}1$ équivaut à $2^n>40$; $2^5=32,2^6=64$, donc rang $6$ (algorithme 1, rang justifié 1).
+\begin{enumerate}
+\item $u_1=8$, $u_2=7$, $u_3=13/2$. Les différences $8-10=-2$ et $7-8=-1$ sont distinctes; une raison arithmétique constante est impossible.
+\item $v_{n+1}=u_{n+1}-6=\frac12u_n-3=\frac12(u_n-6)=\frac12v_n$, avec $v_0=4$. Donc $v_n=4(1/2)^n$ et $u_n=6+4(1/2)^n$.
+\item Le terme ajouté à $6$ est strictement positif. La différence vaut $-2(1/2)^n<0$ : décroissance stricte. Comme $|1/2|<1$, cette puissance tend vers $0$; la limite est $6$, sans que la suite atteigne $6$.
+\item Un algorithme possible est :
+\begin{quote}\begin{tabular}{l}
+$u\leftarrow10$, $n\leftarrow0$\\
+Tant que $u\ge6{,}1$\\
+\quad $u\leftarrow u/2+3$\\
+\quad $n\leftarrow n+1$\\
+Fin tant que\\Afficher $n$
+\end{tabular}\end{quote}
+Après $n$ tours, $u$ contient $u_n$. La convergence vers $6$ garantit un terme inférieur à $6{,}1$; la boucle s’arrête au premier tel rang. La condition équivaut à $2^n>40$. Puisque $32<40<64$, le rang est $6$. Vérification : $u_5=49/8=6{,}125$ ne convient pas et $u_6=97/16=6{,}0625$ convient. Un point pour pseudo-code/arrêt, un pour rang/minimalité.
+\end{enumerate}
 \end{corrige}
 \endgroup

@@ -3,41 +3,66 @@
 \renewcommand{\thebmtexo}{DS3.\arabic{bmtexo}}
 \renewcommand{\theHbmtexo}{DS3.\arabic{bmtexo}}
 \setcounter{bmtexo}{0}
-\begin{devoir}[2 h — 20 points]
-Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\begin{devoir}[durée indicative : 2 h — 20 points]
+Calculatrice autorisée. Rédiger les justifications et indiquer les domaines de validité. Les exercices sont indépendants; à l’intérieur d’un exercice, on peut utiliser les résultats des questions précédentes. Les figures demandées doivent comporter les noms des objets et les points calculés.
 \end{devoir}
-\exo[Produit scalaire et barycentre]\label{t11s-ds3-e01}\bareme{6 points}
-Dans un repère orthonormé, $A(0;0),B(6;0),C(2;4)$.
-\begin{enumerate}\item Calculer $\vect{AB}\cdot\vect{AC}$ et l’aire du triangle (2 points).
-\item Calculer le barycentre $G$ de $(A,1),(B,1),(C,2)$ (2 points).
-\item Déterminer le lieu $MA^2+MB^2=26$ (2 points).\end{enumerate}
+
+\exo[Produit scalaire, barycentre et lieu]\label{t11s-ds3-e01}\bareme{6 points}\par
+Dans un repère orthonormé du plan, on donne $A(0;0)$, $B(6;0)$ et $C(2;4)$.
+\begin{enumerate}
+\item Calculer $\vect{AB}\cdot\vect{AC}$, puis l’aire de $ABC$ en précisant la base et la hauteur utilisées (2 points).
+\item Justifier l’existence du barycentre $G$ de $(A,1)$, $(B,1)$, $(C,2)$ et déterminer ses coordonnées (2 points).
+\item On note $I$ le milieu de $[AB]$. Démontrer l’identité $MA^2+MB^2=2MI^2+18$ pour tout point $M$ du plan. Déterminer et construire le lieu des points vérifiant $MA^2+MB^2=26$ (2 points).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds3-e01}]\label{sol-t11s-ds3-e01}
-1. Produit $12$; aire $6\times4/2=12$ (1+1).
-2. Somme $4$, $G=((0+6+4)/4;(0+0+8)/4)=(5/2;2)$ (condition 1, coordonnées 1).
-3. $I=(3;0)$, somme $2MI^2+18=26$, donc cercle de centre $I$ et rayon $2$ (réduction 1, lieu 1).
+\begin{enumerate}
+\item $\vect{AB}=(6;0)$ et $\vect{AC}=(2;4)$, donc leur produit vaut $12$. La base $AB$ vaut $6$ et la distance de $C$ à la droite $y=0$ vaut $4$. L’aire est $6\times4/2=12$ unités d’aire.
+\item La somme des poids vaut $4\ne0$. Les coordonnées pondérées donnent $G((0+6+2\times2)/4;(0+0+2\times4)/4)=(5/2;2)$.
+\item $I(3;0)$, $IA=IB=3$. Écrire $\vect{MA}=\vect{MI}+\vect{IA}$ et $\vect{MB}=\vect{MI}-\vect{IA}$ puis sommer les carrés des normes annule les termes croisés. La somme vaut $2MI^2+2IA^2=2MI^2+18$. L’équation du lieu devient $MI^2=4$. C’est exactement le cercle de centre $I$ et de rayon $2$; tous ses points satisfont réciproquement l’équation. Pour construire, placer $I$ au milieu de $[AB]$ et reporter le rayon.
+\end{enumerate}
+Un point pour chaque calcul et un pour sa justification/interprétation dans chacune des trois questions.
 \end{corrige}
-\exo[Trigonométrie]\label{t11s-ds3-e02}\bareme{4 points}
-\begin{enumerate}\item Déterminer la mesure principale de $19\pi/6$ (1 point).
-\item Résoudre $2\cos^2x-1=0$ sur $[0;2\pi[$ (2 points).
-\item Résoudre $\sin x\ge1/2$ sur le même intervalle (1 point).\end{enumerate}
+\exo[Angles et intervalles de solutions]\label{t11s-ds3-e02}\bareme{4 points}\par
+Toutes les mesures sont en radians; la mesure principale appartient à $]-\pi;\pi]$.
+\begin{enumerate}
+\item Déterminer la mesure principale de $19\pi/6$ et vérifier son appartenance à l’intervalle annoncé (1 point).
+\item Résoudre $2\cos^2x-1=0$ pour $x\in[0;2\pi[$. Donner d’abord une famille de solutions réelles, puis la liste des solutions dans cet intervalle (2 points).
+\item Résoudre $\sin x\ge1/2$ pour $x\in[0;2\pi[$ en indiquant pourquoi les bornes obtenues sont incluses (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds3-e02}]\label{sol-t11s-ds3-e02}
-1. $19\pi/6-4\pi=-5\pi/6$.
-2. $\cos2x=0$, donc $x=\pi/4+k\pi/2$, soit $\pi/4,3\pi/4,5\pi/4,7\pi/4$ (famille 1, intervalle 1).
-3. $[\pi/6;5\pi/6]$.
+$19\pi/6-4\pi=-5\pi/6\in]-\pi;\pi]$. La duplication transforme l’équation en $\cos(2x)=0$, donc $2x=\pi/2+k\pi$ et $x=\pi/4+k\pi/2$ ($k\in\Z$). Pour $0\le x<2\pi$, $k=0,1,2,3$ : $\pi/4,3\pi/4,5\pi/4,7\pi/4$. Pour le sinus, l’ordonnée du point du cercle doit être au moins $1/2$ : l’arc fermé correspond à $[\pi/6;5\pi/6]$. L’égalité est autorisée; les deux extrémités sont incluses.
 \end{corrige}
-\exo[Similitude]\label{t11s-ds3-e03}\bareme{4 points}
-Étudier $x'=-2y+1$, $y'=2x+2$ : rapport et angle, centre, image de $(1;0)$ et facteur d’évolution des aires.
+\exo[Reconnaître une similitude directe]\label{t11s-ds3-e03}\bareme{4 points}\par
+Dans un repère orthonormé direct du plan, la transformation $s$ associe à $M(x;y)$ le point $M'(x';y')$ défini par
+\[
+x'=-2y+1,\qquad y'=2x+2.
+\]
+\begin{enumerate}
+\item Justifier que $s$ est une similitude directe et donner son rapport et un angle en radians (1 point).
+\item Résoudre $s(M)=M$ et déterminer son centre (1 point).
+\item Calculer l’image de $P(1;0)$, puis vérifier que la distance au centre est multipliée par le rapport trouvé (1 point).
+\item Si un triangle a une aire de $3\ \mathrm{cm}^2$, quelle est l’aire de son image ? Justifier le coefficient appliqué (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds3-e03}]\label{sol-t11s-ds3-e03}
-Rapport $2$, angle $\pi/2$ (1). Point fixe $x=-2y+1$, $y=2x+2$, donnant $x=-3/5,y=4/5$ (1). Image $(1;4)$ (1); facteur des aires $4$ (1).
+\begin{enumerate}
+\item Les coefficients sont $\alpha=0$, $\beta=2$, donc $\rho=\sqrt{0^2+2^2}=2$, $\cos\theta=0$, $\sin\theta=1$. L’angle $\pi/2$ convient.
+\item Un point fixe vérifie $x=-2y+1$, $y=2x+2$. Substituer la seconde dans la première donne $5x=-3$; donc le centre est $J(-3/5;4/5)$.
+\item $P'=(1;4)$. On a $JP^2=(8/5)^2+(-4/5)^2=16/5$ et $JP'^2=(8/5)^2+(16/5)^2=64/5=4JP^2$. Les distances positives vérifient $JP'=2JP$.
+\item Le coefficient des aires est $\rho^2=4$; l’aire image vaut $12\ \mathrm{cm}^2$. Une rotation conserve l’aire et l’homothétie multiplie deux longueurs par $2$.
+\end{enumerate}
 \end{corrige}
-\exo[Un plan dans l’espace]\label{t11s-ds3-e04}\bareme{6 points}
-En repère orthonormé direct, $A(1;0;0),B(0;1;0),C(0;0;1)$.
-\begin{enumerate}\item Calculer $\vect{AB}\wedge\vect{AC}$ et donner une équation de $(ABC)$ (2 points).
-\item Déterminer l’intersection avec la droite $(x;y;z)=(t;2t;3t)$ (2 points).
-\item Calculer la distance de l’origine au plan et l’aire du triangle $ABC$ (2 points).\end{enumerate}
+\exo[Plan, intersection et projection]\label{t11s-ds3-e04}\bareme{6 points}\par
+Dans un repère orthonormé direct de l’espace, on donne $A(1;0;0)$, $B(0;1;0)$, $C(0;0;1)$ et l’origine $O$.
+\begin{enumerate}
+\item Calculer $\vect{AB}\wedge\vect{AC}$; en déduire que les points sont non alignés et que le plan $(ABC)$ a une équation $x+y+z=1$ (2 points).
+\item La droite $d$ a pour représentation $(x;y;z)=(t;2t;3t)$, $t\in\R$. Déterminer $d\cap(ABC)$ et justifier l’unicité du point (2 points).
+\item Calculer la distance de $O$ au plan $(ABC)$ et les coordonnées de son projeté orthogonal $H$ sur ce plan. Déterminer aussi l’aire du triangle $ABC$ (2 points).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds3-e04}]\label{sol-t11s-ds3-e04}
-1. Vectoriel $(1;1;1)$; plan $x+y+z=1$ (1+1).
-2. $6t=1$, donc $(1/6;1/3;1/2)$, unique (1+1).
-3. Distance $1/\sqrt3$; aire $\sqrt3/2$ (1+1).
+\begin{enumerate}
+\item $\vect{AB}=(-1;1;0)$ et $\vect{AC}=(-1;0;1)$, d’où le vectoriel $(1;1;1)$. Il est non nul, donc les directions sont non colinéaires. Cette normale donne une équation $x+y+z+c=0$; substituer $A$ impose $c=-1$. Un point pour le produit, un pour les conclusions.
+\item Substituer dans le plan donne $6t=1$, qui a l’unique solution $t=1/6$. Le point est $(1/6;1/3;1/2)$; sa somme de coordonnées vaut $1$. Un point pour le paramètre, un pour le point et l’unicité.
+\item La distance vaut $|0+0+0-1|/\sqrt3=1/\sqrt3$. La droite normale issue de $O$ a points $(\lambda;\lambda;\lambda)$; son intersection avec le plan impose $3\lambda=1$. Donc $H=(1/3;1/3;1/3)$ et $OH=\sqrt3/3$. L’aire est la moitié de la norme du produit vectoriel : $\sqrt3/2$ unités d’aire. Un point pour distance/projection, un pour l’aire.
+\end{enumerate}
 \end{corrige}
 \endgroup

@@ -19,3 +19,7 @@ Après deux réparations visuelles (titre de corrigés élève vide et légende 
 Checker original SHA256 ca067449445a953d2dc371fa31c4d06d8522571af40ee9ad43742c800b0b40b5, code 0, 1 898 enregistrements; limites de certification clairement indiquées. Sources et PDF/preuves sauvés puis relus aux commits 3e5a1258 et 5318824ff0b4a9a8545159ff1b7d7aabcee71313; toutes les nouvelles entrées comparées, octets PDF relus et égaux. Le checkpoint suivant sauvegarde les gates et ces métadonnées et sera relu à son tour.
 
 Brouillon relu, pas d'approbation humaine ou ministérielle finale. Ancienne cause d'aux tronquée toujours inconnue; succès opérationnel des rebuilds uniquement. Les avertissements de paquets et absence de césure française sont conservés dans build-result. Guide de reprise dédié HANDOFF.md; pas de fiche élève supplémentaire à cette phase.
+
+## Réouverture pédagogique — 3 octobre 2026
+
+Le retour utilisateur remet en cause la profondeur et certaines consignes malgré les gates du snapshot précédent. Ceux-ci sont historiques, pas une validation utilisateur. Méthodes commentées et problèmes de transfert des chapitres 2–5 rédigés; quatre DS reformulés avec barèmes et corrigés développés. Autres chapitres, revue séparée, assemblage, pages et nouveaux gates encore en cours. Statut brouillon en révision.

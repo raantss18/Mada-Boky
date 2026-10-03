@@ -41,6 +41,39 @@ De même, $\dfrac{3x^2-x+1}{2x^2+5}\to\dfrac32$ quand $x\to\pm\infty$, car on di
 \begin{theoreme}[valeurs intermédiaires, admis]Si $f$ est continue sur $[a;b]$, tout réel compris entre $f(a)$ et $f(b)$ est atteint au moins une fois. Si $f$ est de plus strictement monotone, cet antécédent est unique.\end{theoreme}
 La continuité assure l’existence, la stricte monotonie assure l’unicité. La seule connaissance des valeurs aux bornes ne suffit pas sans continuité.
 
+% ENRICHISSEMENT C02
+
+\subsection*{Choisir une technique et rédiger le raisonnement}
+\begin{methode}{décider avant de calculer}
+\begin{enumerate}
+\item Écrire le domaine et le point approché. Une limite en une borne peut n’être accessible que d’un côté.
+\item Si les opérations portent sur des limites finies et un dénominateur non nul, substituer puis citer la règle utilisée.
+\item Pour un dénominateur tendant vers zéro, déterminer son signe de chaque côté; une taille ne suffit pas à déterminer le signe d’une limite infinie.
+\item Pour une forme indéterminée, transformer l’expression sur un voisinage où elle est définie. Conclure seulement après cette transformation.
+\end{enumerate}
+\end{methode}
+\begin{exemple}[un quotient dont le signe change]
+Pour $r(x)=(x+1)/(x-2)$, le numérateur tend vers $3>0$ en $2$. À gauche, $x-2<0$ et tend vers $0$ : $r(x)\to-\infty$. À droite, le dénominateur est positif : $r(x)\to+\infty$. Écrire seulement « le dénominateur tend vers zéro » ne permettrait pas de choisir entre ces deux réponses.
+\end{exemple}
+\begin{exemple}[dominer les termes sans oublier le signe]
+Pour $x\ne0$,
+\[
+\frac{2x^3-x+1}{x^2+4}
+=x\frac{2-1/x^2+1/x^3}{1+4/x^2}.
+\]
+Le quotient de droite tend vers $2>0$ aux deux infinis; le facteur $x$ impose $+\infty$ à droite et $-\infty$ à gauche. Diviser toujours par le degré du numérateur aurait aussi fonctionné, mais aurait laissé un dénominateur tendant vers zéro à analyser.
+\end{exemple}
+\begin{methode}{prouver puis encadrer un zéro}
+Pour $F(x)=x^3+x-1$, établir la continuité sur l’intervalle choisi et des signes opposés aux bornes. Pour l’unicité, si $a<b$,
+\[
+F(b)-F(a)=(b-a)(a^2+ab+b^2+1)>0,
+\]
+car $a^2+ab+b^2=(a+b/2)^2+3b^2/4\ge0$. Une fois l’unique zéro situé, tester le milieu d’un intervalle et conserver la moitié où les signes restent opposés. Cette dichotomie produit un encadrement, pas une valeur exacte par calculatrice.
+\end{methode}
+\begin{avertissement}[continuité et valeur au point]
+Une limite finie n’impose pas que la fonction soit définie au point. Si elle l’est, sa valeur peut différer de la limite. Pour rendre une fonction continue par prolongement, la valeur ajoutée doit être égale à cette limite; deux limites latérales différentes empêchent tout tel prolongement.
+\end{avertissement}
+
 \section{Exercices et problèmes}
 \exo[Limites directes]\label{t11s-c02-e01}
 Calculer $\lim_{x\to2}(x^2-3x+4)$ et $\lim_{x\to-1}\dfrac{2x+5}{x^2+2}$.
@@ -77,5 +110,22 @@ Une table donne $f(0{,}9)=1{,}9$ et $f(1{,}1)=2{,}1$. Cela prouve-t-il que $\lim
 \begin{corrige}[exercice~\ref{t11s-c02-e07}]\label{sol-t11s-c02-e07}
 Non. $f(x)=x+1$ satisfait la table et a pour limite $2$. $g(x)=x+1+100(x-0{,}9)(x-1{,}1)$ satisfait la même table, mais sa limite en $1$ vaut $1$. Deux valeurs ne prouvent pas une limite.
 \end{corrige}
+
+\exo[Encadrer sans confondre exact et approché]\label{t11s-c02-p01}
+On pose $F(x)=x^3+x-1$ sur $\R$.
+\begin{enumerate}
+\item Prouver que $F$ a un unique zéro $\alpha$ dans $]0;1[$, sans utiliser de dérivée.
+\item Calculer exactement $F(0{,}68)$ et $F(0{,}69)$, puis encadrer $\alpha$.
+\item Donner une valeur approchée avec une erreur au plus $0{,}005$. Expliquer pourquoi cela ne fournit pas une solution exacte.
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-c02-p01}]\label{sol-t11s-c02-p01}
+Le polynôme est continu, $F(0)=-1$, $F(1)=1$; le TVI donne un zéro intérieur. La différence factorisée ci-dessus est positive pour $a<b$, donc $F$ est strictement croissante et ce zéro est unique. On calcule $F(0{,}68)=-0{,}005568<0$ et $F(0{,}69)=0{,}018509>0$. Donc $0{,}68<\alpha<0{,}69$. Le milieu $0{,}685$ a une erreur strictement inférieure à $0{,}005$. Il n’est pas présenté comme racine exacte : l’encadrement garantit une distance, pas une égalité.
+\end{corrige}
+\exo[Peut-on réparer un saut par une seule valeur ?]\label{t11s-c02-p02}
+Pour $x\ne1$, on définit $s(x)=\dfrac{x-1}{|x-1|}$. Calculer ses limites latérales en $1$. Existe-t-il un réel $k$ tel que la fonction obtenue en posant $s(1)=k$ soit continue sur $\R$ ? Justifier.
+\begin{corrige}[exercice~\ref{t11s-c02-p02}]\label{sol-t11s-c02-p02}
+Pour $x<1$, $|x-1|=1-x$ et $s(x)=-1$; pour $x>1$, $s(x)=1$. Les limites latérales sont $-1$ et $1$. La continuité demanderait simultanément $k=-1$ et $k=1$, impossible. Changer une valeur au point ne modifie pas ces deux limites.
+\end{corrige}
+
 \begin{jemeteste}Je sais distinguer valeur et limite, traiter un quotient $0/0$, vérifier un raccord et séparer existence et unicité d’une solution.\end{jemeteste}
 \begin{notepourlaclasse}Introduire les limites par des tableaux, puis justifier les conclusions algébriquement. Les règles générales et le théorème des valeurs intermédiaires sont admis; ne pas présenter les tableaux numériques comme des preuves.\end{notepourlaclasse}

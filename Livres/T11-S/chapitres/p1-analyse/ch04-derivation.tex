@@ -57,6 +57,29 @@ Pour $g(x)=\sqrt{3x+2}$, $g'(x)=3/(2\sqrt{3x+2})$ sur $]-2/3;+\infty[$.
 \begin{remarque}Un zéro isolé de $f'$ n’impose pas un extremum : $x^3$ a une dérivée nulle en $0$ et reste croissante. Un changement de signe de $+$ vers $-$ donne un maximum local; de $-$ vers $+$, un minimum local. Un extremum au bord d’un intervalle ne nécessite pas une dérivée nulle.\end{remarque}
 \begin{methode}{dresser un tableau de variation}Déterminer le domaine; calculer et factoriser la dérivée; étudier son signe sur chaque intervalle; calculer les valeurs aux points critiques et les limites aux bornes; tracer les flèches de variation.\end{methode}
 
+% ENRICHISSEMENT C04
+
+\subsection*{Organiser un calcul puis interpréter le résultat}
+\begin{methode}{dériver une expression composée}
+Repérer la fonction extérieure et l’expression intérieure. Pour $(u(x))^n$, dériver la puissance puis multiplier par $u'(x)$; pour $\sqrt{u(x)}$, exiger $u(x)>0$ avant d’utiliser la formule; pour un quotient, écrire le numérateur de la dérivée avant de le développer. Toujours annoncer le domaine de dérivation.
+\end{methode}
+\begin{exemple}[deux étapes qui ne doivent pas être confondues]
+Pour $F(x)=\sqrt{2x+3}$, le domaine de définition est $[-3/2;+\infty[$. La formule de dérivation donne, pour $x>-3/2$,
+\[
+F'(x)=\frac{2}{2\sqrt{2x+3}}=\frac1{\sqrt{2x+3}}.
+\]
+L’extrémité est dans le domaine de définition mais pas dans ce domaine de dérivation. Pour $G(x)=(x^2+1)^3$, les deux fonctions sont dérivables sur $\R$ et $G'(x)=3(x^2+1)^2\times2x$.
+\end{exemple}
+\begin{methode}{passer du signe à un optimum}
+Après avoir calculé $f'$, déterminer son signe sur le domaine physique du problème. Un changement de $+$ à $-$ prouve un maximum local; pour un maximum global, comparer tous les intervalles et les éventuelles bornes incluses. Donner la valeur maximale, l’endroit où elle est atteinte et les unités. Un point où la dérivée est nulle est seulement un candidat.
+\end{methode}
+\begin{exemple}[un optimum et une autre preuve]
+Pour un rectangle de périmètre $20$ m, si $x$ est un côté en mètres, l’autre vaut $10-x$ et $0<x<10$. L’aire $A(x)=10x-x^2$ a une dérivée $10-2x$, qui change de signe en $5$. Le maximum vaut $25\ \mathrm{m}^2$, pour un carré. La forme $A(x)=25-(x-5)^2$ fournit une seconde preuve globale et précise l’égalité.
+\end{exemple}
+\begin{remarque}[une tangente est une droite]
+Pour rédiger sa recherche, calculer séparément les coordonnées du point et la pente, puis utiliser la forme point-pente. Comparer la courbe à cette droite signifie étudier le signe de la différence des ordonnées; regarder seulement le dessin ne prouve pas ce signe.
+\end{remarque}
+
 \section{Exercices et problèmes}
 \exo[Par la définition]\label{t11s-c04-e01}
 À partir du taux de variation, montrer que la dérivée de $x\mapsto3x^2-2x+1$ en $a$ vaut $6a-2$.
@@ -93,5 +116,17 @@ $f(x)=x^2$ pour $x\le1$, et $f(x)=ax+b$ pour $x>1$. Trouver $a,b$ pour que $f$ s
 \begin{corrige}[exercice~\ref{t11s-c04-e07}]\label{sol-t11s-c04-e07}
 Continuité : $a+b=1$. Taux gauche $2+h\to2$; une fois la continuité imposée, taux droit $a$. Dérivabilité : $a=2$, puis $b=-1$.
 \end{corrige}
+
+\exo[Une tangente commune ?]\label{t11s-c04-p01}
+Pour $f(x)=x^2$ et $g(x)=2x^2-2x+1$, trouver les points d’intersection des courbes. Calculer leurs tangentes au point commun. Ces courbes ont-elles seulement la même valeur ou aussi la même tangente ? Déterminer leur position relative sur $\R$.
+\begin{corrige}[exercice~\ref{t11s-c04-p01}]\label{sol-t11s-c04-p01}
+$g-f=(x-1)^2$. L’unique intersection est $(1;1)$. Les dérivées $2x$ et $4x-2$ valent toutes deux $2$ en $1$; les deux tangentes sont $y=2x-1$. Comme $(x-1)^2\ge0$, la courbe de $g$ est au-dessus de celle de $f$, strictement sauf en $1$. Le contact commun est ainsi justifié par valeur et pente, pas seulement par une intersection.
+\end{corrige}
+\exo[Un enclos contre un mur]\label{t11s-c04-p02}
+On dispose de $30$ m de grillage pour trois côtés d’un enclos rectangulaire; le quatrième côté est un mur et ne demande pas de grillage. On note $x>0$ la longueur, en mètres, de chacun des deux côtés perpendiculaires au mur. Exprimer la troisième longueur, le domaine et l’aire $A(x)$. Déterminer les dimensions qui maximisent cette aire, par dérivation puis par une forme canonique.
+\begin{corrige}[exercice~\ref{t11s-c04-p02}]\label{sol-t11s-c04-p02}
+La longueur parallèle au mur vaut $30-2x$, donc $0<x<15$. L’aire est $A=30x-2x^2$ et $A'=30-4x$. La croissance puis décroissance autour de $x=7{,}5$ donne le maximum $112{,}5\ \mathrm{m}^2$, avec côtés $7{,}5$ m et $15$ m. Aussi $A=112{,}5-2(x-7{,}5)^2$ prouve que ce maximum global est unique. Le rectangle optimal n’est pas un carré, car le grillage ne couvre que trois côtés.
+\end{corrige}
+
 \begin{jemeteste}Je contrôle le domaine de dérivation, je distingue continuité et dérivabilité, et je justifie une variation par le signe de la dérivée.\end{jemeteste}
 \begin{notepourlaclasse}Faire écrire le taux avant d’introduire la notation. Le carré et la valeur absolue fournissent des exemples contrastés. Pour une optimisation, faire préciser unités et domaine avant la dérivation.\end{notepourlaclasse}

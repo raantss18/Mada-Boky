@@ -42,6 +42,22 @@ Le maximum de la branche gauche et le minimum de la branche droite ne sont pas l
 \section{Comparer deux fonctions}
 Si $f-g>0$ sur un intervalle, $\Cf_f$ est au-dessus de $\Cf_g$; si $f-g<0$, elle est en dessous; les zéros de la différence donnent les intersections. Les unités des axes peuvent être différentes; préciser le repère pour les arguments métriques.
 
+% ENRICHISSEMENT C05
+
+\subsection*{Lire une étude comme un ensemble de contraintes}
+\begin{methode}{construire la courbe dans le bon ordre}
+Tracer d’abord les axes et les asymptotes. Placer ensuite les points connus, en particulier extrema et intersections. Dessiner séparément chaque intervalle du domaine, en respectant les sens de variation et la position par rapport aux droites. Revenir au tableau pour contrôler chaque branche : la calculatrice peut aider à visualiser, mais ne remplace aucune justification.
+\end{methode}
+\begin{exemple}[compter des intersections sans formule des racines]
+Pour $p(x)=x^3-3x$, la dérivée est $3(x-1)(x+1)$. Les intervalles de monotonie stricte sont $]-\infty;-1]$, $[-1;1]$ et $[1;+\infty[$, avec valeurs remarquables $2$ et $-2$. Une horizontale $y=k$ avec $-2<k<2$ rencontre chaque branche exactement une fois : la continuité donne l’existence et la monotonie l’unicité sur chaque branche. Ainsi on peut compter trois solutions sans les écrire en formule explicite.
+\end{exemple}
+\begin{methode}{confronter une équation au domaine}
+Pour $h(x)=(2x+1)/(x-1)$, résoudre $h(x)=c$ exige $x\ne1$. Multiplier alors par $x-1$ donne $(2-c)x=-1-c$. Si $c=2$, on obtient $0=-3$, impossible. Sinon, $x=(1+c)/(c-2)$; ce nombre n’est jamais $1$, car cela imposerait $1=-2$. Le niveau de l’asymptote horizontale n’est pas atteint dans cet exemple, mais cette propriété ne vaut pas pour toute asymptote.
+\end{methode}
+\begin{avertissement}[les points remarquables n’ont pas le même rôle]
+Un extremum local concerne les valeurs voisines; un extremum global concerne tout le domaine. Un point d’inflexion marque un changement de convexité et peut avoir une tangente non horizontale. Une valeur interdite ne devient pas un point de la courbe même si sa limite est finie.
+\end{avertissement}
+
 \section{Exercices et problèmes}
 \exo[Une parabole]\label{t11s-c05-e01}
 Étudier complètement $f(x)=x^2-4x+3$ : domaine, limites, variations, axe et intersections avec les axes. Tracer.
@@ -73,5 +89,17 @@ $x^2$ en $0$ a un minimum et dérivée nulle; $x^3$ en $0$ n’a aucun extremum 
 \begin{corrige}[exercice~\ref{t11s-c05-e06}]\label{sol-t11s-c05-e06}
 $u'=-2\sin x\le0$ et strictement négative sur $]0;\pi[$. Décroît de $2$ à $-2$; zéro $\pi/2$. La parité complète $[-\pi;\pi]$ et la période $2\pi$ permet les translations.
 \end{corrige}
+
+\exo[Le nombre de solutions dépend d’un niveau]\label{t11s-c05-p01}
+On reprend $p(x)=x^3-3x$ sur $\R$. À partir de son tableau de variation, déterminer le nombre de solutions distinctes de $p(x)=k$ selon le réel $k$. Traiter séparément $k=-2$ et $k=2$; pour ces deux niveaux, factoriser l’équation et donner les solutions exactes.
+\begin{corrige}[exercice~\ref{t11s-c05-p01}]\label{sol-t11s-c05-p01}
+Pour $k<-2$ ou $k>2$, il y a une solution; pour $-2<k<2$, il y en a trois. En $k=2$, $x^3-3x-2=(x-2)(x+1)^2$ : deux solutions distinctes $-1,2$. En $k=-2$, $x^3-3x+2=(x+2)(x-1)^2$ : deux solutions distinctes $-2,1$. Les extrema appartiennent à deux intervalles adjacents; il ne faut pas les compter deux fois comme points distincts. Le comptage se justifie par continuité et monotonie sur les branches, pas seulement par le degré trois.
+\end{corrige}
+\exo[Auditer une description de courbe]\label{t11s-c05-p02}
+Pour $f(x)=(x^2+1)/(x-1)$, un compte rendu annonce : « la courbe coupe l’axe des abscisses; ses deux branches se rejoignent en $x=1$; elle possède un maximum global en $1-\sqrt2$ ». Réfuter chacune des trois affirmations à l’aide de l’expression ou des résultats du cours et écrire une description corrigée.
+\begin{corrige}[exercice~\ref{t11s-c05-p02}]\label{sol-t11s-c05-p02}
+Le numérateur $x^2+1$ est strictement positif, donc aucun zéro. La valeur $1$ est interdite et les limites latérales sont infinies; les branches ne se rejoignent pas. Le point d’abscisse $1-\sqrt2$ est un maximum local de la branche gauche, mais la branche droite tend vers $+\infty$ en $1^+$, donc pas de maximum global. Description : deux branches séparées par $x=1$, aucune intersection avec l’axe horizontal, maximum local à gauche et minimum local à droite, asymptote oblique $y=x+1$.
+\end{corrige}
+
 \begin{jemeteste}Pour vérifier mon tracé, je confronte chaque branche aux limites, chaque extremum au tableau et chaque intersection à son équation.\end{jemeteste}
 \begin{notepourlaclasse}Faire d’abord une étude commune puis demander une esquisse individuelle. La seconde dérivée sert ici au critère d’inflexion; ne pas exiger un cours général de convexité.\end{notepourlaclasse}

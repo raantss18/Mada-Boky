@@ -3,32 +3,64 @@
 \renewcommand{\thebmtexo}{DS4.\arabic{bmtexo}}
 \renewcommand{\theHbmtexo}{DS4.\arabic{bmtexo}}
 \setcounter{bmtexo}{0}
-\begin{devoir}[2 h — 20 points]
-Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\begin{devoir}[durée indicative : 2 h — 20 points]
+Calculatrice autorisée. Rédiger les justifications et indiquer les domaines de validité. Les exercices sont indépendants; à l’intérieur d’un exercice, on peut utiliser les résultats des questions précédentes. Les figures demandées doivent comporter les noms des objets et les points calculés.
 \end{devoir}
-\exo[Évolutions]\label{t11s-ds4-e01}\bareme{4 points}
-Un prix vaut $80000$ ariary; il subit une baisse de $15\%$ puis une hausse de $10\%$. Calculer prix final, taux global et taux qui ramènerait le prix final à $80000$ ariary.
+
+\exo[Évolutions successives et retour]\label{t11s-ds4-e01}\bareme{4 points}\par
+Un article coûte initialement $80\,000$ ariary. Son prix subit une baisse de $15\%$, puis une hausse de $10\%$ appliquée au prix après la baisse.
+\begin{enumerate}
+\item Calculer le prix après chaque étape (1 point).
+\item Déterminer le coefficient multiplicateur et le taux global, en précisant hausse ou baisse (1 point).
+\item Calculer le taux à appliquer au prix final pour retrouver $80\,000$ ariary; donner sa valeur exacte puis une approximation au centième de pourcentage (1 point).
+\item Un élève additionne $-15\%$ et $10\%$ pour annoncer une baisse de $5\%$. Expliquer pourquoi cette méthode est incorrecte dans ce contexte (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds4-e01}]\label{sol-t11s-ds4-e01}
-Prix $80000\times0{,}85\times1{,}1=74800$ (1). Coefficient $0{,}935$, baisse globale $6{,}5\%$ (1). Coefficient retour $80000/74800=200/187$, hausse $13/187\simeq6{,}95\%$ (2).
+Après la baisse : $80\,000\times0{,}85=68\,000$ ariary; après la hausse : $68\,000\times1{,}10=74\,800$ ariary. Le coefficient global est $0{,}85\times1{,}10=0{,}935$ et le taux $-0{,}065$, soit une baisse de $6{,}5\%$. Le coefficient réciproque vaut $80\,000/74\,800=200/187$, d’où le taux $13/187$, soit environ $6{,}95\%$ de hausse. La baisse est calculée sur $80\,000$, la hausse sur $68\,000$; leurs bases sont différentes. Le terme croisé du produit des coefficients ne peut pas être ignoré. Un point par question.
 \end{corrige}
-\exo[Statistique]\label{t11s-ds4-e02}\bareme{6 points}
-Une série est $4,6,6,8,10,10,12,14$. Calculer moyenne, médiane, quartiles, étendue, variance et écart type. Tracer la boîte à moustaches et interpréter l’écart interquartile.
+\exo[Décrire et représenter des durées]\label{t11s-ds4-e02}\bareme{6 points}\par
+Huit durées fictives de trajet, en minutes, sont : $4,6,6,8,10,10,12,14$.
+Pour les quartiles, prendre les valeurs de rang $\lceil N/4\rceil$ et $\lceil3N/4\rceil$. Les moustaches de la boîte vont du minimum au maximum.
+\begin{enumerate}
+\item Calculer la moyenne et la médiane; expliciter les deux rangs centraux (1 point).
+\item Déterminer $Q_1,Q_3$, l’étendue et l’écart interquartile (1 point).
+\item Calculer la somme des carrés, puis la variance descriptive divisée par $N$ et l’écart type. Donner une valeur exacte de la variance et arrondir l’écart type au millième (1,5 point).
+\item Tracer une boîte à moustaches sur un axe gradué en minutes et interpréter l’intervalle $[Q_1;Q_3]$ pour cette série (1,5 point).
+\item Si chaque trajet dure désormais deux minutes de plus, que deviennent la moyenne et l’écart type ? Justifier sans recalculer les huit carrés (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds4-e02}]\label{sol-t11s-ds4-e02}
-Moyenne $8{,}75$, médiane $9$ (1). Quartiles $6,10$ (1), étendue $10$ (1). Somme des carrés $692$, variance $692/8-(8{,}75)^2=9{,}9375$, écart type environ $3{,}152$ (1). Boîte entre $6,10$, trait $9$, moustaches $4,14$ (1). Écart interquartile $4$ : largeur entre les deux quartiles; avec la convention de rang, au moins la moitié des observations se situe dans $[6;10]$ (1).
+\begin{enumerate}
+\item La somme vaut $70$, donc la moyenne est $70/8=8{,}75$ min. Les rangs centraux sont $4$ et $5$, de valeurs $8$ et $10$; médiane $9$ min.
+\item Les rangs des quartiles sont $2$ et $6$, donc $Q_1=6$ min, $Q_3=10$ min. Étendue $14-4=10$ min et écart interquartile $10-6=4$ min.
+\item $\sum x_i^2=16+36+36+64+100+100+144+196=692$. Donc $V=692/8-(35/4)^2=159/16=9{,}9375\ \mathrm{min}^2$ et $\sigma=\sqrt{159}/4\simeq3{,}152$ min. La variance a une unité au carré; l’écart type a l’unité des observations.
+\item Placer les cinq repères $4,6,9,10,14$ : boîte de $6$ à $10$, médiane à $9$, moustaches à $4$ et $14$. Ici les cinq observations $6,6,8,10,10$ sont dans $[6;10]$, soit $5/8$ des données. La convention de quartile assure au moins la moitié des observations entre ces bornes; les égalités et répétitions expliquent qu’il y en ait davantage ici.
+\item La moyenne augmente de $2$ et vaut $10{,}75$ min. Pour toute durée $x_i$, $(x_i+2)-(\bar x+2)=x_i-\bar x$; les écarts, la variance et l’écart type restent identiques.
+\end{enumerate}
 \end{corrige}
-\exo[Comités et probabilités]\label{t11s-ds4-e03}\bareme{6 points}
-Parmi $6$ filles et $4$ garçons, on choisit uniformément un comité de trois élèves.
-\begin{enumerate}\item Compter les comités et les comités avec exactement deux filles (2 points).
-\item Calculer la probabilité d’au moins une fille (2 points).
-\item Choisir un président et un secrétaire distincts parmi les dix élèves donne-t-il le même nombre de résultats que choisir deux élèves sans fonction ? Justifier les deux comptes (2 points).\end{enumerate}
+\exo[Comités : définir un résultat avant de compter]\label{t11s-ds4-e03}\bareme{6 points}\par
+Un groupe comprend six filles et quatre garçons, tous distincts. On choisit uniformément un sous-ensemble de trois élèves; aucun rôle n’est attribué aux membres de ce comité.
+\begin{enumerate}
+\item Compter tous les comités, puis ceux contenant exactement deux filles et un garçon. En déduire la probabilité de cet événement (2 points).
+\item Compter les comités sans fille et calculer la probabilité qu’un comité contienne au moins une fille. Décrire explicitement l’événement contraire utilisé (2 points).
+\item Dans une expérience séparée, on choisit parmi les dix élèves un président et un secrétaire distincts. Compter les résultats possibles, puis comparer avec le choix de deux élèves sans fonction. Expliquer le facteur entre les deux nombres (2 points).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds4-e03}]\label{sol-t11s-ds4-e03}
-1. Total $\binom{10}3=120$; exactement deux filles $\binom62\binom41=60$ (1+1).
-2. Sans fille $\binom43=4$, donc $1-4/120=29/30$ (compte 1, complément 1).
-3. Fonctions distinctes : $10\times9=90$; groupe de deux : $\binom{10}2=45$, car chaque groupe a deux ordres (1+1).
+\begin{enumerate}
+\item Il y a $\binom{10}3=120$ sous-ensembles de taille $3$. Pour exactement deux filles, choisir deux parmi six et un garçon parmi quatre : $\binom62\binom41=15\times4=60$. Le choix uniforme donne $60/120=1/2$.
+\item Le contraire d’« au moins une fille » est « aucune fille », donc trois garçons. Il y en a $\binom43=4$. La probabilité demandée vaut $1-4/120=29/30$; ce n’est pas le contraire d’« exactement une fille ».
+\item Le président a $10$ choix, puis le secrétaire $9$ : $90$ résultats ordonnés. Un groupe sans fonction a $\binom{10}2=45$ résultats. Chaque paire donne deux attributions des fonctions; le facteur est $2$, et non une différence d’équiprobabilité entre les élèves.
+\end{enumerate}
+Deux points par question, dont un pour le raisonnement de comptage et de modèle.
 \end{corrige}
-\exo[Réunion d’événements]\label{t11s-ds4-e04}\bareme{4 points}
-Pour un dé équilibré, $A$ signifie « résultat pair » et $B$ « résultat supérieur ou égal à $4$ ». Calculer les probabilités de $A$, $B$, $A\cap B$ et $A\cup B$, puis vérifier la formule de réunion.
+\exo[Probabilités dans un modèle non uniforme]\label{t11s-ds4-e04}\bareme{4 points}\par
+Une roue comporte trois secteurs nommés $R,S,T$, d’angles respectifs $90\degre,90\degre,180\degre$. Le point d’arrêt est supposé uniforme en angle. On note $A=\{R,S\}$ et $B=\{S,T\}$.
+\begin{enumerate}
+\item Donner les probabilités de $R,S,T$ et expliquer pourquoi les trois secteurs ne sont pas équiprobables (1 point).
+\item Décrire $A\cap B$ et calculer $\Prob(A),\Prob(B),\Prob(A\cap B)$ (1 point).
+\item Décrire $A\cup B$ et vérifier numériquement la formule de réunion. Ces événements sont-ils incompatibles ? (1 point).
+\item Calculer $\Prob(\overline A)$ et expliquer pourquoi la formule « nombre de secteurs favorables / trois » serait incorrecte ici (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds4-e04}]\label{sol-t11s-ds4-e04}
-$A=\{2,4,6\}$, $B=\{4,5,6\}$ : $1/2,1/2,1/3,2/3$, puis $1/2+1/2-1/3=2/3$ (1 par étape, formule incluse avec la réunion).
+L’uniformité en angle donne les poids $90/360=1/4$, $1/4$, $180/360=1/2$. Les noms des secteurs ne rendent pas leurs angles égaux. On a $A\cap B=\{S\}$, donc $\Prob(A)=1/2$, $\Prob(B)=3/4$, $\Prob(A\cap B)=1/4$. La réunion est tout l’univers et sa probabilité vaut $1$; la formule donne $1/2+3/4-1/4=1$. Les événements ne sont pas incompatibles, car leur intersection contient $S$. Enfin $\overline A=\{T\}$ et sa probabilité vaut $1/2=1-1/2$. La formule des cardinaux exige des issues équiprobables, ce qui manque pour l’univers des trois secteurs; il faut sommer leurs poids. Un point par question.
 \end{corrige}
 \endgroup

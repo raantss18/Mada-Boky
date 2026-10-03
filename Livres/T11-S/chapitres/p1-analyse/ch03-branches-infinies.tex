@@ -37,6 +37,31 @@ L’asymptote oblique aux deux infinis est $y=x+1$. La courbe est en dessous pou
 \begin{remarque}Si $f(x)\to\pm\infty$ et $|f(x)/x|\to+\infty$, on parle d’une branche parabolique de direction l’axe des ordonnées. Si $f(x)\to\pm\infty$ et $f(x)/x\to0$, la direction est l’axe des abscisses. Si $f(x)/x\to a\ne0$ mais $f(x)-ax\to\pm\infty$, la branche a pour direction $y=ax$, sans asymptote oblique. Ce vocabulaire décrit une direction, pas nécessairement une parabole.\end{remarque}
 Pour $x^2$ en $+\infty$, $f(x)/x=x\to+\infty$. Pour $\sqrt x$, $f(x)/x=1/\sqrt x\to0$ alors que $f(x)\to+\infty$ : aucune asymptote horizontale.
 
+% ENRICHISSEMENT C03
+
+\subsection*{Passer d’une décomposition à une description graphique}
+\begin{exemple}[détailler une division]
+Soit $F(x)=(x^2+3x+5)/(x+1)$, pour $x\ne-1$. Comme
+\[
+(x+1)(x+2)=x^2+3x+2,
+\qquad F(x)=x+2+\frac3{x+1},
+\]
+la droite $y=x+2$ est asymptote aux deux infinis. L’écart vaut $3/(x+1)$ : la courbe est sous la droite sur $]-\infty;-1[$ et au-dessus sur $]-1;+\infty[$. Au voisinage de $-1$, le numérateur du reste reste positif; les limites latérales sont donc $-\infty$ et $+\infty$. La verticale est $x=-1$.
+\end{exemple}
+\begin{methode}{décrire une branche sans deviner une droite}
+Dans chaque direction infinie, commencer par $\lim f$. Si elle est finie, on a une horizontale. Si elle est infinie, calculer $\lim f/x$. Une valeur finie $a\ne0$ donne une direction possible, mais il reste à calculer $\lim(f-ax)$ : une valeur finie donne l’ordonnée à l’origine de l’asymptote; une valeur infinie ne donne pas de droite asymptote. Traiter $+\infty$ et $-\infty$ séparément.
+\end{methode}
+\begin{exemple}[la même fonction, deux droites]
+Pour $H(x)=\sqrt{x^2+4}$, la racine dominante est $|x|$, pas $x$ partout. En $+\infty$,
+\[
+H(x)-x=\frac4{\sqrt{x^2+4}+x}\longrightarrow0.
+\]
+En $-\infty$, c’est $H(x)+x=4/(\sqrt{x^2+4}-x)$ qui tend vers $0$. Les deux asymptotes sont donc $y=x$ à droite et $y=-x$ à gauche. Les écarts sont positifs; la courbe reste au-dessus de chacune dans la comparaison correspondante.
+\end{exemple}
+\begin{remarque}[une asymptote peut être traversée]
+La définition concerne le comportement à l’infini. Elle n’interdit pas des intersections à des abscisses finies. Pour en trouver, résoudre l’équation de l’écart égal à zéro sur le domaine, au lieu d’imposer que la courbe reste toujours du même côté.
+\end{remarque}
+
 \section{Exercices et problèmes}
 \exo[Horizontale]\label{t11s-c03-e01}
 Pour $f(x)=\dfrac{3x+2}{x-2}$, déterminer les asymptotes et la position relative à l’asymptote horizontale.
@@ -68,5 +93,22 @@ Décrire les branches en $+\infty$ de $x^2$, $\sqrt{x}$ et $x+\sqrt{x}$, en util
 \begin{corrige}[exercice~\ref{t11s-c03-e06}]\label{sol-t11s-c03-e06}
 Quotients : $x\to+\infty$ (direction verticale), $1/\sqrt x\to0$ (direction horizontale), $1+1/\sqrt x\to1$ mais écart à $y=x$ infini (direction $y=x$, sans asymptote).
 \end{corrige}
+
+\exo[Construire une fonction avec un comportement imposé]\label{t11s-c03-p01}
+On cherche une fonction de la forme $f(x)=x+1+\dfrac{k}{x-2}$, $x\ne2$, dont la courbe passe par $A(0;0)$.
+\begin{enumerate}
+\item Déterminer $k$ puis justifier les asymptotes aux deux infinis et en $2$.
+\item Déterminer de quel côté de $y=x+1$ se trouve chaque branche.
+\item La courbe coupe-t-elle cette asymptote ? Justifier par une équation.
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-c03-p01}]\label{sol-t11s-c03-p01}
+$f(0)=1-k/2=0$ impose $k=2$. L’écart à $y=x+1$ vaut $2/(x-2)$ et tend vers $0$ aux deux infinis. En $2^-$ il tend vers $-\infty$, en $2^+$ vers $+\infty$ : verticale $x=2$. L’écart est négatif avant $2$ et positif après. Il ne s’annule jamais; aucune intersection avec l’oblique. La condition de passage par $A$ détermine un unique membre de cette famille.
+\end{corrige}
+\exo[Une direction ne suffit pas]\label{t11s-c03-p02}
+Sur $]0;+\infty[$, on pose $g(x)=3x+\sqrt x$. Un élève annonce que $y=3x$ est une asymptote puisque $g(x)/x\to3$. Calculer ce quotient puis l’écart à $y=3x$. Prouver qu’aucune droite $y=3x+b$, $b\in\R$, n’est asymptote en $+\infty$.
+\begin{corrige}[exercice~\ref{t11s-c03-p02}]\label{sol-t11s-c03-p02}
+$g(x)/x=3+1/\sqrt x\to3$, mais $g(x)-3x=\sqrt x\to+\infty$. Pour tout réel fixé $b$, $\sqrt x-b\to+\infty$, et non $0$. La branche a la direction de cette droite sans asymptote oblique. Toute autre pente est également exclue par la limite du quotient, nécessaire à une asymptote oblique.
+\end{corrige}
+
 \begin{jemeteste}Je calcule une limite avant de nommer une asymptote; je ne confonds pas direction et droite asymptote; le signe de l’écart donne la position relative.\end{jemeteste}
 \begin{notepourlaclasse}Faire comparer le trou de la fonction simplifiable et la branche infinie. La recherche par division est prioritaire; réserver le vocabulaire des branches sans asymptote à une lecture guidée.\end{notepourlaclasse}

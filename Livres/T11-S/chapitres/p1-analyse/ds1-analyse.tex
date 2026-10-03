@@ -3,38 +3,91 @@
 \renewcommand{\thebmtexo}{DS1.\arabic{bmtexo}}
 \renewcommand{\theHbmtexo}{DS1.\arabic{bmtexo}}
 \setcounter{bmtexo}{0}
-\begin{devoir}[2 h — 20 points]
-Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\begin{devoir}[durée indicative : 2 h — 20 points]
+Calculatrice autorisée. Rédiger les justifications et indiquer les domaines de validité. Les exercices sont indépendants; à l’intérieur d’un exercice, on peut utiliser les résultats des questions précédentes. Les figures demandées doivent comporter les noms des objets et les points calculés.
 \end{devoir}
-\exo[Limites et raccord]\label{t11s-ds1-e01}\bareme{6 points}
+
+\exo[Limites et raccord d’une fonction]\label{t11s-ds1-e01}\bareme{6 points}\par
+\textbf{A. Un quotient au voisinage d’une valeur interdite (2 points).}
+On considère $q(x)=\dfrac{x^2-4}{x-2}$.
 \begin{enumerate}
-\item Calculer $\lim_{x\to2}\dfrac{x^2-4}{x-2}$ (2 points).
-\item Pour $x<0$, $f(x)=x^2+1$; pour $x\ge0$, $f(x)=ax+b$. Déterminer $b$ pour la continuité, puis $a$ pour la dérivabilité en $0$ (4 points).
+\item Déterminer le domaine de définition de $q$, puis factoriser son numérateur et simplifier le quotient sur ce domaine (1 point).
+\item Calculer $\lim_{x\to2}q(x)$. Expliquer pourquoi ce résultat ne donne pas une valeur de $q(2)$ (1 point).
+\end{enumerate}
+\textbf{B. Continuité et dérivabilité (4 points).}
+Pour deux paramètres réels $a$ et $b$, on définit sur $\R$ la fonction
+\[
+f(x)=\begin{cases}x^2+1&\text{si }x<0,\\ax+b&\text{si }x\ge0.\end{cases}
+\]
+\begin{enumerate}
+\item Calculer $f(0)$, $\lim_{x\to0^-}f(x)$ et $\lim_{x\to0^+}f(x)$ (1 point).
+\item En déduire la condition nécessaire et suffisante sur $b$ pour que $f$ soit continue en $0$ (1 point).
+\item Avec cette valeur de $b$, calculer le taux $\dfrac{f(h)-f(0)}h$ pour $h<0$, puis pour $h>0$, et ses deux limites (1 point).
+\item Déterminer tous les couples $(a;b)$ pour lesquels $f$ est dérivable en $0$. Donner alors $f'(0)$ et expliquer pourquoi $f$ est aussi dérivable ailleurs (1 point).
 \end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds1-e01}]\label{sol-t11s-ds1-e01}
-1. Pour $x\ne2$, quotient $x+2$, limite $4$ (factorisation 1, limite 1).
-2. Continuité : limite gauche $1$, valeur et limite droite $b$, donc $b=1$ (2). Avec ce choix, taux gauche $h\to0$ et taux droit $a$, donc $a=0$ (2).
+\textbf{A.} Le dénominateur s’annule seulement en $2$, donc $D_q=\R\setminus\{2\}$. Sur ce domaine,
+\[
+q(x)=\frac{(x-2)(x+2)}{x-2}=x+2.
+\]
+Cette égalité est valable pour $x\ne2$. Par continuité du polynôme $x+2$, la limite en $2$ vaut $4$. La limite concerne des valeurs proches de $2$; le quotient initial reste indéfini en $2$. Barème : domaine et factorisation/simplification, 1; limite et distinction, 1.
+
+\textbf{B.} La branche $x\ge0$ donne $f(0)=b$. La limite gauche vaut $1$, la limite droite vaut $b$. La continuité équivaut donc à $b=1$, sans contrainte sur $a$ à ce stade.
+Avec $b=1$, pour $h<0$ le taux vaut $h^2/h=h$ et tend vers $0$; pour $h>0$, il vaut $ah/h=a$ et tend vers $a$. Les limites coïncident exactement lorsque $a=0$. Ainsi le seul couple est $(0;1)$ et $f'(0)=0$. Sur $]-\infty;0[$, $f'(x)=2x$; sur $]0;+\infty[$, $f'(x)=0$. Les deux branches sont dérivables sur leurs intervalles, ce qui achève l’étude sur $\R$. Un point par question; ne pas attribuer le point de dérivabilité à la seule égalité des valeurs.
 \end{corrige}
-\exo[Étude d’une fraction rationnelle]\label{t11s-ds1-e02}\bareme{8 points}
-Soit $g(x)=\dfrac{x^2-2x+2}{x-1}$.
+
+\exo[Étude complète d’une fraction rationnelle]\label{t11s-ds1-e02}\bareme{8 points}\par
+On considère $g(x)=\dfrac{x^2-2x+2}{x-1}$ et sa courbe $\mathcal C_g$ dans un repère orthonormé.
 \begin{enumerate}
-\item Domaine et décomposition $g(x)=x-1+\dfrac1{x-1}$ (1 point).
-\item Limites, asymptotes et position relative à l’oblique (3 points).
-\item Dérivée, tableau de variation et extrema (3 points).
-\item Déterminer un centre de symétrie et donner une esquisse (1 point).
+\item Déterminer $D_g$ et démontrer que, pour tout $x\in D_g$, $g(x)=x-1+\dfrac1{x-1}$ (1 point).
+\item Calculer les limites en $1^-$, $1^+$, $-\infty$ et $+\infty$. Justifier que $x=1$ est une asymptote verticale et que la droite $\Delta$ d’équation $y=x-1$ est une asymptote oblique aux deux infinis (2 points).
+\item Étudier le signe de $g(x)-(x-1)$. Préciser les intervalles où $\mathcal C_g$ est au-dessus ou en dessous de $\Delta$ et dire si ces deux objets se coupent (1 point).
+\item Calculer $g'(x)$ et montrer que $g'(x)=\dfrac{x(x-2)}{(x-1)^2}$ (1 point).
+\item Dresser le tableau de variation complet, en séparant les deux intervalles du domaine. Donner les coordonnées des extrema locaux et dire si $g$ possède un maximum ou un minimum sur tout $D_g$ (1,5 point).
+\item Montrer que $I(1;0)$ est un centre de symétrie de $\mathcal C_g$ en utilisant $g(1+h)+g(1-h)$ pour $h\ne0$ (0,75 point).
+\item Tracer une esquisse de $\mathcal C_g$ avec les deux asymptotes et les extrema locaux. Les deux branches doivent respecter les limites et positions relatives obtenues (0,75 point).
 \end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds1-e02}]\label{sol-t11s-ds1-e02}
-1. Domaine $x\ne1$; numérateur $(x-1)^2+1$.
-2. Limites en $1^-:-\infty$, $1^+:+\infty$; aux infinis $-\infty,+\infty$. Asymptotes $x=1,y=x-1$; écart $1/(x-1)$, sous l’oblique à gauche, au-dessus à droite.
-3. $g'=1-1/(x-1)^2=x(x-2)/(x-1)^2$. Croît sur $]-\infty;0]$, décroît sur $[0;1[$ et $]1;2]$, croît sur $[2;+\infty[$. $g(0)=-2$, $g(2)=2$.
-4. $g(1+h)+g(1-h)=0$ avec domaine symétrique : centre $(1;0)$. Esquisse à deux branches conforme aux limites et extrema. Les points critiques et chaque branche doivent être indiqués.
+\begin{enumerate}
+\item $D_g=\R\setminus\{1\}$. Comme $x^2-2x+2=(x-1)^2+1$, la division donne la décomposition annoncée.
+\item En $1^-$, $1/(x-1)\to-\infty$; en $1^+$, ce terme tend vers $+\infty$. Aux infinis, le reste tend vers $0$ et le terme $x-1$ impose respectivement $-\infty$ et $+\infty$. Les limites latérales justifient $x=1$; la limite de $g(x)-(x-1)=1/(x-1)$, égale à $0$ aux deux infinis, justifie $\Delta$.
+\item Le reste est négatif pour $x<1$ et positif pour $x>1$. La branche gauche est sous $\Delta$, la droite au-dessus. Le reste ne s’annule pas : il n’y a aucune intersection.
+\item Dériver la décomposition donne $g'=1-1/(x-1)^2$. Mettre au même dénominateur donne $[(x-1)^2-1]/(x-1)^2=x(x-2)/(x-1)^2$.
+\item Le dénominateur est strictement positif sur $D_g$; le signe est donc celui de $x(x-2)$. Voici le tableau, scindé à la valeur interdite :
+\begin{center}\begin{tabular}{c|ccccc}
+$x$&$-\infty$&&$0$&&$1^-$\\
+$g'$&&$+$&$0$&$-$&\\
+$g$&$-\infty$&$\nearrow$&$-2$&$\searrow$&$-\infty$\\\hline
+$x$&$1^+$&&$2$&&$+\infty$\\
+$g'$&&$-$&$0$&$+$&\\
+$g$&$+\infty$&$\searrow$&$2$&$\nearrow$&$+\infty$
+\end{tabular}\end{center}
+Le maximum local est $(0;-2)$ et le minimum local $(2;2)$. Aucune borne supérieure ou inférieure globale n’existe, au vu des limites infinies : ce ne sont pas des extrema globaux.
+\item Les abscisses $1\pm h$ sont dans le domaine pour $h\ne0$, et les valeurs sont $h+1/h$ et $-h-1/h$. Leur somme vaut $0=2y_I$; le domaine est invariant par $x\mapsto2-x$. Le critère de symétrie centrale s’applique.
+\item On place les droites et les deux points calculés avant de dessiner chaque branche séparément. Une branche ne traverse ni $x=1$ ni l’asymptote oblique.
+\end{enumerate}
+Barème : respecter les points indiqués; pour le tracé, évaluer la cohérence avec le tableau, et non l’exactitude artistique.
 \end{corrige}
-\exo[Aire et tangente]\label{t11s-ds1-e03}\bareme{6 points}
-Un rectangle a périmètre $24$ m.
-\begin{enumerate}\item Exprimer l’aire en fonction d’un côté $x$ et préciser le domaine (2 points).
-\item Déterminer l’aire maximale (2 points).
-\item Donner la tangente à la courbe de l’aire en $x=4$ et étudier la position de cette courbe par rapport à elle (2 points).\end{enumerate}
+
+\exo[Modéliser une aire et comparer une tangente]\label{t11s-ds1-e03}\bareme{6 points}\par
+Un rectangle non dégénéré a un périmètre de $24$ m. On note $x$ la longueur, en mètres, de l’un de ses côtés, et $A(x)$ son aire, en mètres carrés.
+\begin{enumerate}
+\item Exprimer la longueur de l’autre côté en fonction de $x$ et justifier que les valeurs admissibles sont $0<x<12$ (1 point).
+\item En déduire $A(x)=x(12-x)$ sur cet intervalle (1 point).
+\item Calculer $A'(x)$ et dresser le tableau de variation de $A$ (1 point).
+\item Déterminer l’aire maximale et les dimensions du rectangle qui la réalise, avec leurs unités (1 point).
+\item Dans le repère des variables $x$ et $A$, déterminer l’équation de la tangente $T$ à la courbe de $A$ au point d’abscisse $4$ (1 point).
+\item Factoriser $A(x)-(4x+16)$, puis en déduire la position de la courbe par rapport à $T$ pour tout $x\in]0;12[$. Préciser les cas d’égalité (1 point).
+\end{enumerate}
 \begin{corrige}[exercice~\ref{t11s-ds1-e03}]\label{sol-t11s-ds1-e03}
-$A(x)=x(12-x)$, $0<x<12$ (1+1). $A'=12-2x$, maximum en $6$, aire $36\ \mathrm{m}^2$ (1+1). $A(4)=32,A'(4)=4$, tangente $y=4x+16$; écart $-(x-4)^2\le0$, courbe en dessous (1+1).
+\begin{enumerate}
+\item Si $y$ est l’autre longueur en mètres, $2(x+y)=24$, donc $y=12-x$. Les deux longueurs doivent être strictement positives : $x>0$ et $12-x>0$, soit $x\in]0;12[$.
+\item L’aire est le produit des côtés : $A(x)=x(12-x)=12x-x^2$.
+\item $A'(x)=12-2x$, positive avant $6$, nulle en $6$, négative après. Ainsi $A$ croît de la limite $0$ jusqu’à $36$, puis décroît vers la limite $0$; les bornes $0$ et $12$ sont exclues.
+\item Le maximum vaut $36\ \mathrm{m}^2$ et est atteint uniquement pour $x=6$. L’autre côté vaut aussi $6$ m : le rectangle est un carré.
+\item $A(4)=32$ et $A'(4)=4$. Donc $T$ a pour équation $y=4(x-4)+32=4x+16$, avec $x$ en mètres et $y$ en mètres carrés dans ce modèle.
+\item $A(x)-(4x+16)=-x^2+8x-16=-(x-4)^2\le0$. La courbe est strictement sous $T$ sauf pour $x=4$, où elles se touchent. La comparaison est faite sur le domaine physique, pas sur des longueurs négatives.
+\end{enumerate}
+Un point par question. Une réponse numérique sans dimensions ne suffit pas pour la question 4.
 \end{corrige}
 \endgroup
