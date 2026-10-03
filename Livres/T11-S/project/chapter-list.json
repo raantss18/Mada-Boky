@@ -1,0 +1,82 @@
+{
+  "1": {
+    "path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "title": "Généralités sur les fonctions numériques"
+  },
+  "2": {
+    "path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "title": "Limites et continuité"
+  },
+  "3": {
+    "path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "title": "Branches infinies et asymptotes"
+  },
+  "4": {
+    "path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "title": "Dérivation et tangentes"
+  },
+  "5": {
+    "path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "title": "Étude complète et représentation graphique"
+  },
+  "6": {
+    "path": "chapitres/p2-algebre/ch06-logique.tex",
+    "title": "Logique et raisonnement"
+  },
+  "7": {
+    "path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "title": "Boucles et organigrammes"
+  },
+  "8": {
+    "path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "title": "Équations et inéquations"
+  },
+  "9": {
+    "path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "title": "Systèmes linéaires et pivot de Gauss"
+  },
+  "10": {
+    "path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "title": "Divisibilité, nombres premiers, PGCD et PPCM"
+  },
+  "11": {
+    "path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "title": "Systèmes de numération"
+  },
+  "12": {
+    "path": "chapitres/p2-algebre/ch12-suites.tex",
+    "title": "Suites numériques"
+  },
+  "13": {
+    "path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "title": "Calcul vectoriel et produit scalaire"
+  },
+  "14": {
+    "path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "title": "Barycentres et lignes de niveau"
+  },
+  "15": {
+    "path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "title": "Transformations et similitudes directes"
+  },
+  "16": {
+    "path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "title": "Trigonométrie"
+  },
+  "17": {
+    "path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "title": "Géométrie dans l’espace"
+  },
+  "18": {
+    "path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "title": "Organisation des données et statistique"
+  },
+  "19": {
+    "path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "title": "Ensembles, applications et dénombrement"
+  },
+  "20": {
+    "path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "title": "Probabilités sur un univers fini"
+  }
+}

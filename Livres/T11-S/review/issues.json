@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-03T04:33:25.396728+00:00",
+  "issues": [
+    {
+      "id": "T11-CURRICULUM",
+      "status": "unchecked",
+      "severity": "release-blocking",
+      "description": "Réconciliation exhaustive des exigences et inventaire à produire."
+    },
+    {
+      "id": "T11-MATH",
+      "status": "unchecked",
+      "severity": "release-blocking",
+      "description": "Résolution séparée de tous les exercices et vérification de chaque assertion mathématique non achevées."
+    },
+    {
+      "id": "T11-VISUAL",
+      "status": "unchecked",
+      "severity": "release-blocking",
+      "description": "Inspection lisible de chaque page des deux PDF assemblés non effectuée."
+    },
+    {
+      "id": "T11-GATES",
+      "status": "unchecked",
+      "severity": "release-blocking",
+      "description": "Inventaire, gates et preuves à finaliser; aucun passage de release déclaré."
+    },
+    {
+      "id": "T11-BUILD-AUX",
+      "status": "unresolved",
+      "severity": "release-blocking",
+      "description": "Compilation interrompue par une aux tronquée à 4096 octets au chapitre 1. Assemblage remplacé par input avec clearpage; nouvelle compilation en cours."
+    }
+  ]
+}

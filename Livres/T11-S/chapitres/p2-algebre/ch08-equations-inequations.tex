@@ -1,0 +1,85 @@
+\bmtchapitre{Équations et inéquations}{Résoudre les équations du second degré avec paramètre, les cubiques à racine connue, les équations irrationnelles et celles avec valeur absolue.}{Algèbre}
+\label{t11s-c08}
+\begin{revision}Identités remarquables, discriminant, tableaux de signes, domaines des racines carrées.\end{revision}
+\begin{automatismes}\exo\label{t11s-c08-auto}Factoriser $x^2-5x+6$. Résoudre $|x|=3$. Pour quels réels $x$ la racine $\sqrt{x-1}$ existe-t-elle ?\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c08-auto}]\label{sol-t11s-c08-auto}$(x-2)(x-3)$; $x=-3$ ou $3$; $x\ge1$.\end{corrige}
+
+\section{Second degré et paramètre}
+\begin{propriete}Pour $a\ne0$, $ax^2+bx+c=0$ a un discriminant $\Delta=b^2-4ac$. Si $\Delta<0$, aucune racine réelle; si $\Delta=0$, racine double $-b/(2a)$; si $\Delta>0$, deux racines $(-b\pm\sqrt\Delta)/(2a)$. Le polynôme a le signe de $a$ à l’extérieur des racines et le signe opposé entre elles.\end{propriete}
+\begin{demonstration}La forme canonique est $a[(x+b/(2a))^2-\Delta/(4a^2)]$. Résoudre un carré égal à $\Delta/(4a^2)$ donne les trois cas; pour le signe, factoriser $a(x-x_1)(x-x_2)$ dans le cas de deux racines.\end{demonstration}
+\begin{propriete}[somme et produit]Si $x_1,x_2$ sont les racines, leur somme vaut $-b/a$ et leur produit $c/a$. Réciproquement deux nombres de somme $S$ et de produit $P$ sont racines de $X^2-SX+P$.\end{propriete}
+\begin{demonstration}Développer $a(X-x_1)(X-x_2)$ et identifier les coefficients.\end{demonstration}
+\begin{exemple}$(m-1)x^2-2mx+m+1=0$. Pour $m=1$, l’équation est linéaire : $x=1$. Pour $m\ne1$, $\Delta=4$ et les racines sont $1$ et $(m+1)/(m-1)$. Ne pas appliquer la formule avant de vérifier le coefficient du carré.\end{exemple}
+\section{Degré trois et équations bicarrées}
+\begin{propriete}[racine connue]Si $P(r)=0$, le polynôme $P$ est divisible par $x-r$. Pour une cubique, le quotient est du second degré.\end{propriete}
+\begin{demonstration}La division donne $P(x)=(x-r)Q(x)+c$, avec reste constant. En $x=r$, $c=P(r)=0$.\end{demonstration}
+\begin{exemple}[division euclidienne]
+Pour $P(x)=x^3-2x^2-x+2$, on vérifie $P(1)=0$. La division s’effectue ainsi :
+\[
+\begin{array}{r|l}
+x^3-2x^2-x+2&x-1\\
+\underline{-(x^3-x^2)}&x^2-x-2\\
+-x^2-x+2&\\
+\underline{-(-x^2+x)}&\\
+-2x+2&\\
+\underline{-(-2x+2)}&\\
+0&
+\end{array}
+\]
+Donc $P=(x-1)(x^2-x-2)=(x-1)(x-2)(x+1)$. Une équation bicarrée se ramène au second degré en posant $X=x^2\ge0$; chaque solution $X>0$ fournit $x=\pm\sqrt X$.
+\end{exemple}
+\section{Racines carrées : conserver les conditions}
+\begin{propriete}
+$\sqrt{A(x)}=B(x)$ équivaut à $A(x)\ge0$, $B(x)\ge0$ et $A(x)=B(x)^2$.
+Pour $\sqrt A\le B$, il faut $A\ge0,B\ge0,A\le B^2$.
+Pour $\sqrt A>B$, si $B<0$, tous les points du domaine conviennent; si $B\ge0$, comparer $A$ à $B^2$.
+\end{propriete}
+\begin{demonstration}Le carré est strictement croissant sur $[0;+\infty[$. Les équivalences ne valent donc qu’après avoir établi la positivité des deux membres.\end{demonstration}
+\begin{exemple}$\sqrt{x+2}=x$ exige $x\ge0$. Le carré donne $(x-2)(x+1)=0$; seule $2$ respecte la condition. La solution $-1$ de l’équation au carré est rejetée.\end{exemple}
+\section{Valeurs absolues et tableaux de signes}
+\begin{propriete}Pour $k\ge0$, $|u|\le k\Leftrightarrow-k\le u\le k$, et $|u|=k\Leftrightarrow u=k$ ou $u=-k$. Pour une différence de valeurs absolues, séparer les intervalles où chaque expression garde un signe constant.\end{propriete}
+\begin{methode}{résoudre une inéquation quotient}Exclure les zéros du dénominateur; factoriser numérateur et dénominateur; dresser le tableau des signes; choisir les intervalles et inclure uniquement les zéros autorisés pour une inégalité large.\end{methode}
+
+\section{Exercices et problèmes}
+\exo[Paramètre et degré]\label{t11s-c08-e01}
+Résoudre $(m-1)x^2-(m+1)x+2=0$ pour tout $m\in\R$.
+\begin{corrige}[exercice~\ref{t11s-c08-e01}]\label{sol-t11s-c08-e01}
+Factorisation $(x-1)((m-1)x-2)$. Pour $m=1$, seule solution $1$. Pour $m\ne1$, solutions $1$ et $2/(m-1)$, qui coïncident pour $m=3$.
+\end{corrige}
+\exo[Somme et produit]\label{t11s-c08-e02}
+Un rectangle a un périmètre de $26$ m et une aire de $40\ \mathrm{m}^2$. Trouver ses dimensions.
+\begin{corrige}[exercice~\ref{t11s-c08-e02}]\label{sol-t11s-c08-e02}
+Les côtés ont somme $13$ et produit $40$. Ils sont racines de $X^2-13X+40=(X-5)(X-8)$. Dimensions $5$ m et $8$ m.
+\end{corrige}
+\exo[Cubique]\label{t11s-c08-e03}
+Un énoncé propose : « $1$ est racine de $P(x)=x^3-4x^2+x+6$; diviser par $x-1$ ». Contrôler cette affirmation, trouver une racine parmi $-1,1,2$ et résoudre $P(x)=0$.
+\begin{corrige}[exercice~\ref{t11s-c08-e03}]\label{sol-t11s-c08-e03}
+$P(1)=4$, donc $1$ n’est pas racine : l’énoncé contient une fausse hypothèse. Vérifier au lieu de diviser aveuglément. Une racine est $2$; $P=(x-2)(x-3)(x+1)$, racines $-1,2,3$.
+\end{corrige}
+\exo[Bicarrée]\label{t11s-c08-e04}
+Résoudre $x^4-5x^2+4=0$.
+\begin{corrige}[exercice~\ref{t11s-c08-e04}]\label{sol-t11s-c08-e04}
+Poser $X=x^2$. $(X-1)(X-4)=0$; les deux valeurs sont positives. Solutions $-2,-1,1,2$.
+\end{corrige}
+\exo[Racine et inégalité]\label{t11s-c08-e05}
+Résoudre $\sqrt{x+2}\le x$ et $\sqrt{x+2}>x$ dans $\R$.
+\begin{corrige}[exercice~\ref{t11s-c08-e05}]\label{sol-t11s-c08-e05}
+Pour la première : $x\ge0$ et $x+2\le x^2$, donc $x\ge2$. Pour la seconde : domaine $x\ge-2$; si $x<0$ tout convient; si $x\ge0$, $x+2>x^2$ donne $0\le x<2$. Réponse $[-2;2[$.
+\end{corrige}
+\exo[Deux distances]\label{t11s-c08-e06}
+Résoudre $|x-1|+|x+2|=5$.
+\begin{corrige}[exercice~\ref{t11s-c08-e06}]\label{sol-t11s-c08-e06}
+Sur $x<-2$, somme $-2x-1$, d’où $x=-3$. Sur $[-2;1]$, somme $3$, aucune solution. Sur $x>1$, somme $2x+1$, d’où $x=2$. Solutions $\{-3;2\}$.
+\end{corrige}
+\exo[Quotient]\label{t11s-c08-e07}
+Résoudre $\dfrac{x-2}{x+1}\ge0$.
+\begin{corrige}[exercice~\ref{t11s-c08-e07}]\label{sol-t11s-c08-e07}
+Domaine $x\ne-1$. Positif sur $]-\infty;-1[$ et $]2;+\infty[$; nul en $2$. Réponse $]-\infty;-1[\cup[2;+\infty[$.
+\end{corrige}
+\exo[Une vérification indispensable]\label{t11s-c08-e08}
+Un élève résout $\sqrt{2x+3}=x-1$ et conserve toutes les racines de $x^2-4x-2=0$. Réparer.
+\begin{corrige}[exercice~\ref{t11s-c08-e08}]\label{sol-t11s-c08-e08}
+Il faut $x\ge1$. Les racines au carré sont $2\pm\sqrt6$; seule $2+\sqrt6$ respecte la condition. Substituer confirme la solution; les équivalences avec les conditions prouvent l’exhaustivité.
+\end{corrige}
+\begin{jemeteste}Je traite les pertes de degré, je vérifie toute racine annoncée, je sépare les signes avant de mettre au carré.\end{jemeteste}
+\begin{notepourlaclasse}Le troisième exercice est volontairement une détection d’erreur : le présenter comme tel pour éviter une injonction impossible. Les cubiques et équations irrationnelles avec paramètre ne sont pas requises.\end{notepourlaclasse}

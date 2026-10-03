@@ -1,0 +1,34 @@
+\begingroup
+\chapter*{Évaluation : données et probabilités}\markboth{Évaluation : données et probabilités}{Évaluation : données et probabilités}\addcontentsline{toc}{chapter}{Évaluation : données et probabilités}
+\renewcommand{\thebmtexo}{DS4.\arabic{bmtexo}}
+\renewcommand{\theHbmtexo}{DS4.\arabic{bmtexo}}
+\setcounter{bmtexo}{0}
+\begin{devoir}[2 h — 20 points]
+Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\end{devoir}
+\exo[Évolutions]\label{t11s-ds4-e01}\bareme{4 points}
+Un prix vaut $80000$ ariary; il subit une baisse de $15\%$ puis une hausse de $10\%$. Calculer prix final, taux global et taux qui ramènerait le prix final à $80000$ ariary.
+\begin{corrige}[exercice~\ref{t11s-ds4-e01}]\label{sol-t11s-ds4-e01}
+Prix $80000\times0{,}85\times1{,}1=74800$ (1). Coefficient $0{,}935$, baisse globale $6{,}5\%$ (1). Coefficient retour $80000/74800=200/187$, hausse $13/187\simeq6{,}95\%$ (2).
+\end{corrige}
+\exo[Statistique]\label{t11s-ds4-e02}\bareme{6 points}
+Une série est $4,6,6,8,10,10,12,14$. Calculer moyenne, médiane, quartiles, étendue, variance et écart type. Tracer la boîte à moustaches et interpréter l’écart interquartile.
+\begin{corrige}[exercice~\ref{t11s-ds4-e02}]\label{sol-t11s-ds4-e02}
+Moyenne $8{,}75$, médiane $9$ (1). Quartiles $6,10$ (1), étendue $10$ (1). Variance $22{,}4375$, écart type environ $4{,}737$ (1). Boîte entre $6,10$, trait $9$, moustaches $4,14$ (1). Écart interquartile $4$ : largeur entre les deux quartiles; avec la convention de rang, au moins la moitié des observations se situe dans $[6;10]$ (1).
+\end{corrige}
+\exo[Comités et probabilités]\label{t11s-ds4-e03}\bareme{6 points}
+Parmi $6$ filles et $4$ garçons, on choisit uniformément un comité de trois élèves.
+\begin{enumerate}\item Compter les comités et les comités avec exactement deux filles (2 points).
+\item Calculer la probabilité d’au moins une fille (2 points).
+\item Choisir un président et un secrétaire distincts parmi les dix élèves donne-t-il le même nombre de résultats que choisir deux élèves sans fonction ? Justifier les deux comptes (2 points).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds4-e03}]\label{sol-t11s-ds4-e03}
+1. Total $\binom{10}3=120$; exactement deux filles $\binom62\binom41=60$ (1+1).
+2. Sans fille $\binom43=4$, donc $1-4/120=29/30$ (compte 1, complément 1).
+3. Fonctions distinctes : $10\times9=90$; groupe de deux : $\binom{10}2=45$, car chaque groupe a deux ordres (1+1).
+\end{corrige}
+\exo[Réunion d’événements]\label{t11s-ds4-e04}\bareme{4 points}
+Pour un dé équilibré, $A$ signifie « résultat pair » et $B$ « résultat supérieur ou égal à $4$ ». Calculer les probabilités de $A$, $B$, $A\cap B$ et $A\cup B$, puis vérifier la formule de réunion.
+\begin{corrige}[exercice~\ref{t11s-ds4-e04}]\label{sol-t11s-ds4-e04}
+$A=\{2,4,6\}$, $B=\{4,5,6\}$ : $1/2,1/2,1/3,2/3$, puis $1/2+1/2-1/3=2/3$ (1 par étape, formule incluse avec la réunion).
+\end{corrige}
+\endgroup

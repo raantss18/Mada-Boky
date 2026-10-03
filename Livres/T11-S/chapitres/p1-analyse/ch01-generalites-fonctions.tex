@@ -6,7 +6,9 @@
   Lire une image et un antécédent sur une courbe comme sur une expression,
   déterminer un ensemble de définition, établir qu'une fonction est paire,
   impaire ou périodique, et en tirer l'intervalle sur lequel il suffit de
-  l'étudier.}{Analyse \textbullet\ 8 heures}
+  l'étudier.}{Analyse}
+
+\label{t11s-c01}
 
 En seconde, une fonction était le plus souvent une machine à calculer : on
 donnait un nombre, elle en rendait un autre. Cette année, on change de point
@@ -36,7 +38,7 @@ Vous aurez besoin, dès les premières pages, des acquis de seconde suivants.
 \end{enumerate}
 \end{revision}
 
-\begin{automatismes}
+\begin{automatismes}\phantomsection\label{t11s-c01-auto}
 À faire de tête, sans écrire autre chose que la réponse.
 
 \begin{multicols}{2}
@@ -100,8 +102,8 @@ deux antécédents à $4$, et aucun à $-1$.
     \draw[bmtOcre, thick, dashed] (axis cs:2,1.7) -- (axis cs:0,1.7);
     \fill[bmtOcre] (axis cs:2,1.7) circle (1.9pt);
     % antécédents de 1.7
-    \draw[bmtPalissandre, thick, dashed] (axis cs:-1.55,0) -- (axis cs:-1.55,1.7);
-    \fill[bmtPalissandre] (axis cs:-1.55,1.7) circle (1.9pt);
+    \draw[bmtPalissandre, thick, dashed] (axis cs:-1.5454545,0) -- (axis cs:-1.5454545,1.7);
+    \fill[bmtPalissandre] (axis cs:-1.5454545,1.7) circle (1.9pt);
     \node[font=\footnotesize, bmtOcre, anchor=west] at (axis cs:2.1,1.9) {$f(2)$};
   \end{axis}
 \end{tikzpicture}
@@ -144,22 +146,22 @@ cela donnerait l'\emph{image} de $5$. Chercher un antécédent, c'est toujours
 \end{erreurclassique}
 
 \begin{entrainement}
-\exo Soit $f$ définie sur $\R$ par $f(x) = 2x^{2} - 5x + 1$. Calculer
+\exo\label{t11s-c01-e01} Soit $f$ définie sur $\R$ par $f(x) = 2x^{2} - 5x + 1$. Calculer
 $f(0)$, $f(-1)$, $f\!\left(\dfrac{1}{2}\right)$.
 
-\exo Soit $g$ définie sur $\R \setminus \{2\}$ par
+\exo\label{t11s-c01-e02} Soit $g$ définie sur $\R \setminus \{2\}$ par
 $g(x) = \dfrac{3x+1}{x-2}$. Calculer $g(0)$, $g(3)$, $g(-1)$.
 
-\exo Avec $f$ de l'exercice $1$ : déterminer les antécédents de $1$, puis
+\exo\label{t11s-c01-e03} Avec $f$ de l’exercice~\ref{t11s-c01-e01} : déterminer les antécédents de $1$, puis
 ceux de $-3$.
 
-\exo Avec $g$ de l'exercice $2$ : déterminer l'antécédent éventuel de $3$.
+\exo\label{t11s-c01-e04} Avec $g$ de l’exercice~\ref{t11s-c01-e02} : déterminer l'antécédent éventuel de $3$.
 Que constatez-vous, et comment l'expliquer ?
 
-\exo Soit $h$ définie par $h(x) = \sqrt{x+4}$. Déterminer les antécédents
+\exo\label{t11s-c01-e05} Soit $h$ définie par $h(x) = \sqrt{x+4}$. Déterminer les antécédents
 de $0$, de $3$, puis de $-1$.
 
-\exo Une fonction $f$ vérifie $f(-2) = 7$. Traduire cette égalité par une
+\exo\label{t11s-c01-e06} Une fonction $f$ vérifie $f(-2) = 7$. Traduire cette égalité par une
 phrase contenant le mot « image », puis par une phrase contenant le mot
 « antécédent ».
 \end{entrainement}
@@ -175,8 +177,8 @@ possible dans $\R$.
 \end{definition}
 
 \begin{propriete}[les trois obstacles]
-Dans les expressions rencontrées cette année, un réel $x$ est exclu de
-l'ensemble de définition dans trois cas, et trois seulement :
+Pour les expressions polynomiales, rationnelles et à racines carrées,
+les contraintes suivantes déterminent le domaine :
 \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.8em, itemsep=0.2em]
   \item $x$ annule un \textbf{dénominateur} : le quotient $\dfrac{A}{B}$
         n'existe que si $B \neq 0$ ;
@@ -193,7 +195,7 @@ est $\R$ tout entier.
 \begin{methode}{déterminer un ensemble de définition}
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.6em, itemsep=0.2em]
   \item Repérer dans l'expression tous les dénominateurs et toutes les
-        racines carrées. S'il n'y en a aucun, conclure : $\Df_{f} = \R$.
+        racines carrées. Pour un polynôme, conclure : $\Df_f=\R$. Pour une fonction trigonométrique, vérifier aussi son domaine; la tangente exige $\cos x\ne0$.
   \item Écrire une condition par obstacle rencontré : une équation
         $B \neq 0$, une inéquation $A \geq 0$.
   \item Résoudre chaque condition séparément. Un tableau de signes est
@@ -242,7 +244,7 @@ lui-même : on ne conclut qu'après avoir croisé toutes les conditions.
 \end{erreurclassique}
 
 \begin{entrainement}
-\exo Déterminer l'ensemble de définition de chacune des fonctions suivantes.
+\exo\label{t11s-c01-e07} Déterminer l'ensemble de définition de chacune des fonctions suivantes.
 \begin{multicols}{2}
 \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.6em, itemsep=0.1em]
   \item $f(x) = 3x^{3} - x + 7$
@@ -254,20 +256,20 @@ lui-même : on ne conclut qu'après avoir croisé toutes les conditions.
 \end{enumerate}
 \end{multicols}
 
-\exo Même question pour
+\exo\label{t11s-c01-e08} Même question pour
 $f(x) = \dfrac{x-1}{x^{2}+1}$ et $g(x) = \dfrac{x-1}{x^{2}-1}$.
 Comparer les deux résultats et dire d'où vient la différence.
 
-\exo Déterminer l'ensemble de définition de
+\exo\label{t11s-c01-e09} Déterminer l'ensemble de définition de
 $f(x) = \sqrt{x^{2} - 5x + 4}$.
 
-\exo Déterminer l'ensemble de définition de
+\exo\label{t11s-c01-e10} Déterminer l'ensemble de définition de
 $f(x) = \dfrac{\sqrt{3-x}}{x^{2}-4}$.
 
-\exo Déterminer l'ensemble de définition de
+\exo\label{t11s-c01-e11} Déterminer l'ensemble de définition de
 $f(x) = \dfrac{1}{\abs{x} - 2}$.
 
-\exo On considère $f(x) = \sqrt{\dfrac{x+2}{x-3}}$. Dresser le tableau de
+\exo\label{t11s-c01-e12} On considère $f(x) = \sqrt{\dfrac{x+2}{x-3}}$. Dresser le tableau de
 signes du quotient, puis en déduire $\Df_{f}$.
 \end{entrainement}
 
@@ -282,8 +284,8 @@ Soit $f$ une fonction définie sur un intervalle $I$.
   \item $f$ est \textbf{décroissante} sur $I$ lorsque, pour tous réels $a$ et
         $b$ de $I$ : $a \leq b \implies f(a) \geq f(b)$.
 \end{itemize}
-Les variations sont dites \textbf{strictes} lorsque les inégalités sur les
-images sont strictes. Une fonction \textbf{monotone} sur $I$ est une fonction
+Pour la croissance stricte, $a<b$ implique $f(a)<f(b)$; pour la
+décroissance stricte, $a<b$ implique $f(a)>f(b)$. Une fonction \textbf{monotone} sur $I$ est une fonction
 qui y est croissante, ou qui y est décroissante.
 \end{definition}
 
@@ -367,21 +369,21 @@ $\intervalle{0}{2}$, puis $\intervallefo{2}{+\infty}$.
 \end{visualisation}
 
 \begin{entrainement}
-\exo Donner, sans calcul, le sens de variation de $x \mapsto -3x + 7$ sur
+\exo\label{t11s-c01-e13} Donner, sans calcul, le sens de variation de $x \mapsto -3x + 7$ sur
 $\R$, puis celui de $x \mapsto 5x^{2}$ sur $\intervallefo{0}{+\infty}$.
 
-\exo Soit $f(x) = x^{2}$ et $g(x) = -4x^{2}$. Dresser les tableaux de
+\exo\label{t11s-c01-e14} Soit $f(x) = x^{2}$ et $g(x) = -4x^{2}$. Dresser les tableaux de
 variation de $f$ et de $g$ sur $\R$ et justifier le second à l'aide du
 théorème de multiplication par une constante.
 
-\exo Soient $a$ et $b$ deux réels de $\intervallefo{0}{+\infty}$ tels que
+\exo\label{t11s-c01-e15} Soient $a$ et $b$ deux réels de $\intervallefo{0}{+\infty}$ tels que
 $a \leq b$. Démontrer que $\sqrt{a} \leq \sqrt{b}$. Qu'en déduire pour la
 fonction racine carrée ?
 
-\exo Démontrer, en revenant à la définition, que la fonction
+\exo\label{t11s-c01-e16} Démontrer, en revenant à la définition, que la fonction
 $x \mapsto \dfrac{1}{x}$ est décroissante sur $\intervalleo{0}{+\infty}$.
 
-\exo Une fonction $f$ est croissante sur $\intervalle{-3}{5}$ et vérifie
+\exo\label{t11s-c01-e17} Une fonction $f$ est croissante sur $\intervalle{-3}{5}$ et vérifie
 $f(-3) = -2$ et $f(5) = 8$. Que peut-on affirmer de $f(0)$ ? Que ne peut-on
 \emph{pas} affirmer ?
 \end{entrainement}
@@ -528,7 +530,7 @@ $h(-1) \neq -h(1)$ elle n'est pas impaire non plus.
 
 \begin{propriete}[axe et centre de symétrie en un point quelconque]
 Soit $f$ une fonction et $\Cf_{f}$ sa courbe dans un repère orthogonal
-$\repere$. Soient $a$ et $b$ deux réels.
+$\repere$. Soient $a$ et $b$ deux réels. Le domaine doit être symétrique par rapport à $a$ : $a+h$ appartient au domaine si et seulement si $a-h$ y appartient. Sous cette condition,
 \begin{itemize}[leftmargin=1.6em, itemsep=0.2em]
   \item La droite d'équation $x = a$ est un \textbf{axe de symétrie} de
         $\Cf_{f}$ \ssi, pour tout réel $h$ tel que $a+h$ et $a-h$
@@ -565,7 +567,7 @@ retenir, la parité n'en étant que la version centrée à l'origine.
 \end{remarque}
 
 \begin{entrainement}
-\exo Étudier la parité de chacune des fonctions suivantes.
+\exo\label{t11s-c01-e18} Étudier la parité de chacune des fonctions suivantes.
 \begin{multicols}{2}
 \begin{enumerate}[label=\textbf{\alph*)}, leftmargin=1.6em, itemsep=0.1em]
   \item $f(x) = x^{6} - 4x^{2}$
@@ -577,22 +579,22 @@ retenir, la parité n'en étant que la version centrée à l'origine.
 \end{enumerate}
 \end{multicols}
 
-\exo Pourquoi la question de la parité ne se pose-t-elle pas pour
+\exo\label{t11s-c01-e19} Pourquoi la question de la parité ne se pose-t-elle pas pour
 $f(x) = \dfrac{1}{x-2}$ ? Répondre en une phrase, en citant la condition qui
 n'est pas remplie.
 
-\exo Soit $f(x) = x^{2} - 6x + 5$. Démontrer que la droite d'équation
+\exo\label{t11s-c01-e20} Soit $f(x) = x^{2} - 6x + 5$. Démontrer que la droite d'équation
 $x = 3$ est un axe de symétrie de la courbe de $f$.
 
-\exo Soit $g(x) = \dfrac{2x-1}{x-1}$, définie sur $\R \setminus \{1\}$.
+\exo\label{t11s-c01-e21} Soit $g(x) = \dfrac{2x-1}{x-1}$, définie sur $\R \setminus \{1\}$.
 Démontrer que le point $\Omega(1\,;\,2)$ est un centre de symétrie de la
 courbe de $g$.
 
-\exo Soit $f$ une fonction paire et $g$ une fonction impaire, toutes deux
+\exo\label{t11s-c01-e22} Soit $f$ une fonction paire et $g$ une fonction impaire, toutes deux
 définies sur $\R$. Que peut-on dire de la parité de $f + g$ ? de $f \times g$ ?
 Justifier.
 
-\exo Démontrer qu'une fonction définie sur $\R$, à la fois paire et impaire,
+\exo\label{t11s-c01-e23} Démontrer qu'une fonction définie sur $\R$, à la fois paire et impaire,
 est nécessairement la fonction nulle.
 \end{entrainement}
 
@@ -611,7 +613,7 @@ existe, s'appelle la \textbf{période} de $f$.
 \end{definition}
 
 \begin{propriete}[répétition et réduction de l'étude]
-Si $f$ est périodique de période $T$, alors pour tout entier naturel $k$ et
+Si $f$ est périodique de période $T$, alors pour tout entier relatif $k$ et
 tout $x$ de $\Df_{f}$ :
 \[
   f(x + kT) = f(x).
@@ -622,14 +624,9 @@ translations successives de vecteur $T\veci$ pour obtenir la courbe entière.
 \end{propriete}
 
 \begin{demonstration}
-L'égalité est vraie pour $k = 0$ puisqu'elle s'écrit alors $f(x) = f(x)$.
-Elle est vraie pour $k = 1$ par définition de la périodicité. Pour $k = 2$,
-on applique deux fois la définition :
-\[
-  f(x + 2T) = f\big((x+T) + T\big) = f(x+T) = f(x),
-\]
-et l'on voit que le procédé se poursuit de proche en proche : chaque pas
-ajoute un $T$ et redonne la même valeur.
+L’égalité est vraie pour $k=0$. Si elle est vraie pour un entier $k\ge0$, alors
+$f(x+(k+1)T)=f((x+kT)+T)=f(x+kT)=f(x)$; une récurrence donne tous les entiers naturels.
+En appliquant la définition en $x-T$, on obtient $f(x-T)=f(x)$. Répéter ce déplacement donne les entiers négatifs. Le domaine reste invariant à chaque déplacement.
 \end{demonstration}
 
 \begin{exemple}[les fonctions du cercle trigonométrique]
@@ -710,21 +707,21 @@ $\dfrac{\pi}{2}$.
 \end{exemple}
 
 \begin{entrainement}
-\exo Démontrer que la fonction $x \mapsto \sin(4x)$ est périodique et
+\exo\label{t11s-c01-e24} Démontrer que la fonction $x \mapsto \sin(4x)$ est périodique et
 déterminer sa période.
 
-\exo Même question pour $x \mapsto \cos\!\left(\dfrac{x}{2}\right)$.
+\exo\label{t11s-c01-e25} Même question pour $x \mapsto \cos\!\left(\dfrac{x}{2}\right)$.
 
-\exo Soit $f(x) = \sin x + \cos x$. Démontrer que $f$ est périodique de
+\exo\label{t11s-c01-e26} Soit $f(x) = \sin x + \cos x$. Démontrer que $f$ est périodique de
 période $2\pi$. Cette fonction est-elle paire ? impaire ?
 
-\exo Soit $f(x) = \cos^{2} x$. Démontrer que $\pi$ est une période de $f$,
+\exo\label{t11s-c01-e27} Soit $f(x) = \cos^{2} x$. Démontrer que $\pi$ est une période de $f$,
 puis étudier sa parité et en déduire l'intervalle d'étude le plus court.
 
-\exo Une fonction $f$ est périodique de période $3$ et vérifie $f(1) = 5$.
+\exo\label{t11s-c01-e28} Une fonction $f$ est périodique de période $3$ et vérifie $f(1) = 5$.
 Calculer $f(4)$, $f(7)$ et $f(-2)$.
 
-\exo Soit $f$ définie sur $\R$, paire et périodique de période $T$.
+\exo\label{t11s-c01-e29} Soit $f$ définie sur $\R$, paire et périodique de période $T$.
 Démontrer que la droite d'équation $x = \dfrac{T}{2}$ est un axe de symétrie
 de la courbe de $f$.
 \end{entrainement}
@@ -736,7 +733,7 @@ de la courbe de $f$.
 % Blocs attendus : \begin{annales} ... \end{annales} puis \begin{plusloin}.
 % ===========================================================================
 
-\begin{jecherche}[une courbe reconstituée]
+\begin{jecherche}[une courbe reconstituée]\phantomsection\label{t11s-c01-problem}
 On considère une fonction $f$ définie sur $\R$, impaire et périodique de
 période $4$. On sait de plus que, pour tout $x$ de $\intervalle{0}{2}$,
 $f(x) = x(2-x)$.
@@ -752,7 +749,7 @@ $f(x) = x(2-x)$.
 \end{enumerate}
 \end{jecherche}
 
-\begin{jemeteste}
+\begin{jemeteste}\phantomsection\label{t11s-c01-test}
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.6em, itemsep=0.25em]
   \item Déterminer l'ensemble de définition de
         $f(x) = \dfrac{\sqrt{x+3}}{x^{2}-16}$.
@@ -768,15 +765,14 @@ $f(x) = x(2-x)$.
 \end{jemeteste}
 
 \begin{notepourlaclasse}
-Les huit heures se répartissent naturellement en quatre séances de deux
-heures : image et antécédent avec l'ensemble de définition, puis le sens de
+Une organisation possible consiste à répartir le travail en quatre séances : image et antécédent avec l'ensemble de définition, puis le sens de
 variation, puis la parité, puis la périodicité avec la réduction de
 l'intervalle d'étude.
 
 Le point qui coûte le plus de temps chaque année n'est pas la parité mais la
 \emph{vérification préalable de la symétrie de l'ensemble de définition}. Les
 élèves calculent $f(-x)$ sans y penser et concluent sur une fonction dont le
-domaine ne s'y prête pas. L'exercice 2 de la banque sur la parité est fait
+domaine ne s'y prête pas. L’exercice~\ref{t11s-c01-e19} sur la parité est fait
 pour cela : le faire traiter au tableau, pas en devoir.
 
 Dans une classe à grand effectif, la démonstration du centre de symétrie peut
@@ -784,3 +780,78 @@ Dans une classe à grand effectif, la démonstration du centre de symétrie peut
 coordonnées du symétrique étant la seule étape réellement nouvelle ; le cas
 de l'axe de symétrie est alors laissé en exercice.
 \end{notepourlaclasse}
+
+\section*{Corrigés et accompagnement}
+\begin{corrige}[automatismes]\label{sol-t11s-c01-auto}
+Dans l’ordre : $x\ge3$; $x=\pm2$; $7$ et $7$; $7$ et $5$; $x\ne-1/2$; strictement négatif; $1,1,-1$; $x^2,-x^3$; $x=\pm3$; aucune racine carrée réelle de $-4$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e01}]\label{sol-t11s-c01-e01}$f(0)=1$, $f(-1)=8$, $f(1/2)=-1$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e02}]\label{sol-t11s-c01-e02}$g(0)=-1/2$, $g(3)=10$, $g(-1)=2/3$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e03}]\label{sol-t11s-c01-e03}$f(x)=1$ équivaut à $x(2x-5)=0$, donc $0$ ou $5/2$. Pour $-3$, $2x^2-5x+4=0$ a pour discriminant $-7$ : aucun antécédent réel.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e04}]\label{sol-t11s-c01-e04}$g(x)=3$ équivaut, pour $x\ne2$, à $3x+1=3x-6$, impossible. Le quotient s’écrit $3+7/(x-2)$ : la valeur $3$ n’est jamais atteinte.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e05}]\label{sol-t11s-c01-e05}Le domaine est $[-4;+\infty[$. Pour $0$, $x=-4$; pour $3$, $x+4=9$ donc $x=5$; pour $-1$, impossible car une racine carrée est positive ou nulle.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e06}]\label{sol-t11s-c01-e06}$7$ est l’image de $-2$; $-2$ est un antécédent de $7$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e07}]\label{sol-t11s-c01-e07}Dans l’ordre : $\R$; $\R\setminus\{-5\}$; $\R\setminus\{-3;3\}$; $[3;+\infty[$; $]-\infty;5]$; $]1;+\infty[$. Le dernier dénominateur exige $x-1>0$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e08}]\label{sol-t11s-c01-e08}$D_f=\R$ car $x^2+1>0$. $D_g=\R\setminus\{-1;1\}$ : annulation du dénominateur; une simplification ne restitue pas les points exclus.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e09}]\label{sol-t11s-c01-e09}$(x-1)(x-4)\ge0$, donc $]-\infty;1]\cup[4;+\infty[$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e10}]\label{sol-t11s-c01-e10}$x\le3$ et $x\ne-2,2$. Domaine $]-\infty;-2[\cup]-2;2[\cup]2;3]$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e11}]\label{sol-t11s-c01-e11}$|x|\ne2$, donc $\R\setminus\{-2;2\}$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e12}]\label{sol-t11s-c01-e12}Le quotient est positif sur $]-\infty;-2[$ et $]3;+\infty[$, nul en $-2$, négatif sur $]-2;3[$, indéfini en $3$. Domaine $]-\infty;-2]\cup]3;+\infty[$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e13}]\label{sol-t11s-c01-e13}La fonction affine de pente $-3$ est strictement décroissante sur $\R$. Le carré, puis sa multiplication par $5>0$, est strictement croissant sur $[0;+\infty[$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e14}]\label{sol-t11s-c01-e14}$x^2$ décroît de $+\infty$ à $0$ sur $]-\infty;0]$, puis croît vers $+\infty$. Multiplication par $-4$ : croissance de $-\infty$ à $0$, puis décroissance vers $-\infty$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e15}]\label{sol-t11s-c01-e15}Si $\sqrt a>\sqrt b\ge0$, le carré conserve l’ordre et donnerait $a>b$, contradiction. Donc $\sqrt a\le\sqrt b$; la racine est croissante sur $[0;+\infty[$ (strictement si $a<b$).
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e16}]\label{sol-t11s-c01-e16}Pour $0<a<b$, $ab>0$ et $1/a-1/b=(b-a)/(ab)>0$. La fonction inverse est strictement décroissante sur $]0;+\infty[$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e17}]\label{sol-t11s-c01-e17}$-2\le f(0)\le8$. On ne peut déterminer sa valeur, ni affirmer une croissance stricte ou une continuité à partir de ces seules données.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e18}]\label{sol-t11s-c01-e18}Dans l’ordre : paire, impaire, paire, impaire (domaine $\R\setminus\{-2;2\}$), paire, ni paire ni impaire (domaine $[0;+\infty[$ non symétrique).
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e19}]\label{sol-t11s-c01-e19}Le domaine $\R\setminus\{2\}$ n’est pas symétrique par rapport à zéro : $-2$ y appartient mais $2$ non.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e20}]\label{sol-t11s-c01-e20}Domaine $\R$, symétrique autour de $3$. $f(3+h)=h^2-4=f(3-h)$; l’axe est $x=3$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e21}]\label{sol-t11s-c01-e21}Domaine $\R\setminus\{1\}$, symétrique autour de $1$. $g(1+h)=2+1/h$ et $g(1-h)=2-1/h$, somme $4$. Centre $(1;2)$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e22}]\label{sol-t11s-c01-e22}La somme n’est en général ni paire ni impaire : $f(x)=1$, $g(x)=x$ donne $1+x$. Elle est paire si $g=0$ et impaire si $f=0$. Le produit est impaire car $(fg)(-x)=f(x)(-g(x))=-(fg)(x)$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e23}]\label{sol-t11s-c01-e23}Les deux identités donnent $f(x)=-f(x)$, donc $2f(x)=0$ et $f(x)=0$ pour tout réel.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e24}]\label{sol-t11s-c01-e24}$\sin(4(x+\pi/2))=\sin(4x+2\pi)=\sin(4x)$. Pour prouver que $\pi/2$ est la plus petite période positive, une période $T$ impose en $x=0$ puis en $x=\pi/8$ : $\sin4T=0$ et $\cos4T=1$, donc $4T\in2\pi\Z$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e25}]\label{sol-t11s-c01-e25}Une période est $4\pi$. Si $T>0$ est une période, en $x=0$, $\cos(T/2)=1$, donc $T/2\in2\pi\Z$; la plus petite est $4\pi$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e26}]\label{sol-t11s-c01-e26}Les deux termes ont période $2\pi$, donc leur somme aussi. $f(0)=1$ exclut l’imparité, et $f(\pi/2)=1\ne-1=f(-\pi/2)$ exclut la parité.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e27}]\label{sol-t11s-c01-e27}$\cos(x+\pi)=-\cos x$, donc le carré a période $\pi$; il est pair. On peut se limiter à $[0;\pi/2]$. En $x=0$, une période $T$ impose $\cos^2T=1$, donc $T\in\pi\Z$ : $\pi$ est la période minimale positive.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e28}]\label{sol-t11s-c01-e28}$4=1+3$, $7=1+2\times3$, $-2=1-3$; les trois valeurs sont $5$.
+\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c01-e29}]\label{sol-t11s-c01-e29}$f(T/2+h)=f(h-T/2)=f(T/2-h)$ par périodicité puis parité. Le domaine reste invariant sous $x\mapsto T-x$ : l’axe est $x=T/2$.
+\end{corrige}
+\begin{corrige}[problème « une courbe reconstituée »]\label{sol-t11s-c01-problem}
+$f(0)=0$, $f(1)=1$, $f(2)=0$. Par imparité $f(-1)=-1$; par périodicité $f(3)=f(-1)=-1$ et $f(5)=f(1)=1$.
+Sur $[-2;0]$, $f(x)=x(2+x)$ par imparité; sur $[0;2]$, $f(x)=x(2-x)$. Reproduire ce motif de longueur $4$ par translations de $4k$ ($k\in\Z$).
+La symétrie du seul arc $[0;2]$ doit être vérifiée sur toute la courbe. Pour $h\in[-1;1]$, $f(1+h)=1-h^2=f(1-h)$. La symétrie s’étend par périodicité et imparité aux deux autres demi-périodes : pour $1\le h\le3$, poser $t=h-1\in[0;2]$, alors $f(1-h)=f(-t)=-t(2-t)$ et $f(1+h)=f(t+2)=f(t-2)=-t(2-t)$. Toute valeur de $h$ se ramène par multiples de $4$ à l’un de ces cas. L’axe $x=1$ est donc bien un axe de symétrie. Le domaine est $\R$.
+\end{corrige}
+\begin{corrige}[test de fin de chapitre]\label{sol-t11s-c01-test}
+1. Domaine $[-3;4[\cup]4;+\infty[$, car $x\ge-3$ et $x\ne\pm4$ (seul $4$ appartient au premier domaine).
+2. $2x^2-8x=0$, donc $x=0$ ou $4$.
+3. Domaine $\R^*$, symétrique; $h(-x)=h(x)$, donc paire.
+4. $g(2+t)=2t^2-7=g(2-t)$; domaine $\R$ : axe $x=2$.
+5. $\sin(3x)$ est impaire et de période minimale $2\pi/3$; $[0;\pi/3]$ suffit, puis symétrie centrale et translations.
+\end{corrige}

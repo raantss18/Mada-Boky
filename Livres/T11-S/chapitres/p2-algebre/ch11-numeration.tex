@@ -1,0 +1,57 @@
+\bmtchapitre{Systèmes de numération}{Lire une écriture en base entière et convertir un entier naturel d’une base à une autre.}{Algèbre}
+\label{t11s-c11}
+\begin{revision}Puissances, division euclidienne et somme; chiffres du système décimal.\end{revision}
+\begin{automatismes}\exo\label{t11s-c11-auto}Calculer $2^5$, $3^3$, et le quotient et le reste de $23$ par $2$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c11-auto}]\label{sol-t11s-c11-auto}$32$, $27$; quotient $11$, reste $1$.\end{corrige}
+
+\section{La valeur dépend de la position}
+\begin{definition}Dans une base entière $b\ge2$, les chiffres sont $0,1,\ldots,b-1$. L’écriture $(a_k\cdots a_1a_0)_b$ représente $\sum_{i=0}^k a_i b^i$. Pour un entier non nul, le premier chiffre n’est pas nul; zéro s’écrit $(0)_b$. Pour les bases supérieures à dix, on peut convenir de lettres $A=10$, $B=11$, etc.\end{definition}
+\begin{exemple}$(1011)_2=1\times8+0\times4+1\times2+1=11$. $(203)_4=2\times16+0\times4+3=35$. Dans la base $4$, le chiffre $4$ est interdit.\end{exemple}
+\section{Convertir par divisions successives}
+\begin{methode}{de la base dix à la base $b$}Diviser l’entier par $b$, noter le reste, recommencer avec le quotient jusqu’à quotient nul. Lire les restes du dernier au premier.\end{methode}
+\begin{exemple}Pour $45$ en base $2$ :
+\begin{center}\begin{tabular}{r|rr}\toprule
+Nombre & Quotient & Reste\\\midrule
+45&22&1\\22&11&0\\11&5&1\\5&2&1\\2&1&0\\1&0&1\\\bottomrule
+\end{tabular}\end{center}
+Donc $45=(101101)_2$. Vérification : $32+8+4+1=45$.
+\end{exemple}
+\begin{propriete}[existence et unicité]Chaque entier naturel possède une écriture unique en base $b\ge2$ sans zéro initial, sauf l’écriture de zéro.\end{propriete}
+\begin{demonstration}La première division euclidienne impose le dernier chiffre, qui est l’unique reste dans $[0;b-1]$. Le quotient impose les suivants de la même manière. Pour un entier positif, les quotients successifs décroissent jusqu’à zéro. Les divisions fournissent donc une écriture finie et forcent tous ses chiffres.\end{demonstration}
+\section{Changer de base et calculer}
+Passer par la base dix évite de confondre les valeurs des chiffres. On peut aussi additionner directement dans la base choisie, avec une retenue dès que la somme atteint la base.
+\begin{exemple}En binaire, $(101)_2+(11)_2=(1000)_2$, car $5+3=8$. Une retenue binaire correspond à deux unités du rang précédent, et non à dix.\end{exemple}
+
+\section{Exercices et problèmes}
+\exo[Vers dix]\label{t11s-c11-e01}
+Convertir $(11001)_2$, $(2102)_3$ et $(2A)_{16}$ en base dix.
+\begin{corrige}[exercice~\ref{t11s-c11-e01}]\label{sol-t11s-c11-e01}
+$16+8+1=25$; $2\times27+1\times9+2=65$; $2\times16+10=42$.
+\end{corrige}
+\exo[Depuis dix]\label{t11s-c11-e02}
+Écrire $53$ en base $2$ et en base $5$, puis vérifier.
+\begin{corrige}[exercice~\ref{t11s-c11-e02}]\label{sol-t11s-c11-e02}
+$53=32+16+4+1$, donc $(110101)_2$; $53=2\times25+0\times5+3$, donc $(203)_5$.
+\end{corrige}
+\exo[Chiffre interdit]\label{t11s-c11-e03}
+L’écriture $(102)_2$ est-elle valide ? Quelle est la plus petite base autorisant $(274)_b$ ?
+\begin{corrige}[exercice~\ref{t11s-c11-e03}]\label{sol-t11s-c11-e03}
+Non, le chiffre $2$ est interdit en base $2$. La seconde exige $b>7$ : plus petite base $8$.
+\end{corrige}
+\exo[Chercher une base]\label{t11s-c11-e04}
+Trouver l’entier $b$ tel que $(23)_b=17$ en base dix. Vérifier la validité des chiffres.
+\begin{corrige}[exercice~\ref{t11s-c11-e04}]\label{sol-t11s-c11-e04}
+$2b+3=17$, donc $b=7$. Les chiffres $2$ et $3$ sont inférieurs à $7$, écriture valide.
+\end{corrige}
+\exo[Addition binaire]\label{t11s-c11-e05}
+Calculer $(1011)_2+(110)_2$ directement en base $2$, puis contrôler en base dix.
+\begin{corrige}[exercice~\ref{t11s-c11-e05}]\label{sol-t11s-c11-e05}
+Résultat $(10001)_2$; contrôle $11+6=17$. Poser les unités l’une sous l’autre et reporter chaque retenue.
+\end{corrige}
+\exo[Bornes]\label{t11s-c11-e06}
+Montrer qu’un entier positif écrit avec $k$ chiffres en base $b$ est compris entre $b^{k-1}$ et $b^k-1$.
+\begin{corrige}[exercice~\ref{t11s-c11-e06}]\label{sol-t11s-c11-e06}
+Minimum : premier chiffre $1$, autres $0$, soit $b^{k-1}$. Maximum : tous chiffres $b-1$, soit $(b-1)(1+b+\cdots+b^{k-1})=b^k-1$. La somme se vérifie en multipliant par $b$ puis soustrayant.
+\end{corrige}
+\begin{jemeteste}Je précise la base, je contrôle que chaque chiffre est autorisé et je lis les restes dans l’ordre inverse des divisions.\end{jemeteste}
+\begin{notepourlaclasse}Utiliser des groupements concrets en paquets de deux ou cinq. Les écritures fractionnaires dans une base ne sont pas requises; traiter uniquement les entiers naturels.\end{notepourlaclasse}

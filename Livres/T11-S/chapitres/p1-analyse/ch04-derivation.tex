@@ -1,0 +1,97 @@
+\bmtchapitre{Dérivation et tangentes}{Calculer un nombre dérivé, dériver les fonctions usuelles et utiliser le signe de la dérivée pour déterminer les variations.}{Analyse}
+\label{t11s-c04}
+\begin{revision}Limites, continuité, développement et factorisation; pente d’une droite.\end{revision}
+\begin{automatismes}\exo\label{t11s-c04-auto}Développer $(a+h)^2-a^2$. Calculer la pente de la droite passant par $(1;2)$ et $(3;6)$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c04-auto}]\label{sol-t11s-c04-auto}$2ah+h^2$; pente $(6-2)/(3-1)=2$.\end{corrige}
+
+\section{Du taux de variation au nombre dérivé}
+\begin{situation}
+\exo\label{t11s-c04-act}Pour $f(x)=x^2$, calculer la pente de la sécante entre les points d’abscisses $2$ et $2+h$ ($h\ne0$). Que devient cette pente quand $h\to0$ ?
+\end{situation}
+\begin{corrige}[exercice~\ref{t11s-c04-act}]Le taux vaut $((2+h)^2-4)/h=4+h$, et tend vers $4$.\end{corrige}
+\begin{definition}Si $a$ est intérieur au domaine et si $\lim_{h\to0}\dfrac{f(a+h)-f(a)}h$ existe et est un réel, $f$ est dérivable en $a$ et cette limite est $f'(a)$. La fonction dérivée associe à chaque point où ce nombre existe sa valeur $f'(a)$.\end{definition}
+\begin{propriete}[tangente]Si $f$ est dérivable en $a$, la tangente au point $(a;f(a))$ a pour équation $y=f'(a)(x-a)+f(a)$.\end{propriete}
+\begin{demonstration}La droite passe par $(a;f(a))$ et a pour coefficient directeur la limite des pentes des sécantes, $f'(a)$. La forme point-pente donne l’équation.\end{demonstration}
+\begin{propriete}La dérivabilité en un point entraîne la continuité en ce point. La réciproque est fausse.\end{propriete}
+\begin{demonstration}Pour $h\ne0$, $f(a+h)-f(a)=h\dfrac{f(a+h)-f(a)}h$. Le second facteur tend vers un réel, donc le produit tend vers $0$. Ainsi $f(a+h)\to f(a)$. Pour $|x|$ en $0$, les taux sont $-1$ à gauche et $1$ à droite : continuité, mais pas dérivabilité.\end{demonstration}
+\section{Dérivées usuelles et opérations}
+\begin{center}\begin{tabular}{lll}\toprule
+Fonction & Dérivée & Domaine de dérivation\\\midrule
+$c$ & $0$ & $\R$\\
+$x^n$, $n\ge1$ & $nx^{n-1}$ & $\R$\\
+$1/x$ & $-1/x^2$ & $\R^*$\\
+$\sqrt x$ & $1/(2\sqrt x)$ & $]0;+\infty[$\\
+$\sin x$ & $\cos x$ & $\R$\\
+$\cos x$ & $-\sin x$ & $\R$\\
+$\tan x$ & $1/\cos^2x$ & $\cos x\ne0$\\\bottomrule
+\end{tabular}\end{center}
+Les formules trigonométriques supposent des angles en radians. La fonction racine carrée est continue en $0$, mais n’y admet pas de nombre dérivé fini : son taux vaut $1/\sqrt h$ pour $h>0$.
+\begin{propriete}[opérations]
+Pour $u,v$ dérivables et $\lambda\in\R$,
+\[
+\begin{aligned}
+(u+v)'&=u'+v',& (\lambda u)'&=\lambda u',\\
+(uv)'&=u'v+uv',& \left(\frac uv\right)'&=\frac{u'v-uv'}{v^2}\quad(v\ne0).
+\end{aligned}
+\]
+Si $u$ est dérivable et $F$ dérivable aux valeurs de $u$, $(F\circ u)'=(F'\circ u)u'$. Les formules générales sont admises, sauf la justification du produit ci-dessous.
+\end{propriete}
+\begin{demonstration}[produit]
+Ajouter et retrancher $u(a+h)v(a)$ dans la différence du produit donne
+\[
+\frac{u(a+h)v(a+h)-u(a)v(a)}h
+=u(a+h)\frac{v(a+h)-v(a)}h
++v(a)\frac{u(a+h)-u(a)}h.
+\]
+La continuité de $u$ et les limites des taux donnent $u(a)v'(a)+v(a)u'(a)$.
+\end{demonstration}
+\begin{exemple}Pour $f(x)=\dfrac{x^2+1}{x-1}$, $x\ne1$,
+\[
+f'(x)=\frac{2x(x-1)-(x^2+1)}{(x-1)^2}
+=\frac{x^2-2x-1}{(x-1)^2}.
+\]
+Pour $g(x)=\sqrt{3x+2}$, $g'(x)=3/(2\sqrt{3x+2})$ sur $]-2/3;+\infty[$.
+\end{exemple}
+\section{Variations et extrema}
+\begin{theoreme}[admis]Sur un intervalle, une fonction dérivable dont la dérivée est positive ou nulle est croissante; si elle est négative ou nulle, elle est décroissante. Une dérivée strictement positive donne une croissance stricte. Si elle est nulle partout sur l’intervalle, la fonction est constante.\end{theoreme}
+\begin{remarque}Un zéro isolé de $f'$ n’impose pas un extremum : $x^3$ a une dérivée nulle en $0$ et reste croissante. Un changement de signe de $+$ vers $-$ donne un maximum local; de $-$ vers $+$, un minimum local. Un extremum au bord d’un intervalle ne nécessite pas une dérivée nulle.\end{remarque}
+\begin{methode}{dresser un tableau de variation}Déterminer le domaine; calculer et factoriser la dérivée; étudier son signe sur chaque intervalle; calculer les valeurs aux points critiques et les limites aux bornes; tracer les flèches de variation.\end{methode}
+
+\section{Exercices et problèmes}
+\exo[Par la définition]\label{t11s-c04-e01}
+À partir du taux de variation, montrer que la dérivée de $x\mapsto3x^2-2x+1$ en $a$ vaut $6a-2$.
+\begin{corrige}[exercice~\ref{t11s-c04-e01}]\label{sol-t11s-c04-e01}
+La différence vaut $6ah+3h^2-2h$. Le taux est $6a+3h-2$; sa limite est $6a-2$.
+\end{corrige}
+\exo[Dériver]\label{t11s-c04-e02}
+Dériver $x^3-4x+2$, $(2x-1)^4$, $(x+1)/(x-2)$ et $\sin(3x)$. Préciser les domaines.
+\begin{corrige}[exercice~\ref{t11s-c04-e02}]\label{sol-t11s-c04-e02}
+$3x^2-4$ sur $\R$; $8(2x-1)^3$ sur $\R$; $-3/(x-2)^2$ sur $\R\setminus\{2\}$; $3\cos(3x)$ sur $\R$.
+\end{corrige}
+\exo[Tangente]\label{t11s-c04-e03}
+Pour $f(x)=x^2-3x$, donner l’équation de la tangente en $x=2$. Étudier la position de la courbe par rapport à cette tangente.
+\begin{corrige}[exercice~\ref{t11s-c04-e03}]\label{sol-t11s-c04-e03}
+$f(2)=-2$, $f'(2)=1$, donc $y=x-4$. L’écart $f(x)-(x-4)=(x-2)^2\ge0$; la courbe est au-dessus, égalité seulement en $2$.
+\end{corrige}
+\exo[Variations]\label{t11s-c04-e04}
+Étudier les variations de $f(x)=x^3-3x$ sur $\R$.
+\begin{corrige}[exercice~\ref{t11s-c04-e04}]\label{sol-t11s-c04-e04}
+$f'=3(x-1)(x+1)$. Croissance sur $]-\infty;-1]$, décroissance sur $[-1;1]$, croissance sur $[1;+\infty[$. $f(-1)=2$, $f(1)=-2$; limites $-\infty,+\infty$.
+\end{corrige}
+\exo[Continuité et dérivabilité]\label{t11s-c04-e05}
+Pour $g(x)=|x-2|$, étudier la continuité et la dérivabilité en $2$, puis donner les pentes de part et d’autre.
+\begin{corrige}[exercice~\ref{t11s-c04-e05}]\label{sol-t11s-c04-e05}
+Continue car $|x-2|\to0=g(2)$. Taux $|h|/h$ : $-1$ à gauche, $1$ à droite; pas dérivable en $2$.
+\end{corrige}
+\exo[Optimiser]\label{t11s-c04-e06}
+Un rectangle a un périmètre de $40$ m. Exprimer son aire en fonction d’un côté $x$, préciser l’intervalle et déterminer l’aire maximale.
+\begin{corrige}[exercice~\ref{t11s-c04-e06}]\label{sol-t11s-c04-e06}
+L’autre côté vaut $20-x$, et $0<x<20$. $A=20x-x^2$; $A'=20-2x$, positive avant $10$, négative après. Maximum $100\ \mathrm{m}^2$ pour le carré de côté $10$ m.
+\end{corrige}
+\exo[Raccord lisse]\label{t11s-c04-e07}
+$f(x)=x^2$ pour $x\le1$, et $f(x)=ax+b$ pour $x>1$. Trouver $a,b$ pour que $f$ soit continue et dérivable en $1$.
+\begin{corrige}[exercice~\ref{t11s-c04-e07}]\label{sol-t11s-c04-e07}
+Continuité : $a+b=1$. Taux gauche $2+h\to2$; une fois la continuité imposée, taux droit $a$. Dérivabilité : $a=2$, puis $b=-1$.
+\end{corrige}
+\begin{jemeteste}Je contrôle le domaine de dérivation, je distingue continuité et dérivabilité, et je justifie une variation par le signe de la dérivée.\end{jemeteste}
+\begin{notepourlaclasse}Faire écrire le taux avant d’introduire la notation. Le carré et la valeur absolue fournissent des exemples contrastés. Pour une optimisation, faire préciser unités et domaine avant la dérivation.\end{notepourlaclasse}

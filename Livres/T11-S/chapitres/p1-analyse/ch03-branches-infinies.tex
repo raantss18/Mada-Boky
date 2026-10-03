@@ -1,0 +1,72 @@
+\bmtchapitre{Branches infinies et asymptotes}{Reconnaître une asymptote verticale, horizontale ou oblique et étudier la position relative d’une courbe et de sa droite asymptote.}{Analyse}
+\label{t11s-c03}
+\begin{revision}Limites latérales et à l’infini; signe d’un quotient; équation réduite d’une droite.\end{revision}
+\begin{automatismes}\exo\label{t11s-c03-auto}Calculer $\dfrac{x^2-1}{x-1}$ pour $x\ne1$. Donner le signe de $1/(x-2)$ sur chacun des intervalles de son domaine.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c03-auto}]\label{sol-t11s-c03-auto}Le quotient vaut $x+1$. Le second est négatif pour $x<2$ et positif pour $x>2$.\end{corrige}
+
+\section{Une courbe qui se rapproche d’une droite}
+\begin{definition}[asymptotes verticales et horizontales]
+La droite $x=a$ est une asymptote verticale si au moins une limite latérale de $f$ en $a$ vaut $+\infty$ ou $-\infty$. La droite $y=\ell$ est une asymptote horizontale en $+\infty$ (respectivement $-\infty$) si $\lim_{x\to+\infty}f(x)=\ell$ (respectivement en $-\infty$).
+\end{definition}
+\begin{exemple}Pour $f(x)=2+\dfrac1{x-1}$, la droite $x=1$ est asymptote verticale et $y=2$ est asymptote horizontale aux deux infinis. $f(x)-2=1/(x-1)$ donne une courbe sous $y=2$ à gauche de $1$, au-dessus à droite.\end{exemple}
+\begin{visualisation}[l’écart vertical tend vers zéro]
+\begin{center}\begin{tikzpicture}\begin{axis}[width=10cm,height=6cm,axis lines=middle,xmin=-4,xmax=6,ymin=-2,ymax=6,xlabel={$x$},ylabel={$y$},samples=100]
+\addplot[bmtSarcelle,thick,domain=-4:0.75]{2+1/(x-1)};
+\addplot[bmtSarcelle,thick,domain=1.25:6]{2+1/(x-1)};
+\addplot[bmtOcre,dashed,domain=-4:6]{2};
+\draw[bmtOcre,dashed] (axis cs:1,-2)--(axis cs:1,6);
+\end{axis}\end{tikzpicture}\end{center}
+Les deux branches sont tracées séparément : relier leurs extrémités créerait un segment qui n’appartient pas à la courbe.
+\end{visualisation}
+\section{Asymptote oblique}
+\begin{definition}La droite $y=ax+b$, avec $a\ne0$, est une asymptote oblique en l’infini considéré si $f(x)-(ax+b)$ tend vers $0$.\end{definition}
+\begin{propriete}[méthode des deux limites]
+Si $\lim f(x)/x=a\in\R$ et $\lim(f(x)-ax)=b\in\R$, alors $y=ax+b$ est une asymptote; elle est oblique si $a\ne0$, horizontale si $a=0$.
+\end{propriete}
+\begin{demonstration}La seconde limite signifie exactement $f(x)-(ax+b)\to0$. Réciproquement, cette relation donne $f(x)/x=a+b/x+o(1)/x\to a$. La notation $o(1)$ signifie ici une quantité tendant vers zéro.\end{demonstration}
+\begin{methode}{utiliser la division euclidienne}
+Pour une fraction rationnelle dont le numérateur a un degré de plus que le dénominateur, effectuer la division. Si $f(x)=ax+b+r(x)$ avec $r(x)\to0$, la droite cherchée est $y=ax+b$. Étudier le signe de $r$ pour situer la courbe.
+\end{methode}
+\begin{exemple}
+\[
+\frac{x^2+1}{x-1}=x+1+\frac2{x-1}\qquad(x\ne1).
+\]
+L’asymptote oblique aux deux infinis est $y=x+1$. La courbe est en dessous pour $x<1$, au-dessus pour $x>1$. $x=1$ est également une asymptote verticale.
+\end{exemple}
+\section{Toutes les branches n’ont pas d’asymptote}
+\begin{remarque}Si $f(x)\to\pm\infty$ et $|f(x)/x|\to+\infty$, on parle d’une branche parabolique de direction l’axe des ordonnées. Si $f(x)\to\pm\infty$ et $f(x)/x\to0$, la direction est l’axe des abscisses. Si $f(x)/x\to a\ne0$ mais $f(x)-ax\to\pm\infty$, la branche a pour direction $y=ax$, sans asymptote oblique. Ce vocabulaire décrit une direction, pas nécessairement une parabole.\end{remarque}
+Pour $x^2$ en $+\infty$, $f(x)/x=x\to+\infty$. Pour $\sqrt x$, $f(x)/x=1/\sqrt x\to0$ alors que $f(x)\to+\infty$ : aucune asymptote horizontale.
+
+\section{Exercices et problèmes}
+\exo[Horizontale]\label{t11s-c03-e01}
+Pour $f(x)=\dfrac{3x+2}{x-2}$, déterminer les asymptotes et la position relative à l’asymptote horizontale.
+\begin{corrige}[exercice~\ref{t11s-c03-e01}]\label{sol-t11s-c03-e01}
+$f(x)=3+8/(x-2)$; asymptotes $x=2$ et $y=3$. Courbe en dessous pour $x<2$ et au-dessus pour $x>2$.
+\end{corrige}
+\exo[Division]\label{t11s-c03-e02}
+Pour $g(x)=\dfrac{2x^2-3x+4}{x-1}$, effectuer la division puis déterminer l’asymptote oblique.
+\begin{corrige}[exercice~\ref{t11s-c03-e02}]\label{sol-t11s-c03-e02}
+$g(x)=2x-1+3/(x-1)$. L’écart tend vers zéro aux deux infinis : asymptote $y=2x-1$; verticale $x=1$.
+\end{corrige}
+\exo[Trou ou asymptote]\label{t11s-c03-e03}
+La droite $x=1$ est-elle asymptote de $h(x)=\dfrac{x^2-1}{x-1}$ ? Expliquer.
+\begin{corrige}[exercice~\ref{t11s-c03-e03}]\label{sol-t11s-c03-e03}
+Non : $h(x)=x+1$ pour $x\ne1$, et la limite en $1$ vaut $2$. La courbe est une droite privée d’un point.
+\end{corrige}
+\exo[Une racine]\label{t11s-c03-e04}
+Calculer $\lim_{x\to+\infty}(\sqrt{x^2+1}-x)$ puis donner une asymptote. Recommencer en $-\infty$.
+\begin{corrige}[exercice~\ref{t11s-c03-e04}]\label{sol-t11s-c03-e04}
+En $+\infty$, le conjugué donne $1/(\sqrt{x^2+1}+x)\to0$, donc $y=x$. En $-\infty$, $\sqrt{x^2+1}+x=1/(\sqrt{x^2+1}-x)\to0$, donc $y=-x$. Ne pas remplacer $\sqrt{x^2}$ par $x$ si $x<0$.
+\end{corrige}
+\exo[Lire un écart]\label{t11s-c03-e05}
+On sait $f(x)=2x-3+\dfrac{x}{x^2+1}$. Donner l’asymptote aux deux infinis et tous ses points d’intersection avec la courbe.
+\begin{corrige}[exercice~\ref{t11s-c03-e05}]\label{sol-t11s-c03-e05}
+L’écart tend vers zéro : $y=2x-3$. Il s’annule uniquement en $x=0$, d’où le point $(0;-3)$. Une courbe peut couper son asymptote.
+\end{corrige}
+\exo[Classer]\label{t11s-c03-e06}
+Décrire les branches en $+\infty$ de $x^2$, $\sqrt{x}$ et $x+\sqrt{x}$, en utilisant les quotients par $x$.
+\begin{corrige}[exercice~\ref{t11s-c03-e06}]\label{sol-t11s-c03-e06}
+Quotients : $x\to+\infty$ (direction verticale), $1/\sqrt x\to0$ (direction horizontale), $1+1/\sqrt x\to1$ mais écart à $y=x$ infini (direction $y=x$, sans asymptote).
+\end{corrige}
+\begin{jemeteste}Je calcule une limite avant de nommer une asymptote; je ne confonds pas direction et droite asymptote; le signe de l’écart donne la position relative.\end{jemeteste}
+\begin{notepourlaclasse}Faire comparer le trou de la fonction simplifiable et la branche infinie. La recherche par division est prioritaire; réserver le vocabulaire des branches sans asymptote à une lecture guidée.\end{notepourlaclasse}

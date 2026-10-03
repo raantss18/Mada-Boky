@@ -1,0 +1,72 @@
+\bmtchapitre{Transformations et similitudes directes}{Construire les images de points et de figures, utiliser les expressions analytiques et composer deux transformations.}{Géométrie}
+\label{t11s-c15}
+\begin{revision}Vecteurs, milieux, angles orientés, coordonnées et formules trigonométriques.\end{revision}
+\begin{automatismes}\exo\label{t11s-c15-auto}Donner le symétrique de $(2;-3)$ par rapport à l’origine et celui par rapport à l’axe des abscisses.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c15-auto}]\label{sol-t11s-c15-auto}$(-2;3)$ et $(2;3)$.\end{corrige}
+
+\section{Translations et symétries}
+\begin{definition}La translation de vecteur $\vecu$ envoie $M$ sur $M'$ tel que $\vect{MM'}=\vecu$. La symétrie centrale de centre $O$ fait de $O$ le milieu de $[MM']$. La réflexion d’axe $d$ échange les deux côtés de $d$ et conserve les points de $d$.\end{definition}
+\begin{propriete}[repère orthonormé]
+Pour une translation de vecteur $(a;b)$, $(x',y')=(x+a,y+b)$. Pour la symétrie centrale de centre $(a;b)$, $(x',y')=(2a-x,2b-y)$. La réflexion d’axe $y=0$ donne $(x,-y)$; d’axe $x=0$, $(-x,y)$; d’axe $y=x$, $(y,x)$.
+\end{propriete}
+\begin{demonstration}La translation résulte des coordonnées du vecteur; la symétrie centrale résulte de la formule du milieu. Les réflexions se vérifient par perpendicularité et milieu sur l’axe.\end{demonstration}
+\section{Homothéties et rotations}
+\begin{definition}Une homothétie de centre $O$ et rapport $k\ne0$ envoie $M$ sur $M'$ avec $\vect{OM'}=k\vect{OM}$. Une rotation de centre $O$ et angle $\theta$ conserve $OM$ et ajoute $\theta$ à la direction du vecteur (le centre reste fixe).\end{definition}
+\begin{propriete}Pour $O(a;b)$, l’homothétie donne $x'=a+k(x-a)$, $y'=b+k(y-b)$. Dans un repère orthonormé direct, la rotation donne
+\[
+\begin{cases}x'=a+\cos\theta(x-a)-\sin\theta(y-b),\\
+y'=b+\sin\theta(x-a)+\cos\theta(y-b).
+\end{cases}
+\]
+Translations, rotations et symétries conservent les distances. L’homothétie multiplie les distances par $|k|$ et les aires par $k^2$.
+\end{propriete}
+\begin{demonstration}Les images des deux vecteurs de base sous une rotation ont coordonnées $(\cos\theta;\sin\theta)$ et $(-\sin\theta;\cos\theta)$. Par linéarité, on obtient les formules; l’identité $\cos^2\theta+\sin^2\theta=1$ conserve le carré des normes. Pour l’homothétie, la norme de $k\vecu$ est $|k|\norme{\vecu}$ et chaque longueur d’une aire est multipliée par $|k|$.\end{demonstration}
+\section{Composer : l’ordre compte}
+\begin{definition}$g\circ f$ applique d’abord $f$, puis $g$. La composée de deux translations est la translation de la somme des vecteurs. Deux rotations de même centre se composent en additionnant les angles; deux homothéties de même centre multiplient les rapports.\end{definition}
+\begin{exemple}Si $t(x,y)=(x+1,y)$ et $r(x,y)=(-y,x)$, alors $(r\circ t)(x,y)=(-y,x+1)$ mais $(t\circ r)(x,y)=(1-y,x)$. Les deux transformations ne commutent pas.\end{exemple}
+\begin{propriete}La composée de deux symétries centrales, de centres $A$ puis $B$, est la translation de vecteur $2\vect{AB}$.\end{propriete}
+\begin{demonstration}Dans un repère, $s_A(M)=2A-M$, puis $s_B(s_A(M))=2B-(2A-M)=M+2(B-A)$.\end{demonstration}
+\section{Similitudes planes directes}
+\begin{definition}Une similitude directe est une transformation obtenue à partir d’une translation et d’une rotation suivie d’une homothétie de rapport strictement positif. Elle multiplie les distances par un rapport $\rho>0$ et conserve les angles orientés. Dans un repère orthonormé direct,
+\[
+\begin{cases}x'=\alpha x-\beta y+p,\\y'=\beta x+\alpha y+q,\end{cases}
+\qquad \alpha^2+\beta^2>0.
+\]
+Son rapport est $\rho=\sqrt{\alpha^2+\beta^2}$; son angle vérifie $\cos\theta=\alpha/\rho$, $\sin\theta=\beta/\rho$.
+\end{definition}
+\begin{propriete}[centre et exception]Si $(\alpha,\beta)\ne(1,0)$, cette similitude possède un unique point fixe, obtenu en résolvant $x'=x,y'=y$. Si $(\alpha,\beta)=(1,0)$, elle est une translation, sans centre unique; pour $p=q=0$, c’est l’identité.\end{propriete}
+\begin{demonstration}Le système du point fixe a pour déterminant $(1-\alpha)^2+\beta^2$, strictement positif sauf dans le cas exclu. Autour de ce point fixe, l’expression est une rotation et une multiplication par $\rho$.\end{demonstration}
+
+\section{Exercices et problèmes}
+\exo[Images]\label{t11s-c15-e01}
+Pour $M(2;1)$, calculer son image par la translation $(3;-2)$, la symétrie de centre $(1;1)$ et la rotation de centre origine d’angle $\pi/2$.
+\begin{corrige}[exercice~\ref{t11s-c15-e01}]\label{sol-t11s-c15-e01}
+$(5;-1)$; $(0;1)$; $(-1;2)$. Chaque calcul utilise la transformation indiquée, sur le point initial.
+\end{corrige}
+\exo[Homothétie négative]\label{t11s-c15-e02}
+Pour $O(1;2)$, $A(3;2)$ et rapport $-2$, déterminer $A'$ et comparer $OA,OA'$.
+\begin{corrige}[exercice~\ref{t11s-c15-e02}]\label{sol-t11s-c15-e02}
+$\vect{OA}=(2;0)$, $\vect{OA'}=(-4;0)$, donc $A'=(-3;2)$. $OA=2$, $OA'=4$; le rapport des distances est $2$, pas $-2$.
+\end{corrige}
+\exo[Deux symétries]\label{t11s-c15-e03}
+Pour $A(1;0),B(3;2)$, déterminer $s_B\circ s_A$ et l’image de $(0;1)$.
+\begin{corrige}[exercice~\ref{t11s-c15-e03}]\label{sol-t11s-c15-e03}
+Translation de $2\vect{AB}=(4;4)$, image $(4;5)$. Un calcul successif donne $s_A(0;1)=(2;-1)$ puis $s_B=(4;5)$.
+\end{corrige}
+\exo[Un ordre à vérifier]\label{t11s-c15-e04}
+Pour la translation $(1;0)$ et la rotation de centre origine d’angle $\pi/2$, calculer les deux composées sur l’origine.
+\begin{corrige}[exercice~\ref{t11s-c15-e04}]\label{sol-t11s-c15-e04}
+Rotation après translation donne $(0;1)$; translation après rotation donne $(1;0)$. L’ordre change le résultat.
+\end{corrige}
+\exo[Reconnaître une similitude]\label{t11s-c15-e05}
+Étudier $x'=2x-y+1$, $y'=x+2y-2$ : rapport, angle et centre.
+\begin{corrige}[exercice~\ref{t11s-c15-e05}]\label{sol-t11s-c15-e05}
+$\alpha=2,\beta=1$, rapport $\sqrt5$; angle de cosinus $2/\sqrt5$ et sinus $1/\sqrt5$. Point fixe : $-x+y=1$, $-x-y=-2$, d’où $(1/2;3/2)$.
+\end{corrige}
+\exo[Construire une figure]\label{t11s-c15-e06}
+Un triangle a sommets $A(0;0),B(2;0),C(0;1)$. Construire et calculer son image par la rotation d’angle $\pi/2$ suivie de l’homothétie de rapport $3$ de même centre origine. Comparer les aires.
+\begin{corrige}[exercice~\ref{t11s-c15-e06}]\label{sol-t11s-c15-e06}
+Images $A'=(0;0),B'=(0;6),C'=(-3;0)$. Aire initiale $1$, aire finale $9$; rapport de similitude $3$ et angle $\pi/2$.
+\end{corrige}
+\begin{jemeteste}Je calcule les images dans l’ordre prescrit; je distingue rapport signé d’homothétie et rapport positif des distances.\end{jemeteste}
+\begin{notepourlaclasse}Les expressions analytiques se prêtent aux travaux dirigés. Les nombres complexes ne sont pas nécessaires. Pour une similitude, faire résoudre le point fixe et contrôler l’exception translation.\end{notepourlaclasse}

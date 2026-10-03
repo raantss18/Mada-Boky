@@ -1,0 +1,35 @@
+\begingroup
+\chapter*{Sujet de synthèse A}\markboth{Sujet de synthèse A}{Sujet de synthèse A}\addcontentsline{toc}{chapter}{Sujet de synthèse A}
+\renewcommand{\thebmtexo}{SYN1.\arabic{bmtexo}}
+\renewcommand{\theHbmtexo}{SYN1.\arabic{bmtexo}}
+\setcounter{bmtexo}{0}
+\begin{devoir}[3 h — 20 points]
+Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\end{devoir}
+\exo[Fonction et équation]\label{t11s-syn1-e01}\bareme{8 points}
+$f(x)=x+2+4/x$, pour $x\ne0$.
+\begin{enumerate}\item Limites et asymptotes (2 points).
+\item Variations et extrema (2 points).
+\item Résoudre $f(x)=7$ (2 points).
+\item Donner le centre de symétrie et la tangente en $1$ (2 points).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-syn1-e01}]\label{sol-t11s-syn1-e01}
+1. Asymptotes $x=0,y=x+2$; limites en $0^-:-\infty$, $0^+:+\infty$, aux infinis $-\infty,+\infty$.
+2. $f'=1-4/x^2$, positive pour $|x|>2$, négative pour $0<|x|<2$. Maximum local $(-2;-2)$, minimum local $(2;6)$.
+3. $x+2+4/x=7\Leftrightarrow x^2-5x+4=0$, donc $1,4$.
+4. Centre $(0;2)$ car $f(x)+f(-x)=4$. $f(1)=7,f'(1)=-3$, tangente $y=-3x+10$. Deux points par sous-question, avec justification.
+\end{corrige}
+\exo[Suites]\label{t11s-syn1-e02}\bareme{6 points}
+$u_0=2$, $u_{n+1}=3u_n-4$. Poser $v_n=u_n-2$ et étudier la suite. Puis refaire l’étude avec $u_0=3$ et calculer $u_0+\cdots+u_4$.
+\begin{corrige}[exercice~\ref{t11s-syn1-e02}]\label{sol-t11s-syn1-e02}
+$v_{n+1}=3v_n$. Si $u_0=2$, $v_0=0$, donc suite constante $u_n=2$ (2). Si $u_0=3$, $v_0=1$, $u_n=2+3^n$; croissante vers $+\infty$ (2). Somme des cinq termes $10+(1+3+9+27+81)=131$ (2).
+\end{corrige}
+\exo[Géométrie et probabilité]\label{t11s-syn1-e03}\bareme{6 points}
+\begin{enumerate}\item Pour $A(0;0),B(4;0)$, déterminer le lieu $\vect{MA}\cdot\vect{MB}=5$ (2 points).
+\item Donner l’image de ce lieu par l’homothétie de centre $A$ et rapport $2$ (2 points).
+\item Choisir uniformément deux sommets parmi les quatre sommets d’un carré. Quelle est la probabilité qu’ils soient opposés ? (2 points)\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-syn1-e03}]\label{sol-t11s-syn1-e03}
+1. $I(2;0)$, $MI^2-4=5$ : cercle de rayon $3$.
+2. Centre image $(4;0)$, rayon $6$.
+3. Six paires de sommets, deux diagonales, donc probabilité $1/3$. Deux points par sous-question.
+\end{corrige}
+\endgroup

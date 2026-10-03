@@ -1,0 +1,71 @@
+\bmtchapitre{Calcul vectoriel et produit scalaire}{Décomposer un vecteur dans une base et utiliser les expressions du produit scalaire pour démontrer des relations métriques.}{Géométrie}
+\label{t11s-c13}
+\begin{revision}Chasles, coordonnées, Pythagore, angles et trigonométrie; repère orthonormé pour les calculs métriques.\end{revision}
+\begin{automatismes}\exo\label{t11s-c13-auto}Pour $A(1;2),B(4;6)$, calculer les coordonnées de $\vect{AB}$ et $AB$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c13-auto}]\label{sol-t11s-c13-auto}$\vect{AB}=(3;4)$, $AB=\sqrt{3^2+4^2}=5$.\end{corrige}
+
+\section{Combinaisons linéaires et bases}
+\begin{definition}Une combinaison linéaire de $\vecu,\vecv$ est $a\vecu+b\vecv$ avec $a,b\in\R$. Deux vecteurs non colinéaires forment une base du plan : chaque vecteur s’écrit d’une manière unique $a\vecu+b\vecv$.\end{definition}
+\begin{propriete}Dans un repère, $\vecu=(x;y)$ et $\vecv=(x';y')$ sont non colinéaires si et seulement si $xy'-yx'\ne0$.\end{propriete}
+\begin{demonstration}Le système $a\vecu+b\vecv=\vecw$ a deux équations. L’élimination fournit une solution unique si le déterminant $xy'-yx'$ est non nul. S’il est nul, les colonnes sont proportionnelles (ou l’un des vecteurs est nul), donc colinéaires.\end{demonstration}
+\begin{exemple}$\vecu=(1;1)$, $\vecv=(1;-1)$ forment une base. Pour $\vecw=(3;1)$, $a+b=3$ et $a-b=1$, donc $\vecw=2\vecu+\vecv$. Cette base n’est pas un repère orthonormé : ses deux vecteurs ont norme $\sqrt2$.\end{exemple}
+\section{Quatre expressions d’un même produit}
+\begin{definition}Pour deux vecteurs non nuls, $\vecu\cdot\vecv=\norme{\vecu}\norme{\vecv}\cos\theta$, où $\theta$ est l’angle entre eux. Si l’un est nul, le produit scalaire est nul.\end{definition}
+\begin{propriete}
+Dans un repère orthonormé, $\vecu\cdot\vecv=xx'+yy'$. Avec $H$ projeté orthogonal de $B$ sur la droite $(OA)$ et $\vecu=\vect{OA},\vecv=\vect{OB}$, le produit vaut $OA$ multiplié par la longueur algébrique $OH$ orientée vers $A$. Enfin,
+\[
+\vecu\cdot\vecv=\frac12\big(\norme{\vecu+\vecv}^2-\norme{\vecu}^2-\norme{\vecv}^2\big).
+\]
+Le produit est symétrique et bilinéaire; $\vecu\cdot\vecu=\norme{\vecu}^2$; deux vecteurs sont orthogonaux si et seulement si leur produit est nul (y compris le vecteur nul).
+\end{propriete}
+\begin{demonstration}Décomposer dans deux directions orthonormées donne $xx'+yy'$. Développer $(x+x')^2+(y+y')^2$ donne l’identité par les normes. La projection donne $OH=OB\cos\theta$ avec son signe, donc la même expression géométrique. La bilinéarité résulte de la formule des coordonnées.\end{demonstration}
+\section{Relations métriques dans un triangle}
+\begin{propriete}[Al-Kashi et médiane]Dans un triangle $ABC$,
+\[
+BC^2=AB^2+AC^2-2AB\,AC\cos\widehat{BAC}.
+\]
+Si $I$ est milieu de $[BC]$, alors $AB^2+AC^2=2AI^2+BC^2/2$.
+\end{propriete}
+\begin{demonstration}Al-Kashi résulte du carré de $\vect{BC}=\vect{AC}-\vect{AB}$. Pour la médiane, $\vect{AB}=\vect{AI}+\vect{IB}$ et $\vect{AC}=\vect{AI}-\vect{IB}$; en additionnant les carrés, les produits croisés s’annulent.\end{demonstration}
+\begin{propriete}[aire et sinus]Pour un triangle non aplati, $\mathcal A=\dfrac12 AB\,AC\sin\widehat{BAC}$ et
+\[
+\frac{BC}{\sin\widehat{BAC}}=
+\frac{CA}{\sin\widehat{ABC}}=
+\frac{AB}{\sin\widehat{ACB}}.
+\]
+\end{propriete}
+\begin{demonstration}La hauteur relative à $AB$ vaut $AC\sin\widehat{BAC}$. Écrire l’aire avec chacun des trois angles puis diviser par les produits des côtés (tous non nuls) donne la relation des sinus.\end{demonstration}
+
+\section{Exercices et problèmes}
+\exo[Une base oblique]\label{t11s-c13-e01}
+Écrire $(5;1)$ dans la base $\vecu=(2;1)$, $\vecv=(1;-1)$.
+\begin{corrige}[exercice~\ref{t11s-c13-e01}]\label{sol-t11s-c13-e01}
+$2a+b=5$, $a-b=1$; $a=2,b=1$. Déterminant $-3\ne0$, donc base et unicité.
+\end{corrige}
+\exo[Produit scalaire]\label{t11s-c13-e02}
+Calculer le produit de $(2;-1)$ et $(3;4)$, leurs normes et le cosinus de leur angle.
+\begin{corrige}[exercice~\ref{t11s-c13-e02}]\label{sol-t11s-c13-e02}
+Produit $6-4=2$; normes $\sqrt5$ et $5$; cosinus $2/(5\sqrt5)$. Les deux vecteurs sont non nuls.
+\end{corrige}
+\exo[Triangle rectangle]\label{t11s-c13-e03}
+Pour $A(0;0),B(4;0),C(1;\sqrt3)$, déterminer l’angle en $A$ puis calculer $BC$.
+\begin{corrige}[exercice~\ref{t11s-c13-e03}]\label{sol-t11s-c13-e03}
+$AB=4$, $AC=2$, produit $4$. Cosinus $4/(4\times2)=1/2$, donc angle $\pi/3$. $BC^2=16+4-2\times4\times2\times1/2=12$, donc $BC=2\sqrt3$.
+\end{corrige}
+\exo[Médiane]\label{t11s-c13-e04}
+Dans un triangle, $AB=5$, $AC=7$, $BC=8$. Calculer la longueur de la médiane issue de $A$.
+\begin{corrige}[exercice~\ref{t11s-c13-e04}]\label{sol-t11s-c13-e04}
+$25+49=2AI^2+64/2$, donc $AI^2=21$, $AI=\sqrt{21}$. Les longueurs satisfont les inégalités triangulaires.
+\end{corrige}
+\exo[Une formule mal utilisée]\label{t11s-c13-e05}
+Dans la base $\vecu=(1;1)$, $\vecv=(1;-1)$, peut-on calculer le produit scalaire de deux vecteurs en multipliant directement leurs coordonnées dans cette base ?
+\begin{corrige}[exercice~\ref{t11s-c13-e05}]\label{sol-t11s-c13-e05}
+Pas avec la formule sans coefficients : $\vecu$ a coordonnées $(1;0)$ dans cette base, ce qui donnerait $1$ pour sa norme au carré au lieu de $2$. Il faut une base orthonormée, ou utiliser les produits des vecteurs de base.
+\end{corrige}
+\exo[Mesurer une aire]\label{t11s-c13-e06}
+Deux côtés d’une parcelle triangulaire mesurent $30$ m et $40$ m, avec angle compris $60\degre$. Calculer sa surface et son troisième côté.
+\begin{corrige}[exercice~\ref{t11s-c13-e06}]\label{sol-t11s-c13-e06}
+Aire $\tfrac12\times30\times40\times\sqrt3/2=300\sqrt3\ \mathrm{m}^2$. Troisième côté au carré $900+1600-1200=1300$, longueur $10\sqrt{13}$ m.
+\end{corrige}
+\begin{jemeteste}Je distingue une base quelconque d’un repère orthonormé; je choisis coordonnées, normes, angle ou projection selon les données.\end{jemeteste}
+\begin{notepourlaclasse}Le produit scalaire de vecteurs de coordonnées dans une base oblique est un piège utile. Faire établir les relations métriques avec Chasles et bilinéarité.\end{notepourlaclasse}

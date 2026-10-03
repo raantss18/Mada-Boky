@@ -1,0 +1,59 @@
+\bmtchapitre{Ensembles, applications et dénombrement}{Choisir entre produit, permutation, arrangement et combinaison; reconnaître injection, surjection et bijection.}{Données et probabilités}
+\label{t11s-c19}
+\begin{revision}Ensembles finis, union, intersection, complémentaire; multiplication et factorielle.\end{revision}
+\begin{automatismes}\exo\label{t11s-c19-auto}Lister les couples de $\{a,b\}\times\{1,2\}$. Calculer $4\times3\times2\times1$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c19-auto}]\label{sol-t11s-c19-auto}$(a,1),(a,2),(b,1),(b,2)$; $24$.\end{corrige}
+
+\section{Cardinal et opérations}
+\begin{definition}Le cardinal $|E|$ d’un ensemble fini est son nombre d’éléments. L’intersection contient les éléments communs; l’union ceux de l’un ou de l’autre; le complémentaire $\overline A$ est pris dans un ensemble de référence $E$ annoncé.\end{definition}
+\begin{propriete}Pour $A,B$ finis, $|A\cup B|=|A|+|B|-|A\cap B|$ et $|\overline A|=|E|-|A|$. Le principe du produit multiplie les nombres de choix successifs lorsque le nombre de possibilités à chaque étape est fixé pour tous les choix précédents.\end{propriete}
+\begin{demonstration}La somme des deux cardinaux compte deux fois l’intersection. Pour le produit, grouper les résultats par premier choix : chaque groupe a le même nombre de possibilités suivantes; répéter le raisonnement.\end{demonstration}
+\section{Applications entre ensembles finis}
+\begin{definition}Une application $f:E\to F$ associe à chaque élément de $E$ un unique élément de $F$. Elle est injective si deux éléments distincts ont des images distinctes; surjective si chaque élément de $F$ possède au moins un antécédent; bijective si elle est injective et surjective.\end{definition}
+\begin{propriete}Si $|E|=p,|F|=n$, avec $n\ge1$, il existe $n^p$ applications. Une injection exige $p\le n$; leur nombre est $n(n-1)\cdots(n-p+1)$ pour $p\ge1$, et $1$ pour $p=0$. Pour $p=n$, les bijections sont $n!$. Une surjection exige $p\ge n$ si $F$ est non vide.\end{propriete}
+\begin{demonstration}Une application choisit indépendamment une image parmi $n$ pour chacun des $p$ éléments. Une injection retire à chaque étape les images déjà utilisées. Une injection entre deux ensembles de même cardinal utilise toutes les images, donc elle est aussi surjective. La condition pour la surjection résulte du nombre d’images disponibles.\end{demonstration}
+\begin{remarque}La formule $n^p$ compte toutes les applications, pas seulement les surjections. Le programme demande de reconnaître la surjection, sans formule générale de comptage; les petits exemples peuvent être énumérés.\end{remarque}
+\section{Ordre et répétition}
+\begin{definition}$n!=1\times2\times\cdots\times n$, avec $0!=1$. Une permutation ordonne tous les éléments distincts : $n!$ choix. Un arrangement de $p$ éléments distincts parmi $n$ est une liste ordonnée sans répétition : $A_n^p=n!/(n-p)!$. Une combinaison est un sous-ensemble de $p$ éléments : $\binom np=n!/[p!(n-p)!]$, pour $0\le p\le n$.\end{definition}
+\begin{demonstration}Chaque sous-ensemble de $p$ éléments donne exactement $p!$ ordres; les arrangements comptent chacun $p!$ fois, donc on divise par $p!$.\end{demonstration}
+\begin{exemple}Parmi $8$ élèves, un podium de trois places se compte par $8\times7\times6=336$; un groupe de trois élèves se compte par $\binom83=56$. Un code de trois chiffres avec répétition autorisée a $10^3=1000$ possibilités, si le zéro initial est accepté.\end{exemple}
+\begin{methode}{poser trois questions}L’ordre distingue-t-il deux résultats ? La répétition est-elle autorisée ? Choisit-on tous les éléments ou seulement certains ? Donner un exemple de résultat permet de choisir le bon univers de comptage.\end{methode}
+
+\section{Exercices et problèmes}
+\exo[Union]\label{t11s-c19-e01}
+Dans un groupe de $40$ élèves, $25$ pratiquent le football, $18$ le basket et $10$ les deux. Combien pratiquent au moins un de ces sports ? Aucun ?
+\begin{corrige}[exercice~\ref{t11s-c19-e01}]\label{sol-t11s-c19-e01}
+Union $25+18-10=33$; complément $40-33=7$. Football seulement $15$, basket seulement $8$, ce qui vérifie le total.
+\end{corrige}
+\exo[Codes]\label{t11s-c19-e02}
+Compter les codes de quatre chiffres avec répétition autorisée, puis sans répétition, si le premier chiffre peut être zéro. Recommencer si zéro est interdit au premier rang.
+\begin{corrige}[exercice~\ref{t11s-c19-e02}]\label{sol-t11s-c19-e02}
+Zéro initial permis : $10^4=10000$; sans répétition $10\times9\times8\times7=5040$. Zéro initial interdit : $9\times10^3=9000$; sans répétition $9\times9\times8\times7=4536$.
+\end{corrige}
+\exo[Responsabilités]\label{t11s-c19-e03}
+Parmi $12$ personnes, choisir un président et un secrétaire distincts, puis un comité de trois personnes sans fonctions distinctes.
+\begin{corrige}[exercice~\ref{t11s-c19-e03}]\label{sol-t11s-c19-e03}
+Président/secrétaire : $12\times11=132$. Comité : $\binom{12}3=220$. Les deux choix sont deux questions séparées.
+\end{corrige}
+\exo[Applications]\label{t11s-c19-e04}
+Pour $E=\{1,2,3\}$ et $F=\{a,b\}$, compter les applications et les injections; compter les surjections par retrait des applications constantes.
+\begin{corrige}[exercice~\ref{t11s-c19-e04}]\label{sol-t11s-c19-e04}
+$2^3=8$ applications, aucune injection. Deux applications constantes ne sont pas surjectives; toutes les autres atteignent les deux éléments : $6$ surjections.
+\end{corrige}
+\exo[Frontières]\label{t11s-c19-e05}
+Expliquer $\binom n0=\binom nn=1$ et $\binom np=\binom n{n-p}$.
+\begin{corrige}[exercice~\ref{t11s-c19-e05}]\label{sol-t11s-c19-e05}
+Un seul sous-ensemble vide et un seul égal à l’ensemble. Le complémentaire associe bijectivement les sous-ensembles de taille $p$ à ceux de taille $n-p$.
+\end{corrige}
+\exo[Choix mixtes]\label{t11s-c19-e06}
+Un groupe contient $5$ filles et $4$ garçons. Compter les comités de trois élèves comprenant exactement deux filles, puis au moins une fille.
+\begin{corrige}[exercice~\ref{t11s-c19-e06}]\label{sol-t11s-c19-e06}
+Exactement deux : $\binom52\binom41=40$. Au moins une : $\binom93-\binom43=84-4=80$. Les élèves sont distincts, et l’ordre ne compte pas.
+\end{corrige}
+\exo[Listes ou groupes]\label{t11s-c19-e07}
+Un élève calcule un comité de trois parmi huit par $8\times7\times6$. Expliquer précisément le surcomptage et réparer.
+\begin{corrige}[exercice~\ref{t11s-c19-e07}]\label{sol-t11s-c19-e07}
+Chaque comité apparaît sous $3!=6$ ordres différents; diviser $336$ par $6$ donne $56$. Il ne faut pas diviser par $3$, car trois personnes ont six ordres.
+\end{corrige}
+\begin{jemeteste}Je définis un résultat avant de compter et je contrôle les frontières $p=0$ et $p=n$.\end{jemeteste}
+\begin{notepourlaclasse}Faire représenter d’abord les petites situations par arbres ou tableaux. Éviter les formules de surjection générales et les variables aléatoires qui ne font pas partie de ce chapitre.\end{notepourlaclasse}

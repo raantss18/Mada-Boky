@@ -1,0 +1,75 @@
+\bmtchapitre{Boucles et organigrammes}{Exécuter et construire une boucle, produire un organigramme et justifier la terminaison d’un algorithme simple.}{Algèbre}
+\label{t11s-c07}
+\begin{revision}Affectation, tests, reste de division euclidienne et calcul de sommes simples.\end{revision}
+\begin{automatismes}\exo\label{t11s-c07-auto}Calculer le reste de $17$ par $5$. Si $a=3$, puis $a\leftarrow a+2$, quelle est sa valeur ? Calculer $1+2+3+4$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c07-auto}]\label{sol-t11s-c07-auto}Reste $2$; nouvelle valeur $5$; somme $10$.\end{corrige}
+
+\section{Exécuter sans sauter une instruction}
+\begin{definition}Une affectation $a\leftarrow E$ remplace la valeur de $a$ par la valeur actuelle de $E$. Elle ne constitue pas une égalité à résoudre. Une boucle « pour » parcourt une liste d’indices; une boucle « tant que » répète tant que sa condition est vraie. Le test de « tant que » précède chaque tour, y compris le premier.\end{definition}
+\begin{exemple}[additionner les premiers entiers]
+\begin{tabular}{l}
+Lire un entier $n\ge0$\\
+$S\leftarrow0$\\
+Pour $k$ allant de $1$ à $n$\\
+\quad $S\leftarrow S+k$\\
+Fin pour\\
+Afficher $S$
+\end{tabular}
+Pour $n=4$, les valeurs successives de $S$ sont $0,1,3,6,10$. Si $n=0$, aucun tour n’est effectué et la somme vide vaut $0$.
+\end{exemple}
+\begin{propriete}[invariant de la somme]Après le tour d’indice $k$, $S=1+\cdots+k$.\end{propriete}
+\begin{demonstration}Avant le premier tour, $S=0$. Si la somme est correcte au tour précédent, l’ajout de $k$ donne celle des $k$ premiers entiers. Une récurrence justifie chaque tour; après $n$ tours, le résultat annoncé est obtenu.\end{demonstration}
+\section{Un organigramme avec retour}
+L’organigramme suivant calcule la même somme. Le losange est un test; les rectangles sont des affectations; les flèches indiquent l’ordre d’exécution.
+\begin{visualisation}[le test décide de poursuivre]
+\begin{center}\begin{tikzpicture}[node distance=9mm, every node/.style={font=\small}, process/.style={draw,rectangle,align=center,minimum width=37mm,minimum height=8mm},test/.style={draw,diamond,aspect=2,inner sep=2pt}]
+\node[process](init){Lire $n\in\N$\\$S\leftarrow0$, $k\leftarrow1$};
+\node[test,below=of init](test){$k\le n$ ?};
+\node[process,below=of test](add){$S\leftarrow S+k$\\$k\leftarrow k+1$};
+\node[process,right=20mm of test](end){Afficher $S$};
+\draw[->](init)--(test);\draw[->](test)--node[right]{oui}(add);
+\draw[->](test)--node[above]{non}(end);
+\draw[->](add.west)--++(-12mm,0)|-(test.west);
+\end{tikzpicture}\end{center}
+Le compteur augmente d’une unité et finit par dépasser $n$. Le nombre de tours est fini.
+\end{visualisation}
+\section{Boucle conditionnelle et terminaison}
+\begin{exemple}[atteindre un seuil]
+Avec $u\leftarrow1$, $n\leftarrow0$, tant que $u<20$, faire $u\leftarrow2u$ puis $n\leftarrow n+1$. Les valeurs de $u$ sont $1,2,4,8,16,32$; la sortie est $n=5$. Après $n$ tours, $u=2^n$. La suite des puissances dépasse $20$ : l’arrêt est justifié.
+\end{exemple}
+\begin{avertissement}Si le corps ne modifie pas ce qui intervient dans le test, la boucle peut être infinie. Pour permuter deux valeurs, $a\leftarrow b$ puis $b\leftarrow a$ ne convient pas : la première valeur de $a$ a été perdue. Utiliser une variable temporaire.\end{avertissement}
+\begin{methode}{contrôler un algorithme}Préciser les entrées autorisées; dresser une table d’exécution; expliquer ce qui reste vrai après chaque tour (invariant); expliquer pourquoi le test finit par être faux (terminaison); interpréter la sortie et les cas limites.\end{methode}
+
+\section{Exercices et problèmes}
+\exo[Suivre les valeurs]\label{t11s-c07-e01}
+Exécuter pour $n=3$ : $u\leftarrow2$; pour $k=1$ à $n$, $u\leftarrow3u-1$. Donner les valeurs et la sortie.
+\begin{corrige}[exercice~\ref{t11s-c07-e01}]\label{sol-t11s-c07-e01}
+Valeurs $2,5,14,41$. La sortie est $41$ après exactement trois mises à jour.
+\end{corrige}
+\exo[Somme de carrés]\label{t11s-c07-e02}
+Écrire un algorithme calculant $1^2+\cdots+n^2$ pour $n\in\N$. Tester $n=0$ et $n=3$.
+\begin{corrige}[exercice~\ref{t11s-c07-e02}]\label{sol-t11s-c07-e02}
+Initialiser $S=0$; pour $k=1$ à $n$, affecter $S\leftarrow S+k^2$; afficher $S$. Sorties $0$ et $14$. Invariant : somme des carrés des indices déjà parcourus.
+\end{corrige}
+\exo[Échanger]\label{t11s-c07-e03}
+Avec $a=4,b=7$, exécuter $a\leftarrow b$, $b\leftarrow a$. Réparer.
+\begin{corrige}[exercice~\ref{t11s-c07-e03}]\label{sol-t11s-c07-e03}
+On obtient $a=7,b=7$. Réparation : $t\leftarrow a$, $a\leftarrow b$, $b\leftarrow t$; résultat $a=7,b=4$.
+\end{corrige}
+\exo[Premier seuil]\label{t11s-c07-e04}
+Exécuter $u\leftarrow3,n\leftarrow0$; tant que $u\le100$, $u\leftarrow2u$, $n\leftarrow n+1$. Quelle différence ferait le test $u<96$ ?
+\begin{corrige}[exercice~\ref{t11s-c07-e04}]\label{sol-t11s-c07-e04}
+Valeurs $3,6,12,24,48,96,192$; sortie $n=6$. Avec $u<96$, arrêt à $96$ et $n=5$. Le signe strict change le traitement du seuil atteint.
+\end{corrige}
+\exo[Une boucle sans fin]\label{t11s-c07-e05}
+On initialise $u=1$ et on répète $u\leftarrow(u+1)/2$ tant que $u<2$. La boucle s’arrête-t-elle en calcul exact ?
+\begin{corrige}[exercice~\ref{t11s-c07-e05}]\label{sol-t11s-c07-e05}
+Non : $u=1$ reste invariant, car $(1+1)/2=1$. Le test reste vrai. La table d’un seul tour suggère l’erreur et l’invariant la prouve.
+\end{corrige}
+\exo[Dessiner]\label{t11s-c07-e06}
+Transformer l’algorithme de la somme des carrés en organigramme avec un test avant la mise à jour. Indiquer les deux branches et l’actualisation de $k$.
+\begin{corrige}[exercice~\ref{t11s-c07-e06}]\label{sol-t11s-c07-e06}
+Lire $n$; initialiser $S=0,k=1$; tester $k\le n$. Oui : $S\leftarrow S+k^2$, $k\leftarrow k+1$, retour au test. Non : afficher $S$ et terminer. Les tests $n=0,3$ donnent $0,14$.
+\end{corrige}
+\begin{jemeteste}Je vérifie l’initialisation, le premier et le dernier tour, le compteur et le sens du test.\end{jemeteste}
+\begin{notepourlaclasse}Faire d’abord exécuter à la main. Le pseudo-code suffit; les invariants sont des justifications accessibles, sans cours de complexité. Relier ensuite aux algorithmes d’Euclide et de suites.\end{notepourlaclasse}

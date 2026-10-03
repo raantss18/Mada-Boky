@@ -1,0 +1,71 @@
+\bmtchapitre{Logique et raisonnement}{Formuler et nier des propositions, distinguer réciproque et contraposée et construire une démonstration ou un contre-exemple.}{Algèbre}
+\label{t11s-c06}
+\begin{revision}Comparer des nombres, reconnaître les entiers pairs et résoudre une équation élémentaire.\end{revision}
+\begin{automatismes}\exo\label{t11s-c06-auto}Écrire trois entiers pairs. L’affirmation « $3^2=6$ » est-elle vraie ? Résoudre $x^2=4$ dans $\R$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c06-auto}]\label{sol-t11s-c06-auto}Par exemple $0,2,4$; affirmation fausse; solutions $-2$ et $2$.\end{corrige}
+
+\section{Propositions et connecteurs}
+\begin{definition}Une proposition est un énoncé ayant une valeur de vérité. $P\wedge Q$ signifie « $P$ et $Q$ »; $P\vee Q$ signifie « $P$ ou $Q$ », au moins une étant vraie (ou inclusif). $\neg P$ est la négation. L’implication $P\Rightarrow Q$ est fausse seulement lorsque $P$ est vraie et $Q$ fausse. L’équivalence $P\Leftrightarrow Q$ signifie les deux implications.\end{definition}
+\begin{center}\begin{tabular}{cc|cccc}\toprule
+$P$&$Q$&$P\wedge Q$&$P\vee Q$&$P\Rightarrow Q$&$P\Leftrightarrow Q$\\\midrule
+V&V&V&V&V&V\\V&F&F&V&F&F\\F&V&F&V&V&F\\F&F&F&F&V&V\\\bottomrule
+\end{tabular}\end{center}
+\begin{propriete}[négation et contraposée]
+$\neg(P\wedge Q)\Leftrightarrow(\neg P\vee\neg Q)$;
+$\neg(P\vee Q)\Leftrightarrow(\neg P\wedge\neg Q)$.
+La contraposée de $P\Rightarrow Q$ est $\neg Q\Rightarrow\neg P$ : elle est équivalente à l’implication initiale. La réciproque $Q\Rightarrow P$ ne l’est pas en général.
+\end{propriete}
+\begin{demonstration}Les deux implications $P\Rightarrow Q$ et $\neg Q\Rightarrow\neg P$ sont fausses exactement dans le cas $P$ vraie, $Q$ fausse; elles ont donc la même table. Les lois de négation se vérifient sur les quatre lignes.\end{demonstration}
+\begin{exemple}« Si un entier est divisible par $6$, il est divisible par $3$ » est vrai. Sa réciproque est fausse : $3$ est divisible par $3$, mais pas par $6$. Sa contraposée, « s’il n’est pas divisible par $3$, il n’est pas divisible par $6$ », est vraie.\end{exemple}
+\section{Quantifier et nier}
+\begin{definition}$\forall x\in E$ signifie « pour tout $x$ de $E$ »; $\exists x\in E$ signifie « il existe au moins un $x$ de $E$ ». Le domaine $E$ fait partie de l’énoncé.\end{definition}
+\begin{propriete}
+$\neg(\forall x\in E, P(x))\Leftrightarrow\exists x\in E,\neg P(x)$.
+De même, $\neg(\exists x\in E,P(x))\Leftrightarrow\forall x\in E,\neg P(x)$.
+\end{propriete}
+\begin{demonstration}Dire que tous les éléments vérifient $P$ est faux exactement lorsqu’au moins un élément ne la vérifie pas. Dire qu’il en existe un est faux lorsque tous échouent.\end{demonstration}
+\begin{exemple}$\forall x\in\R,\exists y\in\R,y>x$ est vrai : choisir $y=x+1$. $\exists y\in\R,\forall x\in\R,y>x$ est faux : pour le $y$ proposé, prendre $x=y$. L’ordre des quantificateurs change le sens.\end{exemple}
+\section{Choisir une preuve}
+\begin{methode}{trois voies}
+Preuve directe : partir des hypothèses et atteindre la conclusion. Contraposée : supposer la conclusion fausse et montrer l’hypothèse fausse. Absurde : supposer l’hypothèse vraie et la conclusion fausse, puis obtenir une contradiction. Pour réfuter une affirmation universelle, un contre-exemple suffit; pour la prouver, des exemples ne suffisent pas.
+\end{methode}
+\begin{exemple}[une preuve directe]Si $n=2k$ avec $k\in\Z$, alors $n^2=4k^2=2(2k^2)$ est pair. Pour la réciproque, si $n$ est impair, $n=2k+1$, et $n^2=2(2k^2+2k)+1$ est impair : contraposée.\end{exemple}
+
+\section{Exercices et problèmes}
+\exo[Nier]\label{t11s-c06-e01}
+Nier : « $x>2$ et $x<5$ »; « tout entier est pair »; « il existe un réel dont le carré est $-1$ ».
+\begin{corrige}[exercice~\ref{t11s-c06-e01}]\label{sol-t11s-c06-e01}
+$x\le2$ ou $x\ge5$; il existe un entier non pair; pour tout réel $x$, $x^2\ne-1$.
+\end{corrige}
+\exo[Implications]\label{t11s-c06-e02}
+Pour « si $x>2$, alors $x^2>4$ » ($x\in\R$), écrire la réciproque et la contraposée; déterminer leur vérité.
+\begin{corrige}[exercice~\ref{t11s-c06-e02}]\label{sol-t11s-c06-e02}
+Initiale vraie. Réciproque « si $x^2>4$, alors $x>2$ » fausse avec $x=-3$. Contraposée « si $x^2\le4$, alors $x\le2$ » vraie.
+\end{corrige}
+\exo[Un ou inclusif]\label{t11s-c06-e03}
+Un élève écrit : « $ab=0$ signifie qu’exactement un des deux facteurs est nul ». Corriger et donner un contre-exemple.
+\begin{corrige}[exercice~\ref{t11s-c06-e03}]\label{sol-t11s-c06-e03}
+Dans $\R$, $ab=0\Leftrightarrow a=0$ ou $b=0$; les deux peuvent être nuls. Prendre $a=b=0$.
+\end{corrige}
+\exo[Ordre des quantificateurs]\label{t11s-c06-e04}
+Comparer $\forall n\in\N,\exists m\in\N,m=n+1$ et $\exists m\in\N,\forall n\in\N,m=n+1$. Nier chacune.
+\begin{corrige}[exercice~\ref{t11s-c06-e04}]\label{sol-t11s-c06-e04}
+La première est vraie; la seconde fausse (les choix $n=0$ et $1$ imposeraient $m=1$ et $2$). Négations : $\exists n,\forall m,m\ne n+1$; et $\forall m,\exists n,m\ne n+1$.
+\end{corrige}
+\exo[Une equivalence]\label{t11s-c06-e05}
+Montrer pour $x\in\R$ que $|x|=x$ si et seulement si $x\ge0$.
+\begin{corrige}[exercice~\ref{t11s-c06-e05}]\label{sol-t11s-c06-e05}
+Si $x\ge0$, définition de la valeur absolue : $|x|=x$. Si $|x|=x$, le membre gauche est positif ou nul, donc $x\ge0$. Les deux sens sont nécessaires.
+\end{corrige}
+\exo[Faux ou mal formulé]\label{t11s-c06-e06}
+« Pour tout réel $x$, $1/x>0$ ». Identifier d’abord le défaut de domaine, puis réfuter la version sur $\R^*$.
+\begin{corrige}[exercice~\ref{t11s-c06-e06}]\label{sol-t11s-c06-e06}
+L’expression n’existe pas en $0$; le domaine doit exclure $0$. Sur $\R^*$, $x=-1$ donne $1/x=-1<0$.
+\end{corrige}
+\exo[Divisibilité]\label{t11s-c06-e07}
+Démontrer que la somme de deux entiers impairs est paire. La réciproque « si la somme est paire, les deux nombres sont impairs » est-elle vraie ?
+\begin{corrige}[exercice~\ref{t11s-c06-e07}]\label{sol-t11s-c06-e07}
+$(2k+1)+(2\ell+1)=2(k+\ell+1)$ est pair. Réciproque fausse : $2+4=6$ avec deux entiers pairs.
+\end{corrige}
+\begin{jemeteste}Je précise le domaine, je nie chaque quantificateur et je prouve les deux sens d’une équivalence.\end{jemeteste}
+\begin{notepourlaclasse}Insister sur la distinction entre une implication logique et un raisonnement causal. Ne pas récompenser une succession d’exemples comme preuve d’un universel.\end{notepourlaclasse}

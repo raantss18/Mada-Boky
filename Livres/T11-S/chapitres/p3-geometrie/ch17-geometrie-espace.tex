@@ -1,0 +1,67 @@
+\bmtchapitre{Géométrie dans l’espace}{Utiliser un repère direct, calculer produits scalaire et vectoriel et établir les équations des droites et des plans.}{Géométrie}
+\label{t11s-c17}
+\begin{revision}Coordonnées et produit scalaire du plan; systèmes linéaires; trigonométrie et déterminants à deux dimensions.\end{revision}
+\begin{automatismes}\exo\label{t11s-c17-auto}Calculer $1^2+2^2+2^2$. Résoudre $x+y=3$, $x-y=1$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c17-auto}]\label{sol-t11s-c17-auto}$9$; $(x;y)=(2;1)$.\end{corrige}
+
+\section{Repérage et orientation}
+\begin{definition}Un repère de l’espace comporte une origine et trois vecteurs de base non coplanaires. Un repère orthonormé utilise trois vecteurs unitaires orthogonaux. L’orientation directe est celle où le produit vectoriel du premier et du deuxième vecteur de base donne le troisième.\end{definition}
+\begin{exemple}[un cube unité]On repère un cube par $O(0;0;0)$, $A(1;0;0)$, $B(0;1;0)$, $C(0;0;1)$. Le sommet opposé à $O$ a coordonnées $(1;1;1)$ et la grande diagonale vaut $\sqrt3$. Une perspective cavalière aide à lire la configuration, mais ses longueurs dessinées ne donnent pas les longueurs de l’espace.\end{exemple}
+\begin{propriete}[produit scalaire]Dans un repère orthonormé, pour $\vecu=(u_1;u_2;u_3)$ et $\vecv=(v_1;v_2;v_3)$, $\vecu\cdot\vecv=u_1v_1+u_2v_2+u_3v_3$. La norme vaut $\sqrt{u_1^2+u_2^2+u_3^2}$, et le produit géométrique vaut $\norme{\vecu}\norme{\vecv}\cos\theta$.\end{propriete}
+\section{Produit vectoriel}
+\begin{definition}[repère orthonormé direct]
+\[
+\vecu\wedge\vecv=(u_2v_3-u_3v_2\,;\,
+ u_3v_1-u_1v_3\,;\,u_1v_2-u_2v_1).
+\]
+Ce vecteur est orthogonal aux deux vecteurs, et son sens dépend de l’ordre. Si les deux vecteurs sont non colinéaires, le triplet $(\vecu,\vecv,\vecu\wedge\vecv)$ est direct.
+\end{definition}
+\begin{propriete}$\vecv\wedge\vecu=-\vecu\wedge\vecv$; sa norme vaut $\norme{\vecu}\norme{\vecv}\sin\theta$ pour $\theta\in[0;\pi]$. Elle est l’aire du parallélogramme, donc la moitié donne l’aire du triangle. Le produit est nul exactement lorsque les vecteurs sont colinéaires.\end{propriete}
+\begin{demonstration}Le produit scalaire avec chaque facteur s’annule en développant les coordonnées. Développer son carré donne $\norme{\vecu\wedge\vecv}^2=\norme{\vecu}^2\norme{\vecv}^2-(\vecu\cdot\vecv)^2$, soit la formule avec $\sin^2\theta$. Le sinus est positif ou nul dans $[0;\pi]$. L’orientation relève de la convention du repère direct.\end{demonstration}
+\begin{exemple}Pour $\vecu=(1;2;0)$ et $\vecv=(0;1;3)$, $\vecu\wedge\vecv=(6;-3;1)$. Produits scalaires $6-6=0$ et $-3+3=0$. Norme $\sqrt{46}$, aire du triangle $\sqrt{46}/2$.\end{exemple}
+\section{Droites et plans}
+\begin{definition}La droite passant par $A(a;b;c)$ de vecteur directeur non nul $(u;v;w)$ a pour équations paramétriques $x=a+ut$, $y=b+vt$, $z=c+wt$, $t\in\R$. Dans l’espace, une seule équation cartésienne linéaire ne décrit pas une droite; on utilise un système de deux équations de plans non parallèles.\end{definition}
+\begin{definition}Un plan passant par $A$ et dirigé par deux vecteurs non colinéaires $\vecu,\vecv$ est décrit par $\vect{AM}=s\vecu+t\vecv$, $s,t\in\R$. Pour un vecteur normal non nul $\vecn=(\alpha;\beta;\gamma)$, il a une équation $\alpha x+\beta y+\gamma z+\delta=0$.\end{definition}
+\begin{demonstration}L’équation normale résulte de $\vecn\cdot\vect{AM}=0$, avec $\delta=-\alpha a-\beta b-\gamma c$. Pour trois points non alignés, leur produit vectoriel fournit un vecteur normal.\end{demonstration}
+\begin{methode}{droite et plan}Substituer la représentation paramétrique de la droite dans l’équation du plan. Une équation linéaire non constante donne un point unique; une égalité impossible donne aucun point (parallélisme strict); une identité donne la droite incluse dans le plan.\end{methode}
+\begin{propriete}[distance à un plan]Pour $P:\alpha x+\beta y+\gamma z+\delta=0$, la distance de $A(a;b;c)$ à $P$ vaut $|\alpha a+\beta b+\gamma c+\delta|/\sqrt{\alpha^2+\beta^2+\gamma^2}$.\end{propriete}
+\begin{demonstration}La projection orthogonale $H$ de $A$ vérifie $\vect{HA}=\lambda\vecn$. Remplacer dans l’équation du plan donne la longueur $AH$ égale à la formule. Le vecteur normal non nul permet la division.\end{demonstration}
+
+\section{Exercices et problèmes}
+\exo[Cube]\label{t11s-c17-e01}
+Dans le cube unité, donner les coordonnées du milieu de la grande diagonale issue de $O$ et sa distance à $O$.
+\begin{corrige}[exercice~\ref{t11s-c17-e01}]\label{sol-t11s-c17-e01}
+Milieu $(1/2;1/2;1/2)$, distance $\sqrt3/2$.
+\end{corrige}
+\exo[Produits]\label{t11s-c17-e02}
+Pour $\vecu=(1;0;1)$, $\vecv=(0;2;1)$, calculer le produit scalaire, le produit vectoriel et l’aire du triangle engendré.
+\begin{corrige}[exercice~\ref{t11s-c17-e02}]\label{sol-t11s-c17-e02}
+Scalaire $1$; vectoriel $(-2;-1;2)$, norme $3$; aire $3/2$. Les deux produits scalaires de contrôle avec le vectoriel valent $0$.
+\end{corrige}
+\exo[Plan par trois points]\label{t11s-c17-e03}
+Déterminer une équation du plan passant par $A(1;0;0),B(0;1;0),C(0;0;1)$ et une représentation paramétrique.
+\begin{corrige}[exercice~\ref{t11s-c17-e03}]\label{sol-t11s-c17-e03}
+$\vect{AB}=(-1;1;0)$, $\vect{AC}=(-1;0;1)$, produit vectoriel $(1;1;1)\ne0$. Plan $x+y+z=1$. Paramétrique $(x;y;z)=(1-s-t;s;t)$, $s,t\in\R$.
+\end{corrige}
+\exo[Intersection]\label{t11s-c17-e04}
+La droite $x=t,y=1+t,z=2-t$ coupe-t-elle le plan $x+y+z=4$ ? Calculer le point.
+\begin{corrige}[exercice~\ref{t11s-c17-e04}]\label{sol-t11s-c17-e04}
+Somme $3+t$, donc $t=1$. Point $(1;2;1)$. Le coefficient en $t$ est non nul, intersection unique.
+\end{corrige}
+\exo[Droite cartésienne]\label{t11s-c17-e05}
+Montrer que le système $x+y=1$, $z=2x$ décrit une droite et en donner un point et un vecteur directeur.
+\begin{corrige}[exercice~\ref{t11s-c17-e05}]\label{sol-t11s-c17-e05}
+Poser $x=t$ : $(t;1-t;2t)=(0;1;0)+t(1;-1;2)$. Le directeur est non nul; les normales $(1;1;0)$ et $(-2;0;1)$ ne sont pas colinéaires.
+\end{corrige}
+\exo[Parallèle ou incluse]\label{t11s-c17-e06}
+Étudier l’intersection de $x=t,y=1-t,z=2$ avec les plans $x+y+z=3$ et $x+y+z=4$.
+\begin{corrige}[exercice~\ref{t11s-c17-e06}]\label{sol-t11s-c17-e06}
+La somme vaut constamment $3$. La droite est incluse dans le premier; aucune intersection avec le second, auquel elle est strictement parallèle.
+\end{corrige}
+\exo[Distance]\label{t11s-c17-e07}
+Calculer la distance de $A(1;2;3)$ au plan $x+2y+2z=2$.
+\begin{corrige}[exercice~\ref{t11s-c17-e07}]\label{sol-t11s-c17-e07}
+Valeur du membre $1+4+6-2=9$, norme du normal $3$, donc distance $3$. Projection $H=A-(9/9)(1;2;2)=(0;0;1)$, qui appartient au plan et vérifie $AH=3$.
+\end{corrige}
+\begin{jemeteste}Je précise le repère direct pour le produit vectoriel, je distingue un vecteur directeur d’un normal et je vérifie les équations sur les points.\end{jemeteste}
+\begin{notepourlaclasse}Manipuler un cube avant les coordonnées. Deux équations cartésiennes pour une droite répondent au programme sans entretenir l’ambiguïté d’une « équation unique ». La formule de distance complète les problèmes métriques.\end{notepourlaclasse}

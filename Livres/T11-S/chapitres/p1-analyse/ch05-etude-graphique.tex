@@ -1,0 +1,77 @@
+\bmtchapitre{Étude complète et représentation graphique}{Assembler domaines, limites, dérivée, points remarquables et positions relatives pour tracer une courbe justifiée.}{Analyse}
+\label{t11s-c05}
+\begin{revision}Les quatre chapitres précédents; signe d’un polynôme; équations de droites.\end{revision}
+\begin{automatismes}\exo\label{t11s-c05-auto}Factoriser $x^2-2x-3$. Calculer $f(0)$ pour $f(x)=x+1+2/(x-1)$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c05-auto}]\label{sol-t11s-c05-auto}$(x-3)(x+1)$; $f(0)=-1$.\end{corrige}
+
+\section{Organiser l’étude}
+\begin{methode}{une étude en six étapes}
+Domaine et éventuelle réduction par symétrie/périodicité; limites et branches infinies; dérivée et variations; points d’intersection avec les axes; tangentes ou points particuliers; tracé cohérent avec l’ensemble des résultats. Pour comparer deux courbes, étudier le signe de leur différence sur leur domaine commun.
+\end{methode}
+\begin{exemple}[une fraction rationnelle]
+Soit $f(x)=\dfrac{x^2+1}{x-1}=x+1+\dfrac2{x-1}$.
+Le domaine est $\R\setminus\{1\}$. Les limites en $1^-$ et $1^+$ sont $-\infty$ et $+\infty$. Aux deux infinis, l’asymptote est $y=x+1$.
+\[
+f'(x)=1-\frac2{(x-1)^2}
+=\frac{(x-1)^2-2}{(x-1)^2}.
+\]
+Elle s’annule en $a=1-\sqrt2$ et $b=1+\sqrt2$. Elle est positive en dehors de $[a;b]$ et négative à l’intérieur, en séparant les deux intervalles du domaine. Les valeurs sont $f(a)=2-2\sqrt2$ et $f(b)=2+2\sqrt2$.
+\begin{center}\begin{tabular}{c|ccccccc}
+$x$&$-\infty$&&$a$&&$1$&&\\
+$f'$&&$+$&$0$&$-$&non défini&&\\
+$f$&$-\infty$&$\nearrow$&$2-2\sqrt2$&$\searrow$&$-\infty$&&\\\hline
+$x$&$1$&&$b$&&$+\infty$&&\\
+$f'$&non défini&$-$&$0$&$+$&&&\\
+$f$&$+\infty$&$\searrow$&$2+2\sqrt2$&$\nearrow$&$+\infty$&&
+\end{tabular}\end{center}
+$f(0)=-1$. Le numérateur $x^2+1$ ne s’annule jamais, donc la courbe ne coupe pas l’axe des abscisses. Pour tout $h\ne0$, $f(1+h)+f(1-h)=4$, et le domaine est symétrique par rapport à $1$ : $(1;2)$ est centre de symétrie.
+\end{exemple}
+\begin{visualisation}[deux branches, quatre variations]
+\begin{center}\begin{tikzpicture}\begin{axis}[width=10cm,height=7cm,axis lines=middle,xmin=-5,xmax=7,ymin=-6,ymax=10,xlabel={$x$},ylabel={$y$},samples=160]
+\addplot[bmtSarcelle,thick,domain=-5:0.73]{x+1+2/(x-1)};
+\addplot[bmtSarcelle,thick,domain=1.27:7]{x+1+2/(x-1)};
+\addplot[bmtOcre,dashed,domain=-5:7]{x+1};
+\draw[bmtOcre,dashed](axis cs:1,-6)--(axis cs:1,10);
+\end{axis}\end{tikzpicture}\end{center}
+Le maximum de la branche gauche et le minimum de la branche droite ne sont pas les mêmes points. L’asymptote verticale sépare le domaine.
+\end{visualisation}
+\section{Point d’inflexion et tangente}
+\begin{definition}[point d’inflexion]Un point d’inflexion est un point où la courbe change de convexité. Pour les fonctions deux fois dérivables étudiées ici, un changement de signe de $f''$ de part et d’autre fournit un critère suffisant (admis). La convexité désigne l’allure courbée vers le haut, la concavité vers le bas.\end{definition}
+\begin{exemple}Pour $g(x)=x^3$, $g''(x)=6x$ change de signe en $0$. L’origine est un point d’inflexion, et la tangente $y=0$ est traversée par la courbe. Pour $x^4$, $g''(0)=0$ mais $g''$ reste positive : pas d’inflexion en $0$.\end{exemple}
+\begin{avertissement}Annuler $f''$ ne suffit pas. Une courbe apparemment proche d’une droite ne prouve pas une asymptote. Une esquisse est un résumé de résultats déjà justifiés.\end{avertissement}
+\section{Comparer deux fonctions}
+Si $f-g>0$ sur un intervalle, $\Cf_f$ est au-dessus de $\Cf_g$; si $f-g<0$, elle est en dessous; les zéros de la différence donnent les intersections. Les unités des axes peuvent être différentes; préciser le repère pour les arguments métriques.
+
+\section{Exercices et problèmes}
+\exo[Une parabole]\label{t11s-c05-e01}
+Étudier complètement $f(x)=x^2-4x+3$ : domaine, limites, variations, axe et intersections avec les axes. Tracer.
+\begin{corrige}[exercice~\ref{t11s-c05-e01}]\label{sol-t11s-c05-e01}
+Domaine $\R$, limites $+\infty$ aux deux infinis. $f'=2x-4$; décroissance jusqu’à $2$, croissance ensuite; minimum $-1$. Forme $(x-2)^2-1$, axe $x=2$. Zéros $1,3$; ordonnée à l’origine $3$.
+\end{corrige}
+\exo[Courbe et droite]\label{t11s-c05-e02}
+Comparer $f(x)=x^2-4x+3$ et $g(x)=x-1$.
+\begin{corrige}[exercice~\ref{t11s-c05-e02}]\label{sol-t11s-c05-e02}
+$f-g=x^2-5x+4=(x-1)(x-4)$. Intersections $(1;0)$ et $(4;3)$. Parabole au-dessus à l’extérieur de $[1;4]$, en dessous sur $]1;4[$.
+\end{corrige}
+\exo[Un quotient simple]\label{t11s-c05-e03}
+Étudier $h(x)=\dfrac{2x+1}{x-1}$ : limites, variations, asymptotes, intersections et centre de symétrie.
+\begin{corrige}[exercice~\ref{t11s-c05-e03}]\label{sol-t11s-c05-e03}
+$h=2+3/(x-1)$, domaine $x\ne1$; limites $2$ aux infinis, $-\infty$ et $+\infty$ en $1^-,1^+$. $h'=-3/(x-1)^2<0$ sur chaque intervalle. Asymptotes $x=1,y=2$. Intersections $(-1/2;0)$ et $(0;-1)$; centre $(1;2)$ par la somme $h(1+t)+h(1-t)=4$.
+\end{corrige}
+\exo[Cubicité]\label{t11s-c05-e04}
+Étudier $p(x)=x^3-3x$, sa symétrie, ses extrema et son point d’inflexion. Donner sa tangente en $0$.
+\begin{corrige}[exercice~\ref{t11s-c05-e04}]\label{sol-t11s-c05-e04}
+Domaine $\R$, impaire. $p'=3(x-1)(x+1)$ : maximum local $(-1;2)$, minimum local $(1;-2)$. Limites $-\infty,+\infty$. $p''=6x$ change de signe en $0$; tangente $y=-3x$. Zéros $-\sqrt3,0,\sqrt3$.
+\end{corrige}
+\exo[Lecture argumentée]\label{t11s-c05-e05}
+Un élève affirme : « $f'(a)=0$, donc $f(a)$ est un maximum ». Donner deux contre-exemples différents.
+\begin{corrige}[exercice~\ref{t11s-c05-e05}]\label{sol-t11s-c05-e05}
+$x^2$ en $0$ a un minimum et dérivée nulle; $x^3$ en $0$ n’a aucun extremum et dérivée nulle. Le signe de part et d’autre est nécessaire pour le critère utilisé.
+\end{corrige}
+\exo[Oscillation]\label{t11s-c05-e06}
+Étudier $u(x)=2\cos x$ sur $[0;\pi]$, puis expliquer comment obtenir sa courbe sur $\R$.
+\begin{corrige}[exercice~\ref{t11s-c05-e06}]\label{sol-t11s-c05-e06}
+$u'=-2\sin x\le0$ et strictement négative sur $]0;\pi[$. Décroît de $2$ à $-2$; zéro $\pi/2$. La parité complète $[-\pi;\pi]$ et la période $2\pi$ permet les translations.
+\end{corrige}
+\begin{jemeteste}Pour vérifier mon tracé, je confronte chaque branche aux limites, chaque extremum au tableau et chaque intersection à son équation.\end{jemeteste}
+\begin{notepourlaclasse}Faire d’abord une étude commune puis demander une esquisse individuelle. La seconde dérivée sert ici au critère d’inflexion; ne pas exiger un cours général de convexité.\end{notepourlaclasse}

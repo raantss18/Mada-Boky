@@ -1,0 +1,39 @@
+\begingroup
+\chapter*{Évaluation : algèbre}\markboth{Évaluation : algèbre}{Évaluation : algèbre}\addcontentsline{toc}{chapter}{Évaluation : algèbre}
+\renewcommand{\thebmtexo}{DS2.\arabic{bmtexo}}
+\renewcommand{\theHbmtexo}{DS2.\arabic{bmtexo}}
+\setcounter{bmtexo}{0}
+\begin{devoir}[2 h — 20 points]
+Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\end{devoir}
+\exo[Logique et équations]\label{t11s-ds2-e01}\bareme{6 points}
+\begin{enumerate}\item Nier $\forall x\in\R,\exists y\in\R,y>x$ (1 point).
+\item Résoudre $(m-1)x^2-(m+1)x+2=0$ selon $m$ (3 points).
+\item Résoudre $\sqrt{x+6}=x$ (2 points).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds2-e01}]\label{sol-t11s-ds2-e01}
+1. $\exists x\in\R,\forall y\in\R,y\le x$.
+2. Factorisation $(x-1)((m-1)x-2)$ (1). Si $m=1$, seule racine $1$ (1). Sinon $1$ et $2/(m-1)$, coïncidant pour $m=3$ (1).
+3. $x\ge0$; $x^2-x-6=0$ donne $3,-2$, seule $3$ convient (conditions 1, résolution 1).
+\end{corrige}
+\exo[Système et arithmétique]\label{t11s-ds2-e02}\bareme{6 points}
+\begin{enumerate}\item Résoudre $x+y+z+t=10$, $x-y+z+t=6$, $x+y-z+t=4$, $x+y+z-t=2$ (3 points).
+\item Calculer par Euclide le PGCD de $840$ et $360$, puis leur PPCM (2 points).
+\item Convertir $45$ en binaire en montrant une vérification (1 point).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds2-e02}]\label{sol-t11s-ds2-e02}
+1. Différences à la première : $y=2,z=3,t=4$, puis $x=1$; vérifier les quatre égalités (opérations 1, tuple 1, vérification 1).
+2. $840=2\times360+120$, $360=3\times120$, PGCD $120$; PPCM $840\times360/120=2520$ (1+1).
+3. $45=(101101)_2=32+8+4+1$.
+\end{corrige}
+\exo[Suite et algorithme]\label{t11s-ds2-e03}\bareme{8 points}
+$u_0=10$, $u_{n+1}=0{,}5u_n+3$.
+\begin{enumerate}\item Calculer $u_1,u_2$ et expliquer pourquoi la suite n’est pas arithmétique (2 points).
+\item Poser $v_n=u_n-6$; établir une formule pour $u_n$ (2 points).
+\item Étudier variations et limite (2 points).
+\item Écrire un algorithme de calcul du premier rang $n$ tel que $u_n<6{,}1$; calculer ce rang (2 points).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds2-e03}]\label{sol-t11s-ds2-e03}
+1. $8,7$; différences $-2,-1$, non arithmétique (1+1).
+2. $v_{n+1}=0{,}5v_n$, $v_0=4$, donc $u_n=6+4(0{,}5)^n$ (1+1).
+3. Différence $-2(0{,}5)^n<0$, limite $6$ (1+1).
+4. Initialiser $u=10,n=0$; tant que $u\ge6{,}1$, mettre à jour $u\leftarrow0{,}5u+3,n\leftarrow n+1$. Terminaison par convergence vers $6$. $4/2^n<0{,}1$ équivaut à $2^n>40$; $2^5=32,2^6=64$, donc rang $6$ (algorithme 1, rang justifié 1).
+\end{corrige}
+\endgroup

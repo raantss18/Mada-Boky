@@ -1,0 +1,60 @@
+\bmtchapitre{Systèmes linéaires et pivot de Gauss}{Résoudre un système jusqu’à quatre inconnues et interpréter l’unicité, l’incompatibilité ou une famille de solutions.}{Algèbre}
+\label{t11s-c09}
+\begin{revision}Équations linéaires à deux inconnues; substitution; opérations sur les égalités.\end{revision}
+\begin{automatismes}\exo\label{t11s-c09-auto}Résoudre $2x=6$ et $x+y=5$ avec $x=3$. Une égalité $0=1$ peut-elle être vraie ?\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c09-auto}]\label{sol-t11s-c09-auto}$x=3$, $y=2$; $0=1$ est impossible.\end{corrige}
+
+\section{Transformer un système sans changer ses solutions}
+\begin{definition}Une solution d’un système est un tuple qui vérifie toutes les équations simultanément. Les coefficients sont fixés; les inconnues désignent les quantités à déterminer.\end{definition}
+\begin{propriete}[opérations élémentaires]On peut échanger deux équations, multiplier une équation par un réel non nul, ou ajouter à une équation un multiple d’une autre. Ces opérations conservent exactement les solutions.\end{propriete}
+\begin{demonstration}Chaque opération est réversible : échanger de nouveau, diviser par le coefficient non nul, ou soustraire le même multiple. Les systèmes avant et après sont donc équivalents.\end{demonstration}
+\begin{methode}{éliminer puis remonter}Choisir un coefficient non nul comme pivot, échanger des lignes si nécessaire, éliminer cette inconnue dans les lignes suivantes; recommencer avec les inconnues restantes. Quand le système est triangulaire, résoudre la dernière équation puis remonter. Ne jamais diviser par un pivot nul.\end{methode}
+\begin{exemple}[quatre inconnues]
+\[
+\begin{cases}
+x+y+z+t=10,\\x-y+z+t=6,\\x+y-z+t=4,\\x+y+z-t=2.
+\end{cases}
+\]
+Soustraire la première ligne aux trois autres donne $-2y=-4$, $-2z=-6$, $-2t=-8$. Ainsi $y=2,z=3,t=4$, puis $x=1$. Vérification : les quatre membres gauches valent $10,6,4,2$.
+\end{exemple}
+\section{Reconnaître les trois issues}
+\begin{exemple}[incompatibilité et liberté]
+Le système $x+y=2$, $2x+2y=5$ donne après élimination $0=1$ : aucune solution. Si la seconde équation est $2x+2y=4$, elle devient $0=0$, donc n’ajoute aucune contrainte; les solutions sont $(2-s;s)$ pour $s\in\R$.
+\end{exemple}
+\begin{avertissement}Une ligne $0=0$ ne signifie pas que toutes les inconnues sont nulles. Une ligne impossible rend tout le système incompatible. Une famille à paramètre doit conserver les autres équations.\end{avertissement}
+\section{Modéliser}
+Pour un problème concret, nommer les inconnues avec leurs unités, traduire chaque donnée en équation et contrôler ensuite les contraintes (positivité, intégralité, quantités disponibles). Une solution réelle algébrique peut ne pas convenir au contexte.
+
+\section{Exercices et problèmes}
+\exo[Éliminer]\label{t11s-c09-e01}
+Résoudre $x+y+z=6$, $2x-y+z=3$, $x+2y-z=2$.
+\begin{corrige}[exercice~\ref{t11s-c09-e01}]\label{sol-t11s-c09-e01}
+De la première, $z=6-x-y$. La seconde donne $x-2y=-3$, la troisième $2x+3y=8$. D’où $y=2,x=1,z=3$. Substitution vérifie $6,3,2$.
+\end{corrige}
+\exo[Quatre variables]\label{t11s-c09-e02}
+Résoudre $x+y=3$, $y+z=5$, $z+t=7$, $x+y+z+t=10$.
+\begin{corrige}[exercice~\ref{t11s-c09-e02}]\label{sol-t11s-c09-e02}
+$x=3-y$, $z=5-y$, $t=2+y$; la dernière devient $10=10$. Famille $(3-s;s;5-s;2+s)$, $s\in\R$, aucune unicité.
+\end{corrige}
+\exo[Incompatible]\label{t11s-c09-e03}
+Résoudre $x+2y=4$, $2x+4y=7$.
+\begin{corrige}[exercice~\ref{t11s-c09-e03}]\label{sol-t11s-c09-e03}
+La deuxième moins deux fois la première donne $0=-1$. Aucune solution.
+\end{corrige}
+\exo[Point de vente]\label{t11s-c09-e04}
+Une boutique vend quatre lots A, B, C, D. Les prix en milliers d’ariary, $a,b,c,d$, vérifient $a+b=9$, $b+c=11$, $c+d=13$, $a+2d=20$. Les déterminer.
+\begin{corrige}[exercice~\ref{t11s-c09-e04}]\label{sol-t11s-c09-e04}
+$a=9-b$, $c=11-b$, $d=2+b$. La dernière : $9-b+4+2b=20$, donc $b=7$, $a=2$, $c=4$, $d=9$. Prix $2000,7000,4000,9000$ ariary, tous positifs.
+\end{corrige}
+\exo[Pivot nul]\label{t11s-c09-e05}
+Résoudre $y+z=3$, $x+y=4$, $x+z=5$. Expliquer pourquoi il faut choisir une autre ligne si l’on souhaite un premier pivot en $x$.
+\begin{corrige}[exercice~\ref{t11s-c09-e05}]\label{sol-t11s-c09-e05}
+La première ligne a coefficient nul en $x$; échanger avec la deuxième. Ajouter les deux dernières relations puis utiliser la première donne $2x=6$, donc $x=3,y=1,z=2$.
+\end{corrige}
+\exo[Un paramètre]\label{t11s-c09-e06}
+Étudier selon $m$ le système $x+y=2$, $x+my=3$.
+\begin{corrige}[exercice~\ref{t11s-c09-e06}]\label{sol-t11s-c09-e06}
+Soustraction : $(m-1)y=1$. Si $m=1$, impossible. Sinon $y=1/(m-1)$ et $x=(2m-3)/(m-1)$, solution unique.
+\end{corrige}
+\begin{jemeteste}Je peux expliquer pourquoi chaque opération conserve les solutions et vérifier le tuple dans toutes les équations originales.\end{jemeteste}
+\begin{notepourlaclasse}Faire exécuter les opérations sur lignes avec leur notation explicite. La famille de solutions est importante : quatre équations ne garantissent pas quatre pivots ni l’unicité.\end{notepourlaclasse}

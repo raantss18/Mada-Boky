@@ -1,0 +1,40 @@
+\begingroup
+\chapter*{Évaluation : analyse}\markboth{Évaluation : analyse}{Évaluation : analyse}\addcontentsline{toc}{chapter}{Évaluation : analyse}
+\renewcommand{\thebmtexo}{DS1.\arabic{bmtexo}}
+\renewcommand{\theHbmtexo}{DS1.\arabic{bmtexo}}
+\setcounter{bmtexo}{0}
+\begin{devoir}[2 h — 20 points]
+Calculatrice autorisée. Justifier les réponses et préciser les domaines utiles. Les questions sont indépendantes sauf indication. 
+\end{devoir}
+\exo[Limites et raccord]\label{t11s-ds1-e01}\bareme{6 points}
+\begin{enumerate}
+\item Calculer $\lim_{x\to2}\dfrac{x^2-4}{x-2}$ (2 points).
+\item Pour $x<0$, $f(x)=x^2+1$; pour $x\ge0$, $f(x)=ax+b$. Déterminer $b$ pour la continuité, puis $a$ pour la dérivabilité en $0$ (4 points).
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds1-e01}]\label{sol-t11s-ds1-e01}
+1. Pour $x\ne2$, quotient $x+2$, limite $4$ (factorisation 1, limite 1).
+2. Continuité : limite gauche $1$, valeur et limite droite $b$, donc $b=1$ (2). Avec ce choix, taux gauche $h\to0$ et taux droit $a$, donc $a=0$ (2).
+\end{corrige}
+\exo[Étude d’une fraction rationnelle]\label{t11s-ds1-e02}\bareme{8 points}
+Soit $g(x)=\dfrac{x^2-2x+2}{x-1}$.
+\begin{enumerate}
+\item Domaine et décomposition $g(x)=x-1+\dfrac1{x-1}$ (1 point).
+\item Limites, asymptotes et position relative à l’oblique (3 points).
+\item Dérivée, tableau de variation et extrema (3 points).
+\item Déterminer un centre de symétrie et donner une esquisse (1 point).
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds1-e02}]\label{sol-t11s-ds1-e02}
+1. Domaine $x\ne1$; numérateur $(x-1)^2+1$.
+2. Limites en $1^-:-\infty$, $1^+:+\infty$; aux infinis $-\infty,+\infty$. Asymptotes $x=1,y=x-1$; écart $1/(x-1)$, sous l’oblique à gauche, au-dessus à droite.
+3. $g'=1-1/(x-1)^2=x(x-2)/(x-1)^2$. Croît sur $]-\infty;0]$, décroît sur $[0;1[$ et $]1;2]$, croît sur $[2;+\infty[$. $g(0)=-2$, $g(2)=2$.
+4. $g(1+h)+g(1-h)=0$ avec domaine symétrique : centre $(1;0)$. Esquisse à deux branches conforme aux limites et extrema. Les points critiques et chaque branche doivent être indiqués.
+\end{corrige}
+\exo[Aire et tangente]\label{t11s-ds1-e03}\bareme{6 points}
+Un rectangle a périmètre $24$ m.
+\begin{enumerate}\item Exprimer l’aire en fonction d’un côté $x$ et préciser le domaine (2 points).
+\item Déterminer l’aire maximale (2 points).
+\item Donner la tangente à la courbe de l’aire en $x=4$ et étudier la position de cette courbe par rapport à elle (2 points).\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-ds1-e03}]\label{sol-t11s-ds1-e03}
+$A(x)=x(12-x)$, $0<x<12$ (1+1). $A'=12-2x$, maximum en $6$, aire $36\ \mathrm{m}^2$ (1+1). $A(4)=32,A'(4)=4$, tangente $y=4x+16$; écart $-(x-4)^2\le0$, courbe en dessous (1+1).
+\end{corrige}
+\endgroup

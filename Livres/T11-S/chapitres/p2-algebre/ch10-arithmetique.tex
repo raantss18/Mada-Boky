@@ -1,0 +1,62 @@
+\bmtchapitre{Divisibilité, nombres premiers, PGCD et PPCM}{Décomposer un entier en facteurs premiers, utiliser Euclide et résoudre des problèmes de regroupement et de périodicité.}{Algèbre}
+\label{t11s-c10}
+\begin{revision}Division euclidienne, multiples et diviseurs positifs; boucles du chapitre algorithmique.\end{revision}
+\begin{automatismes}\exo\label{t11s-c10-auto}Écrire $47=6q+r$ avec $0\le r<6$. Donner les diviseurs positifs de $12$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c10-auto}]\label{sol-t11s-c10-auto}$q=7,r=5$; $1,2,3,4,6,12$.\end{corrige}
+
+\section{Diviseurs et nombres premiers}
+\begin{definition}Pour $a,b\in\Z$, $a\mid b$ signifie qu’il existe $k\in\Z$ avec $b=ak$. Un entier naturel $p\ge2$ est premier s’il a exactement deux diviseurs positifs : $1$ et $p$. Le nombre $1$ n’est pas premier.\end{definition}
+\begin{propriete}Si $a\mid b$ et $a\mid c$, alors $a\mid (ub+vc)$ pour tous entiers $u,v$. Si $n\ge2$ est composé, il possède un diviseur premier inférieur ou égal à $\sqrt n$.\end{propriete}
+\begin{demonstration}Écrire $b=ak,c=a\ell$ donne $ub+vc=a(uk+v\ell)$. Si $n=de$ avec $1<d\le e<n$, alors $d^2\le n$; $d$ possède un diviseur premier (en prenant son plus petit diviseur supérieur à $1$), lui-même au plus $\sqrt n$.\end{demonstration}
+\begin{theoreme}[décomposition, admis]Tout entier $n\ge2$ possède une décomposition en produit de nombres premiers, unique à l’ordre des facteurs près.\end{theoreme}
+\begin{exemple}$360=2^3\times3^2\times5$. Pour tester $97$, il suffit de vérifier les nombres premiers $2,3,5,7$, car $\sqrt{97}<10$. Aucun ne divise $97$, donc $97$ est premier.\end{exemple}
+\section{PGCD et algorithme d’Euclide}
+\begin{definition}Pour $a,b\in\N^*$, $\pgcd(a,b)$ est le plus grand diviseur positif commun. Ils sont premiers entre eux lorsque ce PGCD vaut $1$. On étend par $\pgcd(a,0)=a$ pour $a>0$.\end{definition}
+\begin{propriete}Si $a=bq+r$, les diviseurs communs de $a,b$ sont ceux de $b,r$. Ainsi $\pgcd(a,b)=\pgcd(b,r)$.\end{propriete}
+\begin{demonstration}Un diviseur de $a,b$ divise $r=a-bq$. Un diviseur de $b,r$ divise $a=bq+r$. Les ensembles sont les mêmes.\end{demonstration}
+\begin{exemple}$252=198+54$; $198=3\times54+36$; $54=36+18$; $36=2\times18$. Le dernier reste non nul est $18$, donc $\pgcd(252,198)=18$.\end{exemple}
+\begin{methode}{Euclide en boucle}Entrées $a,b\in\N$, non tous deux nuls. Tant que $b\ne0$, calculer $r\leftarrow a\bmod b$, puis $a\leftarrow b$, $b\leftarrow r$. Afficher $a$. Les restes non nuls décroissent strictement, donc la boucle termine. Les diviseurs communs sont conservés; la sortie est le PGCD.\end{methode}
+\section{PPCM}
+\begin{definition}Pour $a,b\in\N^*$, $\ppcm(a,b)$ est le plus petit multiple positif commun.\end{definition}
+\begin{propriete}Dans les décompositions premières, le PGCD prend les exposants minimaux et le PPCM les exposants maximaux (un facteur absent a exposant $0$). Ainsi $\pgcd(a,b)\ppcm(a,b)=ab$.\end{propriete}
+\begin{demonstration}Un diviseur commun ne peut avoir un exposant supérieur au minimum; le produit des minima convient. Un multiple commun doit avoir au moins les maxima; leur produit est le plus petit. Pour chaque premier, minimum plus maximum égale la somme des deux exposants.\end{demonstration}
+\begin{exemple}$72=2^3 3^2$, $90=2\,3^2 5$ : PGCD $18$, PPCM $360$. Pour trois entiers, calculer successivement le PGCD ou PPCM de deux, puis avec le troisième.\end{exemple}
+
+\section{Exercices et problèmes}
+\exo[Premier ou composé]\label{t11s-c10-e01}
+Déterminer si $91$ et $101$ sont premiers. Justifier les tests suffisants.
+\begin{corrige}[exercice~\ref{t11s-c10-e01}]\label{sol-t11s-c10-e01}
+$91=7\times13$, composé. $\sqrt{101}<11$ : tester $2,3,5,7$, aucun ne divise $101$, premier.
+\end{corrige}
+\exo[Décompositions]\label{t11s-c10-e02}
+Décomposer $180$ et $252$, puis calculer leur PGCD et PPCM.
+\begin{corrige}[exercice~\ref{t11s-c10-e02}]\label{sol-t11s-c10-e02}
+$180=2^2 3^2 5$, $252=2^2 3^2 7$; PGCD $36$, PPCM $1260$. Produit $36\times1260=180\times252$.
+\end{corrige}
+\exo[Euclide]\label{t11s-c10-e03}
+Calculer le PGCD de $1071$ et $462$ par Euclide, puis simplifier $1071/462$.
+\begin{corrige}[exercice~\ref{t11s-c10-e03}]\label{sol-t11s-c10-e03}
+$1071=2\times462+147$; $462=3\times147+21$; $147=7\times21$. PGCD $21$, fraction $51/22$.
+\end{corrige}
+\exo[Lots identiques]\label{t11s-c10-e04}
+On dispose de $84$ cahiers et $126$ stylos. Former le plus grand nombre de lots identiques sans reste, avec au moins un objet de chaque sorte. Donner leur composition.
+\begin{corrige}[exercice~\ref{t11s-c10-e04}]\label{sol-t11s-c10-e04}
+Le nombre de lots divise les deux effectifs; son maximum est $\pgcd(84,126)=42$. Chaque lot contient $2$ cahiers et $3$ stylos.
+\end{corrige}
+\exo[Deux cycles]\label{t11s-c10-e05}
+Deux opérations ont lieu tous les $12$ et $18$ jours. Elles ont lieu ensemble au jour $0$. Quand coïncident-elles ensuite pour la première fois ?
+\begin{corrige}[exercice~\ref{t11s-c10-e05}]\label{sol-t11s-c10-e05}
+Le premier jour positif doit être multiple des deux durées : PPCM $36$ jours. Les coïncidences sont aux jours $36k$.
+\end{corrige}
+\exo[Premiers entre eux]\label{t11s-c10-e06}
+Deux entiers premiers entre eux sont-ils nécessairement premiers ? Deux nombres premiers distincts sont-ils premiers entre eux ?
+\begin{corrige}[exercice~\ref{t11s-c10-e06}]\label{sol-t11s-c10-e06}
+Première affirmation fausse : $8$ et $9$ ont PGCD $1$ et sont composés. Seconde vraie : un diviseur commun supérieur à $1$ de deux premiers imposerait leur égalité.
+\end{corrige}
+\exo[Trois entiers]\label{t11s-c10-e07}
+Calculer le PGCD et le PPCM de $24,36,54$. Peut-on utiliser directement la formule PGCD fois PPCM égale le produit des trois nombres ?
+\begin{corrige}[exercice~\ref{t11s-c10-e07}]\label{sol-t11s-c10-e07}
+PGCD $6$; PPCM $2^3 3^3=216$. $6\times216=1296\ne24\times36\times54$ : la formule donnée concerne deux entiers, pas trois.
+\end{corrige}
+\begin{jemeteste}Je distingue diviseur et multiple; un regroupement maximal demande souvent le PGCD, un retour commun minimal le PPCM.\end{jemeteste}
+\begin{notepourlaclasse}Faire relier Euclide à l’organigramme et justifier l’arrêt par la décroissance des restes. Bézout et congruences générales ne sont pas requis ici.\end{notepourlaclasse}

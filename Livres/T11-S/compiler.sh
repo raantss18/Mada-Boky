@@ -34,7 +34,7 @@ compile_prof () {
   prepare_build
   latexmk -xelatex -interaction=nonstopmode \
     -jobname="$RACINE-prof" \
-    "\def\editionprof{}\input{$RACINE.tex}"
+    "$RACINE-prof.tex"
   cp "build/$RACINE-prof.pdf" "$RACINE-prof.pdf"
   echo "→ $RACINE-prof.pdf"
 }

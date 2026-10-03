@@ -21,7 +21,7 @@
     BoldFont = *-Bold, BoldItalicFont = *-BoldItalic, Numbers = OldStyle]
   \setmathfont{LibertinusMath-Regular.otf}
 }{%
-  \setmainfont{texgyrepagella}[
+  \setmainfont{lmroman10}[
     Extension = .otf, UprightFont = *-regular, ItalicFont = *-italic,
     BoldFont = *-bold, BoldItalicFont = *-bolditalic]
   \setmathfont{latinmodern-math.otf}
@@ -32,9 +32,9 @@
     Extension = .otf, UprightFont = *-Regular, ItalicFont = *-Italic,
     BoldFont = *-SemiBold, BoldItalicFont = *-SemiBoldItalic]
 }{%
-  \setsansfont{texgyreheros}[
-    Extension = .otf, UprightFont = *-regular, ItalicFont = *-italic,
-    BoldFont = *-bold, BoldItalicFont = *-bolditalic]
+  \setsansfont{lmsans10}[
+    Extension = .otf, UprightFont = *-regular, ItalicFont = *-oblique,
+    BoldFont = *-bold, BoldItalicFont = *-boldoblique]
 }
 
 \IfFontExistsTF{JetBrainsMono-Regular.ttf}{%
@@ -45,7 +45,7 @@
 }
 
 % Chiffres alignes dans les contextes tabulaires et mathematiques
-\newfontfamily\bmtchiffres{texgyreheros}[Extension=.otf, UprightFont=*-regular,
+\newfontfamily\bmtchiffres{lmsans10}[Extension=.otf, UprightFont=*-regular,
   BoldFont=*-bold]
 
 % --- Couleurs ---------------------------------------------------------------

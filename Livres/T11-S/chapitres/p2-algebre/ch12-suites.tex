@@ -1,0 +1,81 @@
+\bmtchapitre{Suites numériques}{Définir et représenter une suite, déterminer ses variations et sa limite, utiliser les suites arithmétiques et géométriques et calculer leurs sommes.}{Algèbre}
+\label{t11s-c12}
+\begin{revision}Fonctions usuelles, puissances, boucles et limites à l’infini.\end{revision}
+\begin{automatismes}\exo\label{t11s-c12-auto}Calculer $2^4$, $1/2^3$ et $3+4+5+6$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c12-auto}]\label{sol-t11s-c12-auto}$16$, $1/8$, $18$.\end{corrige}
+
+\section{Une fonction des entiers naturels}
+\begin{definition}Une suite réelle $(u_n)$ est une fonction définie sur $\N$ (ou sur les entiers à partir d’un rang précisé). Une formule explicite donne $u_n$ directement; une relation de récurrence donne le terme suivant à partir des précédents et nécessite des termes initiaux. On représente les points $(n;u_n)$ : seuls les indices entiers appartiennent au domaine.\end{definition}
+\begin{exemple}$u_n=n^2+1$ donne $1,2,5,10$ aux rangs $0,1,2,3$. Avec $v_0=1$ et $v_{n+1}=2v_n+1$, on obtient $1,3,7,15$. Ce sont deux modes de génération différents.\end{exemple}
+\begin{definition}Une suite est croissante si $u_{n+1}\ge u_n$ pour chaque rang; décroissante avec l’inégalité opposée. Elle converge vers $\ell$ si ses termes se rapprochent de $\ell$ autant que voulu à partir d’un rang suffisamment grand. Sinon elle est divergente; une divergence peut être infinie ou oscillante.\end{definition}
+\begin{methode}{étudier les variations}Calculer $u_{n+1}-u_n$. Pour des termes strictement positifs, comparer aussi $u_{n+1}/u_n$ à $1$. Un quotient n’est pas utilisable si un terme est nul; la positivité est nécessaire pour conserver le sens de l’inégalité.\end{methode}
+\section{Suites arithmétiques}
+\begin{definition}$u_{n+1}=u_n+r$ pour un réel constant $r$ définit une suite arithmétique de raison $r$.\end{definition}
+\begin{propriete}Pour $n\ge p$, $u_n=u_p+(n-p)r$. La somme de $k\ge1$ termes à partir de $u_p$ vaut
+\[
+ u_p+\cdots+u_{p+k-1}=\frac{k(u_p+u_{p+k-1})}{2}.
+\]
+\end{propriete}
+\begin{demonstration}Ajouter $r$ exactement $n-p$ fois donne le terme général, formalisable par récurrence. Pour la somme, écrire les termes dans les deux ordres et additionner : chaque paire vaut premier plus dernier; deux fois la somme vaut $k$ fois cette quantité.\end{demonstration}
+Si $r>0$, la suite croît et tend vers $+\infty$; si $r<0$, elle décroît et tend vers $-\infty$; si $r=0$, elle est constante.
+\section{Suites géométriques}
+\begin{definition}$u_{n+1}=qu_n$, pour un réel constant $q$, définit une suite géométrique. Pour $q=0$, tous les termes après le terme initial sont nuls.\end{definition}
+\begin{propriete}Pour $q\ne0$, $u_n=u_pq^{n-p}$. Pour $q=0$, cette formule vaut pour $n>p$ et $u_p$ reste le terme initial, sans utiliser $0^0$. Si $q\ne1$,
+\[
+ u_p+\cdots+u_{p+k-1}=u_p\frac{1-q^k}{1-q}.
+\]
+Si $q=1$, la somme vaut $ku_p$. La formule de somme convient aussi à $q=0$.
+\end{propriete}
+\begin{demonstration}Le terme général résulte de multiplications successives. Pour la somme $S=u_p+u_pq+\cdots+u_pq^{k-1}$, soustraire $qS$ donne $(1-q)S=u_p(1-q^k)$. Séparer $q=1$ avant la division.\end{demonstration}
+\begin{propriete}[limites, admises pour les puissances]
+Si $|q|<1$, $q^n\to0$. Si $q>1$, $q^n\to+\infty$. Si $q=-1$, les termes alternent; si $q<-1$, leur module croît sans limite et leurs signes alternent. Ainsi, pour une suite géométrique non nulle, la convergence dépend de ces cas; pour $q=1$, la suite est constante. Si $u_0=0$, elle est nulle quel que soit $q$.
+\end{propriete}
+\section{Un modèle de récurrence}
+\begin{exemple}[apport régulier]
+Si $u_{n+1}=0{,}8u_n+10$, la valeur fixe vérifie $L=0{,}8L+10$, donc $L=50$. Poser $v_n=u_n-50$ donne $v_{n+1}=0{,}8v_n$, d’où $u_n=50+(u_0-50)(0{,}8)^n$ et $u_n\to50$.
+\end{exemple}
+\begin{remarque}Pour $u_{n+1}=au_n+b$, si $a\ne1$, la valeur fixe est $b/(1-a)$. Si $a=1$, la suite est arithmétique; il ne faut pas diviser par $1-a$. Ce changement de suite est une méthode d’exercice, pas une nouvelle formule à apprendre sans preuve.\end{remarque}
+
+\section{Exercices et problèmes}
+\exo[Générer]\label{t11s-c12-e01}
+Pour $u_n=3n-2$, donner $u_0,u_5,u_{10}$ et les variations. Pour $v_0=2$, $v_{n+1}=v_n+3$, donner le terme général.
+\begin{corrige}[exercice~\ref{t11s-c12-e01}]\label{sol-t11s-c12-e01}
+$-2,13,28$; différence $3>0$, strictement croissante. $v_n=2+3n$.
+\end{corrige}
+\exo[Somme arithmétique]\label{t11s-c12-e02}
+Une suite arithmétique vérifie $u_3=7$ et $u_8=22$. Trouver la raison et calculer $u_3+\cdots+u_8$.
+\begin{corrige}[exercice~\ref{t11s-c12-e02}]\label{sol-t11s-c12-e02}
+$5r=15$, donc $r=3$. Il y a $6$ termes, somme $6(7+22)/2=87$.
+\end{corrige}
+\exo[Géométrique et somme]\label{t11s-c12-e03}
+$u_0=81$ et $u_{n+1}=u_n/3$. Donner $u_n$, sa limite et $\sum_{n=0}^{4}u_n$.
+\begin{corrige}[exercice~\ref{t11s-c12-e03}]\label{sol-t11s-c12-e03}
+$u_n=81(1/3)^n\to0$. Les cinq termes sont $81,27,9,3,1$, somme $121$.
+\end{corrige}
+\exo[Variation rationnelle]\label{t11s-c12-e04}
+Étudier les variations et la limite de $u_n=(n+1)/(n+2)$.
+\begin{corrige}[exercice~\ref{t11s-c12-e04}]\label{sol-t11s-c12-e04}
+$u_{n+1}-u_n=1/((n+2)(n+3))>0$. $u_n=1-1/(n+2)\to1$. Les termes restent strictement sous $1$.
+\end{corrige}
+\exo[Oscillation]\label{t11s-c12-e05}
+Étudier $u_n=(-1)^n$ et $v_n=(-1)^n/(n+1)$. La présence de signes alternés empêche-t-elle toujours la convergence ?
+\begin{corrige}[exercice~\ref{t11s-c12-e05}]\label{sol-t11s-c12-e05}
+$u_{2k}=1$, $u_{2k+1}=-1$, donc divergence. $|v_n|=1/(n+1)\to0$, donc $v_n\to0$. Alternance n’exclut pas une limite nulle.
+\end{corrige}
+\exo[Un stock]\label{t11s-c12-e06}
+Un stock de $100$ unités perd $20\%$ de son contenu chaque jour, puis reçoit $10$ unités. Poser $u_0=100$. Trouver une formule, les variations et la limite.
+\begin{corrige}[exercice~\ref{t11s-c12-e06}]\label{sol-t11s-c12-e06}
+$u_{n+1}=0{,}8u_n+10$, donc $u_n=50+50(0{,}8)^n$. Différence $-10(0{,}8)^n<0$, décroissante vers $50$; $u_1=90$.
+\end{corrige}
+\exo[Reconnaître une nature]\label{t11s-c12-e07}
+Pour $u_0=1$, $u_{n+1}=2u_n+1$, montrer que la suite n’est ni arithmétique ni géométrique. Expliquer pourquoi la seule forme de la récurrence ne suffirait pas avec un autre terme initial.
+\begin{corrige}[exercice~\ref{t11s-c12-e07}]\label{sol-t11s-c12-e07}
+Premiers termes $1,3,7$ : différences $2,4$ non constantes, quotients $3,7/3$ non constants. Avec $u_0=-1$, la suite serait constante à $-1$, donc arithmétique (raison $0$) et géométrique (raison $1$).
+\end{corrige}
+\exo[Algorithme de rang]\label{t11s-c12-e08}
+Écrire un algorithme calculant $u_N$ et $u_0+\cdots+u_N$ pour la suite du stock. Tester $N=2$.
+\begin{corrige}[exercice~\ref{t11s-c12-e08}]\label{sol-t11s-c12-e08}
+Initialiser $u=100,S=100$; pour $k=1$ à $N$, $u\leftarrow0{,}8u+10$, puis $S\leftarrow S+u$; afficher $u,S$. Pour $N=2$, termes $100,90,82$, sortie $82,272$. Ajouter après la mise à jour évite de compter deux fois $u_0$.
+\end{corrige}
+\begin{jemeteste}Je compte les termes, je distingue rang et nombre de tours, et je traite séparément les raisons $0,1,-1$.\end{jemeteste}
+\begin{notepourlaclasse}La convergence arithmétique et géométrique se traite dans les exercices. Pour la récurrence affine, faire vérifier le décalage à la valeur fixe plutôt que donner une formule sans origine.\end{notepourlaclasse}

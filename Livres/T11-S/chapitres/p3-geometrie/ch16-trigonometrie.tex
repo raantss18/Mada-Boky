@@ -1,0 +1,101 @@
+\bmtchapitre{Trigonométrie}{Convertir les unités d’angle, transformer des expressions et résoudre des équations et inéquations trigonométriques.}{Géométrie}
+\label{t11s-c16}
+\begin{revision}Cercle trigonométrique, coordonnées et angles remarquables de seconde; produit scalaire.\end{revision}
+\begin{automatismes}\exo\label{t11s-c16-auto}Calculer $\sin0$, $\cos\pi$ et $\sin(\pi/6)$. Convertir $90\degre$ en radians.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c16-auto}]\label{sol-t11s-c16-auto}$0,-1,1/2$; $\pi/2$ radians.\end{corrige}
+
+\section{Mesures et cercle orienté}
+\begin{definition}Un tour correspond à $360\degre=2\pi$ radians $=400$ grades. Les mesures d’un angle orienté diffèrent de $2k\pi$ ($k\in\Z$). Sa mesure principale est l’unique représentant dans $]-\pi;\pi]$.\end{definition}
+\begin{exemple}$7\pi/3$ a mesure principale $\pi/3$. $270\degre=3\pi/2=300$ grades; la mesure principale en radians est $-\pi/2$.\end{exemple}
+\begin{visualisation}[coordonnées sur le cercle unité]
+\begin{center}\begin{tikzpicture}[scale=2.1]
+\draw[->](-1.25,0)--(1.35,0)node[right]{$x$};\draw[->](0,-1.2)--(0,1.3)node[above]{$y$};
+\draw[bmtSarcelle,thick](0,0)circle(1);
+\draw[bmtOcre,thick](0,0)--(60:1)node[above right]{$M$};
+\draw[dashed](60:1)--(0.5,0)node[below]{$\cos x$};
+\draw[dashed](60:1)--(0,0.866)node[left]{$\sin x$};
+\draw[->](0.3,0)arc(0:60:0.3)node[midway,right]{$x$};
+\node[below left]at(0,0){$O$};
+\end{tikzpicture}\end{center}
+Le point représenté a pour angle $x=\pi/3$; les deux projections donnent ses coordonnées.
+\end{visualisation}
+\section{Formules à utiliser et à justifier}
+\begin{propriete}
+$\cos(-x)=\cos x$, $\sin(-x)=-\sin x$;
+$\cos(\pi-x)=-\cos x$, $\sin(\pi-x)=\sin x$;
+$\cos(x+\pi)=-\cos x$, $\sin(x+\pi)=-\sin x$.
+\[
+\begin{aligned}
+\cos(a+b)&=\cos a\cos b-\sin a\sin b,\\
+\sin(a+b)&=\sin a\cos b+\cos a\sin b,\\
+\cos(a-b)&=\cos a\cos b+\sin a\sin b,\\
+\sin(a-b)&=\sin a\cos b-\cos a\sin b.
+\end{aligned}
+\]
+\end{propriete}
+\begin{demonstration}Les symétries du cercle donnent les angles associés. Pour l’addition, appliquer la matrice de rotation d’angle $a$ au point $(\cos b;\sin b)$ : les nouvelles coordonnées sont celles de l’angle $a+b$. Les formules de différence suivent en remplaçant $b$ par $-b$.\end{demonstration}
+\begin{propriete}[duplication et transformation]
+$\sin2x=2\sin x\cos x$;
+$\cos2x=\cos^2x-\sin^2x=2\cos^2x-1=1-2\sin^2x$.
+\[
+\begin{aligned}
+\cos a+\cos b&=2\cos\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\\
+\sin a+\sin b&=2\sin\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\\
+2\cos a\cos b&=\cos(a+b)+\cos(a-b),\\
+2\sin a\sin b&=\cos(a-b)-\cos(a+b).
+\end{aligned}
+\]
+\end{propriete}
+\begin{demonstration}La duplication prend $a=b=x$. Pour les sommes, poser $u=(a+b)/2,v=(a-b)/2$, puis additionner les formules en $u+v$ et $u-v$. Les produits résultent de l’addition ou de la soustraction des formules d’addition.\end{demonstration}
+\section{Équations et inéquations}
+\begin{propriete}Pour $k\in\Z$,
+\[
+\cos x=\cos a\Leftrightarrow x=2k\pi\pm a,
+\]
+\[
+\sin x=\sin a\Leftrightarrow x=a+2k\pi\ \text{ou}\ x=\pi-a+2k\pi.
+\]
+Pour les tangentes définies, $\tan x=\tan a\Leftrightarrow x=a+k\pi$.
+\end{propriete}
+\begin{demonstration}Une abscisse sur le cercle correspond aux deux points symétriques par rapport à l’axe horizontal; une ordonnée correspond aux points symétriques par rapport à l’axe vertical. Ajouter les tours complets donne toutes les mesures. La tangente a période $\pi$ et est strictement croissante entre deux pôles.\end{demonstration}
+\begin{methode}{une inéquation sur un intervalle}Dessiner les intersections de la droite de niveau avec le cercle; identifier les arcs qui satisfont l’inégalité; traduire les arcs en intervalles; conserver les bornes selon le signe strict ou large. Pour $\tan$, exclure les zéros de $\cos$.\end{methode}
+\begin{exemple}Sur $[0;2\pi[$, $\cos x\ge1/2$ donne $[0;\pi/3]\cup[5\pi/3;2\pi[$. Dans $\R$, la solution est la réunion des intervalles $[-\pi/3+2k\pi;\pi/3+2k\pi]$.\end{exemple}
+
+\section{Exercices et problèmes}
+\exo[Mesure principale]\label{t11s-c16-e01}
+Convertir $150\degre$ en radians et grades; donner la mesure principale de $-17\pi/6$.
+\begin{corrige}[exercice~\ref{t11s-c16-e01}]\label{sol-t11s-c16-e01}
+$5\pi/6$ radians, $500/3$ grades; $-17\pi/6+2\pi=-5\pi/6$ appartient à $]-\pi;\pi]$.
+\end{corrige}
+\exo[Valeur exacte]\label{t11s-c16-e02}
+Calculer $\cos(\pi/12)$ par une formule d’addition ou de différence.
+\begin{corrige}[exercice~\ref{t11s-c16-e02}]\label{sol-t11s-c16-e02}
+$\pi/12=\pi/4-\pi/6$. Cosinus $\sqrt2\sqrt3/4+\sqrt2/4=(\sqrt6+\sqrt2)/4$.
+\end{corrige}
+\exo[Équations]\label{t11s-c16-e03}
+Résoudre dans $\R$ : $\sin x=1/2$ et $\cos(2x)=0$.
+\begin{corrige}[exercice~\ref{t11s-c16-e03}]\label{sol-t11s-c16-e03}
+$x=\pi/6+2k\pi$ ou $5\pi/6+2k\pi$. Pour le cosinus, $2x=\pi/2+k\pi$, donc $x=\pi/4+k\pi/2$, $k\in\Z$.
+\end{corrige}
+\exo[Inéquation]\label{t11s-c16-e04}
+Résoudre $\sin x>\sqrt2/2$ sur $[-\pi;\pi]$.
+\begin{corrige}[exercice~\ref{t11s-c16-e04}]\label{sol-t11s-c16-e04}
+Arc supérieur entre $\pi/4$ et $3\pi/4$, bornes exclues : $]\pi/4;3\pi/4[$. Aucune solution sur le demi-cercle inférieur.
+\end{corrige}
+\exo[Transformer]\label{t11s-c16-e05}
+Montrer $\sin3x+\sin x=2\sin2x\cos x$ puis résoudre $\sin3x+\sin x=0$ dans $[0;2\pi[$.
+\begin{corrige}[exercice~\ref{t11s-c16-e05}]\label{sol-t11s-c16-e05}
+Formule somme-produit. $\sin2x=0$ donne $x=k\pi/2$, ce qui inclut déjà les zéros de $\cos x$. Réponse $0,\pi/2,\pi,3\pi/2$.
+\end{corrige}
+\exo[Tangente]\label{t11s-c16-e06}
+Résoudre $\tan x\le1$ sur $]-\pi/2;\pi/2[$. Pourquoi les extrémités sont-elles exclues ?
+\begin{corrige}[exercice~\ref{t11s-c16-e06}]\label{sol-t11s-c16-e06}
+La tangente est strictement croissante sur cet intervalle; solution $]-\pi/2;\pi/4]$. Les extrémités annulent $\cos x$, donc la tangente n’y existe pas.
+\end{corrige}
+\exo[Diviser sans perdre]\label{t11s-c16-e07}
+Pour résoudre $\sin x\cos x=\sin x$, un élève divise par $\sin x$. Quelles solutions risque-t-il de perdre ? Résoudre dans $\R$.
+\begin{corrige}[exercice~\ref{t11s-c16-e07}]\label{sol-t11s-c16-e07}
+Factoriser $\sin x(\cos x-1)=0$. Les zéros de $\sin x$ sont $k\pi$, et ceux de $\cos x-1$ sont $2k\pi$, déjà inclus. La division perdrait les multiples impairs de $\pi$.
+\end{corrige}
+\begin{jemeteste}Je conserve toutes les familles de solutions, je précise l’intervalle et je ne divise pas par une expression sans traiter ses zéros.\end{jemeteste}
+\begin{notepourlaclasse}Faire lire le cercle avant le calcul. Choisir des angles exacts; pour la tangente, séparer chaque intervalle entre pôles. Les graphiques sinusoïdaux se relient au chapitre fonctions.\end{notepourlaclasse}

@@ -1,0 +1,81 @@
+\bmtchapitre{Limites et continuité}{Calculer une limite en un point ou à l’infini, distinguer les limites latérales et étudier la continuité.}{Analyse}
+\label{t11s-c02}
+\begin{revision}Savoir factoriser un polynôme, simplifier un quotient sur son domaine et lire les abscisses et les ordonnées. Revoir les ensembles de définition au chapitre~\ref{t11s-c01}.\end{revision}
+\begin{automatismes}\exo\label{t11s-c02-auto}Factoriser $x^2-9$. Calculer $\dfrac{6}{3}$, $\dfrac{1}{10^3}$ et $\sqrt{16}$. Résoudre $x-2>0$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c02-auto}]\label{sol-t11s-c02-auto}$(x-3)(x+3)$; $2$; $0{,}001$; $4$; $x>2$.\end{corrige}
+
+\section{Observer un rapprochement}
+\begin{situation}[autour d’une valeur interdite]
+\exo\label{t11s-c02-act}Pour $x\ne1$, calculer $\dfrac{x^2-1}{x-1}$ aux valeurs $0{,}9$, $0{,}99$, $1{,}01$ et $1{,}1$. Factoriser le numérateur. Vers quelle valeur les résultats semblent-ils se rapprocher ? Le quotient est-il défini en $1$ ?
+\end{situation}
+\begin{corrige}[exercice~\ref{t11s-c02-act}]Les valeurs sont $1{,}9$, $1{,}99$, $2{,}01$ et $2{,}1$. Pour $x\ne1$, le quotient vaut $x+1$, donc tend vers $2$. Il reste indéfini en $1$.\end{corrige}
+\begin{definition}[limite finie en un point]
+Dire que $f(x)$ tend vers $\ell$ lorsque $x$ tend vers $a$, c’est dire que l’on peut rendre $f(x)$ aussi proche que l’on veut de $\ell$ en prenant $x$ suffisamment proche de $a$ dans le domaine, avec $x\ne a$. On note $\lim_{x\to a}f(x)=\ell$. On suppose que des points du domaine autres que $a$ peuvent s’approcher de $a$.
+\end{definition}
+\begin{remarque}La limite ne dépend pas de la valeur éventuelle $f(a)$. Les limites à gauche ($x<a$) et à droite ($x>a$) doivent coïncider pour qu’une limite bilatérale existe lorsque les deux côtés appartiennent au domaine.\end{remarque}
+\begin{exemple}[limites latérales]
+Pour $f(x)=\dfrac1{x-2}$, $\lim_{x\to2^-}f(x)=-\infty$ et $\lim_{x\to2^+}f(x)=+\infty$. Ces limites sont différentes : il n’existe pas de limite bilatérale en $2$.
+\end{exemple}
+\section{Limites à l’infini et opérations}
+\begin{definition}[limites infinies]
+$f(x)\to+\infty$ signifie que $f(x)$ dépasse tout seuil réel fixé lorsque $x$ est suffisamment proche du point considéré, ou suffisamment grand si $x\to+\infty$. La définition de $-\infty$ utilise des valeurs inférieures à tout seuil fixé.
+\end{definition}
+\begin{propriete}[règles admises]
+Si $f\to\ell$ et $g\to m$ avec $\ell,m\in\R$, alors $f+g\to\ell+m$, $fg\to\ell m$, et $f/g\to\ell/m$ si $m\ne0$. Si $f\ge0$ et $f\to\ell\ge0$, alors $\sqrt f\to\sqrt\ell$. Les polynômes ont pour limite leur valeur en tout réel. À l’infini, $x^n$ ($n\ge1$) domine ses termes de degré inférieur. Pour un quotient de polynômes, factoriser les puissances dominantes.
+\end{propriete}
+\begin{avertissement}Les écritures $0/0$, $\infty/\infty$ et $\infty-\infty$ sont des formes indéterminées : elles ne donnent aucune réponse. $\infty$ n’est pas un nombre sur lequel on calcule comme dans $\R$.\end{avertissement}
+\begin{methode}{lever une indétermination}
+Au voisinage d’un réel, factoriser puis simplifier sans oublier la valeur exclue; avec des racines, multiplier par l’expression conjuguée. À l’infini, diviser numérateur et dénominateur par la plus grande puissance utile.
+\end{methode}
+\begin{exemple}
+Pour $x\ne4$ et $x\ge0$,
+\[
+\frac{\sqrt x-2}{x-4}=\frac1{\sqrt x+2},\qquad
+\lim_{x\to4}\frac{\sqrt x-2}{x-4}=\frac14.
+\]
+De même, $\dfrac{3x^2-x+1}{2x^2+5}\to\dfrac32$ quand $x\to\pm\infty$, car on divise par $x^2$.
+\end{exemple}
+\section{Continuité}
+\begin{definition}Une fonction définie en $a$ est continue en $a$ lorsque $\lim_{x\to a}f(x)=f(a)$, la limite étant prise dans son domaine. Elle est continue sur un intervalle si elle est continue en chacun de ses points, avec une limite latérale aux extrémités incluses.\end{definition}
+\begin{propriete}[résultats admis]Les fonctions polynômes sont continues sur $\R$. Les quotients de fonctions continues sont continus là où le dénominateur ne s’annule pas. La racine carrée est continue sur $[0;+\infty[$. Les fonctions $\sin$ et $\cos$ sont continues sur $\R$, et $\tan$ sur chacun des intervalles de son domaine.\end{propriete}
+\begin{theoreme}[valeurs intermédiaires, admis]Si $f$ est continue sur $[a;b]$, tout réel compris entre $f(a)$ et $f(b)$ est atteint au moins une fois. Si $f$ est de plus strictement monotone, cet antécédent est unique.\end{theoreme}
+La continuité assure l’existence, la stricte monotonie assure l’unicité. La seule connaissance des valeurs aux bornes ne suffit pas sans continuité.
+
+\section{Exercices et problèmes}
+\exo[Limites directes]\label{t11s-c02-e01}
+Calculer $\lim_{x\to2}(x^2-3x+4)$ et $\lim_{x\to-1}\dfrac{2x+5}{x^2+2}$.
+\begin{corrige}[exercice~\ref{t11s-c02-e01}]\label{sol-t11s-c02-e01}
+Continuité des expressions et dénominateur $3\ne0$ : les deux limites valent respectivement $2$ et $1$.
+\end{corrige}
+\exo[Factoriser]\label{t11s-c02-e02}
+Calculer $\lim_{x\to3}\dfrac{x^2-9}{x-3}$ et $\lim_{x\to1}\dfrac{x^2-3x+2}{x-1}$. Préciser les valeurs interdites.
+\begin{corrige}[exercice~\ref{t11s-c02-e02}]\label{sol-t11s-c02-e02}
+Les quotients valent $x+3$ pour $x\ne3$, et $x-2$ pour $x\ne1$. Limites $6$ et $-1$.
+\end{corrige}
+\exo[Racines]\label{t11s-c02-e03}
+Calculer $\lim_{x\to0}\dfrac{\sqrt{x+4}-2}{x}$.
+\begin{corrige}[exercice~\ref{t11s-c02-e03}]\label{sol-t11s-c02-e03}
+Domaine $[-4;+\infty[\setminus\{0\}$. Le conjugué donne $1/(\sqrt{x+4}+2)$, donc la limite est $1/4$.
+\end{corrige}
+\exo[Aux deux infinis]\label{t11s-c02-e04}
+Calculer aux deux infinis les limites de $-2x^3+5x$ et de $\dfrac{4x^2+1}{x^2-3x}$.
+\begin{corrige}[exercice~\ref{t11s-c02-e04}]\label{sol-t11s-c02-e04}
+Le premier vaut $x^3(-2+5/x^2)$ : limite $-\infty$ en $+\infty$, $+\infty$ en $-\infty$. Le quotient tend vers $4$ aux deux infinis.
+\end{corrige}
+\exo[Raccorder]\label{t11s-c02-e05}
+Pour $x<1$, $f(x)=x+2$; pour $x\ge1$, $f(x)=mx$. Déterminer $m$ pour que $f$ soit continue sur $\R$.
+\begin{corrige}[exercice~\ref{t11s-c02-e05}]\label{sol-t11s-c02-e05}
+Chaque branche est continue. En $1$, la limite gauche est $3$, la limite droite et la valeur sont $m$. La condition nécessaire et suffisante est $m=3$.
+\end{corrige}
+\exo[Un zéro]\label{t11s-c02-e06}
+Démontrer que $x^3+x-1=0$ possède au moins une solution dans $]0;1[$. Peut-on prouver l’unicité sans dérivée ?
+\begin{corrige}[exercice~\ref{t11s-c02-e06}]\label{sol-t11s-c02-e06}
+La fonction est continue; ses valeurs en $0$ et $1$ sont $-1$ et $1$. Le théorème des valeurs intermédiaires donne une solution intérieure. Pour $a<b$, $b^3-a^3>0$ et $b-a>0$, donc $f(b)>f(a)$ : unicité.
+\end{corrige}
+\exo[Se méfier des tables]\label{t11s-c02-e07}
+Une table donne $f(0{,}9)=1{,}9$ et $f(1{,}1)=2{,}1$. Cela prouve-t-il que $\lim_{x\to1}f(x)=2$ ? Justifier par deux fonctions.
+\begin{corrige}[exercice~\ref{t11s-c02-e07}]\label{sol-t11s-c02-e07}
+Non. $f(x)=x+1$ satisfait la table et a pour limite $2$. $g(x)=x+1+100(x-0{,}9)(x-1{,}1)$ satisfait la même table, mais sa limite en $1$ vaut $1$. Deux valeurs ne prouvent pas une limite.
+\end{corrige}
+\begin{jemeteste}Je sais distinguer valeur et limite, traiter un quotient $0/0$, vérifier un raccord et séparer existence et unicité d’une solution.\end{jemeteste}
+\begin{notepourlaclasse}Introduire les limites par des tableaux, puis justifier les conclusions algébriquement. Les règles générales et le théorème des valeurs intermédiaires sont admis; ne pas présenter les tableaux numériques comme des preuves.\end{notepourlaclasse}

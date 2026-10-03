@@ -1,0 +1,81 @@
+\bmtchapitre{Barycentres et lignes de niveau}{Construire et calculer un barycentre, regrouper des points pondérés et déterminer des lieux géométriques.}{Géométrie}
+\label{t11s-c14}
+\begin{revision}Chasles, produit scalaire, normes, milieux et équations de cercles.\end{revision}
+\begin{automatismes}\exo\label{t11s-c14-auto}Calculer le milieu de $A(0;1)$ et $B(6;3)$. Développer $(x-2)^2$.\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c14-auto}]\label{sol-t11s-c14-auto}Milieu $(3;2)$; $x^2-4x+4$.\end{corrige}
+
+\section{Deux, trois ou quatre points pondérés}
+\begin{definition}Pour des points $A_i$ et des poids réels $\alpha_i$ dont la somme $s$ est non nulle, le barycentre $G$ est l’unique point tel que $\sum_i\alpha_i\vect{GA_i}=\vec0$.\end{definition}
+\begin{propriete}[existence, coordonnées et réduction]
+Pour tout point $O$, $\vect{OG}=\dfrac1s\sum_i\alpha_i\vect{OA_i}$. Pour tout $M$,
+\[
+\sum_i\alpha_i\vect{MA_i}=s\vect{MG}.
+\]
+Les coordonnées de $G$ sont les moyennes pondérées des coordonnées des points. Multiplier tous les poids par un même réel non nul ne change pas $G$.
+\end{propriete}
+\begin{demonstration}Par Chasles, $\vect{GA_i}=\vect{GO}+\vect{OA_i}$. L’équation du barycentre impose $s\vect{OG}=\sum\alpha_i\vect{OA_i}$ : un unique vecteur définit un unique point. La réduction résulte de $\vect{MA_i}=\vect{MG}+\vect{GA_i}$.\end{demonstration}
+\begin{exemple}Pour $(A,1),(B,2)$, $\vect{AG}=\tfrac23\vect{AB}$. Avec des poids $1,-2$, la somme vaut $-1$ et $\vect{AG}=2\vect{AB}$ : le barycentre peut être à l’extérieur du segment. Si les poids sont $1,-1$ et $A\ne B$, aucun point ne satisfait la définition, car la somme vectorielle est $\vect{BA}\ne\vec0$.\end{exemple}
+\begin{propriete}[associativité]Un groupe de points dont la somme des poids est non nulle peut être remplacé par son barycentre affecté de cette somme. La somme totale doit rester non nulle.\end{propriete}
+\begin{demonstration}La réduction de ce groupe remplace exactement sa contribution dans la somme des vecteurs. L’équation finale ne change donc pas.\end{demonstration}
+\section{Sommes de distances au carré}
+\begin{propriete}[identité de réduction]Pour le barycentre $G$ et $s\ne0$,
+\[
+\sum_i\alpha_i MA_i^2=sMG^2+\sum_i\alpha_i GA_i^2.
+\]
+Les poids peuvent être négatifs; on ne doit alors pas supposer que la somme est positive.
+\end{propriete}
+\begin{demonstration}Développer le carré de $\vect{MA_i}=\vect{MG}+\vect{GA_i}$, multiplier par $\alpha_i$ et sommer. Le terme croisé vaut $2\vect{MG}\cdot\sum\alpha_i\vect{GA_i}=0$.\end{demonstration}
+\section{Reconnaître les lieux}
+\begin{propriete}[lignes de niveau du plan]
+$MA=k$ donne un cercle si $k>0$, le point $A$ si $k=0$, l’ensemble vide si $k<0$.
+Pour $\vecv\ne\vec0$, $\vect{MA}\cdot\vecv=0$ est la droite par $A$ perpendiculaire à $\vecv$; pour $\vecv=\vec0$, tout le plan.
+Si $I$ est milieu de $[AB]$,
+\[
+\vect{MA}\cdot\vect{MB}=MI^2-\frac{AB^2}{4}.
+\]
+Le lieu $\vect{MA}\cdot\vect{MB}=k$ est donc un cercle, un point ou vide selon le signe de $k+AB^2/4$.
+\end{propriete}
+\begin{demonstration}Écrire $\vect{MA}=\vect{MI}+\vect{IA}$ et $\vect{MB}=\vect{MI}-\vect{IA}$. Le produit vaut $MI^2-IA^2$, et $IA=AB/2$.\end{demonstration}
+\begin{exemple}[rapport de distances]
+Supposons $A\ne B$ et cherchons $MA=kMB$. Pour $k<0$, aucun point; pour $k=0$, le point $A$; pour $k=1$, la médiatrice de $[AB]$. Pour $k>0$, $k\ne1$, mettre au carré est équivalent; le lieu est un cercle d’Apollonius. Son centre est le barycentre de $(A,1),(B,-k^2)$ et son rayon vaut $kAB/|1-k^2|$.
+Pour $A(0;0),B(3;0),k=2$, $x^2+y^2=4((x-3)^2+y^2)$ donne $(x-4)^2+y^2=4$ : centre $(4;0)$ et rayon $2$.
+\end{exemple}
+
+\section{Exercices et problèmes}
+\exo[Deux poids]\label{t11s-c14-e01}
+Pour $A(1;2),B(7;-1)$, calculer le barycentre de $(A,2),(B,1)$.
+\begin{corrige}[exercice~\ref{t11s-c14-e01}]\label{sol-t11s-c14-e01}
+Somme $3\ne0$. $G=((2+7)/3;(4-1)/3)=(3;1)$.
+\end{corrige}
+\exo[Regrouper]\label{t11s-c14-e02}
+Dans un triangle $ABC$, $I$ est milieu de $[BC]$. Montrer que le barycentre de $(A,2),(B,1),(C,1)$ est le milieu de $[AI]$.
+\begin{corrige}[exercice~\ref{t11s-c14-e02}]\label{sol-t11s-c14-e02}
+Remplacer $(B,1),(C,1)$ par $(I,2)$. Les deux poids $2,2$ donnent le milieu, somme totale $4$.
+\end{corrige}
+\exo[Quatre points]\label{t11s-c14-e03}
+Pour le rectangle $A(0;0),B(4;0),C(4;2),D(0;2)$, trouver le barycentre des quatre points de poids $1$.
+\begin{corrige}[exercice~\ref{t11s-c14-e03}]\label{sol-t11s-c14-e03}
+Somme $4$; coordonnées $(2;1)$, centre du rectangle. Regrouper les deux diagonales donne le même résultat.
+\end{corrige}
+\exo[Lieu avec produit]\label{t11s-c14-e04}
+Si $AB=6$, déterminer les lieux $\vect{MA}\cdot\vect{MB}=0$, puis $-9$, puis $-10$.
+\begin{corrige}[exercice~\ref{t11s-c14-e04}]\label{sol-t11s-c14-e04}
+Avec $I$ milieu, $MI^2=k+9$. Pour $0$, cercle de centre $I$, rayon $3$ (diamètre $AB$); pour $-9$, point $I$; pour $-10$, ensemble vide.
+\end{corrige}
+\exo[Somme de carrés]\label{t11s-c14-e05}
+Pour $AB=4$ et $I$ milieu, déterminer le lieu $MA^2+MB^2=18$.
+\begin{corrige}[exercice~\ref{t11s-c14-e05}]\label{sol-t11s-c14-e05}
+Théorème de la médiane : $MA^2+MB^2=2MI^2+8$. Donc $MI^2=5$ : cercle de centre $I$, rayon $\sqrt5$.
+\end{corrige}
+\exo[Apollonius]\label{t11s-c14-e06}
+Pour $A(0;0),B(3;0)$, déterminer le lieu $MA=\tfrac12 MB$ et donner le centre par barycentre.
+\begin{corrige}[exercice~\ref{t11s-c14-e06}]\label{sol-t11s-c14-e06}
+$4(x^2+y^2)=(x-3)^2+y^2$, donc $(x+1)^2+y^2=4$. Centre $(-1;0)$, rayon $2$; barycentre de $(A,1),(B,-1/4)$, somme $3/4$.
+\end{corrige}
+\exo[Poids nuls au total]\label{t11s-c14-e07}
+Pourquoi ne peut-on appliquer la formule du barycentre aux poids $1,-1$ ? Distinguer $A\ne B$ et $A=B$.
+\begin{corrige}[exercice~\ref{t11s-c14-e07}]\label{sol-t11s-c14-e07}
+Division par somme nulle interdite. Si $A\ne B$, la somme est $\vect{BA}\ne0$, aucun point. Si $A=B$, elle vaut zéro pour tout point : aucune unicité, donc pas de barycentre au sens défini.
+\end{corrige}
+\begin{jemeteste}Je vérifie la somme des poids avant de diviser et je classe un lieu par le signe de son rayon au carré.\end{jemeteste}
+\begin{notepourlaclasse}Construire d’abord le barycentre de poids positifs, puis faire apparaître un poids négatif. Les cas cercle/point/vide doivent figurer dans les corrections, sans ajouter une figure fictive pour un lieu vide.\end{notepourlaclasse}

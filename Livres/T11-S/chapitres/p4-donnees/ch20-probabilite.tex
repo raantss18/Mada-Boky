@@ -1,0 +1,68 @@
+\bmtchapitre{Probabilités sur un univers fini}{Décrire l’univers, calculer la probabilité d’un événement et exploiter unions, intersections et événements contraires.}{Données et probabilités}
+\label{t11s-c20}
+\begin{revision}Dénombrement, fractions et ensembles finis du chapitre précédent.\end{revision}
+\begin{automatismes}\exo\label{t11s-c20-auto}Calculer $1-2/5$; simplifier $6/15$; combien de couples ordonnés donne le lancer de deux dés à six faces ?\end{automatismes}
+\begin{corrige}[exercice~\ref{t11s-c20-auto}]\label{sol-t11s-c20-auto}$3/5$, $2/5$, $36$ couples.\end{corrige}
+
+\section{Univers et événements}
+\begin{definition}L’univers $\Omega$ est l’ensemble des issues d’une expérience aléatoire. Un événement est un sous-ensemble de $\Omega$; un événement élémentaire contient une issue. $\varnothing$ est impossible, $\Omega$ certain. Deux événements sont incompatibles lorsque leur intersection est vide.\end{definition}
+\begin{definition}[probabilité finie]À chaque issue $\omega$ on associe un nombre $p_\omega\ge0$ avec $\sum_{\omega\in\Omega}p_\omega=1$. Pour $A\subseteq\Omega$, $\Prob(A)=\sum_{\omega\in A}p_\omega$. Dans un univers fini non vide équiprobable, chaque poids vaut $1/|\Omega|$, donc $\Prob(A)=|A|/|\Omega|$.\end{definition}
+\begin{avertissement}L’équiprobabilité doit venir du modèle, par exemple un dé équilibré ou un tirage uniforme. Les valeurs d’une somme de deux dés ne sont pas équiprobables : la somme $7$ a plus de couples que la somme $2$.\end{avertissement}
+\section{Propriétés}
+\begin{propriete}
+$0\le\Prob(A)\le1$, $\Prob(\varnothing)=0$, $\Prob(\Omega)=1$;
+$\Prob(\overline A)=1-\Prob(A)$;
+\[
+\Prob(A\cup B)=\Prob(A)+\Prob(B)-\Prob(A\cap B).
+\]
+Si $A\subseteq B$, $\Prob(A)\le\Prob(B)$.
+\end{propriete}
+\begin{demonstration}Les sommes portent sur des poids positifs. Le complément partage l’univers avec $A$. La formule de réunion retire les poids de l’intersection comptés deux fois. Pour l’inclusion, les poids supplémentaires de $B\setminus A$ sont positifs ou nuls.\end{demonstration}
+\begin{exemple}[un dé équilibré]Pour $A=\{2,4,6\}$ et $B=\{4,5,6\}$, $\Prob(A)=\Prob(B)=1/2$, $A\cap B=\{4,6\}$ donc $\Prob(A\cap B)=1/3$; la réunion a probabilité $2/3$. Les événements ne sont pas incompatibles.\end{exemple}
+\section{Compter un tirage}
+\begin{methode}{uniformiser le modèle}Pour deux lancers successifs équilibrés, les couples ordonnés sont équiprobables. Pour un tirage simultané uniforme de $p$ objets distincts parmi $n$, les sous-ensembles sont équiprobables. Compter favorable et total avec la même notion de résultat; vérifier que la probabilité est comprise entre zéro et un.\end{methode}
+\begin{exemple}[tirage sans remise]
+Une urne contient $3$ boules rouges et $2$ bleues, toutes distinguables. Tirer simultanément deux boules de façon uniforme. Il y a $\binom52=10$ paires; les deux rouges donnent $\binom32=3$ paires, probabilité $3/10$. Au moins une rouge est le contraire de deux bleues : $1-\binom22/\binom52=9/10$.
+\end{exemple}
+\begin{remarque}Dans un petit univers, un tableau ou une liste complète évite une formule inadaptée. Les probabilités conditionnelles, les lois de variables aléatoires et la loi binomiale ne sont pas nécessaires pour ces exercices.\end{remarque}
+\section{Fréquence observée et probabilité du modèle}
+Une fréquence mesure la proportion observée dans une série d’expériences; une probabilité appartient au modèle. Une fréquence de $0{,}47$ pour « pile » n’invalide pas automatiquement un modèle à $1/2$. Le lien entre fréquences et probabilités se découvre par répétition; une expérience courte ne démontre pas l’équilibre d’une pièce.
+
+\section{Exercices et problèmes}
+\exo[Deux dés]\label{t11s-c20-e01}
+Deux dés équilibrés sont lancés indépendamment. Énumérer les couples de somme $7$ et calculer sa probabilité, puis celle d’une somme $2$.
+\begin{corrige}[exercice~\ref{t11s-c20-e01}]\label{sol-t11s-c20-e01}
+Univers de $36$ couples équiprobables. Somme $7$ : $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$, donc $1/6$. Somme $2$ : $(1,1)$, donc $1/36$.
+\end{corrige}
+\exo[Union]\label{t11s-c20-e02}
+Un dé équilibré est lancé. $A$ : résultat pair; $B$ : résultat au moins $5$. Calculer intersection, réunion et contraire de la réunion.
+\begin{corrige}[exercice~\ref{t11s-c20-e02}]\label{sol-t11s-c20-e02}
+Intersection $\{6\}$ : $1/6$. Réunion $\{2,4,5,6\}$ : $2/3$. Contraire $\{1,3\}$ : $1/3$.
+\end{corrige}
+\exo[Urne]\label{t11s-c20-e03}
+Une urne contient $4$ rouges et $3$ bleues distinguables. Tirer simultanément trois boules de façon uniforme. Calculer les probabilités de trois rouges, exactement deux rouges et au moins une bleue.
+\begin{corrige}[exercice~\ref{t11s-c20-e03}]\label{sol-t11s-c20-e03}
+Total $\binom73=35$. Trois rouges $\binom43=4$, donc $4/35$. Exactement deux : $\binom42\binom31=18$, donc $18/35$. Au moins une bleue : $1-4/35=31/35$.
+\end{corrige}
+\exo[Avec remise]\label{t11s-c20-e04}
+Dans la même urne, tirer successivement deux boules avec remise et uniformément à chaque fois. Calculer la probabilité de deux rouges puis de couleurs différentes.
+\begin{corrige}[exercice~\ref{t11s-c20-e04}]\label{sol-t11s-c20-e04}
+Les $7^2=49$ couples de boules physiques sont équiprobables. Deux rouges : $4^2/49=16/49$. Couleurs différentes : $(4\times3+3\times4)/49=24/49$.
+\end{corrige}
+\exo[Probabilités imposées]\label{t11s-c20-e05}
+On donne $\Prob(A)=0{,}6$, $\Prob(B)=0{,}5$, $\Prob(A\cap B)=0{,}2$. Calculer la réunion, puis sa probabilité contraire. Ces données peuvent-elles correspondre à des événements incompatibles ?
+\begin{corrige}[exercice~\ref{t11s-c20-e05}]\label{sol-t11s-c20-e05}
+Réunion $0{,}9$, contraire $0{,}1$. Non, incompatibilité imposerait intersection vide et probabilité $0$. Les quatre régions ont masses $0{,}2,0{,}4,0{,}3,0{,}1$, positives et de somme $1$, donc données cohérentes.
+\end{corrige}
+\exo[Modèle non uniforme]\label{t11s-c20-e06}
+Une roue porte trois secteurs de tailles différentes. Peut-on affirmer que chacun a probabilité $1/3$ ? Proposer un modèle si les angles sont $90\degre,90\degre,180\degre$ et le point d’arrêt est uniforme en angle.
+\begin{corrige}[exercice~\ref{t11s-c20-e06}]\label{sol-t11s-c20-e06}
+Non, le nombre de secteurs ne suffit pas. Dans le modèle uniforme en angle, les probabilités sont $1/4,1/4,1/2$. Elles somment à $1$.
+\end{corrige}
+\exo[Un tirage de comité]\label{t11s-c20-e07}
+On choisit uniformément un comité de trois parmi neuf élèves, dont cinq filles. Quelle est la probabilité d’au moins une fille ?
+\begin{corrige}[exercice~\ref{t11s-c20-e07}]\label{sol-t11s-c20-e07}
+Univers $\binom93=84$ comités. Sans fille : $\binom43=4$. Probabilité $1-4/84=20/21$. Le choix uniforme des comités doit être explicitement supposé.
+\end{corrige}
+\begin{jemeteste}Je justifie le modèle équiprobable, je compte des issues cohérentes et je vérifie les probabilités par leur complément.\end{jemeteste}
+\begin{notepourlaclasse}Ne pas confondre incompatibilité et indépendance. L’hypothèse d’indépendance des deux dés établit le modèle des couples; aucune règle générale de probabilité conditionnelle n’est requise.\end{notepourlaclasse}
