@@ -37,6 +37,23 @@ Si $I$ est milieu de $[BC]$, alors $AB^2+AC^2=2AI^2+BC^2/2$.
 \end{propriete}
 \begin{demonstration}La hauteur relative à $AB$ vaut $AC\sin\widehat{BAC}$. Écrire l’aire avec chacun des trois angles puis diviser par les produits des côtés (tous non nuls) donne la relation des sinus.\end{demonstration}
 
+% ENRICHISSEMENT C13
+
+\subsection*{Choisir la bonne expression du produit scalaire}
+\begin{methode}{relier angle, projection et coordonnées}
+Avec des coordonnées dans un repère orthonormé, calculer d’abord les vecteurs puis leur produit. Pour un angle, diviser par les deux normes non nulles. Pour projeter $C$ sur la droite $(AB)$, $A\ne B$, poser $H=A+t\vect{AB}$; la condition $\vect{HC}\cdot\vect{AB}=0$ impose
+\[
+t=\frac{\vect{AC}\cdot\vect{AB}}{AB^2}.
+\]
+Si $t\notin[0;1]$, le pied appartient à la droite mais pas au segment; la hauteur d’un triangle peut être extérieure.
+\end{methode}
+\begin{exemple}[une projection calculée et vérifiée]
+Pour $A(1;1)$, $B(5;3)$, $C(2;4)$, $\vect{AB}=(4;2)$, $\vect{AC}=(1;3)$. Le produit vaut $10$ et $AB^2=20$, donc $t=1/2$, $H(3;2)$. On vérifie $\vect{HC}=(-1;2)$ et son produit avec $(4;2)$ vaut $0$. La distance $CH=\sqrt5$ est la hauteur relative à $AB=2\sqrt5$, d’où l’aire $5$ unités d’aire. Le même produit donne $\cos\widehat{BAC}=10/(\sqrt{20}\sqrt{10})=1/\sqrt2$ : l’angle vaut $\pi/4$.
+\end{exemple}
+\begin{methode}{contrôler la formule dans une base quelconque}
+Les coordonnées d’un vecteur sont les coefficients de sa décomposition dans la base choisie. Si la base n’est pas orthonormée, les produits des vecteurs de base interviennent. On peut revenir aux coordonnées dans un repère orthonormé pour éviter une formule mal appliquée. Une base sert à représenter les vecteurs; elle ne garantit pas des unités de longueur égales.
+\end{methode}
+
 \section{Exercices et problèmes}
 \exo[Une base oblique]\label{t11s-c13-e01}
 Écrire $(5;1)$ dans la base $\vecu=(2;1)$, $\vecv=(1;-1)$.
@@ -68,5 +85,17 @@ Deux côtés d’une parcelle triangulaire mesurent $30$ m et $40$ m, avec angle
 \begin{corrige}[exercice~\ref{t11s-c13-e06}]\label{sol-t11s-c13-e06}
 Aire $\tfrac12\times30\times40\times\sqrt3/2=300\sqrt3\ \mathrm{m}^2$. Troisième côté au carré $900+1600-1200=1300$, longueur $10\sqrt{13}$ m.
 \end{corrige}
+
+\exo[Une hauteur hors du segment]\label{t11s-c13-p01}
+Dans un repère orthonormé, $A(0;0)$, $B(4;0)$, $C(-2;3)$. Déterminer le projeté orthogonal $H$ de $C$ sur la droite $(AB)$ et dire s’il appartient au segment $[AB]$. Calculer l’aire du triangle et le cosinus de l’angle en $A$; cet angle est-il aigu, droit ou obtus ?
+\begin{corrige}[exercice~\ref{t11s-c13-p01}]\label{sol-t11s-c13-p01}
+La droite $(AB)$ est $y=0$, donc $H=(-2;0)$. Son abscisse n’est pas dans $[0;4]$ : pied extérieur. La hauteur $CH=3$ donne l’aire $4\times3/2=6$. Le produit $\vect{AB}\cdot\vect{AC}=4(-2)=-8$, avec normes $4$ et $\sqrt{13}$, donne $\cos\widehat{BAC}=-2/\sqrt{13}<0$. L’angle du triangle est donc obtus. Une hauteur extérieure n’empêche pas la formule base fois hauteur.
+\end{corrige}
+\exo[Des coordonnées dans une base oblique]\label{t11s-c13-p02}
+Dans un repère orthonormé de référence, $\vecu=(1;0)$ et $\vecv=(1;1)$. On définit $\vecw=\vecu+\vecv$ et $\vecz=\vecu-\vecv$. Un élève utilise leurs coordonnées $(1;1)$ et $(1;-1)$ dans la base $(\vecu,\vecv)$ pour conclure qu’ils sont orthogonaux. Contrôler que cette paire est une base, puis calculer le vrai produit scalaire et expliquer l’erreur.
+\begin{corrige}[exercice~\ref{t11s-c13-p02}]\label{sol-t11s-c13-p02}
+Le déterminant de $\vecu,\vecv$ est $1$, donc ils forment une base. Dans le repère orthonormé de référence, $\vecw=(2;1)$ et $\vecz=(0;-1)$ : produit $-1\ne0$, donc ils ne sont pas orthogonaux. La base donnée est oblique : $\vecu\cdot\vecv=1\ne0$. Multiplier directement les coefficients dans cette base revient à supposer, à tort, des vecteurs unitaires orthogonaux.
+\end{corrige}
+
 \begin{jemeteste}Je distingue une base quelconque d’un repère orthonormé; je choisis coordonnées, normes, angle ou projection selon les données.\end{jemeteste}
 \begin{notepourlaclasse}Le produit scalaire de vecteurs de coordonnées dans une base oblique est un piège utile. Faire établir les relations métriques avec Chasles et bilinéarité.\end{notepourlaclasse}

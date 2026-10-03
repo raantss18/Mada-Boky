@@ -28,6 +28,24 @@ Ce vecteur est orthogonal aux deux vecteurs, et son sens dépend de l’ordre. S
 \begin{propriete}[distance à un plan]Pour $P:\alpha x+\beta y+\gamma z+\delta=0$, la distance de $A(a;b;c)$ à $P$ vaut $|\alpha a+\beta b+\gamma c+\delta|/\sqrt{\alpha^2+\beta^2+\gamma^2}$.\end{propriete}
 \begin{demonstration}La projection orthogonale $H$ de $A$ vérifie $\vect{HA}=\lambda\vecn$. Remplacer dans l’équation du plan donne la longueur $AH$ égale à la formule. Le vecteur normal non nul permet la division.\end{demonstration}
 
+% ENRICHISSEMENT C17
+
+\subsection*{Un normal et un directeur ont des rôles différents}
+\begin{methode}{écrire puis vérifier un plan}
+Trouver une normale non nulle, par exemple un produit vectoriel de deux directions non colinéaires. Écrire $\vecn\cdot\vect{AM}=0$, puis développer. Vérifier les points de départ dans l’équation finale. Pour une droite, utiliser au contraire un vecteur directeur dans la représentation paramétrique; le normal d’un plan n’est pas une direction contenue dans ce plan.
+\end{methode}
+\begin{exemple}[projection et distance par le même calcul]
+Pour $P:x+2y-z=3$ et $A(1;0;0)$, la normale est $\vecn=(1;2;-1)$, de norme au carré $6$. La valeur du membre $x+2y-z-3$ en $A$ est $-2$. Donc
+\[
+H=A-\frac{-2}{6}\vecn=(4/3;2/3;-1/3).
+\]
+Sa substitution donne $3$; le vecteur $\vect{AH}$ est colinéaire à $\vecn$. Le point est bien le projeté orthogonal, et $AH=\sqrt6/3$, ce que confirme la formule de distance $2/\sqrt6$.
+\end{exemple}
+\begin{methode}{distinguer équations proportionnelles et plans distincts}
+Des normales proportionnelles indiquent des plans parallèles, éventuellement confondus. Comparer aussi la constante : multiplier toute l’équation par un même réel non nul ne change pas le plan. Si les normales ne sont pas colinéaires, résoudre les deux équations pour obtenir leur droite d’intersection.
+\end{methode}
+\begin{remarque}Une substitution donnant $0=0$ signifie que tous les paramètres conviennent, pas que le paramètre vaut zéro. Une substitution impossible interdit tous les points de la droite. Ces trois cas sont les analogues géométriques des issues d’un système linéaire.\end{remarque}
+
 \section{Exercices et problèmes}
 \exo[Cube]\label{t11s-c17-e01}
 Dans le cube unité, donner les coordonnées du milieu de la grande diagonale issue de $O$ et sa distance à $O$.
@@ -64,5 +82,17 @@ Calculer la distance de $A(1;2;3)$ au plan $x+2y+2z=2$.
 \begin{corrige}[exercice~\ref{t11s-c17-e07}]\label{sol-t11s-c17-e07}
 Valeur du membre $1+4+6-2=9$, norme du normal $3$, donc distance $3$. Projection $H=A-(9/9)(1;2;2)=(0;0;1)$, qui appartient au plan et vérifie $AH=3$.
 \end{corrige}
+
+\exo[Une équation, trois types d’intersection]\label{t11s-c17-p01}
+Dans un repère orthonormé, on considère $P:2x-y+z=4$ et les droites $d_1:(t;0;0)$, $d_2:(t;2t;0)$, $d_3:(t;2t;4)$, $t\in\R$. Déterminer chaque intersection avec $P$ et classer la droite comme sécante, strictement parallèle ou incluse. Dans chaque cas, écrire l’équation obtenue après substitution.
+\begin{corrige}[exercice~\ref{t11s-c17-p01}]\label{sol-t11s-c17-p01}
+Pour $d_1$, $2t=4$ impose $t=2$ : intersection unique $(2;0;0)$, droite sécante. Pour $d_2$, on obtient $0=4$, impossible : droite strictement parallèle. Pour $d_3$, l’égalité est $4=4$ pour tout $t$ : droite incluse. Les directions sont non nulles, et les conclusions portent sur toutes les valeurs réelles du paramètre.
+\end{corrige}
+\exo[Plans confondus, parallèles ou sécants]\label{t11s-c17-p02}
+Pour $P:x+2y-z=3$, comparer les plans $Q:2x+4y-2z=6$, $R:2x+4y-2z=7$ et $S:x-y+z=0$. Justifier les positions relatives. Pour $P\cap S$, donner une représentation paramétrique de la droite et vérifier un point et sa direction dans les deux plans.
+\begin{corrige}[exercice~\ref{t11s-c17-p02}]\label{sol-t11s-c17-p02}
+L’équation de $Q$ est deux fois celle de $P$, donc ils sont confondus. Celle de $R$ a la même normale, mais impose à deux fois le membre de $P$ la valeur $7$ au lieu de $6$ : parallèles distincts. Les normales de $P,S$ ne sont pas colinéaires. Poser $z=3t$ donne $y=1+2t$, $x=1-t$, donc $(x;y;z)=(1;1;0)+t(-1;2;3)$. Le point $(1;1;0)$ vérifie $P,S$, et la direction a produits scalaires $-1+4-3=0$ et $-1-2+3=0$ avec leurs normales. La paramétrisation décrit toutes les solutions du système.
+\end{corrige}
+
 \begin{jemeteste}Je précise le repère direct pour le produit vectoriel, je distingue un vecteur directeur d’un normal et je vérifie les équations sur les points.\end{jemeteste}
 \begin{notepourlaclasse}Manipuler un cube avant les coordonnées. Deux équations cartésiennes pour une droite répondent au programme sans entretenir l’ambiguïté d’une « équation unique ». La formule de distance complète les problèmes métriques.\end{notepourlaclasse}

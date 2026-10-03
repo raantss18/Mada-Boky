@@ -38,6 +38,22 @@ Son rapport est $\rho=\sqrt{\alpha^2+\beta^2}$; son angle vérifie $\cos\theta=\
 \begin{propriete}[centre et exception]Si $(\alpha,\beta)\ne(1,0)$, cette similitude possède un unique point fixe, obtenu en résolvant $x'=x,y'=y$. Si $(\alpha,\beta)=(1,0)$, elle est une translation, sans centre unique; pour $p=q=0$, c’est l’identité.\end{propriete}
 \begin{demonstration}Le système du point fixe a pour déterminant $(1-\alpha)^2+\beta^2$, strictement positif sauf dans le cas exclu. Autour de ce point fixe, l’expression est une rotation et une multiplication par $\rho$.\end{demonstration}
 
+% ENRICHISSEMENT C15
+
+\subsection*{Identifier une transformation à partir de ses effets}
+\begin{methode}{utiliser le centre comme origine provisoire}
+Pour une homothétie ou rotation de centre $J(a;b)$, écrire les coordonnées de $\vect{JM}$, appliquer la transformation à ce vecteur, puis ajouter celles de $J$. Cette démarche explique les formules et évite d’oublier la translation du centre. Pour contrôler une image, comparer les distances au centre et l’angle orienté lorsque celui-ci intervient.
+\end{methode}
+\begin{exemple}[rotation autour d’un point non nul]
+Pour $J(1;2)$ et $M(4;3)$, $\vect{JM}=(3;1)$. Une rotation d’angle $\pi/2$ donne $(-1;3)$, donc $M'=(0;5)$. Les carrés des distances sont $3^2+1^2=10$ et $(-1)^2+3^2=10$. Faire seulement $(x;y)\mapsto(-y;x)$ aurait tourné autour de l’origine, pas de $J$.
+\end{exemple}
+\begin{methode}{reconnaître une similitude et sa limite exceptionnelle}
+Comparer les coefficients aux deux formes $\alpha x-\beta y+p$ et $\beta x+\alpha y+q$. Calculer rapport et angle; résoudre ensuite les équations de point fixe. Si $(\alpha,\beta)=(1,0)$, examiner la translation au lieu de forcer un centre par une division nulle. Une transformation conservant les distances n’est pas forcément directe : une réflexion en est un exemple.
+\end{methode}
+\begin{exemple}[rapport signé et rapport des distances]
+L’homothétie de rapport $-2$ a le même effet sur un vecteur qu’une rotation de $\pi$ suivie d’une homothétie de rapport positif $2$. Les distances sont multipliées par $2$, les aires par $4$; le signe négatif modifie la direction, il ne produit pas une longueur négative.
+\end{exemple}
+
 \section{Exercices et problèmes}
 \exo[Images]\label{t11s-c15-e01}
 Pour $M(2;1)$, calculer son image par la translation $(3;-2)$, la symétrie de centre $(1;1)$ et la rotation de centre origine d’angle $\pi/2$.
@@ -69,5 +85,17 @@ Un triangle a sommets $A(0;0),B(2;0),C(0;1)$. Construire et calculer son image p
 \begin{corrige}[exercice~\ref{t11s-c15-e06}]\label{sol-t11s-c15-e06}
 Images $A'=(0;0),B'=(0;6),C'=(-3;0)$. Aire initiale $1$, aire finale $9$; rapport de similitude $3$ et angle $\pi/2$.
 \end{corrige}
+
+\exo[Une isométrie qui n’est pas directe]\label{t11s-c15-p01}
+Dans un repère orthonormé direct, appliquer la réflexion d’axe $y=x$, puis la translation de vecteur $(2;-1)$. Donner l’expression de la composée et les images de $A(0;0)$, $B(1;0)$, $C(0;1)$. Vérifier les trois distances du triangle. Peut-on écrire cette composée sous la forme analytique d’une similitude directe du cours ? Comparer les coefficients pour justifier.
+\begin{corrige}[exercice~\ref{t11s-c15-p01}]\label{sol-t11s-c15-p01}
+La composée est $(x;y)\mapsto(y+2;x-1)$. Les images sont $(2;-1),(2;0),(3;-1)$. Les distances $AB,AC,BC$ et leurs images valent respectivement $1,1,\sqrt2$. Pour une forme directe, le coefficient de $y$ dans $x'$ imposerait $\beta=-1$, alors que celui de $x$ dans $y'$ imposerait $\beta=1$, contradiction. C’est une isométrie indirecte : conserver les distances ne suffit pas à être directe.
+\end{corrige}
+\exo[La composée change aussi de centre]\label{t11s-c15-p02}
+On note $h$ l’homothétie de centre origine et de rapport $2$, et $t$ la translation de vecteur $(1;-3)$. Calculer $t\circ h$ et $h\circ t$. Pour chacune, déterminer son point fixe et l’identifier comme homothétie. Comparer leurs images de l’origine.
+\begin{corrige}[exercice~\ref{t11s-c15-p02}]\label{sol-t11s-c15-p02}
+$t\circ h$ donne $(2x+1;2y-3)$; ses équations de point fixe donnent $J(-1;3)$. Comme $M'=J+2(M-J)$, c’est l’homothétie de centre $J$ et rapport $2$. $h\circ t$ donne $(2x+2;2y-6)$, centre $K(-2;6)$, même rapport. Les images de l’origine sont $(1;-3)$ et $(2;-6)$ : les composées diffèrent, malgré le même rapport.
+\end{corrige}
+
 \begin{jemeteste}Je calcule les images dans l’ordre prescrit; je distingue rapport signé d’homothétie et rapport positif des distances.\end{jemeteste}
 \begin{notepourlaclasse}Les expressions analytiques se prêtent aux travaux dirigés. Les nombres complexes ne sont pas nécessaires. Pour une similitude, faire résoudre le point fixe et contrôler l’exception translation.\end{notepourlaclasse}

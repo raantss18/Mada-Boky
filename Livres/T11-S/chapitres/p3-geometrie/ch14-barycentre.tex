@@ -42,6 +42,26 @@ Supposons $A\ne B$ et cherchons $MA=kMB$. Pour $k<0$, aucun point; pour $k=0$, l
 Pour $A(0;0),B(3;0),k=2$, $x^2+y^2=4((x-3)^2+y^2)$ donne $(x-4)^2+y^2=4$ : centre $(4;0)$ et rayon $2$.
 \end{exemple}
 
+% ENRICHISSEMENT C14
+
+\subsection*{Réduire une expression avant de nommer un lieu}
+\begin{methode}{une équation de niveau en trois étapes}
+Calculer la somme des poids et le barycentre si elle est non nulle. Réduire ensuite l’expression à $sMG^2+c$. Résoudre l’équation pour $MG^2$; une valeur positive donne un cercle, zéro un point, négative l’ensemble vide. Si $s<0$, le sens d’une inégalité serait renversé en divisant; ne pas supposer que l’expression est une somme positive.
+\end{methode}
+\begin{exemple}[une somme pondérée et son minimum]
+Avec $A(0;0)$, $B(6;0)$ et poids $2,1$, le barycentre est $G(2;0)$. La réduction donne
+\[
+2MA^2+MB^2=3MG^2+2GA^2+GB^2=3MG^2+24.
+\]
+Le minimum est $24$, atteint uniquement en $G$. Le niveau $12$ est vide; le niveau $24$ est $\{G\}$; le niveau $51$ est le cercle de centre $G$ et de rayon $3$. Il faut calculer la constante de réduction, pas seulement le centre.
+\end{exemple}
+\begin{methode}{construire en regroupant les poids}
+Pour trois points, chercher un groupe dont le barycentre est facile à construire. Si ses poids ont une somme non nulle, remplacer ce groupe par son barycentre affecté de cette somme. Le barycentre final se construit alors sur une droite entre deux points. Vérifier les deux sommes avant les divisions.
+\end{methode}
+\begin{remarque}[somme nulle ne signifie pas expression inutilisable]
+Quand les poids totalisent zéro, la formule du barycentre ne s’applique pas. L’expression initiale peut néanmoins se simplifier directement par Chasles ou en coordonnées. Son lieu n’est pas automatiquement vide; il faut étudier cette expression, sans inventer un centre.
+\end{remarque}
+
 \section{Exercices et problèmes}
 \exo[Deux poids]\label{t11s-c14-e01}
 Pour $A(1;2),B(7;-1)$, calculer le barycentre de $(A,2),(B,1)$.
@@ -83,5 +103,17 @@ Dans un repère orthonormé, $A(1;2)$ et $\vecv=(2;-1)$. Déterminer les lieux $
 \begin{corrige}[exercice~\ref{t11s-c14-e08}]\label{sol-t11s-c14-e08}
 Pour $k=2$, cercle de centre $A$ et rayon $2$; pour $k=0$, le seul point $A$; pour $k=-1$, ensemble vide, car une distance est positive ou nulle. Pour $M(x;y)$, le produit vaut $2(1-x)-(2-y)=y-2x$, donc le lieu est la droite $y=2x$, passant par $A$ et perpendiculaire à $(2;-1)$. Si $\vecv=\vec0$, le produit vaut toujours zéro et le lieu est tout le plan.
 \end{corrige}
+
+\exo[Des poids négatifs donnent un maximum]\label{t11s-c14-p01}
+Dans un repère orthonormé, $A(0;0)$, $B(4;0)$ et $F(M)=MA^2-2MB^2$. Calculer le barycentre des poids $1,-2$, puis montrer que $F(M)=32-MG^2$. En déduire le maximum de $F$ et déterminer les lieux $F(M)=20$, $32$, $33$.
+\begin{corrige}[exercice~\ref{t11s-c14-p01}]\label{sol-t11s-c14-p01}
+La somme des poids vaut $-1$, et $G=(8;0)$. La constante est $GA^2-2GB^2=64-32=32$, donc $F=32-MG^2$. Le maximum $32$ est atteint seulement en $G$. Pour le niveau $20$, $MG^2=12$ : cercle de rayon $2\sqrt3$; pour $32$, point $G$; pour $33$, $MG^2=-1$, ensemble vide. La fonction peut être négative et n’a pas de minimum, car $MG$ peut croître sans borne.
+\end{corrige}
+\exo[Une différence de carrés sans barycentre]\label{t11s-c14-p02}
+Avec $A(0;0)$, $B(4;0)$ et $M(x;y)$ dans un repère orthonormé, calculer $MA^2-MB^2$. Pour tout réel $k$, déterminer le lieu $MA^2-MB^2=k$. Retrouver la médiatrice pour $k=0$ et expliquer pourquoi les poids $1,-1$ ne définissent pas de barycentre.
+\begin{corrige}[exercice~\ref{t11s-c14-p02}]\label{sol-t11s-c14-p02}
+La différence vaut $x^2+y^2-[(x-4)^2+y^2]=8x-16$. Le lieu est donc la droite $x=(k+16)/8$, pour chaque $k\in\R$. Pour $k=0$, on obtient $x=2$, médiatrice de $[AB]$. Les poids ont somme nulle et $A\ne B$, donc pas de barycentre; cette absence n’empêche pas les lieux d’exister.
+\end{corrige}
+
 \begin{jemeteste}Je vérifie la somme des poids avant de diviser et je classe un lieu par le signe de son rayon au carré.\end{jemeteste}
 \begin{notepourlaclasse}Construire d’abord le barycentre de poids positifs, puis faire apparaître un poids négatif. Les cas cercle/point/vide doivent figurer dans les corrections, sans ajouter une figure fictive pour un lieu vide.\end{notepourlaclasse}
