@@ -8,7 +8,7 @@
 \begin{situation}[autour d’une valeur interdite]
 \exo\label{t11s-c02-act}Pour $x\ne1$, calculer $\dfrac{x^2-1}{x-1}$ aux valeurs $0{,}9$, $0{,}99$, $1{,}01$ et $1{,}1$. Factoriser le numérateur. Vers quelle valeur les résultats semblent-ils se rapprocher ? Le quotient est-il défini en $1$ ?
 \end{situation}
-\begin{corrige}[exercice~\ref{t11s-c02-act}]Les valeurs sont $1{,}9$, $1{,}99$, $2{,}01$ et $2{,}1$. Pour $x\ne1$, le quotient vaut $x+1$, donc tend vers $2$. Il reste indéfini en $1$.\end{corrige}
+\begin{corrige}[exercice~\ref{t11s-c02-act}]\label{sol-t11s-c02-act}Les valeurs sont $1{,}9$, $1{,}99$, $2{,}01$ et $2{,}1$. Pour $x\ne1$, le quotient vaut $x+1$, donc tend vers $2$. Il reste indéfini en $1$.\end{corrige}
 \begin{definition}[limite finie en un point]
 Dire que $f(x)$ tend vers $\ell$ lorsque $x$ tend vers $a$, c’est dire que l’on peut rendre $f(x)$ aussi proche que l’on veut de $\ell$ en prenant $x$ suffisamment proche de $a$ dans le domaine, avec $x\ne a$. On note $\lim_{x\to a}f(x)=\ell$. On suppose que des points du domaine autres que $a$ peuvent s’approcher de $a$.
 \end{definition}
@@ -21,7 +21,7 @@ Pour $f(x)=\dfrac1{x-2}$, $\lim_{x\to2^-}f(x)=-\infty$ et $\lim_{x\to2^+}f(x)=+\
 $f(x)\to+\infty$ signifie que $f(x)$ dépasse tout seuil réel fixé lorsque $x$ est suffisamment proche du point considéré, ou suffisamment grand si $x\to+\infty$. La définition de $-\infty$ utilise des valeurs inférieures à tout seuil fixé.
 \end{definition}
 \begin{propriete}[règles admises]
-Si $f\to\ell$ et $g\to m$ avec $\ell,m\in\R$, alors $f+g\to\ell+m$, $fg\to\ell m$, et $f/g\to\ell/m$ si $m\ne0$. Si $f\ge0$ et $f\to\ell\ge0$, alors $\sqrt f\to\sqrt\ell$. Les polynômes ont pour limite leur valeur en tout réel. À l’infini, $x^n$ ($n\ge1$) domine ses termes de degré inférieur. Pour un quotient de polynômes, factoriser les puissances dominantes.
+Si $f\to\ell$ et $g\to m$ avec $\ell,m\in\R$, alors $f+g\to\ell+m$, $fg\to\ell m$, et $f/g\to\ell/m$ si $m\ne0$. Si $f\ge0$ et $f\to\ell\ge0$, alors $\sqrt f\to\sqrt\ell$. Les polynômes ont pour limite leur valeur en tout réel. À l’infini, $x^n$ ($n\in\N^*$) domine ses termes de degré inférieur. Pour un quotient de polynômes, factoriser les puissances dominantes.
 \end{propriete}
 \begin{avertissement}Les écritures $0/0$, $\infty/\infty$ et $\infty-\infty$ sont des formes indéterminées : elles ne donnent aucune réponse. $\infty$ n’est pas un nombre sur lequel on calcule comme dans $\R$.\end{avertissement}
 \begin{methode}{lever une indétermination}

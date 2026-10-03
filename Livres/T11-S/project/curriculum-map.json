@@ -1,0 +1,2882 @@
+{
+  "baseline_status": "VERSION EXPÉRIMENTALE; no assertion of final ministerial approval",
+  "baseline_sha256": "3bff1ebdfe4e587a76e38f8030416bc7e71e34eeaa0aafae21c81cdce122c8a6",
+  "requirements": [
+    {
+      "id": "PE-T11S-001",
+      "requirement": "Domaine",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c01-definition-002",
+        "t11s-c01-property-001",
+        "t11s-c01-claim-004",
+        "t11s-c01-example-002",
+        "t11s-c01-example-003",
+        "t11s-c01-claim-005",
+        "t11s-c01-e07",
+        "t11s-c01-e08",
+        "t11s-c01-e09",
+        "t11s-c01-e10",
+        "t11s-c01-e11",
+        "t11s-c01-e12"
+      ],
+      "worked_examples": [
+        "sol-t11s-c01-e07"
+      ],
+      "exercises": [
+        "t11s-c01-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "L'ensemble de définition"
+      ]
+    },
+    {
+      "id": "PE-T11S-002",
+      "requirement": "Parité",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c01-definition-004",
+        "t11s-c01-definition-005",
+        "t11s-c01-property-003",
+        "t11s-c01-proof-002",
+        "t11s-c01-claim-007",
+        "t11s-c01-example-004",
+        "t11s-c01-property-004",
+        "t11s-c01-proof-003",
+        "t11s-c01-claim-008",
+        "t11s-c01-e18",
+        "t11s-c01-e19",
+        "t11s-c01-e20",
+        "t11s-c01-e21",
+        "t11s-c01-e22",
+        "t11s-c01-e23",
+        "t11s-c01-claim-012"
+      ],
+      "worked_examples": [
+        "sol-t11s-c01-e18"
+      ],
+      "exercises": [
+        "t11s-c01-e18"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c01-test",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Parité : quand la courbe se reflète"
+      ]
+    },
+    {
+      "id": "PE-T11S-003",
+      "requirement": "Périodicité",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c01-definition-006",
+        "t11s-c01-property-005",
+        "t11s-c01-proof-004",
+        "t11s-c01-example-005",
+        "t11s-c01-claim-009",
+        "t11s-c01-example-006",
+        "t11s-c01-problem",
+        "t11s-c01-test",
+        "t11s-c01-e24",
+        "t11s-c01-e25",
+        "t11s-c01-e26",
+        "t11s-c01-e27",
+        "t11s-c01-e28",
+        "t11s-c01-e29"
+      ],
+      "worked_examples": [
+        "sol-t11s-c01-e24"
+      ],
+      "exercises": [
+        "t11s-c01-e24"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c01-test",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Périodicité : quand la courbe se répète"
+      ]
+    },
+    {
+      "id": "PE-T11S-004",
+      "requirement": "Limites finies et latérales",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c02-definition-001",
+        "t11s-c02-claim-002",
+        "t11s-c02-example-001",
+        "t11s-c02-act"
+      ],
+      "worked_examples": [
+        "sol-t11s-c02-e02"
+      ],
+      "exercises": [
+        "t11s-c02-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Observer un rapprochement"
+      ]
+    },
+    {
+      "id": "PE-T11S-005",
+      "requirement": "Limites à l’infini",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c02-definition-002",
+        "t11s-c02-property-001",
+        "t11s-c02-claim-003",
+        "t11s-c02-claim-004",
+        "t11s-c02-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c02-e04"
+      ],
+      "exercises": [
+        "t11s-c02-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Limites à l’infini et opérations"
+      ]
+    },
+    {
+      "id": "PE-T11S-006",
+      "requirement": "Branches infinies et asymptotes",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c03-definition-001",
+        "t11s-c03-example-001",
+        "t11s-c03-definition-002",
+        "t11s-c03-property-001",
+        "t11s-c03-proof-001",
+        "t11s-c03-claim-002",
+        "t11s-c03-example-002",
+        "t11s-c03-claim-003",
+        "t11s-c03-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c03-e06"
+      ],
+      "exercises": [
+        "t11s-c03-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Une courbe qui se rapproche d’une droite",
+        "Asymptote oblique",
+        "Toutes les branches n’ont pas d’asymptote"
+      ]
+    },
+    {
+      "id": "PE-T11S-007",
+      "requirement": "Continuité en un point et sur intervalle",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c02-definition-003",
+        "t11s-c02-property-002",
+        "t11s-c02-property-003",
+        "t11s-c02-claim-005"
+      ],
+      "worked_examples": [
+        "sol-t11s-c02-e05"
+      ],
+      "exercises": [
+        "t11s-c02-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Continuité"
+      ]
+    },
+    {
+      "id": "PE-T11S-008",
+      "requirement": "Dérivabilité en un point et sur intervalle",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c04-definition-001",
+        "t11s-c04-property-001",
+        "t11s-c04-proof-001",
+        "t11s-c04-property-002",
+        "t11s-c04-proof-002",
+        "t11s-c04-act"
+      ],
+      "worked_examples": [
+        "sol-t11s-c04-e05"
+      ],
+      "exercises": [
+        "t11s-c04-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Du taux de variation au nombre dérivé"
+      ]
+    },
+    {
+      "id": "PE-T11S-009",
+      "requirement": "Fonction dérivée",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c04-definition-001",
+        "t11s-c04-property-001",
+        "t11s-c04-proof-001",
+        "t11s-c04-property-002",
+        "t11s-c04-proof-002",
+        "t11s-c04-act"
+      ],
+      "worked_examples": [
+        "sol-t11s-c04-e01"
+      ],
+      "exercises": [
+        "t11s-c04-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Du taux de variation au nombre dérivé"
+      ]
+    },
+    {
+      "id": "PE-T11S-010",
+      "requirement": "Opérations sur les dérivées",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c04-property-003",
+        "t11s-c04-proof-003",
+        "t11s-c04-example-001",
+        "t11s-c04-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c04-e02"
+      ],
+      "exercises": [
+        "t11s-c04-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Dérivées usuelles et opérations"
+      ]
+    },
+    {
+      "id": "PE-T11S-011",
+      "requirement": "Tangente en un point",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c04-definition-001",
+        "t11s-c04-property-001",
+        "t11s-c04-proof-001",
+        "t11s-c04-property-002",
+        "t11s-c04-proof-002",
+        "t11s-c04-act"
+      ],
+      "worked_examples": [
+        "sol-t11s-c04-e03"
+      ],
+      "exercises": [
+        "t11s-c04-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Du taux de variation au nombre dérivé"
+      ]
+    },
+    {
+      "id": "PE-T11S-012",
+      "requirement": "Variation des fonctions",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c04-property-004",
+        "t11s-c04-claim-002",
+        "t11s-c04-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c04-e04"
+      ],
+      "exercises": [
+        "t11s-c04-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Variations et extrema"
+      ]
+    },
+    {
+      "id": "PE-T11S-013",
+      "requirement": "Positions relatives de deux courbes",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c05-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c05-e02"
+      ],
+      "exercises": [
+        "t11s-c05-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c05-e02",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Comparer deux fonctions"
+      ]
+    },
+    {
+      "id": "PE-T11S-014",
+      "requirement": "Point d’inflexion",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c05-definition-001",
+        "t11s-c05-example-002",
+        "t11s-c05-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c05-e04"
+      ],
+      "exercises": [
+        "t11s-c05-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c05-e04",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Point d’inflexion et tangente"
+      ]
+    },
+    {
+      "id": "PE-T11S-015",
+      "requirement": "Intersections avec les axes",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c05-claim-002",
+        "t11s-c05-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c05-e01"
+      ],
+      "exercises": [
+        "t11s-c05-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c05-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Organiser l’étude"
+      ]
+    },
+    {
+      "id": "PE-T11S-016",
+      "requirement": "Centre de symétrie",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c01-definition-004",
+        "t11s-c01-definition-005",
+        "t11s-c01-property-003",
+        "t11s-c01-proof-002",
+        "t11s-c01-claim-007",
+        "t11s-c01-example-004",
+        "t11s-c01-property-004",
+        "t11s-c01-proof-003",
+        "t11s-c01-claim-008",
+        "t11s-c01-e18",
+        "t11s-c01-e19",
+        "t11s-c01-e20",
+        "t11s-c01-e21",
+        "t11s-c01-e22",
+        "t11s-c01-e23",
+        "t11s-c01-claim-012"
+      ],
+      "worked_examples": [
+        "sol-t11s-c01-e21"
+      ],
+      "exercises": [
+        "t11s-c01-e21"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Parité : quand la courbe se reflète"
+      ]
+    },
+    {
+      "id": "PE-T11S-017",
+      "requirement": "Axe de symétrie",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c01-definition-004",
+        "t11s-c01-definition-005",
+        "t11s-c01-property-003",
+        "t11s-c01-proof-002",
+        "t11s-c01-claim-007",
+        "t11s-c01-example-004",
+        "t11s-c01-property-004",
+        "t11s-c01-proof-003",
+        "t11s-c01-claim-008",
+        "t11s-c01-e18",
+        "t11s-c01-e19",
+        "t11s-c01-e20",
+        "t11s-c01-e21",
+        "t11s-c01-e22",
+        "t11s-c01-e23",
+        "t11s-c01-claim-012"
+      ],
+      "worked_examples": [
+        "sol-t11s-c01-e20"
+      ],
+      "exercises": [
+        "t11s-c01-e20"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c01-test",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Parité : quand la courbe se reflète"
+      ]
+    },
+    {
+      "id": "PE-T11S-018",
+      "requirement": "Tracé et interprétation d’une courbe",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 356
+      },
+      "teaching_items": [
+        "t11s-c05-claim-002",
+        "t11s-c05-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c05-e01"
+      ],
+      "exercises": [
+        "t11s-c05-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Organiser l’étude"
+      ]
+    },
+    {
+      "id": "PE-T11S-019",
+      "requirement": "Second degré avec paramètre",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-001",
+        "t11s-c08-proof-001",
+        "t11s-c08-property-002",
+        "t11s-c08-proof-002",
+        "t11s-c08-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e01"
+      ],
+      "exercises": [
+        "t11s-c08-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Second degré et paramètre"
+      ]
+    },
+    {
+      "id": "PE-T11S-020",
+      "requirement": "Degré trois à racine connue",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-003",
+        "t11s-c08-proof-003",
+        "t11s-c08-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e03"
+      ],
+      "exercises": [
+        "t11s-c08-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Degré trois et équations bicarrées"
+      ]
+    },
+    {
+      "id": "PE-T11S-021",
+      "requirement": "Équations irrationnelles",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-004",
+        "t11s-c08-proof-004",
+        "t11s-c08-example-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e08"
+      ],
+      "exercises": [
+        "t11s-c08-e08"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Racines carrées : conserver les conditions"
+      ]
+    },
+    {
+      "id": "PE-T11S-022",
+      "requirement": "Inéquations irrationnelles",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-004",
+        "t11s-c08-proof-004",
+        "t11s-c08-example-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e05"
+      ],
+      "exercises": [
+        "t11s-c08-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c08-e05",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Racines carrées : conserver les conditions"
+      ]
+    },
+    {
+      "id": "PE-T11S-023",
+      "requirement": "Équations avec valeurs absolues",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-005",
+        "t11s-c08-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e06"
+      ],
+      "exercises": [
+        "t11s-c08-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c08-e06",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Valeurs absolues et tableaux de signes"
+      ]
+    },
+    {
+      "id": "PE-T11S-024",
+      "requirement": "Inéquations avec valeurs absolues",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c08-property-005",
+        "t11s-c08-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c08-e09"
+      ],
+      "exercises": [
+        "t11s-c08-e09"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c08-e09",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Valeurs absolues et tableaux de signes"
+      ]
+    },
+    {
+      "id": "PE-T11S-025",
+      "requirement": "Pivot de Gauss et systèmes à quatre inconnues",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c09-definition-001",
+        "t11s-c09-property-001",
+        "t11s-c09-proof-001",
+        "t11s-c09-claim-002",
+        "t11s-c09-example-001",
+        "t11s-c09-example-002",
+        "t11s-c09-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c09-e02"
+      ],
+      "exercises": [
+        "t11s-c09-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Transformer un système sans changer ses solutions",
+        "Reconnaître les trois issues"
+      ]
+    },
+    {
+      "id": "PE-T11S-026",
+      "requirement": "Modélisation concrète par quatre inconnues",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 357
+      },
+      "teaching_items": [
+        "t11s-c09-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c09-e04"
+      ],
+      "exercises": [
+        "t11s-c09-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c09-e04",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Modéliser"
+      ]
+    },
+    {
+      "id": "PE-T11S-027",
+      "requirement": "Numération décimale et binaire",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c11-definition-001",
+        "t11s-c11-example-001",
+        "t11s-c11-claim-002",
+        "t11s-c11-example-002",
+        "t11s-c11-property-001",
+        "t11s-c11-proof-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c11-e02"
+      ],
+      "exercises": [
+        "t11s-c11-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "La valeur dépend de la position",
+        "Convertir par divisions successives"
+      ]
+    },
+    {
+      "id": "PE-T11S-028",
+      "requirement": "Conversion en base quelconque",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c11-definition-001",
+        "t11s-c11-example-001",
+        "t11s-c11-claim-002",
+        "t11s-c11-example-002",
+        "t11s-c11-property-001",
+        "t11s-c11-proof-001",
+        "t11s-c11-example-003",
+        "t11s-c11-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c11-e04"
+      ],
+      "exercises": [
+        "t11s-c11-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "La valeur dépend de la position",
+        "Convertir par divisions successives",
+        "Changer de base et calculer"
+      ]
+    },
+    {
+      "id": "PE-T11S-029",
+      "requirement": "Reconnaître les nombres premiers",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c10-definition-001",
+        "t11s-c10-property-001",
+        "t11s-c10-proof-001",
+        "t11s-c10-property-002",
+        "t11s-c10-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c10-e01"
+      ],
+      "exercises": [
+        "t11s-c10-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c10-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Diviseurs et nombres premiers"
+      ]
+    },
+    {
+      "id": "PE-T11S-030",
+      "requirement": "Divisibilité et facteurs premiers",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c10-definition-001",
+        "t11s-c10-property-001",
+        "t11s-c10-proof-001",
+        "t11s-c10-property-002",
+        "t11s-c10-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c10-e02"
+      ],
+      "exercises": [
+        "t11s-c10-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Diviseurs et nombres premiers"
+      ]
+    },
+    {
+      "id": "PE-T11S-031",
+      "requirement": "PGCD et Euclide, coprimalité",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c10-definition-002",
+        "t11s-c10-property-003",
+        "t11s-c10-proof-002",
+        "t11s-c10-example-002",
+        "t11s-c10-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c10-e03"
+      ],
+      "exercises": [
+        "t11s-c10-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "PGCD et algorithme d’Euclide"
+      ]
+    },
+    {
+      "id": "PE-T11S-032",
+      "requirement": "PGCD de plusieurs nombres",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c10-definition-002",
+        "t11s-c10-property-003",
+        "t11s-c10-proof-002",
+        "t11s-c10-example-002",
+        "t11s-c10-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c10-e07"
+      ],
+      "exercises": [
+        "t11s-c10-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c10-e07",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "PGCD et algorithme d’Euclide"
+      ]
+    },
+    {
+      "id": "PE-T11S-033",
+      "requirement": "PPCM de deux ou plusieurs nombres",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c10-definition-003",
+        "t11s-c10-property-004",
+        "t11s-c10-proof-003",
+        "t11s-c10-example-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c10-e07"
+      ],
+      "exercises": [
+        "t11s-c10-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "PPCM"
+      ]
+    },
+    {
+      "id": "PE-T11S-034",
+      "requirement": "Boucles pour et tant que",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c07-definition-001",
+        "t11s-c07-example-001",
+        "t11s-c07-property-001",
+        "t11s-c07-proof-001",
+        "t11s-c07-example-002",
+        "t11s-c07-claim-002",
+        "t11s-c07-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c07-e02"
+      ],
+      "exercises": [
+        "t11s-c07-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Exécuter sans sauter une instruction",
+        "Boucle conditionnelle et terminaison"
+      ]
+    },
+    {
+      "id": "PE-T11S-035",
+      "requirement": "Organigramme comportant une boucle",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c07-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c07-e06"
+      ],
+      "exercises": [
+        "t11s-c07-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c07-e06",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Un organigramme avec retour"
+      ]
+    },
+    {
+      "id": "PE-T11S-036",
+      "requirement": "Algorithmes de suites et arithmétique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 358
+      },
+      "teaching_items": [
+        "t11s-c12-example-002",
+        "t11s-c12-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e08"
+      ],
+      "exercises": [
+        "t11s-c12-e08"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Un modèle de récurrence"
+      ]
+    },
+    {
+      "id": "PE-T11S-037",
+      "requirement": "Connecteurs et tables de vérité",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c06-definition-001",
+        "t11s-c06-property-001",
+        "t11s-c06-proof-001",
+        "t11s-c06-example-001",
+        "t11s-c06-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c06-e03"
+      ],
+      "exercises": [
+        "t11s-c06-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c06-e03",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Propositions et connecteurs"
+      ]
+    },
+    {
+      "id": "PE-T11S-038",
+      "requirement": "Négation de propositions",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c06-definition-001",
+        "t11s-c06-property-001",
+        "t11s-c06-proof-001",
+        "t11s-c06-example-001",
+        "t11s-c06-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c06-e01"
+      ],
+      "exercises": [
+        "t11s-c06-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Propositions et connecteurs"
+      ]
+    },
+    {
+      "id": "PE-T11S-039",
+      "requirement": "Quantificateurs et ordre",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c06-definition-002",
+        "t11s-c06-property-002",
+        "t11s-c06-proof-002",
+        "t11s-c06-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c06-e04"
+      ],
+      "exercises": [
+        "t11s-c06-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Quantifier et nier"
+      ]
+    },
+    {
+      "id": "PE-T11S-040",
+      "requirement": "Réciproque et contraposée",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c06-definition-001",
+        "t11s-c06-property-001",
+        "t11s-c06-proof-001",
+        "t11s-c06-example-001",
+        "t11s-c06-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c06-e02"
+      ],
+      "exercises": [
+        "t11s-c06-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c06-e02",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Propositions et connecteurs"
+      ]
+    },
+    {
+      "id": "PE-T11S-041",
+      "requirement": "Contre-exemple et raisonnement",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c06-claim-002",
+        "t11s-c06-example-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c06-e07"
+      ],
+      "exercises": [
+        "t11s-c06-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c06-e07",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Choisir une preuve"
+      ]
+    },
+    {
+      "id": "PE-T11S-042",
+      "requirement": "Définition et modes de génération de suites",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-001",
+        "t11s-c12-example-001",
+        "t11s-c12-definition-002",
+        "t11s-c12-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e01"
+      ],
+      "exercises": [
+        "t11s-c12-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Une fonction des entiers naturels"
+      ]
+    },
+    {
+      "id": "PE-T11S-043",
+      "requirement": "Représentation graphique d’une suite",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-001",
+        "t11s-c12-example-001",
+        "t11s-c12-definition-002",
+        "t11s-c12-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e01"
+      ],
+      "exercises": [
+        "t11s-c12-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c12-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Une fonction des entiers naturels"
+      ]
+    },
+    {
+      "id": "PE-T11S-044",
+      "requirement": "Variation d’une suite",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-001",
+        "t11s-c12-example-001",
+        "t11s-c12-definition-002",
+        "t11s-c12-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e04"
+      ],
+      "exercises": [
+        "t11s-c12-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Une fonction des entiers naturels"
+      ]
+    },
+    {
+      "id": "PE-T11S-045",
+      "requirement": "Convergence d’une suite",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-001",
+        "t11s-c12-example-001",
+        "t11s-c12-definition-002",
+        "t11s-c12-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e05"
+      ],
+      "exercises": [
+        "t11s-c12-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Une fonction des entiers naturels"
+      ]
+    },
+    {
+      "id": "PE-T11S-046",
+      "requirement": "Nature et terme général arithmétique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-003",
+        "t11s-c12-property-001",
+        "t11s-c12-proof-001",
+        "t11s-c12-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e02"
+      ],
+      "exercises": [
+        "t11s-c12-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c12-e02",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Suites arithmétiques"
+      ]
+    },
+    {
+      "id": "PE-T11S-047",
+      "requirement": "Nature et terme général géométrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-004",
+        "t11s-c12-property-002",
+        "t11s-c12-proof-002",
+        "t11s-c12-property-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e03"
+      ],
+      "exercises": [
+        "t11s-c12-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Suites géométriques"
+      ]
+    },
+    {
+      "id": "PE-T11S-048",
+      "requirement": "Somme de k termes consécutifs",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 359
+      },
+      "teaching_items": [
+        "t11s-c12-definition-003",
+        "t11s-c12-property-001",
+        "t11s-c12-proof-001",
+        "t11s-c12-definition-004",
+        "t11s-c12-property-002",
+        "t11s-c12-proof-002",
+        "t11s-c12-property-003",
+        "t11s-c12-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e02"
+      ],
+      "exercises": [
+        "t11s-c12-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn1-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Suites arithmétiques",
+        "Suites géométriques"
+      ]
+    },
+    {
+      "id": "PE-T11S-049",
+      "requirement": "Modélisation et interprétation par suites",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c12-example-002",
+        "t11s-c12-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c12-e06"
+      ],
+      "exercises": [
+        "t11s-c12-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Un modèle de récurrence"
+      ]
+    },
+    {
+      "id": "PE-T11S-050",
+      "requirement": "Combinaison linéaire et bases quelconques",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c13-definition-001",
+        "t11s-c13-property-001",
+        "t11s-c13-proof-001",
+        "t11s-c13-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c13-e01"
+      ],
+      "exercises": [
+        "t11s-c13-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c13-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Combinaisons linéaires et bases"
+      ]
+    },
+    {
+      "id": "PE-T11S-051",
+      "requirement": "Produit scalaire plan, expressions et métrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c13-definition-002",
+        "t11s-c13-property-002",
+        "t11s-c13-proof-002",
+        "t11s-c13-property-003",
+        "t11s-c13-proof-003",
+        "t11s-c13-property-004",
+        "t11s-c13-proof-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c13-e03"
+      ],
+      "exercises": [
+        "t11s-c13-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Quatre expressions d’un même produit",
+        "Relations métriques dans un triangle"
+      ]
+    },
+    {
+      "id": "PE-T11S-052",
+      "requirement": "Barycentre de deux, trois, quatre points",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c14-definition-001",
+        "t11s-c14-property-001",
+        "t11s-c14-proof-001",
+        "t11s-c14-example-001",
+        "t11s-c14-property-002",
+        "t11s-c14-proof-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c14-e03"
+      ],
+      "exercises": [
+        "t11s-c14-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Deux, trois ou quatre points pondérés"
+      ]
+    },
+    {
+      "id": "PE-T11S-053",
+      "requirement": "Réduction d’une somme vectorielle",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c14-definition-001",
+        "t11s-c14-property-001",
+        "t11s-c14-proof-001",
+        "t11s-c14-example-001",
+        "t11s-c14-property-002",
+        "t11s-c14-proof-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c14-e02"
+      ],
+      "exercises": [
+        "t11s-c14-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c14-e02",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Deux, trois ou quatre points pondérés"
+      ]
+    },
+    {
+      "id": "PE-T11S-054",
+      "requirement": "Lignes de niveau de distances et projections",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c14-property-004",
+        "t11s-c14-proof-004",
+        "t11s-c14-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c14-e08"
+      ],
+      "exercises": [
+        "t11s-c14-e08"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c14-e08",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Reconnaître les lieux"
+      ]
+    },
+    {
+      "id": "PE-T11S-055",
+      "requirement": "Lignes de niveau de produits et carrés",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c14-property-003",
+        "t11s-c14-proof-003",
+        "t11s-c14-property-004",
+        "t11s-c14-proof-004",
+        "t11s-c14-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c14-e04"
+      ],
+      "exercises": [
+        "t11s-c14-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Sommes de distances au carré",
+        "Reconnaître les lieux"
+      ]
+    },
+    {
+      "id": "PE-T11S-056",
+      "requirement": "Rapport de distances",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c14-property-004",
+        "t11s-c14-proof-004",
+        "t11s-c14-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c14-e06"
+      ],
+      "exercises": [
+        "t11s-c14-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c14-e06",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Reconnaître les lieux"
+      ]
+    },
+    {
+      "id": "PE-T11S-057",
+      "requirement": "Translations et symétries",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c15-definition-001",
+        "t11s-c15-property-001",
+        "t11s-c15-proof-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c15-e01"
+      ],
+      "exercises": [
+        "t11s-c15-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c15-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Translations et symétries"
+      ]
+    },
+    {
+      "id": "PE-T11S-058",
+      "requirement": "Homothéties et rotations",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c15-definition-002",
+        "t11s-c15-property-002",
+        "t11s-c15-proof-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c15-e06"
+      ],
+      "exercises": [
+        "t11s-c15-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn1-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Homothéties et rotations"
+      ]
+    },
+    {
+      "id": "PE-T11S-059",
+      "requirement": "Composition de deux transformations",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c15-definition-003",
+        "t11s-c15-example-001",
+        "t11s-c15-property-003",
+        "t11s-c15-proof-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c15-e04"
+      ],
+      "exercises": [
+        "t11s-c15-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c15-e04",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Composer : l’ordre compte"
+      ]
+    },
+    {
+      "id": "PE-T11S-060",
+      "requirement": "Similitudes planes directes",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 360
+      },
+      "teaching_items": [
+        "t11s-c15-definition-004",
+        "t11s-c15-property-004",
+        "t11s-c15-proof-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c15-e05"
+      ],
+      "exercises": [
+        "t11s-c15-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Similitudes planes directes"
+      ]
+    },
+    {
+      "id": "PE-T11S-061",
+      "requirement": "Repérage dans cube ou parallélépipède",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-001",
+        "t11s-c17-example-001",
+        "t11s-c17-property-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e01"
+      ],
+      "exercises": [
+        "t11s-c17-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c17-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Repérage et orientation"
+      ]
+    },
+    {
+      "id": "PE-T11S-062",
+      "requirement": "Produit scalaire espace analytique et géométrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-001",
+        "t11s-c17-example-001",
+        "t11s-c17-property-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e02"
+      ],
+      "exercises": [
+        "t11s-c17-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c17-e02",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Repérage et orientation"
+      ]
+    },
+    {
+      "id": "PE-T11S-063",
+      "requirement": "Produit vectoriel analytique et géométrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-002",
+        "t11s-c17-property-002",
+        "t11s-c17-proof-001",
+        "t11s-c17-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e02"
+      ],
+      "exercises": [
+        "t11s-c17-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e04",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Produit vectoriel"
+      ]
+    },
+    {
+      "id": "PE-T11S-064",
+      "requirement": "Droite cartésienne et paramétrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-003",
+        "t11s-c17-definition-004",
+        "t11s-c17-proof-002",
+        "t11s-c17-claim-002",
+        "t11s-c17-property-003",
+        "t11s-c17-proof-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e05"
+      ],
+      "exercises": [
+        "t11s-c17-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e04",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Droites et plans"
+      ]
+    },
+    {
+      "id": "PE-T11S-065",
+      "requirement": "Plan cartésien et paramétrique",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-003",
+        "t11s-c17-definition-004",
+        "t11s-c17-proof-002",
+        "t11s-c17-claim-002",
+        "t11s-c17-property-003",
+        "t11s-c17-proof-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e03"
+      ],
+      "exercises": [
+        "t11s-c17-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c17-e03",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Droites et plans"
+      ]
+    },
+    {
+      "id": "PE-T11S-066",
+      "requirement": "Problèmes métriques de l’espace",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 361
+      },
+      "teaching_items": [
+        "t11s-c17-definition-003",
+        "t11s-c17-definition-004",
+        "t11s-c17-proof-002",
+        "t11s-c17-claim-002",
+        "t11s-c17-property-003",
+        "t11s-c17-proof-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c17-e07"
+      ],
+      "exercises": [
+        "t11s-c17-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e04",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Droites et plans"
+      ]
+    },
+    {
+      "id": "PE-T11S-067",
+      "requirement": "Degré, radian, grades",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c16-definition-001",
+        "t11s-c16-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c16-e01"
+      ],
+      "exercises": [
+        "t11s-c16-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c16-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Mesures et cercle orienté"
+      ]
+    },
+    {
+      "id": "PE-T11S-068",
+      "requirement": "Cercle et mesure principale",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c16-definition-001",
+        "t11s-c16-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c16-e01"
+      ],
+      "exercises": [
+        "t11s-c16-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Mesures et cercle orienté"
+      ]
+    },
+    {
+      "id": "PE-T11S-069",
+      "requirement": "Formules trigonométriques et preuves",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c16-property-001",
+        "t11s-c16-proof-001",
+        "t11s-c16-property-002",
+        "t11s-c16-proof-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c16-e05"
+      ],
+      "exercises": [
+        "t11s-c16-e05"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c16-e05",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Formules à utiliser et à justifier"
+      ]
+    },
+    {
+      "id": "PE-T11S-070",
+      "requirement": "Équations trigonométriques",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c16-property-003",
+        "t11s-c16-proof-003",
+        "t11s-c16-claim-002",
+        "t11s-c16-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c16-e03"
+      ],
+      "exercises": [
+        "t11s-c16-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Équations et inéquations"
+      ]
+    },
+    {
+      "id": "PE-T11S-071",
+      "requirement": "Inéquations trigonométriques",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c16-property-003",
+        "t11s-c16-proof-003",
+        "t11s-c16-claim-002",
+        "t11s-c16-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c16-e04"
+      ],
+      "exercises": [
+        "t11s-c16-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds3-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Équations et inéquations"
+      ]
+    },
+    {
+      "id": "PE-T11S-072",
+      "requirement": "Proportions et pourcentages",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-001",
+        "t11s-c18-property-001",
+        "t11s-c18-proof-001",
+        "t11s-c18-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e08"
+      ],
+      "exercises": [
+        "t11s-c18-e08"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c18-e08",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Proportion et évolution"
+      ]
+    },
+    {
+      "id": "PE-T11S-073",
+      "requirement": "Taux d’évolution et interprétation",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-001",
+        "t11s-c18-property-001",
+        "t11s-c18-proof-001",
+        "t11s-c18-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e01"
+      ],
+      "exercises": [
+        "t11s-c18-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e01",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Proportion et évolution"
+      ]
+    },
+    {
+      "id": "PE-T11S-074",
+      "requirement": "Moyenne et médiane",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-002",
+        "t11s-c18-definition-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e03"
+      ],
+      "exercises": [
+        "t11s-c18-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Indicateurs de position"
+      ]
+    },
+    {
+      "id": "PE-T11S-075",
+      "requirement": "Quartiles et déciles",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-002",
+        "t11s-c18-definition-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e03"
+      ],
+      "exercises": [
+        "t11s-c18-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c18-e03",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Indicateurs de position"
+      ]
+    },
+    {
+      "id": "PE-T11S-076",
+      "requirement": "Étendue, écart interquartile",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-004",
+        "t11s-c18-property-002",
+        "t11s-c18-proof-002",
+        "t11s-c18-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e06"
+      ],
+      "exercises": [
+        "t11s-c18-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Dispersion et représentation"
+      ]
+    },
+    {
+      "id": "PE-T11S-077",
+      "requirement": "Variance et écart type",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-004",
+        "t11s-c18-property-002",
+        "t11s-c18-proof-002",
+        "t11s-c18-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e04"
+      ],
+      "exercises": [
+        "t11s-c18-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Dispersion et représentation"
+      ]
+    },
+    {
+      "id": "PE-T11S-078",
+      "requirement": "Boîte à moustaches",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 362
+      },
+      "teaching_items": [
+        "t11s-c18-definition-004",
+        "t11s-c18-property-002",
+        "t11s-c18-proof-002",
+        "t11s-c18-example-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-e06"
+      ],
+      "exercises": [
+        "t11s-c18-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e02",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Dispersion et représentation"
+      ]
+    },
+    {
+      "id": "PE-T11S-079",
+      "requirement": "Collecte, organisation et classification",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 353
+      },
+      "teaching_items": [
+        "t11s-c18-act"
+      ],
+      "worked_examples": [
+        "sol-t11s-c18-act"
+      ],
+      "exercises": [
+        "t11s-c18-act"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c18-act",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Recueillir et classer des données"
+      ]
+    },
+    {
+      "id": "PE-T11S-080",
+      "requirement": "Vocabulaire ensembliste, cardinal et opérations",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c19-definition-001",
+        "t11s-c19-property-001",
+        "t11s-c19-proof-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c19-e01"
+      ],
+      "exercises": [
+        "t11s-c19-e01"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c19-e01",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Cardinal et opérations"
+      ]
+    },
+    {
+      "id": "PE-T11S-081",
+      "requirement": "Application, injection, surjection, bijection",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c19-definition-002",
+        "t11s-c19-property-002",
+        "t11s-c19-proof-002",
+        "t11s-c19-claim-002"
+      ],
+      "worked_examples": [
+        "sol-t11s-c19-e04"
+      ],
+      "exercises": [
+        "t11s-c19-e04"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c19-e04",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Applications entre ensembles finis"
+      ]
+    },
+    {
+      "id": "PE-T11S-082",
+      "requirement": "Permutations",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c19-definition-003",
+        "t11s-c19-proof-003",
+        "t11s-c19-example-001",
+        "t11s-c19-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c19-e07"
+      ],
+      "exercises": [
+        "t11s-c19-e07"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c19-e07",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Ordre et répétition"
+      ]
+    },
+    {
+      "id": "PE-T11S-083",
+      "requirement": "Arrangements",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c19-definition-003",
+        "t11s-c19-proof-003",
+        "t11s-c19-example-001",
+        "t11s-c19-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c19-e03"
+      ],
+      "exercises": [
+        "t11s-c19-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Ordre et répétition"
+      ]
+    },
+    {
+      "id": "PE-T11S-084",
+      "requirement": "Combinaisons",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c19-definition-003",
+        "t11s-c19-proof-003",
+        "t11s-c19-example-001",
+        "t11s-c19-claim-003"
+      ],
+      "worked_examples": [
+        "sol-t11s-c19-e06"
+      ],
+      "exercises": [
+        "t11s-c19-e06"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Ordre et répétition"
+      ]
+    },
+    {
+      "id": "PE-T11S-085",
+      "requirement": "Probabilité d’un événement, équiprobabilité",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c20-definition-001",
+        "t11s-c20-definition-002",
+        "t11s-c20-claim-002",
+        "t11s-c20-claim-003",
+        "t11s-c20-example-002",
+        "t11s-c20-claim-004"
+      ],
+      "worked_examples": [
+        "sol-t11s-c20-e03"
+      ],
+      "exercises": [
+        "t11s-c20-e03"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-syn2-e03",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Univers et événements",
+        "Compter un tirage"
+      ]
+    },
+    {
+      "id": "PE-T11S-086",
+      "requirement": "Union, intersection et complément",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 363
+      },
+      "teaching_items": [
+        "t11s-c20-property-001",
+        "t11s-c20-proof-001",
+        "t11s-c20-example-001"
+      ],
+      "worked_examples": [
+        "sol-t11s-c20-e02"
+      ],
+      "exercises": [
+        "t11s-c20-e02"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-ds4-e04",
+          "type": "summative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Propriétés"
+      ]
+    },
+    {
+      "id": "PE-T11S-087",
+      "requirement": "Fréquences observées et modèle",
+      "classification": "required",
+      "source": {
+        "path": "PSE/PE-2026/PE_T11.pdf",
+        "printed_page": 353
+      },
+      "teaching_items": [
+        "t11s-c20-act",
+        "t11s-c20-claim-005"
+      ],
+      "worked_examples": [
+        "sol-t11s-c20-act"
+      ],
+      "exercises": [
+        "t11s-c20-act"
+      ],
+      "assessment": [
+        {
+          "id": "t11s-c20-act",
+          "type": "formative"
+        }
+      ],
+      "coverage": "passed",
+      "review_method": "Comparison of each PE content row and learning activity with the manuscript; formative exercises are used where the six summative subjects do not assess that particular skill.",
+      "teaching_sections": [
+        "Fréquence observée et probabilité du modèle"
+      ]
+    }
+  ],
+  "optional": [
+    "bicarrées",
+    "valeurs intermédiaires",
+    "loi des sinus",
+    "distance à un plan",
+    "récurrence affine guidée"
+  ],
+  "excluded": [
+    "équations cubiques ou irrationnelles paramétrées",
+    "probabilités conditionnelles",
+    "variables aléatoires et loi binomiale",
+    "complexité algorithmique",
+    "nombres complexes"
+  ],
+  "comparison_sources": [
+    {
+      "path": "PSE/Programmes/PROGRAMME SCOLAIRE 1ère.pdf",
+      "sha256": "f8fe2f1bace7e194550deda922dfd41355982520a9fc025c0f0c026183a5b726"
+    },
+    {
+      "path": "PSE/Répartitions 2025 2026/RAPE_T11_S_2025_2026_.pdf",
+      "sha256": "11167a32f0134ae6216dea26ba1007481e6aea5b31bdb0c260d4074ab4fa2292"
+    }
+  ],
+  "missing_links": []
+}

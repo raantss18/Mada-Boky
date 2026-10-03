@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "scope": "book",
+  "source_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "423e56ac93a011968fba7bcd62a92a838f3adab4fdc922faf089db6ed2e07597"
+    },
+    {
+      "path": "annexes/formulaire.tex",
+      "sha256": "f5f96a7cae5dee15888bf8b923461b11261bb9922b16d2c6644f01a420879be3"
+    },
+    {
+      "path": "annexes/glossaire.tex",
+      "sha256": "eadd6abc22a58ea8c6eefc35c014f5d1d2e4024383b73773d7fef35fb7d167a7"
+    },
+    {
+      "path": "annexes/progression-prof.tex",
+      "sha256": "f4180b490f679af2d692a4b9e843729854c08499de9963b1cbb09cae85f84bd6"
+    },
+    {
+      "path": "annexes/sujet-a.tex",
+      "sha256": "55801320afc6e91fd99965583176601513db07aaca78c24add790702b9cc8ef4"
+    },
+    {
+      "path": "annexes/sujet-b.tex",
+      "sha256": "065c5f50e8110ea65d6acd776e7c6cf079042b254983b924eedf1467e69ef4b8"
+    },
+    {
+      "path": "annexes/sujets.tex",
+      "sha256": "69fbf946017aa2ccc66c7b2cc8f99022751eac95b45c275dd97b3ef25891ec53"
+    },
+    {
+      "path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+      "sha256": "94ef647b673739ceedaaf7a7e1aa24ee44fc0ab716e2e18a7102bf38df5eae84"
+    },
+    {
+      "path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+      "sha256": "e4abef5e17230fbbdc895bd78680bbe1b1649b421a5a2d7a0ea9d6122034d623"
+    },
+    {
+      "path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+      "sha256": "9b207e0dc13ed6200b70f35d1c68e2df0cf9abbee19606fa8d71ebcea9533cf3"
+    },
+    {
+      "path": "chapitres/p1-analyse/ch04-derivation.tex",
+      "sha256": "a6eb4fc38b9b50d01698abd2afc00df49c28e496eb1d0ee06c5014157ae430fc"
+    },
+    {
+      "path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+      "sha256": "775f80857b500fa559f02f08978f5abed4c4ae957177fa979f8558a8db58a7fb"
+    },
+    {
+      "path": "chapitres/p1-analyse/ds1-analyse.tex",
+      "sha256": "ce105b06c40780f211d001c0ef5ba470d030388c1f34ff125ce66bd30411e58b"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch06-logique.tex",
+      "sha256": "1ac34a1496fc43f3e9054867b7fd34dd6a2d1235c87866f7ca57455375aee355"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+      "sha256": "b2f0bff6c895af7e67f55c9e8254e144151a028c68252ac97110888db07b84df"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+      "sha256": "03458709310d3d5f9a460f9b3ba07d89ec8c213657e3a8f4cf04dd1d03cc992e"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+      "sha256": "7e6940f7e13200d66122079acedab28a01c107d1d0389cfac6132198d4496018"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+      "sha256": "9147b3043840d66d036cc6cae93158da03f9e3f753b595bc42c580632d1682c2"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch11-numeration.tex",
+      "sha256": "b126936d0538d5bcd0cda33c5a48bce51deb8b237801b3a7b17af01789b84045"
+    },
+    {
+      "path": "chapitres/p2-algebre/ch12-suites.tex",
+      "sha256": "71ec3f4b8f00de18255837b65744512a98f4265efc72030d5b99a6cdc15f1ae4"
+    },
+    {
+      "path": "chapitres/p2-algebre/ds2-algebre.tex",
+      "sha256": "3c850a44861a7d6284ec2321da9a64b376b6991e5e0dc39de0c2f93c20b1e66a"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+      "sha256": "cf75c09934bece7c7f23017035c4d76ab7c809205c70d2e2758ad6ff705531e3"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+      "sha256": "7f7b2b9fd5e43d9be743d6f810cf65264fe2c319af02467646aeacf7a3eb2b6e"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ch15-transformations.tex",
+      "sha256": "cb430b00b253470f6b9d6a3b76430252cfc9077ae880febcb5e2ca655a6bae61"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+      "sha256": "8a37387b8042f3a38fc8de52c28288498975ae00ed664d473b1bc7e8aee41f03"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+      "sha256": "a2618d2ea672b032e9bad5c5e0a6e4b3086caac18f6fe70f6b814c7880088f5c"
+    },
+    {
+      "path": "chapitres/p3-geometrie/ds3-geometrie.tex",
+      "sha256": "2e3435fe0a64e9dbbb62a9a167b6f40e326d6063e892f88a7923d5fd2837df84"
+    },
+    {
+      "path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+      "sha256": "49e546c167d9ec1199227beb0e080c08da19e7d35461ebafd344148eba8928f5"
+    },
+    {
+      "path": "chapitres/p4-donnees/ch19-denombrement.tex",
+      "sha256": "823b4dfdbd1f309985ed6d8613ef6141cf619d396284a31e6f964f2475c596dd"
+    },
+    {
+      "path": "chapitres/p4-donnees/ch20-probabilite.tex",
+      "sha256": "fe87f92b43e3539c42e76dcf086d4b1b058e36b89ea7a056ea2709b77039b427"
+    },
+    {
+      "path": "chapitres/p4-donnees/ds4-donnees.tex",
+      "sha256": "a0238914585d12b93aa410d95c37031181b4bf0ac7cff56bb197455faa1a6752"
+    },
+    {
+      "path": "compiler.sh",
+      "sha256": "a0552378a9ce9b9a6b05dcf5a893f5bf45b5483e956223df9644a7352217a31b"
+    },
+    {
+      "path": "front/avant-propos.tex",
+      "sha256": "de240fb88f89e2b4773bc5fdd6847e4503addc399a6eabb085145216be2256fe"
+    },
+    {
+      "path": "front/couverture.tex",
+      "sha256": "07ebf805e77101b83c093ac26a23f46d453847969178c38782da369e8a501885"
+    },
+    {
+      "path": "front/mode-emploi.tex",
+      "sha256": "d6897fa7e696477b24378cad4bcc5ce93ac3b1552af2d37837e3f47a2f3a86ed"
+    },
+    {
+      "path": "front/page-titre.tex",
+      "sha256": "2f9f8a46a2869267b18912460630cf09c44e0ade0898100b328eb6314c880d50"
+    },
+    {
+      "path": "latexmkrc",
+      "sha256": "e789ef8b60f988e7acf44c4b1d18de424821f08008d76c5423daa13247234ffb"
+    },
+    {
+      "path": "livre-t11s-prof.tex",
+      "sha256": "7ca478591a29456d7317a11338030814b092ec4e3dde59c52f51a4b8be835582"
+    },
+    {
+      "path": "livre-t11s.tex",
+      "sha256": "e1533f55dc3636a0479cd995cbec2c87855fb2aed7eada551b1f86583455f4de"
+    },
+    {
+      "path": "preambule/bmt-blocks.sty",
+      "sha256": "c5cb764f4233be3ab7bd4d05bc8f5846123bd48cdf59073dd5fbd2e87849cac2"
+    },
+    {
+      "path": "preambule/bmt-macros.sty",
+      "sha256": "2c110854834363b43dc88d66ca727c16378a91d8d78c4c16b7ca95de4d5a01ee"
+    },
+    {
+      "path": "preambule/bmt-style.sty",
+      "sha256": "01555412c71997efb2204cc9061156096a16b103f3de2ced664279a261c491a0"
+    },
+    {
+      "path": "project/architecture.md",
+      "sha256": "f624b963fa0e5af9aa258eb9301fe7e23cd20bcb5327f92386bf2d4c455aee21"
+    },
+    {
+      "path": "project/chapter-list.json",
+      "sha256": "a5563eafd78d85840a4a6f3df448b5c92e7f9e303b68371f20705868e0612c31"
+    },
+    {
+      "path": "project/curriculum-extract.txt",
+      "sha256": "6361388f9e2b27a49c10ef3c4ff4a62f7acffbf514d54f51bbd48b14c7fd04a2"
+    },
+    {
+      "path": "project/curriculum-map.json",
+      "sha256": "6b05b19c15f7280d4f51535f6de24e8a6ea4c644c7b7687aca07c4882684b180"
+    },
+    {
+      "path": "project/exercise-matrix.json",
+      "sha256": "ef75d77ef9da3e48d758312b617f7485b88e6d324d4fbe65c5afbf97e742ae64"
+    },
+    {
+      "path": "project/notation.md",
+      "sha256": "5b5fbe1d182fae9df499739adc973e17885fedb26afd691cf9c7ed244e99b81c"
+    },
+    {
+      "path": "project/specification.md",
+      "sha256": "e37e95dbbaf83dbc3ce55f8c26231970d904672cbe8ba750f368f19e7d6c8ffc"
+    },
+    {
+      "path": "review/inventory.json",
+      "sha256": "fe6bc4d94211f2863e04437ad259cc6bd268bd78d278dffd09756eb33aaa044f"
+    },
+    {
+      "path": "scripts/build_inventory.py",
+      "sha256": "c9e7ffff4b5b52d37b38ecfdade15534abba6b5dee5ea128a0c386bade0dc559"
+    },
+    {
+      "path": "scripts/check_gates.py",
+      "sha256": "ca067449445a953d2dc371fa31c4d06d8522571af40ee9ad43742c800b0b40b5"
+    },
+    {
+      "path": "scripts/check_semantics.py",
+      "sha256": "12ae615b6bd37a17a00d7c4f53175535fccf95426d6f4f397c0d5ab9072b3953"
+    },
+    {
+      "path": "scripts/link_curriculum.py",
+      "sha256": "113f475a13e9a4ea27f24858a94a81da45a38c0000671bda8b75a683aadf405b"
+    },
+    {
+      "path": "scripts/verify_exact.py",
+      "sha256": "e83a32a5b0a7d3dd5f128a4cb84377aa5cf4361919cb8a9eba658e96af1f4c2f"
+    }
+  ],
+  "snapshot_sha256": "2604b863035942d4d642e90d228ca465aa8eb8040b548227d4e8433fac95b82f",
+  "inventory_file": "review/inventory.json",
+  "issues_file": "review/issues.json",
+  "expected_variants": [
+    "student",
+    "teacher"
+  ],
+  "outputs": [],
+  "reviews": []
+}

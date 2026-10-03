@@ -1,5 +1,6 @@
 \bmtchapitre{Barycentres et lignes de niveau}{Construire et calculer un barycentre, regrouper des points pondérés et déterminer des lieux géométriques.}{Géométrie}
 \label{t11s-c14}
+Dans ce chapitre, les calculs de longueurs, d’angles et d’aires à partir de coordonnées se font dans un repère orthonormé.
 \begin{revision}Chasles, produit scalaire, normes, milieux et équations de cercles.\end{revision}
 \begin{automatismes}\exo\label{t11s-c14-auto}Calculer le milieu de $A(0;1)$ et $B(6;3)$. Développer $(x-2)^2$.\end{automatismes}
 \begin{corrige}[exercice~\ref{t11s-c14-auto}]\label{sol-t11s-c14-auto}Milieu $(3;2)$; $x^2-4x+4$.\end{corrige}
@@ -76,6 +77,11 @@ $4(x^2+y^2)=(x-3)^2+y^2$, donc $(x+1)^2+y^2=4$. Centre $(-1;0)$, rayon $2$; bary
 Pourquoi ne peut-on appliquer la formule du barycentre aux poids $1,-1$ ? Distinguer $A\ne B$ et $A=B$.
 \begin{corrige}[exercice~\ref{t11s-c14-e07}]\label{sol-t11s-c14-e07}
 Division par somme nulle interdite. Si $A\ne B$, la somme est $\vect{BA}\ne0$, aucun point. Si $A=B$, elle vaut zéro pour tout point : aucune unicité, donc pas de barycentre au sens défini.
+\end{corrige}
+\exo[Distance et projection]\label{t11s-c14-e08}
+Dans un repère orthonormé, $A(1;2)$ et $\vecv=(2;-1)$. Déterminer les lieux $MA=k$ pour $k=2$, $0$, $-1$, puis le lieu $\vect{MA}\cdot\vecv=0$. Que devient ce dernier lieu si $\vecv=\vec0$ ?
+\begin{corrige}[exercice~\ref{t11s-c14-e08}]\label{sol-t11s-c14-e08}
+Pour $k=2$, cercle de centre $A$ et rayon $2$; pour $k=0$, le seul point $A$; pour $k=-1$, ensemble vide, car une distance est positive ou nulle. Pour $M(x;y)$, le produit vaut $2(1-x)-(2-y)=y-2x$, donc le lieu est la droite $y=2x$, passant par $A$ et perpendiculaire à $(2;-1)$. Si $\vecv=\vec0$, le produit vaut toujours zéro et le lieu est tout le plan.
 \end{corrige}
 \begin{jemeteste}Je vérifie la somme des poids avant de diviser et je classe un lieu par le signe de son rayon au carré.\end{jemeteste}
 \begin{notepourlaclasse}Construire d’abord le barycentre de poids positifs, puis faire apparaître un poids négatif. Les cas cercle/point/vide doivent figurer dans les corrections, sans ajouter une figure fictive pour un lieu vide.\end{notepourlaclasse}

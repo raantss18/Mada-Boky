@@ -1,0 +1,16 @@
+{
+  "inventory_items": 947,
+  "exercise_correction_pairs": 206,
+  "curriculum_rows": 87,
+  "unique_tex_labels": 432,
+  "references_resolved": 226,
+  "assessment_totals": [
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+  ],
+  "checker_sha256": "ca067449445a953d2dc371fa31c4d06d8522571af40ee9ad43742c800b0b40b5"
+}

@@ -11,7 +11,7 @@
 \begin{theoreme}[décomposition, admis]Tout entier $n\ge2$ possède une décomposition en produit de nombres premiers, unique à l’ordre des facteurs près.\end{theoreme}
 \begin{exemple}$360=2^3\times3^2\times5$. Pour tester $97$, il suffit de vérifier les nombres premiers $2,3,5,7$, car $\sqrt{97}<10$. Aucun ne divise $97$, donc $97$ est premier.\end{exemple}
 \section{PGCD et algorithme d’Euclide}
-\begin{definition}Pour $a,b\in\N^*$, $\pgcd(a,b)$ est le plus grand diviseur positif commun. Ils sont premiers entre eux lorsque ce PGCD vaut $1$. On étend par $\pgcd(a,0)=a$ pour $a>0$.\end{definition}
+\begin{definition}Pour $a,b\in\N^*$, $\pgcd(a,b)$ est le plus grand diviseur positif commun. Ils sont premiers entre eux lorsque ce PGCD vaut $1$. On étend par $\pgcd(a,0)=\pgcd(0,a)=a$ pour $a>0$; $\pgcd(0,0)$ n’est pas utilisé ici.\end{definition}
 \begin{propriete}Si $a=bq+r$, les diviseurs communs de $a,b$ sont ceux de $b,r$. Ainsi $\pgcd(a,b)=\pgcd(b,r)$.\end{propriete}
 \begin{demonstration}Un diviseur de $a,b$ divise $r=a-bq$. Un diviseur de $b,r$ divise $a=bq+r$. Les ensembles sont les mêmes.\end{demonstration}
 \begin{exemple}$252=198+54$; $198=3\times54+36$; $54=36+18$; $36=2\times18$. Le dernier reste non nul est $18$, donc $\pgcd(252,198)=18$.\end{exemple}

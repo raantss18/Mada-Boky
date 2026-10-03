@@ -1,1162 +1,14 @@
 [
   {
-    "id": "t11s-c02-e01",
-    "chapter": 2,
-    "title": "Limites directes",
-    "demand": "application",
-    "correction_id": "sol-t11s-c02-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e02",
-    "chapter": 2,
-    "title": "Factoriser",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c02-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e03",
-    "chapter": 2,
-    "title": "Racines",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c02-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e04",
-    "chapter": 2,
-    "title": "Aux deux infinis",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c02-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e05",
-    "chapter": 2,
-    "title": "Raccorder",
-    "demand": "parameter",
-    "correction_id": "sol-t11s-c02-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e06",
-    "chapter": 2,
-    "title": "Un zéro",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c02-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c02-e07",
-    "chapter": 2,
-    "title": "Se méfier des tables",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c02-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e01",
-    "chapter": 3,
-    "title": "Horizontale",
-    "demand": "application",
-    "correction_id": "sol-t11s-c03-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e02",
-    "chapter": 3,
-    "title": "Division",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c03-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e03",
-    "chapter": 3,
-    "title": "Trou ou asymptote",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c03-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e04",
-    "chapter": 3,
-    "title": "Une racine",
-    "demand": "alternative derivation",
-    "correction_id": "sol-t11s-c03-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e05",
-    "chapter": 3,
-    "title": "Lire un écart",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c03-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c03-e06",
-    "chapter": 3,
-    "title": "Classer",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c03-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e01",
-    "chapter": 4,
-    "title": "Par la définition",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c04-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e02",
-    "chapter": 4,
-    "title": "Dériver",
-    "demand": "application",
-    "correction_id": "sol-t11s-c04-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e03",
-    "chapter": 4,
-    "title": "Tangente",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c04-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e04",
-    "chapter": 4,
-    "title": "Variations",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c04-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e05",
-    "chapter": 4,
-    "title": "Continuité et dérivabilité",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c04-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e06",
-    "chapter": 4,
-    "title": "Optimiser",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c04-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c04-e07",
-    "chapter": 4,
-    "title": "Raccord lisse",
-    "demand": "parameter",
-    "correction_id": "sol-t11s-c04-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e01",
-    "chapter": 5,
-    "title": "Une parabole",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c05-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e02",
-    "chapter": 5,
-    "title": "Courbe et droite",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c05-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e03",
-    "chapter": 5,
-    "title": "Un quotient simple",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c05-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e04",
-    "chapter": 5,
-    "title": "Cubicité",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c05-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e05",
-    "chapter": 5,
-    "title": "Lecture argumentée",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c05-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c05-e06",
-    "chapter": 5,
-    "title": "Oscillation",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c05-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e01",
-    "chapter": 6,
-    "title": "Nier",
-    "demand": "application",
-    "correction_id": "sol-t11s-c06-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e02",
-    "chapter": 6,
-    "title": "Implications",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c06-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e03",
-    "chapter": 6,
-    "title": "Un ou inclusif",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c06-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e04",
-    "chapter": 6,
-    "title": "Ordre des quantificateurs",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c06-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e05",
-    "chapter": 6,
-    "title": "Une equivalence",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c06-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e06",
-    "chapter": 6,
-    "title": "Faux ou mal formulé",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c06-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c06-e07",
-    "chapter": 6,
-    "title": "Divisibilité",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c06-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e01",
-    "chapter": 7,
-    "title": "Suivre les valeurs",
-    "demand": "application",
-    "correction_id": "sol-t11s-c07-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e02",
-    "chapter": 7,
-    "title": "Somme de carrés",
-    "demand": "construction",
-    "correction_id": "sol-t11s-c07-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e03",
-    "chapter": 7,
-    "title": "Échanger",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c07-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e04",
-    "chapter": 7,
-    "title": "Premier seuil",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c07-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e05",
-    "chapter": 7,
-    "title": "Une boucle sans fin",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c07-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c07-e06",
-    "chapter": 7,
-    "title": "Dessiner",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c07-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e01",
-    "chapter": 8,
-    "title": "Paramètre et degré",
-    "demand": "parameter",
-    "correction_id": "sol-t11s-c08-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e02",
-    "chapter": 8,
-    "title": "Somme et produit",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c08-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e03",
-    "chapter": 8,
-    "title": "Cubique",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c08-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e04",
-    "chapter": 8,
-    "title": "Bicarrée",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c08-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e05",
-    "chapter": 8,
-    "title": "Racine et inégalité",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c08-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e06",
-    "chapter": 8,
-    "title": "Deux distances",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c08-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e07",
-    "chapter": 8,
-    "title": "Quotient",
-    "demand": "application",
-    "correction_id": "sol-t11s-c08-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c08-e08",
-    "chapter": 8,
-    "title": "Une vérification indispensable",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c08-e08",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e01",
-    "chapter": 9,
-    "title": "Éliminer",
-    "demand": "application",
-    "correction_id": "sol-t11s-c09-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e02",
-    "chapter": 9,
-    "title": "Quatre variables",
-    "demand": "application",
-    "correction_id": "sol-t11s-c09-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e03",
-    "chapter": 9,
-    "title": "Incompatible",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c09-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e04",
-    "chapter": 9,
-    "title": "Point de vente",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c09-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e05",
-    "chapter": 9,
-    "title": "Pivot nul",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c09-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c09-e06",
-    "chapter": 9,
-    "title": "Un paramètre",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c09-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e01",
-    "chapter": 10,
-    "title": "Premier ou composé",
-    "demand": "application",
-    "correction_id": "sol-t11s-c10-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e02",
-    "chapter": 10,
-    "title": "Décompositions",
-    "demand": "application",
-    "correction_id": "sol-t11s-c10-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e03",
-    "chapter": 10,
-    "title": "Euclide",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c10-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e04",
-    "chapter": 10,
-    "title": "Lots identiques",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c10-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e05",
-    "chapter": 10,
-    "title": "Deux cycles",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c10-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e06",
-    "chapter": 10,
-    "title": "Premiers entre eux",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c10-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c10-e07",
-    "chapter": 10,
-    "title": "Trois entiers",
-    "demand": "application",
-    "correction_id": "sol-t11s-c10-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e01",
-    "chapter": 11,
-    "title": "Vers dix",
-    "demand": "application",
-    "correction_id": "sol-t11s-c11-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e02",
-    "chapter": 11,
-    "title": "Depuis dix",
-    "demand": "application",
-    "correction_id": "sol-t11s-c11-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e03",
-    "chapter": 11,
-    "title": "Chiffre interdit",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c11-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e04",
-    "chapter": 11,
-    "title": "Chercher une base",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c11-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e05",
-    "chapter": 11,
-    "title": "Addition binaire",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c11-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c11-e06",
-    "chapter": 11,
-    "title": "Bornes",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c11-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e01",
-    "chapter": 12,
-    "title": "Générer",
-    "demand": "application",
-    "correction_id": "sol-t11s-c12-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e02",
-    "chapter": 12,
-    "title": "Somme arithmétique",
-    "demand": "application",
-    "correction_id": "sol-t11s-c12-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e03",
-    "chapter": 12,
-    "title": "Géométrique et somme",
-    "demand": "application",
-    "correction_id": "sol-t11s-c12-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e04",
-    "chapter": 12,
-    "title": "Variation rationnelle",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c12-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e05",
-    "chapter": 12,
-    "title": "Oscillation",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c12-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e06",
-    "chapter": 12,
-    "title": "Un stock",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c12-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e07",
-    "chapter": 12,
-    "title": "Reconnaître une nature",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c12-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c12-e08",
-    "chapter": 12,
-    "title": "Algorithme de rang",
-    "demand": "construction",
-    "correction_id": "sol-t11s-c12-e08",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e01",
-    "chapter": 13,
-    "title": "Une base oblique",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c13-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e02",
-    "chapter": 13,
-    "title": "Produit scalaire",
-    "demand": "application",
-    "correction_id": "sol-t11s-c13-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e03",
-    "chapter": 13,
-    "title": "Triangle rectangle",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c13-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e04",
-    "chapter": 13,
-    "title": "Médiane",
-    "demand": "application",
-    "correction_id": "sol-t11s-c13-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e05",
-    "chapter": 13,
-    "title": "Une formule mal utilisée",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c13-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c13-e06",
-    "chapter": 13,
-    "title": "Mesurer une aire",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c13-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e01",
-    "chapter": 14,
-    "title": "Deux poids",
-    "demand": "application",
-    "correction_id": "sol-t11s-c14-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e02",
-    "chapter": 14,
-    "title": "Regrouper",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c14-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e03",
-    "chapter": 14,
-    "title": "Quatre points",
-    "demand": "application",
-    "correction_id": "sol-t11s-c14-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e04",
-    "chapter": 14,
-    "title": "Lieu avec produit",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c14-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e05",
-    "chapter": 14,
-    "title": "Somme de carrés",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c14-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e06",
-    "chapter": 14,
-    "title": "Apollonius",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c14-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c14-e07",
-    "chapter": 14,
-    "title": "Poids nuls au total",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c14-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e01",
-    "chapter": 15,
-    "title": "Images",
-    "demand": "application",
-    "correction_id": "sol-t11s-c15-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e02",
-    "chapter": 15,
-    "title": "Homothétie négative",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c15-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e03",
-    "chapter": 15,
-    "title": "Deux symétries",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c15-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e04",
-    "chapter": 15,
-    "title": "Un ordre à vérifier",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c15-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e05",
-    "chapter": 15,
-    "title": "Reconnaître une similitude",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c15-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c15-e06",
-    "chapter": 15,
-    "title": "Construire une figure",
-    "demand": "construction",
-    "correction_id": "sol-t11s-c15-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e01",
-    "chapter": 16,
-    "title": "Mesure principale",
-    "demand": "application",
-    "correction_id": "sol-t11s-c16-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e02",
-    "chapter": 16,
-    "title": "Valeur exacte",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c16-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e03",
-    "chapter": 16,
-    "title": "Équations",
-    "demand": "application",
-    "correction_id": "sol-t11s-c16-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e04",
-    "chapter": 16,
-    "title": "Inéquation",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c16-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e05",
-    "chapter": 16,
-    "title": "Transformer",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c16-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e06",
-    "chapter": 16,
-    "title": "Tangente",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c16-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c16-e07",
-    "chapter": 16,
-    "title": "Diviser sans perdre",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c16-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e01",
-    "chapter": 17,
-    "title": "Cube",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c17-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e02",
-    "chapter": 17,
-    "title": "Produits",
-    "demand": "application",
-    "correction_id": "sol-t11s-c17-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e03",
-    "chapter": 17,
-    "title": "Plan par trois points",
-    "demand": "method selection",
-    "correction_id": "sol-t11s-c17-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e04",
-    "chapter": 17,
-    "title": "Intersection",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c17-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e05",
-    "chapter": 17,
-    "title": "Droite cartésienne",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c17-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e06",
-    "chapter": 17,
-    "title": "Parallèle ou incluse",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c17-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c17-e07",
-    "chapter": 17,
-    "title": "Distance",
-    "demand": "application",
-    "correction_id": "sol-t11s-c17-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e01",
-    "chapter": 18,
-    "title": "Taux successifs",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c18-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e02",
-    "chapter": 18,
-    "title": "Retour au départ",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c18-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e03",
-    "chapter": 18,
-    "title": "Effectifs",
-    "demand": "application",
-    "correction_id": "sol-t11s-c18-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e04",
-    "chapter": 18,
-    "title": "Mêmes moyennes",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c18-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e05",
-    "chapter": 18,
-    "title": "Décalage",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c18-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e06",
-    "chapter": 18,
-    "title": "Boîte à moustaches",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c18-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c18-e07",
-    "chapter": 18,
-    "title": "Des classes",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c18-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e01",
-    "chapter": 19,
-    "title": "Union",
-    "demand": "application",
-    "correction_id": "sol-t11s-c19-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e02",
-    "chapter": 19,
-    "title": "Codes",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c19-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e03",
-    "chapter": 19,
-    "title": "Responsabilités",
-    "demand": "modelling",
-    "correction_id": "sol-t11s-c19-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e04",
-    "chapter": 19,
-    "title": "Applications",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c19-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e05",
-    "chapter": 19,
-    "title": "Frontières",
-    "demand": "proof",
-    "correction_id": "sol-t11s-c19-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e06",
-    "chapter": 19,
-    "title": "Choix mixtes",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c19-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c19-e07",
-    "chapter": 19,
-    "title": "Listes ou groupes",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c19-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e01",
-    "chapter": 20,
-    "title": "Deux dés",
-    "demand": "representation",
-    "correction_id": "sol-t11s-c20-e01",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e02",
-    "chapter": 20,
-    "title": "Union",
-    "demand": "application",
-    "correction_id": "sol-t11s-c20-e02",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e03",
-    "chapter": 20,
-    "title": "Urne",
-    "demand": "synthesis",
-    "correction_id": "sol-t11s-c20-e03",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e04",
-    "chapter": 20,
-    "title": "Avec remise",
-    "demand": "case analysis",
-    "correction_id": "sol-t11s-c20-e04",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e05",
-    "chapter": 20,
-    "title": "Probabilités imposées",
-    "demand": "reasoning",
-    "correction_id": "sol-t11s-c20-e05",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e06",
-    "chapter": 20,
-    "title": "Modèle non uniforme",
-    "demand": "counterexample",
-    "correction_id": "sol-t11s-c20-e06",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-c20-e07",
-    "chapter": 20,
-    "title": "Un tirage de comité",
-    "demand": "transfer",
-    "correction_id": "sol-t11s-c20-e07",
-    "origin": "original"
-  },
-  {
-    "id": "t11s-ds1-e01",
-    "title": "Limites et raccord",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds1-e01",
-    "origin": "original",
-    "assessment": "DS1",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds1-e02",
-    "title": "Étude d’une fraction rationnelle",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds1-e02",
-    "origin": "original",
-    "assessment": "DS1",
-    "points": 8
-  },
-  {
-    "id": "t11s-ds1-e03",
-    "title": "Aire et tangente",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds1-e03",
-    "origin": "original",
-    "assessment": "DS1",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds2-e01",
-    "title": "Logique et équations",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds2-e01",
-    "origin": "original",
-    "assessment": "DS2",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds2-e02",
-    "title": "Système et arithmétique",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds2-e02",
-    "origin": "original",
-    "assessment": "DS2",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds2-e03",
-    "title": "Suite et algorithme",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds2-e03",
-    "origin": "original",
-    "assessment": "DS2",
-    "points": 8
-  },
-  {
-    "id": "t11s-ds3-e01",
-    "title": "Produit scalaire et barycentre",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds3-e01",
-    "origin": "original",
-    "assessment": "DS3",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds3-e02",
-    "title": "Trigonométrie",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds3-e02",
-    "origin": "original",
-    "assessment": "DS3",
-    "points": 4
-  },
-  {
-    "id": "t11s-ds3-e03",
-    "title": "Similitude",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds3-e03",
-    "origin": "original",
-    "assessment": "DS3",
-    "points": 4
-  },
-  {
-    "id": "t11s-ds3-e04",
-    "title": "Un plan dans l’espace",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds3-e04",
-    "origin": "original",
-    "assessment": "DS3",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds4-e01",
-    "title": "Évolutions",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds4-e01",
-    "origin": "original",
-    "assessment": "DS4",
-    "points": 4
-  },
-  {
-    "id": "t11s-ds4-e02",
-    "title": "Statistique",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds4-e02",
-    "origin": "original",
-    "assessment": "DS4",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds4-e03",
-    "title": "Comités et probabilités",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds4-e03",
-    "origin": "original",
-    "assessment": "DS4",
-    "points": 6
-  },
-  {
-    "id": "t11s-ds4-e04",
-    "title": "Réunion d’événements",
-    "demand": "assessment synthesis",
-    "correction_id": "sol-t11s-ds4-e04",
-    "origin": "original",
-    "assessment": "DS4",
-    "points": 4
-  },
-  {
     "id": "t11s-syn1-e01",
     "title": "Fonction et équation",
     "demand": "assessment synthesis",
     "correction_id": "sol-t11s-syn1-e01",
     "origin": "original",
     "assessment": "SYN1",
-    "points": 8
+    "points": 8,
+    "source_path": "annexes/sujet-a.tex",
+    "subquestions_included": true
   },
   {
     "id": "t11s-syn1-e02",
@@ -1165,7 +17,9 @@
     "correction_id": "sol-t11s-syn1-e02",
     "origin": "original",
     "assessment": "SYN1",
-    "points": 6
+    "points": 6,
+    "source_path": "annexes/sujet-a.tex",
+    "subquestions_included": true
   },
   {
     "id": "t11s-syn1-e03",
@@ -1174,7 +28,9 @@
     "correction_id": "sol-t11s-syn1-e03",
     "origin": "original",
     "assessment": "SYN1",
-    "points": 6
+    "points": 6,
+    "source_path": "annexes/sujet-a.tex",
+    "subquestions_included": true
   },
   {
     "id": "t11s-syn2-e01",
@@ -1183,7 +39,9 @@
     "correction_id": "sol-t11s-syn2-e01",
     "origin": "original",
     "assessment": "SYN2",
-    "points": 6
+    "points": 6,
+    "source_path": "annexes/sujet-b.tex",
+    "subquestions_included": true
   },
   {
     "id": "t11s-syn2-e02",
@@ -1192,7 +50,9 @@
     "correction_id": "sol-t11s-syn2-e02",
     "origin": "original",
     "assessment": "SYN2",
-    "points": 8
+    "points": 8,
+    "source_path": "annexes/sujet-b.tex",
+    "subquestions_included": true
   },
   {
     "id": "t11s-syn2-e03",
@@ -1201,6 +61,1964 @@
     "correction_id": "sol-t11s-syn2-e03",
     "origin": "original",
     "assessment": "SYN2",
-    "points": 6
+    "points": 6,
+    "source_path": "annexes/sujet-b.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-auto",
+    "title": "t11s-c01-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c01-auto",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-problem",
+    "title": "t11s-c01-problem",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-problem",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-test",
+    "title": "t11s-c01-test",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-test",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e01",
+    "title": "t11s-c01-e01",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e01",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e02",
+    "title": "t11s-c01-e02",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e02",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e03",
+    "title": "t11s-c01-e03",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e03",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e04",
+    "title": "t11s-c01-e04",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e04",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e05",
+    "title": "t11s-c01-e05",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e05",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e06",
+    "title": "t11s-c01-e06",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e06",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e07",
+    "title": "t11s-c01-e07",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e07",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e08",
+    "title": "t11s-c01-e08",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e08",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e09",
+    "title": "t11s-c01-e09",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e09",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e10",
+    "title": "t11s-c01-e10",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e10",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e11",
+    "title": "t11s-c01-e11",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e11",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e12",
+    "title": "t11s-c01-e12",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e12",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e13",
+    "title": "t11s-c01-e13",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e13",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e14",
+    "title": "t11s-c01-e14",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e14",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e15",
+    "title": "t11s-c01-e15",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e15",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e16",
+    "title": "t11s-c01-e16",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e16",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e17",
+    "title": "t11s-c01-e17",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e17",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e18",
+    "title": "t11s-c01-e18",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e18",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e19",
+    "title": "t11s-c01-e19",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e19",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e20",
+    "title": "t11s-c01-e20",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e20",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e21",
+    "title": "t11s-c01-e21",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e21",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e22",
+    "title": "t11s-c01-e22",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e22",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e23",
+    "title": "t11s-c01-e23",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e23",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e24",
+    "title": "t11s-c01-e24",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e24",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e25",
+    "title": "t11s-c01-e25",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e25",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e26",
+    "title": "t11s-c01-e26",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e26",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e27",
+    "title": "t11s-c01-e27",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e27",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e28",
+    "title": "t11s-c01-e28",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e28",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c01-e29",
+    "title": "t11s-c01-e29",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c01-e29",
+    "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-auto",
+    "title": "t11s-c02-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c02-auto",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-act",
+    "title": "t11s-c02-act",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c02-act",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e01",
+    "chapter": 2,
+    "title": "Limites directes",
+    "demand": "application",
+    "correction_id": "sol-t11s-c02-e01",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e02",
+    "chapter": 2,
+    "title": "Factoriser",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c02-e02",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e03",
+    "chapter": 2,
+    "title": "Racines",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c02-e03",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e04",
+    "chapter": 2,
+    "title": "Aux deux infinis",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c02-e04",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e05",
+    "chapter": 2,
+    "title": "Raccorder",
+    "demand": "parameter",
+    "correction_id": "sol-t11s-c02-e05",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e06",
+    "chapter": 2,
+    "title": "Un zéro",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c02-e06",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c02-e07",
+    "chapter": 2,
+    "title": "Se méfier des tables",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c02-e07",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-auto",
+    "title": "t11s-c03-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c03-auto",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e01",
+    "chapter": 3,
+    "title": "Horizontale",
+    "demand": "application",
+    "correction_id": "sol-t11s-c03-e01",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e02",
+    "chapter": 3,
+    "title": "Division",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c03-e02",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e03",
+    "chapter": 3,
+    "title": "Trou ou asymptote",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c03-e03",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e04",
+    "chapter": 3,
+    "title": "Une racine",
+    "demand": "alternative derivation",
+    "correction_id": "sol-t11s-c03-e04",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e05",
+    "chapter": 3,
+    "title": "Lire un écart",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c03-e05",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c03-e06",
+    "chapter": 3,
+    "title": "Classer",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c03-e06",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch03-branches-infinies.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-auto",
+    "title": "t11s-c04-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c04-auto",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-act",
+    "title": "t11s-c04-act",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c04-act",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e01",
+    "chapter": 4,
+    "title": "Par la définition",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c04-e01",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e02",
+    "chapter": 4,
+    "title": "Dériver",
+    "demand": "application",
+    "correction_id": "sol-t11s-c04-e02",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e03",
+    "chapter": 4,
+    "title": "Tangente",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c04-e03",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e04",
+    "chapter": 4,
+    "title": "Variations",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c04-e04",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e05",
+    "chapter": 4,
+    "title": "Continuité et dérivabilité",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c04-e05",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e06",
+    "chapter": 4,
+    "title": "Optimiser",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c04-e06",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c04-e07",
+    "chapter": 4,
+    "title": "Raccord lisse",
+    "demand": "parameter",
+    "correction_id": "sol-t11s-c04-e07",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch04-derivation.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-auto",
+    "title": "t11s-c05-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c05-auto",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e01",
+    "chapter": 5,
+    "title": "Une parabole",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c05-e01",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e02",
+    "chapter": 5,
+    "title": "Courbe et droite",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c05-e02",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e03",
+    "chapter": 5,
+    "title": "Un quotient simple",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c05-e03",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e04",
+    "chapter": 5,
+    "title": "Cubicité",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c05-e04",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e05",
+    "chapter": 5,
+    "title": "Lecture argumentée",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c05-e05",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c05-e06",
+    "chapter": 5,
+    "title": "Oscillation",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c05-e06",
+    "origin": "original",
+    "source_path": "chapitres/p1-analyse/ch05-etude-graphique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds1-e01",
+    "title": "Limites et raccord",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds1-e01",
+    "origin": "original",
+    "assessment": "DS1",
+    "points": 6,
+    "source_path": "chapitres/p1-analyse/ds1-analyse.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds1-e02",
+    "title": "Étude d’une fraction rationnelle",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds1-e02",
+    "origin": "original",
+    "assessment": "DS1",
+    "points": 8,
+    "source_path": "chapitres/p1-analyse/ds1-analyse.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds1-e03",
+    "title": "Aire et tangente",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds1-e03",
+    "origin": "original",
+    "assessment": "DS1",
+    "points": 6,
+    "source_path": "chapitres/p1-analyse/ds1-analyse.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-auto",
+    "title": "t11s-c06-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c06-auto",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e01",
+    "chapter": 6,
+    "title": "Nier",
+    "demand": "application",
+    "correction_id": "sol-t11s-c06-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e02",
+    "chapter": 6,
+    "title": "Implications",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c06-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e03",
+    "chapter": 6,
+    "title": "Un ou inclusif",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c06-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e04",
+    "chapter": 6,
+    "title": "Ordre des quantificateurs",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c06-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e05",
+    "chapter": 6,
+    "title": "Une equivalence",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c06-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e06",
+    "chapter": 6,
+    "title": "Faux ou mal formulé",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c06-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c06-e07",
+    "chapter": 6,
+    "title": "Divisibilité",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c06-e07",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch06-logique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-auto",
+    "title": "t11s-c07-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c07-auto",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e01",
+    "chapter": 7,
+    "title": "Suivre les valeurs",
+    "demand": "application",
+    "correction_id": "sol-t11s-c07-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e02",
+    "chapter": 7,
+    "title": "Somme de carrés",
+    "demand": "construction",
+    "correction_id": "sol-t11s-c07-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e03",
+    "chapter": 7,
+    "title": "Échanger",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c07-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e04",
+    "chapter": 7,
+    "title": "Premier seuil",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c07-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e05",
+    "chapter": 7,
+    "title": "Une boucle sans fin",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c07-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c07-e06",
+    "chapter": 7,
+    "title": "Dessiner",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c07-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch07-algorithmique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-auto",
+    "title": "t11s-c08-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c08-auto",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e01",
+    "chapter": 8,
+    "title": "Paramètre et degré",
+    "demand": "parameter",
+    "correction_id": "sol-t11s-c08-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e02",
+    "chapter": 8,
+    "title": "Somme et produit",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c08-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e03",
+    "chapter": 8,
+    "title": "Cubique",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c08-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e04",
+    "chapter": 8,
+    "title": "Bicarrée",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c08-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e05",
+    "chapter": 8,
+    "title": "Racine et inégalité",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c08-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e06",
+    "chapter": 8,
+    "title": "Deux distances",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c08-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e07",
+    "chapter": 8,
+    "title": "Quotient",
+    "demand": "application",
+    "correction_id": "sol-t11s-c08-e07",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e08",
+    "chapter": 8,
+    "title": "Une vérification indispensable",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c08-e08",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c08-e09",
+    "title": "t11s-c08-e09",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c08-e09",
+    "source_path": "chapitres/p2-algebre/ch08-equations-inequations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-auto",
+    "title": "t11s-c09-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c09-auto",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e01",
+    "chapter": 9,
+    "title": "Éliminer",
+    "demand": "application",
+    "correction_id": "sol-t11s-c09-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e02",
+    "chapter": 9,
+    "title": "Quatre variables",
+    "demand": "application",
+    "correction_id": "sol-t11s-c09-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e03",
+    "chapter": 9,
+    "title": "Incompatible",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c09-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e04",
+    "chapter": 9,
+    "title": "Point de vente",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c09-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e05",
+    "chapter": 9,
+    "title": "Pivot nul",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c09-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c09-e06",
+    "chapter": 9,
+    "title": "Un paramètre",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c09-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch09-systemes-lineaires.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-auto",
+    "title": "t11s-c10-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c10-auto",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e01",
+    "chapter": 10,
+    "title": "Premier ou composé",
+    "demand": "application",
+    "correction_id": "sol-t11s-c10-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e02",
+    "chapter": 10,
+    "title": "Décompositions",
+    "demand": "application",
+    "correction_id": "sol-t11s-c10-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e03",
+    "chapter": 10,
+    "title": "Euclide",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c10-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e04",
+    "chapter": 10,
+    "title": "Lots identiques",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c10-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e05",
+    "chapter": 10,
+    "title": "Deux cycles",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c10-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e06",
+    "chapter": 10,
+    "title": "Premiers entre eux",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c10-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c10-e07",
+    "chapter": 10,
+    "title": "Trois entiers",
+    "demand": "application",
+    "correction_id": "sol-t11s-c10-e07",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch10-arithmetique.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-auto",
+    "title": "t11s-c11-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c11-auto",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e01",
+    "chapter": 11,
+    "title": "Vers dix",
+    "demand": "application",
+    "correction_id": "sol-t11s-c11-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e02",
+    "chapter": 11,
+    "title": "Depuis dix",
+    "demand": "application",
+    "correction_id": "sol-t11s-c11-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e03",
+    "chapter": 11,
+    "title": "Chiffre interdit",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c11-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e04",
+    "chapter": 11,
+    "title": "Chercher une base",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c11-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e05",
+    "chapter": 11,
+    "title": "Addition binaire",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c11-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c11-e06",
+    "chapter": 11,
+    "title": "Bornes",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c11-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch11-numeration.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-auto",
+    "title": "t11s-c12-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c12-auto",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e01",
+    "chapter": 12,
+    "title": "Générer",
+    "demand": "application",
+    "correction_id": "sol-t11s-c12-e01",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e02",
+    "chapter": 12,
+    "title": "Somme arithmétique",
+    "demand": "application",
+    "correction_id": "sol-t11s-c12-e02",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e03",
+    "chapter": 12,
+    "title": "Géométrique et somme",
+    "demand": "application",
+    "correction_id": "sol-t11s-c12-e03",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e04",
+    "chapter": 12,
+    "title": "Variation rationnelle",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c12-e04",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e05",
+    "chapter": 12,
+    "title": "Oscillation",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c12-e05",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e06",
+    "chapter": 12,
+    "title": "Un stock",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c12-e06",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e07",
+    "chapter": 12,
+    "title": "Reconnaître une nature",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c12-e07",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c12-e08",
+    "chapter": 12,
+    "title": "Algorithme de rang",
+    "demand": "construction",
+    "correction_id": "sol-t11s-c12-e08",
+    "origin": "original",
+    "source_path": "chapitres/p2-algebre/ch12-suites.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds2-e01",
+    "title": "Logique et équations",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds2-e01",
+    "origin": "original",
+    "assessment": "DS2",
+    "points": 6,
+    "source_path": "chapitres/p2-algebre/ds2-algebre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds2-e02",
+    "title": "Système et arithmétique",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds2-e02",
+    "origin": "original",
+    "assessment": "DS2",
+    "points": 6,
+    "source_path": "chapitres/p2-algebre/ds2-algebre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds2-e03",
+    "title": "Suite et algorithme",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds2-e03",
+    "origin": "original",
+    "assessment": "DS2",
+    "points": 8,
+    "source_path": "chapitres/p2-algebre/ds2-algebre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-auto",
+    "title": "t11s-c13-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c13-auto",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e01",
+    "chapter": 13,
+    "title": "Une base oblique",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c13-e01",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e02",
+    "chapter": 13,
+    "title": "Produit scalaire",
+    "demand": "application",
+    "correction_id": "sol-t11s-c13-e02",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e03",
+    "chapter": 13,
+    "title": "Triangle rectangle",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c13-e03",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e04",
+    "chapter": 13,
+    "title": "Médiane",
+    "demand": "application",
+    "correction_id": "sol-t11s-c13-e04",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e05",
+    "chapter": 13,
+    "title": "Une formule mal utilisée",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c13-e05",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c13-e06",
+    "chapter": 13,
+    "title": "Mesurer une aire",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c13-e06",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch13-calcul-vectoriel.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-auto",
+    "title": "t11s-c14-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c14-auto",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e01",
+    "chapter": 14,
+    "title": "Deux poids",
+    "demand": "application",
+    "correction_id": "sol-t11s-c14-e01",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e02",
+    "chapter": 14,
+    "title": "Regrouper",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c14-e02",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e03",
+    "chapter": 14,
+    "title": "Quatre points",
+    "demand": "application",
+    "correction_id": "sol-t11s-c14-e03",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e04",
+    "chapter": 14,
+    "title": "Lieu avec produit",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c14-e04",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e05",
+    "chapter": 14,
+    "title": "Somme de carrés",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c14-e05",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e06",
+    "chapter": 14,
+    "title": "Apollonius",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c14-e06",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e07",
+    "chapter": 14,
+    "title": "Poids nuls au total",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c14-e07",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c14-e08",
+    "title": "t11s-c14-e08",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c14-e08",
+    "source_path": "chapitres/p3-geometrie/ch14-barycentre.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-auto",
+    "title": "t11s-c15-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c15-auto",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e01",
+    "chapter": 15,
+    "title": "Images",
+    "demand": "application",
+    "correction_id": "sol-t11s-c15-e01",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e02",
+    "chapter": 15,
+    "title": "Homothétie négative",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c15-e02",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e03",
+    "chapter": 15,
+    "title": "Deux symétries",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c15-e03",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e04",
+    "chapter": 15,
+    "title": "Un ordre à vérifier",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c15-e04",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e05",
+    "chapter": 15,
+    "title": "Reconnaître une similitude",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c15-e05",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c15-e06",
+    "chapter": 15,
+    "title": "Construire une figure",
+    "demand": "construction",
+    "correction_id": "sol-t11s-c15-e06",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch15-transformations.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-auto",
+    "title": "t11s-c16-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c16-auto",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e01",
+    "chapter": 16,
+    "title": "Mesure principale",
+    "demand": "application",
+    "correction_id": "sol-t11s-c16-e01",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e02",
+    "chapter": 16,
+    "title": "Valeur exacte",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c16-e02",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e03",
+    "chapter": 16,
+    "title": "Équations",
+    "demand": "application",
+    "correction_id": "sol-t11s-c16-e03",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e04",
+    "chapter": 16,
+    "title": "Inéquation",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c16-e04",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e05",
+    "chapter": 16,
+    "title": "Transformer",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c16-e05",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e06",
+    "chapter": 16,
+    "title": "Tangente",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c16-e06",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c16-e07",
+    "chapter": 16,
+    "title": "Diviser sans perdre",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c16-e07",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-auto",
+    "title": "t11s-c17-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c17-auto",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e01",
+    "chapter": 17,
+    "title": "Cube",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c17-e01",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e02",
+    "chapter": 17,
+    "title": "Produits",
+    "demand": "application",
+    "correction_id": "sol-t11s-c17-e02",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e03",
+    "chapter": 17,
+    "title": "Plan par trois points",
+    "demand": "method selection",
+    "correction_id": "sol-t11s-c17-e03",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e04",
+    "chapter": 17,
+    "title": "Intersection",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c17-e04",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e05",
+    "chapter": 17,
+    "title": "Droite cartésienne",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c17-e05",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e06",
+    "chapter": 17,
+    "title": "Parallèle ou incluse",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c17-e06",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c17-e07",
+    "chapter": 17,
+    "title": "Distance",
+    "demand": "application",
+    "correction_id": "sol-t11s-c17-e07",
+    "origin": "original",
+    "source_path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds3-e01",
+    "title": "Produit scalaire et barycentre",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds3-e01",
+    "origin": "original",
+    "assessment": "DS3",
+    "points": 6,
+    "source_path": "chapitres/p3-geometrie/ds3-geometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds3-e02",
+    "title": "Trigonométrie",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds3-e02",
+    "origin": "original",
+    "assessment": "DS3",
+    "points": 4,
+    "source_path": "chapitres/p3-geometrie/ds3-geometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds3-e03",
+    "title": "Similitude",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds3-e03",
+    "origin": "original",
+    "assessment": "DS3",
+    "points": 4,
+    "source_path": "chapitres/p3-geometrie/ds3-geometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds3-e04",
+    "title": "Un plan dans l’espace",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds3-e04",
+    "origin": "original",
+    "assessment": "DS3",
+    "points": 6,
+    "source_path": "chapitres/p3-geometrie/ds3-geometrie.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-auto",
+    "title": "t11s-c18-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c18-auto",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-act",
+    "title": "t11s-c18-act",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c18-act",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e01",
+    "chapter": 18,
+    "title": "Taux successifs",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c18-e01",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e02",
+    "chapter": 18,
+    "title": "Retour au départ",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c18-e02",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e03",
+    "chapter": 18,
+    "title": "Effectifs",
+    "demand": "application",
+    "correction_id": "sol-t11s-c18-e03",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e04",
+    "chapter": 18,
+    "title": "Mêmes moyennes",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c18-e04",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e05",
+    "chapter": 18,
+    "title": "Décalage",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c18-e05",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e06",
+    "chapter": 18,
+    "title": "Boîte à moustaches",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c18-e06",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e07",
+    "chapter": 18,
+    "title": "Des classes",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c18-e07",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c18-e08",
+    "title": "t11s-c18-e08",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c18-e08",
+    "source_path": "chapitres/p4-donnees/ch18-organisation-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-auto",
+    "title": "t11s-c19-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c19-auto",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e01",
+    "chapter": 19,
+    "title": "Union",
+    "demand": "application",
+    "correction_id": "sol-t11s-c19-e01",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e02",
+    "chapter": 19,
+    "title": "Codes",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c19-e02",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e03",
+    "chapter": 19,
+    "title": "Responsabilités",
+    "demand": "modelling",
+    "correction_id": "sol-t11s-c19-e03",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e04",
+    "chapter": 19,
+    "title": "Applications",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c19-e04",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e05",
+    "chapter": 19,
+    "title": "Frontières",
+    "demand": "proof",
+    "correction_id": "sol-t11s-c19-e05",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e06",
+    "chapter": 19,
+    "title": "Choix mixtes",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c19-e06",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c19-e07",
+    "chapter": 19,
+    "title": "Listes ou groupes",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c19-e07",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch19-denombrement.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-auto",
+    "title": "t11s-c20-auto",
+    "origin": "original",
+    "demand": "prerequisite recall",
+    "correction_id": "sol-t11s-c20-auto",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-act",
+    "title": "t11s-c20-act",
+    "origin": "original",
+    "demand": "formative reasoning",
+    "correction_id": "sol-t11s-c20-act",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e01",
+    "chapter": 20,
+    "title": "Deux dés",
+    "demand": "representation",
+    "correction_id": "sol-t11s-c20-e01",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e02",
+    "chapter": 20,
+    "title": "Union",
+    "demand": "application",
+    "correction_id": "sol-t11s-c20-e02",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e03",
+    "chapter": 20,
+    "title": "Urne",
+    "demand": "synthesis",
+    "correction_id": "sol-t11s-c20-e03",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e04",
+    "chapter": 20,
+    "title": "Avec remise",
+    "demand": "case analysis",
+    "correction_id": "sol-t11s-c20-e04",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e05",
+    "chapter": 20,
+    "title": "Probabilités imposées",
+    "demand": "reasoning",
+    "correction_id": "sol-t11s-c20-e05",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e06",
+    "chapter": 20,
+    "title": "Modèle non uniforme",
+    "demand": "counterexample",
+    "correction_id": "sol-t11s-c20-e06",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-c20-e07",
+    "chapter": 20,
+    "title": "Un tirage de comité",
+    "demand": "transfer",
+    "correction_id": "sol-t11s-c20-e07",
+    "origin": "original",
+    "source_path": "chapitres/p4-donnees/ch20-probabilite.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds4-e01",
+    "title": "Évolutions",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds4-e01",
+    "origin": "original",
+    "assessment": "DS4",
+    "points": 4,
+    "source_path": "chapitres/p4-donnees/ds4-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds4-e02",
+    "title": "Statistique",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds4-e02",
+    "origin": "original",
+    "assessment": "DS4",
+    "points": 6,
+    "source_path": "chapitres/p4-donnees/ds4-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds4-e03",
+    "title": "Comités et probabilités",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds4-e03",
+    "origin": "original",
+    "assessment": "DS4",
+    "points": 6,
+    "source_path": "chapitres/p4-donnees/ds4-donnees.tex",
+    "subquestions_included": true
+  },
+  {
+    "id": "t11s-ds4-e04",
+    "title": "Réunion d’événements",
+    "demand": "assessment synthesis",
+    "correction_id": "sol-t11s-ds4-e04",
+    "origin": "original",
+    "assessment": "DS4",
+    "points": 4,
+    "source_path": "chapitres/p4-donnees/ds4-donnees.tex",
+    "subquestions_included": true
   }
 ]

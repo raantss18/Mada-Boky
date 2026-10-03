@@ -1,6 +1,6 @@
 \bmtchapitre{Trigonométrie}{Convertir les unités d’angle, transformer des expressions et résoudre des équations et inéquations trigonométriques.}{Géométrie}
 \label{t11s-c16}
-\begin{revision}Cercle trigonométrique, coordonnées et angles remarquables de seconde; produit scalaire.\end{revision}
+\begin{revision}Cercle trigonométrique, coordonnées et angles remarquables de seconde; produit scalaire du chapitre~\ref{t11s-c13}.\end{revision}
 \begin{automatismes}\exo\label{t11s-c16-auto}Calculer $\sin0$, $\cos\pi$ et $\sin(\pi/6)$. Convertir $90\degre$ en radians.\end{automatismes}
 \begin{corrige}[exercice~\ref{t11s-c16-auto}]\label{sol-t11s-c16-auto}$0,-1,1/2$; $\pi/2$ radians.\end{corrige}
 
@@ -33,7 +33,7 @@ $\cos(x+\pi)=-\cos x$, $\sin(x+\pi)=-\sin x$.
 \end{aligned}
 \]
 \end{propriete}
-\begin{demonstration}Les symétries du cercle donnent les angles associés. Pour l’addition, appliquer la matrice de rotation d’angle $a$ au point $(\cos b;\sin b)$ : les nouvelles coordonnées sont celles de l’angle $a+b$. Les formules de différence suivent en remplaçant $b$ par $-b$.\end{demonstration}
+\begin{demonstration}Les symétries du cercle donnent les angles associés. Pour la formule du cosinus, prendre les vecteurs unitaires $(\cos a;\sin a)$ et $(\cos(-b);\sin(-b))$. Leur produit scalaire vaut à la fois $\cos(a+b)$ et $\cos a\cos b-\sin a\sin b$. La formule du sinus suit de $\sin(a+b)=\cos(\pi/2-a-b)$, en utilisant les coordonnées des angles complémentaires. Les formules de différence suivent en remplaçant $b$ par $-b$.\end{demonstration}
 \begin{propriete}[duplication et transformation]
 $\sin2x=2\sin x\cos x$;
 $\cos2x=\cos^2x-\sin^2x=2\cos^2x-1=1-2\sin^2x$.
@@ -57,7 +57,7 @@ $\cos2x=\cos^2x-\sin^2x=2\cos^2x-1=1-2\sin^2x$.
 \]
 Pour les tangentes définies, $\tan x=\tan a\Leftrightarrow x=a+k\pi$.
 \end{propriete}
-\begin{demonstration}Une abscisse sur le cercle correspond aux deux points symétriques par rapport à l’axe horizontal; une ordonnée correspond aux points symétriques par rapport à l’axe vertical. Ajouter les tours complets donne toutes les mesures. La tangente a période $\pi$ et est strictement croissante entre deux pôles.\end{demonstration}
+\begin{demonstration}Une abscisse sur le cercle correspond aux deux points symétriques par rapport à l’axe horizontal; une ordonnée correspond aux points symétriques par rapport à l’axe vertical. Ajouter les tours complets donne toutes les mesures. Si les deux cosinus sont non nuls, l’égalité des tangentes équivaut à $\sin x\cos a-\cos x\sin a=0$, soit $\sin(x-a)=0$; donc $x-a=k\pi$.\end{demonstration}
 \begin{methode}{une inéquation sur un intervalle}Dessiner les intersections de la droite de niveau avec le cercle; identifier les arcs qui satisfont l’inégalité; traduire les arcs en intervalles; conserver les bornes selon le signe strict ou large. Pour $\tan$, exclure les zéros de $\cos$.\end{methode}
 \begin{exemple}Sur $[0;2\pi[$, $\cos x\ge1/2$ donne $[0;\pi/3]\cup[5\pi/3;2\pi[$. Dans $\R$, la solution est la réunion des intervalles $[-\pi/3+2k\pi;\pi/3+2k\pi]$.\end{exemple}
 
@@ -90,7 +90,7 @@ Formule somme-produit. $\sin2x=0$ donne $x=k\pi/2$, ce qui inclut déjà les zé
 \exo[Tangente]\label{t11s-c16-e06}
 Résoudre $\tan x\le1$ sur $]-\pi/2;\pi/2[$. Pourquoi les extrémités sont-elles exclues ?
 \begin{corrige}[exercice~\ref{t11s-c16-e06}]\label{sol-t11s-c16-e06}
-La tangente est strictement croissante sur cet intervalle; solution $]-\pi/2;\pi/4]$. Les extrémités annulent $\cos x$, donc la tangente n’y existe pas.
+Sur cet intervalle, $\cos x>0$, donc $\tan x\le1$ équivaut à $\sin x-\cos x\le0$. Or $\sin x-\cos x=\sqrt2\sin(x-\pi/4)$; solution $]-\pi/2;\pi/4]$. Les extrémités annulent $\cos x$, donc la tangente n’y existe pas.
 \end{corrige}
 \exo[Diviser sans perdre]\label{t11s-c16-e07}
 Pour résoudre $\sin x\cos x=\sin x$, un élève divise par $\sin x$. Quelles solutions risque-t-il de perdre ? Résoudre dans $\R$.

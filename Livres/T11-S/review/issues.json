@@ -1,37 +1,68 @@
-{
-  "date": "2026-10-03T04:36:30.199464+00:00",
-  "issues": [
-    {
-      "id": "T11-CURRICULUM",
-      "status": "unchecked",
-      "severity": "release-blocking",
-      "description": "Réconciliation exhaustive des exigences et inventaire à produire."
-    },
-    {
-      "id": "T11-MATH",
-      "status": "unchecked",
-      "severity": "release-blocking",
-      "description": "Résolution séparée de tous les exercices et vérification de chaque assertion mathématique non achevées."
-    },
-    {
-      "id": "T11-VISUAL",
-      "status": "unchecked",
-      "severity": "release-blocking",
-      "description": "Inspection lisible de chaque page des deux PDF assemblés non effectuée."
-    },
-    {
-      "id": "T11-GATES",
-      "status": "failed",
-      "severity": "release-blocking",
-      "description": "Inventaire, gates et preuves à finaliser; aucun passage de release déclaré.",
-      "evidence": "review/gate-check-result.json"
-    },
-    {
-      "id": "T11-BUILD-AUX",
-      "status": "passed",
-      "severity": "release-blocking",
-      "description": "Assemblage input/clearpage : les deux compilations complètes terminent avec code 0; cause racine de la troncature précédente non établie.",
-      "evidence": "review/build-result.json"
-    }
-  ]
-}
+[
+  {
+    "id": "T11-CURRICULUM",
+    "status": "resolved",
+    "affected_items": [
+      "@project"
+    ],
+    "explanation": "87 source requirements mapped to actual teaching items, worked corrections and assessment; semantics reconciled. Experimental source status preserved.",
+    "evidence": [
+      "project/curriculum-map.json",
+      "review/evidence/course-audit.md",
+      "review/evidence/semantic-results.json"
+    ]
+  },
+  {
+    "id": "T11-MATH",
+    "status": "resolved",
+    "affected_items": [
+      "@project"
+    ],
+    "explanation": "206 question groups solved and compared; definitions, properties, proofs and inline claims reviewed by the same model. Statistical errors, exceptional hypotheses, proof dependencies and missing limit repaired.",
+    "evidence": [
+      "review/evidence/analysis-solving.md",
+      "review/evidence/algebra-solving.md",
+      "review/evidence/geometry-solving.md",
+      "review/evidence/data-synthesis-solving.md",
+      "review/evidence/course-audit.md"
+    ]
+  },
+  {
+    "id": "T11-STAT-VARIANCE",
+    "status": "resolved",
+    "severity": "mathematical",
+    "affected_items": [
+      "t11s-c18-example-002",
+      "t11s-ds4-e02",
+      "sol-t11s-ds4-e02"
+    ],
+    "explanation": "Sum of squares 692 instead of 792; variance159/16 and SDsqrt159/4. Both occurrences fixed and exact direct/second moment calculations agree.",
+    "evidence": [
+      "review/evidence/exact-results.json"
+    ]
+  },
+  {
+    "id": "T11-VISUAL",
+    "status": "unchecked",
+    "affected_items": [
+      "@project"
+    ],
+    "explanation": "Every final page still must be inspected; old output inspection cannot pass the new PDFs."
+  },
+  {
+    "id": "T11-BUILD-AUX",
+    "status": "unchecked",
+    "affected_items": [
+      "@project"
+    ],
+    "explanation": "Fresh full rebuild pending. Earlier truncated auxiliary file root cause remains unknown; operational success requires both clean editions."
+  },
+  {
+    "id": "T11-GATES",
+    "status": "unchecked",
+    "affected_items": [
+      "@project"
+    ],
+    "explanation": "Final build, visual and persistence evidence pending; no release pass claimed."
+  }
+]

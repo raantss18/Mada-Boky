@@ -5,7 +5,7 @@
 \begin{corrige}[exercice~\ref{t11s-c08-auto}]\label{sol-t11s-c08-auto}$(x-2)(x-3)$; $x=-3$ ou $3$; $x\ge1$.\end{corrige}
 
 \section{Second degré et paramètre}
-\begin{propriete}Pour $a\ne0$, $ax^2+bx+c=0$ a un discriminant $\Delta=b^2-4ac$. Si $\Delta<0$, aucune racine réelle; si $\Delta=0$, racine double $-b/(2a)$; si $\Delta>0$, deux racines $(-b\pm\sqrt\Delta)/(2a)$. Le polynôme a le signe de $a$ à l’extérieur des racines et le signe opposé entre elles.\end{propriete}
+\begin{propriete}Pour $a\ne0$, $ax^2+bx+c=0$ a un discriminant $\Delta=b^2-4ac$. Si $\Delta<0$, aucune racine réelle; si $\Delta=0$, racine double $-b/(2a)$; si $\Delta>0$, deux racines $(-b\pm\sqrt\Delta)/(2a)$. Si $\Delta>0$, le polynôme a le signe de $a$ à l’extérieur des racines et le signe opposé entre elles. Si $\Delta=0$, il a le signe de $a$ sauf à la racine, où il est nul; si $\Delta<0$, il a toujours le signe de $a$.\end{propriete}
 \begin{demonstration}La forme canonique est $a[(x+b/(2a))^2-\Delta/(4a^2)]$. Résoudre un carré égal à $\Delta/(4a^2)$ donne les trois cas; pour le signe, factoriser $a(x-x_1)(x-x_2)$ dans le cas de deux racines.\end{demonstration}
 \begin{propriete}[somme et produit]Si $x_1,x_2$ sont les racines, leur somme vaut $-b/a$ et leur produit $c/a$. Réciproquement deux nombres de somme $S$ et de produit $P$ sont racines de $X^2-SX+P$.\end{propriete}
 \begin{demonstration}Développer $a(X-x_1)(X-x_2)$ et identifier les coefficients.\end{demonstration}
@@ -80,6 +80,11 @@ Domaine $x\ne-1$. Positif sur $]-\infty;-1[$ et $]2;+\infty[$; nul en $2$. Répo
 Un élève résout $\sqrt{2x+3}=x-1$ et conserve toutes les racines de $x^2-4x-2=0$. Réparer.
 \begin{corrige}[exercice~\ref{t11s-c08-e08}]\label{sol-t11s-c08-e08}
 Il faut $x\ge1$. Les racines au carré sont $2\pm\sqrt6$; seule $2+\sqrt6$ respecte la condition. Substituer confirme la solution; les équivalences avec les conditions prouvent l’exhaustivité.
+\end{corrige}
+\exo[Inégalités de distances]\label{t11s-c08-e09}
+Résoudre $|2x-3|\le5$, puis $|x+1|>2$, dans $\R$. Représenter les ensembles de solutions sur une droite graduée.
+\begin{corrige}[exercice~\ref{t11s-c08-e09}]\label{sol-t11s-c08-e09}
+La première équivaut à $-5\le2x-3\le5$, donc $-2\le2x\le8$ et $-1\le x\le4$. La solution est $[-1;4]$, avec les deux bornes incluses. La seconde équivaut à $x+1<-2$ ou $x+1>2$, donc $x<-3$ ou $x>1$. La solution est $]-\infty;-3[\cup]1;+\infty[$, avec $-3$ et $1$ exclus. Sur la droite, colorer le segment fermé dans le premier cas, les deux demi-droites ouvertes dans le second.
 \end{corrige}
 \begin{jemeteste}Je traite les pertes de degré, je vérifie toute racine annoncée, je sépare les signes avant de mettre au carré.\end{jemeteste}
 \begin{notepourlaclasse}Le troisième exercice est volontairement une détection d’erreur : le présenter comme tel pour éviter une injonction impossible. Les cubiques et équations irrationnelles avec paramètre ne sont pas requises.\end{notepourlaclasse}

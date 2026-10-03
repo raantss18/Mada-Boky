@@ -23,7 +23,7 @@ Les deux branches sont tracées séparément : relier leurs extrémités créera
 \begin{propriete}[méthode des deux limites]
 Si $\lim f(x)/x=a\in\R$ et $\lim(f(x)-ax)=b\in\R$, alors $y=ax+b$ est une asymptote; elle est oblique si $a\ne0$, horizontale si $a=0$.
 \end{propriete}
-\begin{demonstration}La seconde limite signifie exactement $f(x)-(ax+b)\to0$. Réciproquement, cette relation donne $f(x)/x=a+b/x+o(1)/x\to a$. La notation $o(1)$ signifie ici une quantité tendant vers zéro.\end{demonstration}
+\begin{demonstration}La seconde limite signifie exactement $f(x)-(ax+b)\to0$. Réciproquement, poser $r(x)=f(x)-(ax+b)$ donne $r(x)\to0$ et $f(x)/x=a+b/x+r(x)/x\to a$.\end{demonstration}
 \begin{methode}{utiliser la division euclidienne}
 Pour une fraction rationnelle dont le numérateur a un degré de plus que le dénominateur, effectuer la division. Si $f(x)=ax+b+r(x)$ avec $r(x)\to0$, la droite cherchée est $y=ax+b$. Étudier le signe de $r$ pour situer la courbe.
 \end{methode}
@@ -56,7 +56,7 @@ Non : $h(x)=x+1$ pour $x\ne1$, et la limite en $1$ vaut $2$. La courbe est une d
 \exo[Une racine]\label{t11s-c03-e04}
 Calculer $\lim_{x\to+\infty}(\sqrt{x^2+1}-x)$ puis donner une asymptote. Recommencer en $-\infty$.
 \begin{corrige}[exercice~\ref{t11s-c03-e04}]\label{sol-t11s-c03-e04}
-En $+\infty$, le conjugué donne $1/(\sqrt{x^2+1}+x)\to0$, donc $y=x$. En $-\infty$, $\sqrt{x^2+1}+x=1/(\sqrt{x^2+1}-x)\to0$, donc $y=-x$. Ne pas remplacer $\sqrt{x^2}$ par $x$ si $x<0$.
+En $+\infty$, le conjugué donne $1/(\sqrt{x^2+1}+x)\to0$, donc $y=x$. En $-\infty$, la différence demandée $\sqrt{x^2+1}-x$ tend vers $+\infty$. Pour chercher l’asymptote, on considère plutôt $\sqrt{x^2+1}+x=1/(\sqrt{x^2+1}-x)\to0$, donc $y=-x$. Ne pas remplacer $\sqrt{x^2}$ par $x$ si $x<0$.
 \end{corrige}
 \exo[Lire un écart]\label{t11s-c03-e05}
 On sait $f(x)=2x-3+\dfrac{x}{x^2+1}$. Donner l’asymptote aux deux infinis et tous ses points d’intersection avec la courbe.

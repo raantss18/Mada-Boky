@@ -17,10 +17,10 @@ $\Prob(\overline A)=1-\Prob(A)$;
 \]
 Si $A\subseteq B$, $\Prob(A)\le\Prob(B)$.
 \end{propriete}
-\begin{demonstration}Les sommes portent sur des poids positifs. Le complément partage l’univers avec $A$. La formule de réunion retire les poids de l’intersection comptés deux fois. Pour l’inclusion, les poids supplémentaires de $B\setminus A$ sont positifs ou nuls.\end{demonstration}
+\begin{demonstration}Les sommes portent sur des poids positifs ou nuls. Le complément partage l’univers avec $A$. La formule de réunion retire les poids de l’intersection comptés deux fois. Pour l’inclusion, les poids supplémentaires de $B\setminus A$ sont positifs ou nuls.\end{demonstration}
 \begin{exemple}[un dé équilibré]Pour $A=\{2,4,6\}$ et $B=\{4,5,6\}$, $\Prob(A)=\Prob(B)=1/2$, $A\cap B=\{4,6\}$ donc $\Prob(A\cap B)=1/3$; la réunion a probabilité $2/3$. Les événements ne sont pas incompatibles.\end{exemple}
 \section{Compter un tirage}
-\begin{methode}{uniformiser le modèle}Pour deux lancers successifs équilibrés, les couples ordonnés sont équiprobables. Pour un tirage simultané uniforme de $p$ objets distincts parmi $n$, les sous-ensembles sont équiprobables. Compter favorable et total avec la même notion de résultat; vérifier que la probabilité est comprise entre zéro et un.\end{methode}
+\begin{methode}{uniformiser le modèle}Pour deux lancers successifs équilibrés et indépendants, les couples ordonnés sont équiprobables. Pour un tirage simultané uniforme de $p$ objets distincts parmi $n$, les sous-ensembles sont équiprobables. Compter favorable et total avec la même notion de résultat; vérifier que la probabilité est comprise entre zéro et un.\end{methode}
 \begin{exemple}[tirage sans remise]
 Une urne contient $3$ boules rouges et $2$ bleues, toutes distinguables. Tirer simultanément deux boules de façon uniforme. Il y a $\binom52=10$ paires; les deux rouges donnent $\binom32=3$ paires, probabilité $3/10$. Au moins une rouge est le contraire de deux bleues : $1-\binom22/\binom52=9/10$.
 \end{exemple}
@@ -28,6 +28,12 @@ Une urne contient $3$ boules rouges et $2$ bleues, toutes distinguables. Tirer s
 \section{Fréquence observée et probabilité du modèle}
 Une fréquence mesure la proportion observée dans une série d’expériences; une probabilité appartient au modèle. Une fréquence de $0{,}47$ pour « pile » n’invalide pas automatiquement un modèle à $1/2$. Le lien entre fréquences et probabilités se découvre par répétition; une expérience courte ne démontre pas l’équilibre d’une pièce.
 
+\begin{situation}[fréquence et modèle]
+\exo\label{t11s-c20-act}Une série de $50$ lancers d’une pièce a donné $23$ fois pile. Calculer la fréquence de pile et la comparer au modèle d’une pièce équilibrée. Proposer un protocole de répétition et un tableau pour comparer plusieurs séries, sans prétendre qu’une seule série prouve l’équilibre.
+\end{situation}
+\begin{corrige}[exercice~\ref{t11s-c20-act}]\label{sol-t11s-c20-act}
+La fréquence est $23/50=0{,}46$, contre une probabilité de $1/2$ dans le modèle équilibré. Répéter le même nombre de lancers dans les mêmes conditions, noter pour chaque série son numéro, le nombre de piles et sa fréquence; ajouter les effectifs pour une fréquence globale. Les résultats fluctuent : le seul écart $0{,}04$ ne prouve ni l’équilibre ni le déséquilibre. Les $23$ piles sont des données d’exercice, pas le compte rendu d’une expérience effectuée.
+\end{corrige}
 \section{Exercices et problèmes}
 \exo[Deux dés]\label{t11s-c20-e01}
 Deux dés équilibrés sont lancés indépendamment. Énumérer les couples de somme $7$ et calculer sa probabilité, puis celle d’une somme $2$.
@@ -45,7 +51,7 @@ Une urne contient $4$ rouges et $3$ bleues distinguables. Tirer simultanément t
 Total $\binom73=35$. Trois rouges $\binom43=4$, donc $4/35$. Exactement deux : $\binom42\binom31=18$, donc $18/35$. Au moins une bleue : $1-4/35=31/35$.
 \end{corrige}
 \exo[Avec remise]\label{t11s-c20-e04}
-Dans la même urne, tirer successivement deux boules avec remise et uniformément à chaque fois. Calculer la probabilité de deux rouges puis de couleurs différentes.
+Dans la même urne, tirer successivement deux boules avec remise, indépendamment et uniformément à chaque fois. Calculer la probabilité de deux rouges puis de couleurs différentes.
 \begin{corrige}[exercice~\ref{t11s-c20-e04}]\label{sol-t11s-c20-e04}
 Les $7^2=49$ couples de boules physiques sont équiprobables. Deux rouges : $4^2/49=16/49$. Couleurs différentes : $(4\times3+3\times4)/49=24/49$.
 \end{corrige}

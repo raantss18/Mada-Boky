@@ -26,7 +26,7 @@ Si $r>0$, la suite croît et tend vers $+\infty$; si $r<0$, elle décroît et te
 \]
 Si $q=1$, la somme vaut $ku_p$. La formule de somme convient aussi à $q=0$.
 \end{propriete}
-\begin{demonstration}Le terme général résulte de multiplications successives. Pour la somme $S=u_p+u_pq+\cdots+u_pq^{k-1}$, soustraire $qS$ donne $(1-q)S=u_p(1-q^k)$. Séparer $q=1$ avant la division.\end{demonstration}
+\begin{demonstration}Le terme général résulte de multiplications successives. Pour $q=0$, la somme de $k\ge1$ termes vaut $u_p$, ce qui coïncide avec la formule annoncée. Pour $q\ne0$, considérer la somme $S=u_p+u_pq+\cdots+u_pq^{k-1}$, soustraire $qS$ donne $(1-q)S=u_p(1-q^k)$. Séparer $q=1$ avant la division.\end{demonstration}
 \begin{propriete}[limites, admises pour les puissances]
 Si $|q|<1$, $q^n\to0$. Si $q>1$, $q^n\to+\infty$. Si $q=-1$, les termes alternent; si $q<-1$, leur module croît sans limite et leurs signes alternent. Ainsi, pour une suite géométrique non nulle, la convergence dépend de ces cas; pour $q=1$, la suite est constante. Si $u_0=0$, elle est nulle quel que soit $q$.
 \end{propriete}
@@ -38,9 +38,10 @@ Si $u_{n+1}=0{,}8u_n+10$, la valeur fixe vérifie $L=0{,}8L+10$, donc $L=50$. Po
 
 \section{Exercices et problèmes}
 \exo[Générer]\label{t11s-c12-e01}
-Pour $u_n=3n-2$, donner $u_0,u_5,u_{10}$ et les variations. Pour $v_0=2$, $v_{n+1}=v_n+3$, donner le terme général.
+Pour $u_n=3n-2$, donner $u_0,u_5,u_{10}$ et les variations. Placer les cinq points $(n;u_n)$ pour $0\le n\le4$ dans un repère; faut-il les relier pour représenter la suite ? Pour $v_0=2$, $v_{n+1}=v_n+3$, donner le terme général.
 \begin{corrige}[exercice~\ref{t11s-c12-e01}]\label{sol-t11s-c12-e01}
-$-2,13,28$; différence $3>0$, strictement croissante. $v_n=2+3n$.
+$-2,13,28$; différence $3>0$, strictement croissante. Les cinq points sont $(0;-2),(1;1),(2;4),(3;7),(4;10)$ : seuls les indices entiers appartiennent au domaine, donc on ne les relie pas. $v_n=2+3n$.
+\begin{center}\begin{tikzpicture}\begin{axis}[width=7cm,height=5cm,axis lines=middle,xmin=-0.5,xmax=4.5,ymin=-3,ymax=11,xtick={0,1,2,3,4},xlabel={$n$},ylabel={$u_n$}]\addplot[only marks,mark=*,bmtGrenat] coordinates {(0,-2)(1,1)(2,4)(3,7)(4,10)};\end{axis}\end{tikzpicture}\end{center}
 \end{corrige}
 \exo[Somme arithmétique]\label{t11s-c12-e02}
 Une suite arithmétique vérifie $u_3=7$ et $u_8=22$. Trouver la raison et calculer $u_3+\cdots+u_8$.

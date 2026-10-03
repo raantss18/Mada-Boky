@@ -1,0 +1,98 @@
+{
+  "parameter_identity": "(x - 1)*(m*x - x - 2)",
+  "cubics": [
+    "(x - 3)*(x - 2)*(x + 1)",
+    "(x - 2)*(x - 1)*(x + 1)"
+  ],
+  "eight_times": {
+    "n": 8,
+    "sum": 70,
+    "sum_squares": 692,
+    "mean": "35/4",
+    "variance_direct": "159/16",
+    "variance_second_moment": "159/16",
+    "standard_deviation": 3.152380053229623
+  },
+  "weighted_values": {
+    "n": 10,
+    "sum": 105,
+    "sum_squares": 1225,
+    "mean": "21/2",
+    "variance_direct": "49/4",
+    "variance_second_moment": "49/4",
+    "standard_deviation": 3.5
+  },
+  "arithmetics": [
+    {
+      "a": 180,
+      "b": 252,
+      "gcd": 36,
+      "lcm": 1260
+    },
+    {
+      "a": 1071,
+      "b": 462,
+      "gcd": 21,
+      "lcm": 23562
+    },
+    {
+      "a": 840,
+      "b": 360,
+      "gcd": 120,
+      "lcm": 2520
+    }
+  ],
+  "systems": {
+    "c09e01": "{(1, 2, 3)}",
+    "c09e02": "{(5 - t, t - 2, 7 - t, t)}"
+  },
+  "vector": {
+    "cross": [
+      -2,
+      -1,
+      2
+    ],
+    "norm_squared": 9,
+    "dot": 1
+  },
+  "urn_no_replacement": {
+    "total": 35,
+    "red_counts": {
+      "0": 1,
+      "1": 12,
+      "2": 18,
+      "3": 4
+    }
+  },
+  "urn_with_replacement": {
+    "total": 49,
+    "two_red": 16,
+    "different": 24
+  },
+  "dice": {
+    "2": 1,
+    "7": 6
+  },
+  "stock": {
+    "terms": [
+      "100",
+      "90",
+      "82",
+      "378/5",
+      "1762/25",
+      "8298/125",
+      "39442/625"
+    ],
+    "sum_0_to_2": "272"
+  },
+  "ds2_threshold": {
+    "first_rank": 6,
+    "term": "97/16",
+    "preceding": "49/8"
+  },
+  "limits_c03e04": {
+    "right_difference": "0",
+    "left_difference": "oo",
+    "left_sum": "0"
+  }
+}

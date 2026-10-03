@@ -1,13 +1,14 @@
 \bmtchapitre{Géométrie dans l’espace}{Utiliser un repère direct, calculer produits scalaire et vectoriel et établir les équations des droites et des plans.}{Géométrie}
 \label{t11s-c17}
+Dans ce chapitre, les calculs de longueurs, d’angles et d’aires à partir de coordonnées se font dans un repère orthonormé. Il est direct pour les rotations et le produit vectoriel.
 \begin{revision}Coordonnées et produit scalaire du plan; systèmes linéaires; trigonométrie et déterminants à deux dimensions.\end{revision}
 \begin{automatismes}\exo\label{t11s-c17-auto}Calculer $1^2+2^2+2^2$. Résoudre $x+y=3$, $x-y=1$.\end{automatismes}
 \begin{corrige}[exercice~\ref{t11s-c17-auto}]\label{sol-t11s-c17-auto}$9$; $(x;y)=(2;1)$.\end{corrige}
 
 \section{Repérage et orientation}
-\begin{definition}Un repère de l’espace comporte une origine et trois vecteurs de base non coplanaires. Un repère orthonormé utilise trois vecteurs unitaires orthogonaux. L’orientation directe est celle où le produit vectoriel du premier et du deuxième vecteur de base donne le troisième.\end{definition}
+\begin{definition}Un repère de l’espace comporte une origine et trois vecteurs de base non coplanaires. Un repère orthonormé utilise trois vecteurs unitaires orthogonaux. Un repère orthonormé est direct lorsque le produit vectoriel du premier et du deuxième vecteur de base donne le troisième. Dans une base quelconque, être direct exprime seulement une orientation, pas cette égalité.\end{definition}
 \begin{exemple}[un cube unité]On repère un cube par $O(0;0;0)$, $A(1;0;0)$, $B(0;1;0)$, $C(0;0;1)$. Le sommet opposé à $O$ a coordonnées $(1;1;1)$ et la grande diagonale vaut $\sqrt3$. Une perspective cavalière aide à lire la configuration, mais ses longueurs dessinées ne donnent pas les longueurs de l’espace.\end{exemple}
-\begin{propriete}[produit scalaire]Dans un repère orthonormé, pour $\vecu=(u_1;u_2;u_3)$ et $\vecv=(v_1;v_2;v_3)$, $\vecu\cdot\vecv=u_1v_1+u_2v_2+u_3v_3$. La norme vaut $\sqrt{u_1^2+u_2^2+u_3^2}$, et le produit géométrique vaut $\norme{\vecu}\norme{\vecv}\cos\theta$.\end{propriete}
+\begin{propriete}[produit scalaire]Dans un repère orthonormé, pour $\vecu=(u_1;u_2;u_3)$ et $\vecv=(v_1;v_2;v_3)$, $\vecu\cdot\vecv=u_1v_1+u_2v_2+u_3v_3$. La norme vaut $\sqrt{u_1^2+u_2^2+u_3^2}$, et, pour deux vecteurs non nuls, le produit géométrique vaut $\norme{\vecu}\norme{\vecv}\cos\theta$; si l’un est nul, le produit vaut zéro.\end{propriete}
 \section{Produit vectoriel}
 \begin{definition}[repère orthonormé direct]
 \[
@@ -16,7 +17,7 @@
 \]
 Ce vecteur est orthogonal aux deux vecteurs, et son sens dépend de l’ordre. Si les deux vecteurs sont non colinéaires, le triplet $(\vecu,\vecv,\vecu\wedge\vecv)$ est direct.
 \end{definition}
-\begin{propriete}$\vecv\wedge\vecu=-\vecu\wedge\vecv$; sa norme vaut $\norme{\vecu}\norme{\vecv}\sin\theta$ pour $\theta\in[0;\pi]$. Elle est l’aire du parallélogramme, donc la moitié donne l’aire du triangle. Le produit est nul exactement lorsque les vecteurs sont colinéaires.\end{propriete}
+\begin{propriete}$\vecv\wedge\vecu=-\vecu\wedge\vecv$; pour deux vecteurs non nuls, sa norme vaut $\norme{\vecu}\norme{\vecv}\sin\theta$ avec $\theta\in[0;\pi]$; si l’un est nul, le produit vectoriel est nul. Elle est l’aire du parallélogramme, donc la moitié donne l’aire du triangle. Le produit est nul exactement lorsque les vecteurs sont colinéaires.\end{propriete}
 \begin{demonstration}Le produit scalaire avec chaque facteur s’annule en développant les coordonnées. Développer son carré donne $\norme{\vecu\wedge\vecv}^2=\norme{\vecu}^2\norme{\vecv}^2-(\vecu\cdot\vecv)^2$, soit la formule avec $\sin^2\theta$. Le sinus est positif ou nul dans $[0;\pi]$. L’orientation relève de la convention du repère direct.\end{demonstration}
 \begin{exemple}Pour $\vecu=(1;2;0)$ et $\vecv=(0;1;3)$, $\vecu\wedge\vecv=(6;-3;1)$. Produits scalaires $6-6=0$ et $-3+3=0$. Norme $\sqrt{46}$, aire du triangle $\sqrt{46}/2$.\end{exemple}
 \section{Droites et plans}

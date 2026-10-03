@@ -1,13 +1,12 @@
 # T11 S — index de reprise
 
 Destination : https://github.com/raantss18/Mada-Boky/tree/main/Livres/T11-S
-Dernier checkpoint de sources/PDF/rapports vérifié : e906776a74709ffc048c9fa4f75e76b723f50520 (2026-10-03T04:36:30.199464+00:00); 54 fichiers texte comparés par hash de blob, chapitre 20 relu.
-Vingt chapitres, quatre DS et deux sujets de synthèse présents. Sources communes aux éditions élève et professeur : livre-t11s.tex et livre-t11s-prof.tex. Compilation : bash compiler.sh les-deux.
+Base récupérée : 91223e0ca81a7167a6ec18fde5f462fb0255d27d, aucune modification plus récente à la reprise.
 
-Statut : première rédaction complète, non validée. Compilation complète réussie : 120 pages élève, 128 pages professeur. Les PDF courants sont des brouillons; ils correspondent au source_commit de review/build-result.json.
+Statut : brouillon, revue mathématique par le même modèle et correspondance de87 exigences effectuées;206 groupes de questions/corrections inventoriés. Inventaire conservateur de947 objets, y compris assertions hors boîtes et glossaire.
 
-Contrôles manquants : couverture exhaustive et inventaire, résolution séparée de chaque exercice, revue de toutes les assertions et inspection lisible de chaque page finale. Le vérificateur mécanique échoue : dossiers de gates/inventaire à compléter. Voir review/issues.json, review/gate-check-result.json et project/tasks.md.
+Corrections principales : somme des carrés/variance/écart type des huit temps, hypothèses des repères et vecteurs nuls, limite à gauche, cas des racines et des suites, suppression d'un cycle de prérequis pour la trigonométrie. Ajouts ciblés pour graphique de suite, enquête, fréquence, loci, inéquations absolues et proportions. Voir review/evidence/.
 
-Prochaine action : réconcilier inventaire/curriculum puis reprendre les exercices par chapitre; les inspections anciennes d’un assemblage partiel ne valent pas pour ces PDF.
+Snapshot figé : 2604b863035942d4d642e90d228ca465aa8eb8040b548227d4e8433fac95b82f. Les deux PDF sont en cours de reconstruction et ne doivent pas être attribués à ce snapshot avant résultat documenté.
 
-Sauvegarde des deux PDF et du journal compressé confirmée par égalité des hashes de blobs avec l’arbre distant. Le source_commit dans build-result.json reste 097fab65, source ayant produit les PDF.
+Prochaine action : compilation propre des deux éditions, inspection lisible de chaque page, gates inchangés et checkpoint avec readback. Statuts dans review/issues.json. HANDOFF.md est le guide de reprise dédié, pas un document élève.

@@ -1,0 +1,515 @@
+BUT DU PROGRAMME
+Le but du programme de mathématiques est d’amener l’apprenant à développer un éventail de
+connaissances variées dans les différents champs (composantes) des mathématiques. En plus de
+ces connaissances, la discipline des mathématiques nécessite la maitrise de plusieurs habiletés que
+l’apprenant devra développer. En effet, maitriser les mathématiques c’est d’abord maîtriser des
+concepts, les appliquer puis les utiliser dans des situations de résolution de problèmes.
+
+ORGANISATION PEDAGOGIQUE GENERALE
+Analyse : l’apprentissage de l’analyse dans l’Enseignement Secondaire Général niveau II vise à
+fournir aux apprenants les connaissances et les compétences nécessaires pour résoudre des
+problèmes de mathématiques à l’aide des méthodes numériques tout en développant leur pensée
+critique et en les préparant à des études supérieures.
+
+Algèbre : la composante algèbre représente le contexte prioritaire dans lequel l’apprenant prend
+conscience des différentes relations entre les concepts algébriques et des régularités qui en découlent.
+Cette composante permet notamment sur le plan numérique de comprendre la régularité du système
+de numération et le sens réel de la relation d’égalité.
+
+Géométrie : L’apprentissage de la géométrie se réalise d’abord à travers la manipulation d’objets,
+de formes et de figures. Son acquisition repose également sur la maîtrise d’un vocabulaire bien
+spécifique à la géométrie. À l’aide de ce vocabulaire l’apprenant apprend à se repérer dans l’espace,
+à nommer des figures planes et des solides, à décrire des classes de figures et à observer des
+propriétés de ces classes. Les objets d’étude en géométrie, dans l’Enseignement Secondaire Général
+niveau II, sont les figures planes ou les solides, le repérage dans l’espace et les transformations
+géométriques.
+
+Traitement de données et probabilités : Tout au long de l’Enseignement Secondaire, l’apprenant
+participe à la réalisation d’enquêtes pour répondre à un questionnement et tirer des conclusions. Il
+apprend à formuler différents types de questions, à déterminer des catégories ou des choix de
+réponses, à planifier, à réaliser des collectes de données, à les organiser au moyen notamment de
+tableaux et de graphique. Il apprend également à interpréter les données et à en tirer des conclusions
+pertinentes.
+Graduellement, l’apprenant est initié à la statistique descriptive, qui correspond à la transformation
+de données brutes en une synthèse alliant à la fois la fidélité (rigueur) et la clarté. Ainsi, l’apprenant
+acquiert la maitrise de différents outils pour réaliser ces analyses descriptives : diagramme,
+moyenne, minimum, maximum, étendue, écart.
+Au niveau des probabilités, l’apprenant observe et réalise des expériences liées au concept de hasard.
+Il s’exerce à prédire qualitativement des résultats en se familiarisant avec les concepts de résultat
+certain, de résultat possible, de résultat impossible. Il s’exerce également à comparer des
+expériences pour dégager des événements plus probables, également probables et moins probables.
+Il dénombre les résultats d’une expérience aléatoire à l’aide de tableaux et de diagrammes en arbre
+et compare quantitativement des résultats fréquentiels obtenus avec des résultats théoriques connus.
+Graduellement, il acquiert des outils probabilistes lui permettant de traiter des situations
+numériques: concept d’événement, dénombrement des possibilités en utilisant différents registres
+(modes) de représentation, au calcul des probabilités et à la comparaison des probabilités
+fréquentielles et théoriques.
+
+                                                   353
+ORIENTATIONS PÉDAGOGIQUES GÉNÉRALES
+En général les enseignants devraient favoriser la compréhension approfondie des concepts du
+nombre, des opérations, de géométrie. Pour y parvenir, il est essentiel d’établir des liens entre ces
+concepts mathématiques et la réalité. De plus, l’enseignant devra favoriser des représentations
+concrètes de chacun des concepts et, autant que faire se peut, permettre aux apprenants de manipuler
+des objets concrets permettant de donner du sens à ces concepts. Le but par ces manipulations est de
+favoriser une représentation concrète des concepts abstraits en mathématiques.
+     La discipline « Mathématiques » est constituée de quatre composantes :
+        ► Analyse
+        ► Algèbre
+        ► Géométrie
+        ► Traitement des données et probabilités
+
+RÉSULTATS D’APPRENTISSAGE GÉNÉRAUX
+                                                        RÉSULTATS D’APPRENTISSAGE
+                 COMPOSANTES
+                                                                     GÉNÉRAUX
+    ANALYSE                                         Analyser le concept du nombre
+    ALGEBRE                                         Interpréter et commenter une équation et une
+                                                    courbe pour résoudre un problème à la vie
+                                                    courante.
+                                                    Modéliser un enchainement logique pour
+                                                    structurer un raisonnement
+    GEOMETRIE                                       Renforcer le raisonnement dans le plan par
+                                                    le biais des propriétés et des théorèmes afin
+                                                    de préparer la géométrie dans l’espace.
+    TRAITEMENT DES DONNEES ET                       Réarranger et interpréter des données afin de
+    PROBABILITE                                     prendre une décision.
+VOLUME HORAIRE : 5 heures
+
+
+
+
+                                                 354
+TABLEAU DES CONTENUS
+            Thématiques                            Contenus
+Analyse                    ● Etude complète d’une fonction numérique d’une
+                             variable réelle
+                           ● Equations du second degré
+                           ● Système d’équations linéaires à 4 inconnues
+                           ● Notion sur le système de numérations
+                           ● Nombre premier
+                           ● Divisibilité et décomposition d’un nombre en produit
+                             de facteurs premiers
+                           ● Notion de boucle : « tant que » et « pour »
+Algèbre                    ● Connecteurs logiques
+                           ● Négation d’une proposition
+                           ● Quantificateurs
+                           ● Réciproque et contraposée d’une implication logique
+                           ● Contre-exemple
+                           ● Généralités sur les suites numériques
+                           ● Suites arithmétiques / suites géométriques
+Géométrie                  ● Calcul vectorielle
+                           ● Barycentre
+                           ● Transformations du plan
+                           ● Repérage dans l’espace d’un cube ou d’un
+                             parallélépipède
+                           ● Géométrie vectorielle dans l’espace
+                           ● Equation cartésienne dans l’espace
+                           ● Relation entre : le degré, le radian et les grades
+                           ● Formules trigonométriques
+                           ● Equations et inéquations trigonométriques
+Traitement de données et   ● Organisation des données
+probabilités               ● Statistique
+                           ● Dénombrement
+                           ● Probabilité
+
+
+
+
+                              355
+                                                                              ANALYSE
+ Valeurs à véhiculer : goût de l’excellence, confiance en soi
+ Durée : 65 heures
+  Résultat d’apprentissage                                        Conseils et orientations
+                                          Contenus
+           spécifique                                                   pédagogiques
+Etudier d’une manière           ● Etude complète              Activités
+performante une fonction        d’une fonction                Les apprenants sont amenés à :
+numérique d’une variable        numérique d’une               - trouver l’ensemble de
+réelle et d’interpréter une     variable réelle               définition d’une fonction
+courbe représentative d’une        ► Ensemble de              - déterminer la périodicité et
+fonction                              définition              la parité d’une fonction
+                                   ► Parité                   - étudier la limite, la
+                                   ► Périodicité              continuité et la
+                                   ► Limites et               dérivabilité d’une
+                                   branches infinies          fonction
+                                   ► Continuité en un         - déterminer les variations
+                                   point et sur un               d’une fonction
+                                   intervalle                 - trouver les points
+                                   ► Dérivabilité en un       remarquables d’une
+                                   point et sur un intervalle fonction
+                                   ► Fonction dérivée         - représenter graphiquement
+                                   ► Opérations                  une fonction.
+                                   sur les dérivées
+                                   ► Equation de la           Stratégies
+                                   tangente en un point       - Utilisation des fonctions de
+                                   ► Variation d’une             référence
+                                      fonction                - Observation d’une courbe
+                                   ► Positions                - Utilisation des opérations
+                                   relatives de deux          sur les limites et les dérivées
+                                   courbes                    - Méthode d’investigation
+                                   ► Points remarquables      - Utilisation de la
+                                   : point d’inflexion,       dérivabilité d’une
+                                   point d’intersection       fonction
+                                   avec les axes, centre de
+                                   symétrie, axe de           Supports
+                                   symétrie                   - Repère
+                                   ► Traçage de la            - Tableau de valeur
+                                   courbe représentative
+                                   d’une fonction
+                                   numérique
+ Evaluation
+ L’apprenant :
+ ● étudie les variations d’une fonction
+ ● étudie, représente graphiquement une fonction numérique d’une variable réelle
+ ● interprète une courbe et conjecturer.
+
+
+
+
+                                           356
+         Résultat
+     d’apprentissage                  Contenus            Conseils et orientations pédagogiques
+        spécifique
+Résoudre de manière           ● Equations du second       Activités
+performante les différents       degré                    Les apprenants sont amenés à :
+types d’équations et             ► Equations du           - établir des pistes pour trouver des
+d’inéquations ainsi que          second degré avec        solutions pour des équations du
+les systèmes d’équations         paramètre                second degré sans/avec paramètre
+                                 ► Equations de degré 3   - vérifier des racines
+                                 ► Equations et           évidentes d’un polynôme de
+                                 inéquations              3e degré
+                                 irrationnelles           - découvrir des méthodes pour
+                                 ► Equations et           résoudre des équations du 3ème
+                                 inéquations avec des     degré, connaissant une racine
+                                 valeurs absolues         - déterminer l’ensemble de
+                              ● Système d’équations       définition d’une fonction irrationnelle
+                             linéaires à 4 inconnues      - résoudre une équation irrationnelle
+                                                          ou une inéquation irrationnelle
+                                                          - résoudre des équations et
+                                                          inéquations avec des valeurs absolues
+                                                          - résoudre un système
+                                                          d’équations à 4 inconnues.
+
+                                                          Stratégies
+                                                          - Etudes de cas
+                                                          - Utilisation du pivot de GAUSS
+
+                                                           Support
+                                                          Symbole d’inégalité
+Evaluation
+L’apprenant :
+● résout des équations de degré 3, du 2nde degré avec paramètre
+● résout des équations et inéquations irrationnelles
+● résout des équations et inéquations avec des valeurs absolues
+● analyse et modélise un problème concret sous la forme d’un système d’équations à 4 inconnues.
+
+
+
+
+                                            357
+  Résultat d’apprentissage                                         Conseils et orientations
+                                       Contenus
+          spécifique                                                   pédagogiques
+Découvrir la notion de         ● Notion sur le              Activités
+l’arithmétique                 système de                   Les apprenants sont amenés à :
+                               numérations                  - découvrir l’existence des
+                                  ► Décimale                systèmes de numération à base
+                                  ► Binaire                 quelconque
+                                  ► Base quelconque         - convertir un nombre
+                                                            d’une base de numération à
+                               ● Nombre premier             une autre
+                                                            - reconnaître si un nombre
+                               ● Divisibilité et            donné est premier ou non
+                               décomposition d’un           - déterminer : le PPCM de
+                               nombre en produit            deux ou de plusieurs nombres
+                               de facteurs premiers         et le PGCD de deux nombres.
+                                  ► PGCD
+                                  ► PPCM                    Stratégie
+                                                            Utilisation de l’algorithme d’Euclide
+
+                                                            Support
+                                                           Supports numériques
+Evaluation
+L’apprenant :
+● écrit un nombre dans une base demandée
+● utilise l’algorithme d’Euclide pour déterminer si deux nombres sont premier entre eux
+● trouve le PGCD de deux ou plusieurs nombres par l’algorithme d’Euclide
+● calcule le PPCM de deux ou plusieurs nombres.
+
+ Résultat d’apprentissage                                          Conseils et orientations
+                                       Contenus
+          spécifique                                                     pédagogiques
+Appliquer un algorithme        Notion de boucle : « tant       Activités
+pour traiter des problèmes de que                              Les apprenants sont amenés à :
+mathématiques                 » et « pour »                    - formuler des questions
+                                                                 critiques
+                                                               - répondre par l’apprentissage
+                                                                 appliqué
+                                                               - dresser un organigramme
+                                                               comportant des boucles.
+
+                                                               Stratégie
+                                                               Utilisation des boucles
+
+                                                               Support
+                                                               Organigramme
+ Evaluation
+L’apprenant utilise l’algorithme pour résoudre de problème de suite numérique et d’arithmétique.
+
+
+
+
+                                           358
+                                                                             ALGEBRE
+ Valeurs à véhiculer : autonomie, responsabilité
+ Durée : 20 heures
+  Résultat d’apprentissage                                       Conseils et orientations
+                                       Contenus
+          spécifique                                                   pédagogiques
+Utiliser les liens entre la   ● Connecteurs logiques         Activités
+logique et les raisonnements     ► Ʌ(et), V (ou inclusif),   Les apprenants sont amenés à :
+mathématiques                    ◻ (implication) et          - illustrer la logique
+                                 (équivalence)               - déterminer l’ordre de
+                                                                quantificateur
+                               ● Négation d’une              - appliquer les connecteurs
+                                 proposition                 logiques et les quantificateurs
+                                                             - déterminer la réciproque et la
+                               ● Quantificateurs             contraposée d’une implication
+                                 ►◻                          logique.
+                                 (existentiel), ◻
+                                 (universel)                  Stratégies
+                                                             - Brainstorming
+                              ● Réciproque et                - Question/réponse
+                              contraposée d’une              - Travail de groupe
+                              implication logique
+                              Contre-exemple                 Supports
+                                                             - Table de vérité
+                                                             - Connecteur et quantificateur
+                                                               logiques
+Evaluation
+L’apprenant :
+● utilise convenablement les connecteurs logiques et quantificateurs
+● manipule l’ordre de quantificateurs pour formuler des propositions.
+
+        Résultat
+                                                                 Conseils et orientations
+    d’apprentissage                  Contenus
+                                                                     pédagogiques
+       spécifique
+Résoudre un problème       ● Généralités sur les suites      Activités
+d’une suite numérique      numériques                        Les apprenants sont amenés à :
+                              ► Définition                   - étudier la convergence et la
+                              ► Mode de génération           variation d’une suite
+                              ► Représentation               - déterminer la nature d’une suite
+                                graphique                    - trouver le terme général
+                              ► Variation                    d’une                          suite
+                              ► Convergence                  arithmétique/géométrique en
+                           ● Suites                          fonction de n
+                           arithmétiques / suites            - faire ressortir la formule pour
+                           géométriques                      calculer la somme de k termes
+                              ► Définition terme général     consécutifs       d’une        suite
+                              ► Somme de k termes            arithmétique/ géométrique.
+                                consécutifs
+                                                             Stratégies
+                                                             - Utilisation des termes d’une
+                                                                suite
+                                                             - Utilisation des formules sur les
+                                                                suites
+
+                                          359
+                                                            Support
+                                                           Logiciels ou applications de
+                                                           représentation graphique
+Evaluation
+L’apprenant :
+● utilise la relation de récurrence pour déduire la nature d’une suite
+● utilise l’expression d’une suite pour déterminer la convergence et la variation
+● calcule la somme de k termes consécutifs d’une suite arithmétique ou géométrique
+● traduit des situations concrètes par des suites et en donner des interprétations.
+
+                                                                        GEOMETRIE
+ Valeurs à véhiculer : rigueur, gout de l’effort
+ Durée : 45 heures
+  Résultat d’apprentissage                                        Conseils et orientations
+                                         Contenus
+         spécifique                                                    pédagogiques
+Résoudre des problèmes          ● Calcul vectoriel          Activités
+métriques et effectuer des        ► Combinaison             Les apprenants sont amenés à :
+calculs vectoriels dans le        linéaire:                 - calculer un produit
+plan                              décomposition d’un        scalaire dans une
+                                  vecteur                   configuration géométrique
+                                  ► Bases quelconques       - calculer un produit
+                                  ► Produit Scalaire de     scalaire et produit vectoriel
+                                  deux vecteurs             - trouver le barycentre de
+                                ● Barycentre                deux, trois ou quatre points
+                                  ► Barycentre de deux,     pondérés
+                                  trois et quatre points    - déterminer les lignes de
+                                  pondérés                     niveaux
+                                  ► Réduction de la         - construire les images des
+                                  somme vectorielle :       figures géométriques données par
+                                  Σ◻◻(MAi) ◻                les transformations du plan.
+                                  ► Ligne de niveau :
+                                                            Stratégies
+                                                            - Utilisation des opérations sur
+                                                               les vecteurs
+                                                            - Construction géométrique
+                                                            - Utilisation des propriétés du
+                                                               barycentre
+                               ● Transformations du
+                                  plan                      Supports
+                                  ► Translation             - Repère cartésien
+                                  ► Symétrie                - Vecteurs
+                                  ► Homothétie
+                                  ► Rotation
+                                  ► Composition de
+                                  deux
+                                  transformations
+                               ► Similitude plane
+                               directe
+                                          360
+Evaluation
+L’apprenant :
+● utilise les propriétés du barycentre pour déterminer des lignes de niveau
+● démontre des relations métriques dans une figure géométrique donnée
+● utilise la combinaison linéaire pour calculer un produit scalaire
+● résout de problème de transformation du plan.
+
+  Résultat d’apprentissage                                          Conseils et orientations
+                                        Contenus
+         spécifique                                                       pédagogiques
+Résoudre des problèmes        Repérage dans l’espace          Activités
+métriques et effectuer des    d’un cube ou d’un               Les apprenants sont amenés à :
+calculs vectoriels dans       parallélépipède                 - calculer un produit
+l’espace                       ● Géométrie vectorielle        scalaire et produit vectoriel
+                               dans l’espace                  dans l’espace
+                                  ► Produit scalaire :        - manipuler des vecteurs dans
+                                  analytique et                  l’espace
+                                  géométrique                déterminer les équations d’une
+                                  ► Produit vectoriel :      droite et d’un plan dans l’espace.
+                                  analytique et                Stratégies
+                                  géométrique                 - Construction géométrique
+                               ● Equation cartésienne         - Utilisation des propriétés
+                                  dans                        géométriques dans l’espace
+                               l’espace
+                                  ► Equation                  Supports
+                                  cartésienne et              - Repère
+                                  équations                   - Vecteur
+                                  paramétriques d’une
+                                  droite dans l’espace
+                                  ► Equation
+                                  cartésienne et
+                                  équations
+                                  paramétriques
+                              d’un plan dans l’espace
+Evaluation
+L’apprenant :
+● calcule le produit scalaire et vectoriel
+● établit une équation cartésienne et équation paramétrique d’une droite et d’un plan dans
+   l’espace
+● résout des problèmes métriques.
+
+
+
+
+                                           361
+  Résultat d’apprentissage                                            Conseils et orientations
+                                         Contenus
+          spécifique                                                       pédagogiques
+Utiliser le cercle              ● Relation entre : le           Activités
+trigonométrique et de           degré, le radian et les         Les apprenants sont amenés à :
+résoudre des équations          grades                          - démontrer les formules
+trigonométriques                  ► Cercle                          trigonométriques
+                                     trigonométrique            - résoudre des équations et
+                                  ► Mesure principale           inéquations
+                                  d’un angle orienté            trigonométriques.
+                                ● Formules
+                                  trigonométriques              Stratégies
+                                ● Equations et                  - Observation et lecture du cercle
+                                  inéquations                   trigonométrique
+                                  trigonométriques              - Utilisation des lignes
+                                                                    trigonométriques
+                                                                - Utilisation des formules
+                                                                    trigonométriques
+
+                                                                Supports
+                                                                - Cercle trigonométrique
+                                                                - Angles remarquables
+ Evaluation
+L’apprenant utilise les formules trigonométriques pour résoudre des équations et inéquations.
+
+                                    TRAITEMENT DES DONNEES ET PROBABILITE
+ Valeurs à véhiculer : altruisme, confiance en soi
+ Durée : 20 heures
+  Résultat d’apprentissage                                            Conseils et orientations
+                                           Contenus
+           spécifique                                                       pédagogiques
+Traiter et représenter des       ● Organisation des              Activités
+données statistiques                données                      Les apprenants sont amenés à :
+                                    ► Pourcentage                - calculer un pourcentage,
+                                    ► Proportion                 une proportion et un taux
+                                    ► Taux d’évolution           d’évolution
+                                 ● Statistique                   - interpréter la proportion et
+                                    ► Les caractères de          le taux d’évolution d’une
+                                        position                 valeur à une autre valeur
+                                        - Quartiles              - calculer les caractères de
+                                        - Déciles                position et les caractères de
+                                        - Médiane                dispersion
+                                        - Moyenne                - construire la boîte à
+                                    ► Les                            moustaches.
+                                    caractères de
+                                    dispersion                   Stratégie
+                                        - Etendue                Regroupement des données
+                                        - Ecart interquartile    statistiques
+                                        - Variance
+                                        - Ecart type             Supports
+                                La boite à moustache             - Boite à moustaches
+                                                                 - Diagrammes
+ Evaluation
+ L’apprenant :
+ ● organise, modélise, classifie des données statistiques ;
+ ● utilise les caractères de position et de dispersion pour de problème statistique ;
+ ● construit la boite à moustaches.
+
+                                                        362
+       Résultat
+                                                                    Conseils et orientations
+   d’apprentissage                  Contenus
+                                                                        pédagogiques
+      spécifique
+Déterminer la            ● Dénombrement                       Activités
+probabilité d’un            ► Notion sur la théorie des       Les apprenants sont amenés à :
+évènement                   ensembles                         - calculer le cardinal d’un
+                         - Vocabulaires ensemblistes          ensemble dénombrable
+                         - Cardinal d’un ensemble fini,       - déterminer le cardinale
+                                                              d’intersection, de réunion et
+                         intersection, réunion,               complémentaire d’un ensemble
+                         complémentarité                      - découvrir les notions de base sur
+                            ► Applications                    la théorie des ensembles
+                         - Définition d’une application,      - déterminer le nombre
+                         injection, surjection et bijection   d’applications/
+                         - Permutation                        injections/bijections d’un
+                                                              ensemble fini à p éléments vers un
+                         - Combinaison                        ensemble à n éléments
+                         - Arrangement                        - déterminer la probabilité
+                                                              dans une situation
+                         ● Probabilité                        d’équiprobabilité. Stratégies
+                           ► Probabilité d’un                 - Utilisation des
+                           évènement                          techniques de
+                           ► Equiprobabilité                  dénombrement
+                                                              - Utilisation des formules de
+                                                                  probabilité
+                                                              Supports
+                                                              - Dé
+                                                              - Pièce de monnaie
+                                                              - Carte
+Evaluation
+L’apprenant :
+● utiliser les formules de dénombrement
+● calculer la probabilité d’évènements dans le cas d’équiprobabilité.
+
+
+
+
+                                               363
+

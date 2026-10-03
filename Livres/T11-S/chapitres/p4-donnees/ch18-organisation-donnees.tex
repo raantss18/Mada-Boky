@@ -4,9 +4,16 @@
 \begin{automatismes}\exo\label{t11s-c18-auto}Calculer $20\%$ de $150$; ranger $8,3,5,3$; calculer leur moyenne.\end{automatismes}
 \begin{corrige}[exercice~\ref{t11s-c18-auto}]\label{sol-t11s-c18-auto}$30$; $3,3,5,8$; moyenne $19/4=4{,}75$.\end{corrige}
 
+\section{Recueillir et classer des données}
+\begin{situation}[une enquête de classe]
+\exo\label{t11s-c18-act}Proposer une enquête sur la durée du trajet domicile-école, exprimée en minutes. Formuler une question identique pour tous, préciser qui est interrogé et comment classer les réponses sans compter deux fois une personne. Expliquer pourquoi une enquête de cette classe ne représente pas automatiquement tous les élèves de Madagascar.
+\end{situation}
+\begin{corrige}[exercice~\ref{t11s-c18-act}]\label{sol-t11s-c18-act}
+Question possible : « Pour le trajet aller d’aujourd’hui, combien de minutes se sont écoulées entre votre départ du domicile et votre arrivée à l’école ? » Interroger les élèves présents une seule fois, compter séparément les non-réponses, puis utiliser des classes disjointes $[0;10[$, $[10;20[$, $[20;30[$, etc. Vérifier que la somme des effectifs correspond au nombre de réponses. Une seule classe est un échantillon local, pas un tirage représentatif du pays : une généralisation demanderait un autre protocole. Cette activité propose une méthode; aucune donnée n’est présentée comme réellement recueillie.
+\end{corrige}
 \section{Proportion et évolution}
 \begin{definition}Une proportion est un rapport partie/ensemble, avec effectif total non nul. Le taux d’évolution d’une valeur initiale $V_i>0$ à une valeur finale $V_f$ est $t=(V_f-V_i)/V_i$. Le coefficient multiplicateur est $1+t$; un taux de $p\%$ vaut $p/100$.\end{definition}
-\begin{propriete}Deux évolutions successives de taux $t_1,t_2$ ont pour coefficient $(1+t_1)(1+t_2)$; leur taux global est ce produit moins $1$. Si $1+t\ne0$, le taux réciproque est $1/(1+t)-1$.\end{propriete}
+\begin{propriete}Pour des valeurs strictement positives, deux évolutions successives de taux $t_1,t_2>-1$ ont pour coefficient $(1+t_1)(1+t_2)$; leur taux global est ce produit moins $1$. Si $t>-1$, le taux réciproque est $1/(1+t)-1$.\end{propriete}
 \begin{demonstration}La valeur finale après deux évolutions vaut $V_i(1+t_1)(1+t_2)$. Pour revenir en arrière, multiplier par l’inverse du coefficient.\end{demonstration}
 \begin{exemple}Hausse de $20\%$ puis baisse de $20\%$ : coefficient $1{,}2\times0{,}8=0{,}96$, baisse globale $4\%$. Passer de $30\%$ à $40\%$ est une hausse de $10$ points de pourcentage, mais une hausse relative de $1/3$, soit environ $33{,}3\%$.\end{exemple}
 \section{Indicateurs de position}
@@ -19,7 +26,7 @@ $Q_1$ est la valeur de rang $\lceil N/4\rceil$, $Q_3$ celle de rang $\lceil3N/4\
 \begin{propriete}$V=\frac1N\sum x_i^2-\bar x^2$. La variance est positive ou nulle, et vaut zéro exactement lorsque toutes les valeurs sont égales.\end{propriete}
 \begin{demonstration}Développer les carrés et utiliser $\sum x_i=N\bar x$. La première définition est une moyenne de carrés positifs ou nuls; elle est nulle exactement si chaque carré est nul.\end{demonstration}
 \begin{exemple}[huit temps en minutes]
-Série $4,6,6,8,10,10,12,14$. $N=8$, somme $70$, moyenne $8{,}75$, médiane $9$; rangs $2$ et $6$, donc $Q_1=6,Q_3=10$. Étendue $10$, écart interquartile $4$. Somme des carrés $792$; variance $99-(8{,}75)^2=22{,}4375$; écart type $\sqrt{22{,}4375}\simeq4{,}737$ minutes. La variance s’exprime en minutes carrées.
+Série $4,6,6,8,10,10,12,14$. $N=8$, somme $70$, moyenne $8{,}75$, médiane $9$; rangs $2$ et $6$, donc $Q_1=6,Q_3=10$. Étendue $10$, écart interquartile $4$. Somme des carrés $692$; variance $86{,}5-(8{,}75)^2=9{,}9375$; écart type $\sqrt{9{,}9375}\simeq3{,}152$ minutes. La variance s’exprime en minutes carrées.
 \end{exemple}
 \begin{visualisation}[la boîte ne montre pas chaque donnée]
 \begin{center}\begin{tikzpicture}[x=0.55cm,y=1cm]
@@ -66,9 +73,14 @@ Pour la série $2,3,4,4,5,7,8,9,10,12$, calculer les cinq valeurs nécessaires �
 Minimum $2$, $Q_1=x_3=4$, médiane $(5+7)/2=6$, $Q_3=x_8=9$, maximum $12$. Boîte de $4$ à $9$, trait à $6$, moustaches jusqu’à $2$ et $12$.
 \end{corrige}
 \exo[Des classes]\label{t11s-c18-e07}
-Dix trajets durent entre $0$ et $10$ min, vingt entre $10$ et $20$ min. Estimer la moyenne par les centres. Cette valeur est-elle exacte ?
+Dix trajets ont une durée dans $[0;10[$ min, vingt dans $[10;20]$ min. Estimer la moyenne par les centres. Cette valeur est-elle exacte ?
 \begin{corrige}[exercice~\ref{t11s-c18-e07}]\label{sol-t11s-c18-e07}
 Centres $5$ et $15$; moyenne estimée $(10\times5+20\times15)/30=35/3\simeq11{,}67$ min. Ce n’est pas une moyenne exacte sans les temps individuels; les intervalles doivent être disjoints, par exemple $[0;10[$ et $[10;20]$.
+\end{corrige}
+\exo[Proportion d’un groupe]\label{t11s-c18-e08}
+Un groupe comprend $18$ filles et $12$ garçons. Calculer la proportion et le pourcentage de filles, puis ceux des garçons. Vérifier que les deux proportions se complètent.
+\begin{corrige}[exercice~\ref{t11s-c18-e08}]\label{sol-t11s-c18-e08}
+L’effectif total est $18+12=30$. La proportion de filles est $18/30=3/5=0{,}6$, soit $60\%$; celle des garçons est $12/30=2/5=0{,}4$, soit $40\%$. Leur somme vaut $1$ (ou $100\%$), car les deux catégories forment ici tout le groupe sans recouvrement.
 \end{corrige}
 \begin{jemeteste}Je vérifie l’effectif total, les rangs, les unités et la distinction entre pourcentage et points de pourcentage.\end{jemeteste}
 \begin{notepourlaclasse}Les données sont fictives pour l’apprentissage. La boîte utilise minimum et maximum aux moustaches; ne pas mêler à une convention de détection de valeurs atypiques sans l’annoncer.\end{notepourlaclasse}
