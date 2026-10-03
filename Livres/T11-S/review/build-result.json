@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-03T04:36:30.199464+00:00",
+  "source_commit": "097fab65be353510b4d2b34b021304ddf7b75d67",
+  "source_manifest": "review/source-manifest.json",
+  "command": "bash compiler.sh les-deux",
+  "exit_code": 0,
+  "status": "passed",
+  "scope": "Successful complete compilation only. Mathematical and full visual review unchecked.",
+  "outputs": {
+    "livre-t11s-eleve.pdf": {
+      "pages": 120,
+      "bytes": 437143,
+      "sha256": "ea3318d9b0f3b8a700093b28dab13fc737b1496218ccd702c572f2785cc8ee29",
+      "git_blob_sha": "dd9c5867ddb182f1ca83fe3cb51f169a461f97ab"
+    },
+    "livre-t11s-prof.pdf": {
+      "pages": 128,
+      "bytes": 546847,
+      "sha256": "1595535c00d3290edaccf4195a6826a592dc1778315e8388b03977b369465b13",
+      "git_blob_sha": "96c314c9c8354200d573dbb99db8ec4194f8c3f2"
+    }
+  },
+  "terminal_log": "review/draft-build.log.gz",
+  "terminal_log_sha256": "9f4e1e730443c75b8aca71027311df4fb93b3c1888b9b471d109f53af5e339c5",
+  "final_logs_no_matches": [
+    "undefined references",
+    "Overfull",
+    "Missing character",
+    "LaTeX errors"
+  ],
+  "remaining_warnings": [
+    "package-name notices",
+    "French hyphenation patterns unavailable",
+    "unicode-math/mathtools package interaction notices"
+  ]
+}

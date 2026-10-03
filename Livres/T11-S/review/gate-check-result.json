@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-03T04:36:30.199464+00:00",
+  "command": "python scripts/check_gates.py .",
+  "exit_code": 1,
+  "status": "failed",
+  "scope": "Bookkeeping only; required inventory and gate records incomplete."
+}

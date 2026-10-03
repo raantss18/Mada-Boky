@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-03T04:33:25.396728+00:00",
+  "date": "2026-10-03T04:36:30.199464+00:00",
   "issues": [
     {
       "id": "T11-CURRICULUM",
@@ -21,15 +21,17 @@
     },
     {
       "id": "T11-GATES",
-      "status": "unchecked",
+      "status": "failed",
       "severity": "release-blocking",
-      "description": "Inventaire, gates et preuves à finaliser; aucun passage de release déclaré."
+      "description": "Inventaire, gates et preuves à finaliser; aucun passage de release déclaré.",
+      "evidence": "review/gate-check-result.json"
     },
     {
       "id": "T11-BUILD-AUX",
-      "status": "unresolved",
+      "status": "passed",
       "severity": "release-blocking",
-      "description": "Compilation interrompue par une aux tronquée à 4096 octets au chapitre 1. Assemblage remplacé par input avec clearpage; nouvelle compilation en cours."
+      "description": "Assemblage input/clearpage : les deux compilations complètes terminent avec code 0; cause racine de la troncature précédente non établie.",
+      "evidence": "review/build-result.json"
     }
   ]
 }

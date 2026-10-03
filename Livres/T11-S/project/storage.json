@@ -4,7 +4,8 @@
   "branch": "main",
   "path": "Livres/T11-S",
   "initial_revision": "814ac40247ffa31b7175023ff2ff412b011be347",
-  "verification_date": "2026-10-01T22:47:00.806094+00:00",
-  "status": "draft-checkpoint-pending",
-  "last_verified_checkpoint": "88d90b3f3778b7262685ef1ee7c845b0ccee5a62"
+  "verification_date": "2026-10-03T04:36:30.199464+00:00",
+  "status": "complete-draft-source-verified",
+  "last_verified_checkpoint": "097fab65be353510b4d2b34b021304ddf7b75d67",
+  "verified_scope": "54 text source/record blob hashes matched the remote commit; chapter 20 also read back. PDFs being checkpointed with build records."
 }
