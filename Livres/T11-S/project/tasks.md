@@ -12,6 +12,7 @@
 - [x] Exécuter le checker : échec attendu, inventaire/gates encore absents.
 - [ ] Finaliser les gates et les preuves sans masquer les checks manquants.
 - [x] Sauver et vérifier les sources sur GitHub (097fab65).
-- [ ] Confirmer checkpoint PDF/rapports et finaliser la release.
+- [x] Confirmer checkpoint PDF/rapports (e906776a, hashes vérifiés).
+- [ ] Achever les revues et finaliser la release.
 
 Prochaine action : réconciliation et vérification du livre complet. Statut courant : brouillon complet, non validé.

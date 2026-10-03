@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-03T04:37:43.342265+00:00",
+  "commit": "e906776a74709ffc048c9fa4f75e76b723f50520",
+  "tree": "e90d4a6076f1096430b748e69d0e0ba47355b929",
+  "main_verified": true,
+  "source_checkpoint": "097fab65be353510b4d2b34b021304ddf7b75d67",
+  "source_and_record_files_hash_compared": 54,
+  "source_readback": "chapitres/p4-donnees/ch20-probabilite.tex",
+  "state_readback": "project/index.md",
+  "pdf_blob_sha_matches": {
+    "livre-t11s-eleve.pdf": "dd9c5867ddb182f1ca83fe3cb51f169a461f97ab",
+    "livre-t11s-prof.pdf": "96c314c9c8354200d573dbb99db8ec4194f8c3f2"
+  },
+  "compressed_log_blob_sha": "bc55a5e289901d21513b6d45452f1be5e5ebfc17"
+}
