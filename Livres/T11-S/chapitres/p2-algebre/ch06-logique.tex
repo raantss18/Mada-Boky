@@ -31,6 +31,23 @@ Preuve directe : partir des hypothèses et atteindre la conclusion. Contraposée
 \end{methode}
 \begin{exemple}[une preuve directe]Si $n=2k$ avec $k\in\Z$, alors $n^2=4k^2=2(2k^2)$ est pair. Pour la réciproque, si $n$ est impair, $n=2k+1$, et $n^2=2(2k^2+2k)+1$ est impair : contraposée.\end{exemple}
 
+% ENRICHISSEMENT C06
+
+\subsection*{Du langage courant à une preuve contrôlable}
+\begin{methode}{identifier ce qui est nécessaire ou suffisant}
+Dans $P\Rightarrow Q$, vérifier $P$ suffit pour conclure $Q$; vérifier $Q$ ne permet pas en général de remonter à $P$. On dit que $P$ est une condition suffisante de $Q$, et $Q$ une condition nécessaire de $P$. Pour une équivalence, prouver séparément les deux sens, sauf si chaque transformation intermédiaire est elle-même équivalente.
+\end{methode}
+\begin{exemple}[une condition qui n’est pas réciproque]
+Être divisible par $4$ suffit pour qu’un entier soit pair. Être pair est nécessaire pour être divisible par $4$, mais ne suffit pas : $6$ est pair sans être divisible par $4$. Un seul contre-exemple réfute la réciproque; dix exemples divisibles par $4$ ne la prouvent pas.
+\end{exemple}
+\begin{methode}{nier une phrase complète}
+Fixer le domaine; remplacer chaque « pour tout » par « il existe » et inversement, dans l’ordre; nier le prédicat final. La négation de $<$ est $\ge$, celle de « et » est « ou ». Une négation affirme exactement que l’énoncé initial est faux, sans modifier ses hypothèses ou son domaine.
+\end{methode}
+\begin{exemple}[nier deux quantificateurs]
+La négation de $\forall x\in\R,\exists y\in\R,y^2=x$ est $\exists x\in\R,\forall y\in\R,y^2\ne x$. La première est fausse et la seconde vraie : prendre $x=-1$, car tous les carrés réels sont positifs ou nuls. Écrire seulement « il existe $y$ tel que $y^2\ne x$ » aurait laissé un autre sens.
+\end{exemple}
+\begin{notepourlaclasse}Faire expliciter les hypothèses avant les calculs. Un contre-exemple doit satisfaire toutes les hypothèses et contredire la conclusion; changer le domaine n’est pas réfuter la proposition initiale.\end{notepourlaclasse}
+
 \section{Exercices et problèmes}
 \exo[Nier]\label{t11s-c06-e01}
 Nier : « $x>2$ et $x<5$ »; « tout entier est pair »; « il existe un réel dont le carré est $-1$ ».
@@ -67,5 +84,17 @@ Démontrer que la somme de deux entiers impairs est paire. La réciproque « si 
 \begin{corrige}[exercice~\ref{t11s-c06-e07}]\label{sol-t11s-c06-e07}
 $(2k+1)+(2\ell+1)=2(k+\ell+1)$ est pair. Réciproque fausse : $2+4=6$ avec deux entiers pairs.
 \end{corrige}
+
+\exo[Un domaine change la vérité]\label{t11s-c06-p01}
+Considérer $P$ : « pour tout réel $x$, $x^2\ge x$ ». Écrire sa négation, réfuter $P$ et déterminer tous les réels qui satisfont $x^2<x$. La proposition obtenue en remplaçant $\R$ par $\Z$ est-elle vraie ? Démontrer votre réponse.
+\begin{corrige}[exercice~\ref{t11s-c06-p01}]\label{sol-t11s-c06-p01}
+La négation est $\exists x\in\R,x^2<x$. Le réel $1/2$ convient. L’inéquation $x(x-1)<0$ donne $]0;1[$. Cet intervalle ne contient aucun entier; tout entier est soit $n\le0$, soit $n\ge1$, et dans les deux cas $n(n-1)\ge0$. La proposition sur $\Z$ est vraie. Un contre-exemple réel non entier ne réfute pas cette dernière.
+\end{corrige}
+\exo[Réparer une conclusion trop forte]\label{t11s-c06-p02}
+Pour $x,y\in\R$, un élève affirme : « si $xy>0$, alors $x>0$ et $y>0$ ». Donner un contre-exemple. Remplacer la conclusion par une condition équivalente à $xy>0$, puis justifier les deux sens. Écrire la contraposée de l’affirmation erronée et dire si elle est vraie.
+\begin{corrige}[exercice~\ref{t11s-c06-p02}]\label{sol-t11s-c06-p02}
+$x=y=-1$ donne un produit $1>0$ avec deux facteurs négatifs. La réparation est : « les deux facteurs sont strictement positifs ou tous deux strictement négatifs ». Dans chacun de ces cas le produit est positif; réciproquement, un produit positif exclut un facteur nul et des signes opposés, donc impose ces deux cas. La contraposée erronée est « si $x\le0$ ou $y\le0$, alors $xy\le0$ »; le même couple la réfute. Une contraposée est équivalente à l’implication initiale, même si celle-ci est fausse.
+\end{corrige}
+
 \begin{jemeteste}Je précise le domaine, je nie chaque quantificateur et je prouve les deux sens d’une équivalence.\end{jemeteste}
 \begin{notepourlaclasse}Insister sur la distinction entre une implication logique et un raisonnement causal. Ne pas récompenser une succession d’exemples comme preuve d’un universel.\end{notepourlaclasse}

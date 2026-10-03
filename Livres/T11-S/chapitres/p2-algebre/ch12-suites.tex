@@ -36,6 +36,25 @@ Si $u_{n+1}=0{,}8u_n+10$, la valeur fixe vérifie $L=0{,}8L+10$, donc $L=50$. Po
 \end{exemple}
 \begin{remarque}Pour $u_{n+1}=au_n+b$, si $a\ne1$, la valeur fixe est $b/(1-a)$. Si $a=1$, la suite est arithmétique; il ne faut pas diviser par $1-a$. Ce changement de suite est une méthode d’exercice, pas une nouvelle formule à apprendre sans preuve.\end{remarque}
 
+% ENRICHISSEMENT C12
+
+\subsection*{Passer d’une récurrence à un modèle explicite}
+\begin{methode}{compter les termes avant la somme}
+De $u_p$ à $u_q$ inclus, il y a $q-p+1$ termes, et non $q-p$. Identifier la nature de la suite et ses paramètres avant de choisir la formule. Si les termes se composent d’une constante et d’une géométrique, sommer séparément ces deux parties.
+\end{methode}
+\begin{exemple}[les deux contributions d’une somme]
+Pour $u_n=10+6(1/2)^n$, la somme $u_0+\cdots+u_3$ comporte quatre termes. La partie constante vaut $40$; la partie géométrique vaut $6(1-(1/2)^4)/(1-1/2)=45/4$. Au total $S=205/4=51{,}25$. Contrôle direct : $16+13+11{,}5+10{,}75$ donne le même résultat.
+\end{exemple}
+\begin{methode}{justifier le décalage et les variations}
+Pour $u_{n+1}=au_n+b$ avec $a\ne1$, résoudre $L=aL+b$, puis calculer réellement $v_{n+1}=u_{n+1}-L$ pour obtenir $av_n$. Cette identité, avec le terme initial, donne la formule. Étudier ensuite $u_{n+1}-u_n$ en conservant le signe de $u_0-L$ : une raison entre $0$ et $1$ ne rend pas automatiquement la suite décroissante.
+\end{methode}
+\begin{exemple}[approcher la même limite par deux côtés]
+Avec $u_{n+1}=u_n/2+5$, $L=10$ et $u_n=10+(u_0-10)(1/2)^n$. Si $u_0>10$, les termes sont au-dessus de $10$ et décroissent; si $u_0<10$, ils sont en dessous et croissent. Si $u_0=10$, la suite est constante. Dans les trois cas, la limite est $10$.
+\end{exemple}
+\begin{avertissement}[représentation et indice]
+Le terme $u_0$ est le premier terme d’une suite commençant à zéro. Relier les points pour guider l’œil ne transforme pas le domaine discret en intervalle réel. Dans une question de premier rang, vérifier le rang précédent pour établir la minimalité.
+\end{avertissement}
+
 \section{Exercices et problèmes}
 \exo[Générer]\label{t11s-c12-e01}
 Pour $u_n=3n-2$, donner $u_0,u_5,u_{10}$ et les variations. Placer les cinq points $(n;u_n)$ pour $0\le n\le4$ dans un repère; faut-il les relier pour représenter la suite ? Pour $v_0=2$, $v_{n+1}=v_n+3$, donner le terme général.
@@ -78,5 +97,22 @@ Premiers termes $1,3,7$ : différences $2,4$ non constantes, quotients $3,7/3$ n
 \begin{corrige}[exercice~\ref{t11s-c12-e08}]\label{sol-t11s-c12-e08}
 Initialiser $u=100,S=100$; pour $k=1$ à $N$, $u\leftarrow0{,}8u+10$, puis $S\leftarrow S+u$; afficher $u,S$. Pour $N=2$, termes $100,90,82$, sortie $82,272$. Ajouter après la mise à jour évite de compter deux fois $u_0$.
 \end{corrige}
+
+\exo[Épargne avec versement après intérêts]\label{t11s-c12-p01}
+Un compte fictif contient $100\,000$ ariary au début de l’année $0$. Chaque année, le montant augmente de $10\%$, puis on verse $20\,000$ ariary. On note $u_n$ le montant, en milliers d’ariary, après $n$ opérations annuelles, donc $u_0=100$.
+\begin{enumerate}
+\item Établir la récurrence et calculer $u_1,u_2$.
+\item Poser $v_n=u_n+200$, prouver qu’elle est géométrique et en déduire $u_n$.
+\item Déterminer variations et limite; expliquer pourquoi l’ordre versement/intérêts compte.
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-c12-p01}]\label{sol-t11s-c12-p01}
+Le modèle est $u_{n+1}=1{,}1u_n+20$, donc $u_1=130,u_2=163$. Puis $v_{n+1}=1{,}1u_n+220=1{,}1v_n$, avec $v_0=300$, d’où $u_n=300(1{,}1)^n-200$. La différence vaut $30(1{,}1)^n>0$ et la limite est $+\infty$. Verser avant les intérêts donnerait $1{,}1(u_n+20)=1{,}1u_n+22$, un autre modèle. Les données sont fictives, pas une recommandation financière.
+\end{corrige}
+\exo[Même récurrence, sens différents]\label{t11s-c12-p02}
+Deux suites vérifient $w_{n+1}=w_n/2+5$, l’une avec $w_0=4$, l’autre avec $w_0=16$. Donner leurs formules, leurs variations et leur limite. Pour chacune, trouver le premier rang $n$ tel que $|w_n-10|<0{,}1$ et vérifier le rang précédent.
+\begin{corrige}[exercice~\ref{t11s-c12-p02}]\label{sol-t11s-c12-p02}
+Les formules sont $10-6/2^n$ et $10+6/2^n$. La première croît strictement, la seconde décroît strictement, toutes deux vers $10$. La distance dans les deux cas vaut $6/2^n$. La condition est $2^n>60$; $2^5=32$, $2^6=64$, donc le premier rang est $6$. Les distances aux rangs $5,6$ sont $3/16$ et $3/32$; seule la seconde est inférieure à $1/10$.
+\end{corrige}
+
 \begin{jemeteste}Je compte les termes, je distingue rang et nombre de tours, et je traite séparément les raisons $0,1,-1$.\end{jemeteste}
 \begin{notepourlaclasse}La convergence arithmétique et géométrique se traite dans les exercices. Pour la récurrence affine, faire vérifier le décalage à la valeur fixe plutôt que donner une formule sans origine.\end{notepourlaclasse}

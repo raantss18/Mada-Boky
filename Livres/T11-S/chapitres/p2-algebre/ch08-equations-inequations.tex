@@ -40,6 +40,25 @@ Pour $\sqrt A>B$, si $B<0$, tous les points du domaine conviennent; si $B\ge0$, 
 \begin{propriete}Pour $k\ge0$, $|u|\le k\Leftrightarrow-k\le u\le k$, et $|u|=k\Leftrightarrow u=k$ ou $u=-k$. Pour une différence de valeurs absolues, séparer les intervalles où chaque expression garde un signe constant.\end{propriete}
 \begin{methode}{résoudre une inéquation quotient}Exclure les zéros du dénominateur; factoriser numérateur et dénominateur; dresser le tableau des signes; choisir les intervalles et inclure uniquement les zéros autorisés pour une inégalité large.\end{methode}
 
+% ENRICHISSEMENT C08
+
+\subsection*{Conserver l’équivalence à chaque étape}
+\begin{methode}{un paramètre ne se divise pas sans discussion}
+Isoler d’abord les valeurs qui annulent un coefficient servant de diviseur. Résoudre ces cas dans l’équation originale; résoudre ensuite le cas général. À la fin, préciser si les solutions coïncident et si elles respectent d’éventuelles contraintes du contexte. Une formule non définie pour une valeur du paramètre ne signifie pas automatiquement « aucune solution ».
+\end{methode}
+\begin{exemple}[le degré peut changer]
+L’équation $mx^2-x=0$ se factorise en $x(mx-1)=0$. Pour $m=0$, elle devient $-x=0$ et admet $0$. Pour $m\ne0$, elle admet $0$ et $1/m$. On ne pouvait pas écrire $1/m$ avant d’examiner $m=0$.
+\end{exemple}
+\begin{methode}{rédiger une inéquation irrationnelle}
+Avec $\sqrt{A(x)}\ge B(x)$, commencer par $A(x)\ge0$. Si $B(x)\le0$, l’inégalité est automatiquement vraie sur ce domaine. Si $B(x)>0$, mettre au carré donne une comparaison équivalente. Réunir ensuite les solutions des cas; ne pas seulement lister les racines de l’équation frontière.
+\end{methode}
+\begin{exemple}[le signe de l’autre membre décide]
+Pour $\sqrt{x+1}\ge x-1$, le domaine est $x\ge-1$. Si $x\le1$, le membre droit est négatif ou nul, donc l’inégalité est vraie. Si $x>1$, le carré donne $x+1\ge(x-1)^2$, soit $x(x-3)\le0$; avec $x>1$, on garde $]1;3]$. La réunion est $[-1;3]$. Les deux bornes satisfont effectivement l’inégalité.
+\end{exemple}
+\begin{avertissement}[simplifier n’ajoute pas une valeur]
+Si un facteur disparaît dans un quotient, sa valeur interdite reste exclue pour l’expression initiale. Dans un tableau de signes, marquer d’abord tous les pôles, puis décider des bornes de l’ensemble de solutions.
+\end{avertissement}
+
 \section{Exercices et problèmes}
 \exo[Paramètre et degré]\label{t11s-c08-e01}
 Résoudre $(m-1)x^2-(m+1)x+2=0$ pour tout $m\in\R$.
@@ -86,5 +105,17 @@ Résoudre $|2x-3|\le5$, puis $|x+1|>2$, dans $\R$. Représenter les ensembles de
 \begin{corrige}[exercice~\ref{t11s-c08-e09}]\label{sol-t11s-c08-e09}
 La première équivaut à $-5\le2x-3\le5$, donc $-2\le2x\le8$ et $-1\le x\le4$. La solution est $[-1;4]$, avec les deux bornes incluses. La seconde équivaut à $x+1<-2$ ou $x+1>2$, donc $x<-3$ ou $x>1$. La solution est $]-\infty;-3[\cup]1;+\infty[$, avec $-3$ et $1$ exclus. Sur la droite, colorer le segment fermé dans le premier cas, les deux demi-droites ouvertes dans le second.
 \end{corrige}
+
+\exo[Des racines doivent respecter une contrainte]\label{t11s-c08-p01}
+Pour $m\in\R$, résoudre $x^2-2mx+m^2-4=0$. Déterminer les valeurs de $m$ pour lesquelles les deux solutions sont strictement positives, puis celles pour lesquelles exactement une solution est strictement positive. Traiter les valeurs frontières.
+\begin{corrige}[exercice~\ref{t11s-c08-p01}]\label{sol-t11s-c08-p01}
+L’équation est $(x-m)^2=4$, donc deux racines distinctes $m-2$ et $m+2$. Elles sont toutes deux positives si $m>2$. Exactement une est positive si $m-2\le0<m+2$, soit $-2<m\le2$. Pour $m=-2$, les racines sont $-4,0$ : aucune strictement positive. Pour $m=2$, elles sont $0,4$ : exactement une. Pour $m<-2$, aucune n’est positive. Les valeurs frontières dépendent du mot « strictement ».
+\end{corrige}
+\exo[Une simplification et un trou]\label{t11s-c08-p02}
+Résoudre $\dfrac{(x-2)(x+1)}{x-2}\le0$ dans $\R$, en conservant le domaine initial. Un élève annonce $x\le-1$ puis ajoute $x=2$ « car le numérateur est nul ». Expliquer l’erreur et dire si sa première partie est correcte.
+\begin{corrige}[exercice~\ref{t11s-c08-p02}]\label{sol-t11s-c08-p02}
+Le domaine exclut $2$. Sur ce domaine, le quotient vaut $x+1$, donc l’inéquation donne $x\le-1$. Cette demi-droite ne contient pas $2$ et est bien la solution complète. En $2$, le quotient est indéfini; un zéro du numérateur ne suffit pas lorsque le dénominateur est aussi nul. Il ne faut pas ajouter cette valeur.
+\end{corrige}
+
 \begin{jemeteste}Je traite les pertes de degré, je vérifie toute racine annoncée, je sépare les signes avant de mettre au carré.\end{jemeteste}
 \begin{notepourlaclasse}Le troisième exercice est volontairement une détection d’erreur : le présenter comme tel pour éviter une injonction impossible. Les cubiques et équations irrationnelles avec paramètre ne sont pas requises.\end{notepourlaclasse}

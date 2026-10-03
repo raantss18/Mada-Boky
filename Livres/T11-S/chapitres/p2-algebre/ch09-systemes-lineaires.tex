@@ -25,6 +25,26 @@ Le système $x+y=2$, $2x+2y=5$ donne après élimination $0=1$ : aucune solution
 \section{Modéliser}
 Pour un problème concret, nommer les inconnues avec leurs unités, traduire chaque donnée en équation et contrôler ensuite les contraintes (positivité, intégralité, quantités disponibles). Une solution réelle algébrique peut ne pas convenir au contexte.
 
+% ENRICHISSEMENT C09
+
+\subsection*{Voir toutes les étapes du pivot}
+\begin{exemple}[un système triangulaire à trois inconnues]
+Pour $x+y+z=6$, $2x-y+z=3$, $x+2y-z=2$, utiliser la première ligne comme pivot. Les opérations $L_2\leftarrow L_2-2L_1$ et $L_3\leftarrow L_3-L_1$ donnent
+\[
+\begin{cases}x+y+z=6,\\-3y-z=-9,\\y-2z=-4.\end{cases}
+\]
+Puis $L_3\leftarrow3L_3+L_2$ donne $-7z=-21$. On remonte : $z=3$, $y=2$, $x=1$. L’opération combinée signifie multiplier d’abord la troisième ligne par $3\ne0$, puis lui ajouter la deuxième; elle est réversible. La substitution finale contrôle les trois données originales.
+\end{exemple}
+\begin{methode}{présenter une famille sans perdre les contraintes}
+Si une inconnue reste libre, la nommer par un paramètre $s$ et exprimer toutes les autres en fonction de $s$. Indiquer son domaine. Dans une situation de prix ou d’effectifs, ajouter ensuite les contraintes de positivité ou d’intégralité; elles peuvent restreindre la famille obtenue dans $\R$.
+\end{methode}
+\begin{exemple}[des prix positifs dans une famille]
+Si deux prix, en milliers d’ariary, vérifient seulement $a+b=12$, les solutions réelles sont $(12-s;s)$. Pour deux prix strictement positifs, on impose $0<s<12$. Une seule équation ne détermine pas les deux prix, même si le total est connu. Ajouter la différence $a-b=4$ impose $s=4$ et donc $(a;b)=(8;4)$.
+\end{exemple}
+\begin{remarque}[contrôle de l’unicité]
+Un tuple vérifié est une solution, mais cette vérification seule n’exclut pas d’autres solutions. L’équivalence des systèmes et la remontée imposant chaque inconnue établissent l’unicité. Une égalité $0=0$ doit être interprétée; ce n’est pas un nouveau pivot.
+\end{remarque}
+
 \section{Exercices et problèmes}
 \exo[Éliminer]\label{t11s-c09-e01}
 Résoudre $x+y+z=6$, $2x-y+z=3$, $x+2y-z=2$.
@@ -56,5 +76,17 @@ La première ligne a coefficient nul en $x$; échanger avec la deuxième. Ajoute
 \begin{corrige}[exercice~\ref{t11s-c09-e06}]\label{sol-t11s-c09-e06}
 Soustraction : $(m-1)y=1$. Si $m=1$, impossible. Sinon $y=1/(m-1)$ et $x=(2m-3)/(m-1)$, solution unique.
 \end{corrige}
+
+\exo[Un modèle d’effectifs avec contrainte entière]\label{t11s-c09-p01}
+Un club compte $30$ membres répartis entre élèves et adultes. La cotisation est de $2\,000$ ariary par élève et $5\,000$ ariary par adulte; le total reçu est $90\,000$ ariary. Définir deux inconnues, écrire et résoudre le système. Vérifier intégralité, positivité et les deux données. Le même club pourrait-il recevoir exactement $91\,000$ ariary avec ces tarifs et ces $30$ membres ?
+\begin{corrige}[exercice~\ref{t11s-c09-p01}]\label{sol-t11s-c09-p01}
+Si $e,a$ sont les effectifs, $e+a=30$ et $2e+5a=90$, avec montants en milliers d’ariary. Soustraire deux fois la première donne $3a=30$, donc $a=10,e=20$. Ils sont entiers positifs, leur somme est $30$ et $2\times20+5\times10=90$. Avec total $91$, on aurait $3a=31$, soit $a=31/3$, impossible pour un effectif. Une solution réelle ne suffit pas au contexte.
+\end{corrige}
+\exo[Discuter un système selon le paramètre]\label{t11s-c09-p02}
+Étudier dans $\R^2$, selon $m\in\R$, le système $x+y=2$, $2x+my=m$. Donner tous les couples solutions, y compris le cas exceptionnel; vérifier ce cas dans les deux équations.
+\begin{corrige}[exercice~\ref{t11s-c09-p02}]\label{sol-t11s-c09-p02}
+Éliminer $x$ donne $(m-2)y=m-4$. Pour $m=2$, l’égalité $0=-2$ est impossible, donc aucune solution. Pour $m\ne2$, $y=(m-4)/(m-2)$ et $x=m/(m-2)$, solution unique. En $m=2$, les équations imposeraient simultanément $x+y=2$ et $x+y=1$.
+\end{corrige}
+
 \begin{jemeteste}Je peux expliquer pourquoi chaque opération conserve les solutions et vérifier le tuple dans toutes les équations originales.\end{jemeteste}
 \begin{notepourlaclasse}Faire exécuter les opérations sur lignes avec leur notation explicite. La famille de solutions est importante : quatre équations ne garantissent pas quatre pivots ni l’unicité.\end{notepourlaclasse}

@@ -22,6 +22,23 @@
 \begin{demonstration}Un diviseur commun ne peut avoir un exposant supérieur au minimum; le produit des minima convient. Un multiple commun doit avoir au moins les maxima; leur produit est le plus petit. Pour chaque premier, minimum plus maximum égale la somme des deux exposants.\end{demonstration}
 \begin{exemple}$72=2^3 3^2$, $90=2\,3^2 5$ : PGCD $18$, PPCM $360$. Pour trois entiers, calculer successivement le PGCD ou PPCM de deux, puis avec le troisième.\end{exemple}
 
+% ENRICHISSEMENT C10
+
+\subsection*{Choisir le PGCD ou le PPCM à partir du problème}
+\begin{methode}{traduire avant de calculer}
+Pour des lots identiques sans reste, le nombre de lots doit diviser chaque effectif; le plus grand nombre demande donc un PGCD. Pour un retour commun de cycles partant ensemble, la durée doit être un multiple de chaque période; le premier retour positif demande un PPCM. Justifier cette divisibilité avant d’appliquer l’algorithme.
+\end{methode}
+\begin{exemple}[mêmes données, deux questions]
+Avec $48$ objets rouges et $60$ bleus, $\pgcd(48,60)=12$ donne au maximum $12$ lots, de $4$ rouges et $5$ bleus chacun. Pour des cycles de $48$ et $60$ minutes démarrant ensemble, $\ppcm(48,60)=240$ donne le premier retour commun après $240$ minutes. Intervertir les deux nombres aurait donné des réponses sans rapport avec les contraintes.
+\end{exemple}
+\begin{methode}{rendre le test de primalité complet}
+Pour $n\ge2$, chercher les diviseurs premiers jusqu’à $\sqrt n$. Si un diviseur est trouvé, donner une factorisation non triviale. Si aucun n’est trouvé, expliquer pourquoi un éventuel facteur composé aurait lui-même un facteur premier dans cette plage. Arrêter les tests à une borne sans la justifier ne prouve pas la primalité.
+\end{methode}
+\begin{exemple}[un test court mais exhaustif]
+Pour $149$, $12^2<149<13^2$. Les seuls premiers à tester sont $2,3,5,7,11$. Les trois premiers sont exclus par les critères usuels; $149=7\times21+2$ et $149=11\times13+6$. Aucun ne divise $149$ : ce nombre est premier.
+\end{exemple}
+\begin{notepourlaclasse}Demander « quel nombre doit diviser quoi ? » avant de nommer PGCD/PPCM. Pour un test de primalité, faire annoncer la dernière valeur à tester et la raison de cette borne.\end{notepourlaclasse}
+
 \section{Exercices et problèmes}
 \exo[Premier ou composé]\label{t11s-c10-e01}
 Déterminer si $91$ et $101$ sont premiers. Justifier les tests suffisants.
@@ -58,5 +75,17 @@ Calculer le PGCD et le PPCM de $24,36,54$. Peut-on utiliser directement la formu
 \begin{corrige}[exercice~\ref{t11s-c10-e07}]\label{sol-t11s-c10-e07}
 PGCD $6$; PPCM $2^3 3^3=216$. $6\times216=1296\ne24\times36\times54$ : la formule donnée concerne deux entiers, pas trois.
 \end{corrige}
+
+\exo[Carreler sans découper]\label{t11s-c10-p01}
+Un rectangle de $168$ cm sur $120$ cm doit être couvert de carreaux carrés identiques. Le côté des carreaux est un nombre entier de centimètres; aucun carreau n’est découpé. Déterminer le plus grand côté possible et le nombre de carreaux, en justifiant le choix du PGCD.
+\begin{corrige}[exercice~\ref{t11s-c10-p01}]\label{sol-t11s-c10-p01}
+Le côté doit diviser les deux dimensions. Euclide : $168=120+48$, $120=2\times48+24$, $48=2\times24$. Le plus grand diviseur commun est $24$ cm. Il faut $(168/24)(120/24)=7\times5=35$ carreaux. Le PGCD maximise un côté; ce n’est pas lui qui donne directement le nombre de carreaux.
+\end{corrige}
+\exo[Des départs simultanés]\label{t11s-c10-p02}
+Trois signaux se répètent toutes les $8$, $12$ et $18$ minutes et se produisent ensemble à 8 h. Déterminer l’heure de leur premier retour commun après 8 h, puis le nombre de retours communs dans l’intervalle $]8\text{ h};12\text{ h}]$. Justifier les bornes du comptage.
+\begin{corrige}[exercice~\ref{t11s-c10-p02}]\label{sol-t11s-c10-p02}
+Les périodes sont $2^3$, $2^2\times3$, $2\times3^2$, donc leur PPCM est $2^3\times3^2=72$ min. Le premier retour est à 9 h 12. Dans les $240$ minutes suivantes, les retours aux minutes $72,144,216$ donnent $3$ retours; $288>240$. Le départ à 8 h est exclu par la borne ouverte, et midi ne correspond pas à un multiple de $72$.
+\end{corrige}
+
 \begin{jemeteste}Je distingue diviseur et multiple; un regroupement maximal demande souvent le PGCD, un retour commun minimal le PPCM.\end{jemeteste}
 \begin{notepourlaclasse}Faire relier Euclide à l’organigramme et justifier l’arrêt par la décroissance des restes. Bézout et congruences générales ne sont pas requis ici.\end{notepourlaclasse}

@@ -40,6 +40,27 @@ Avec $u\leftarrow1$, $n\leftarrow0$, tant que $u<20$, faire $u\leftarrow2u$ puis
 \begin{avertissement}Si le corps ne modifie pas ce qui intervient dans le test, la boucle peut être infinie. Pour permuter deux valeurs, $a\leftarrow b$ puis $b\leftarrow a$ ne convient pas : la première valeur de $a$ a été perdue. Utiliser une variable temporaire.\end{avertissement}
 \begin{methode}{contrôler un algorithme}Préciser les entrées autorisées; dresser une table d’exécution; expliquer ce qui reste vrai après chaque tour (invariant); expliquer pourquoi le test finit par être faux (terminaison); interpréter la sortie et les cas limites.\end{methode}
 
+% ENRICHISSEMENT C07
+
+\subsection*{Rédiger une table, une preuve et un test}
+\begin{exemple}[chaque ligne utilise les valeurs actuelles]
+On initialise $a=7,b=3$, puis on exécute $a\leftarrow a-b$ et $b\leftarrow a+b$.
+\begin{center}\begin{tabular}{l|cc}\toprule
+État&$a$&$b$\\\midrule
+Initial&7&3\\Après la première affectation&4&3\\Après la seconde&4&7\\\bottomrule
+\end{tabular}\end{center}
+Dans la seconde ligne de calcul, $a$ vaut déjà $4$. Remplacer les deux variables simultanément par leurs anciennes valeurs décrirait un autre algorithme.
+\end{exemple}
+\begin{methode}{séparer résultat correct et arrêt}
+Un invariant explique ce que contiennent les variables si l’algorithme atteint une étape. Il ne garantit pas que l’algorithme s’arrête. Pour une boucle bornée, compter les tours; pour une boucle conditionnelle, trouver une quantité qui finit par franchir le seuil. Tester aussi le cas où la condition est fausse dès le départ.
+\end{methode}
+\begin{exemple}[dénombrer les termes déjà ajoutés]
+Pour calculer $u_0+\cdots+u_N$ quand $u_{n+1}=2u_n+1$, initialiser $u=u_0,S=u_0$. Au tour $k=1,\ldots,N$, mettre d’abord $u\leftarrow2u+1$, puis $S\leftarrow S+u$. Après le tour $k$, $u=u_k$ et $S=u_0+\cdots+u_k$. En $N=0$, il n’y a pas de tour et la sortie est déjà correcte. Inverser les deux mises à jour compterait deux fois $u_0$ et oublierait le dernier terme.
+\end{exemple}
+\begin{avertissement}[atteindre une valeur ou s’en approcher]
+Une suite peut tendre vers un seuil sans l’atteindre à un rang fini. Un test d’égalité exacte ne doit pas être remplacé tacitement par un test approché. Pour demander une précision, fixer une tolérance strictement positive dans l’énoncé.
+\end{avertissement}
+
 \section{Exercices et problèmes}
 \exo[Suivre les valeurs]\label{t11s-c07-e01}
 Exécuter pour $n=3$ : $u\leftarrow2$; pour $k=1$ à $n$, $u\leftarrow3u-1$. Donner les valeurs et la sortie.
@@ -71,5 +92,22 @@ Transformer l’algorithme de la somme des carrés en organigramme avec un test 
 \begin{corrige}[exercice~\ref{t11s-c07-e06}]\label{sol-t11s-c07-e06}
 Lire $n$; initialiser $S=0,k=1$; tester $k\le n$. Oui : $S\leftarrow S+k^2$, $k\leftarrow k+1$, retour au test. Non : afficher $S$ et terminer. Les tests $n=0,3$ donnent $0,14$.
 \end{corrige}
+
+\exo[Une somme avec invariant]\label{t11s-c07-p01}
+Pour un entier d’entrée $n\ge0$, on initialise $S=0,k=0$. Tant que $k<n$, on effectue, dans cet ordre, $k\leftarrow k+1$ puis $S\leftarrow S+2k$; on affiche $S$.
+\begin{enumerate}
+\item Dresser la table pour $n=3$ et traiter séparément $n=0$.
+\item Prouver qu’après chaque tour $S=2+4+\cdots+2k$; justifier l’arrêt et interpréter la sortie.
+\item Que calculerait-on si l’on ajoutait $2k$ avant d’augmenter $k$ ? Tester $n=3$.
+\end{enumerate}
+\begin{corrige}[exercice~\ref{t11s-c07-p01}]\label{sol-t11s-c07-p01}
+Les états $(k;S)$ sont $(0;0),(1;2),(2;6),(3;12)$. Pour $n=0$, aucun tour, sortie $0$. Initialement la somme est vide; chaque tour augmente $k$ puis ajoute exactement le nouvel entier pair $2k$, ce qui conserve la description. Après $n$ tours, le test est faux et la sortie est la somme des $n$ premiers entiers pairs positifs. Avec l’ordre inversé, on ajoute $0,2,\ldots,2(n-1)$, donc la sortie pour $n=3$ vaut $6$, pas $12$.
+\end{corrige}
+\exo[La limite ne suffit pas à arrêter]\label{t11s-c07-p02}
+En calcul exact, initialiser $u=1,n=0$ et répéter $u\leftarrow u/2$, $n\leftarrow n+1$ tant que $u>0$. Cette boucle termine-t-elle ? Modifier seulement le seuil pour demander $u\le0{,}01$, puis calculer le premier rang d’arrêt et justifier sa minimalité.
+\begin{corrige}[exercice~\ref{t11s-c07-p02}]\label{sol-t11s-c07-p02}
+Après $n$ tours, $u=2^{-n}>0$; aucun rang fini n’arrête la première boucle. Pour la seconde, tester tant que $u>0{,}01$. L’arrêt est atteint pour $n=7$, car $1/64>1/100$ et $1/128<1/100$. Les termes décroissent strictement; aucun rang plus petit que $7$ ne convient. La réponse concerne le calcul exact, sans hypothèse cachée sur les arrondis d’une machine.
+\end{corrige}
+
 \begin{jemeteste}Je vérifie l’initialisation, le premier et le dernier tour, le compteur et le sens du test.\end{jemeteste}
 \begin{notepourlaclasse}Faire d’abord exécuter à la main. Le pseudo-code suffit; les invariants sont des justifications accessibles, sans cours de complexité. Relier ensuite aux algorithmes d’Euclide et de suites.\end{notepourlaclasse}

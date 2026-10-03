@@ -22,6 +22,22 @@ Donc $45=(101101)_2$. Vérification : $32+8+4+1=45$.
 Passer par la base dix évite de confondre les valeurs des chiffres. On peut aussi additionner directement dans la base choisie, avec une retenue dès que la somme atteint la base.
 \begin{exemple}En binaire, $(101)_2+(11)_2=(1000)_2$, car $5+3=8$. Une retenue binaire correspond à deux unités du rang précédent, et non à dix.\end{exemple}
 
+% ENRICHISSEMENT C11
+
+\subsection*{Expliquer le sens des restes et des retenues}
+\begin{exemple}[convertir en base cinq]
+Pour $83$, $83=5\times16+3$, $16=5\times3+1$, $3=5\times0+3$. Le premier reste donne les unités, le suivant les paquets de cinq, le dernier les paquets de vingt-cinq. Donc $83=(313)_5$, vérifié par $3\times25+1\times5+3=83$.
+\end{exemple}
+\begin{methode}{additionner dans une base}
+Aligner les unités, puis traiter chaque colonne de droite à gauche. Diviser la somme des chiffres et de la retenue par la base : le reste est le chiffre écrit, le quotient la retenue vers la colonne suivante. La retenue est un changement de rang, pas un chiffre supplémentaire ajouté au hasard.
+\end{methode}
+\begin{exemple}[une retenue en base cinq]
+Pour $(34)_5+(23)_5$, la colonne des unités donne $4+3=7=5+2$ : écrire $2$, retenir $1$. La colonne suivante donne $3+2+1=6=5+1$ : écrire $1$ et retenir $1$ devant. Le résultat est $(112)_5$. Contrôle décimal : $19+13=32$ et $25+5+2=32$.
+\end{exemple}
+\begin{methode}{retrouver une base inconnue}
+Traduire d’abord l’écriture positionnelle en une équation portant sur $b$. Résoudre cette équation, puis imposer $b\in\N$, $b\ge2$ et chaque chiffre strictement inférieur à $b$. Une racine algébrique qui ne satisfait pas ces conditions n’est pas une base valide.
+\end{methode}
+
 \section{Exercices et problèmes}
 \exo[Vers dix]\label{t11s-c11-e01}
 Convertir $(11001)_2$, $(2102)_3$ et $(2A)_{16}$ en base dix.
@@ -53,5 +69,17 @@ Montrer qu’un entier positif écrit avec $k$ chiffres en base $b$ est compris 
 \begin{corrige}[exercice~\ref{t11s-c11-e06}]\label{sol-t11s-c11-e06}
 Minimum : premier chiffre $1$, autres $0$, soit $b^{k-1}$. Maximum : tous chiffres $b-1$, soit $(b-1)(1+b+\cdots+b^{k-1})=b^k-1$. La somme se vérifie en multipliant par $b$ puis soustrayant.
 \end{corrige}
+
+\exo[Deux écritures du même entier]\label{t11s-c11-p01}
+Un entier a pour écriture $(121)_b$ dans une base entière $b\ge2$ et vaut $49$ en base dix. Déterminer $b$, contrôler les chiffres, puis écrire $49$ en base $2$ et vérifier la conversion.
+\begin{corrige}[exercice~\ref{t11s-c11-p01}]\label{sol-t11s-c11-p01}
+$b^2+2b+1=49$, donc $(b+1)^2=49$. Les racines sont $6$ et $-8$; seule $b=6$ est une base entière admissible, et les chiffres $1,2$ y sont autorisés. $49=32+16+1$, d’où $(110001)_2$. La somme des puissances contrôle cette seconde écriture.
+\end{corrige}
+\exo[Addition puis contrôle indépendant]\label{t11s-c11-p02}
+Calculer $(243)_5+(134)_5$ directement en base cinq en montrant chaque retenue. Convertir séparément les deux termes et le résultat en base dix pour vérifier. Pourquoi ne peut-on pas simplement additionner les nombres décimaux $243$ et $134$ ?
+\begin{corrige}[exercice~\ref{t11s-c11-p02}]\label{sol-t11s-c11-p02}
+Unités : $3+4=7$, écrire $2$, retenir $1$; rang cinq : $4+3+1=8$, écrire $3$, retenir $1$; rang vingt-cinq : $2+1+1=4$. Résultat $(432)_5$. Les valeurs décimales sont $73$ et $44$, de somme $117$; le résultat vaut $4\times25+3\times5+2=117$. Les chaînes de chiffres $243,134$ n’utilisent pas les poids décimaux dans l’énoncé.
+\end{corrige}
+
 \begin{jemeteste}Je précise la base, je contrôle que chaque chiffre est autorisé et je lis les restes dans l’ordre inverse des divisions.\end{jemeteste}
 \begin{notepourlaclasse}Utiliser des groupements concrets en paquets de deux ou cinq. Les écritures fractionnaires dans une base ne sont pas requises; traiter uniquement les entiers naturels.\end{notepourlaclasse}
