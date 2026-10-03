@@ -12,3 +12,5 @@ Ce fichier est un guide de reprise pour une autre instance, pas une fiche distri
 8. Sauver les sources, PDF et preuves ensemble; lire le commit/arbre distant et comparer les hashes. Sauver ensuite le rapport de persistance et le pointeur de reprise, puis vérifier aussi ce dernier commit.
 
 État détaillé et prochaine action : `project/index.md` et `project/tasks.md`. Tant qu'une revue requise manque ou qu'un défaut demeure, les PDF restent des brouillons. Une candidature vérifiée par modèle, si elle est atteinte, reste distincte d'une approbation humaine de publication.
+
+État au 2026-10-03T06:30:11.959261+00:00 : 947 objets / 206 groupes / 87 exigences; deux builds propres réussis et 248 pages finales inspectées. Checker inchangé : code 0. Snapshot `d8e0177459644755457cd0d406d5ed2dcaab4977b68aadc707c8fa862851d91e`. Source/PDF/preuves relus à `5318824ff0b4a9a8545159ff1b7d7aabcee71313`; la sauvegarde suivante porte les gates et le pointeur. Statut conservé : brouillon relu par modèle, publication humaine non approuvée.

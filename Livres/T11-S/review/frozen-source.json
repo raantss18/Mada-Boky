@@ -224,5 +224,6 @@
       "sha256": "e83a32a5b0a7d3dd5f128a4cb84377aa5cf4361919cb8a9eba658e96af1f4c2f"
     }
   ],
-  "status": "mathematical, curriculum, inventory and final build/page review complete; final persistence and gate bookkeeping pending"
+  "status": "substantive review complete; final technical gates recorded; reviewed draft, independent human publication approval not performed",
+  "final_pdf_checkpoint": "5318824ff0b4a9a8545159ff1b7d7aabcee71313"
 }

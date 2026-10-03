@@ -1,7 +1,13 @@
 {
-  "date": "2026-10-03T04:36:30.199464+00:00",
-  "command": "python scripts/check_gates.py .",
-  "exit_code": 1,
-  "status": "failed",
-  "scope": "Bookkeeping only; required inventory and gate records incomplete."
+  "date": "2026-10-03T06:30:11.959261+00:00",
+  "command": "python3 scripts/check_gates.py .",
+  "exit_code": 0,
+  "status": "passed",
+  "snapshot_sha256": "d8e0177459644755457cd0d406d5ed2dcaab4977b68aadc707c8fa862851d91e",
+  "inventory_items": 947,
+  "review_records": 1898,
+  "checker_sha256": "ca067449445a953d2dc371fa31c4d06d8522571af40ee9ad43742c800b0b40b5",
+  "log": "review/gate-check.log",
+  "log_sha256": "f97473cdcffef5495e53336eb655b7719b1c992a6d4086c452b7fb8b3e63494a",
+  "scope": "Bookkeeping gates complete; mathematical and visual work is evidenced separately. Same-model review, not independent human certification."
 }

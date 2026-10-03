@@ -94,12 +94,5 @@
     ],
     "matched": true
   },
-  "remote_url": "https://github.com/raantss18/Mada-Boky/commit/5318824ff0b4a9a8545159ff1b7d7aabcee71313",
-  "source_checkpoint": "3e5a1258c4096536952ea12a64149f957c5cbd9f",
-  "last_user_checkpoint": "91223e0ca81a7167a6ec18fde5f462fb0255d27d",
-  "pdf_sha256": {
-    "livre-t11s-eleve.pdf": "8bec45cb8254f26140b8778ab4cf19b513e7c1e9362154d943d8c13a3b7f5870",
-    "livre-t11s-prof.pdf": "5ca19f8e6c64f46dfb2bc928025cabe06615ddee12d2ef30d75029e085da95e6"
-  },
-  "scope": "Verified substantive source/PDF/evidence checkpoint. Final gate/progress metadata is saved in a later commit and that commit is also read back; no self-referential commit claim."
+  "remote_url": "https://github.com/raantss18/Mada-Boky/commit/5318824ff0b4a9a8545159ff1b7d7aabcee71313"
 }

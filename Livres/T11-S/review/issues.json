@@ -43,26 +43,63 @@
   },
   {
     "id": "T11-VISUAL",
-    "status": "unchecked",
+    "status": "resolved",
     "affected_items": [
       "@project"
     ],
-    "explanation": "Every final page still must be inspected; old output inspection cannot pass the new PDFs."
+    "explanation": "248 final pages individually inspected. Empty student correction heading and overflowing trigonometric figure caption repaired; final PDFs re-inspected.",
+    "evidence": [
+      "review/visual-review.json",
+      "review/visual-initial-20261003.json",
+      "review/visual-before-caption-20261003.json"
+    ]
   },
   {
     "id": "T11-BUILD-AUX",
-    "status": "unchecked",
+    "status": "resolved",
     "affected_items": [
       "@project"
     ],
-    "explanation": "Fresh full rebuild pending. Earlier truncated auxiliary file root cause remains unknown; operational success requires both clean editions."
+    "explanation": "Operational build repair confirmed by both final clean full builds, exit 0. Earlier auxiliary truncation root cause remains unknown and is recorded as a limitation, not diagnosed.",
+    "evidence": [
+      "review/build-result.json",
+      "review/final-build.log.gz"
+    ]
   },
   {
     "id": "T11-GATES",
-    "status": "unchecked",
+    "status": "resolved",
     "affected_items": [
       "@project"
     ],
-    "explanation": "Final build, visual and persistence evidence pending; no release pass claimed."
+    "explanation": "Required substantive reviews and remote persistence readback completed; final unchanged mechanical checker execution recorded separately.",
+    "evidence": [
+      "review/gates.json",
+      "review/persistence-result.json"
+    ]
+  },
+  {
+    "id": "T11-VISUAL-EMPTY-HEADING",
+    "status": "resolved",
+    "affected_items": [
+      "t11s-c01"
+    ],
+    "explanation": "Teacher correction heading made conditional; final student page 25 inspected with no empty heading.",
+    "evidence": [
+      "review/visual-initial-20261003.json",
+      "review/visual-review.json"
+    ]
+  },
+  {
+    "id": "T11-VISUAL-CAPTION",
+    "status": "resolved",
+    "affected_items": [
+      "t11s-c16-figure-001"
+    ],
+    "explanation": "Caption shortened without changing cosine/sine projections; final student pages 87–88 and teacher figure page inspected.",
+    "evidence": [
+      "review/visual-before-caption-20261003.json",
+      "review/visual-review.json"
+    ]
   }
 ]

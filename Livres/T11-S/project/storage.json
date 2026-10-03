@@ -4,8 +4,11 @@
   "branch": "main",
   "path": "Livres/T11-S",
   "initial_revision": "814ac40247ffa31b7175023ff2ff412b011be347",
-  "verification_date": "2026-10-03T04:37:43.342265+00:00",
-  "status": "complete-draft-source-and-pdfs-verified",
-  "last_verified_checkpoint": "e906776a74709ffc048c9fa4f75e76b723f50520",
-  "verified_scope": "54 source/record blob hashes checked at source checkpoint 097fab65; full PDF blob SHAs and compressed build log SHA matched final remote tree; main and index readback verified."
+  "verification_date": "2026-10-03T06:30:11.959261+00:00",
+  "status": "reviewed-draft-technical-gates-complete-substantive-checkpoint-verified",
+  "last_verified_checkpoint": "5318824ff0b4a9a8545159ff1b7d7aabcee71313",
+  "verified_scope": "Source checkpoint 3e5a1258: 47 changed blob hashes and source/index content readback. Final PDFs and page-review checkpoint 5318824f: 14 changed blob hashes, build/visual content readback and freshly fetched complete PDF bytes matched. Final gate/progress metadata save is the next checkpoint.",
+  "resumption_base": "91223e0ca81a7167a6ec18fde5f462fb0255d27d",
+  "source_snapshot": "d8e0177459644755457cd0d406d5ed2dcaab4977b68aadc707c8fa862851d91e",
+  "final_gate_checkpoint": "Later main commit containing this metadata; identified and read back after saving."
 }
