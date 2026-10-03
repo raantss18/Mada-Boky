@@ -1,36 +1,68 @@
 {
-  "date": "2026-10-03T04:36:30.199464+00:00",
-  "source_commit": "097fab65be353510b4d2b34b021304ddf7b75d67",
-  "source_manifest": "review/source-manifest.json",
-  "command": "bash compiler.sh les-deux",
-  "exit_code": 0,
-  "status": "passed",
-  "scope": "Successful complete compilation only. Mathematical and full visual review unchecked.",
-  "outputs": {
-    "livre-t11s-eleve.pdf": {
-      "pages": 120,
-      "bytes": 437143,
-      "sha256": "ea3318d9b0f3b8a700093b28dab13fc737b1496218ccd702c572f2785cc8ee29",
-      "git_blob_sha": "dd9c5867ddb182f1ca83fe3cb51f169a461f97ab"
+  "date": "2026-10-03T06:11:26.245584+00:00",
+  "source_base_commit": "3e5a1258c4096536952ea12a64149f957c5cbd9f",
+  "snapshot_sha256": "d8e0177459644755457cd0d406d5ed2dcaab4977b68aadc707c8fa862851d91e",
+  "commands": [
+    {
+      "command": "bash compiler.sh propre",
+      "exit_code": 0
     },
-    "livre-t11s-prof.pdf": {
-      "pages": 128,
-      "bytes": 546847,
-      "sha256": "1595535c00d3290edaccf4195a6826a592dc1778315e8388b03977b369465b13",
-      "git_blob_sha": "96c314c9c8354200d573dbb99db8ec4194f8c3f2"
+    {
+      "command": "bash compiler.sh les-deux",
+      "exit_code": 0
+    }
+  ],
+  "status": "passed",
+  "log": "review/final-build.log.gz",
+  "outputs": [
+    {
+      "variant": "student",
+      "path": "livre-t11s-eleve.pdf",
+      "sha256": "8bec45cb8254f26140b8778ab4cf19b513e7c1e9362154d943d8c13a3b7f5870",
+      "page_count": 120,
+      "size_bytes": 442884
+    },
+    {
+      "variant": "teacher",
+      "path": "livre-t11s-prof.pdf",
+      "sha256": "5ca19f8e6c64f46dfb2bc928025cabe06615ddee12d2ef30d75029e085da95e6",
+      "page_count": 128,
+      "size_bytes": 559542
+    }
+  ],
+  "warnings": {
+    "student": {
+      "overfull_boxes": 0,
+      "undefined_references": 0,
+      "missing_glyphs": 0,
+      "package_warnings": [
+        "LaTeX Warning: You have requested package `preambule/bmt-style',",
+        "Package polyglossia Warning: No hyphenation patterns were loaded for `french'\n(polyglossia)                I will use \\language=\\l@nohyphenation instead on i",
+        "LaTeX Warning: You have requested package `preambule/bmt-macros',",
+        "Package mathtools Warning: For best results, please load mathtools *before* \n(mathtools)                unicode-math on input line 126.",
+        "LaTeX Warning: You have requested package `preambule/bmt-blocks',",
+        "Package unicode-math Warning: Using \\overbracket and \\underbracket from\n(unicode-math)                `mathtools' package.\n(unicode-math)                 \n(unicode-math)                 Use \\Uoverbracket and \\Uunderbracket for\n(unicode-math)                original `unicode-math' definition.",
+        "Package unicode-math Warning: I'm going to overwrite the following commands\n(unicode-math)                from the `mathtools' package: \n(unicode-math)                 \n(unicode-math)                     \\dblcolon, \\coloneqq, \\Coloneqq, \\eqqcolon.\n(unicode-math)                \n(unicode-math)                 \n(unicode-math)                 Note that since I won't overwrite the other\n(unicode-math)                colon-like commands, using them will lead to\n(unicode-math)                inconsistencies."
+      ]
+    },
+    "teacher": {
+      "overfull_boxes": 0,
+      "undefined_references": 0,
+      "missing_glyphs": 0,
+      "package_warnings": [
+        "LaTeX Warning: You have requested package `preambule/bmt-style',",
+        "Package polyglossia Warning: No hyphenation patterns were loaded for `french'\n(polyglossia)                I will use \\language=\\l@nohyphenation instead on i",
+        "LaTeX Warning: You have requested package `preambule/bmt-macros',",
+        "Package mathtools Warning: For best results, please load mathtools *before* \n(mathtools)                unicode-math on input line 126.",
+        "LaTeX Warning: You have requested package `preambule/bmt-blocks',",
+        "Package unicode-math Warning: Using \\overbracket and \\underbracket from\n(unicode-math)                `mathtools' package.\n(unicode-math)                 \n(unicode-math)                 Use \\Uoverbracket and \\Uunderbracket for\n(unicode-math)                original `unicode-math' definition.",
+        "Package unicode-math Warning: I'm going to overwrite the following commands\n(unicode-math)                from the `mathtools' package: \n(unicode-math)                 \n(unicode-math)                     \\dblcolon, \\coloneqq, \\Coloneqq, \\eqqcolon.\n(unicode-math)                \n(unicode-math)                 \n(unicode-math)                 Note that since I won't overwrite the other\n(unicode-math)                colon-like commands, using them will lead to\n(unicode-math)                inconsistencies."
+      ]
     }
   },
-  "terminal_log": "review/draft-build.log.gz",
-  "terminal_log_sha256": "9f4e1e730443c75b8aca71027311df4fb93b3c1888b9b471d109f53af5e339c5",
-  "final_logs_no_matches": [
-    "undefined references",
-    "Overfull",
-    "Missing character",
-    "LaTeX errors"
+  "limitations": [
+    "Earlier truncated chapter-1 auxiliary file root cause remains unknown. Subsequent clean full builds succeeded; this is an operational repair, not a diagnosed root cause.",
+    "French hyphenation patterns are unavailable in this build environment; final page review checks the resulting layout."
   ],
-  "remaining_warnings": [
-    "package-name notices",
-    "French hyphenation patterns unavailable",
-    "unicode-math/mathtools package interaction notices"
-  ]
+  "log_sha256": "7f1a6d7b8dc8ffb86e3c988aaaa8b764f1663a3537e4a1caf98b6825791dfe0c"
 }

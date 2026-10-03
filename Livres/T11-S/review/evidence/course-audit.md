@@ -65,3 +65,7 @@ Variété :applications,choixdeméthode,caslimites,contre-exemples,construction,
 - Le total final est206 exercices/groupes de questions et206 corrections. Les ajouts sont vérifiés par ces calculs, pas par une simple étiquette.
 
 Relecture des dernières précisions : la réflexion fixe son axe et utilise la médiatrice pour définir l’image unique; le cas q=0 de la preuve de somme géométrique est traité avant les puissances; les conventions N/radians/repère sont explicites dans le mode d’emploi.
+
+Visual repair: the chapter 1 corrections heading is now conditional on the teacher edition. Its content is unchanged; the student edition no longer contains an empty teacher-only heading. The inventory was regenerated and the curriculum links rechecked after this change.
+
+Réparation visuelle supplémentaire : légende du cercle trigonométrique raccourcie après constat du mot « coordonnées » isolé à la page suivante ; projections cos x et sin x conservées, mathématiques inchangées.

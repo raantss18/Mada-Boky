@@ -32,7 +32,7 @@
     },
     {
       "path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
-      "sha256": "94ef647b673739ceedaaf7a7e1aa24ee44fc0ab716e2e18a7102bf38df5eae84"
+      "sha256": "cdbd88dcbca335d62b4527d5db4cb859a3ba3ee6bffbdf92dae8d237723f2676"
     },
     {
       "path": "chapitres/p1-analyse/ch02-limites-continuite.tex",
@@ -100,7 +100,7 @@
     },
     {
       "path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
-      "sha256": "8a37387b8042f3a38fc8de52c28288498975ae00ed664d473b1bc7e8aee41f03"
+      "sha256": "8048c99e0e9fdf70760483f8f986f8505881b74dab96bd87c41bee25b13fc33b"
     },
     {
       "path": "chapitres/p3-geometrie/ch17-geometrie-espace.tex",
@@ -200,7 +200,7 @@
     },
     {
       "path": "review/inventory.json",
-      "sha256": "fe6bc4d94211f2863e04437ad259cc6bd268bd78d278dffd09756eb33aaa044f"
+      "sha256": "4580796507ae5ca234bea437f4bbac54fe96b1458e0ac79ef5482d11fad2aad5"
     },
     {
       "path": "scripts/build_inventory.py",
@@ -223,7 +223,7 @@
       "sha256": "e83a32a5b0a7d3dd5f128a4cb84377aa5cf4361919cb8a9eba658e96af1f4c2f"
     }
   ],
-  "snapshot_sha256": "2604b863035942d4d642e90d228ca465aa8eb8040b548227d4e8433fac95b82f",
+  "snapshot_sha256": "d8e0177459644755457cd0d406d5ed2dcaab4977b68aadc707c8fa862851d91e",
   "inventory_file": "review/inventory.json",
   "issues_file": "review/issues.json",
   "expected_variants": [

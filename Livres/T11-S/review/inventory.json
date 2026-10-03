@@ -606,7 +606,7 @@
     "source_path": "chapitres/p1-analyse/ch01-generalites-fonctions.tex",
     "start_line": 1,
     "end_line": 858,
-    "content_sha256": "94ef647b673739ceedaaf7a7e1aa24ee44fc0ab716e2e18a7102bf38df5eae84",
+    "content_sha256": "cdbd88dcbca335d62b4527d5db4cb859a3ba3ee6bffbdf92dae8d237723f2676",
     "dependencies": [],
     "environment": "source-unit"
   },
@@ -8976,7 +8976,7 @@
     "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
     "start_line": 1,
     "end_line": 102,
-    "content_sha256": "8a37387b8042f3a38fc8de52c28288498975ae00ed664d473b1bc7e8aee41f03",
+    "content_sha256": "8048c99e0e9fdf70760483f8f986f8505881b74dab96bd87c41bee25b13fc33b",
     "dependencies": [],
     "environment": "source-unit"
   },
@@ -9052,7 +9052,7 @@
     "source_path": "chapitres/p3-geometrie/ch16-trigonometrie.tex",
     "start_line": 10,
     "end_line": 21,
-    "content_sha256": "0c5bc40272d92f7127bb92544fca26983d8a68212db06792f07821e874853bf8",
+    "content_sha256": "8c8b88d8b44d28e6c8162a54678d5c2f78db1d9c5c95f154d97523d885b69a4a",
     "dependencies": [
       "t11s-c16"
     ],

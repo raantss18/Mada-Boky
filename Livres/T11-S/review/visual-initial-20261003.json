@@ -1,0 +1,221 @@
+{
+  "snapshot": "2604b863035942d4d642e90d228ca465aa8eb8040b548227d4e8433fac95b82f",
+  "status": "superseded_by_heading_fix",
+  "method": "Every rendered page inspected individually at 1273 by 1800 pixels; same-model visual review, not independent human review.",
+  "render_command": "pdftoppm -scale-to 1800 -png <PDF> <prefix>",
+  "editions": {
+    "student": {
+      "path": "livre-t11s-eleve.pdf",
+      "sha256": "c2db5bbd011e8586e88fca115143a2e737328b6f93775f4060ca1b658710da4b",
+      "page_count": 120,
+      "pages": [
+        {
+          "page": 1,
+          "status": "passed",
+          "observation": "Cover: draft and experimental-reference labels readable; decorative figures and typography clear.",
+          "png_sha256": "cd67658ce3d7be6c0aed8448a47814069ef862f9b0dc6c580061499e67f7c1bb",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 2,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 3,
+          "status": "passed",
+          "observation": "Title page and draft status paragraph readable; clear spacing.",
+          "png_sha256": "f5e2b720e06e27f7356a5a591e2cc8bc43326a1efdf1ccb4f333c4123b40bfce",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 4,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 5,
+          "status": "passed",
+          "observation": "Preface: all paragraphs and headings readable; source and draft qualification clear.",
+          "png_sha256": "0c778dc91fc7d13507a8cfbeb0d4bf6db02079b3bb1ae3ccf6b256021b0b3eef",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 6,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 7,
+          "status": "passed",
+          "observation": "Usage boxes and notation convention fit cleanly.",
+          "png_sha256": "b7b4099392d7e14db1596db2a528892f7edbc59403059fd3a8330a9beb68f4c1",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 8,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 9,
+          "status": "passed",
+          "observation": "Contents first page: hierarchy, leaders and page references aligned.",
+          "png_sha256": "ae7bc51202111dadb150a57fa0e395e7123169c01ddf727fcdd3f28d5c5df92c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 10,
+          "status": "passed",
+          "observation": "Contents continuation aligned and readable.",
+          "png_sha256": "b0c92f903a1c0d2b23782ba5337c5a49481a4ad2934954e8150a6df97e0f9103",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 11,
+          "status": "passed",
+          "observation": "Contents final page aligned; annexes and assessments correctly listed.",
+          "png_sha256": "4bd857f5c8eea6bb3d61e1103493151576883d77a4052347cfc6b10d9d72e97d",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 12,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 13,
+          "status": "passed",
+          "observation": "Analysis divider: white title and introduction clear.",
+          "png_sha256": "c7424d44e4c280dd4a4ed0acabb7541137ef837b16d5b1182c2ce98807f1a26f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 14,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 15,
+          "status": "passed",
+          "observation": "Chapter 1 opener and prerequisite box fit; automation box continues on following page.",
+          "png_sha256": "df789505f7a03b56c657900f60c8f97375316d4255bcdb530c4d310289ee8819",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 16,
+          "status": "passed",
+          "observation": "Function diagram, axes and image guides legible; split example continues cleanly.",
+          "png_sha256": "9b7b56a7c7dd8bcdd5f1f6ade79db26266b7410d516a49577452e53e8ef0dc61",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 17,
+          "status": "passed",
+          "observation": "Exercise text, fractions and domain boxes readable; property continues on next page.",
+          "png_sha256": "44290a394683aa59f8cc7150d67fd272e2147eacd9109bf52d08fbed39255eab",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 18,
+          "status": "passed",
+          "observation": "Domain examples and fractions readable; continuation and exercise introduction fit.",
+          "png_sha256": "7b7b593f243f4d0e935af06693ffde2d3f18b6340d6e10062544bb145a3d7aa5",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 19,
+          "status": "passed",
+          "observation": "Two-column questions and monotonicity theorem readable.",
+          "png_sha256": "e6c2c88b93952538bc9b1122b06a58c196d6232acdd42673a37251fdc09484b0",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 20,
+          "status": "passed",
+          "observation": "Variation curve and table agree visually; arrows and extrema legible.",
+          "png_sha256": "5874e3cb6952a3a58b2c50e4299b939ba999c2af1c10469989eef18dc6464b6e",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 21,
+          "status": "passed",
+          "observation": "Parity diagrams clearly distinguish axial and central symmetry.",
+          "png_sha256": "4f553309cda3f400f8eaff6917945c2462a15335e2bde60bb884fdd50f59f596",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 22,
+          "status": "passed",
+          "observation": "Parity examples and centre-symmetry formulas fit.",
+          "png_sha256": "35b8dd387d331f71a4e7a88395a080085720785db728e78a367335e224a1c88e",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 23,
+          "status": "passed",
+          "observation": "Exercises and periodicity definition readable.",
+          "png_sha256": "b99349cb5c63ba560a52e3c0bbc6b48d9090929fc5d45bf2cdb225f0ddb257a1",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 24,
+          "status": "passed",
+          "observation": "Sine period diagram and reduced-interval method readable.",
+          "png_sha256": "82b25c64aa8929e2f44885cb70ea260b2138d067e1b7aa4561461b81e4d38328",
+          "width": 1273,
+          "height": 1800
+        }
+      ]
+    },
+    "teacher": {
+      "path": "livre-t11s-prof.pdf",
+      "sha256": "94cd07387e279af2e15863034e4c445a7efc369b631766faf1c88609e8ac808d",
+      "page_count": 128,
+      "pages": []
+    }
+  },
+  "findings": [
+    {
+      "edition": "student",
+      "page": 25,
+      "issue": "Empty teacher-only corrections heading visible in student edition",
+      "status": "repaired_in_source; final PDF review pending"
+    }
+  ]
+}

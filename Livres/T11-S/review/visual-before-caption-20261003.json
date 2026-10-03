@@ -1,0 +1,974 @@
+{
+  "snapshot": "019b67670229a50b4ca9381c753a45e7d2adfe13a163ba42d6b74bb6f06c9556",
+  "status": "in_progress",
+  "method": "Every rendered page inspected individually at 1273 by 1800 pixels; same-model visual review, not independent human review.",
+  "render_command": "pdftoppm -scale-to 1800 -png <PDF> <prefix>",
+  "editions": {
+    "student": {
+      "path": "livre-t11s-eleve.pdf",
+      "sha256": "d03b0fe195236561c1fa6750a0bea58ce00819f71475df040b1fd8a88335c69f",
+      "page_count": 120,
+      "pages": [
+        {
+          "page": 1,
+          "status": "passed",
+          "observation": "Cover: draft and experimental-reference labels readable; decorative figures and typography clear.",
+          "png_sha256": "cd67658ce3d7be6c0aed8448a47814069ef862f9b0dc6c580061499e67f7c1bb",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 2,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 3,
+          "status": "passed",
+          "observation": "Title page and draft status paragraph readable; clear spacing.",
+          "png_sha256": "f5e2b720e06e27f7356a5a591e2cc8bc43326a1efdf1ccb4f333c4123b40bfce",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 4,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 5,
+          "status": "passed",
+          "observation": "Preface: all paragraphs and headings readable; source and draft qualification clear.",
+          "png_sha256": "0c778dc91fc7d13507a8cfbeb0d4bf6db02079b3bb1ae3ccf6b256021b0b3eef",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 6,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 7,
+          "status": "passed",
+          "observation": "Usage boxes and notation convention fit cleanly.",
+          "png_sha256": "b7b4099392d7e14db1596db2a528892f7edbc59403059fd3a8330a9beb68f4c1",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 8,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 9,
+          "status": "passed",
+          "observation": "Contents first page: hierarchy, leaders and page references aligned.",
+          "png_sha256": "ae7bc51202111dadb150a57fa0e395e7123169c01ddf727fcdd3f28d5c5df92c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 10,
+          "status": "passed",
+          "observation": "Contents continuation aligned and readable.",
+          "png_sha256": "b0c92f903a1c0d2b23782ba5337c5a49481a4ad2934954e8150a6df97e0f9103",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 11,
+          "status": "passed",
+          "observation": "Contents final page aligned; annexes and assessments correctly listed.",
+          "png_sha256": "4bd857f5c8eea6bb3d61e1103493151576883d77a4052347cfc6b10d9d72e97d",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 12,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 13,
+          "status": "passed",
+          "observation": "Analysis divider: white title and introduction clear.",
+          "png_sha256": "c7424d44e4c280dd4a4ed0acabb7541137ef837b16d5b1182c2ce98807f1a26f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 14,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 15,
+          "status": "passed",
+          "observation": "Chapter 1 opener and prerequisite box fit; automation box continues on following page.",
+          "png_sha256": "df789505f7a03b56c657900f60c8f97375316d4255bcdb530c4d310289ee8819",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 16,
+          "status": "passed",
+          "observation": "Function diagram, axes and image guides legible; split example continues cleanly.",
+          "png_sha256": "9b7b56a7c7dd8bcdd5f1f6ade79db26266b7410d516a49577452e53e8ef0dc61",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 17,
+          "status": "passed",
+          "observation": "Exercise text, fractions and domain boxes readable; property continues on next page.",
+          "png_sha256": "44290a394683aa59f8cc7150d67fd272e2147eacd9109bf52d08fbed39255eab",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 18,
+          "status": "passed",
+          "observation": "Domain examples and fractions readable; continuation and exercise introduction fit.",
+          "png_sha256": "7b7b593f243f4d0e935af06693ffde2d3f18b6340d6e10062544bb145a3d7aa5",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 19,
+          "status": "passed",
+          "observation": "Two-column questions and monotonicity theorem readable.",
+          "png_sha256": "e6c2c88b93952538bc9b1122b06a58c196d6232acdd42673a37251fdc09484b0",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 20,
+          "status": "passed",
+          "observation": "Variation curve and table agree visually; arrows and extrema legible.",
+          "png_sha256": "5874e3cb6952a3a58b2c50e4299b939ba999c2af1c10469989eef18dc6464b6e",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 21,
+          "status": "passed",
+          "observation": "Parity diagrams clearly distinguish axial and central symmetry.",
+          "png_sha256": "4f553309cda3f400f8eaff6917945c2462a15335e2bde60bb884fdd50f59f596",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 22,
+          "status": "passed",
+          "observation": "Parity examples and centre-symmetry formulas fit.",
+          "png_sha256": "35b8dd387d331f71a4e7a88395a080085720785db728e78a367335e224a1c88e",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 23,
+          "status": "passed",
+          "observation": "Exercises and periodicity definition readable.",
+          "png_sha256": "b99349cb5c63ba560a52e3c0bbc6b48d9090929fc5d45bf2cdb225f0ddb257a1",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 24,
+          "status": "passed",
+          "observation": "Sine period diagram and reduced-interval method readable.",
+          "png_sha256": "82b25c64aa8929e2f44885cb70ea260b2138d067e1b7aa4561461b81e4d38328",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 25,
+          "status": "passed",
+          "observation": "Teacher-only empty heading removed; problem and self-test fit cleanly.",
+          "png_sha256": "f378154fbb96db94a6b5438c54b93347cc1720437b745b3a1f2c94ac0d7a95b0",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 26,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 27,
+          "status": "passed",
+          "observation": "Limits chapter opener and lateral limit example legible.",
+          "png_sha256": "d8c91d1841c65e0e0fc7b0487d4fc3afe6e8f796f89cf5431464ac2bf4295d2d",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 28,
+          "status": "passed",
+          "observation": "Limit and continuity boxes fit; all indices and infinity symbols readable.",
+          "png_sha256": "72bf99e7b7d023b877727a35c3fb4b17079b6e27bb61ef73e76dc720b2969c9b",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 29,
+          "status": "passed",
+          "observation": "Exercise list and chapter self-test readable; whitespace intentional.",
+          "png_sha256": "de4300bfbaa6f271bc84b5086fab4f6766ec20bf52a1fccfe0a42bbf73c22731",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 30,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 31,
+          "status": "passed",
+          "observation": "Asymptote diagram displays separated branches and clear dashed asymptotes.",
+          "png_sha256": "547d785445f544b8bcd5b3f8b06825586018bfaf22580abe187de0a8d91d10db",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 32,
+          "status": "passed",
+          "observation": "Oblique asymptote proof and long formulas fit cleanly.",
+          "png_sha256": "f1b49e2116b57b662b730b2733032b4c4b3d64df977e8e27aceb5296055d4ba8",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 33,
+          "status": "passed",
+          "observation": "Asymptote exercises and self-test readable.",
+          "png_sha256": "26443e4af5de7e7e9fa7851db508602702d93635ffbe0bc012e7eac9f968ac2c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 34,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 35,
+          "status": "passed",
+          "observation": "Derivative opener, definition and tangent equation fit.",
+          "png_sha256": "ccf8e24c6ba9f3643914fcd3481cc1853803e5a9235c7728455a00bcc319f5de",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 36,
+          "status": "passed",
+          "observation": "Derivative table and product proof fit; domains and exponents clear.",
+          "png_sha256": "c037590ee504e8f23a119d015ea8ff961bd7ee4e246d93c0cde2828e4535888f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 37,
+          "status": "passed",
+          "observation": "Variations and exercise list readable.",
+          "png_sha256": "2a70645a23682c456835dc58e8d99e5b0e5b86a13b92885bce1965ba86186aad",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 38,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 39,
+          "status": "passed",
+          "observation": "Long chapter title fits; two variation tables readable and separated.",
+          "png_sha256": "95e6d322119c015f84425e8f7d7b286c7a7ea3966c925cfb1f6a1eea6b8678af",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 40,
+          "status": "passed",
+          "observation": "Rational-function branches and oblique asymptote clear; inflection boxes fit.",
+          "png_sha256": "4fc87ab236b3fa4a5b91da797a2c435fc0594432595946945b27bdaf5ee1c460",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 41,
+          "status": "passed",
+          "observation": "Curve-study exercises readable.",
+          "png_sha256": "e807a54041c0f825b195be310ffe2ee989ae0236cb1a524219671db57fdf2579",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 42,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 43,
+          "status": "passed",
+          "observation": "Analysis assessment: questions and point totals readable; run-in setup sentences remain distinct.",
+          "png_sha256": "95b4c6f74dfc4d89b0da75f174e15de172fcb3660e6743ff21bdde54b393be88",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 44,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 45,
+          "status": "passed",
+          "observation": "Algebra divider clear.",
+          "png_sha256": "666784163fb7d1309b91730d9ead54f0c4bf92c72f19af6917deb989c1a811f6",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 46,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 47,
+          "status": "passed",
+          "observation": "Logic truth table and quantifier symbols legible.",
+          "png_sha256": "42c0b3b122804696ada8b3e7b54305c066a554ff9b59d4a037854e215675e7a3",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 48,
+          "status": "passed",
+          "observation": "Proof methods and negation formulas readable.",
+          "png_sha256": "a8e71f2da7a807563026fdf11a73c26f04fd51605bc8749d15ad7d120b6be0e7",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 49,
+          "status": "passed",
+          "observation": "Logic exercises and self-test fit.",
+          "png_sha256": "f3d8ea215abe7c5f7f332e4421ccf758561687c603f9e7d1e887a53299bd36c9",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 50,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 51,
+          "status": "passed",
+          "observation": "Algorithm pseudocode and accompanying trace readable.",
+          "png_sha256": "501942388707a6d992544f2ff10efb6fa758039e81d85da8e807025e74c3d1e0",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 52,
+          "status": "passed",
+          "observation": "Flowchart arrows, yes/no branches and update order clear.",
+          "png_sha256": "0bcf0120ed2992fac2dd299d3db91dc25af443f5e5f0f47fcd7c9ef4ad010f33",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 53,
+          "status": "passed",
+          "observation": "Flowchart exercise and self-test fit.",
+          "png_sha256": "babc1007071a859394020b8092fb7f8fed1911bdcf0541cb8507a723c91bf074",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 54,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 55,
+          "status": "passed",
+          "observation": "Equation chapter title and parameter example fit.",
+          "png_sha256": "6cb31dca13bf8748266dd0e00215a3b999cd271930edd58fe9c20d70858a916f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 56,
+          "status": "passed",
+          "observation": "Polynomial long division aligned; root conditions legible.",
+          "png_sha256": "b486813f7825127c02cb75258a3b2f88fdd258685a939f52140c5342af790267",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 57,
+          "status": "passed",
+          "observation": "Absolute-value inequality addition and all exercise labels readable.",
+          "png_sha256": "07a9ad8d57e83868d4fbc06c497056ceb4ac6f4f4631e03c4429e903f5700a92",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 58,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 59,
+          "status": "passed",
+          "observation": "Gauss chapter opener and method fit.",
+          "png_sha256": "a55bf6377eef944a34aa4736008c365cbd4958df49f347bac3e23b79e917cfb9",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 60,
+          "status": "passed",
+          "observation": "Four-equation system aligned; purchase problem and units readable.",
+          "png_sha256": "105b3e6e8d94d1e8c86e1cf0ffe36633ecf224f9685cd3738b7d3a9650847fbb",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 61,
+          "status": "passed",
+          "observation": "Long arithmetic title fits without collision.",
+          "png_sha256": "7ce50883ce27270e444651b1827afc78c34e80fd0e368a19166fdcf8e3882e0b",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 62,
+          "status": "passed",
+          "observation": "Euclid steps, zero convention and PPCM proof legible.",
+          "png_sha256": "6b66b58c9bfd55de64776c8672767c173f43e344e2d530a1e9c11ccd8be4391c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 63,
+          "status": "passed",
+          "observation": "Arithmetic exercises readable.",
+          "png_sha256": "d08a9329db009b2c8cb1f93a010fa362e831bade015d603b7e7b5e5e0f57967c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 64,
+          "status": "passed",
+          "observation": "Intentional blank page.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 65,
+          "status": "passed",
+          "observation": "Base notation readable; worked conversion continues on next page.",
+          "png_sha256": "d60cbd7c74679182a490bd36a4cb1c0d5f15739b37253b3046344a8adfd5df27",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 66,
+          "status": "passed",
+          "observation": "Division table, digits and indices legible.",
+          "png_sha256": "64a006ecefa5f7fec5b78e4dc835130df01b5875eca16004cf2a45a9adb3209b",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 67,
+          "status": "passed",
+          "observation": "Ouverture des suites : indices et définitions lisibles.",
+          "png_sha256": "5b1aca8c88e31df7d7d2dbde7398dc1a071c6d5e19bc0f75569c5d0587f087e9",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 68,
+          "status": "passed",
+          "observation": "Formules et preuves des suites arithmétiques et géométriques lisibles, cas q=0 explicite.",
+          "png_sha256": "60c11315632f3cce9d06509afb0b663fb1622a9cf5dcbaa2f026a67126b21c9a",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 69,
+          "status": "passed",
+          "observation": "Exercices et représentation discrète demandée lisibles.",
+          "png_sha256": "4d78d0f9d0d9efea51e8424f5db073ae705550c8a270e1e4a5aafc93cae41fc8",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 70,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 71,
+          "status": "passed",
+          "observation": "Évaluation d’algèbre : énoncés, formules et barème lisibles sans chevauchement.",
+          "png_sha256": "360147751b081d70299a19ae1d7e0cf81dbccd3fed1ed9bd0a935a8640dbecb1",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 72,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 73,
+          "status": "passed",
+          "observation": "Intercalaire de géométrie lisible, sous-titre correct.",
+          "png_sha256": "0bfa4835aee2dee5e052f31e9289b8474e0d1dab6c799f2c55750401ef480f5f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 74,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 75,
+          "status": "passed",
+          "observation": "Ouverture du produit scalaire : titre sur deux lignes bien contenu.",
+          "png_sha256": "75910767b65d2234090661f1b599987bcf4b8cdb02b062443e105f047cdd462e",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 76,
+          "status": "passed",
+          "observation": "Projection, produit scalaire et Al-Kashi : formules et figures lisibles.",
+          "png_sha256": "28c0e1576db142fa08b33ab34f6a72c7d2920c0b18257b5c46d43537a8841a05",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 77,
+          "status": "passed",
+          "observation": "Exercices de géométrie lisibles.",
+          "png_sha256": "51d50ac907daca01b4764e7b7d7144f425cc02c6017256fc6e1581a45115c4f6",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 78,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 79,
+          "status": "passed",
+          "observation": "Ouverture des barycentres : définitions et exemple lisibles.",
+          "png_sha256": "c97958be1601a9d20dcf7b88d3a707deea08655aadab74961024650a7c572f88",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 80,
+          "status": "passed",
+          "observation": "Réduction, lieux et exemple d’Apollonius lisibles.",
+          "png_sha256": "12aa57c948910f0ea05a0404d28f7b1dfd2a59914046eb6f0a01c32a240f0f19",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 81,
+          "status": "passed",
+          "observation": "Lieux géométriques : exercices et cas dégénérés lisibles.",
+          "png_sha256": "ad9db7df595c206a2c90d3b522e2ef57a623d9e949be45fb7449a32bec06aa22",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 82,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 83,
+          "status": "passed",
+          "observation": "Transformations : titre, définition de réflexion et formules lisibles.",
+          "png_sha256": "b2e884a7fb05e79a32ade5756d469cffc8225e5b7af97545185b180c2cecd608",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 84,
+          "status": "passed",
+          "observation": "Homothéties, rotations et compositions : formules contenues ; définition continue normalement.",
+          "png_sha256": "62e1cc701891ac1351d4fb44ac0f525eabff0785c1f4defc874684bb8796164d",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 85,
+          "status": "passed",
+          "observation": "Suite de définition et exercices de similitudes lisibles.",
+          "png_sha256": "50a0b1b0f00972a839944670690b59dabe3f052ca3cd72cf1a34c2d190b553d9",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 86,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 87,
+          "status": "passed",
+          "observation": "Cercle trigonométrique : schéma et axes lisibles ; légende à raccourcir pour éviter le mot isolé page suivante.",
+          "png_sha256": "3ea53dec5ace979493f3e7f030fba2a8a1e52bafcf75ed1c28106aafa80b9f5b",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 89,
+          "status": "passed",
+          "observation": "Inéquations et exercices trigonométriques lisibles.",
+          "png_sha256": "dd7531f0d59d8232626eb21d632c83ce11fd79723b09f720727cd256ca159fd8",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 90,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 91,
+          "status": "passed",
+          "observation": "Géométrie de l’espace : repère et hypothèses lisibles.",
+          "png_sha256": "dfc670f800c59530a69f192cae8f4c5f3e78a58ad768299feab93eba044dc193",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 92,
+          "status": "passed",
+          "observation": "Produit vectoriel, droites et plans : calculs et formules lisibles.",
+          "png_sha256": "833c630d83dcc0bb0bde1993d922194cfe89bde80f1fca81e0457cbb55c8fec7",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 93,
+          "status": "passed",
+          "observation": "Preuve de distance et exercices lisibles.",
+          "png_sha256": "0363ce560c094af749d565b8a57e62ece7b4eb4cb414791fabf3e8794c1f91c7",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 94,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 95,
+          "status": "passed",
+          "observation": "Évaluation de géométrie : énoncés, repères et barèmes lisibles.",
+          "png_sha256": "dbb6d3fca04c5a9e89145a13ca2408f4e53a8aca678ce66292f792d9745bc8af",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 96,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 97,
+          "status": "passed",
+          "observation": "Intercalaire des données et probabilités lisible.",
+          "png_sha256": "057c1b9c48be4fbc02b2b589ed174214115d49308d04a327f5fa1f8dab864d09",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 98,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 99,
+          "status": "passed",
+          "observation": "Statistique : activité de recueil et conditions des taux lisibles.",
+          "png_sha256": "402ccc992f9bab9a73fb886167ecaf0da4124478f3cfc9b2ddb800bc1740011c",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 100,
+          "status": "passed",
+          "observation": "Indicateurs, variance corrigée et boîte à moustaches lisibles et cohérents.",
+          "png_sha256": "7f27435b4b1c2dd9a105b8600533a9f65052b7d618b0a4fd8f8c588488a7ffb3",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 101,
+          "status": "passed",
+          "observation": "Exercices statistiques et intervalles disjoints lisibles.",
+          "png_sha256": "1622d8cf2ee0cc34e31fa2f0c4da302c48c825704b8fa5172c0db0ffc5640e4f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 102,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 103,
+          "status": "passed",
+          "observation": "Ensembles et applications : définitions lisibles.",
+          "png_sha256": "8f0b676fc2e4a09a65985867bbb7ce0c59d04d5d50d4d0ff8a3672d001624b52",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 104,
+          "status": "passed",
+          "observation": "Comptage : formules, preuves et exemples lisibles.",
+          "png_sha256": "0fad12a4ed8e49871ffd60cb49171bdc410652e134f6d30e34f1ab24ec43b68a",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 105,
+          "status": "passed",
+          "observation": "Suite des exercices de dénombrement lisible.",
+          "png_sha256": "ab0c2185a56835f5be878bc15e5936e268979a44dba98d5baa3bb9e7e60d7413",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 106,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 107,
+          "status": "passed",
+          "observation": "Probabilités : modèle et poids lisibles.",
+          "png_sha256": "8ca7eaae4fb8e4a35d72979b1c57c696ee2e26d3d010d6335fe1e22d1ec2657b",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 108,
+          "status": "passed",
+          "observation": "Calculs de probabilités et activité de fréquence lisibles ; encadré continué.",
+          "png_sha256": "47443b6c93c0f9571a248f8619fbfef9e6133c30450c0bde9cb6b70c15919a92",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 109,
+          "status": "passed",
+          "observation": "Suite de l’activité et exercices de probabilité lisibles.",
+          "png_sha256": "83cbd1d55f2c08fab524f7eb074e8a37c29c29a642cfa4863544f6252bb8d2a5",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 110,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 111,
+          "status": "passed",
+          "observation": "Évaluation de données et probabilités : barème et énoncés lisibles.",
+          "png_sha256": "50c18d12c17ced4e27d475d575274f5d8e16cb707c73486028ae17477b626031",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 112,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 113,
+          "status": "passed",
+          "observation": "Formulaire : conditions et formules lisibles.",
+          "png_sha256": "9be0a5316b8c3a2cc65f5309965c9f66b4491c54db57bd14e5ac52dae9b36c4f",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 114,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 115,
+          "status": "passed",
+          "observation": "Glossaire : définitions et accents lisibles.",
+          "png_sha256": "9b460e339329376ab1ed00370242d5921603d7dbdb868a36735c464b77902bbc",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 116,
+          "status": "passed",
+          "observation": "Fin du glossaire lisible.",
+          "png_sha256": "945a751b5f6715604b9523791abd5e01ed50599a364e85d9502ffaa050de5ebc",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 117,
+          "status": "passed",
+          "observation": "Synthèse A : formules et barème lisibles.",
+          "png_sha256": "1e8230e47d52db3bb0f279d413388a5dc8bd8cbb4cbf03ccd1252670c60e5156",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 118,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 119,
+          "status": "passed",
+          "observation": "Synthèse B : énoncés, formules et barème lisibles.",
+          "png_sha256": "b2e4647c4f48ee1230276bba54f408f3dd6c8e09ef0fd078d81916678e17d3cf",
+          "width": 1273,
+          "height": 1800
+        },
+        {
+          "page": 120,
+          "status": "passed",
+          "observation": "Page blanche intentionnelle de pagination recto.",
+          "png_sha256": "a18b0404db7a7490f62a1ceab9a6888666a0b936a365d59423b225c940d837c4",
+          "width": 1273,
+          "height": 1800
+        }
+      ]
+    },
+    "teacher": {
+      "path": "livre-t11s-prof.pdf",
+      "sha256": "899eeb23c308242bc1982f159d2ee3e875dec1dde974bd0d9c71c5d6a7d5f0d0",
+      "page_count": 128,
+      "pages": []
+    }
+  },
+  "continuity": "Pages already inspected remain valid only where the final rendered PNG is byte-identical; student page 25 is reinspected after repair."
+}

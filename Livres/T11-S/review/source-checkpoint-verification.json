@@ -1,0 +1,15 @@
+{
+  "commit": "3e5a1258c4096536952ea12a64149f957c5cbd9f",
+  "tree": "89d4917fdf0845c07d5638a8688441518e87ee73",
+  "hash_compared": 47,
+  "mismatches": [],
+  "method": "GitHub recursive tree blob SHA compared against local git hash-object; one source and index content readback follows.",
+  "content_readback": {
+    "paths": [
+      "Livres/T11-S/chapitres/p4-donnees/ch18-organisation-donnees.tex",
+      "Livres/T11-S/project/index.md"
+    ],
+    "verified": true
+  },
+  "date": "2026-10-03"
+}
