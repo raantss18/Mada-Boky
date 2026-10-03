@@ -1,8 +1,5 @@
-# Décisions — 2026-10-02 (Madagascar)
+# Décisions — reprise du 3 octobre 2026
 
-- Continuer le projet existant sur main, sans créer un second projet ni une branche inutile. Les autres niveaux restent hors périmètre.
-- Les deux éditions existent dans le projet : les compléter ensemble.
-- Le PE T11 du dépôt enrichit nettement l'analyse par rapport au programme antérieur : le prendre comme base de contenu, enregistrer son statut expérimental.
-- La RAPE du dépôt est 2025–2026. Le lien MEN consulté pointe encore vers 2024–2025. Ne pas inventer les dates 2026–2027; fournir une progression indicative sans dates.
-- Conserver les couleurs et blocs; réparer le repli typographique pour une machine sans TeX Gyre.
-- Les annales promises par l'ancien avant-propos ne sont pas présentes. Utiliser des exercices originaux explicitement identifiés, sans provenance fictive.
+Retour utilisateur sur la profondeur et les ambiguïtés : traiter l’ensemble du livre, pas seulement la page photographiée. Le premier chapitre, déjà développé, est conservé; les chapitres 2–20 reçoivent des méthodes détaillées, exemples commentés et problèmes de transfert adaptés au thème. Les évaluations sont réécrites en phrases complètes, avec données, variables, domaines et productions attendues explicites, et corrigés développés.
+
+Les durées restent indicatives, non mesurées en classe. Pas d’objectif arbitraire de pages ni de nouveaux contenus hors programme. Les anciens contrôles mathématiques sont réutilisables uniquement pour les éléments dont le contenu est identique, jamais pour de nouvelles assertions ou pour la profondeur contestée. Tous les PDF finaux et la pédagogie assemblée seront revus.

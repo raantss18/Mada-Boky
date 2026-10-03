@@ -1,0 +1,7 @@
+# Reprise pédagogique après retour utilisateur
+
+Base : fbb747e2589d8879e0d35249321d2b96c04e299a. Observation de la page DS1 fournie et relecture des sources. Les quatre DS sont des listes condensées de commandes; les chapitres 2–20 font généralement 57–101 lignes, contre 857 pour le premier. Ce constat ne suffit pas seul à juger la qualité, mais leur relecture confirme des méthodes/exemples peu développés et des corrigés réduits à des résultats. Le précédent pass de pédagogie était trop généreux.
+
+Défauts DS1 : durée 2 h indicative sans étude de faisabilité; fonction f et paramètres introduits sans consigne globale claire; « Domaine et décomposition » sans verbe ni production attendue; « extrema » sans distinction locaux/globaux; « donner la tangente » sans demander son équation; x n’est pas défini comme longueur en mètres. Le texte mathématique peut être interprété, mais l’élève ne devrait pas devoir deviner la consigne. L’en-tête continue aussi sur la même ligne que les données.
+
+Révision : exposer les méthodes par étapes, commenter les exemples et ajouter des problèmes distincts de transfert/validation par thème. Les DS sont restructurés avec barèmes, données et résultats attendus explicites, sans déclarer leur durée validée en classe. La révision conserve la référence expérimentale et les limites de certification. Toutes les nouvelles assertions et sous-questions seront vérifiées, avec revue finale de l’assemblage.

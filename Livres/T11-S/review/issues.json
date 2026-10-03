@@ -101,5 +101,23 @@
       "review/visual-before-caption-20261003.json",
       "review/visual-review.json"
     ]
+  },
+  {
+    "id": "T11-DEPTH-20261003",
+    "status": "unresolved",
+    "affected_items": [
+      "@project"
+    ],
+    "severity": "pedagogical",
+    "explanation": "User feedback: terse assessments, sparse later chapters and insufficient scaffolding. Prior pedagogical pass reopened; expand methods, worked examples, transfer problems and corrections."
+  },
+  {
+    "id": "T11-WORDING-20261003",
+    "status": "unresolved",
+    "affected_items": [
+      "@project"
+    ],
+    "severity": "wording",
+    "explanation": "Explicit variables, referents, working domains and expected output missing in some compressed questions; review every exercise statement."
   }
 ]
